@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd7mi848cqytt"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5rubi"]
+[ext_resource type="PackedScene" uid="uid://cpqk1llq331d0" path="res://legacy/neuron.tscn" id="2_qwluy"]
+[ext_resource type="PackedScene" uid="uid://cjscvf66kvn4b" path="res://legacy/worm.tscn" id="3_we4ko"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5rubi")
+
+[node name="Neuron" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(163, 252)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron2" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(544, 187)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron3" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(843, 207)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron4" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(86, 390)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron5" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(901, 476)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron6" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(620, 426)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron7" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(277, 394)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron8" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(527, 519)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Neuron9" parent="." instance=ExtResource("2_qwluy")]
+position = Vector2(381, 252)
+scale = Vector2(0.201766, 0.191853)
+
+[node name="Worm" parent="." instance=ExtResource("3_we4ko")]
+position = Vector2(113, 188)
+scale = Vector2(0.576874, 0.428795)

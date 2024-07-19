@@ -1,48 +1,140 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd7mi848cqytt"]
+[gd_scene load_steps=11 format=3 uid="uid://d1faedhw8viyw"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_yxdsv"]
-[ext_resource type="PackedScene" uid="uid://cpqk1llq331d0" path="res://scenes/neuron.tscn" id="2_go0ji"]
-[ext_resource type="PackedScene" uid="uid://cjscvf66kvn4b" path="res://scenes/worm.tscn" id="3_0ad78"]
+[ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
+[ext_resource type="Shader" path="res://scripts/shaders/starry_sky.gdshader" id="1_snoj2"]
+[ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_yxdsv")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpvms"]
+shader = ExtResource("1_snoj2")
+shader_parameter/sky_color = Color(0.022728, 0.0385338, 0.0920149, 1)
+shader_parameter/star_base_color = Color(0.844561, 0.943968, 0.865579, 1)
+shader_parameter/star_hue_offset = 0.322
+shader_parameter/star_intensity = 0.075
+shader_parameter/star_twinkle_speed = 0.875
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 0.0
+shader_parameter/layers_count = 3
 
-[node name="Neuron" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(163, 252)
-scale = Vector2(0.201766, 0.191853)
+[sub_resource type="Sky" id="Sky_15gnn"]
+sky_material = SubResource("ShaderMaterial_qpvms")
 
-[node name="Neuron2" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(544, 187)
-scale = Vector2(0.201766, 0.191853)
+[sub_resource type="Environment" id="Environment_yd2gk"]
+background_mode = 2
+sky = SubResource("Sky_15gnn")
+ambient_light_source = 2
+ambient_light_color = Color(0.18359, 0.18359, 0.18359, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.6806
+fog_sky_affect = 0.245
+fog_height = 4.5
+fog_depth_curve = 0.183011
+fog_depth_begin = 0.0
+fog_depth_end = 1683.3
+volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
-[node name="Neuron3" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(843, 207)
-scale = Vector2(0.201766, 0.191853)
+[sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
+size = Vector2(50, 50)
 
-[node name="Neuron4" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(86, 390)
-scale = Vector2(0.201766, 0.191853)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfu1j"]
+albedo_color = Color(0.065, 0.1, 0.0836667, 1)
 
-[node name="Neuron5" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(901, 476)
-scale = Vector2(0.201766, 0.191853)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
+points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
-[node name="Neuron6" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(620, 426)
-scale = Vector2(0.201766, 0.191853)
+[node name="MainScene" type="Node3D"]
+script = ExtResource("1_bkhrr")
 
-[node name="Neuron7" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(277, 394)
-scale = Vector2(0.201766, 0.191853)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yd2gk")
 
-[node name="Neuron8" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(527, 519)
-scale = Vector2(0.201766, 0.191853)
+[node name="House" parent="." instance=ExtResource("1_7hj75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5504, 0, 7.48487)
 
-[node name="Neuron9" parent="." instance=ExtResource("2_go0ji")]
-position = Vector2(381, 252)
-scale = Vector2(0.201766, 0.191853)
+[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 
-[node name="Worm" parent="." instance=ExtResource("3_0ad78")]
-position = Vector2(113, 188)
-scale = Vector2(0.576874, 0.428795)
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
+light_color = Color(1, 0.505882, 0.278431, 1)
+light_energy = 0.724
+shadow_enabled = true
+omni_range = 2.558
+omni_attenuation = 0.741
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground4" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 24.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground4/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground3" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -25.542)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground3/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground2" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -17.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground2/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground5" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -67.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground5/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground6" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8838, 0, -75.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground6/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
