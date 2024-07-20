@@ -78,7 +78,6 @@ disable_receive_shadows = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2al54"]
 albedo_color = Color(1, 0.686275, 0.215686, 1)
-emission_enabled = true
 emission = Color(1, 0.686275, 0.215686, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rgq48"]
@@ -89,6 +88,7 @@ radius = 0.0521055
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_i1yuc")
+speed_variance = 1.34871
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.00417447, 0, 0, 0, -1.82472e-10, -0.00417447, 0, 0.00417447, -1.82472e-10, 0, 0, 0)
@@ -107,7 +107,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, 0)
 layers = 3
 light_color = Color(1, 0.458824, 0, 1)
-light_energy = 0.857631
+light_energy = 0.778956
 shadow_enabled = true
 shadow_bias = 1.881
 shadow_opacity = 0.45
@@ -117,7 +117,7 @@ omni_range = 5.074
 omni_attenuation = 0.8
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.508826
+wait_time = 0.7072
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

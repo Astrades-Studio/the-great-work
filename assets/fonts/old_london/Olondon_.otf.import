@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bbdwagsu3yfv3"
-path="res://.godot/imported/Symbola_hint.ttf-8aeb0530fe343f72c91191196b61b5b4.fontdata"
+uid="uid://cc8ph8klukgly"
+path="res://.godot/imported/Olondon_.otf-a7ebea48c651de67eead2fea148274a6.fontdata"
 
 [deps]
 
-source_file="res://assets/Symbola_hint.ttf"
-dest_files=["res://.godot/imported/Symbola_hint.ttf-8aeb0530fe343f72c91191196b61b5b4.fontdata"]
+source_file="res://assets/fonts/old_london/Olondon_.otf"
+dest_files=["res://.godot/imported/Olondon_.otf-a7ebea48c651de67eead2fea148274a6.fontdata"]
 
 [params]
 

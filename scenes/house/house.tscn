@@ -3776,7 +3776,7 @@ mesh = SubResource("ArrayMesh_vpgmr")
 skeleton = NodePath("")
 
 [node name="RockingChair_001" type="MeshInstance3D" parent="house_Imported"]
-transform = Transform3D(0.461163, 0.0445352, -0.849781, 7.7976e-09, 0.966549, 0.0506547, 0.850947, -0.0241354, 0.460531, 12.9694, 0.031157, -14.8213)
+transform = Transform3D(0.461163, -0.103704, -0.844604, 7.7501e-09, 0.960662, -0.117954, 0.850947, 0.0562017, 0.457726, 12.9694, 0.031157, -14.8213)
 mesh = SubResource("ArrayMesh_p4xpu")
 skeleton = NodePath("")
 script = ExtResource("4_1xtsr")

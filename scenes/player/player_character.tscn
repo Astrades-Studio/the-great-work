@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://t4pgsmw2tox1"]
 
-[ext_resource type="Script" path="res://addons/ultimate_character/ucharacterbody3d.gd" id="1_lo4ow"]
+[ext_resource type="Script" path="res://player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4h7oo"]
@@ -10,7 +10,7 @@ height = 1.3
 
 [node name="UCharacterBody3D" type="CharacterBody3D"]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
-script = ExtResource("1_lo4ow")
+script = ExtResource("1_rwwvt")
 head_bob_walking_speed = 1.0
 head_bob_sprinting_speed = 14.0
 head_bob_crouching_speed = 1.0
@@ -32,9 +32,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, 0, 0)
 cull_mask = 1048573
 
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, 2, 0)
+collision_mask = 5
+
 [node name="GasLamp" parent="Head" instance=ExtResource("2_it7tx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50571, -0.315434, -0.785384)
-speed_variance = 1.20918
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.628759, -0.197759, -1.1177)
+active = false
+speed_variance = 1.47189
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
@@ -48,7 +56,7 @@ offset_bottom = 40.0
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1280, 720)
+size = Vector2i(640, 360)
 render_target_update_mode = 4
 
 [node name="ItemCamera" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]

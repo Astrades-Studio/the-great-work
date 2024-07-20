@@ -1,28 +1,48 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=12 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
-[ext_resource type="Shader" path="res://scripts/shaders/starry_sky.gdshader" id="1_snoj2"]
+[ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_c07nh"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpvms"]
-shader = ExtResource("1_snoj2")
-shader_parameter/sky_color = Color(0.022728, 0.0385338, 0.0920149, 1)
-shader_parameter/star_base_color = Color(0.844561, 0.943968, 0.865579, 1)
-shader_parameter/star_hue_offset = 0.322
-shader_parameter/star_intensity = 0.075
-shader_parameter/star_twinkle_speed = 0.875
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 0.0
-shader_parameter/layers_count = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
+shader = ExtResource("2_la52w")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
 
-[sub_resource type="Sky" id="Sky_15gnn"]
-sky_material = SubResource("ShaderMaterial_qpvms")
+[sub_resource type="Sky" id="Sky_ks0bx"]
+sky_material = SubResource("ShaderMaterial_71x8p")
 
 [sub_resource type="Environment" id="Environment_yd2gk"]
 background_mode = 2
-sky = SubResource("Sky_15gnn")
+sky = SubResource("Sky_ks0bx")
 ambient_light_source = 2
 ambient_light_color = Color(0.18359, 0.18359, 0.18359, 1)
 tonemap_mode = 2
@@ -50,6 +70,11 @@ points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yd2gk")
 
@@ -70,6 +95,27 @@ omni_range = 2.558
 omni_attenuation = 0.741
 
 [node name="Props" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Props"]
+transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.89843, 0.492308, 2.19204)
+use_collision = true
+
+[node name="InteractionComponent" type="Node" parent="Props/CSGBox3D"]
+script = ExtResource("5_c07nh")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props"]
+transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.87824, 0.492308, 0.328576)
+use_collision = true
+
+[node name="InteractionComponent2" type="Node" parent="Props/CSGBox3D2"]
+script = ExtResource("5_c07nh")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props"]
+transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.86249, 0.492308, -1.1239)
+use_collision = true
+
+[node name="InteractionComponent3" type="Node" parent="Props/CSGBox3D3"]
+script = ExtResource("5_c07nh")
 
 [node name="Ground" type="Node3D" parent="."]
 

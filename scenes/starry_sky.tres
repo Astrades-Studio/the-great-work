@@ -1,0 +1,18 @@
+[gd_resource type="Sky" load_steps=3 format=3 uid="uid://x2114snxil"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/starry_sky.gdshader" id="1_wociv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpvms"]
+shader = ExtResource("1_wociv")
+shader_parameter/sky_color = Color(0.022728, 0.0385338, 0.0920149, 1)
+shader_parameter/star_base_color = Color(0.844561, 0.943968, 0.865579, 1)
+shader_parameter/star_hue_offset = 0.322
+shader_parameter/star_intensity = 0.075
+shader_parameter/star_twinkle_speed = 0.875
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 0.0
+shader_parameter/layers_count = 3
+
+[resource]
+sky_material = SubResource("ShaderMaterial_qpvms")

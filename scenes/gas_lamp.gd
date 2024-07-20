@@ -1,20 +1,21 @@
 @tool
+class_name GasLamp
 extends StaticBody3D
 
 @onready var light : OmniLight3D = $OmniLight3D
 @onready var mesh: MeshInstance3D = $Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
 
-@export var active : bool = false : 
+@export var active : bool = true : 
 	set(value):
 		active = value
 		if mesh:
 			mesh.get_surface_override_material(1).emission_enabled = value
 		if light:
 			if active:
-				light.light_energy = 1.0
+				light.light_energy = lerp(light.light_energy, 1.0, 1.0)
 			else:
-				light.light_energy = 0.0
+				light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 
 @export var min_value : float = 0.8
 @export var max_value : float = 1.2
@@ -27,21 +28,25 @@ extends StaticBody3D
 var time_passed : float = 0.0
 
 func _ready() -> void:
+	active = false
 	timer.start()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_passed += delta
 		
 	if !active:
+		light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 		return
-	
-	var amplitude = (max_value - min_value) / 2.0
-	var offset = (max_value + min_value) / 2.0
-	var sine = sin(speed * time_passed)
-	var energy = offset + amplitude * sine * speed_variance
+		
+	if active:
+		var amplitude = (max_value - min_value) / 2.0
+		var offset = (max_value + min_value) / 2.0
+		var sine = sin(speed * time_passed)
+		var energy = offset + amplitude * sine * speed_variance
 
-	light.light_energy = energy
+		light.light_energy = energy
 
 
 func _on_timer_timeout() -> void:

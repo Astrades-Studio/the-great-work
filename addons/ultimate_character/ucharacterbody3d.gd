@@ -160,7 +160,6 @@ func _input(event):
 func _process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		item_camera.global_transform = camera_node.global_transform
-	#print(str(item_camera.global_transform) + " \n" + str(camera_node.global_transform))
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
