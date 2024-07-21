@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=17 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_c07nh"]
+[ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
+[ext_resource type="AudioStream" uid="uid://db8kgni2e4eib" path="res://assets/sounds/music/Ambient Nothingness Intensity 2.wav" id="8_5hv2a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -58,6 +60,14 @@ fog_depth_begin = 0.0
 fog_depth_end = 1683.3
 volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hmeym"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl31s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bgsb5"]
+material = SubResource("StandardMaterial3D_bl31s")
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
 
@@ -72,7 +82,6 @@ script = ExtResource("1_bkhrr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -96,26 +105,19 @@ omni_attenuation = 0.741
 
 [node name="Props" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Props"]
-transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.89843, 0.492308, 2.19204)
-use_collision = true
+[node name="StaticBody3D" type="StaticBody3D" parent="Props"]
+transform = Transform3D(0.481804, 0, 0, 0, 0.481804, 0, 0, 0, 0.481804, -5.47176, 0.785529, 0)
 
-[node name="InteractionComponent" type="Node" parent="Props/CSGBox3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hmeym")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/StaticBody3D"]
+mesh = SubResource("BoxMesh_bgsb5")
+skeleton = NodePath("../..")
+
+[node name="InteractionComponent" type="Node" parent="Props/StaticBody3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_c07nh")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Props"]
-transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.87824, 0.492308, 0.328576)
-use_collision = true
-
-[node name="InteractionComponent2" type="Node" parent="Props/CSGBox3D2"]
-script = ExtResource("5_c07nh")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Props"]
-transform = Transform3D(0.0108383, 0, 0.999941, 0, 1, 0, -0.999941, 0, 0.0108383, -4.86249, 0.492308, -1.1239)
-use_collision = true
-
-[node name="InteractionComponent3" type="Node" parent="Props/CSGBox3D3"]
-script = ExtResource("5_c07nh")
+mesh = NodePath("../MeshInstance3D")
 
 [node name="Ground" type="Node3D" parent="."]
 
@@ -184,3 +186,34 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground6/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="TextLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_c01vt")
+
+[node name="TextureRect" type="TextureRect" parent="TextLayer"]
+offset_right = 420.0
+offset_bottom = 280.0
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="TextLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="TextLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5hv2a")
+autoplay = true
+bus = &"Music"

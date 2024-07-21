@@ -1,0 +1,13 @@
+class_name Page
+extends StaticBody3D
+
+@export var page : Texture
+@onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var sfx: AudioStreamPlayer3D = $SFX
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if !page:
+		printerr("Forgot to add a page")
+		return
+	sprite_3d.texture = page

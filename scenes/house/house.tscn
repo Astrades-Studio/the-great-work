@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=4 uid="uid://droqlyqk5h663"]
+[gd_scene load_steps=190 format=4 uid="uid://droqlyqk5h663"]
 
 [ext_resource type="PackedScene" uid="uid://cwvy8es3y2mmk" path="res://assets/models/house.glb" id="1_4e184"]
 [ext_resource type="Material" uid="uid://b1gxqoccsh740" path="res://assets/models/concrete_wallpaper.tres" id="2_xidrk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/props/rocking_chair.gd" id="4_1xtsr"]
 [ext_resource type="Texture2D" uid="uid://bmoy8d2380o18" path="res://assets/models/house_T_colorPalette2048.webp" id="4_uc3i4"]
 [ext_resource type="Texture2D" uid="uid://7i53qgkgg66p" path="res://assets/models/house_MI_ColorPalette_MetallicRoughness.webp" id="5_nl0jw"]
+[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="7_m56k3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4bg1"]
 resource_name = "Wall_Exterior"
@@ -3776,7 +3777,7 @@ mesh = SubResource("ArrayMesh_vpgmr")
 skeleton = NodePath("")
 
 [node name="RockingChair_001" type="MeshInstance3D" parent="house_Imported"]
-transform = Transform3D(0.461163, -0.103704, -0.844604, 7.7501e-09, 0.960662, -0.117954, 0.850947, 0.0562017, 0.457726, 12.9694, 0.031157, -14.8213)
+transform = Transform3D(0.461163, -0.0198007, -0.850717, 7.80619e-09, 0.967614, -0.0225214, 0.850947, 0.0107308, 0.461038, 12.9694, 0.031157, -14.8213)
 mesh = SubResource("ArrayMesh_p4xpu")
 skeleton = NodePath("")
 script = ExtResource("4_1xtsr")
@@ -3902,3 +3903,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1.29139, 0, 0, 0, 1, 1.8835, 0.0185678, 0.129309)
 mesh = SubResource("ArrayMesh_bvwxb")
 skeleton = NodePath("")
+
+[node name="Page" parent="house_Imported" instance=ExtResource("7_m56k3")]
+transform = Transform3D(-0.324858, -8.88178e-16, -2.84e-08, -2.65217e-08, 0.11618, 0.303372, 1.01568e-08, 0.303372, -0.11618, 11.6194, 1.13044, -2.93194)

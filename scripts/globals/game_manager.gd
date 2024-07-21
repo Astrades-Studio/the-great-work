@@ -1,5 +1,7 @@
 extends Node
 
+const MAIN_SCENE := preload("res://scenes/main.tscn")
+
 enum GameState {
 	MAIN_MENU,
 	PAUSED,
@@ -7,11 +9,25 @@ enum GameState {
 	LOADING
 }
 
-const MAIN := preload("res://scenes/main.tscn")
+var current_state : GameState:
+	set(value):
+		current_state = value
+		if current_state == GameState.PLAYING:
+			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if current_state == GameState.PAUSED:
+			get_tree().paused = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 var environment : WorldEnvironment
+var text_layer : TextLayer
 
 # Gets connected automatically
 func _on_new_game_requested():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().change_scene_to_packed(MAIN)
+	current_state = GameState.PLAYING
+	get_tree().change_scene_to_packed(MAIN_SCENE)
+
+func request_page_UI(page: Texture):
+	text_layer.show_text(page)

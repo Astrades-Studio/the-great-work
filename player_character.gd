@@ -24,13 +24,15 @@ func _process(delta: float) -> void:
 		var current_interact_result = interact_ray.get_collider()
 		if interaction_result != current_interact_result:
 			if interaction_result and interaction_result.has_user_signal("unfocused"):
-				print(str(interaction_result) + " unfocused")
+				interaction_result.emit_signal("unfocused")
+				
 			interaction_result = current_interact_result
 			if interaction_result and interaction_result.has_user_signal("focused"):
-				print(str(interaction_result) + " focused")
+				interaction_result.emit_signal("focused")
+				
 	else:
 		if interaction_result and interaction_result.has_user_signal("unfocused"):
-			print(str(interaction_result) + " unfocused")
+			interaction_result.emit_signal("unfocused")
 			interaction_result = null
 	
 func _physics_process(delta: float) -> void:

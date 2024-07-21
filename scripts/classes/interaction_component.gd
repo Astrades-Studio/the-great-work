@@ -1,7 +1,11 @@
 class_name InteractionComponent
 extends Node
 
+@export var mesh : MeshInstance3D
+
+const highlight_material : ShaderMaterial = preload("res://assets/outline_material.tres")
 var parent : Node
+var active_material : Material
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,18 +13,26 @@ func _ready() -> void:
 	connect_parent()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func in_range() -> void:
-	print(parent)
-	
+	print("in range")
+	if !mesh:
+		printerr("Interactible Component without mesh assigned")
+		return
+	active_material = mesh.get_active_material(0)
+	if !active_material:
+		printerr("Mesh without material assigned")
+	active_material.next_pass = highlight_material
+
+
 func not_in_range() -> void:
-	pass
+	if !active_material:
+		return
+	active_material.next_pass = null
+
 
 func on_interact() -> void:
-	print(parent.name)
+	pass
+
 
 func connect_parent() -> void:
 	parent.add_user_signal("focused")
@@ -28,4 +40,4 @@ func connect_parent() -> void:
 	parent.add_user_signal("interacted")
 	parent.connect("focused", Callable(self, "in_range"))
 	parent.connect("unfocused", Callable(self, "not_in_range"))
-	parent.connect("interact", Callable(self, "on_interact"))
+	parent.connect("interacted", Callable(self, "on_interact"))

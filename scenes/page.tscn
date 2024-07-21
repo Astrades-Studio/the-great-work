@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuib3e7qbheb2"]
+
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="1_3cmcr"]
+[ext_resource type="Script" path="res://scenes/page.gd" id="1_ap8k2"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_sl4il"]
+[ext_resource type="Script" path="res://scripts/classes/page_component.gd" id="4_be23u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iq1wu"]
+size = Vector3(1, 1.21777, 0.0446777)
+
+[node name="Page" type="StaticBody3D"]
+transform = Transform3D(0.324858, 0, 0, 0, 0.324858, 0, 0, 0, 0.324858, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_ap8k2")
+page = ExtResource("1_3cmcr")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.0597209, 0, 0, 0, 0.0597209, 0, 0, 0, 0.0597209, 0, 0, 0)
+texture = ExtResource("1_3cmcr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_iq1wu")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_sl4il")
+
+[node name="PageComponent" type="Node" parent="."]
+script = ExtResource("4_be23u")

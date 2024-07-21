@@ -19,6 +19,8 @@ config/icon="res://assets/images/icon.svg"
 
 GameManager="*res://scripts/globals/game_manager.gd"
 Events="*res://scripts/globals/events.gd"
+SfxManager="*res://scripts/globals/sfx_manager.gd"
+MusicManager="*res://scripts/music_manager.gd"
 
 [display]
 
@@ -42,6 +44,10 @@ folder_colors={
 "res://scenes/": "green",
 "res://scripts/": "purple"
 }
+
+[gui]
+
+theme/custom_font="res://assets/fonts/pixel/Kenney Pixel.ttf"
 
 [input]
 
@@ -100,6 +106,7 @@ light={
 3d_physics/layer_1="Static"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Items"
+3d_physics/layer_4="Interactibles"
 
 [rendering]
 
