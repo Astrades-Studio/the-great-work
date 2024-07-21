@@ -1,9 +1,13 @@
-[gd_scene format=3 uid="uid://b37a0ifyboyf0"]
+[gd_scene load_steps=2 format=3 uid="uid://b37a0ifyboyf0"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_layer.gd" id="1_fchgq"]
 
 [node name="PauseLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_fchgq")
 
 [node name="PauseContainer" type="CenterContainer" parent="."]
-visible = false
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,22 +32,27 @@ layout_mode = 2
 text = "Paused"
 
 [node name="ContinueButton" type="Button" parent="PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
 [node name="RestartButton" type="Button" parent="PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
 [node name="SettingsButton" type="Button" parent="PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
 [node name="SettingsContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +114,13 @@ unique_name_in_owner = true
 layout_mode = 2
 value = 100.0
 
+[node name="BackButton" type="Button" parent="SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
 [node name="QuitConfirmation" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,9 +150,19 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="QuitConfirmButton" type="Button" parent="QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Yes"
 
 [node name="QuitRefuseButton" type="Button" parent="QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "No"
+
+[connection signal="pressed" from="PauseContainer/PanelContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitConfirmButton" to="." method="_on_quit_confirm_button_pressed"]
+[connection signal="pressed" from="QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitRefuseButton" to="." method="_on_quit_refuse_button_pressed"]

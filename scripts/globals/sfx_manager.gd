@@ -9,6 +9,7 @@ const PAGE_BOOK = preload("res://assets/sounds/Page Book.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS
 	sound_bus_1 = AudioStreamPlayer.new()
 	sound_bus_2 = AudioStreamPlayer.new()
 	sound_bus_3 = AudioStreamPlayer.new()

@@ -4,10 +4,12 @@
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
-[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_c07nh"]
+[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="7_5oprq"]
+[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="6_od54k"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
+[ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
+[ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -61,14 +63,6 @@ fog_depth_begin = 0.0
 fog_depth_end = 1683.3
 volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hmeym"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl31s"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_bgsb5"]
-material = SubResource("StandardMaterial3D_bl31s")
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
 
@@ -78,23 +72,27 @@ albedo_color = Color(0.065, 0.1, 0.0836667, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
 points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
+
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="Level" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yd2gk")
-
-[node name="House" parent="." instance=ExtResource("1_7hj75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5504, 0, 7.48487)
+[node name="House" parent="Level" instance=ExtResource("1_7hj75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 14.1873, -2.01362, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
+environment = SubResource("Environment_yd2gk")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
@@ -105,20 +103,14 @@ omni_range = 2.558
 omni_attenuation = 0.741
 
 [node name="Props" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Props"]
-transform = Transform3D(0.481804, 0, 0, 0, 0.481804, 0, 0, 0, 0.481804, -5.47176, 0.785529, 0)
+[node name="Page" parent="Props" instance=ExtResource("5_6lkja")]
+transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 4.26671, 1.2003, 2.88134)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_hmeym")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/StaticBody3D"]
-mesh = SubResource("BoxMesh_bgsb5")
-skeleton = NodePath("../..")
-
-[node name="InteractionComponent" type="Node" parent="Props/StaticBody3D" node_paths=PackedStringArray("mesh")]
-script = ExtResource("5_c07nh")
-mesh = NodePath("../MeshInstance3D")
+[node name="Page2" parent="Props" instance=ExtResource("5_6lkja")]
+transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
+page = ExtResource("6_od54k")
 
 [node name="Ground" type="Node3D" parent="."]
 
@@ -190,7 +182,9 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="TextLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 2
 script = ExtResource("6_c01vt")
+audio_delay = 0.6
 
 [node name="TextureRect" type="TextureRect" parent="TextLayer"]
 anchors_preset = 15
@@ -199,7 +193,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("7_5oprq")
 expand_mode = 3
 stretch_mode = 5
 
@@ -222,3 +215,23 @@ text = "Back"
 stream = ExtResource("7_qg76f")
 autoplay = true
 bus = &"Music"
+
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9725, -3.17731, 7.48594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldBoundary"]
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+
+[node name="WorldSafeguard" type="Area3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+script = ExtResource("9_7hkxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.61469, 0)
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+
+[node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+
+[connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]

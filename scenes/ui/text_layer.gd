@@ -13,6 +13,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if !visible:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		_on_back_button_pressed()
 
@@ -30,6 +32,8 @@ func show_text(text: Texture):
 
 func hide_text():
 	self.hide()
-	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
 	GameManager.current_state = GameManager.GameState.PLAYING
-	texture_rect.texture = null
+	if texture_rect.texture:
+		texture_rect.texture = null
+		SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
+		return
