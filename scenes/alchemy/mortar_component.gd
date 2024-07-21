@@ -9,7 +9,6 @@ func _ready() -> void:
 	parent = get_parent()
 	if parent.has_user_signal("interacted"):
 		parent.connect("interacted", Callable(self, "use_mortar"))
-	
 
 
 func use_mortar():

@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4d2k12engjc6"]
+
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_dqgjw"]
+[ext_resource type="ArrayMesh" uid="uid://btvu4r4fy6vlb" path="res://assets/models/ingredients/ore.obj" id="2_0h8cc"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_4dfhw"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="3_fqpdi"]
+[ext_resource type="ArrayMesh" uid="uid://bbr8ndv65rb83" path="res://assets/models/ingredients/bowl.obj" id="3_ocmf8"]
+
+[sub_resource type="Gradient" id="Gradient_t4jgo"]
+offsets = PackedFloat32Array(0.0143885, 0.26259, 0.564748, 0.97482)
+colors = PackedColorArray(0.220136, 0.220136, 2.36845e-07, 1, 0.536823, 0.536823, 5.77569e-07, 1, 0.313755, 0.313755, 3.3757e-07, 1, 0.515951, 0.515951, 5.55113e-07, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kd34o"]
+noise_type = 2
+frequency = 0.044
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6gb61"]
+color_ramp = SubResource("Gradient_t4jgo")
+noise = SubResource("FastNoiseLite_kd34o")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mke7h"]
+in_3d_space = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_kd34o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pl5i"]
+albedo_texture = SubResource("NoiseTexture2D_6gb61")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_mke7h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qseue"]
+albedo_color = Color(0.278431, 0.133333, 0.133333, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hu7pu"]
+radius = 0.0826772
+
+[node name="Ingredient" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_dqgjw")
+
+[node name="InitialState" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0.0349893, 0)
+layers = 2
+mesh = ExtResource("2_0h8cc")
+surface_material_override/0 = SubResource("StandardMaterial3D_5pl5i")
+
+[node name="Processed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.64197, 0, 0, 0, 1.64197, 0, 0, 0, 1.64197, 0, 0, 0)
+layers = 2
+mesh = ExtResource("3_ocmf8")
+surface_material_override/0 = SubResource("StandardMaterial3D_qseue")
+surface_material_override/1 = SubResource("StandardMaterial3D_5pl5i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0458304, 0)
+shape = SubResource("SphereShape3D_hu7pu")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_4dfhw")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("3_fqpdi")

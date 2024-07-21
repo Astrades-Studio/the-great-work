@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq5ekg3eobo0e"]
+
+[ext_resource type="Script" path="res://scenes/props/painting.gd" id="1_s2wci"]
+[ext_resource type="Texture2D" uid="uid://bh8q1yon6gjs7" path="res://assets/images/paintings/painting-05.jpg" id="2_3ni7n"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ovslk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54i4i"]
+albedo_texture = ExtResource("2_3ni7n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31ew6"]
+albedo_color = Color(0.336156, 0.0694933, 2.40654e-08, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ykjg7"]
+size = Vector3(3999.96, 1.05273, 0.0605469)
+
+[node name="Painting" type="StaticBody3D"]
+script = ExtResource("1_s2wci")
+painting = ExtResource("2_3ni7n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0, 0, -0.0130587)
+mesh = SubResource("QuadMesh_ovslk")
+surface_material_override/0 = SubResource("StandardMaterial3D_54i4i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999995, 0.00335103, 0, -0.00335103, 0.999995, 0, -2.65569e-05, -0.00792494)
+size = Vector3(1.06641, 1.0459, 0.023)
+material = SubResource("StandardMaterial3D_31ew6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MeshInstance3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00643158)
+operation = 2
+size = Vector3(0.97876, 0.988525, 0.0219574)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ykjg7")

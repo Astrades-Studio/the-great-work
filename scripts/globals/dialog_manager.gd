@@ -11,7 +11,8 @@ class DialogPiece :
 	var dialog_text = "I don't know"
 	var dialog_name = "???"
 
-
+# Takes a string and shows a text box containing it. 
+# Optionally you can include a name as the second parameter
 func create_dialog(text: String, speaker: String = "???"):
 	var dialog = DialogPiece.new()
 	dialog.dialog_text = text

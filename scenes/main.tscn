@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=24 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="Script" path="res://scenes/dialog_layer.gd" id="8_6lgb1"]
+[ext_resource type="Shader" path="res://scripts/shaders/pixelate_postprocess.gdshader" id="8_s50pj"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
+[ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="10_afs4k"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
@@ -74,6 +76,14 @@ albedo_color = Color(0.065, 0.1, 0.0836667, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
 points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
+shader = ExtResource("8_s50pj")
+shader_parameter/size = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
+atlas = ExtResource("10_afs4k")
+region = Rect2(410, 315, 32, 20)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
 [node name="MainScene" type="Node3D"]
@@ -85,6 +95,7 @@ script = ExtResource("1_bkhrr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -13.8516, -3.1304, 1.39385)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -185,6 +196,18 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground6/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_6ah3r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.263882, 0.325489, 0.43773, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="TextLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 2
@@ -221,27 +244,69 @@ process_mode = 3
 layer = 2
 script = ExtResource("8_6lgb1")
 
-[node name="PanelContainer" type="PanelContainer" parent="DialogLayer"]
-anchors_preset = 12
-anchor_top = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -12.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer/PanelContainer"]
+[node name="Control2" type="Control" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.09
+
+[node name="Control" type="Control" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.72
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="DialogLayer/PanelContainer/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Placeholder"
+text = "Placeholder name"
+horizontal_alignment = 1
 
-[node name="TextLabel" type="Label" parent="DialogLayer/PanelContainer/VBoxContainer"]
+[node name="TextLabel" type="Label" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Placeholder text"
+
+[node name="NextIndicator" type="TextureRect" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_02axw")
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_qg76f")

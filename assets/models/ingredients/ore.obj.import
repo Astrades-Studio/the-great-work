@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btvu4r4fy6vlb"
+path="res://.godot/imported/ore.obj-e7c8cb06538af4103c12535a7cc400f4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ore.obj-e7c8cb06538af4103c12535a7cc400f4.mesh"]
+
+source_file="res://assets/models/ingredients/ore.obj"
+dest_files=["res://.godot/imported/ore.obj-e7c8cb06538af4103c12535a7cc400f4.mesh", "res://.godot/imported/ore.obj-e7c8cb06538af4103c12535a7cc400f4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

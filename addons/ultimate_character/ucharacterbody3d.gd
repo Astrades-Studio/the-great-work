@@ -2,261 +2,287 @@
 extends CharacterBody3D
 class_name UCharacterBody3D
 
-## A 3D physics body using a revamped template script.
+# TODO Thanks to mrezai on Reddit
 
-@export_group("Character Speeds")
-@export var jump_velocity : float = 4.5
-@export var walk_speed : float = 5.0
-@export var sprint_speed : float = 8.0
-@export var crouch_speed : float = 3.0
-@export var slide_speed : float = 7.0
+@onready var body: Node3D = $Body
+@onready var head = $Body/Head
+@onready var camera = $Body/Head/CameraMarker3D/Camera3D
+@onready var camera_target = $Body/Head/CameraMarker3D
+@onready var head_position: Vector3 = head.position
 
-@export_group("Character Settings")
-## Where the camera will be positioned, default of 1.8 is based off of a character height of 2.0
-@export var standing_height : float = 1.8
-## Where the camera will be positioned, default of 1.3 is based off of a character height of 2.0
-@export var crouching_height : float = 1.3
-## The slide length in seconds for how far the player can slide
-@export var sliding_length : float = 1.0
-@export var head_bob_walking_speed : float = 14.0
-@export var head_bob_sprinting_speed : float = 22.0
-@export var head_bob_crouching_speed : float = 10.0
-## The head bob intensity is for crouching, where walking is multiplied by 2, and sprinting is multiplied by 4
-@export var head_bob_intensity : float = 0.05
+var mouse_sensitivity: float = 0.1
 
-@export_group("Controls")
-## The InputMap action string to be used for LEFT movement
-@export var LEFT : String = "move_left"
-## The InputMap action string to be used for RIGHT movement
-@export var RIGHT : String = "move_right"
-## The InputMap action string to be used for FORWARD movement
-@export var FORWARD : String = "move_forward"
-## The InputMap action string to be used for BACKWARD movement
-@export var BACKWARD : String = "move_backward"
-## The InputMap action string to be used for sprinting
-@export var SPRINT : String = "action_sprint"
-## The InputMap action string to be used for crouching
-@export var CROUCH : String = "action_crouch"
-## The InputMap action string to be used for jumping
-@export var JUMP : String = "action_jump"
-## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
-@export var MOUSE_SENSITIVITY : float = 0.4
+const ACCELERATION_DEFAULT: float = 7.0
+const ACCELERATION_AIR: float = 1.0
+const SPEED_DEFAULT: float = 7.0
+const SPEED_ON_STAIRS: float = 5.0
 
-var is_walking = false
-var is_sprinting = false
-var is_crouching = false
-var is_sliding = false
+var acceleration: float = ACCELERATION_DEFAULT
+var speed: float = SPEED_DEFAULT
 
-var collision_shape_normal : CollisionShape3D
-var collision_shape_crouch : CollisionShape3D
-var head_node : Node3D
-var camera_node : Camera3D
-var raycast_node : RayCast3D
+var gravity: float = 9.8
+var jump: float = 5.0
+var direction: Vector3 = Vector3.ZERO
+var main_velocity: Vector3 = Vector3.ZERO
+var gravity_direction: Vector3 = Vector3.ZERO
+var movement: Vector3 = Vector3.ZERO
 
-var current_speed = walk_speed
-var slide_timer = 0.0
-var slide_vector = Vector2.ZERO
-var head_bob_current_intensity = 0.0
-var head_bob_vector = Vector2.ZERO
-var head_bob_index = 0.0
-var last_velocity = Vector3.ZERO
+const STAIRS_FEELING_COEFFICIENT: float = 2.5
+const WALL_MARGIN: float = 0.001
+const STEP_DOWN_MARGIN: float = 0.01
+const STEP_HEIGHT_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
+const STEP_HEIGHT_IN_AIR_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
+const STEP_MAX_SLOPE_DEGREE: float = 40.0
+const STEP_CHECK_COUNT: int = 2
+const SPEED_CLAMP_AFTER_JUMP_COEFFICIENT = 0.4
+const SPEED_CLAMP_SLOPE_STEP_UP_COEFFICIENT = 0.4
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var direction = Vector3.ZERO
-var scene
+var step_height_main: Vector3
+var step_incremental_check_height: Vector3
+var is_enabled_stair_stepping_in_air: bool = true
+var is_jumping: bool = false
+var is_in_air: bool = false
 
-@onready var item_camera: Camera3D = %ItemCamera
+var head_offset: Vector3 = Vector3.ZERO
+var camera_target_position : Vector3 = Vector3.ZERO
+var camera_lerp_coefficient: float = 1.0
+var time_in_air: float = 0.0
+var update_camera = false
+var camera_gt_previous : Transform3D
+var camera_gt_current : Transform3D
 
-func _enter_tree():
-	if Engine.is_editor_hint():
-		# Obtain the current scene root
-		scene = get_tree().edited_scene_root
-		if scene == null:
-			printerr("Failed to obtain scene tree in editor")
-			return
-	
-	if !Engine.is_editor_hint():
-		collision_shape_normal = $CollisionShapeNormal
-		collision_shape_crouch = $CollisionShapeCrouch
-		head_node = $Head
-		camera_node = $Head/Camera
-		raycast_node = $RayCast3D
+
+class StepResult:
+	var diff_position: Vector3 = Vector3.ZERO
+	var normal: Vector3 = Vector3.ZERO
+	var is_step_up: bool = false
+
 
 func _ready():
-	var camera_env = camera_node.get_environment()
-	item_camera.set_environment(camera_env)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	# Only editor: Create child nodes
-	if Engine.is_editor_hint():
-		# TODO: Find a better way to implement this. A workaround to not adding duplicate nodes
-		# Need to figure out how to lo	
-		var nodes = get_children()
-		if nodes.size() > 0:
-			collision_shape_normal = get_node("CollisionShapeNormal")
-			collision_shape_crouch = get_node("CollisionShapeCrouch")
-			head_node = get_node("Head")
-			camera_node = head_node.get_node("Camera")
-			raycast_node = get_node("RayCast3D")
-		
-		# Create the collision shapes
-		if collision_shape_normal == null:
-			collision_shape_normal = CollisionShape3D.new()
-			collision_shape_normal.name = "CollisionShapeNormal"
-			collision_shape_normal.shape = CapsuleShape3D.new()
-			collision_shape_normal.position.y = 1.0
-			self.add_child(collision_shape_normal)
-			collision_shape_normal.owner = scene
-		
-		if collision_shape_crouch == null:
-			collision_shape_crouch = CollisionShape3D.new()
-			collision_shape_crouch.name = "CollisionShapeCrouch"
-			collision_shape_crouch.shape = CapsuleShape3D.new()
-			collision_shape_crouch.shape.height = crouching_height
-			collision_shape_crouch.position.y = crouching_height/2
-			collision_shape_crouch.disabled = true
-			self.add_child(collision_shape_crouch)
-			collision_shape_crouch.owner = scene
-		
-		# Create the head node
-		if head_node == null:
-			head_node = Node3D.new()
-			head_node.name = "Head"
-			head_node.position.y = standing_height
-			self.add_child(head_node)
-			head_node.owner = scene
-		
-		# Create the camera node
-		if camera_node == null:
-			camera_node = Camera3D.new()
-			camera_node.name = "Camera"
-			head_node.add_child(camera_node)
-			camera_node.owner = scene
-		
-		# Create the raycast node
-		if raycast_node == null:
-			raycast_node = RayCast3D.new()
-			raycast_node.name = "RayCast3D"
-			raycast_node.target_position = Vector3(0, 2, 0)
-			self.add_child(raycast_node)
-			raycast_node.owner = scene
+	camera_target_position = camera.global_transform.origin
+	camera.set_as_top_level(true)
+	camera.global_transform = camera_target.global_transform
 	
-	# Only game: Run normal ready logic
-	if !Engine.is_editor_hint():
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
-		pass
+	camera_gt_previous = camera_target.global_transform
+	camera_gt_current = camera_target.global_transform
+
+func update_camera_transform():
+	camera_gt_previous = camera_gt_current
+	camera_gt_current = camera_target.global_transform
+	
+func _process(delta: float) -> void:
+	if update_camera:
+		update_camera_transform()
+		update_camera = false
+
+	var interpolation_fraction = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
+
+	var camera_xform = camera_gt_previous.interpolate_with(camera_gt_current, interpolation_fraction)
+	camera.global_transform = camera_xform
+
+	var head_xform : Transform3D = head.get_global_transform()
+	
+	camera_target_position = lerp(camera_target_position, head_xform.origin, delta * speed * STAIRS_FEELING_COEFFICIENT * camera_lerp_coefficient)
+
+	if is_on_floor():
+		time_in_air = 0.0
+		camera_lerp_coefficient = 1.0
+		camera.position.y = camera_target_position.y
+	else:
+		time_in_air += delta
+		if time_in_air > 1.0:
+			camera_lerp_coefficient += delta
+			camera_lerp_coefficient = clamp(camera_lerp_coefficient, 2.0, 4.0)
+		else: 
+			camera_lerp_coefficient = 2.0
+
+		camera.position.y = camera_target_position.y
 
 func _input(event):
-	if !Engine.is_editor_hint():
-		if event is InputEventMouseMotion and !is_sliding:
-			rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
-			head_node.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
-			head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-
-func _process(delta: float) -> void:
-	if !Engine.is_editor_hint():
-		item_camera.global_transform = camera_node.global_transform
+	if event is InputEventMouseMotion:
+		body.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
-	if !Engine.is_editor_hint():
-		# Get input direction
-		var input_dir = Input.get_vector(LEFT, RIGHT, FORWARD, BACKWARD)
+	update_camera = true
+	var is_step: bool = false
+	
+	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	direction = (body.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
+
+	if is_on_floor():
+		is_jumping = false
+		is_in_air = false
+		acceleration = ACCELERATION_DEFAULT
+		gravity_direction = Vector3.ZERO
+	else:
+		is_in_air = true
+		acceleration = ACCELERATION_AIR
+		gravity_direction += Vector3.DOWN * gravity * delta
+
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		is_jumping = true
+		is_in_air = false
+		gravity_direction = Vector3.UP * jump
+
+	main_velocity = main_velocity.lerp(direction * speed, acceleration * delta)
+
+	var step_result : StepResult = StepResult.new()
+	
+	is_step = step_check(delta, is_jumping, step_result)
+	
+	if is_step:
+		var is_enabled_stair_stepping: bool = true
+		if step_result.is_step_up and is_in_air and not is_enabled_stair_stepping_in_air:
+			is_enabled_stair_stepping = false
+
+		if is_enabled_stair_stepping:
+			global_transform.origin += step_result.diff_position
+			head_offset = step_result.diff_position
+			speed = SPEED_ON_STAIRS
+	else:
+		head_offset = head_offset.lerp(Vector3.ZERO, delta * speed * STAIRS_FEELING_COEFFICIENT)
 		
-		# Handle crouch, sprint, walk speed.
-		if Input.is_action_pressed(CROUCH) or is_sliding:
-			current_speed = lerpf(current_speed, crouch_speed, delta * 10.0)
-			head_node.position.y = lerpf(head_node.position.y, crouching_height, delta * 10.0)
-			collision_shape_normal.disabled = true
-			collision_shape_crouch.disabled = false
+		if abs(head_offset.y) <= 0.01:
+			speed = SPEED_DEFAULT
+
+	movement = main_velocity + gravity_direction
+
+	set_velocity(movement)
+	set_max_slides(6)
+	move_and_slide()
+	
+	if is_step and step_result.is_step_up and is_enabled_stair_stepping_in_air:
+		if is_in_air or direction.dot(step_result.normal) > 0:
+			main_velocity *= SPEED_CLAMP_AFTER_JUMP_COEFFICIENT
+			gravity_direction *= SPEED_CLAMP_AFTER_JUMP_COEFFICIENT
+
+	if is_jumping:
+		is_jumping = false
+		is_in_air = true
+
+func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
+	var is_step: bool = false
+	
+	step_height_main = STEP_HEIGHT_DEFAULT
+	step_incremental_check_height = STEP_HEIGHT_DEFAULT / STEP_CHECK_COUNT
+	
+	if is_in_air and is_enabled_stair_stepping_in_air:
+		step_height_main = STEP_HEIGHT_IN_AIR_DEFAULT
+		step_incremental_check_height = STEP_HEIGHT_IN_AIR_DEFAULT / STEP_CHECK_COUNT
+		
+	if gravity_direction.y >= 0:
+		for i in range(STEP_CHECK_COUNT):
+			var test_motion_result: PhysicsTestMotionResult3D = PhysicsTestMotionResult3D.new()
 			
-			# Handle sliding
-			if is_sprinting and input_dir != Vector2.ZERO:
-				is_sliding = true
-				slide_timer = sliding_length
-				slide_vector = input_dir
+			var step_height: Vector3 = step_height_main - i * step_incremental_check_height
+			var transform3d: Transform3D = global_transform
+			var motion: Vector3 = step_height
+			var test_motion_params: PhysicsTestMotionParameters3D = PhysicsTestMotionParameters3D.new()
+			test_motion_params.from = transform3d
+			test_motion_params.motion = motion
 			
-			is_walking = false
-			is_sprinting = false
-			is_crouching = true
+			var is_player_collided: bool = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+
+			if is_player_collided and test_motion_result.get_collision_normal().y < 0:
+				continue
+
+			transform3d.origin += step_height
+			motion = main_velocity * delta
+			test_motion_params.from = transform3d
+			test_motion_params.motion = motion
 			
-		elif !raycast_node.is_colliding():
-			head_node.position.y = lerpf(head_node.position.y, standing_height, delta * 10.0)
-			collision_shape_normal.disabled = false
-			collision_shape_crouch.disabled = true
+			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
 			
-			if Input.is_action_pressed(SPRINT):
-				current_speed = lerpf(current_speed, sprint_speed, delta * 10.0)
+			if not is_player_collided:
+				transform3d.origin += motion
+				motion = -step_height
+				test_motion_params.from = transform3d
+				test_motion_params.motion = motion
 				
-				is_walking = false
-				is_sprinting = true
-				is_crouching = false
+				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
 				
+				if is_player_collided:
+					if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
+						is_step = true
+						step_result.is_step_up = true
+						step_result.diff_position = -test_motion_result.get_remainder()
+						step_result.normal = test_motion_result.get_collision_normal()
+						break
 			else:
-				current_speed = lerpf(current_speed, walk_speed, delta * 10.0)
+				var wall_collision_normal: Vector3 = test_motion_result.get_collision_normal()
+				transform3d.origin += wall_collision_normal * WALL_MARGIN
+				motion = (main_velocity * delta).slide(wall_collision_normal)
+				test_motion_params.from = transform3d
+				test_motion_params.motion = motion
 				
-				is_walking = true
-				is_sprinting = false
-				is_crouching = false
-		
-		if is_sliding:
-			slide_timer -= delta
-			if slide_timer <= 0:
-				is_sliding = false
-		
-		# Handle head bob.
-		if is_sprinting:
-			head_bob_current_intensity = head_bob_intensity * 4
-			head_bob_index += head_bob_sprinting_speed * delta
-		elif is_walking:
-			head_bob_current_intensity = head_bob_intensity * 2
-			head_bob_index += head_bob_walking_speed * delta
-		elif is_crouching:
-			head_bob_current_intensity = head_bob_intensity
-			head_bob_index += head_bob_crouching_speed * delta
-		
-		if is_on_floor() and !is_sliding and input_dir != Vector2.ZERO:
-			head_bob_vector.y = sin(head_bob_index)
-			head_bob_vector.x = sin(head_bob_index/2)+0.5
-			camera_node.position.y = lerp(camera_node.position.y, head_bob_vector.y * (head_bob_current_intensity/2.0), delta * 10.0)
-			camera_node.position.x = lerp(camera_node.position.x, head_bob_vector.x * head_bob_current_intensity, delta * 10.0)
-		else:
-			camera_node.position.y = lerp(camera_node.position.y, 0.0, delta * 10.0)
-			camera_node.position.x = lerp(camera_node.position.x, 0.0, delta * 10.0)
-		
-		# Add the gravity.
-		if !is_on_floor():
-			velocity.y -= gravity * delta
+				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+				
+				if not is_player_collided:
+					transform3d.origin += motion
+					motion = -step_height
+					test_motion_params.from = transform3d
+					test_motion_params.motion = motion
+					
+					is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+					
+					if is_player_collided:
+						if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
+							is_step = true
+							step_result.is_step_up = true
+							step_result.diff_position = -test_motion_result.get_remainder()
+							step_result.normal = test_motion_result.get_collision_normal()
+							break
 
-		# Handle jump.
-		if Input.is_action_just_pressed(JUMP) and is_on_floor():
-			velocity.y = jump_velocity
-			is_sliding = false
+	if not is_jumping_ and not is_step and is_on_floor():
+		step_result.is_step_up = false
+		var test_motion_result: PhysicsTestMotionResult3D = PhysicsTestMotionResult3D.new()
+		var transform3d: Transform3D = global_transform
+		var motion: Vector3 = main_velocity * delta
+		var test_motion_params: PhysicsTestMotionParameters3D = PhysicsTestMotionParameters3D.new()
+		test_motion_params.from = transform3d
+		test_motion_params.motion = motion
+		test_motion_params.recovery_as_collision = true
 
-		# Handle the movement/deceleration.
-		if is_on_floor():
-			if last_velocity.y < -8.5:
-				# TODO: Handle player hard landing
-				pass
-			elif last_velocity.y < 0.0:
-				# TODO: Handle player soft landing
-				pass
-			direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * 10.0)
-		else:
-			if input_dir != Vector2.ZERO:
-				direction = lerp(direction, (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * 3.0)
-		
-		if is_sliding:
-			direction = (transform.basis * Vector3(slide_vector.x, 0, slide_vector.y)).normalized()
-			current_speed = (slide_timer + 0.1) * slide_speed
-		
-		if direction:
-			velocity.x = direction.x * current_speed
-			velocity.z = direction.z * current_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, current_speed)
-			velocity.z = move_toward(velocity.z, 0, current_speed)
-		
-		last_velocity = velocity
-		
-		move_and_slide()
+		var is_player_collided: bool = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+			
+		if not is_player_collided:
+			transform3d.origin += motion
+			motion = -step_height_main
+			test_motion_params.from = transform3d
+			test_motion_params.motion = motion
+			
+			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+			
+			if is_player_collided and test_motion_result.get_travel().y < -STEP_DOWN_MARGIN:
+				if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
+					is_step = true
+					step_result.diff_position = test_motion_result.get_travel()
+					step_result.normal = test_motion_result.get_collision_normal()
+		elif is_zero_approx(test_motion_result.get_collision_normal().y):
+			var wall_collision_normal: Vector3 = test_motion_result.get_collision_normal()
+			transform3d.origin += wall_collision_normal * WALL_MARGIN
+			motion = (main_velocity * delta).slide(wall_collision_normal)
+			test_motion_params.from = transform3d
+			test_motion_params.motion = motion
+			
+			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+			
+			if not is_player_collided:
+				transform3d.origin += motion
+				motion = -step_height_main
+				test_motion_params.from = transform3d
+				test_motion_params.motion = motion
+				
+				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
+				
+				if is_player_collided and test_motion_result.get_travel().y < -STEP_DOWN_MARGIN:
+					if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
+						is_step = true
+						step_result.diff_position = test_motion_result.get_travel()
+						step_result.normal = test_motion_result.get_collision_normal()
+
+	return is_step
