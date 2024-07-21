@@ -11,16 +11,16 @@ extends UCharacterBody3D
 # Mini Inventory
 var ingredient_in_hand : Ingredient:
 	set(value):
-		if !value: # If clearing the hand
-			ingredient_in_hand = value
-			return
-		
-		if ingredient_in_hand:
-			ingredient_in_hand.queue_free()
+		if value:
+			drop_ingredient()
 		ingredient_in_hand = value
-		
-		hand.add_child(ingredient_in_hand)
-		ingredient_in_hand.current_location = Ingredient.Location.HAND
+
+		if ingredient_in_hand:
+			ingredient_in_hand.global_transform.origin = hand.global_transform.origin
+			ingredient_in_hand.reparent(hand)
+			ingredient_in_hand.current_location = Ingredient.Location.HAND
+
+
 
 # This is used for raycasting
 var interaction_result : Node
@@ -29,7 +29,7 @@ var interaction_result : Node
 func _ready() -> void:
 	super()
 	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
-	ingredient_in_hand = hand.get_child(0) # Setup the current ingredient in your hand
+	#ingredient_in_hand = hand.get_child(0) # Setup the current ingredient in your hand
 	GameManager.player = self # Assign this node to the Autoload for global reference
 
 
@@ -50,26 +50,29 @@ func _input(event: InputEvent) -> void:
 
 
 func drop_ingredient() -> void:
-	if ingredient_in_hand:
-		# Duplicate the ingredient in hand and change its parent to the node below with a raycast, then free the one in hand
-		var dropped_ingredient : Ingredient = ingredient_in_hand.duplicate()
+	if !ingredient_in_hand:
+		return
+	
+	var ray = RayCast3D.new()
+	ray.name = "DropRay"
+	ray.target_position = Vector3.DOWN * interact_distance
+	add_child(ray)
+	ray.force_raycast_update()
 
-		var ray = RayCast3D.new()
-		ray.name = "DropRay"
-		ray.target_position = Vector3.DOWN * interact_distance
-		add_child(ray)
-		ray.force_raycast_update()
+	if ray.is_colliding():
+		var target_node = get_tree().current_scene
+		ingredient_in_hand.reparent(target_node)
+		var global_collision_point = ray.get_collision_point()
+		ingredient_in_hand.global_transform.origin = global_collision_point
+		ingredient_in_hand.current_location = Ingredient.Location.ENVIRONMENT
 		
-		if ray.is_colliding():
-			var target_node = ray.get_collider() as Node
-			target_node.add_child(dropped_ingredient)
-			dropped_ingredient.global_transform.origin = ray.target_position
-			dropped_ingredient.current_location = Ingredient.Location.ENVIRONMENT
-		
+	else:
+		printerr("Did not find drop spot")
 		ingredient_in_hand.queue_free()
-		ingredient_in_hand = null
-		
-		ray.queue_free()
+	
+	ingredient_in_hand = null
+	ray.queue_free()
+	
 
 
 func _process(delta: float) -> void:

@@ -96,7 +96,7 @@ script = ExtResource("1_bkhrr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -13.8516, -3.1304, 1.39385)
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.3193, 0.740573, 3.7935)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -106,6 +106,7 @@ transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
+unique_name_in_owner = true
 environment = SubResource("Environment_yd2gk")
 
 [node name="Ingredient" parent="Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
@@ -130,16 +131,16 @@ transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823,
 page = ExtResource("6_kc6qj")
 
 [node name="Mortar" parent="Props" instance=ExtResource("7_8yktc")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.01719, -2.68881, 4.42384)
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 2.2267, 1.03432, 2.69109)
 
 [node name="Ingredient" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.01719, -2.68881, 4.42384)
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.96638, 0.788218, 3.23636)
 
 [node name="0" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 0.0958748, -2.68881, 4.42384)
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.04506, 0.788218, 3.23636)
 
 [node name="1" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 0.529225, -2.68881, 4.42384)
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.47842, 0.788218, 3.23636)
 
 [node name="Ground" type="Node3D" parent="."]
 
@@ -333,13 +334,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9725, -3.17731, 7.48594)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldBoundary"]
 shape = SubResource("WorldBoundaryShape3D_v46o1")
+disabled = true
 
 [node name="WorldSafeguard" type="Area3D" parent="Triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 script = ExtResource("9_7hkxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.61469, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
 shape = SubResource("WorldBoundaryShape3D_v46o1")
 
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]

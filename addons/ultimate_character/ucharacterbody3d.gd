@@ -128,7 +128,7 @@ func _physics_process(delta):
 		acceleration = ACCELERATION_AIR
 		gravity_direction += Vector3.DOWN * gravity * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("action_jump") and is_on_floor():
 		is_jumping = true
 		is_in_air = false
 		gravity_direction = Vector3.UP * jump

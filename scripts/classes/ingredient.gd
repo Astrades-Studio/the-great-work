@@ -30,7 +30,7 @@ enum Location {
 }
 
 @export var type : Type :
-	set(value): 
+	set(value):
 		type = value
 		self.name = str(Type.keys()[type])
 
@@ -44,18 +44,20 @@ enum Location {
 		#INITIAL_MESH = value
 		#initial_mesh.mesh = INITIAL_MESH
 
-@onready var current_location : Location = Location.ENVIRONMENT :
+var current_location : Location = Location.ENVIRONMENT :
 	set(value):
 		current_location = value
 		if current_location == Location.HAND:
 			initial_mesh.layers = 0x0002
 			processed_mesh.layers = 0x0002
-		if current_location == Location.ENVIRONMENT:
+		elif current_location == Location.ENVIRONMENT:
 			initial_mesh.layers = 0x0001
 			processed_mesh.layers = 0x0001
+		else:
+			printerr("Ingredient visual layer problem")
 
 
-var current_state : State = State.INITIAL : 
+var current_state : State = State.INITIAL :
 	set(value):
 		current_state = value
 		if current_state == State.INITIAL:
@@ -66,7 +68,7 @@ var current_state : State = State.INITIAL :
 			initial_mesh.hide()
 			
 			
-# func _ready() -> void:
+func _ready() -> void:
+	current_location = Location.ENVIRONMENT
 # 	print(str(self) + " " + str(Location.keys()[current_location]))
-# 	current_location = Location.ENVIRONMENT
 # 	#current_location = Location.ENVIRONMENT

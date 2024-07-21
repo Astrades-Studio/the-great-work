@@ -6,7 +6,8 @@ enum GameState {
 	MAIN_MENU,
 	PAUSED,
 	PLAYING,
-	LOADING
+	LOADING,
+	DIALOG
 }
 
 # This variable goberns the inputs and pauses. Whenever there is a change, 
@@ -17,10 +18,25 @@ var current_state : GameState:
 		if current_state == GameState.PLAYING:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 		elif current_state == GameState.PAUSED:
 			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+		elif current_state == GameState.DIALOG:
+			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
+		elif current_state == GameState.MAIN_MENU:
+			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+		elif current_state == GameState.LOADING:
+			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 		else:
+			printerr("Invalid game state")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 var environment : WorldEnvironment

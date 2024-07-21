@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l6wutmnvd7bt"
-path.s3tc="res://.godot/imported/wood_wallpaper_texture.png-70e8045473a17c298137bc485595e0c1.s3tc.ctex"
+path="res://.godot/imported/wood_wallpaper_texture.png-70e8045473a17c298137bc485595e0c1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/models/house/wood_wallpaper_texture.png"
-dest_files=["res://.godot/imported/wood_wallpaper_texture.png-70e8045473a17c298137bc485595e0c1.s3tc.ctex"]
+dest_files=["res://.godot/imported/wood_wallpaper_texture.png-70e8045473a17c298137bc485595e0c1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

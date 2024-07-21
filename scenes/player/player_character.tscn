@@ -20,12 +20,12 @@ script = ExtResource("1_rwwvt")
 [node name="Body" type="Node3D" parent="."]
 
 [node name="Head" type="Node3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56021, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 
 [node name="GasLamp" parent="Body/Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.623885, 0, 0, 0, 0.623885, 0, 0, 0, 0.623885, -0.198263, -0.176607, -0.342301)
-speed_variance = 1.34844
+speed_variance = 1.12212
 
 [node name="Hand" type="Node3D" parent="Body/Head"]
 unique_name_in_owner = true
