@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://t4pgsmw2tox1"]
 
-[ext_resource type="Script" path="res://player_character.gd" id="1_rwwvt"]
+[ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
