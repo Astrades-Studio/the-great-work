@@ -87,6 +87,7 @@ radius = 0.0521055
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_i1yuc")
+active = false
 speed_variance = 0.747115
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="."]
@@ -106,7 +107,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, 0)
 layers = 3
 light_color = Color(1, 0.458824, 0, 1)
-light_energy = 1.1493
+light_energy = 0.0
 shadow_enabled = true
 shadow_bias = 1.881
 shadow_opacity = 0.45

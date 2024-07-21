@@ -4,12 +4,15 @@ extends UCharacterBody3D
 @onready var gas_lamp: GasLamp = %GasLamp
 
 @export var interact_distance := 2.0
+
 var interaction_result : Node
 
 func _ready() -> void:
 	super()
 
 func _input(event: InputEvent) -> void:
+	if GameManager.current_state != GameManager.GameState.PLAYING:
+		return
 	super(event)
 	if event.is_action_pressed("light"):
 		gas_lamp.active = !gas_lamp.active
@@ -18,6 +21,8 @@ func _input(event: InputEvent) -> void:
 		interact()
 
 func _process(delta: float) -> void:
+	if GameManager.current_state != GameManager.GameState.PLAYING:
+		return
 	super(delta)
 	
 	if interact_ray.is_colliding():
@@ -36,6 +41,8 @@ func _process(delta: float) -> void:
 			interaction_result = null
 	
 func _physics_process(delta: float) -> void:
+	if GameManager.current_state != GameManager.GameState.PLAYING:
+		return
 	super(delta)
 
 func interact():

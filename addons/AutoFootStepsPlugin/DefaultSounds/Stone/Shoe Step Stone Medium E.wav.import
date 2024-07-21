@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlcosjbfdoske"
+path="res://.godot/imported/Shoe Step Stone Medium E.wav-60d51a916e62d68468c172436ec3fb73.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Stone/Shoe Step Stone Medium E.wav"
+dest_files=["res://.godot/imported/Shoe Step Stone Medium E.wav-60d51a916e62d68468c172436ec3fb73.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

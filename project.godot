@@ -24,13 +24,14 @@ MusicManager="*res://scripts/music_manager.gd"
 
 [display]
 
-window/size/viewport_width=420
-window/size/viewport_height=280
+window/size/viewport_width=540
+window/size/viewport_height=270
 window/size/initial_position_type=2
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

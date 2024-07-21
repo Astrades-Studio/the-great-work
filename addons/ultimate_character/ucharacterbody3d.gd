@@ -66,10 +66,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction = Vector3.ZERO
 var scene
 
-@onready var main_camera: Camera3D = $Head/MainCamera
 @onready var item_camera: Camera3D = %ItemCamera
-
-
 
 func _enter_tree():
 	if Engine.is_editor_hint():

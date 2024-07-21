@@ -12,8 +12,8 @@ func _ready() -> void:
 	if parent.has_user_signal("interacted"):
 		parent.connect("interacted", Callable(self, "request_page_UI").bind(page))
 
-func request_page_UI(page: Texture):
-	if !page:
+func request_page_UI(_page: Texture):
+	if !_page:
 		printerr("No page assigned")
 		return
-	GameManager.request_page_UI(page)
+	GameManager.request_page_UI(_page)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=4 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
+[ext_resource type="AudioStream" uid="uid://db8kgni2e4eib" path="res://assets/sounds/music/Ambient Nothingness Intensity 2.wav" id="2_qtu0m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_66ycg"]
 font_size = 46
@@ -40,6 +41,7 @@ size_flags_horizontal = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 45
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -88,6 +90,10 @@ size_flags_horizontal = 3
 [node name="Control2" type="Control" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qtu0m")
+autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

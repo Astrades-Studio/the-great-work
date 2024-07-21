@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=18 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_c07nh"]
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
-[ext_resource type="AudioStream" uid="uid://db8kgni2e4eib" path="res://assets/sounds/music/Ambient Nothingness Intensity 2.wav" id="8_5hv2a"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="7_5oprq"]
+[ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -192,10 +193,14 @@ process_mode = 3
 script = ExtResource("6_c01vt")
 
 [node name="TextureRect" type="TextureRect" parent="TextLayer"]
-offset_right = 420.0
-offset_bottom = 280.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
-expand_mode = 1
+texture = ExtResource("7_5oprq")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="TextLayer"]
@@ -214,6 +219,6 @@ layout_mode = 2
 text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_5hv2a")
+stream = ExtResource("7_qg76f")
 autoplay = true
 bus = &"Music"

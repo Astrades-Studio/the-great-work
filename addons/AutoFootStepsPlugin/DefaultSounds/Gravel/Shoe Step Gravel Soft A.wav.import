@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bghpikptvhjaw"
+path="res://.godot/imported/Shoe Step Gravel Soft A.wav-ce9ad71e96b50fb96ad50a1e80fa875d.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Gravel/Shoe Step Gravel Soft A.wav"
+dest_files=["res://.godot/imported/Shoe Step Gravel Soft A.wav-ce9ad71e96b50fb96ad50a1e80fa875d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

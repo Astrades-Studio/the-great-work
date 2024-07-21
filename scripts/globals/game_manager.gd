@@ -15,7 +15,7 @@ var current_state : GameState:
 		if current_state == GameState.PLAYING:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if current_state == GameState.PAUSED:
+		elif current_state == GameState.PAUSED:
 			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
@@ -23,6 +23,8 @@ var current_state : GameState:
 
 var environment : WorldEnvironment
 var text_layer : TextLayer
+
+signal update_interaction_label(string : String)
 
 # Gets connected automatically
 func _on_new_game_requested():

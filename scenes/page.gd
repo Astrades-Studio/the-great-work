@@ -3,7 +3,7 @@ extends StaticBody3D
 
 @export var page : Texture
 @onready var sprite_3d: Sprite3D = $Sprite3D
-@onready var sfx: AudioStreamPlayer3D = $SFX
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

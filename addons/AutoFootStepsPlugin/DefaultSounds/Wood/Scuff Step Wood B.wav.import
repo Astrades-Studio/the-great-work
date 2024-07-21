@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://p3cb6nk6vldo"
+path="res://.godot/imported/Scuff Step Wood B.wav-4dcbd0bfff738c7e06b29a764182910d.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Scuff Step Wood B.wav"
+dest_files=["res://.godot/imported/Scuff Step Wood B.wav-4dcbd0bfff738c7e06b29a764182910d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

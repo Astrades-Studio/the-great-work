@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1qjxil70lur8"
+path="res://.godot/imported/Bare Step Sand Hard C.wav-ba592dfc9681da40ca7bce1b1ec0a2f5.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Sand/Bare Step Sand Hard C.wav"
+dest_files=["res://.godot/imported/Bare Step Sand Hard C.wav-ba592dfc9681da40ca7bce1b1ec0a2f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

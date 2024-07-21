@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck3wsftpnpi1m"
+path="res://.godot/imported/Jump Step Wood A.wav-33581a27c23fdbdab99009c0e8138cdd.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Jump Step Wood A.wav"
+dest_files=["res://.godot/imported/Jump Step Wood A.wav-33581a27c23fdbdab99009c0e8138cdd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

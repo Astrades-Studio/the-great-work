@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csofwsjkg3esx"
+path="res://.godot/imported/Jump Step Stone B.wav-ce7802c60fd415fe761b18db1f42682e.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Stone/Jump Step Stone B.wav"
+dest_files=["res://.godot/imported/Jump Step Stone B.wav-ce7802c60fd415fe761b18db1f42682e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

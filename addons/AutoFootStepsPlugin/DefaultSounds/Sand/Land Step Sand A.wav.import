@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://82ox6vonqqt5"
+path="res://.godot/imported/Land Step Sand A.wav-16e89d5a7a47aef758b7ae929d4eec6e.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Sand/Land Step Sand A.wav"
+dest_files=["res://.godot/imported/Land Step Sand A.wav-16e89d5a7a47aef758b7ae929d4eec6e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

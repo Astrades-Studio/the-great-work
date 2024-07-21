@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://34wfbbmqseln"
+path="res://.godot/imported/Shoe Step Sand Soft B.wav-58710abe7f145a0277f4794fad9603a1.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Sand/Shoe Step Sand Soft B.wav"
+dest_files=["res://.godot/imported/Shoe Step Sand Soft B.wav-58710abe7f145a0277f4794fad9603a1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

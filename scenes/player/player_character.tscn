@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=9 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
+[ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
+[ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
+[ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
+[ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4h7oo"]
 
@@ -15,6 +19,11 @@ head_bob_walking_speed = 1.0
 head_bob_sprinting_speed = 14.0
 head_bob_crouching_speed = 1.0
 head_bob_intensity = 0.02
+
+[node name="AutoFootSteps" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170363, 0)
+script = ExtResource("2_wncd0")
+foot_profile = ExtResource("3_yrwvo")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -41,8 +50,7 @@ collision_mask = 5
 [node name="GasLamp" parent="Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.628759, -0.197759, -1.1177)
-active = false
-speed_variance = 1.1196
+speed_variance = 0.55025
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
@@ -67,3 +75,30 @@ cull_mask = 2
 current = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="HUDLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUDLayer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_pbhtp")
+
+[node name="InteractionLabel" type="Label" parent="HUDLayer/CenterContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -12.0
+offset_right = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Interact"
+script = ExtResource("6_ur5a8")

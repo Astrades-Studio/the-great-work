@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi7gmvtnvgdqk"
+path="res://.godot/imported/Bare Step Stone Soft D.wav-2aaff174e4740b9cfd87d45290cb4343.sample"
+
+[deps]
+
+source_file="res://addons/AutoFootStepsPlugin/DefaultSounds/Stone/Bare Step Stone Soft D.wav"
+dest_files=["res://.godot/imported/Bare Step Stone Soft D.wav-2aaff174e4740b9cfd87d45290cb4343.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
