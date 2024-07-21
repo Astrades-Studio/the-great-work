@@ -9,6 +9,8 @@ enum GameState {
 	LOADING
 }
 
+# This variable goberns the inputs and pauses. Whenever there is a change, 
+# it should be modified from anywhere needed. Just check for double calls
 var current_state : GameState:
 	set(value):
 		current_state = value
@@ -23,6 +25,7 @@ var current_state : GameState:
 
 var environment : WorldEnvironment
 var text_layer : TextLayer
+var player : UCharacterBody3D
 
 signal update_interaction_label(string : String)
 

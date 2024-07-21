@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=20 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
-[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="6_od54k"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
+[ext_resource type="Script" path="res://scenes/dialog_layer.gd" id="8_6lgb1"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 
@@ -110,7 +112,10 @@ transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823,
 
 [node name="Page2" parent="Props" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
-page = ExtResource("6_od54k")
+page = ExtResource("6_kc6qj")
+
+[node name="Mortar" parent="Props" instance=ExtResource("7_8yktc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41888, 0.452023, -7.20209)
 
 [node name="Ground" type="Node3D" parent="."]
 
@@ -210,6 +215,33 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 text = "Back"
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+script = ExtResource("8_6lgb1")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="DialogLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+
+[node name="TextLabel" type="Label" parent="DialogLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder text"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_qg76f")

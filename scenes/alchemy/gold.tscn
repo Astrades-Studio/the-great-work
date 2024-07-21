@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4d2k12engjc6"]
+[gd_scene load_steps=6 format=3 uid="uid://c4d2k12engjc6"]
 
 [ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_dqgjw"]
 
@@ -10,17 +10,26 @@ albedo_color = Color(0.587055, 0.586321, 3.85046e-07, 1)
 metallic = 1.0
 metallic_specular = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qseue"]
+albedo_color = Color(0.895486, 0.243457, 0.74197, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vlvo2"]
 points = PackedVector3Array(0.05, 0.05, 0.1, 0.05, -0.05, 0.1, 0.05, 0.05, -0.1, -0.05, 0.05, 0.1, -0.05, -0.05, 0.1, 0.05, -0.05, -0.1, -0.05, 0.05, -0.1, -0.05, -0.05, -0.1)
 
-[node name="Gold" type="Node3D"]
+[node name="Gold" type="StaticBody3D"]
+collision_layer = 4
 script = ExtResource("1_dqgjw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="InitialState" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7xiqm")
 surface_material_override/0 = SubResource("StandardMaterial3D_w17qw")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="Processed" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_7xiqm")
+surface_material_override/0 = SubResource("StandardMaterial3D_qseue")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_vlvo2")

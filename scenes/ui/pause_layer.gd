@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 			_on_back_button_pressed()
 		elif pause_container.visible:
 			hide_pause_menu()
-		else:
+		elif GameManager.current_state == GameManager.GameState.PLAYING:
 			show_pause_menu()
 		
 

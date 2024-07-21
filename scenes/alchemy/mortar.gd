@@ -1,0 +1,2 @@
+class_name Mortar
+extends StaticBody3D

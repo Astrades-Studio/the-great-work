@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=10 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
+[ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/gold.tscn" id="5_oqt7l"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4h7oo"]
+radius = 0.384502
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ax0q"]
+radius = 0.408508
 height = 1.3
 
 [node name="UCharacterBody3D" type="CharacterBody3D"]
@@ -49,8 +52,13 @@ collision_mask = 5
 
 [node name="GasLamp" parent="Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.628759, -0.197759, -1.1177)
-speed_variance = 0.850005
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354939, -0.254477, -0.607729)
+speed_variance = 1.44285
+
+[node name="Hand" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345489, -0.254477, -0.607729)
+
+[node name="Gold" parent="Head/Hand" instance=ExtResource("5_oqt7l")]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
