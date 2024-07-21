@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=9 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
-[ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_oqt7l"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 
@@ -25,14 +24,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56021, 0)
 
 [node name="GasLamp" parent="Body/Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354939, -0.254477, -0.607729)
-speed_variance = 0.534597
+transform = Transform3D(0.623885, 0, 0, 0, 0.623885, 0, 0, 0, 0.623885, -0.198263, -0.176607, -0.342301)
+speed_variance = 1.34844
 
 [node name="Hand" type="Node3D" parent="Body/Head"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345489, -0.254477, -0.607729)
-
-[node name="Gold" parent="Body/Head/Hand" instance=ExtResource("5_oqt7l")]
 
 [node name="CameraMarker3D" type="Marker3D" parent="Body/Head"]
 

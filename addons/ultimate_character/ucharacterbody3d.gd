@@ -9,6 +9,9 @@ class_name UCharacterBody3D
 @onready var camera = $Body/Head/CameraMarker3D/Camera3D
 @onready var camera_target = $Body/Head/CameraMarker3D
 @onready var head_position: Vector3 = head.position
+@onready var item_camera: Camera3D = %ItemCamera
+
+
 
 var mouse_sensitivity: float = 0.1
 
@@ -76,6 +79,8 @@ func _process(delta: float) -> void:
 	if update_camera:
 		update_camera_transform()
 		update_camera = false
+	
+	item_camera.global_transform = camera.global_transform
 
 	var interpolation_fraction = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
 

@@ -1,14 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfcsgna6rb617"]
 
+[ext_resource type="ArrayMesh" uid="uid://d28h4ap8pdroq" path="res://assets/models/tools/mortar_pestle.obj" id="1_ixii3"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_kotfv"]
+[ext_resource type="Material" uid="uid://b1gxqoccsh740" path="res://assets/models/concrete_wallpaper.tres" id="2_kpx3y"]
 [ext_resource type="Script" path="res://scenes/alchemy/mortar_component.gd" id="3_845u3"]
-
-[sub_resource type="TorusMesh" id="TorusMesh_f35jy"]
-inner_radius = 0.295
-outer_radius = 0.119
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fmah"]
-albedo_color = Color(0.800029, 0.277997, 0.446907, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5gc1l"]
 radius = 0.312406
@@ -17,8 +12,8 @@ radius = 0.312406
 collision_layer = 4
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("TorusMesh_f35jy")
-surface_material_override/0 = SubResource("StandardMaterial3D_5fmah")
+mesh = ExtResource("1_ixii3")
+surface_material_override/0 = ExtResource("2_kpx3y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5gc1l")

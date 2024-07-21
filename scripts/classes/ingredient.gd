@@ -18,6 +18,7 @@ enum Type {
 const BOWL = preload("res://assets/models/ingredients/bowl.obj")
 const ORE = preload("res://assets/models/ingredients/ore.obj")
 
+
 enum State {
 	INITIAL,
 	PROCESSED
@@ -31,13 +32,19 @@ enum Location {
 @export var type : Type :
 	set(value): 
 		type = value
-		self.name = str(type)
+		self.name = str(Type.keys()[type])
 
 @onready var initial_mesh: MeshInstance3D = $InitialState
 @onready var processed_mesh: MeshInstance3D = $Processed
 
+#@export var INITIAL_MESH : Mesh:
+	#set(value):
+		#if !initial_mesh:
+			#return
+		#INITIAL_MESH = value
+		#initial_mesh.mesh = INITIAL_MESH
 
-var current_location : Location:
+@onready var current_location : Location = Location.ENVIRONMENT :
 	set(value):
 		current_location = value
 		if current_location == Location.HAND:
@@ -48,7 +55,7 @@ var current_location : Location:
 			processed_mesh.layers = 0x0001
 
 
-var current_state : State:
+var current_state : State = State.INITIAL : 
 	set(value):
 		current_state = value
 		if current_state == State.INITIAL:
@@ -57,7 +64,9 @@ var current_state : State:
 		elif current_state == State.PROCESSED:
 			processed_mesh.show()
 			initial_mesh.hide()
-		
-func _ready() -> void:
-	current_location = current_location
-	current_state = current_state
+			
+			
+# func _ready() -> void:
+# 	print(str(self) + " " + str(Location.keys()[current_location]))
+# 	current_location = Location.ENVIRONMENT
+# 	#current_location = Location.ENVIRONMENT

@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/ore.obj-e7c8cb06538af4103c12535a7cc400f4.mesh
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
+scale_mesh=Vector3(0.75, 0.75, 0.75)
 offset_mesh=Vector3(0, 0, 0)
 optimize_mesh=true
 force_disable_mesh_compression=false

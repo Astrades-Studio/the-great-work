@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=25 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
+[ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
 [ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="7_8yktc"]
@@ -53,13 +54,13 @@ sky_material = SubResource("ShaderMaterial_71x8p")
 background_mode = 2
 sky = SubResource("Sky_ks0bx")
 ambient_light_source = 2
-ambient_light_color = Color(0.18359, 0.18359, 0.18359, 1)
+ambient_light_color = Color(0.460995, 0.460995, 0.460995, 1)
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.6806
+fog_density = 5.0
 fog_sky_affect = 0.245
 fog_height = 4.5
 fog_depth_curve = 0.183011
@@ -107,6 +108,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
 environment = SubResource("Environment_yd2gk")
 
+[node name="Ingredient" parent="Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
 light_color = Color(1, 0.505882, 0.278431, 1)
@@ -126,7 +130,16 @@ transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823,
 page = ExtResource("6_kc6qj")
 
 [node name="Mortar" parent="Props" instance=ExtResource("7_8yktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41888, 0.452023, -7.20209)
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.01719, -2.68881, 4.42384)
+
+[node name="Ingredient" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.01719, -2.68881, 4.42384)
+
+[node name="0" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 0.0958748, -2.68881, 4.42384)
+
+[node name="1" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 0.529225, -2.68881, 4.42384)
 
 [node name="Ground" type="Node3D" parent="."]
 
