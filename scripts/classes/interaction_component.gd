@@ -3,34 +3,77 @@ extends Node
 
 @export var mesh : MeshInstance3D
 @export var sprite : Sprite3D
+@export var use_outline : bool = true
 
 const highlight_material : ShaderMaterial = preload("res://assets/outline_material.tres")
 var parent : Node
-var active_material : Material
+var duplicate_material : Material
+var og_material : Material
+var outline : MeshInstance3D
+
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		use_outline = !use_outline
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	parent = get_parent()
-	connect_parent()
+	
+	if parent is MeshInstance3D:
+		mesh = parent
+		var body = find_body()
+		assert(body, "Mesh without physics body")
+		connect_parent(body)
 
+	elif parent is PhysicsBody3D:
+		connect_parent(parent)
+
+	else:
+		printerr("Parent is not a Physics body or mesh")
+
+func find_body() -> PhysicsBody3D:
+	for body in parent.get_children():
+		if body is PhysicsBody3D:
+			return body
+
+	return null
 
 func in_range() -> void:
 	GameManager.update_interaction_label.emit(parent.name)
 	
 	if mesh:
-		active_material = mesh.get_active_material(0)
-		if !active_material:
-			printerr("Mesh without material assigned")
-		active_material.next_pass = highlight_material
+		if use_outline:
+			var outline_mesh = mesh.mesh.create_outline(0.04)
+			outline = MeshInstance3D.new()
+			outline.mesh = outline_mesh
+			mesh.add_child(outline)
+		else:
+			assert(mesh.get_active_material(0), "Mesh without material assigned")
+			og_material = mesh.get_active_material(0)
+			duplicate_material = og_material.duplicate()
+		
+			duplicate_material.next_pass = highlight_material
+			mesh.material_override = duplicate_material
+		
 	elif sprite:
 		sprite.modulate = Color("fed1ff")
+	else:
+		printerr("No mesh or sprite found")
 	
 
 
 func not_in_range() -> void:
 	GameManager.update_interaction_label.emit("")
-	if active_material:
-		active_material.next_pass = null
+	if duplicate_material:
+		mesh.material_override = null
+		# Free the reference to the duplicate material
+		duplicate_material = null
+	
+	if outline and use_outline:
+		outline.queue_free()
+		
 	if sprite:
 		sprite.modulate = Color.WHITE
 
@@ -39,10 +82,10 @@ func on_interact() -> void:
 	pass
 
 
-func connect_parent() -> void:
-	parent.add_user_signal("focused")
-	parent.add_user_signal("unfocused")
-	parent.add_user_signal("interacted")
-	parent.connect("focused", Callable(self, "in_range"))
-	parent.connect("unfocused", Callable(self, "not_in_range"))
-	parent.connect("interacted", Callable(self, "on_interact"))
+func connect_parent(node: PhysicsBody3D) -> void:
+	node.add_user_signal("focused")
+	node.add_user_signal("unfocused")
+	node.add_user_signal("interacted")
+	node.connect("focused", Callable(self, "in_range"))
+	node.connect("unfocused", Callable(self, "not_in_range"))
+	node.connect("interacted", Callable(self, "on_interact"))

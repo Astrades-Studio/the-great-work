@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=5 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
+[ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="1_qspuw"]
 [ext_resource type="AudioStream" uid="uid://db8kgni2e4eib" path="res://assets/sounds/music/Ambient Nothingness Intensity 2.wav" id="2_qtu0m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_66ycg"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qspuw")
 script = ExtResource("1_6645d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -44,13 +46,13 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Astra Obligant"
+text = "The Great Work"
 label_settings = SubResource("LabelSettings_66ycg")
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Label"]
+[node name="Title" type="TextureRect" parent="HBoxContainer/VBoxContainer/TitleLabel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

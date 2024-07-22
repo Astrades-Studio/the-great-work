@@ -16,9 +16,10 @@ albedo_texture = ExtResource("3_m4jpa")
 albedo_color = Color(0.336156, 0.0694933, 2.40654e-08, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykjg7"]
-size = Vector3(3999.96, 1.05273, 0.0605469)
+size = Vector3(1, 1.053, 0.061)
 
 [node name="Painting" type="StaticBody3D"]
+collision_layer = 4
 script = ExtResource("1_s2wci")
 painting = ExtResource("2_eydgx")
 

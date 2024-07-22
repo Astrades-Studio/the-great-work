@@ -9,7 +9,7 @@ extends StaticBody3D
 		
 		painting = value
 		
-		if !ready:
+		if !mesh:
 			return
 		
 		var material := StandardMaterial3D.new()

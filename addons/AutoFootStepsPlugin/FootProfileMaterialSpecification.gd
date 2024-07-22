@@ -6,14 +6,14 @@ class_name FootProfileMaterialSpecification
 ## The name for this specific Material; Used for labelling only.
 @export
 var name : StringName:
-    get:
-        if Engine.is_editor_hint():
-            resource_name = name
-        return name
-    set(value):
-        if Engine.is_editor_hint():
-            resource_name = value
-        name = value
+	get:
+		if Engine.is_editor_hint():
+			resource_name = name
+		return name
+	set(value):
+		if Engine.is_editor_hint():
+			resource_name = value
+		name = value
 
 @export
 var volume_multiplier : float = 1
@@ -21,13 +21,13 @@ var volume_multiplier : float = 1
 ## Tags, used for detecting what material an asset goes with.
 @export
 var similar_names : Array[String]:
-    get:
-        if Engine.is_editor_hint():
-            for i in len(similar_names):
-                similar_names[i] = similar_names[i].to_lower()
-        return similar_names
-    set(value):
-        similar_names = value
+	get:
+		if Engine.is_editor_hint():
+			for i in len(similar_names):
+				similar_names[i] = similar_names[i].to_lower()
+		return similar_names
+	set(value):
+		similar_names = value
 
 ## Soft footsteps for crouching
 @export

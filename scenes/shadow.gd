@@ -4,6 +4,9 @@ extends Node3D
 @onready var right_eye : MeshInstance3D = $MeshInstance3D/MeshInstance3D
 @onready var left_eye: MeshInstance3D = $MeshInstance3D/MeshInstance3D2
 
+
+@export var active : bool = false
+
 @export var HP := 100:
 	set(value):
 		HP = clamp(value, 0, 100)
@@ -33,7 +36,7 @@ var tween: Tween
 @export var SPEED : float = 0.1
 
 func _process(delta: float) -> void:
-	if target:
+	if target and active:
 		look_at(target.global_position, Vector3.UP, true)
 
 
@@ -45,6 +48,8 @@ func _on_tick_countdown():
 
 
 func follow_player_for(duration : int = 20):
+	if !active:
+		return
 	following_player = true
 	get_tree().create_timer(duration).timeout.connect(func(): following_player = false)
 	var _target_position : Vector3 = target.global_position

@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyu47vdpngayr"
-path.s3tc="res://.godot/imported/house_Solanum textures-02-02.png-5bd9095c24724f697baa4c7d0d748606.s3tc.ctex"
+path="res://.godot/imported/house_Solanum textures-02-02.png-5bd9095c24724f697baa4c7d0d748606.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "845f1a3dd86ca86c12cbe67984669379"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/house/house_Solanum textures-02-02.png"
-dest_files=["res://.godot/imported/house_Solanum textures-02-02.png-5bd9095c24724f697baa4c7d0d748606.s3tc.ctex"]
+dest_files=["res://.godot/imported/house_Solanum textures-02-02.png-5bd9095c24724f697baa4c7d0d748606.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

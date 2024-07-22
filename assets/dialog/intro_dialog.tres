@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://hjajdnxo04ie"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_fadr2"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_21uvw"]
+
+[sub_resource type="Resource" id="Resource_11twa"]
+script = ExtResource("1_fadr2")
+dialog_speaker = "Adam"
+dialog_text = "Welcome, Melchiades, to my humble abode."
+
+[sub_resource type="Resource" id="Resource_xcvh7"]
+script = ExtResource("1_fadr2")
+dialog_speaker = "Adam"
+dialog_text = "You know why you are here."
+
+[sub_resource type="Resource" id="Resource_hm4kj"]
+script = ExtResource("1_fadr2")
+dialog_speaker = "Adam"
+dialog_text = "You are about to become worthy.
+Show me what you are capable of."
+
+[resource]
+script = ExtResource("2_21uvw")
+dialog_id = &"Intro"
+dialog = Array[ExtResource("1_fadr2")]([SubResource("Resource_11twa"), SubResource("Resource_xcvh7"), SubResource("Resource_hm4kj")])

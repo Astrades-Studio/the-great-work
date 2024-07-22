@@ -53,7 +53,13 @@ player=""
 
 [gui]
 
-theme/custom_font="res://assets/fonts/pixel/PixelifySans-SemiBold.ttf"
+theme/custom_font="res://assets/ui/fonts/pixel/PixelifySans-SemiBold.ttf"
+
+[importer_defaults]
+
+scene={
+"import_script/path": "res://addons/blender_godot_pipeline/GLTFImporter.gd"
+}
 
 [input]
 
@@ -120,5 +126,6 @@ drop={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

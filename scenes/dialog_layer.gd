@@ -10,17 +10,26 @@ func _ready() -> void:
 	DialogManager.dialog_layer = self
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_accept") \
+	or event.is_action_pressed("ui_cancel") \
+	or event.is_action_pressed("interact") :
 		if visible:
 			DialogManager.skip()
 
+var queue : Array[DialogPiece]
 
-func show_text(string: DialogManager.DialogPiece):
+func queue_text(dialog_piece: DialogPiece):
+	queue.append(dialog_piece)
+
+
+func show_text(string: DialogPiece):
 	show()
+	GameManager.current_state = GameManager.GameState.DIALOG
 	name_label.text = string.dialog_name
 	text_label.text = string.dialog_text 
 
 func hide_text():
 	hide()
+	GameManager.current_state = GameManager.GameState.PLAYING #HACK: hopefully that's it but maybe we need to double check
 	name_label.text = ""
 	text_label.text = "???"

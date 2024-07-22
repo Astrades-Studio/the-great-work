@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://d16g48k8u865c"]
+
+[ext_resource type="Script" path="res://scenes/dialog_layer.gd" id="1_hnis6"]
+[ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
+[ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="2_ldgvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
+atlas = ExtResource("2_j5dhc")
+region = Rect2(410, 315, 32, 20)
+
+[node name="DialogLayer" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_hnis6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ldgvr")
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.09
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.72
+theme = ExtResource("2_ldgvr")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder name"
+horizontal_alignment = 1
+
+[node name="TextLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder text"
+
+[node name="NextIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_02axw")
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

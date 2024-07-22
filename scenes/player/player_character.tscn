@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 [node name="GasLamp" parent="Body/Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.623885, 0, 0, 0, 0.623885, 0, 0, 0, 0.623885, -0.198263, -0.176607, -0.342301)
-speed_variance = 1.36124
+speed_variance = 0.579622
 
 [node name="Hand" type="Node3D" parent="Body/Head"]
 unique_name_in_owner = true
@@ -47,7 +47,6 @@ target_position = Vector3(0, 2, 0)
 collision_mask = 5
 
 [node name="AutoFootSteps" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170363, 0)
 script = ExtResource("2_wncd0")
 foot_profile = ExtResource("3_yrwvo")
 
