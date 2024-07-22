@@ -2,6 +2,7 @@ extends Node
 
 var dialog_layer : DialogLayer
 
+const INTRO := preload("res://assets/dialog/intro_dialog.tres")
 
 # First create DialogPiece.new() and set dialog_text to be the text to say and dialog_name to be the name
 # To write dialog to the screen, just call DialogManager.show_text(DialoguePiece)
@@ -13,14 +14,23 @@ var dialog_layer : DialogLayer
 func create_dialog_piece(text: String, speaker: String = "???"):
 	var dialog_piece := DialogPiece.new()
 	dialog_piece.dialog_text = text
-	dialog_piece.dialog_name = speaker
-	dialog_layer.queue_text(dialog_piece)
+	dialog_piece.dialog_speaker = speaker
+
+	var _dialog = Dialog.new()
+	_dialog.dialog.append(dialog_piece)
+	play_dialog(_dialog)
+
 
 
 func play_dialog(dialog : Dialog):
-	for dialog_piece : DialogPiece in dialog.dialog:
-		dialog_layer.queue_text(dialog_piece)
+	GameManager.current_state = GameManager.GameState.DIALOG
+	dialog_layer.play_dialog(dialog)
 
 
-func skip():
+func skip_dialog():
 	dialog_layer.hide_text()
+
+
+func _on_dialog_finished():
+	await get_tree().create_timer(0.2).timeout
+	GameManager.current_state = GameManager.GameState.PLAYING

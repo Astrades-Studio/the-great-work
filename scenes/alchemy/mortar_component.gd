@@ -14,14 +14,14 @@ func _ready() -> void:
 func use_mortar():
 	var ingredient = GameManager.player.ingredient_in_hand
 	if !ingredient:
-		DialogManager.create_dialog("I require an ingredient")
+		DialogManager.create_dialog_piece("I require an ingredient")
 	elif ingredient:
 		if ingredient_1:
-			DialogManager.create_dialog("There's already an ingredient there")
+			DialogManager.create_dialog_piece("There's already an ingredient there")
 		elif ingredient.current_state == Ingredient.State.PROCESSED:
-			DialogManager.create_dialog("This is already processed")
+			DialogManager.create_dialog_piece("This is already processed")
 		elif !ingredient_1:
-			DialogManager.create_dialog("Let's grind this up")
+			DialogManager.create_dialog_piece("Let's grind this up")
 			ingredient.current_state = Ingredient.State.PROCESSED
 		
 			

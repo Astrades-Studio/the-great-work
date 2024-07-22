@@ -23,7 +23,7 @@ class worm:
 
 signal neuron_clicked(Neuron)
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and !event.is_released():
 		neuron_clicked.emit(self)
 		print(str(self.name) + " ID: " + str(self.identification_number))

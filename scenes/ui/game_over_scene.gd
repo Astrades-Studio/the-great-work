@@ -5,12 +5,11 @@ extends Control
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	retry_button.grab_focus()
 
 
 func _on_retry_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	get_tree().change_scene_to_packed(GameManager.MAIN_SCENE)
 
 
 func _on_quit_button_pressed() -> void:

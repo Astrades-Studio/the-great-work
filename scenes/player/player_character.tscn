@@ -18,21 +18,12 @@ size = Vector3(0.781006, 0.995728, 0.719727)
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 script = ExtResource("1_rwwvt")
 ACCELERATION_DEFAULT = 4.0
-STAIRS_FEELING_COEFFICIENT = 2.0
+SPEED_DEFAULT = 4.895
 
 [node name="Body" type="Node3D" parent="."]
 
 [node name="Head" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
-
-[node name="GasLamp" parent="Body/Head" instance=ExtResource("2_it7tx")]
-unique_name_in_owner = true
-transform = Transform3D(0.623885, 0, 0, 0, 0.623885, 0, 0, 0, 0.623885, -0.198263, -0.176607, -0.342301)
-speed_variance = 0.579622
-
-[node name="Hand" type="Node3D" parent="Body/Head"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345489, -0.254477, -0.607729)
 
 [node name="CameraMarker3D" type="Marker3D" parent="Body/Head"]
 
@@ -76,10 +67,19 @@ render_target_update_mode = 4
 
 [node name="ItemCamera" type="Camera3D" parent="HandLayer/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22046, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38726, 0)
 keep_aspect = 0
 cull_mask = 2
 current = true
+
+[node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
+unique_name_in_owner = true
+transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
+speed_variance = 1.20549
+
+[node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
+unique_name_in_owner = true
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0.270538, -0.21454, -0.475886)
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_16wbu")

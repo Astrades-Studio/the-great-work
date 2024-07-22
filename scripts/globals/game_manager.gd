@@ -1,6 +1,7 @@
 extends Node
 
 const MAIN_SCENE := preload("res://scenes/main.tscn")
+const GAME_OVER_SCENE := preload("res://scenes/ui/game_over_scene.tscn")
 
 enum GameState {
 	MAIN_MENU,
@@ -47,10 +48,20 @@ signal update_interaction_label(string : String)
 signal game_over
 signal tick_countdown
 
-# Gets connected automatically
+func _ready() -> void:
+	current_state = GameState.MAIN_MENU
+	game_over.connect(_on_game_over)
+
+# Gets connected from main menu
 func _on_new_game_requested():
 	current_state = GameState.PLAYING
 	get_tree().change_scene_to_packed(MAIN_SCENE)
+
+
+func _on_game_over():
+	get_tree().change_scene_to_packed(GAME_OVER_SCENE)
+	current_state = GameState.MAIN_MENU
+	
 
 func request_page_UI(page: Texture):
 	text_layer.show_text(page)
