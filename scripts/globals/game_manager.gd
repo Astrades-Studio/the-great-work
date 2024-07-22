@@ -44,6 +44,8 @@ var text_layer : TextLayer
 var player : UCharacterBody3D
 
 signal update_interaction_label(string : String)
+signal game_over
+signal tick_countdown
 
 # Gets connected automatically
 func _on_new_game_requested():

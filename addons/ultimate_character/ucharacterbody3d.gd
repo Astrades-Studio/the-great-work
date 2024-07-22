@@ -15,10 +15,10 @@ class_name UCharacterBody3D
 
 var mouse_sensitivity: float = 0.1
 
-const ACCELERATION_DEFAULT: float = 7.0
-const ACCELERATION_AIR: float = 1.0
-const SPEED_DEFAULT: float = 7.0
-const SPEED_ON_STAIRS: float = 5.0
+@export var ACCELERATION_DEFAULT: float = 7.0
+@export var ACCELERATION_AIR: float = 1.0
+@export var SPEED_DEFAULT: float = 7.0
+@export var SPEED_ON_STAIRS: float = 5.0
 
 var acceleration: float = ACCELERATION_DEFAULT
 var speed: float = SPEED_DEFAULT
@@ -30,15 +30,15 @@ var main_velocity: Vector3 = Vector3.ZERO
 var gravity_direction: Vector3 = Vector3.ZERO
 var movement: Vector3 = Vector3.ZERO
 
-const STAIRS_FEELING_COEFFICIENT: float = 2.5
-const WALL_MARGIN: float = 0.001
-const STEP_DOWN_MARGIN: float = 0.01
-const STEP_HEIGHT_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
-const STEP_HEIGHT_IN_AIR_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
-const STEP_MAX_SLOPE_DEGREE: float = 40.0
-const STEP_CHECK_COUNT: int = 2
-const SPEED_CLAMP_AFTER_JUMP_COEFFICIENT = 0.4
-const SPEED_CLAMP_SLOPE_STEP_UP_COEFFICIENT = 0.4
+@export var STAIRS_FEELING_COEFFICIENT: float = 2.5
+@export var WALL_MARGIN: float = 0.001
+@export var STEP_DOWN_MARGIN: float = 0.01
+@export var STEP_HEIGHT_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
+@export var STEP_HEIGHT_IN_AIR_DEFAULT: Vector3 = Vector3(0, 0.6, 0)
+@export var STEP_MAX_SLOPE_DEGREE: float = 40.0
+@export var STEP_CHECK_COUNT: int = 2
+@export var SPEED_CLAMP_AFTER_JUMP_COEFFICIENT = 0.4
+@export var SPEED_CLAMP_SLOPE_STEP_UP_COEFFICIENT = 0.4
 
 var step_height_main: Vector3
 var step_incremental_check_height: Vector3

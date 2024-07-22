@@ -43,13 +43,11 @@ script = ExtResource("1_dqgjw")
 
 [node name="InitialState" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0.0349893, 0)
-layers = 2
 mesh = ExtResource("2_0h8cc")
 
 [node name="Processed" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.64197, 0, 0, 0, 1.64197, 0, 0, 0, 1.64197, 0, 0, 0)
 visible = false
-layers = 2
 mesh = ExtResource("3_ocmf8")
 surface_material_override/0 = SubResource("StandardMaterial3D_qseue")
 surface_material_override/1 = SubResource("StandardMaterial3D_5pl5i")

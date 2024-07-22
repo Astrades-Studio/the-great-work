@@ -1,0 +1,355 @@
+[gd_scene load_steps=25 format=3 uid="uid://d1faedhw8viyw"]
+
+[ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
+[ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
+[ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
+[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
+[ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
+[ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="7_8yktc"]
+[ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
+[ext_resource type="Script" path="res://scenes/dialog_layer.gd" id="8_6lgb1"]
+[ext_resource type="Shader" path="res://scripts/shaders/pixelate_postprocess.gdshader" id="8_s50pj"]
+[ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
+[ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="10_afs4k"]
+[ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
+shader = ExtResource("2_la52w")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_ks0bx"]
+sky_material = SubResource("ShaderMaterial_71x8p")
+
+[sub_resource type="Environment" id="Environment_yd2gk"]
+background_mode = 2
+sky = SubResource("Sky_ks0bx")
+ambient_light_source = 2
+ambient_light_color = Color(0.460995, 0.460995, 0.460995, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 5.0
+fog_sky_affect = 0.245
+fog_height = 4.5
+fog_depth_curve = 0.183011
+fog_depth_begin = 0.0
+fog_depth_end = 1683.3
+volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfu1j"]
+albedo_color = Color(0.065, 0.1, 0.0836667, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
+points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
+shader = ExtResource("8_s50pj")
+shader_parameter/size = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
+atlas = ExtResource("10_afs4k")
+region = Rect2(410, 315, 32, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
+
+[node name="MainScene" type="Node3D"]
+script = ExtResource("1_bkhrr")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="House" parent="Level" instance=ExtResource("1_7hj75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+
+[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.3193, 0.740573, 3.7935)
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 14.1873, -2.01362, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
+unique_name_in_owner = true
+environment = SubResource("Environment_yd2gk")
+
+[node name="Ingredient" parent="Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
+light_color = Color(1, 0.505882, 0.278431, 1)
+light_energy = 0.724
+shadow_enabled = true
+omni_range = 2.558
+omni_attenuation = 0.741
+
+[node name="Props" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
+
+[node name="Page" parent="Props" instance=ExtResource("5_6lkja")]
+transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 4.26671, 1.2003, 2.88134)
+
+[node name="Page2" parent="Props" instance=ExtResource("5_6lkja")]
+transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
+page = ExtResource("6_kc6qj")
+
+[node name="Mortar" parent="Props" instance=ExtResource("7_8yktc")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 2.2267, 1.03432, 2.69109)
+
+[node name="Ingredient" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.96638, 0.788218, 3.23636)
+
+[node name="0" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.04506, 0.788218, 3.23636)
+
+[node name="1" parent="Props" instance=ExtResource("5_64sgf")]
+transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.47842, 0.788218, 3.23636)
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground4" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 24.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground4/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground3" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -25.542)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground3/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground2" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -17.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground2/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground5" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -67.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground5/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground6" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8838, 0, -75.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground6/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_6ah3r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.263882, 0.325489, 0.43773, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+script = ExtResource("6_c01vt")
+audio_delay = 0.6
+
+[node name="TextureRect" type="TextureRect" parent="TextLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="TextLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="TextLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+visible = false
+script = ExtResource("8_6lgb1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.09
+
+[node name="Control" type="Control" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.72
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder name"
+horizontal_alignment = 1
+
+[node name="TextLabel" type="Label" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder text"
+
+[node name="NextIndicator" type="TextureRect" parent="DialogLayer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("AtlasTexture_02axw")
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="DialogLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="DialogLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qg76f")
+volume_db = -9.091
+autoplay = true
+bus = &"Music"
+
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9725, -3.17731, 7.48594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldBoundary"]
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+disabled = true
+
+[node name="WorldSafeguard" type="Area3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+script = ExtResource("9_7hkxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+
+[node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+visible = false
+
+[node name="GameOverTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]

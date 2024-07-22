@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://oe4kjxa51br1"]
+
+[ext_resource type="Script" path="res://scenes/shadow.gd" id="1_4x05d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhcya"]
+transparency = 1
+albedo_color = Color(0.106, 0.106, 0.106, 0.792)
+emission_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_fcapl"]
+material = SubResource("StandardMaterial3D_fhcya")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppmow"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_l5nim"]
+material = SubResource("StandardMaterial3D_ppmow")
+radius = 0.1
+height = 0.1
+is_hemisphere = true
+
+[node name="Shadow" type="Node3D"]
+script = ExtResource("1_4x05d")
+SPEED = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_fcapl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -0.319257, -0.947668, 0, 0.947668, -0.319257, -0.191302, 0.0613326, 0.420999)
+mesh = SubResource("SphereMesh_l5nim")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.977973, 0.208731, -7.45058e-09, 0.0666389, -0.312225, -0.947668, -0.197808, 0.926794, -0.319257, 0.14175, 0.0613326, 0.420999)
+mesh = SubResource("SphereMesh_l5nim")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_negative = true

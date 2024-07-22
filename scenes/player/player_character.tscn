@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=10 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
+[ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 
@@ -13,9 +14,11 @@ size = Vector3(0.801, 1.91089, 0.71)
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
 size = Vector3(0.781006, 0.995728, 0.719727)
 
-[node name="UCharacterBody3D" type="CharacterBody3D"]
+[node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 script = ExtResource("1_rwwvt")
+ACCELERATION_DEFAULT = 4.0
+STAIRS_FEELING_COEFFICIENT = 2.0
 
 [node name="Body" type="Node3D" parent="."]
 
@@ -25,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 [node name="GasLamp" parent="Body/Head" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.623885, 0, 0, 0, 0.623885, 0, 0, 0, 0.623885, -0.198263, -0.176607, -0.342301)
-speed_variance = 1.12212
+speed_variance = 1.36124
 
 [node name="Hand" type="Node3D" parent="Body/Head"]
 unique_name_in_owner = true
@@ -80,6 +83,7 @@ cull_mask = 2
 current = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_16wbu")
 
 [node name="CenterContainer" type="CenterContainer" parent="HUDLayer"]
 anchors_preset = 15
@@ -107,3 +111,30 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Interact"
 script = ExtResource("6_ur5a8")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUDLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Timer:"
+
+[node name="CountdownLabel" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2

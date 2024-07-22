@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq5ekg3eobo0e"]
+[gd_scene load_steps=9 format=3 uid="uid://cq5ekg3eobo0e"]
 
 [ext_resource type="Script" path="res://scenes/props/painting.gd" id="1_s2wci"]
-[ext_resource type="Texture2D" uid="uid://bh8q1yon6gjs7" path="res://assets/images/paintings/painting-05.jpg" id="2_3ni7n"]
+[ext_resource type="Texture2D" uid="uid://f6kjygcqqo4v" path="res://assets/images/paintings/painting-19.jpg" id="2_eydgx"]
+[ext_resource type="Texture2D" uid="uid://ctqpcva1htifs" path="res://assets/images/paintings/painting-39.jpg" id="3_m4jpa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve40t"]
+albedo_texture = ExtResource("2_eydgx")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ovslk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54i4i"]
-albedo_texture = ExtResource("2_3ni7n")
+albedo_texture = ExtResource("3_m4jpa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31ew6"]
 albedo_color = Color(0.336156, 0.0694933, 2.40654e-08, 1)
@@ -16,10 +20,11 @@ size = Vector3(3999.96, 1.05273, 0.0605469)
 
 [node name="Painting" type="StaticBody3D"]
 script = ExtResource("1_s2wci")
-painting = ExtResource("2_3ni7n")
+painting = ExtResource("2_eydgx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0, 0, -0.0130587)
+material_override = SubResource("StandardMaterial3D_ve40t")
 mesh = SubResource("QuadMesh_ovslk")
 surface_material_override/0 = SubResource("StandardMaterial3D_54i4i")
 
