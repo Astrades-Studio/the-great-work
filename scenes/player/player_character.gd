@@ -18,7 +18,7 @@ var ingredient_in_hand : Ingredient:
 		ingredient_in_hand = value
 
 		if ingredient_in_hand:
-			ingredient_in_hand.global_transform.origin = hand.global_transform.origin
+			ingredient_in_hand.global_transform = hand.global_transform
 			ingredient_in_hand.reparent(hand)
 			ingredient_in_hand.current_location = Ingredient.Location.HAND
 
@@ -95,8 +95,14 @@ func _physics_process(delta: float) -> void:
 # define an "interact()" function that takes a parameter if they need a specific item
 # Check the PageComponent in Page.tscn to see how this works along the InteractComponent
 func interact():
+	if ingredient_in_hand is Flare:
+		if !ingredient_in_hand.active:
+			ingredient_in_hand.active = true
+			return
+
 	if !interaction_result:
 		return
 	
 	if interaction_result.has_user_signal("interacted"):
 		interaction_result.emit_signal("interacted")
+		

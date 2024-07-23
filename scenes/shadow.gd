@@ -3,6 +3,7 @@ extends Node3D
 @onready var mesh : MeshInstance3D = $MeshInstance3D
 @onready var right_eye : MeshInstance3D = $MeshInstance3D/MeshInstance3D
 @onready var left_eye: MeshInstance3D = $MeshInstance3D/MeshInstance3D2
+@onready var shadow_influence: Area3D = $ShadowInfluence
 
 
 @export var active : bool = false

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://deqfjrh5bdyvk"]
+
+[sub_resource type="Gradient" id="Gradient_cdeaq"]
+offsets = PackedFloat32Array(0.255708, 0.762557, 0.986301)
+colors = PackedColorArray(0, 0, 0, 1, 0.131039, 0.131039, 0.131039, 1, 0.583333, 0.583333, 0.583333, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_16dh8"]
+frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmtd4"]
+seamless = true
+normalize = false
+color_ramp = SubResource("Gradient_cdeaq")
+noise = SubResource("FastNoiseLite_16dh8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s2e3"]
+blend_mode = 1
+albedo_color = Color(0.9239, 0.9239, 0.9239, 1)
+albedo_texture = SubResource("NoiseTexture2D_gmtd4")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jdte5"]
+lifetime_randomness = 0.98
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+angle_min = -111.6
+angle_max = 67.0
+direction = Vector3(0, 0, 1)
+spread = 2.0
+initial_velocity_min = 1.2
+initial_velocity_max = 4.88
+angular_velocity_min = -55.81
+angular_velocity_max = 44.65
+gravity = Vector3(0, 2, 0)
+damping_max = 6.976
+
+[sub_resource type="QuadMesh" id="QuadMesh_xqumi"]
+size = Vector2(0.1, 0.1)
+
+[node name="Smoke" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_1s2e3")
+cast_shadow = 0
+amount = 140
+lifetime = 0.69
+speed_scale = 0.8
+randomness = 0.37
+process_material = SubResource("ParticleProcessMaterial_jdte5")
+draw_pass_1 = SubResource("QuadMesh_xqumi")

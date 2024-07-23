@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=7 format=3 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow.gd" id="1_4x05d"]
 
@@ -20,6 +20,9 @@ radius = 0.1
 height = 0.1
 is_hemisphere = true
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gtnel"]
+radius = 4.0
+
 [node name="Shadow" type="Node3D"]
 script = ExtResource("1_4x05d")
 SPEED = 0.2
@@ -37,3 +40,8 @@ mesh = SubResource("SphereMesh_l5nim")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_negative = true
+
+[node name="ShadowInfluence" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowInfluence"]
+shape = SubResource("SphereShape3D_gtnel")

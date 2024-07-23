@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 [ext_resource type="Texture2D" uid="uid://b5o23c61t2dmj" path="res://assets/images/paintings/painting-13.jpg" id="11_n4owc"]
+[ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/darkness.tscn" id="19_l3xv4"]
@@ -95,7 +96,7 @@ script = ExtResource("1_bkhrr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.3193, 0.740573, 3.7935)
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.4084, 0.00317866, 0.923703)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -151,6 +152,9 @@ painting = ExtResource("12_k1s8s")
 
 [node name="Painting3" parent="Props" instance=ExtResource("10_2xuse")]
 transform = Transform3D(1, 0, 0, 0, 0.999765, 0.0216579, 0, -0.0216579, 0.999765, 3.83064, 1.40687, -0.392745)
+
+[node name="Flare" parent="Props" instance=ExtResource("12_anbsx")]
+transform = Transform3D(0.629322, -0.187407, 0.75421, 0, 0.970488, 0.241149, -0.777145, -0.15176, 0.610749, 3.72185, 0.924572, 1.77629)
 
 [node name="Ground" type="Node3D" parent="."]
 

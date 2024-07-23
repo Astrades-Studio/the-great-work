@@ -39,13 +39,12 @@ normal_texture = SubResource("NoiseTexture2D_5jq34")
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu7pu"]
 radius = 0.0826772
 
-[node name="FLARE" type="RigidBody3D"]
+[node name="SALT" type="RigidBody3D"]
 collision_layer = 4
-linear_damp = 10.0
+linear_damp = 5.0
 script = ExtResource("1_dqgjw")
-type = 19
 
-[node name="InitialState" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0.0349893, 0)
 mesh = ExtResource("2_0h8cc")
 surface_material_override/0 = SubResource("StandardMaterial3D_mnetg")
@@ -63,7 +62,7 @@ shape = SubResource("SphereShape3D_hu7pu")
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_4dfhw")
-mesh = NodePath("../InitialState")
+mesh = NodePath("../Mesh")
 
 [node name="IngredientComponent" type="Node" parent="."]
 script = ExtResource("3_fqpdi")
