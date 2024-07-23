@@ -2,7 +2,7 @@ class_name GameMain
 extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
-@onready var ingredients: Node3D = $Ingredients
+@onready var ingredients: Node3D = %Ingredients
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
@@ -19,11 +19,6 @@ func _ready() -> void:
 	# GameManager.game_over.connect(_on_game_over)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()
-
-# HACK: move to a singleton or smth
-func _input(event: InputEvent) -> void:
-	# change to fullscreen
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 func start_midnight_game():

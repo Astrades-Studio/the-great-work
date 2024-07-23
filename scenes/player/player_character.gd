@@ -71,8 +71,6 @@ func raycast_forward(to_position : Vector3) -> Vector3:
 	var from_position = camera.global_transform.origin
 	#var to_position = from_position + camera.global_transform.basis.z * interact_distance
 	
-	var space_state = get_world_3d().direct_space_state
-	
 	var ray = PhysicsRayQueryParameters3D.create(from_position, to_position)
 	var result = get_world_3d().direct_space_state.intersect_ray(ray)
 	
@@ -80,9 +78,6 @@ func raycast_forward(to_position : Vector3) -> Vector3:
 		return result["position"]
 	else:
 		return to_position
-
-
-
 
 
 func _process(delta: float) -> void:
@@ -106,6 +101,7 @@ func _process(delta: float) -> void:
 			interaction_result.emit_signal("unfocused")
 			interaction_result = null
 	
+
 func _physics_process(delta: float) -> void:
 	if GameManager.current_state != GameManager.GameState.PLAYING:
 		return
