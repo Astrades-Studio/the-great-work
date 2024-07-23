@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=29 format=3 uid="uid://d1faedhw8viyw"]
+=======
+[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
+>>>>>>> 454448e8a1a89c702207d313d908defc0955790c
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -18,8 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/darkness.tscn" id="19_l3xv4"]
 [ext_resource type="AudioStream" uid="uid://braau6187mvpv" path="res://assets/sounds/Sfx/ticking_clock.wav" id="20_4068n"]
+=======
+>>>>>>> 454448e8a1a89c702207d313d908defc0955790c
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -82,11 +89,11 @@ albedo_color = Color(0.065, 0.1, 0.0836667, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
 points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 shader = ExtResource("8_s50pj")
 shader_parameter/size = Vector2(2, 2)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
@@ -96,24 +103,45 @@ script = ExtResource("1_bkhrr")
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
 
-[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.4084, 0.00317866, 0.923703)
+[node name="Shadows" type="Node3D" parent="Level"]
 
-[node name="Lights" type="Node3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="Level/Shadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8068, 1.74302, 1.47447)
+layers = 0
+light_energy = 4.75
+light_indirect_energy = 6.99
+light_negative = true
+omni_range = 2.31232
+
+[node name="Props" type="Node3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
+
+[node name="Painting" parent="Level/Props" instance=ExtResource("10_2xuse")]
+transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 0.45927, 1.69721, -0.368115)
+painting = ExtResource("11_n4owc")
+
+[node name="Painting2" parent="Level/Props" instance=ExtResource("10_2xuse")]
+transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 2.22261, 2.89292, -0.266678)
+painting = ExtResource("12_k1s8s")
+
+[node name="Painting3" parent="Level/Props" instance=ExtResource("10_2xuse")]
+transform = Transform3D(1, 0, 0, 0, 0.999765, 0.0216579, 0, -0.0216579, 0.999765, 3.83064, 1.40687, -0.392745)
+
+[node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level/Lights"]
 transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 14.1873, -2.01362, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Lights"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Lights"]
 unique_name_in_owner = true
 environment = SubResource("Environment_yd2gk")
 
-[node name="Ingredient" parent="Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
+[node name="Ingredient" parent="Level/Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+[node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
 light_color = Color(1, 0.505882, 0.278431, 1)
 light_energy = 0.724
@@ -121,109 +149,139 @@ shadow_enabled = true
 omni_range = 2.558
 omni_attenuation = 0.741
 
-[node name="Props" type="Node3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Lights"]
+transform = Transform3D(-0.9763, -0.0540206, 0.20957, 0, 0.968347, 0.249609, -0.216421, 0.243694, -0.945397, -0.454766, -2.98103, 0.984825)
+light_color = Color(0.85, 0.7786, 0.612, 1)
+light_energy = 2.0
+omni_range = 9.52
+omni_attenuation = 0.562
+
+[node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="Page" parent="Props" instance=ExtResource("5_6lkja")]
+[node name="Page" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 4.26671, 1.2003, 2.88134)
 
-[node name="Page2" parent="Props" instance=ExtResource("5_6lkja")]
+[node name="Page2" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
 page = ExtResource("6_kc6qj")
 
-[node name="Mortar" parent="Props" instance=ExtResource("7_8yktc")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 2.2267, 1.03432, 2.69109)
+[node name="Mortar" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(0.0740746, -0.0557444, 0.995693, 0, 0.998437, 0.055898, -0.997253, -0.00414062, 0.0739588, -0.453269, -2.34484, 2.44058)
 
-[node name="Ingredient" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.96638, 0.788218, 3.23636)
+[node name="Ingredients" type="Node3D" parent="Level"]
+unique_name_in_owner = true
 
-[node name="0" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.04506, 0.788218, 3.23636)
+[node name="YELLOW_LIQUID" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 11
 
-[node name="1" parent="Props" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.584241, 0.0607902, -0.8093, 0, 0.997191, 0.0749035, 0.81158, -0.0437617, 0.5826, 1.47842, 0.788218, 3.23636)
+[node name="POTASSIUM" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.136, -2.30282, 2.21615)
+type = 13
 
-[node name="Painting" parent="Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 0.45927, 1.69721, -0.368115)
-painting = ExtResource("11_n4owc")
+[node name="CINNABAR" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6945, -2.30282, 2.5472)
+type = 15
 
-[node name="Painting2" parent="Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 2.22261, 2.89292, -0.266678)
-painting = ExtResource("12_k1s8s")
+[node name="IRON" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6962, -2.30282, 2.19326)
+type = 2
 
-[node name="Painting3" parent="Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.999765, 0.0216579, 0, -0.0216579, 0.999765, 3.83064, 1.40687, -0.392745)
+[node name="DRAGONS_BLOOD" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1496, -2.30282, 2.53926)
+type = 19
 
-[node name="Flare" parent="Props" instance=ExtResource("12_anbsx")]
-transform = Transform3D(0.629322, -0.187407, 0.75421, 0, 0.970488, 0.241149, -0.777145, -0.15176, 0.610749, 3.72185, 0.924572, 1.77629)
+[node name="FLARE" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
 
-[node name="Ground" type="Node3D" parent="."]
+[node name="Ground" type="Node3D" parent="Level"]
 
-[node name="Ground" type="MeshInstance3D" parent="Ground"]
+[node name="Ground" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.458)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
-[node name="Ground4" type="MeshInstance3D" parent="Ground"]
+[node name="Ground4" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 24.458)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground4"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground4/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground4/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
-[node name="Ground3" type="MeshInstance3D" parent="Ground"]
+[node name="Ground3" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -25.542)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground3"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground3/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground3/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
-[node name="Ground2" type="MeshInstance3D" parent="Ground"]
+[node name="Ground2" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -17.2207)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground2"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground2/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground2/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
-[node name="Ground5" type="MeshInstance3D" parent="Ground"]
+[node name="Ground5" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -67.2207)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground5"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground5/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground5/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
-[node name="Ground6" type="MeshInstance3D" parent="Ground"]
+[node name="Ground6" type="MeshInstance3D" parent="Level/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8838, 0, -75.2207)
 mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Ground/Ground6"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground6"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground6/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground6/StaticBody3D2"]
 shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9725, -3.17731, 7.48594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldBoundary"]
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+disabled = true
+
+[node name="WorldSafeguard" type="Area3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+script = ExtResource("9_7hkxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
+shape = SubResource("WorldBoundaryShape3D_v46o1")
+
+[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.4084, 0.00317866, 0.923703)
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
@@ -270,6 +328,7 @@ text = "Back"
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 
+<<<<<<< HEAD
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
@@ -392,4 +451,18 @@ max_distance = 4.0
 bus = &"SFX"
 emission_angle_enabled = true
 
+=======
+[node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qg76f")
+volume_db = -9.091
+autoplay = true
+bus = &"Music"
+
+[node name="GameOverTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+>>>>>>> 454448e8a1a89c702207d313d908defc0955790c
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
