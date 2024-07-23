@@ -15,8 +15,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if !visible:
 		return
-	if event.is_action_pressed("ui_cancel"):
-		_on_back_button_pressed()
+
+	if event.is_action_pressed("ui_cancel") \
+	or event.is_action_pressed("interact"):
+		_on_back_button_pressed.call_deferred()
 
 
 func _on_back_button_pressed():
@@ -36,4 +38,4 @@ func hide_text():
 	if texture_rect.texture:
 		texture_rect.texture = null
 		SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
-		return
+	

@@ -5,6 +5,8 @@ extends UCharacterBody3D
 @onready var gas_lamp: GasLamp = %GasLamp
 
 @export var interact_distance := 2.0
+@export var drop_distance := 1.0
+
 @onready var hand: Node3D = %Hand
 @onready var sub_viewport: SubViewport = $HandLayer/SubViewportContainer/SubViewport
 
@@ -25,11 +27,11 @@ var ingredient_in_hand : Ingredient:
 # This is used for raycasting
 var interaction_result : Node
 
+
 # Super() are there to call the parent class movement that I got from the asset store and don't want cluttering here
 func _ready() -> void:
 	super()
 	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
-	#ingredient_in_hand = hand.get_child(0) # Setup the current ingredient in your hand
 	GameManager.player = self # Assign this node to the Autoload for global reference
 
 
@@ -53,26 +55,13 @@ func drop_ingredient() -> void:
 	if !ingredient_in_hand:
 		return
 	
-	var ray = RayCast3D.new()
-	ray.name = "DropRay"
-	ray.target_position = Vector3.DOWN * interact_distance
-	add_child(ray)
-	ray.force_raycast_update()
+	var target_position : Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
+	var target_node = GameManager.ingredient_layer
 
-	if ray.is_colliding():
-		var target_node = get_tree().current_scene
-		ingredient_in_hand.reparent(target_node)
-		var global_collision_point = ray.get_collision_point()
-		ingredient_in_hand.global_transform.origin = global_collision_point
-		ingredient_in_hand.current_location = Ingredient.Location.ENVIRONMENT
-		
-	else:
-		printerr("Did not find drop spot")
-		ingredient_in_hand.queue_free()
-	
+	ingredient_in_hand.global_transform.origin = target_position
+	ingredient_in_hand.current_location = Ingredient.Location.ENVIRONMENT
+	ingredient_in_hand.reparent(target_node)
 	ingredient_in_hand = null
-	ray.queue_free()
-	
 
 
 func _process(delta: float) -> void:
@@ -108,5 +97,6 @@ func _physics_process(delta: float) -> void:
 func interact():
 	if !interaction_result:
 		return
+	
 	if interaction_result.has_user_signal("interacted"):
 		interaction_result.emit_signal("interacted")

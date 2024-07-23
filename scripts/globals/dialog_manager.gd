@@ -32,5 +32,5 @@ func skip_dialog():
 
 
 func _on_dialog_finished():
-	await get_tree().create_timer(0.2).timeout
+#	await get_tree().create_timer(0.2).timeout
 	GameManager.current_state = GameManager.GameState.PLAYING

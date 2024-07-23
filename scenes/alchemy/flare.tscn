@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://bym2gmi7y6o27"]
+
+[ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_hwk3w"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_lha62"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ibvow"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0spy"]
+albedo_color = Color(0.744819, 0.400095, 0.606354, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_igvad"]
+height = 0.2
+radius = 0.03
+
+[sub_resource type="Curve" id="Curve_h3fdl"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.578603, 327.396), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bm61i"]
+curve = SubResource("Curve_h3fdl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nb44k"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.03
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+angle_curve = SubResource("CurveTexture_bm61i")
+direction = Vector3(-1, 0, 0)
+spread = 40.552
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py1ok"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.28, 0.28, 0.666667)
+
+[sub_resource type="QuadMesh" id="QuadMesh_igbii"]
+material = SubResource("StandardMaterial3D_py1ok")
+size = Vector2(0.1, 0.01)
+
+[node name="Flare" type="RigidBody3D"]
+linear_damp = 26.345
+script = ExtResource("1_vanpb")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ibvow")
+surface_material_override/0 = SubResource("StandardMaterial3D_d0spy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_igvad")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_hwk3w")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("4_lha62")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.00123922, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.00123922, -3.1726e-06, 0, 0.100842)
+lifetime = 0.02
+process_material = SubResource("ParticleProcessMaterial_nb44k")
+draw_pass_1 = SubResource("QuadMesh_igbii")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

@@ -1,9 +1,11 @@
 class_name InteractionComponent
 extends Node
 
+
 @export var mesh : MeshInstance3D
 @export var sprite : Sprite3D
 @export var use_outline : bool = false
+
 
 const highlight_material : ShaderMaterial = preload("res://assets/outline_material.tres")
 var parent : Node
@@ -36,7 +38,7 @@ func find_body() -> PhysicsBody3D:
 
 
 func in_range() -> void:
-	GameManager.update_interaction_label.emit(parent.name)
+	GameManager.interaction_label_updated.emit(parent.name)
 	
 	if mesh:
 		if use_outline:
@@ -56,10 +58,11 @@ func in_range() -> void:
 		sprite.modulate = Color("fed1ff")
 	else:
 		printerr("No mesh or sprite found")
+	
 
 
 func not_in_range() -> void:
-	GameManager.update_interaction_label.emit("")
+	GameManager.interaction_label_updated.emit("")
 	if duplicate_material:
 		mesh.material_override = null
 		# Free the reference to the duplicate material

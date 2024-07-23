@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 
 func _on_tick_countdown():
 	# TODO: make enemy teleport or faster
-	print("Shadow HP: " + str(HP))
 	HP -= 1
 	target = GameManager.player.head
 

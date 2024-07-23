@@ -16,6 +16,8 @@ enum GameState {
 var current_state : GameState:
 	set(value):
 		current_state = value
+		state_label_updated.emit(current_state)
+		
 		if current_state == GameState.PLAYING:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -40,11 +42,15 @@ var current_state : GameState:
 			printerr("Invalid game state")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+
+# References
 var environment : WorldEnvironment
 var text_layer : TextLayer
 var player : UCharacterBody3D
+var ingredient_layer : Node
 
-signal update_interaction_label(string : String)
+signal interaction_label_updated(string : String)
+signal state_label_updated(state : GameManager.GameState)
 signal game_over
 signal tick_countdown
 

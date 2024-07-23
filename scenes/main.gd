@@ -2,6 +2,7 @@ class_name GameMain
 extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
+@onready var ingredients: Node3D = $Ingredients
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
@@ -14,6 +15,7 @@ static var countdown
 func _ready() -> void:
 	countdown = max_time
 	GameManager.environment = world_environment
+	GameManager.ingredient_layer = ingredients
 	# GameManager.game_over.connect(_on_game_over)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()

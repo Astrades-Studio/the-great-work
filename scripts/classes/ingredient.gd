@@ -3,18 +3,29 @@ class_name Ingredient
 extends RigidBody3D
 
 enum Type {
-	GOLD,
-	SILVER,
+	SALT,
 	IRON,
 	LEAD,
 	MERCURY,
+	PURIFIED_MERCURY,
 	SULFUR,
-	SALT,
+	PURIFIED_SULFUR,
 	ACID,
 	VINEGAR,
-	PHOSPHORUS
+	PHOSPHORUS,
+	YELLOW_LIQUID,
+	BANANA,
+	POTASSIUM,
+	POTASSIUM_DUST,
+	CINNABAR,
+	CINNABAR_DUST,
+	GOLD,
+	SILVER,
+	DRAGONS_BLOOD,
+	FLARE,
 }
 
+# TODO: Maybe move to a global
 const BOWL = preload("res://assets/models/ingredients/bowl.obj")
 const ORE = preload("res://assets/models/ingredients/ore.obj")
 
@@ -37,12 +48,6 @@ enum Location {
 @onready var initial_mesh: MeshInstance3D = $InitialState
 @onready var processed_mesh: MeshInstance3D = $Processed
 
-#@export var INITIAL_MESH : Mesh:
-	#set(value):
-		#if !initial_mesh:
-			#return
-		#INITIAL_MESH = value
-		#initial_mesh.mesh = INITIAL_MESH
 
 var current_location : Location = Location.ENVIRONMENT :
 	set(value):
@@ -72,5 +77,3 @@ var current_state : State = State.INITIAL :
 			
 func _ready() -> void:
 	current_location = Location.ENVIRONMENT
-# 	print(str(self) + " " + str(Location.keys()[current_location]))
-# 	#current_location = Location.ENVIRONMENT

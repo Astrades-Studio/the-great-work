@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
-[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="3_tafbr"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
@@ -94,11 +93,6 @@ script = ExtResource("1_bkhrr")
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
-roof_visible = true
-
-[node name="Shadow" parent="Level" instance=ExtResource("3_tafbr")]
-transform = Transform3D(-0.884638, -0.13197, -0.447213, 0, 0.959112, -0.283028, 0.466279, -0.250377, -0.848467, -10.374, 2.31398, 5.14915)
-active = true
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.3193, 0.740573, 3.7935)
@@ -312,5 +306,7 @@ omni_range = 2.31232
 
 [node name="Darkness" parent="Shadows" instance=ExtResource("19_l3xv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9727, 1.12103, -1.41227)
+
+[node name="Ingredients" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
