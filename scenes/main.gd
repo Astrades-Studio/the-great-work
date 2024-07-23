@@ -6,7 +6,7 @@ extends Node3D
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
-@export var max_time := 60000
+@export var max_time := 60
 @export var tick_length := 1.
 
 static var countdown
