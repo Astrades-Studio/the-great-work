@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=11 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
+[ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="5_wx8ks"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
@@ -76,13 +77,15 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.11445
+speed_variance = 0.531841
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)
 
 [node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera/Marker3D"]
 unique_name_in_owner = true
+
+[node name="Flare" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera/Marker3D/Hand" instance=ExtResource("5_wx8ks")]
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_16wbu")
