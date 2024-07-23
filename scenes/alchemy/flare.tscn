@@ -51,6 +51,7 @@ light_color = Color(1, 0.26, 0.26, 1)
 omni_range = 4.06351
 
 [node name="DurationTimer" type="Timer" parent="."]
+wait_time = 30.0
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("3_hwk3w")

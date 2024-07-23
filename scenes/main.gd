@@ -20,9 +20,15 @@ func _ready() -> void:
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()
 
+# HACK: move to a singleton or smth
+func _input(event: InputEvent) -> void:
+	# change to fullscreen
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 
 func start_midnight_game():
 	game_over_timer.start(tick_length)
+	await get_tree().create_timer(1).timeout
 	DialogManager.play_dialog(DialogManager.INTRO)
 
 

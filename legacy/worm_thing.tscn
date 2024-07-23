@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd7mi848cqytt"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_5rubi"]
+[ext_resource type="Script" path="res://neuron_thing.gd" id="1_5rubi"]
 [ext_resource type="PackedScene" uid="uid://cpqk1llq331d0" path="res://legacy/neuron.tscn" id="2_qwluy"]
 [ext_resource type="PackedScene" uid="uid://cjscvf66kvn4b" path="res://legacy/worm.tscn" id="3_we4ko"]
 
