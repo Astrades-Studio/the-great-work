@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=29 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/darkness.tscn" id="19_l3xv4"]
+[ext_resource type="AudioStream" uid="uid://braau6187mvpv" path="res://assets/sounds/Sfx/ticking_clock.wav" id="20_4068n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -269,12 +270,6 @@ text = "Back"
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_qg76f")
-volume_db = -9.091
-autoplay = true
-bus = &"Music"
-
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
@@ -312,5 +307,89 @@ omni_range = 2.31232
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9727, 1.12103, -1.41227)
 
 [node name="Ingredients" type="Node3D" parent="."]
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Rain" type="Node3D" parent="SFX"]
+
+[node name="RainAmbience" type="AudioStreamPlayer" parent="SFX/Rain"]
+stream = ExtResource("7_qg76f")
+volume_db = -20.755
+autoplay = true
+bus = &"Music"
+
+[node name="RainOnWindows" type="Node3D" parent="SFX/Rain"]
+
+[node name="LivingRoom1" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -8.13387, 1.45935, 3.77775)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom2" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -13.7234, 2.10142, 7.32208)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom3" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -10.2241, 2.10142, -2.72421)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom4" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -15.8086, 2.03809, -7.475)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom5" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.795, 1.87252, 4.16954)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.84, 1.87252, 1.29419)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="LivingRoom7" type="AudioStreamPlayer3D" parent="SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -16.3438, 2.76406, 7.33648)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
+
+[node name="Clock" type="AudioStreamPlayer3D" parent="SFX"]
+transform = Transform3D(0.0871558, 0, -0.996195, 0, 1, 0, 0.996195, 0, 0.0871558, -14.4102, 2.051, 2.65366)
+stream = ExtResource("20_4068n")
+volume_db = -15.0
+autoplay = true
+max_distance = 4.0
+bus = &"SFX"
+emission_angle_enabled = true
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
