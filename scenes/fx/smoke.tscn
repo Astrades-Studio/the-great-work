@@ -1,21 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://deqfjrh5bdyvk"]
+[gd_scene load_steps=7 format=3 uid="uid://deqfjrh5bdyvk"]
 
-[sub_resource type="Gradient" id="Gradient_eqx4t"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(0.435193, 0.435192, 0.435192, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_cdeaq"]
+offsets = PackedFloat32Array(0.255708, 0.762557, 0.986301)
+colors = PackedColorArray(0, 0, 0, 1, 0.131039, 0.131039, 0.131039, 1, 0.583333, 0.583333, 0.583333, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd7qc"]
-gradient = SubResource("Gradient_eqx4t")
-fill = 1
-fill_from = Vector2(0.472934, 0.492877)
-fill_to = Vector2(1, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_16dh8"]
+frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gmtd4"]
+seamless = true
+normalize = false
+color_ramp = SubResource("Gradient_cdeaq")
+noise = SubResource("FastNoiseLite_16dh8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s2e3"]
 blend_mode = 1
-shading_mode = 0
 albedo_color = Color(0.9239, 0.9239, 0.9239, 1)
-albedo_texture = SubResource("GradientTexture2D_vd7qc")
+albedo_texture = SubResource("NoiseTexture2D_gmtd4")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1

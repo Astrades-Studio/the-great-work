@@ -2,7 +2,7 @@ class_name GameMain
 extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
-@onready var ingredients: Node3D = %Ingredients
+@onready var ingredients: Node3D = $Ingredients
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
@@ -23,7 +23,6 @@ func _ready() -> void:
 
 func start_midnight_game():
 	game_over_timer.start(tick_length)
-	await get_tree().create_timer(1).timeout
 	DialogManager.play_dialog(DialogManager.INTRO)
 
 

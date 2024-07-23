@@ -1,25 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfcsgna6rb617"]
 
-[ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_0cktg"]
 [ext_resource type="ArrayMesh" uid="uid://d28h4ap8pdroq" path="res://assets/models/tools/mortar_pestle.obj" id="1_ixii3"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_kotfv"]
 [ext_resource type="Material" uid="uid://b1gxqoccsh740" path="res://assets/models/concrete_wallpaper.tres" id="2_kpx3y"]
+[ext_resource type="Script" path="res://scenes/alchemy/mortar_component.gd" id="3_845u3"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mo7ii"]
-size = Vector3(0.415771, 0.210938, 0.372803)
+[sub_resource type="SphereShape3D" id="SphereShape3D_5gc1l"]
+radius = 0.312406
 
-[node name="Tool" type="StaticBody3D"]
+[node name="Mortar" type="StaticBody3D"]
 collision_layer = 4
-script = ExtResource("1_0cktg")
-type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_ixii3")
 surface_material_override/0 = ExtResource("2_kpx3y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103149, 0.111328, 0)
-shape = SubResource("BoxShape3D_mo7ii")
+shape = SubResource("SphereShape3D_5gc1l")
 
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("2_kotfv")
+
+[node name="MortarComponent" type="Node" parent="."]
+script = ExtResource("3_845u3")
