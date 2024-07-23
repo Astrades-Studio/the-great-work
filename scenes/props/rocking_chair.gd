@@ -1,5 +1,5 @@
 @tool
-extends MeshInstance3D
+extends StaticBody3D
 
 # Variables to control rotation
 @export var speed : float = 20.0 # Degrees per second

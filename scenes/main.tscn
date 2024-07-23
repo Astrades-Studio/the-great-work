@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b5o23c61t2dmj" path="res://assets/images/paintings/painting-13.jpg" id="11_n4owc"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
+[ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/darkness.tscn" id="19_l3xv4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -93,9 +94,11 @@ script = ExtResource("1_bkhrr")
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+roof_visible = true
 
 [node name="Shadow" parent="Level" instance=ExtResource("3_tafbr")]
 transform = Transform3D(-0.884638, -0.13197, -0.447213, 0, 0.959112, -0.283028, 0.466279, -0.250377, -0.848467, -10.374, 2.31398, 5.14915)
+active = true
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.3193, 0.740573, 3.7935)
@@ -296,5 +299,18 @@ visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="Shadows" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Shadows"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8068, 1.74302, 1.47447)
+layers = 0
+light_energy = 4.75
+light_indirect_energy = 6.99
+light_negative = true
+omni_range = 2.31232
+
+[node name="Darkness" parent="Shadows" instance=ExtResource("19_l3xv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9727, 1.12103, -1.41227)
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]

@@ -18,9 +18,11 @@ func _ready() -> void:
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()
 
+
 func start_midnight_game():
 	game_over_timer.start(tick_length)
 	DialogManager.play_dialog(DialogManager.INTRO)
+
 
 func _on_timer_tick():
 	countdown -= 1

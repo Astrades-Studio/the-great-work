@@ -75,7 +75,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.20549
+speed_variance = 0.571478
 
 [node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
 unique_name_in_owner = true
@@ -98,17 +98,17 @@ texture = ExtResource("5_pbhtp")
 [node name="InteractionLabel" type="Label" parent="HUDLayer/CenterContainer/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -12.0
-offset_right = 22.0
+offset_left = -37.0
+offset_right = 37.0
 grow_horizontal = 2
-grow_vertical = 0
-text = "Interact"
+grow_vertical = 2
+text = "
+
+Interact"
 script = ExtResource("6_ur5a8")
 
 [node name="PanelContainer" type="PanelContainer" parent="HUDLayer"]

@@ -1,6 +1,6 @@
 @tool
 class_name Ingredient
-extends Node3D
+extends RigidBody3D
 
 enum Type {
 	GOLD,
@@ -48,9 +48,11 @@ var current_location : Location = Location.ENVIRONMENT :
 	set(value):
 		current_location = value
 		if current_location == Location.HAND:
+			self.freeze = true
 			initial_mesh.layers = 0x0002
 			processed_mesh.layers = 0x0002
 		elif current_location == Location.ENVIRONMENT:
+			self.freeze = false
 			initial_mesh.layers = 0x0001
 			processed_mesh.layers = 0x0001
 		else:

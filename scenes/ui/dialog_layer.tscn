@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d16g48k8u865c"]
+[gd_scene load_steps=6 format=3 uid="uid://d16g48k8u865c"]
 
 [ext_resource type="Script" path="res://scenes/dialog_layer.gd" id="1_hnis6"]
 [ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
 [ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="2_ldgvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eicrv"]
+bg_color = Color(0.086, 0.033, 0.004, 0.604)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
 atlas = ExtResource("2_j5dhc")
@@ -41,6 +44,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.72
 theme = ExtResource("2_ldgvr")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eicrv")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2

@@ -3,18 +3,13 @@ extends Node
 
 @export var mesh : MeshInstance3D
 @export var sprite : Sprite3D
-@export var use_outline : bool = true
+@export var use_outline : bool = false
 
 const highlight_material : ShaderMaterial = preload("res://assets/outline_material.tres")
 var parent : Node
 var duplicate_material : Material
 var og_material : Material
 var outline : MeshInstance3D
-
-
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		use_outline = !use_outline
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,8 +32,8 @@ func find_body() -> PhysicsBody3D:
 	for body in parent.get_children():
 		if body is PhysicsBody3D:
 			return body
-
 	return null
+
 
 func in_range() -> void:
 	GameManager.update_interaction_label.emit(parent.name)
@@ -61,7 +56,6 @@ func in_range() -> void:
 		sprite.modulate = Color("fed1ff")
 	else:
 		printerr("No mesh or sprite found")
-	
 
 
 func not_in_range() -> void:
