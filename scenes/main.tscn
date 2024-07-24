@@ -311,7 +311,7 @@ transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343,
 
 [node name="RainAmbience" type="AudioStreamPlayer" parent="Level/SFX/Rain"]
 stream = ExtResource("7_qg76f")
-volume_db = -20.755
+volume_db = -25.615
 autoplay = true
 bus = &"Music"
 
@@ -459,12 +459,6 @@ visible = false
 
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
 visible = false
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_qg76f")
-volume_db = -9.091
-autoplay = true
-bus = &"Music"
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
