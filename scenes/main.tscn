@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -17,7 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://b5o23c61t2dmj" path="res://assets/images/paintings/painting-13.jpg" id="11_n4owc"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
+[ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfu1j"]
+albedo_color = Color(0.065, 0.1, 0.0836667, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
+points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
 shader = ExtResource("2_la52w")
@@ -71,15 +81,6 @@ fog_depth_begin = 0.0
 fog_depth_end = 1683.3
 volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
-size = Vector2(50, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfu1j"]
-albedo_color = Color(0.065, 0.1, 0.0836667, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
-points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
-
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
@@ -94,6 +95,74 @@ max_time = 5000
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+
+[node name="Ground" type="Node3D" parent="Level"]
+
+[node name="Ground" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground4" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 24.458)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground4/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground3" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -25.542)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground3/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground2" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -17.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground2/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground5" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -67.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground5/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
+
+[node name="Ground6" type="MeshInstance3D" parent="Level/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8838, 0, -75.2207)
+mesh = SubResource("PlaneMesh_xx5fg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground6/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="Shadows" type="Node3D" parent="Level"]
 
@@ -239,73 +308,89 @@ type = 19
 [node name="FLARE" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
 
-[node name="Ground" type="Node3D" parent="Level"]
+[node name="SFX" type="Node3D" parent="Level"]
 
-[node name="Ground" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 32.458)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+[node name="Rain" type="Node3D" parent="Level/SFX"]
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground"]
+[node name="RainAmbience" type="AudioStreamPlayer" parent="Level/SFX/Rain"]
+stream = ExtResource("7_qg76f")
+volume_db = -20.755
+autoplay = true
+bus = &"Music"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
+[node name="RainOnWindows" type="Node3D" parent="Level/SFX/Rain"]
 
-[node name="Ground4" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 24.458)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+[node name="LivingRoom1" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -8.13387, 1.45935, 3.77775)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground4"]
+[node name="LivingRoom2" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -13.7234, 2.10142, 7.32208)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground4/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
+[node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -10.2241, 2.10142, -2.72421)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="Ground3" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, -25.542)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+[node name="LivingRoom4" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -15.8086, 2.03809, -7.475)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground3"]
+[node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.795, 1.87252, 4.16954)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground3/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
+[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.84, 1.87252, 1.29419)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="Ground2" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -17.2207)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
+[node name="LivingRoom7" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -16.3438, 2.76406, 7.33648)
+stream = ExtResource("7_qg76f")
+max_db = -10.776
+autoplay = true
+max_distance = 2.0
+bus = &"SFX"
+attenuation_filter_db = -11.2
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground2/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
-
-[node name="Ground5" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1162, 0, -67.2207)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground5/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
-
-[node name="Ground6" type="MeshInstance3D" parent="Level/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.8838, 0, -75.2207)
-mesh = SubResource("PlaneMesh_xx5fg")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nfu1j")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level/Ground/Ground6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Ground/Ground6/StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_5dr30")
+[node name="Clock" type="AudioStreamPlayer3D" parent="Level/SFX"]
+transform = Transform3D(0.0871558, 0, -0.996195, 0, 1, 0, 0.996195, 0, 0.0871558, -14.4102, 2.051, 2.65366)
+stream = ExtResource("13_03t40")
+volume_db = -15.0
+autoplay = true
+max_distance = 4.0
+bus = &"SFX"
+emission_angle_enabled = true
 
 [node name="Triggers" type="Node3D" parent="."]
 
