@@ -1,23 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdwt62klm5p8p"]
+[gd_scene load_steps=7 format=3 uid="uid://bdwt62klm5p8p"]
 
 [ext_resource type="Script" path="res://scenes/splash_screen.gd" id="1_fw7aa"]
 [ext_resource type="Texture2D" uid="uid://xx8lfdd8ebag" path="res://Astrades_studio_logo.png" id="2_g7bfd"]
-
-[sub_resource type="Animation" id="Animation_ba7ca"]
-resource_name = "fade in"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.133333, 4.6, 6.06667, 8.93333),
-"transitions": PackedFloat32Array(2.92817, 0.241485, 1, 2.46229),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
+[ext_resource type="AudioStream" uid="uid://b4uyngwe1eyq0" path="res://assets/sounds/music/intro astra.mp3" id="3_26pv2"]
 
 [sub_resource type="Animation" id="Animation_5c7bu"]
 length = 0.001
@@ -32,6 +17,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ba7ca"]
+resource_name = "fade in"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 7.13333, 8.43333, 13.9667),
+"transitions": PackedFloat32Array(2.92817, 0.241485, 0.5, 2.46229),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dskbb"]
@@ -73,5 +74,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_26pv2")
+volume_db = -6.559
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
