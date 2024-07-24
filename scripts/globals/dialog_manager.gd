@@ -11,7 +11,7 @@ const INTRO := preload("res://assets/dialog/intro_dialog.tres")
 
 # Takes a string and shows a text box containing it. 
 # Optionally you can include a name as the second parameter
-func create_dialog_piece(text: String, speaker: String = "???"):
+func create_dialog_piece(text: String, speaker: String = "Melchiades"):
 	var dialog_piece := DialogPiece.new()
 	dialog_piece.dialog_text = text
 	dialog_piece.dialog_speaker = speaker

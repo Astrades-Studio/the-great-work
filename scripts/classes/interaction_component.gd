@@ -38,7 +38,11 @@ func find_body() -> PhysicsBody3D:
 
 
 func in_range() -> void:
-	GameManager.interaction_label_updated.emit(parent.name)
+	var _text = parent.name
+	if parent is Ingredient:
+		_text = parent.type_name
+	
+	GameManager.interaction_label_updated.emit(_text)
 	
 	if mesh:
 		if use_outline:

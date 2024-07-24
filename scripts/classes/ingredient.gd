@@ -65,10 +65,14 @@ enum Location {
 	ENVIRONMENT
 }
 
+var type_name : String
+
 @export var type : Type :
 	set(value):
 		type = value
-		self.name = str(Type.keys()[type])
+		type_name = str(Type.keys()[type]).capitalize()
+		self.name = type_name
+
 		#TODO: change mesh
 
 @onready var mesh: MeshInstance3D = $Mesh

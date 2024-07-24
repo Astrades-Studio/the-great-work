@@ -1,3 +1,4 @@
+@tool
 class_name Tool
 extends Node3D
 
@@ -10,7 +11,10 @@ enum Type {
 
 const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
 
-@export var type: Type
+@export var type: Type:
+	set(value):
+		type = value
+		self.name = str(Type.keys()[type].capitalize())
 
 var stored_ingredient: Ingredient
 
@@ -49,6 +53,10 @@ func _ready():
 
 func on_tool_use() -> void:
 	var ingredient = GameManager.player.ingredient_in_hand
+	if !ingredient:
+		DialogManager.create_dialog_piece("I need an ingredient to use this")
+		return
+	
 	var new_ingredient_type: Ingredient.Type
 
 	print(str(self.name) + " used")
@@ -69,11 +77,11 @@ func on_tool_use() -> void:
 
 	var resulting_ingredient: Ingredient = INGREDIENT_SCENE.instantiate()
 	resulting_ingredient.type = new_ingredient_type
-	add_child(resulting_ingredient)
-	print(str(resulting_ingredient.name) + " added")
+	add_child(resulting_ingredient, true)
+	print(str(resulting_ingredient.type_name) + " added")
 
 	if resulting_ingredient.type == Ingredient.Type.SALT:
-		resulting_ingredient.name = str(ingredient.type) + " salt"
+		resulting_ingredient.type_name = (Ingredient.Type.keys()[ingredient.type] + " salt").capitalize()
 
 	# HACK ?
 	GameManager.player.ingredient_in_hand = resulting_ingredient
