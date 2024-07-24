@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyvreu4x6u58q"
+path="res://.godot/imported/Potion Handle B (2).wav-f9f9645e6718630dc942440a23a70ca5.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Potion Handle B (2).wav"
+dest_files=["res://.godot/imported/Potion Handle B (2).wav-f9f9645e6718630dc942440a23a70ca5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

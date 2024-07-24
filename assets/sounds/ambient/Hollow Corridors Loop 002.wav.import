@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwhkhvkt6q8w1"
+path="res://.godot/imported/Hollow Corridors Loop 002.wav-58a138580c4b903abf427035bb4dd095.sample"
+
+[deps]
+
+source_file="res://assets/sounds/ambient/Hollow Corridors Loop 002.wav"
+dest_files=["res://.godot/imported/Hollow Corridors Loop 002.wav-58a138580c4b903abf427035bb4dd095.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

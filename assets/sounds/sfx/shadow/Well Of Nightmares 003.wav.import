@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bry0riggxs33t"
+path="res://.godot/imported/Well Of Nightmares 003.wav-6dba60337a4bdd6e8955e3342757cada.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/shadow/Well Of Nightmares 003.wav"
+dest_files=["res://.godot/imported/Well Of Nightmares 003.wav-6dba60337a4bdd6e8955e3342757cada.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

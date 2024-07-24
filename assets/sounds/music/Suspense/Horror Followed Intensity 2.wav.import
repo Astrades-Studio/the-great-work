@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://63bfqo4irdgy"
+path="res://.godot/imported/Horror Followed Intensity 2.wav-bfdb66840b481ad016c13274bc8dd4ae.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/Suspense/Horror Followed Intensity 2.wav"
+dest_files=["res://.godot/imported/Horror Followed Intensity 2.wav-bfdb66840b481ad016c13274bc8dd4ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
