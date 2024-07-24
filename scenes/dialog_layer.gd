@@ -36,6 +36,11 @@ func play_dialog(dialog : Dialog):
 var tween : Tween
 
 func show_text(dialog_piece: DialogPiece):
+	#assert(dialog_piece, "Empty dialog piece at " + str(self.get_path()))
+	if !dialog_piece:
+		printerr("Empty dialog piece at " + str(self.get_path()))
+		dialog_piece = DialogPiece.new()
+	
 	show()
 	text_on_screen = true
 	name_label.text = dialog_piece.dialog_speaker

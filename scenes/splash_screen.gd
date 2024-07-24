@@ -13,7 +13,7 @@ func go_title_screen():
 
 func _input(event):
 	if(event is InputEventKey) or (event is InputEventMouseButton):
-		animation_player.speed_scale= 3.0
+		animation_player.speed_scale = 3.0
 		
  
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
