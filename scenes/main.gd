@@ -36,8 +36,8 @@ func _on_timer_tick():
 		game_over_timer.stop()
 	
 	# TODO: Make it proportional to total time
-	var fog_increment := world_environment.environment.fog_density + 0.1
-	world_environment.environment.fog_density = clamp(fog_increment, 1, 55)
+	#var fog_increment := world_environment.environment.fog_density + 0.1
+	#world_environment.environment.fog_density = clamp(fog_increment, 1, 55)
 	
 	
 # func _on_game_over():
