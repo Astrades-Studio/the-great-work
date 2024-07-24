@@ -4,7 +4,7 @@ var sound_bus_1 : AudioStreamPlayer
 var sound_bus_2 : AudioStreamPlayer
 var sound_bus_3 : AudioStreamPlayer
 
-const PAGE_BOOK = preload("res://assets/sounds/Page Book.wav")
+const PAGE_BOOK = preload("res://assets/sounds/sfx/Page Book.wav")
 
 
 # Called when the node enters the scene tree for the first time.
