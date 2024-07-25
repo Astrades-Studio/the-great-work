@@ -111,11 +111,12 @@ func _physics_process(delta: float) -> void:
 # Interactible objects will have a XComponent that will 
 # define an "interact()" function that takes a parameter if they need a specific item
 # Check the PageComponent in Page.tscn to see how this works along the InteractComponent
-func interact():
-	if ingredient_in_hand is Flare:
-		if !ingredient_in_hand.active:
-			ingredient_in_hand.active = true
-			return
+func interact():	
+	if is_instance_valid(ingredient_in_hand):
+		if ingredient_in_hand is Flare:
+			if !ingredient_in_hand.active:
+				ingredient_in_hand.active = true
+				return
 
 	if !interaction_result:
 		return

@@ -49,9 +49,17 @@ var text_layer : TextLayer
 var player : UCharacterBody3D
 var ingredient_layer : Node
 
+# UI Signals
 signal interaction_label_updated(string : String)
 signal state_label_updated(state : GameManager.GameState)
+signal request_book_UI(book : BookPages)
+
+# Game State Signals
 signal game_over
+
+# Game Progression Signals
+signal philosopher_stone_progress(int)
+signal philosopher_stone_made(made:bool)
 signal tick_countdown
 
 func _ready() -> void:

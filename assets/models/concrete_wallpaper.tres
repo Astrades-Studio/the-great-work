@@ -27,3 +27,4 @@ normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_e6a8g")
 uv1_scale = Vector3(1.08, 1.08, 1.08)
 uv1_offset = Vector3(0.09, 0, 0)
+uv1_triplanar = true

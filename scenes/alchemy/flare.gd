@@ -16,6 +16,8 @@ var spent : bool = false
 	set(value):
 		if !Engine.is_editor_hint() and spent:
 			return
+		if !is_node_ready():
+			await ready
 		active = value
 		if active:
 			duration_timer.start(duration)

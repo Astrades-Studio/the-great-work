@@ -2,6 +2,7 @@
 class_name Ingredient
 extends RigidBody3D
 
+
 enum Type {
 	NONE,
 	SALT,
@@ -25,6 +26,20 @@ enum Type {
 	DRAGONS_BLOOD,
 	FLARE,
 	PHILOSOPHERS_STONE,
+}
+
+enum MeshType {
+	ORE,
+	BANANA,
+	BOWL,
+	VIAL,
+	JAR,
+	CRYSTAL,
+}
+
+enum Location {
+	HAND,
+	ENVIRONMENT
 }
 
 static var NEXT_STATE : Dictionary = {
@@ -56,26 +71,55 @@ static var NEXT_STATE : Dictionary = {
 	Type.VINEGAR : Type.VINEGAR,
 }
 
+
+var MESH_TABLE : Dictionary = {
+	Type.NONE: BOWL,
+	Type.SALT: BOWL,
+	Type.IRON: ORE,
+	Type.LEAD: ORE,
+	Type.MERCURY: BANANA,
+	Type.PURIFIED_MERCURY: BANANA,
+	Type.SULFUR: BANANA,
+	Type.PURIFIED_SULFUR: BANANA,
+	Type.ACID: BOWL,
+	Type.VINEGAR: BOWL,
+	Type.PHOSPHORUS: BANANA,
+	Type.YELLOW_LIQUID: BOWL,
+	Type.BANANA: BANANA,
+	Type.POTASSIUM: BOWL,
+	Type.POTASSIUM_DUST: BOWL,
+	Type.CINNABAR: ORE,
+	Type.CINNABAR_DUST: ORE,
+	Type.GOLD: BOWL,
+	Type.SILVER: BOWL,
+	Type.DRAGONS_BLOOD: BOWL,
+	Type.FLARE: BOWL,
+	Type.PHILOSOPHERS_STONE: BOWL,
+}
+
+
 # TODO: Maybe move to a global
 const BOWL = preload("res://assets/models/ingredients/bowl.obj")
 const ORE = preload("res://assets/models/ingredients/ore.obj")
+const BANANA = preload("res://assets/models/ingredients/banana.res")
 
-enum Location {
-	HAND,
-	ENVIRONMENT
-}
+
+@onready var mesh: MeshInstance3D = %Mesh
 
 var type_name : String
+var mesh_type : Mesh
 
-@export var type : Type :
+var type : Type 
+
+@export var actual_type : Type :
 	set(value):
+		printraw()
 		type = value
 		type_name = str(Type.keys()[type]).capitalize()
 		self.name = type_name
-
-		#TODO: change mesh
-
-@onready var mesh: MeshInstance3D = $Mesh
+		assert(mesh, "Mesh not found")
+		mesh_type = MESH_TABLE[type]
+		mesh.mesh = mesh_type
 
 var current_location : Location = Location.ENVIRONMENT :
 	set(value):
@@ -92,3 +136,4 @@ var current_location : Location = Location.ENVIRONMENT :
 
 func _ready() -> void:
 	current_location = Location.ENVIRONMENT
+	actual_type = type

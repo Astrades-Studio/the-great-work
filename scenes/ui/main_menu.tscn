@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="1_qspuw"]
-[ext_resource type="PackedScene" uid="uid://b0i2w84d5ue80" path="res://scenes/ui/main_menu_scene.tscn" id="3_u7nmf"]
+[ext_resource type="Texture2D" uid="uid://cy3ju05a0dcem" path="res://assets/images/render.png" id="3_eisaw"]
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
 [ext_resource type="FontFile" uid="uid://cdwvubq8aggmi" path="res://assets/ui/fonts/Gotic/DUKEPLUS.TTF" id="5_xriv8"]
 
@@ -24,31 +24,15 @@ grow_vertical = 2
 theme = ExtResource("1_qspuw")
 script = ExtResource("1_6645d")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1280, 720)
-render_target_update_mode = 4
-
-[node name="MainMenuScene" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_u7nmf")]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.231518, 0.231518, 0.231518, 1)
+texture = ExtResource("3_eisaw")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

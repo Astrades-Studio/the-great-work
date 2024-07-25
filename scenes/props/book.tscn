@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3k5uk73h71xr"]
+
+[ext_resource type="ArrayMesh" uid="uid://vfnf7m5jh3jy" path="res://assets/models/props/book/book.res" id="1_1qrht"]
+[ext_resource type="Script" path="res://scenes/props/book.gd" id="1_vl552"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_cb72p"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="2_vesvm"]
+[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="3_u5kp2"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="4_km6cn"]
+[ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="5_4mky8"]
+
+[sub_resource type="Resource" id="Resource_twiq3"]
+script = ExtResource("5_4mky8")
+pages = Array[Texture]([ExtResource("2_vesvm"), ExtResource("3_u5kp2"), ExtResource("4_km6cn")])
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gkjn6"]
+points = PackedVector3Array(19.209, 23.2694, -6.19089, -18.8815, -22.7268, -13.3167, 16.6261, -22.7268, -13.3167, -20.0721, -24.1644, -0.8613, -18.8815, 22.7266, -13.3167, -20.0721, 24.1642, -0.8613, 15.8648, -21.6898, -1.5186, 16.6261, 22.7266, -13.3167, 15.8648, 21.6896, -1.5186, 19.2095, -23.2701, -6.19086, 17.5371, 22.9877, -12.6676, 19.0283, -23.0513, -9.08039, 18.3148, -23.0611, -4.03846, 17.5372, -22.9879, -12.6676, 18.3146, 23.0606, -4.0385, 19.0279, 23.0506, -9.08035)
+
+[node name="Book" type="StaticBody3D"]
+script = ExtResource("1_vl552")
+book = SubResource("Resource_twiq3")
+color = Color(0.152941, 0.192157, 0.243137, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_1qrht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_gkjn6")
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_cb72p")
+mesh = NodePath("../MeshInstance3D")

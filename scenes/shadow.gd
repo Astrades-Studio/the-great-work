@@ -1,12 +1,26 @@
+class_name Shadow
 extends Node3D
 
-@onready var mesh : MeshInstance3D = $MeshInstance3D
-@onready var right_eye : MeshInstance3D = $MeshInstance3D/MeshInstance3D
-@onready var left_eye: MeshInstance3D = $MeshInstance3D/MeshInstance3D2
+
 @onready var shadow_influence: Area3D = $ShadowInfluence
+
+@onready var mesh : MeshInstance3D = $MeshInstance3D
+@onready var right_eye: MeshInstance3D = %RightEye
+@onready var left_eye: MeshInstance3D = %LeftEye
 
 
 @export var active : bool = false
+@export var SPEED : float = 0.1
+
+var following_player : bool
+var target : Node
+var tween: Tween
+
+# TODO not working
+var invisible : bool = true
+var inv_tween : Tween
+@onready var og_color : Color = Color.BLACK
+
 
 @export var HP := 100:
 	set(value):
@@ -23,8 +37,6 @@ extends Node3D
 		if HP < 80:
 			turn_invisible(20.)
 
-var following_player : bool
-var target : Node
 
 
 func _ready() -> void:
@@ -32,9 +44,6 @@ func _ready() -> void:
 		await GameManager.ready
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 	
-	
-var tween: Tween
-@export var SPEED : float = 0.1
 
 func _process(delta: float) -> void:
 	if target and active:
@@ -58,15 +67,34 @@ func follow_player_for(duration : int = 20):
 	tween.tween_property(self, "global_position", _target_position, 1/SPEED)
 
 
-# TODO not working
-var invisible : bool = true
-var inv_tween : Tween
-@onready var og_color : Color = mesh.mesh.material.albedo_color
-
 func turn_invisible(duration: float = 10.) -> void:
-	get_tree().create_timer(duration).timeout.connect(func(): invisible = false)
+	get_tree().create_timer(duration).timeout.connect(reset_invisibility)
 	inv_tween = get_tree().create_tween()
-	inv_tween.tween_property(mesh, "mesh/material/albedo_color", Color.TRANSPARENT, 3.0)
-	inv_tween.parallel().tween_property(left_eye, "mesh/material/albedo_color", Color.TRANSPARENT, 3.0)
-	inv_tween.parallel().tween_property(right_eye, "mesh/material/albedo_color", Color.TRANSPARENT, 3.0)
+	inv_tween.tween_property(mesh, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
+	inv_tween.parallel().tween_property(left_eye, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
+	inv_tween.parallel().tween_property(right_eye, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
+	hide()
 	
+func reset_invisibility() -> void:
+	if inv_tween:
+		inv_tween.kill()
+	
+	inv_tween = get_tree().create_tween()
+	inv_tween.tween_property(mesh, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
+	inv_tween.parallel().tween_property(left_eye, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
+	inv_tween.parallel().tween_property(right_eye, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
+	show()
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	reset_invisibility()
+	
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	turn_invisible(1.)
+
+
+func _on_shadow_influence_body_entered(body: Node3D) -> void:
+	if body is Flare:
+		turn_invisible(5.0)

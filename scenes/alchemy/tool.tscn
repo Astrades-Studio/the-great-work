@@ -8,10 +8,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_mo7ii"]
 size = Vector3(0.415771, 0.210938, 0.372803)
 
-[node name="Tool" type="StaticBody3D"]
+[node name="Furnace" type="StaticBody3D"]
 collision_layer = 4
 script = ExtResource("1_f5mii")
-type = 1
+type = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_gjy1p")

@@ -16,8 +16,9 @@ size = Vector2(2.5, 2.5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xupai"]
 render_priority = 0
 shader = ExtResource("2_37ewe")
-shader_parameter/time = null
-shader_parameter/intensity = 0.7
+shader_parameter/time = 0.982
+shader_parameter/intensity = 0.5
+shader_parameter/parameter_color = Color(0.730399, 0.733082, 0.709292, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
 size = Vector3(0.801, 1.91089, 0.71)
@@ -52,11 +53,13 @@ collision_mask = 5
 [node name="FearEffect" type="MeshInstance3D" parent="Body/Head/CameraMarker3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000176847, 0, -0.819323)
 visible = false
+layers = 4
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_iv2ty")
 surface_material_override/0 = SubResource("ShaderMaterial_xupai")
 script = ExtResource("3_jw83c")
-intensity = 1.0
+intensity = 0.235
+active = true
 
 [node name="AutoFootSteps" type="Node3D" parent="."]
 script = ExtResource("2_wncd0")
@@ -96,7 +99,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 0.724291
+speed_variance = 1.06345
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)

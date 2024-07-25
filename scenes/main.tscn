@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
-[ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="6_c01vt"]
 [ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/tool.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
@@ -17,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
+[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="14_ueicl"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
+[ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -86,7 +87,8 @@ volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
-max_time = 5000
+max_time = 600
+tick_length = 60.0
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -198,6 +200,7 @@ environment = SubResource("Environment_yd2gk")
 
 [node name="Ingredient" parent="Level/Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
+type = 1
 
 [node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
@@ -233,7 +236,6 @@ type = 0
 
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91034, -2.35527, 3.19447)
-type = 2
 
 [node name="Mixer" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.35527, 2.41783)
@@ -248,62 +250,63 @@ unique_name_in_owner = true
 
 [node name="Yellow Liquid" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
-type = 11
+type = 8
 
 [node name="Banana" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.136, -2.30282, 2.21615)
-type = 12
+type = 1
 
 [node name="Banana2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6945, -2.30282, 2.5472)
-type = 12
+type = 1
 
 [node name="Yellow Liquid2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6962, -2.30282, 2.19326)
-type = 11
+type = 1
 
 [node name="CINNABAR_DUST" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -14.8917, -2.30282, 2.9999)
-type = 16
+type = 1
 
 [node name="Phosphorus" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.5314, -2.30282, 3.24369)
-type = 10
+type = 12
 
 [node name="MERCURY" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.391, -2.30282, 2.71002)
-type = 4
+type = 1
 
 [node name="MERCURY2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.3249, -2.30282, 2.95739)
-type = 4
+type = 1
 
 [node name="MERCURY3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.2036, -2.30282, 3.16963)
-type = 4
+type = 10
 
 [node name="SULFUR" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.7183, -2.30282, 2.8449)
-type = 6
+type = 1
 
 [node name="SULFUR2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.8952, -2.30282, 2.90947)
-type = 6
+type = 1
 
 [node name="SULFUR3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.8428, -2.30282, 3.3319)
-type = 6
+type = 1
 
 [node name="SULFUR4" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -14.8419, -2.30282, 3.30604)
-type = 6
+type = 1
 
 [node name="DRAGONS_BLOOD" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1496, -2.30282, 2.53926)
-type = 19
+type = 1
 
 [node name="FLARE" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
+type = null
 
 [node name="SFX" type="Node3D" parent="Level"]
 
@@ -389,6 +392,9 @@ max_distance = 4.0
 bus = &"SFX"
 emission_angle_enabled = true
 
+[node name="Shadow" parent="Level" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.0568038, 0.116561, -0.991558, 0, 0.993161, 0.11675, 0.998385, -0.00663183, 0.0564153, -12.4747, 0.738923, 3.05035)
+
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
@@ -422,37 +428,7 @@ grow_vertical = 2
 color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-layer = 2
-visible = false
-script = ExtResource("6_c01vt")
-audio_delay = 0.6
-
-[node name="TextureRect" type="TextureRect" parent="TextLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-expand_mode = 3
-stretch_mode = 5
-
-[node name="CenterContainer" type="CenterContainer" parent="TextLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 224.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BackButton" type="Button" parent="TextLayer/CenterContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Back"
+[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 visible = false

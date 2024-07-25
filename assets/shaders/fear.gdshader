@@ -3,6 +3,7 @@ uniform	sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 
 uniform float time : hint_range(0, 10);
 uniform float intensity : hint_range(0, 1) = 0.5;
+uniform vec4 parameter_color : source_color;
 
 void fragment() {
     vec2 uv = SCREEN_UV;
@@ -13,7 +14,8 @@ void fragment() {
 
     // Blur effect
     float blur = intensity * 0.005;
-    vec4 color = vec4(0.0);
+    vec4 color = parameter_color;
+	
     for (int x = -2; x <= 2; x++) {
         for (int y = -2; y <= 2; y++) {
             color += texture(SCREEN_TEXTURE, uv + vec2(float(x),float(y)) * blur) / 25.0;

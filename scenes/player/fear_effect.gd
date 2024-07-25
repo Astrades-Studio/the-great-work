@@ -1,6 +1,11 @@
 extends MeshInstance3D
 
 @export var intensity: float = 0.5
+@export var active : bool:
+	set(value):
+		active = value
+		visible = active
+	
 
 func _process(delta: float) -> void:
 	if material_override and material_override is ShaderMaterial:

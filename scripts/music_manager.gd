@@ -3,10 +3,11 @@ extends Node
 var music_stream_1 : AudioStreamPlayer
 var ambient_music_stream : AudioStreamPlayer
 var ambient_music_stream_2 : AudioStreamPlayer
-
+var ovani_player : OvaniPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ovani_player = OvaniPlayer.new()
 	music_stream_1 = AudioStreamPlayer.new()
 	ambient_music_stream = AudioStreamPlayer.new()
 	ambient_music_stream_2 = AudioStreamPlayer.new()
@@ -14,6 +15,7 @@ func _ready() -> void:
 	add_child(music_stream_1)
 	add_child(ambient_music_stream)
 	add_child(ambient_music_stream_2)
+	add_child(ovani_player)
 
 
 var tween : Tween

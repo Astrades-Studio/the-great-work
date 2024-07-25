@@ -10,13 +10,29 @@ enum Type {
 }
 
 const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
+const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
+
 
 @export var type: Type:
 	set(value):
 		type = value
 		self.name = str(Type.keys()[type].capitalize())
 
-var stored_ingredient: Ingredient
+@onready var og_name : String = self.name
+
+var input_type : Ingredient.Type
+var last_ingredient : Ingredient
+
+var stored_ingredient: Ingredient:
+	set(value):
+		if !is_instance_valid(value):
+			return
+		stored_ingredient = value
+		if stored_ingredient:
+			self.name = "%s with %s" % [og_name, stored_ingredient.type_name]
+		else:
+			self.name = og_name
+
 
 var CORRECT_TOOL_DICTIONARY: Dictionary = {
 	Type.STILL: [
@@ -49,16 +65,22 @@ func _ready():
 	#await GameManager.ready
 	self.connect("interacted", on_tool_use)
 	assert(self.type != null, "Tool has no type")
-	
 
+	
+#TODO: Make the dialogs for each case
 func on_tool_use() -> void:
 	var ingredient = GameManager.player.ingredient_in_hand
+
 	if !ingredient:
 		DialogManager.create_dialog_piece("I need an ingredient to use this")
 		return
+	if ingredient is Flare:
+		DialogManager.create_dialog_piece("I think this is useful enough as it is")
+		return
 	
 	var new_ingredient_type: Ingredient.Type
-
+	input_type = ingredient.type
+	
 	print(str(self.name) + " used")
 	
 	if type == Type.MORTAR:
@@ -71,20 +93,11 @@ func on_tool_use() -> void:
 		new_ingredient_type = use_still(ingredient)
 	
 	if new_ingredient_type == Ingredient.Type.NONE:
-		# TODO: check
-		print("Ingredient left at still")
+		ingredient.queue_free()
 		return
 
-	var resulting_ingredient: Ingredient = INGREDIENT_SCENE.instantiate()
-	resulting_ingredient.type = new_ingredient_type
-	add_child(resulting_ingredient, true)
-	print(str(resulting_ingredient.type_name) + " added")
+	give_ingredient_to_player(new_ingredient_type)
 
-	if resulting_ingredient.type == Ingredient.Type.SALT:
-		resulting_ingredient.type_name = (Ingredient.Type.keys()[ingredient.type] + " salt").capitalize()
-
-	# HACK ?
-	GameManager.player.ingredient_in_hand = resulting_ingredient
 	ingredient.queue_free()
 
 
@@ -125,17 +138,62 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 
 func use_mixer(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-
+	
+	# If this is the first ingredient, return nothing
 	if !stored_ingredient:
 		stored_ingredient = ingredient
+		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[type].capitalize()])
 		return Ingredient.Type.NONE
-
+	
+	# Check all recipes
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MIXER]:
+		# Check if the recipe exists
 		if ingredient.type == correct_type:
+			# Check if the stored ingredient combines with the ingredient on hand
 			if stored_ingredient.type == CORRECT_TOOL_DICTIONARY[Type.MIXER][correct_type]:
+				# Return the next state of the ingredient
+				DialogManager.create_dialog_piece("I combined the %s with the %s" % [stored_ingredient.type_name, ingredient.type_name])
 				result = ingredient.NEXT_STATE[ingredient.type]
+				# Unless it's the philosophers stone, in which case we need to check the progress
+				if result == Ingredient.Type.PHILOSOPHERS_STONE:
+					result = progress_philosopher_stone()
+					return result
 				stored_ingredient = null
-				return result	
+				return result
 
+	DialogManager.create_dialog_piece("I can't combine the %s with the %s" % [stored_ingredient.type_name, ingredient.type_name])
 	stored_ingredient = null
 	return ingredient.Type.SALT
+
+# Check progress of the philospher's stone
+var progress := 0
+func progress_philosopher_stone() -> Ingredient.Type:
+	if progress < 3:
+		progress += 1
+		GameManager.philosopher_stone_progress.emit(progress)
+		DialogManager.create_dialog_piece("I've made %s of it" % progress)
+		return Ingredient.Type.NONE
+	else:
+		progress = 0
+		DialogManager.create_dialog_piece("It's finally done")
+		GameManager.philosopher_stone_made.emit()
+		return Ingredient.Type.PHILOSOPHERS_STONE
+
+
+func give_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
+	if new_ingredient_type == Ingredient.Type.NONE:
+		return
+
+	var resulting_ingredient: Ingredient
+	if new_ingredient_type == Ingredient.Type.FLARE:
+		resulting_ingredient = FLARE_SCENE.instantiate()
+	else:
+		resulting_ingredient = INGREDIENT_SCENE.instantiate()
+	resulting_ingredient.type = new_ingredient_type
+	add_child(resulting_ingredient, true)
+	print(str(resulting_ingredient.type_name) + " added")
+
+	if resulting_ingredient.type == Ingredient.Type.SALT:
+		resulting_ingredient.type_name = (Ingredient.Type.keys()[input_type] + " salt").capitalize()
+
+	GameManager.player.ingredient_in_hand = resulting_ingredient

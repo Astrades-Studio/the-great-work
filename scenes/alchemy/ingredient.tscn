@@ -11,12 +11,13 @@ albedo_color = Color(0.744819, 0.400095, 0.606354, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu7pu"]
 radius = 0.0826772
 
-[node name="Ingredient" type="RigidBody3D"]
+[node name="Cinnabar Dust" type="RigidBody3D"]
 collision_layer = 4
 linear_damp = 5.0
 script = ExtResource("1_dqgjw")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0.0349893, 0)
 mesh = ExtResource("2_0h8cc")
 surface_material_override/0 = SubResource("StandardMaterial3D_mnetg")
