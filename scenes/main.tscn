@@ -1,8 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
-[ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_la52w"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
@@ -29,58 +28,6 @@ albedo_color = Color(0.065, 0.1, 0.0836667, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr30"]
 points = PackedVector3Array(-25, 0, -25, -25, 0, 25, 25, 0, -25, 25, 0, 25)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_71x8p"]
-shader = ExtResource("2_la52w")
-shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
-shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
-shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
-shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
-shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
-shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
-shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
-shader_parameter/horizon_blur = 0.05
-shader_parameter/sun_color = Color(10, 8, 1, 1)
-shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
-shader_parameter/sun_size = 0.2
-shader_parameter/sun_blur = 10.0
-shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
-shader_parameter/moon_size = 0.06
-shader_parameter/moon_blur = 0.1
-shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
-shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
-shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
-shader_parameter/clouds_speed = 2.0
-shader_parameter/clouds_direction = 0.2
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_cutoff = 0.3
-shader_parameter/clouds_fuzziness = 0.5
-shader_parameter/clouds_weight = 0.0
-shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_speed = 1.0
-shader_parameter/overwritten_time = 0.0
-
-[sub_resource type="Sky" id="Sky_8y1pg"]
-sky_material = SubResource("ShaderMaterial_71x8p")
-
-[sub_resource type="Environment" id="Environment_yd2gk"]
-background_mode = 2
-sky = SubResource("Sky_8y1pg")
-ambient_light_source = 2
-ambient_light_color = Color(0.460995, 0.460995, 0.460995, 1)
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0, 0, 0, 1)
-fog_density = 1.0
-fog_sky_affect = 0.245
-fog_height = 4.5
-fog_depth_curve = 0.183011
-fog_depth_begin = 0.0
-fog_depth_end = 1683.3
-volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
@@ -232,7 +179,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Lights"]
 unique_name_in_owner = true
-environment = SubResource("Environment_yd2gk")
 
 [node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
