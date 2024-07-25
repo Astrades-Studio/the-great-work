@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=18 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://cn6cncexuu2se" path="res://assets/models/ingredients/jar_mesh.res" id="2_jvqa0"]
@@ -9,6 +9,62 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4po6i"]
 points = PackedVector3Array(0.0930353, 0.28386, 0.0203736, -0.0960389, 0.0270282, -0.00999774, -0.095717, 0.0276303, 0.014491, -0.0691608, 0.39407, -0.0235774, 0.0388034, 0.0286103, -0.0890941, 0.0207371, 0.0268472, 0.0945642, -0.0301006, 0.39407, 0.0676092, 0.0480593, 0.39407, -0.0561539, -0.0278437, 0.25927, -0.0939835, 0.0942358, 0.0274616, -0.0222344, -0.0753405, 0.264833, 0.0618562, 0.0415559, 0.39407, 0.0610662, -0.0475643, 0.00564191, -0.066287, 0.0759888, 0.0209938, 0.0575361, -0.0469959, 0.020382, 0.0823963, 0.0678269, 0.270789, -0.0693984, 0.0323488, 0.259391, 0.0926198, -0.0939886, 0.259273, -0.027827, -0.0525798, 0.0346319, -0.0830349, -0.0278715, 0.271353, 0.0925078, -0.0496307, 0.400558, -0.0496307, 0.0143604, 0.277936, -0.0947909, 0.0771073, 0.00585653, 0.027221, 0.0800608, 0.265068, 0.0560867, -0.0692534, 0.264719, -0.0692534, -0.0938799, 0.26523, 0.0262058, 0.0925125, 0.271356, -0.0278546, 0.0675894, 0.39407, 0.0284897, -0.0477137, 0.00500433, 0.0649248, -0.056154, 0.400558, 0.0415361, -0.0830349, 0.0346319, -0.0525798, -0.00999775, 0.0270282, -0.0960389)
+
+[sub_resource type="Gradient" id="Gradient_18oco"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
+gradient = SubResource("Gradient_18oco")
+fill = 1
+fill_from = Vector2(0.535613, 0.527066)
+fill_to = Vector2(0.968661, 0.851852)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2ck6"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+albedo_color = Color(0.858807, 4.71681e-06, 1.15514e-06, 1)
+albedo_texture = SubResource("GradientTexture2D_pt3h2")
+albedo_texture_force_srgb = true
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 9.7
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_w663s"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ar4f"]
+curve = SubResource("Curve_w663s")
+
+[sub_resource type="Curve" id="Curve_4hn5e"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492188, 0.260377), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wj65h"]
+curve = SubResource("Curve_4hn5e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
+angle_min = -39.1
+angle_max = 55.9
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 0, 0)
+spread = 3.0
+flatness = 1.0
+angular_velocity_min = -278.18
+angular_velocity_max = 224.8
+velocity_limit_curve = SubResource("CurveTexture_wj65h")
+gravity = Vector3(0, 1, 0)
+scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
+
+[sub_resource type="QuadMesh" id="QuadMesh_igbii"]
+size = Vector2(0.05, 0.05)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mr75j"]
 radius = 4.0
@@ -30,9 +86,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7.2
 shape = SubResource("ConvexPolygonShape3D_4po6i")
 
 [node name="FireBeam" parent="." instance=ExtResource("4_5lh6f")]
+material_override = SubResource("StandardMaterial3D_b2ck6")
 emitting = false
 amount = 55
 lifetime = 0.14
+process_material = SubResource("ParticleProcessMaterial_fr5m7")
+draw_pass_1 = SubResource("QuadMesh_igbii")
 
 [node name="Smoke" parent="." instance=ExtResource("5_td1f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.214808)

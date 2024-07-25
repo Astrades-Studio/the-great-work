@@ -234,9 +234,6 @@ shadow_enabled = true
 unique_name_in_owner = true
 environment = SubResource("Environment_yd2gk")
 
-[node name="None" parent="Level/Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
-
 [node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
 light_color = Color(1, 0.505882, 0.278431, 1)
@@ -357,7 +354,10 @@ type = 16
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
-type = 1
+active = true
+
+[node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.9702, -1.50981, 0.693119)
 
 [node name="SFX" type="Node3D" parent="Level"]
 

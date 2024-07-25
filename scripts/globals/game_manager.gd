@@ -70,7 +70,7 @@ func _ready() -> void:
 
 func _input(event):
 	#if ALT key code is pressed, alternate between capturing and freezing the mouse
-	if event is InputEventKey and event.keycode == KEY_ALT:
+	if event is InputEventKey and event.keycode == KEY_ALT and event.is_pressed():
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:

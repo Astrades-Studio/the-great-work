@@ -29,6 +29,11 @@ var spent : bool = false
 			smoke.emitting = false
 			light.visible = false
 
+func _ready() -> void:
+	if type != Ingredient.Type.FLARE:
+		type = Ingredient.Type.FLARE
+
+
 
 func _on_duration_timer_timeout() -> void:
 	active = false
