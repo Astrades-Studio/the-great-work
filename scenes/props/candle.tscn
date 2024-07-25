@@ -109,7 +109,6 @@ shadow_mesh = SubResource("ArrayMesh_q07ea")
 shape = SubResource("ConvexPolygonShape3D_jrd2d")
 
 [node name="CandleMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7s7hd")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
@@ -118,6 +117,10 @@ metadata/ant_landscape = "{  }"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577599, 0.336029, 0.000962675)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33646, 0)
-light_color = Color(0.622594, 0.345564, 0.0175739, 1)
-omni_range = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.411926, 0)
+light_color = Color(0.59677, 0.271121, 0.174335, 1)
+light_energy = 3.831
+light_indirect_energy = 1.68
+light_volumetric_fog_energy = 0.0
+light_specular = 0.76
+shadow_enabled = true
