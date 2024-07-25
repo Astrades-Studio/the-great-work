@@ -92,6 +92,7 @@ func on_tool_use() -> void:
 	
 	if new_ingredient_type == Ingredient.Type.NONE:
 		ingredient.queue_free()
+		GameManager.player.ingredient_in_hand = null
 		return
 
 	give_ingredient_to_player(new_ingredient_type)
@@ -180,6 +181,7 @@ func progress_philosopher_stone() -> Ingredient.Type:
 
 func give_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
 	if new_ingredient_type == Ingredient.Type.NONE:
+		GameManager.player.ingredient_in_hand = null
 		return
 
 	var resulting_ingredient: Ingredient

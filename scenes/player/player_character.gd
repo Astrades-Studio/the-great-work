@@ -3,6 +3,7 @@ extends UCharacterBody3D
 
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp
+@onready var ingredient_label: Label = %IngredientLabel
 
 @export var interact_distance := 2.0
 @export var drop_distance := 1.0
@@ -13,15 +14,19 @@ extends UCharacterBody3D
 # Mini Inventory
 var ingredient_in_hand : Ingredient:
 	set(value):
+		if !value:
+			ingredient_label.text = ""
+			ingredient_in_hand = null
 		if value:
 			drop_ingredient()
+
 		ingredient_in_hand = value
 
 		if ingredient_in_hand:
 			ingredient_in_hand.global_transform = hand.global_transform
 			ingredient_in_hand.reparent(hand)
 			ingredient_in_hand.current_location = Ingredient.Location.HAND
-
+			ingredient_label.text = ingredient_in_hand.type_name
 
 
 # This is used for raycasting
@@ -64,7 +69,8 @@ func drop_ingredient() -> void:
 	ingredient_in_hand.current_location = Ingredient.Location.ENVIRONMENT
 	ingredient_in_hand.reparent(target_node)
 	ingredient_in_hand = null
-
+	
+	ingredient_label.text = ""
 
 # Check if there's anything in front of the player
 func raycast_forward(to_position : Vector3) -> Vector3:

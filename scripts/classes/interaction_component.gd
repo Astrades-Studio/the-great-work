@@ -1,12 +1,11 @@
 class_name InteractionComponent
 extends Node
 
-
 @export var mesh : MeshInstance3D
 @export var sprite : Sprite3D
 @export var use_outline : bool = false
 
-
+const OUTLINE_MATERIAL = preload("res://assets/outline_material.tres")
 const highlight_material : ShaderMaterial = preload("res://assets/outline_material.tres")
 var parent : Node
 var duplicate_material : Material
@@ -46,7 +45,7 @@ func in_range() -> void:
 	
 	if mesh:
 		if use_outline:
-			var outline_mesh = mesh.mesh.create_outline(0.04)
+			var outline_mesh = mesh.mesh.create_outline(0.22)
 			outline = MeshInstance3D.new()
 			outline.mesh = outline_mesh
 			mesh.add_child(outline)
@@ -54,15 +53,16 @@ func in_range() -> void:
 			assert(mesh.get_active_material(0), "Mesh without material assigned")
 			og_material = mesh.get_active_material(0)
 			duplicate_material = og_material.duplicate()
-		
 			duplicate_material.next_pass = highlight_material
-			mesh.material_override = duplicate_material
-		
+			if mesh.get_surface_override_material_count() < 1:
+				mesh.set_surface_override_material(0, duplicate_material)
+			else:
+				mesh.material_override = duplicate_material
+	
 	elif sprite:
 		sprite.modulate = Color("fed1ff")
 	else:
 		printerr("No mesh or sprite found")
-	
 
 
 func not_in_range() -> void:

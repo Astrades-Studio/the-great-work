@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cq4sv2pi0nhhy"
-path="res://.godot/imported/Pouch_01.glb-d7ea66c6365c082c2b1a9c04fb1f5f40.scn"
+uid="uid://bh4oou1vj3kt6"
+path="res://.godot/imported/vial_01.glb-0b260489ac1d2bbb344d8099aaa80c7a.scn"
 
 [deps]
 
-source_file="res://assets/models/ingredients/Pouch_01.glb"
-dest_files=["res://.godot/imported/Pouch_01.glb-d7ea66c6365c082c2b1a9c04fb1f5f40.scn"]
+source_file="res://assets/models/ingredients/vial_01.glb"
+dest_files=["res://.godot/imported/vial_01.glb-0b260489ac1d2bbb344d8099aaa80c7a.scn"]
 
 [params]
 
@@ -33,14 +33,14 @@ animation/import_rest_as_RESET=false
 import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
 _subresources={
 "meshes": {
-"Pouch_01_SM_Bag_02_001": {
+"vial_01_SM_Vial_06_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/ingredients/pouch.res"
+"save_to_file/path": "res://assets/models/ingredients/vials/vial.res"
 }
 }
 }

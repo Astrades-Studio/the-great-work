@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bbrva0ofak84t"
+path.s3tc="res://.godot/imported/still_01_MI_Flask_01_Occlusion-MI_Flask_01_MetallicRoughness.webp-dce856df328da75396f48fb1d8651291.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e3f50ff01c8f2e92f74685f973cf608a"
+}
+
+[deps]
+
+source_file="res://assets/models/tools/still_01_MI_Flask_01_Occlusion-MI_Flask_01_MetallicRoughness.webp"
+dest_files=["res://.godot/imported/still_01_MI_Flask_01_Occlusion-MI_Flask_01_MetallicRoughness.webp-dce856df328da75396f48fb1d8651291.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/tools/still_01_T_Flask_01_N.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

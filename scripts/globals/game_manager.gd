@@ -64,13 +64,14 @@ signal philosopher_stone_progress(int)
 signal philosopher_stone_made(made:bool)
 signal tick_countdown
 
+
 func _ready() -> void:
 	current_state = GameState.MAIN_MENU
 	game_over.connect(_on_game_over)
 
 func _input(event):
 	#if ALT key code is pressed, alternate between capturing and freezing the mouse
-	if event is InputEventKey and event.keycode == KEY_ALT and event.is_pressed():
+	if event is InputEventKey and event.keycode == KEY_BACKSPACE and event.is_pressed():
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
