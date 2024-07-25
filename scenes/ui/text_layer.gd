@@ -72,16 +72,21 @@ func show_book_page(_page : int):
 		return
 	last_page = _page
 	# If requesting the next page after book ends, hide the text
-	if _page > book.pages.size() -1:
-		hide_text.call_deferred()
-		return
+	if book:
+		if _page > book.pages.size() -1:
+			hide_text.call_deferred()
+			return
 	
-	book_page = _page
-	page_label.text = str(_page + 1) + "/" + str(book.pages.size())
-	show_text(book.pages[book_page])
+		book_page = _page
+		page_label.text = str(_page + 1) + "/" + str(book.pages.size())
+		show_text(book.pages[book_page])
+	else:
+		hide_text()
 
 
 func _on_previous_button_pressed() -> void:
+	if !book:
+		hide_text()
 	book_page -= 1
 	if book_page < 0:
 		book_page = 0
@@ -90,6 +95,8 @@ func _on_previous_button_pressed() -> void:
 
 
 func _on_next_button_pressed() -> void:
+	if !book:
+		hide_text()
 	book_page += 1
 	show_book_page(book_page)
 
