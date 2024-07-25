@@ -110,7 +110,7 @@ skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
 [node name="FireCandle" parent="." instance=ExtResource("1_gjw06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.331023, 0.0167384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
 visibility_range_end = 9.8
 lifetime = 1.61
 explosiveness = 0.3
