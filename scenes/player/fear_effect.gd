@@ -1,14 +1,20 @@
-extends MeshInstance3D
+extends CanvasLayer
 
-@export var intensity: float = 0.5
-@export var active : bool:
-	set(value):
-		active = value
-		visible = active
-	
+@onready var canvas_layer : TextureRect = $FearEffect
 
-func _process(_delta: float) -> void:
-	if material_override and material_override is ShaderMaterial:
-		var shader_material = material_override as ShaderMaterial
-		shader_material.set_shader_param("time", Time.get_ticks_msec() / 1000.0)
-		shader_material.set_shader_param("intensity", intensity)
+func _ready():
+	var shader_material = canvas_layer.material
+	shader_material.set_shader_parameter("time", 0.0)  # Initialize time
+	set_process(true)
+
+func _process(delta):
+	var shader_material = canvas_layer.material
+	var current_time = shader_material.get_shader_parameter("time")
+	shader_material.set_shader_parameter("time", current_time + delta)
+
+
+
+
+func _on_v_slider_value_changed(value: float) -> void:
+	$FearEffect.get_material().set_shader_parameter("amplitude",value/1000)
+	$FearEffect.get_material().set_shader_parameter("frequency",value/10)
