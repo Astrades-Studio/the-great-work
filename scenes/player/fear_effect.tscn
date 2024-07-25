@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://b28vrutxl42s6"]
+
+[ext_resource type="Script" path="res://scenes/player/fear_effect.gd" id="1_fpfb8"]
+[ext_resource type="Shader" path="res://assets/shaders/fear.gdshader" id="2_e25md"]
+[ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="3_fxagf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrqvb"]
+shader = ExtResource("2_e25md")
+shader_parameter/time = 0.0
+shader_parameter/amplitude = 0.05
+shader_parameter/frequency = 3.0
+shader_parameter/vignette_radius = 0.5
+shader_parameter/vignette_intensity = 0.5
+shader_parameter/blur_amount = 0.1
+
+[sub_resource type="CameraTexture" id="CameraTexture_v277f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cdmb"]
+shader = ExtResource("3_fxagf")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uj67y"]
+
+[node name="PanicEffects" type="CanvasLayer"]
+script = ExtResource("1_fpfb8")
+
+[node name="FearEffect" type="TextureRect" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_rrqvb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CameraTexture_v277f")
+
+[node name="Vignette" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_7cdmb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_uj67y")
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 716.0
+min_value = 1.0
+value = 1.0
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
