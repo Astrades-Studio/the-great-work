@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=15 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
-[ext_resource type="Shader" path="res://assets/shaders/fear.gdshader" id="2_37ewe"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
+[ext_resource type="PackedScene" uid="uid://b28vrutxl42s6" path="res://scenes/player/fear_effect.tscn" id="2_mlusi"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
-[ext_resource type="Script" path="res://scenes/player/fear_effect.gd" id="3_jw83c"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
@@ -13,21 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_iv2ty"]
-size = Vector2(2.5, 2.5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xupai"]
-render_priority = 0
-shader = ExtResource("2_37ewe")
-shader_parameter/time = 0.982
-shader_parameter/intensity = 0.5
-shader_parameter/parameter_color = Color(0.730399, 0.733082, 0.709292, 0)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
 size = Vector3(0.801, 1.91089, 0.71)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
 size = Vector3(0.781006, 0.995728, 0.719727)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_krspm"]
+width = 640
+height = 360
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -52,17 +45,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 2, 0)
 collision_mask = 5
-
-[node name="FearEffect" type="MeshInstance3D" parent="Body/Head/CameraMarker3D/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000176847, 0, -0.819323)
-visible = false
-layers = 4
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_iv2ty")
-surface_material_override/0 = SubResource("ShaderMaterial_xupai")
-script = ExtResource("3_jw83c")
-intensity = 0.235
-active = true
 
 [node name="AutoFootSteps" type="Node3D" parent="."]
 script = ExtResource("2_wncd0")
@@ -102,7 +84,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 0.507733
+speed_variance = 1.06043
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)
@@ -220,3 +202,12 @@ size_flags_horizontal = 3
 texture = ExtResource("12_lmv77")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Fear" parent="." instance=ExtResource("2_mlusi")]
+
+[node name="FearEffect" parent="Fear" index="0"]
+top_level = false
+z_as_relative = false
+texture = SubResource("NoiseTexture2D_krspm")
+
+[editable path="Fear"]

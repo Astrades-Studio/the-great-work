@@ -74,6 +74,7 @@ glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
 fog_sky_affect = 0.245
 fog_height = 4.5
 fog_depth_curve = 0.183011
