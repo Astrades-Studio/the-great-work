@@ -25,8 +25,6 @@ var last_ingredient : Ingredient
 
 var stored_ingredient: Ingredient:
 	set(value):
-		if !is_instance_valid(value):
-			return
 		stored_ingredient = value
 		if stored_ingredient:
 			self.name = "%s with %s" % [og_name, stored_ingredient.type_name]
@@ -141,7 +139,7 @@ func use_mixer(ingredient: Ingredient) -> Ingredient.Type:
 	
 	# If this is the first ingredient, return nothing
 	if !stored_ingredient:
-		stored_ingredient = ingredient
+		stored_ingredient = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[type].capitalize()])
 		return Ingredient.Type.NONE
 	
@@ -189,8 +187,8 @@ func give_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
 		resulting_ingredient = FLARE_SCENE.instantiate()
 	else:
 		resulting_ingredient = INGREDIENT_SCENE.instantiate()
-	resulting_ingredient.type = new_ingredient_type
 	add_child(resulting_ingredient, true)
+	resulting_ingredient.type = new_ingredient_type
 	print(str(resulting_ingredient.type_name) + " added")
 
 	if resulting_ingredient.type == Ingredient.Type.SALT:

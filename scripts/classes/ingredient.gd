@@ -77,14 +77,14 @@ var MESH_TABLE : Dictionary = {
 	Type.SALT: BOWL,
 	Type.IRON: ORE,
 	Type.LEAD: ORE,
-	Type.MERCURY: BANANA,
-	Type.PURIFIED_MERCURY: BANANA,
+	Type.MERCURY: JAR,
+	Type.PURIFIED_MERCURY: JAR,
 	Type.SULFUR: BANANA,
 	Type.PURIFIED_SULFUR: BANANA,
-	Type.ACID: BOWL,
-	Type.VINEGAR: BOWL,
+	Type.ACID: JAR,
+	Type.VINEGAR: JAR,
 	Type.PHOSPHORUS: BANANA,
-	Type.YELLOW_LIQUID: BOWL,
+	Type.YELLOW_LIQUID: JAR,
 	Type.BANANA: BANANA,
 	Type.POTASSIUM: BOWL,
 	Type.POTASSIUM_DUST: BOWL,
@@ -93,33 +93,69 @@ var MESH_TABLE : Dictionary = {
 	Type.GOLD: BOWL,
 	Type.SILVER: BOWL,
 	Type.DRAGONS_BLOOD: BOWL,
-	Type.FLARE: BOWL,
+	Type.FLARE: JAR,
 	Type.PHILOSOPHERS_STONE: BOWL,
 }
+#
+#var COLOR_TABLE : Dictionary = {
+	#Type.NONE: Color.WHITE,
+	#Type.SALT: Color.WHITE,
+	#Type.IRON: Color.GRAY,
+	#Type.LEAD: Color.DARK_GRAY,
+	#Type.MERCURY: Color.SILVER,
+	#Type.PURIFIED_MERCURY: Color.LIGHT_SLATE_GRAY,
+	#Type.SULFUR: Color.OLIVE,
+	#Type.PURIFIED_SULFUR: Color.GOLDENROD,
+	#Type.ACID: Color.GREEN_YELLOW,
+	#Type.VINEGAR: Color.TRANSPARENT,
+	#Type.PHOSPHORUS: Color.DARK_RED,
+	#Type.YELLOW_LIQUID: Color.YELLOW,
+	#Type.BANANA: Color.YELLOW,
+	#Type.POTASSIUM: Color.DIM_GRAY,
+	#Type.POTASSIUM_DUST: Color.DIM_GRAY,
+	#Type.CINNABAR: Color.LIGHT_CORAL,
+	#Type.CINNABAR_DUST: Color.LIGHT_CORAL,
+	#Type.GOLD: Color.GOLD,
+	#Type.SILVER: Color.SILVER,
+	#Type.DRAGONS_BLOOD: Color.DARK_RED,
+	#Type.FLARE: Color.WHITE,
+	#Type.PHILOSOPHERS_STONE: Color.DARK_RED,
+#}
 
 
 # TODO: Maybe move to a global
 const BOWL = preload("res://assets/models/ingredients/bowl.obj")
-const ORE = preload("res://assets/models/ingredients/ore.obj")
+const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
 const BANANA = preload("res://assets/models/ingredients/banana.res")
-
+const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
 
 @onready var mesh: MeshInstance3D = %Mesh
+@onready var collision_shape: CollisionShape3D = %CollisionShape3D
 
 var type_name : String
 var mesh_type : Mesh
 
-var type : Type 
 
-@export var actual_type : Type :
+@export var type : Type :
 	set(value):
-		printraw()
+		if !Engine.is_editor_hint():
+			if !ready:
+				await ready
 		type = value
 		type_name = str(Type.keys()[type]).capitalize()
 		self.name = type_name
-		assert(mesh, "Mesh not found")
+		if !mesh:
+			await tree_entered
+			mesh = get_node("%Mesh")
 		mesh_type = MESH_TABLE[type]
 		mesh.mesh = mesh_type
+		if !collision_shape:
+			await tree_entered
+			collision_shape = get_node("%CollisionShape3D")
+		collision_shape.make_convex_from_siblings()
+		collision_shape.global_transform = mesh.global_transform
+			
+		
 
 var current_location : Location = Location.ENVIRONMENT :
 	set(value):
@@ -136,4 +172,6 @@ var current_location : Location = Location.ENVIRONMENT :
 
 func _ready() -> void:
 	current_location = Location.ENVIRONMENT
-	actual_type = type
+	#var target_color = COLOR_TABLE[type]	
+	#var active_material = mesh.get_active_material(0)
+	#active_material.albedo_color = target_color

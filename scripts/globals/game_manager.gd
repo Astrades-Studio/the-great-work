@@ -37,7 +37,7 @@ var current_state : GameState:
 		elif current_state == GameState.LOADING:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+		#TODO: decide where to put cutscene CANNOT MOVE behavior
 		else:
 			printerr("Invalid game state")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -48,6 +48,7 @@ var environment : WorldEnvironment
 var text_layer : TextLayer
 var player : UCharacterBody3D
 var ingredient_layer : Node
+var transition_screen : Node
 
 # UI Signals
 signal interaction_label_updated(string : String)
@@ -56,6 +57,7 @@ signal request_book_UI(book : BookPages)
 
 # Game State Signals
 signal game_over
+signal game_started
 
 # Game Progression Signals
 signal philosopher_stone_progress(int)
@@ -65,6 +67,15 @@ signal tick_countdown
 func _ready() -> void:
 	current_state = GameState.MAIN_MENU
 	game_over.connect(_on_game_over)
+
+func _input(event):
+	#if ALT key code is pressed, alternate between capturing and freezing the mouse
+	if event is InputEventKey and event.keycode == KEY_ALT:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 # Gets connected from main menu
 func _on_new_game_requested():

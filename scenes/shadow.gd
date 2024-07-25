@@ -25,7 +25,7 @@ var inv_tween : Tween
 @export var HP := 100:
 	set(value):
 		HP = clamp(value, 0, 100)
-		var ratio : float = float(HP / 100)
+		var ratio : float = float(HP / 100.)
 		
 		var new_color = Color(1.0, ratio, ratio, 0.5)
 		
@@ -45,7 +45,7 @@ func _ready() -> void:
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if target and active:
 		look_at(target.global_position, Vector3.UP, true)
 

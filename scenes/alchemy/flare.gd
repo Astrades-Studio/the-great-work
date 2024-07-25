@@ -32,6 +32,8 @@ var spent : bool = false
 
 func _on_duration_timer_timeout() -> void:
 	active = false
+	mesh.mesh.surface_get_material(0).albedo_color = Color.DIM_GRAY
+	mesh.mesh.surface_get_material(1).albedo_color = Color.DIM_GRAY
 	spent = true
 
 

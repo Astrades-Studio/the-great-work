@@ -7,10 +7,7 @@ extends CanvasLayer
 @onready var back_button: Button = %BackButton
 @onready var previous_button: Button = %PreviousButton
 @onready var next_button: Button = %NextButton
-
-
-signal next_page_requested
-signal previous_page_requested
+@onready var page_label: Label = %PageLabel
 
 
 var book : BookPages
@@ -80,6 +77,7 @@ func show_book_page(_page : int):
 		return
 	
 	book_page = _page
+	page_label.text = str(_page + 1) + "/" + str(book.pages.size())
 	show_text(book.pages[book_page])
 
 

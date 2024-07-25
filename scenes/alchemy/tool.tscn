@@ -8,10 +8,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_mo7ii"]
 size = Vector3(0.415771, 0.210938, 0.372803)
 
-[node name="Furnace" type="StaticBody3D"]
+[node name="Mortar" type="StaticBody3D"]
 collision_layer = 4
 script = ExtResource("1_f5mii")
-type = 2
+type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_gjy1p")
@@ -21,5 +21,6 @@ surface_material_override/0 = ExtResource("3_18ibf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103149, 0.111328, 0)
 shape = SubResource("BoxShape3D_mo7ii")
 
-[node name="InteractionComponent" type="Node" parent="."]
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("4_kkm5h")
+mesh = NodePath("../MeshInstance3D")

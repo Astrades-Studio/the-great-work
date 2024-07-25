@@ -20,5 +20,5 @@ func _input(event):
 		else:
 			animation_player.speed_scale = 3.0
 		
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	go_title_screen()

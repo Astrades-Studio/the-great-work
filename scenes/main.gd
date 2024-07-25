@@ -3,11 +3,12 @@ extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
 @onready var ingredients: Node3D = %Ingredients
+@onready var transition_layer: CanvasLayer = %TransitionLayer
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
-@export var max_time := 60
-@export var tick_length := 1.
+@export var max_time := 10
+@export var tick_length := 60.
 
 static var countdown
 
@@ -16,14 +17,17 @@ func _ready() -> void:
 	countdown = max_time
 	GameManager.environment = world_environment
 	GameManager.ingredient_layer = ingredients
-	# GameManager.game_over.connect(_on_game_over)
+	GameManager.tick_countdown.emit()
+	GameManager.transition_screen = transition_layer
+	
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()
 
 
 func start_midnight_game():
+	GameManager.game_started.emit()
+	await transition_layer.animation_finished
 	game_over_timer.start(tick_length)
-	await get_tree().create_timer(1).timeout
 	DialogManager.play_dialog(DialogManager.INTRO)
 
 
@@ -35,15 +39,5 @@ func _on_timer_tick():
 		GameManager.game_over.emit()
 		game_over_timer.stop()
 	
-	# TODO: Make it proportional to total time
-	#var fog_increment := world_environment.environment.fog_density + 0.1
-	#world_environment.environment.fog_density = clamp(fog_increment, 1, 55)
-	
-	
-# func _on_game_over():
-# 	#TODO: transicion
-# 	get_tree().change_scene_to_file("res://scenes/ui/game_over_scene.tscn")
-	
-	
-	
-	
+	var fog_increment : float = world_environment.environment.fog_density + (countdown / max_time)
+	world_environment.environment.fog_density = clamp(fog_increment, 1, 10)

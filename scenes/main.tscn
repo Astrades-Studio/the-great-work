@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=32 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="14_ueicl"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
+[ext_resource type="Script" path="res://scenes/transition_layer.gd" id="20_4sruo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -85,10 +86,45 @@ volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
+[sub_resource type="Animation" id="Animation_b51in"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vwxdf"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmo3f"]
+_data = {
+"RESET": SubResource("Animation_b51in"),
+"fade_in": SubResource("Animation_vwxdf")
+}
+
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
-max_time = 600
-tick_length = 60.0
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -198,9 +234,8 @@ shadow_enabled = true
 unique_name_in_owner = true
 environment = SubResource("Environment_yd2gk")
 
-[node name="Ingredient" parent="Level/Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
+[node name="None" parent="Level/Lights/WorldEnvironment" instance=ExtResource("5_64sgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69487, 0)
-type = 1
 
 [node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
@@ -248,65 +283,81 @@ type = 0
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
 
-[node name="Yellow Liquid" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+[node name="Cinnabar Dust" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
 transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
-type = 8
+type = 16
 
-[node name="Banana" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.136, -2.30282, 2.21615)
-type = 1
+[node name="Gold" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.90056)
+type = 17
 
-[node name="Banana2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6945, -2.30282, 2.5472)
-type = 1
+[node name="Gold2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.90056)
+type = 17
 
-[node name="Yellow Liquid2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6962, -2.30282, 2.19326)
-type = 1
+[node name="Gold3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.90056)
+type = 17
 
-[node name="CINNABAR_DUST" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -14.8917, -2.30282, 2.9999)
-type = 1
+[node name="Gold4" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.90056)
+type = 17
+
+[node name="Gold5" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.90056)
+type = 17
+
+[node name="Potassium Dust" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.44343)
+type = 14
+
+[node name="Potassium Dust2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.1995)
+type = 14
+
+[node name="Potassium Dust3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -15.6555, -2.30282, 2.61493)
+type = 14
+
+[node name="Cinnabar Dust3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
 
 [node name="Phosphorus" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.5314, -2.30282, 3.24369)
-type = 12
-
-[node name="MERCURY" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.391, -2.30282, 2.71002)
-type = 1
-
-[node name="MERCURY2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.3249, -2.30282, 2.95739)
-type = 1
-
-[node name="MERCURY3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.2036, -2.30282, 3.16963)
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.3837)
 type = 10
 
-[node name="SULFUR" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.7183, -2.30282, 2.8449)
-type = 1
+[node name="Phosphorus2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.1847)
+type = 10
 
-[node name="SULFUR2" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.8952, -2.30282, 2.90947)
-type = 1
+[node name="Phosphorus3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.50454)
+type = 10
 
-[node name="SULFUR3" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -15.8428, -2.30282, 3.3319)
-type = 1
+[node name="Cinnabar Dust5" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
 
-[node name="SULFUR4" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(0.954359, -0.0361619, 0.296464, -9.28125e-10, 0.992643, 0.121079, -0.298662, -0.115553, 0.947337, -14.8419, -2.30282, 3.30604)
-type = 1
+[node name="Cinnabar Dust6" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
 
-[node name="DRAGONS_BLOOD" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
-transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1496, -2.30282, 2.53926)
-type = 1
+[node name="Cinnabar Dust7" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
 
-[node name="FLARE" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+[node name="Cinnabar Dust8" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
+
+[node name="Cinnabar Dust9" parent="Level/Ingredients" instance=ExtResource("5_64sgf")]
+transform = Transform3D(-0.0827865, 0.120664, -0.989235, 0, 0.992643, 0.121079, 0.996567, 0.0100237, -0.0821774, -16.1511, -2.30282, 2.90056)
+type = 16
+
+[node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
-type = null
+type = 1
 
 [node name="SFX" type="Node3D" parent="Level"]
 
@@ -438,5 +489,25 @@ visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+script = ExtResource("20_4sruo")
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tmo3f")
+}
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]

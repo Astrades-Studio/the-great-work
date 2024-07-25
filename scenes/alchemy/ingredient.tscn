@@ -1,29 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4d2k12engjc6"]
+[gd_scene load_steps=6 format=3 uid="uid://c4d2k12engjc6"]
 
 [ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_dqgjw"]
-[ext_resource type="ArrayMesh" uid="uid://btvu4r4fy6vlb" path="res://assets/models/ingredients/ore.obj" id="2_0h8cc"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_4dfhw"]
+[ext_resource type="ArrayMesh" uid="uid://bbr8ndv65rb83" path="res://assets/models/ingredients/bowl.obj" id="2_qeci2"]
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="3_fqpdi"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnetg"]
-albedo_color = Color(0.744819, 0.400095, 0.606354, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu7pu"]
 radius = 0.0826772
 
-[node name="Cinnabar Dust" type="RigidBody3D"]
+[node name="Yellow Liquid" type="RigidBody3D"]
 collision_layer = 4
 linear_damp = 5.0
 script = ExtResource("1_dqgjw")
+type = 11
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0.0349893, 0)
-mesh = ExtResource("2_0h8cc")
-surface_material_override/0 = SubResource("StandardMaterial3D_mnetg")
+transform = Transform3D(0.320263, 0, 0, 0, 0.320263, 0, 0, 0, 0.320263, 0, 0, 0)
+mesh = ExtResource("2_qeci2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0458304, 0)
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_hu7pu")
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
