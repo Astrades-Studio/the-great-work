@@ -7,7 +7,7 @@ extends Node3D
 @onready var mesh : MeshInstance3D = $MeshInstance3D
 @onready var right_eye: MeshInstance3D = %RightEye
 @onready var left_eye: MeshInstance3D = %LeftEye
-
+@onready var material : StandardMaterial3D = mesh.get_active_material(0)
 
 @export var active : bool = false
 @export var SPEED : float = 0.1
@@ -66,33 +66,37 @@ func follow_player_for(duration : int = 20):
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", _target_position, 1/SPEED)
 
-
+var transition_length := 1.0
 func turn_invisible(duration: float = 10.) -> void:
-	get_tree().create_timer(duration).timeout.connect(reset_invisibility)
+	push_warning("Turning invisible")
+	
+	#get_tree().create_timer(duration).timeout.connect(reset_invisibility)
 	inv_tween = get_tree().create_tween()
-	inv_tween.tween_property(mesh, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
-	inv_tween.parallel().tween_property(left_eye, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
-	inv_tween.parallel().tween_property(right_eye, "mesh:surface_material_override:0:albedo_color", Color.TRANSPARENT, 3.0)
-	hide()
+	inv_tween.tween_property(material, "albedo_color:a", 0.0, transition_length)
+	#inv_tween.parallel().tween_property(left_eye, "surface_material_override/0/albedo_color/a", 0.0, transition_length)
+	#inv_tween.parallel().tween_property(right_eye, "surface_material_override/0/albedo_color/a", 0.0, transition_length)
+	#hide()
 	
 func reset_invisibility() -> void:
-	if inv_tween:
-		inv_tween.kill()
+
+	push_warning("Reseting visibility")
 	
 	inv_tween = get_tree().create_tween()
-	inv_tween.tween_property(mesh, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
-	inv_tween.parallel().tween_property(left_eye, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
-	inv_tween.parallel().tween_property(right_eye, "mesh:surface_material_override:0:albedo_color", og_color, 3.0)
-	show()
+	inv_tween.tween_property(material, "albedo_color", og_color, transition_length)
+	
+	#inv_tween.parallel().tween_pr operty(left_eye, "surface_material_override/0/albedo_color", og_color, transition_length)
+	#inv_tween.parallel().tween_property(right_eye, "surface_material_override/0/albedo_color", og_color, transition_length)
+	#show()
 
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	reset_invisibility()
-	
+	print("Shadow on screen")
+	turn_invisible(1)
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	turn_invisible(1.)
+	print("Shadow off screen")
+	reset_invisibility()
 
 
 func _on_shadow_influence_body_entered(body: Node3D) -> void:

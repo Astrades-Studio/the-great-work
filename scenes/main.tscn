@@ -74,7 +74,6 @@ glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 5.0
 fog_sky_affect = 0.245
 fog_height = 4.5
 fog_depth_curve = 0.183011
@@ -354,7 +353,6 @@ type = 16
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
-active = true
 
 [node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.9702, -1.50981, 0.693119)

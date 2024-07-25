@@ -1,17 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=9 format=3 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow.gd" id="1_4x05d"]
 [ext_resource type="ArrayMesh" uid="uid://cfti6ghu2qoq4" path="res://assets/models/human/human_mesh.res" id="2_nybji"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3sgv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7oee"]
 transparency = 1
 cull_mode = 1
-albedo_color = Color(0.126, 0.126, 0.126, 0.847)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7oee"]
-next_pass = SubResource("StandardMaterial3D_q3sgv")
-cull_mode = 1
-albedo_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+albedo_color = Color(0.08, 0.08, 0.08, 1)
 uv1_scale = Vector3(0.295, 0.295, 0.295)
 uv1_triplanar = true
 
