@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgw2nb65vc0bf"]
 
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xx6o5"]
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="2_pv6rq"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="2_pv6rq"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3

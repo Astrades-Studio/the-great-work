@@ -6,12 +6,12 @@ class_name UCharacterBody3D
 
 @onready var body: Node3D = $Body
 @onready var head = $Body/Head
-@onready var camera = $Body/Head/CameraMarker3D/Camera3D
+@onready var camera : Camera3D = $Body/Head/CameraMarker3D/Camera3D
 @onready var camera_target = $Body/Head/CameraMarker3D
 @onready var head_position: Vector3 = head.position
 @onready var item_camera: Camera3D = %ItemCamera
 
-
+@onready var item_viewport: SubViewport = %ItemViewport
 
 var mouse_sensitivity: float = 0.1
 
@@ -70,27 +70,35 @@ func _ready():
 	
 	camera_gt_previous = camera_target.global_transform
 	camera_gt_current = camera_target.global_transform
+	
+	item_viewport.world_3d = camera.get_world_3d()
+	
 
 func update_camera_transform():
 	camera_gt_previous = camera_gt_current
 	camera_gt_current = camera_target.global_transform
 	
+
 func _process(delta: float) -> void:
 	if update_camera:
 		update_camera_transform()
 		update_camera = false
 	
 	item_camera.global_transform = camera.global_transform
+	
 
 	var interpolation_fraction = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
 
 	var camera_xform = camera_gt_previous.interpolate_with(camera_gt_current, interpolation_fraction)
 	camera.global_transform = camera_xform
-
+	
+	# Make sure the camera is not rotated on the z axis:
+	camera.rotation.z = 0
+	
 	var head_xform : Transform3D = head.get_global_transform()
 	
 	camera_target_position = lerp(camera_target_position, head_xform.origin, delta * speed * STAIRS_FEELING_COEFFICIENT * camera_lerp_coefficient)
-
+	
 	if is_on_floor():
 		time_in_air = 0.0
 		camera_lerp_coefficient = 1.0

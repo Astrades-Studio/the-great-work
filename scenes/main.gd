@@ -39,6 +39,5 @@ func _on_timer_tick():
 		GameManager.game_over.emit()
 		game_over_timer.stop()
 	
-
 	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
 	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)

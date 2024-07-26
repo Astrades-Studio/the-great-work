@@ -36,14 +36,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, 0, 0)
 cull_mask = 1048573
 current = true
-fov = 76.2
-far = 50.72
 
 [node name="InteractRay" type="RayCast3D" parent="Body/Head/CameraMarker3D/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 2, 0)
 collision_mask = 5
+
+[node name="EmergencyLight" type="SpotLight3D" parent="Body/Head/CameraMarker3D/Camera3D"]
+visible = false
+spot_range = 6.743
 
 [node name="AutoFootSteps" type="Node3D" parent="."]
 script = ExtResource("2_wncd0")
@@ -67,30 +69,29 @@ target_position = Vector3(0, 2, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SubViewport" type="SubViewport" parent="HandLayer/SubViewportContainer"]
+[node name="ItemViewport" type="SubViewport" parent="HandLayer/SubViewportContainer"]
+unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(640, 360)
 render_target_update_mode = 4
 
-[node name="ItemCamera" type="Camera3D" parent="HandLayer/SubViewportContainer/SubViewport"]
+[node name="ItemCamera" type="Camera3D" parent="HandLayer/SubViewportContainer/ItemViewport"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38726, 0)
 keep_aspect = 0
 cull_mask = 2
 current = true
-fov = 88.6
-far = 57.53
 
-[node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
+[node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.27369
+transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
+speed_variance = 0.839693
 
-[node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
-transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.174737, -0.206779, -0.440836)
+[node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
+transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)
 
-[node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera/Marker3D"]
+[node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D"]
 unique_name_in_owner = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]

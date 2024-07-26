@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://ddh81vsy58dex"]
+[gd_scene load_steps=9 format=4 uid="uid://ddh81vsy58dex"]
 
+[ext_resource type="Script" path="res://scenes/props/candle.gd" id="1_0mdo7"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="1_jw78f"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jrd2d"]
@@ -103,7 +104,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q07ea")
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="Candle" type="StaticBody3D"]
+script = ExtResource("1_0mdo7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_jrd2d")

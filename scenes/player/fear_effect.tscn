@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b28vrutxl42s6"]
+[gd_scene load_steps=8 format=3 uid="uid://blykgf66nhee"]
 
 [ext_resource type="Script" path="res://scenes/player/fear_effect.gd" id="1_fpfb8"]
 [ext_resource type="Shader" path="res://assets/shaders/fear.gdshader" id="2_e25md"]
