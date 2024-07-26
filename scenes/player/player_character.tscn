@@ -1,9 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=11 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
-[ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
-[ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
@@ -45,10 +43,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, 2, 0)
 collision_mask = 5
 
-[node name="AutoFootSteps" type="Node3D" parent="."]
-script = ExtResource("2_wncd0")
-foot_profile = ExtResource("3_yrwvo")
-
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951386, 0)
 shape = SubResource("BoxShape3D_ekw6g")
@@ -86,7 +80,7 @@ far = 57.53
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.34209
+speed_variance = 0.555537
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.174737, -0.206779, -0.440836)
