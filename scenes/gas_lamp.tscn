@@ -134,9 +134,6 @@ size = Vector2(0.03, 0.03)
 height = 0.3
 radius = 0.0521055
 
-[sub_resource type="Animation" id="Animation_00dwj"]
-resource_name = "GasLampON"
-
 [sub_resource type="Animation" id="Animation_0erm1"]
 resource_name = "GasLampAnimation"
 length = 2.0015
@@ -153,6 +150,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(1.48353, -1.5708, -1.5708), Vector3(1.5708, -1.5708, -1.5708), Vector3(1.65806, -1.5708, -1.5708)]
 }
+
+[sub_resource type="Animation" id="Animation_00dwj"]
+resource_name = "GasLampON"
 
 [sub_resource type="Animation" id="Animation_voj86"]
 length = 0.001
@@ -183,10 +183,10 @@ script = ExtResource("1_i1yuc")
 active = false
 min_value = 0.8
 max_value = 2.5
-speed_variance = 0.934655
+speed_variance = 1.01375
 
 [node name="Eje" type="Node3D" parent="."]
-transform = Transform3D(0.00390608, 0, 0, 0, -1.7074e-10, -0.00390608, 0, 0.00390608, -1.7074e-10, 0, 0.304106, 0)
+transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="Eje"]
 transform = Transform3D(1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 3.18434e-06, 72.8491)
@@ -202,6 +202,7 @@ transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-1
 layers = 2
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
+emitting = false
 amount = 15
 amount_ratio = 0.7404
 lifetime = 3.9
@@ -230,7 +231,7 @@ omni_range = 8.085
 omni_attenuation = 1.63
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.592012
+wait_time = 0.984898
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

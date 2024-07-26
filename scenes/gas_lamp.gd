@@ -6,6 +6,7 @@ extends StaticBody3D
 @onready var mesh: MeshInstance3D = $Eje/Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
 @onready var fire_beam_2: GPUParticles3D = $Eje/Hand_Gas_Lamp_002/FireBeam2
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var active : bool = true : 
 	set(value):
@@ -37,6 +38,7 @@ func _ready() -> void:
 	active = false
 	timer.start()
 	GameManager.tick_countdown.connect(_on_tick_timeout)
+	animation_player.play("GasLampAnimation")
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():
