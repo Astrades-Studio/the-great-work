@@ -1,17 +1,19 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=30 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
+[ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
+[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="6_5pm5j"]
 [ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
+[ext_resource type="Texture2D" uid="uid://c4xxdqa3yfsji" path="res://assets/images/paintings/painting-04.jpg" id="6_sp2fh"]
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/tool.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
-[ext_resource type="Texture2D" uid="uid://b5o23c61t2dmj" path="res://assets/images/paintings/painting-13.jpg" id="11_n4owc"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
@@ -76,7 +78,10 @@ script = ExtResource("1_bkhrr")
 [node name="Level" type="Node3D" parent="."]
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/House"]
+environment = ExtResource("6_5pm5j")
 
 [node name="Ground" type="Node3D" parent="Level"]
 
@@ -160,25 +165,28 @@ omni_range = 2.31232
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Painting" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 0.45927, 1.69721, -0.368115)
-painting = ExtResource("11_n4owc")
+transform = Transform3D(1.04947, 0, 0, 0, 0.875444, -0.0122858, 0, 0.0107725, 0.998423, 1.53975, 2.01755, -8.38251)
+painting = ExtResource("4_hr77e")
 
 [node name="Painting2" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 2.22261, 2.89292, -0.266678)
+transform = Transform3D(-4.36148e-08, 0.0181504, 0.999835, -2.90378e-09, 0.999835, -0.0181504, -1, -3.69492e-09, -4.35549e-08, -5.3047, 1.82276, 1.77841)
 painting = ExtResource("12_k1s8s")
 
 [node name="Painting3" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.999765, 0.0216579, 0, -0.0216579, 0.999765, 3.83064, 1.40687, -0.392745)
+transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
+painting = ExtResource("6_sp2fh")
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level/Lights"]
 transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 14.1873, -2.01362, 0)
+visible = false
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Lights"]
 unique_name_in_owner = true
+environment = ExtResource("6_5pm5j")
 
 [node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
@@ -317,7 +325,7 @@ bus = &"Music"
 [node name="RainOnWindows" type="Node3D" parent="Level/SFX/Rain"]
 
 [node name="LivingRoom1" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -8.13387, 1.45935, 3.77775)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -8.26163, 1.75702, 3.15995)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -326,7 +334,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom2" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -13.7234, 2.10142, 7.32208)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -12.6257, 1.82085, 7.32208)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -335,7 +343,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -10.2241, 2.10142, -2.72421)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 2.04425, -2.72421)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -353,16 +361,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.795, 1.87252, 4.16954)
-stream = ExtResource("7_qg76f")
-max_db = -10.776
-autoplay = true
-max_distance = 2.0
-bus = &"SFX"
-attenuation_filter_db = -11.2
-
-[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.84, 1.87252, 1.29419)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.095153, 0.169163, -23.795, 2.19062, 4.42008)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -390,6 +389,7 @@ emission_angle_enabled = true
 
 [node name="Shadow" parent="Level" instance=ExtResource("14_ueicl")]
 transform = Transform3D(0.0568038, 0.116561, -0.991558, 0, 0.993161, 0.11675, 0.998385, -0.00663183, 0.0564153, -12.4747, 0.738923, 3.05035)
+visible = false
 
 [node name="Triggers" type="Node3D" parent="."]
 

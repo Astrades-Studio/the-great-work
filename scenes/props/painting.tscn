@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ctqpcva1htifs" path="res://assets/images/paintings/painting-39.jpg" id="3_m4jpa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve40t"]
+albedo_color = Color(0.617455, 0.617455, 0.617455, 1)
 albedo_texture = ExtResource("2_eydgx")
+metallic_specular = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_ovslk"]
 

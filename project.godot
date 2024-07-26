@@ -35,6 +35,7 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -142,6 +143,7 @@ pause={
 3d_render/layer_2="FPS_items"
 3d_render/layer_3="Lights"
 3d_render/layer_4="Shadows"
+3d_render/layer_5="Ignore Light Source"
 3d_physics/layer_1="Static"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Items"
