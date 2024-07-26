@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=13 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
-[ext_resource type="PackedScene" uid="uid://b28vrutxl42s6" path="res://scenes/player/fear_effect.tscn" id="2_mlusi"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
@@ -17,10 +16,6 @@ size = Vector3(0.801, 1.91089, 0.71)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
 size = Vector3(0.781006, 0.995728, 0.719727)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_krspm"]
-width = 640
-height = 360
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -85,7 +80,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.07957
+speed_variance = 1.49536
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/SubViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)

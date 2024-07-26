@@ -6,12 +6,15 @@ enum Type {
 	STILL,
 	MORTAR,
 	FURNACE,
-	MIXER,
+	CAULDRON,
 }
 
 const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
 const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
 
+@export var ingredient_preview : Node
+@export var wait_time : int
+@export var sound : AudioStream
 
 @export var type: Type:
 	set(value):
@@ -19,6 +22,8 @@ const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
 		self.name = str(Type.keys()[type].capitalize())
 
 @onready var og_name : String = self.name
+@onready var wait_label: Label3D = $WaitLabel
+#TODO code wait time
 
 var input_type : Ingredient.Type
 var last_ingredient : Ingredient
@@ -46,7 +51,7 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 		Ingredient.Type.BANANA,
 		Ingredient.Type.DRAGONS_BLOOD,
 	],
-	Type.MIXER: {
+	Type.CAULDRON: {
 		Ingredient.Type.POTASSIUM_DUST: Ingredient.Type.PHOSPHORUS,
 		Ingredient.Type.PHOSPHORUS: Ingredient.Type.POTASSIUM_DUST,
 		Ingredient.Type.PURIFIED_SULFUR: Ingredient.Type.PURIFIED_MERCURY,
@@ -59,6 +64,7 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 }
 
 func _ready():
+	wait_label.hide()
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
 	#await GameManager.ready
 	self.connect("interacted", on_tool_use)
@@ -79,14 +85,15 @@ func on_tool_use() -> void:
 	var new_ingredient_type: Ingredient.Type
 	input_type = ingredient.type
 	
+	wait_label.show()
 	print(str(self.name) + " used")
 	
 	if type == Type.MORTAR:
 		new_ingredient_type = use_mortar(ingredient)
 	elif type == Type.FURNACE:
 		new_ingredient_type = use_furnace(ingredient)
-	elif type == Type.MIXER:
-		new_ingredient_type = use_mixer(ingredient)
+	elif type == Type.CAULDRON:
+		new_ingredient_type = use_cauldron(ingredient)
 	elif type == Type.STILL:
 		new_ingredient_type = use_still(ingredient)
 	
@@ -135,7 +142,7 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 	return ingredient.Type.SALT
 
 
-func use_mixer(ingredient: Ingredient) -> Ingredient.Type:
+func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
 	
 	# If this is the first ingredient, return nothing
@@ -145,11 +152,11 @@ func use_mixer(ingredient: Ingredient) -> Ingredient.Type:
 		return Ingredient.Type.NONE
 	
 	# Check all recipes
-	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MIXER]:
+	for correct_type in CORRECT_TOOL_DICTIONARY[Type.CAULDRON]:
 		# Check if the recipe exists
 		if ingredient.type == correct_type:
 			# Check if the stored ingredient combines with the ingredient on hand
-			if stored_ingredient.type == CORRECT_TOOL_DICTIONARY[Type.MIXER][correct_type]:
+			if stored_ingredient.type == CORRECT_TOOL_DICTIONARY[Type.CAULDRON][correct_type]:
 				# Return the next state of the ingredient
 				DialogManager.create_dialog_piece("I combined the %s with the %s" % [stored_ingredient.type_name, ingredient.type_name])
 				result = ingredient.NEXT_STATE[ingredient.type]
