@@ -1,14 +1,51 @@
-[gd_resource type="Environment" format=3 uid="uid://dxjf3e8aefdjw"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cv6gi3n2kuuoe"]
+
+[ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="1_77sn4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6t4n"]
+shader = ExtResource("1_77sn4")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_ks0bx"]
+sky_material = SubResource("ShaderMaterial_g6t4n")
 
 [resource]
 background_mode = 1
-background_color = Color(0.0272565, 0.0306932, 0.0273626, 1)
-background_energy_multiplier = 3.98
+background_color = Color(0.0212747, 0.0171947, 0.0118659, 1)
+sky = SubResource("Sky_ks0bx")
 ambient_light_source = 2
-ambient_light_color = Color(0.155841, 0.18197, 0.250857, 1)
-ambient_light_energy = 6.97
-reflected_light_source = 1
+ambient_light_color = Color(0.337061, 0.35844, 0.447994, 1)
+ambient_light_energy = 2.19
 tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
