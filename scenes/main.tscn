@@ -1,79 +1,26 @@
-[gd_scene load_steps=37 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=30 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
-[ext_resource type="Shader" path="res://scenes/sky_clouds.gdshader" id="2_idlkl"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
+[ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
-[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/zodiac_processes.png" id="6_kc6qj"]
-[ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="7_0eb71"]
+[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="6_5pm5j"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
+[ext_resource type="Texture2D" uid="uid://c4xxdqa3yfsji" path="res://assets/images/paintings/painting-04.jpg" id="6_sp2fh"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/tool.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
-[ext_resource type="PackedScene" uid="uid://ck4p5lha7tvl4" path="res://scenes/props/candle_2.tscn" id="8_oxi32"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
-[ext_resource type="PackedScene" uid="uid://cltup0qpkefjo" path="res://scenes/alchemy/still.tscn" id="9_i3n1c"]
-[ext_resource type="PackedScene" uid="uid://c01wtba8bae5c" path="res://scenes/props/candle_3.tscn" id="9_xepyx"]
 [ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
-[ext_resource type="Texture2D" uid="uid://b5o23c61t2dmj" path="res://assets/images/paintings/painting-13.jpg" id="11_n4owc"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
-[ext_resource type="PackedScene" uid="uid://bgpqq5aq2cqtf" path="res://scenes/alchemy/furnace.tscn" id="13_c81sy"]
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="14_ueicl"]
-[ext_resource type="PackedScene" uid="uid://ctjthskm4jy2k" path="res://scenes/alchemy/cauldron.tscn" id="14_v2lkw"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="Script" path="res://scenes/transition_layer.gd" id="20_4sruo"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6t4n"]
-shader = ExtResource("2_idlkl")
-shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
-shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
-shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
-shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
-shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
-shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
-shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
-shader_parameter/horizon_blur = 0.05
-shader_parameter/sun_color = Color(10, 8, 1, 1)
-shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
-shader_parameter/sun_size = 0.2
-shader_parameter/sun_blur = 10.0
-shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
-shader_parameter/moon_size = 0.06
-shader_parameter/moon_blur = 0.1
-shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
-shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
-shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
-shader_parameter/clouds_speed = 2.0
-shader_parameter/clouds_direction = 0.2
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_cutoff = 0.3
-shader_parameter/clouds_fuzziness = 0.5
-shader_parameter/clouds_weight = 0.0
-shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_speed = 1.0
-shader_parameter/overwritten_time = 0.0
-
-[sub_resource type="Sky" id="Sky_ks0bx"]
-sky_material = SubResource("ShaderMaterial_g6t4n")
-
-[sub_resource type="Environment" id="Environment_i3e5t"]
-sky = SubResource("Sky_ks0bx")
-ambient_light_source = 1
-ambient_light_color = Color(0.337061, 0.35844, 0.447994, 1)
-ambient_light_energy = 2.19
-fog_mode = 1
-fog_light_color = Color(0, 0, 0, 1)
-fog_density = 1.0
-fog_sky_affect = 0.245
-fog_height = 4.5
-fog_depth_curve = 0.183011
-fog_depth_begin = 0.0
-fog_depth_end = 1683.3
-volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -128,18 +75,13 @@ _data = {
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-unique_name_in_owner = true
-environment = SubResource("Environment_i3e5t")
-
 [node name="Level" type="Node3D" parent="."]
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/House"]
+environment = ExtResource("6_5pm5j")
 
 [node name="Ground" type="Node3D" parent="Level"]
 
@@ -211,104 +153,68 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="Shadows" type="Node3D" parent="Level"]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Level/Shadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8068, 1.74302, 1.47447)
-layers = 0
-light_energy = 4.75
-light_indirect_energy = 6.99
-light_negative = true
-omni_range = 2.31232
-
 [node name="Props" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Painting" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 0.45927, 1.69721, -0.368115)
-painting = ExtResource("11_n4owc")
+transform = Transform3D(1.04947, 0, 0, 0, 0.875444, -0.0122858, 0, 0.0107725, 0.998423, 1.53975, 2.01755, -8.38251)
+painting = ExtResource("4_hr77e")
 
 [node name="Painting2" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.996421, -0.08453, 0, 0.08453, 0.996421, 2.22261, 2.89292, -0.266678)
+transform = Transform3D(-4.36148e-08, 0.0181504, 0.999835, -2.90378e-09, 0.999835, -0.0181504, -1, -3.69492e-09, -4.35549e-08, -5.3047, 1.82276, 1.77841)
 painting = ExtResource("12_k1s8s")
 
 [node name="Painting3" parent="Level/Props" instance=ExtResource("10_2xuse")]
-transform = Transform3D(1, 0, 0, 0, 0.999765, 0.0216579, 0, -0.0216579, 0.999765, 3.83064, 1.40687, -0.392745)
+transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
+painting = ExtResource("6_sp2fh")
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
-[node name="Candle" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(0.722257, 0, 0, 0, 0.722257, 0, 0, 0, 0.722257, 1.3558, -1.36345, -4.47497)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level/Lights"]
+transform = Transform3D(0.554234, -0.107076, -0.825445, -0.665448, -0.652714, -0.362137, -0.500003, 0.749999, -0.43301, 14.1873, -2.01362, 0)
+visible = false
+shadow_enabled = true
 
-[node name="Candle2" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(0.991055, 0.000237851, 0.133454, 0, 0.999998, -0.00178226, -0.133454, 0.00176632, 0.991053, 3.8735, -0.980756, 3.872)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Lights"]
+unique_name_in_owner = true
+environment = ExtResource("6_5pm5j")
 
-[node name="Candle5" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(-0.0552702, -0.141512, 0.988392, 0, 0.989906, 0.141729, -0.998471, 0.00783338, -0.0547122, -2.29831, -1.85243, 3.01064)
+[node name="Fireplace" type="OmniLight3D" parent="Level/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509853, -1.35043, -4.2534)
+light_color = Color(1, 0.505882, 0.278431, 1)
+light_energy = 0.724
+shadow_enabled = true
+omni_range = 2.558
+omni_attenuation = 0.741
 
-[node name="Candle6" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(-0.941668, -0.0313914, -0.335076, 0, 0.99564, -0.093276, 0.336543, -0.087835, -0.937563, -5.46284, -1.86167, 5.17476)
-
-[node name="Candle7" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(-0.756578, -0.0188045, 0.653633, 0, 0.999586, 0.0287573, -0.653903, 0.0217572, -0.756265, -1.15389, -1.87047, 7.05417)
-
-[node name="Candle3" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74288, -1.19211, -6.18533)
-
-[node name="Candle4" parent="Level/Lights" instance=ExtResource("7_0eb71")]
-transform = Transform3D(0.405406, -0.0375167, -0.913367, 0, 0.999157, -0.0410405, 0.914137, 0.0166381, 0.405064, -6.46288, -1.05178, 0.003411)
-
-[node name="Candle8" parent="Level/Lights" instance=ExtResource("8_oxi32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100232, -4.26504, 3.19569)
-
-[node name="Candle9" parent="Level/Lights" instance=ExtResource("8_oxi32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53574, -4.26504, 3.19569)
-
-[node name="Candle10" parent="Level/Lights" instance=ExtResource("8_oxi32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53574, -4.26504, 2.05147)
-
-[node name="Candle11" parent="Level/Lights" instance=ExtResource("8_oxi32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0338516, -4.26504, 2.05147)
-
-[node name="Candle12" parent="Level/Lights" instance=ExtResource("9_xepyx")]
-transform = Transform3D(-0.99004, 0.0143547, 0.140052, 0, 0.994788, -0.101962, -0.140785, -0.100946, -0.98488, 3.59902, -4.1757, -2.63274)
-
-[node name="Candle13" parent="Level/Lights" instance=ExtResource("9_xepyx")]
-transform = Transform3D(-0.99004, 0.0143547, 0.140052, 0, 0.994788, -0.101962, -0.140785, -0.100946, -0.98488, -1.19328, -4.94206, -1.48159)
-
-[node name="Candle14" parent="Level/Lights" instance=ExtResource("9_xepyx")]
-transform = Transform3D(-0.99004, 0.0143547, 0.140052, 0, 0.994788, -0.101962, -0.140785, -0.100946, -0.98488, 1.91707, -4.34991, -7.81028)
-
-[node name="Candle15" parent="Level/Lights" instance=ExtResource("9_xepyx")]
-transform = Transform3D(-0.99004, 0.0143547, 0.140052, 0, 0.994788, -0.101962, -0.140785, -0.100946, -0.98488, 3.53264, -4.1757, -3.77696)
-
-[node name="Tools" type="Node3D" parent="Level"]
+[node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="Page" parent="Level/Tools" instance=ExtResource("5_6lkja")]
+[node name="Page" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 4.26671, 1.2003, 2.88134)
 
-[node name="Page2" parent="Level/Tools" instance=ExtResource("5_6lkja")]
+[node name="Page2" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
 page = ExtResource("6_kc6qj")
 
-[node name="Still" parent="Level/Tools" instance=ExtResource("9_i3n1c")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.87558, -3.03628, 4.09845)
+[node name="Mortar" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(0.0740746, -0.0557444, 0.995693, 0, 0.998437, 0.055898, -0.997253, -0.00414062, 0.0739588, -0.453269, -2.34484, 2.44058)
 
-[node name="Furnace" parent="Level/Tools" instance=ExtResource("13_c81sy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.91662, 0.126839, 0.515307)
+[node name="Still" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22433, -2.35527, 2.3278)
+type = 0
 
-[node name="Cauldron" parent="Level/Tools" instance=ExtResource("14_v2lkw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.670323, -2.93835, -4.09581)
+[node name="Furnace" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91034, -2.35527, 3.19447)
 
-[node name="Recipes" type="Node3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
+[node name="Mixer" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.35527, 2.41783)
+type = 3
 
-[node name="Page" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
-transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 4.26671, 1.2003, 2.88134)
-
-[node name="Page2" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
-transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
-page = ExtResource("6_kc6qj")
+[node name="Still2" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496168, -2.28966, 3.02542)
+type = 0
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -404,7 +310,7 @@ bus = &"Music"
 [node name="RainOnWindows" type="Node3D" parent="Level/SFX/Rain"]
 
 [node name="LivingRoom1" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -8.13387, 1.45935, 3.77775)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -8.26163, 1.75702, 3.15995)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -413,7 +319,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom2" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -13.7234, 2.10142, 7.32208)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -12.6257, 1.82085, 7.32208)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -422,7 +328,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -10.2241, 2.10142, -2.72421)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 2.04425, -2.72421)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -440,16 +346,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.795, 1.87252, 4.16954)
-stream = ExtResource("7_qg76f")
-max_db = -10.776
-autoplay = true
-max_distance = 2.0
-bus = &"SFX"
-attenuation_filter_db = -11.2
-
-[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -23.84, 1.87252, 1.29419)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.095153, 0.169163, -23.795, 2.19062, 4.42008)
 stream = ExtResource("7_qg76f")
 max_db = -10.776
 autoplay = true
@@ -477,6 +374,7 @@ emission_angle_enabled = true
 
 [node name="Shadow" parent="Level" instance=ExtResource("14_ueicl")]
 transform = Transform3D(0.0568038, 0.116561, -0.991558, 0, 0.993161, 0.11675, 0.998385, -0.00663183, 0.0564153, -12.4747, 0.738923, 3.05035)
+visible = false
 
 [node name="Triggers" type="Node3D" parent="."]
 
@@ -496,7 +394,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
 shape = SubResource("WorldBoundaryShape3D_v46o1")
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.781856, -0.00256985, 0.0432825, 0, 0.78168, 0.0464114, -0.0433587, -0.0463402, 0.780481, -12.0523, 1.6497, -1.48795)
+transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, -12.4084, 0.00317866, 0.923703)
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
