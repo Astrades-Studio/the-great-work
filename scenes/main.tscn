@@ -153,14 +153,6 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="Shadows" type="Node3D" parent="Level"]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Level/Shadows"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8068, 1.74302, 1.47447)
-layers = 0
-light_energy = 4.75
-light_indirect_energy = 6.99
-light_negative = true
-omni_range = 2.31232
-
 [node name="Props" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
@@ -195,13 +187,6 @@ light_energy = 0.724
 shadow_enabled = true
 omni_range = 2.558
 omni_attenuation = 0.741
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Lights"]
-transform = Transform3D(-0.9763, -0.0540206, 0.20957, 0, 0.968347, 0.249609, -0.216421, 0.243694, -0.945397, -0.454766, -2.98103, 0.984825)
-light_color = Color(0.85, 0.7786, 0.612, 1)
-light_energy = 2.0
-omni_range = 9.52
-omni_attenuation = 0.562
 
 [node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)

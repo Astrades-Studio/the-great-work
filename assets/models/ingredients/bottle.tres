@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://chb2ehk8ifwsx"]
+[gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://b44sk8vtlup2y"]
 
 [ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="1_wp8g7"]
 [ext_resource type="Texture2D" uid="uid://crupw3vvb28np" path="res://assets/models/house/MI_ColorPalette_MetallicRoughness.png" id="2_31hj6"]
