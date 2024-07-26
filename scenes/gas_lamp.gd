@@ -1,27 +1,30 @@
+@tool
 class_name GasLamp
 extends StaticBody3D
 
-@onready var spot_light: SpotLight3D = $SpotLight3D
 @onready var light : OmniLight3D = $OmniLight3D
-@onready var mesh: MeshInstance3D = $Hand_Gas_Lamp_002
+@onready var mesh: MeshInstance3D = $Eje/Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
+@onready var fire_beam_2: GPUParticles3D = $Eje/Hand_Gas_Lamp_002/FireBeam2
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var active : bool = true : 
 	set(value):
 		active = value
 		if mesh:
-			mesh.get_surface_override_material(1).emission_enabled = value
+			var material = mesh.get_surface_override_material(1)
+			if material and material is StandardMaterial3D:
+				material.emission_enabled = value
 		if light:
 			if active:
 				light.light_energy = lerp(light.light_energy, 1.0, 1.0)
-				spot_light.light_energy = lerp(light.light_energy, 1.0, 1.0)
-				
+				fire_beam_2.emitting = true
 			else:
 				light.light_energy = lerp(light.light_energy, 0.0, 1.0)
-				spot_light.light_energy = lerp(light.light_energy, 0.0, 1.0)
+				fire_beam_2.emitting = false
 
-@export var min_value : float = 0.8
-@export var max_value : float = 1.2
+@export var min_value : float = 1.4
+@export var max_value : float = 5.0
 
 @export var speed : float = 1.0
 @export var min_speed := 0.5
@@ -35,20 +38,20 @@ func _ready() -> void:
 	active = false
 	timer.start()
 	GameManager.tick_countdown.connect(_on_tick_timeout)
+	animation_player.play("GasLampAnimation")
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():
 	countdown -= 0.1
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_passed += delta
-		
+	
 	if !active:
 		light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 		return
-		
+	
 	if active:
 		var amplitude = (max_value - min_value) / 2.0
 		var offset = (max_value + min_value) / 2.0
@@ -56,7 +59,19 @@ func _process(delta: float) -> void:
 		var energy = (offset + amplitude * sine * speed_variance) * countdown
 
 		light.light_energy = clamp(energy, 0.3, 6)
-
+		
+		# Animate emission in material
+		if mesh:
+			var material = mesh.get_surface_override_material(1)
+			if material and material is StandardMaterial3D:
+				# Animate emission from x to x and back
+				var emission_min = 1.0
+				var emission_max = 3.0
+				var emission_amplitude = (emission_max - emission_min) / 2.0
+				var emission_offset = (emission_max + emission_min) / 2.0
+				var emission_sine = sin(speed * time_passed)
+				var emission_energy = emission_offset + emission_amplitude * emission_sine
+				material.emission_energy = emission_energy
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.5, 1.0)

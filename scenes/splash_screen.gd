@@ -6,7 +6,7 @@ const INTRO_ASTRA = preload("res://assets/sounds/music/intro astra.mp3")
 func _ready() -> void:
 	animation_player.play("fade in")
 	audio_stream_player.stream = INTRO_ASTRA
-	audio_stream_player.volume_db = 0.0  # Ajusta el volumen a -10 dB, puedes cambiar este valor
+	audio_stream_player.volume_db = 10.0  # Ajusta el volumen a -10 dB, puedes cambiar este valor
 	audio_stream_player.play()
 	# MusicManager.play_music(INTRO_ASTRA) # Comenta o elimina esta línea si no es necesaria
 

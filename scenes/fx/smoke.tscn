@@ -3,7 +3,7 @@
 [sub_resource type="Gradient" id="Gradient_eqx4t"]
 interpolation_mode = 2
 interpolation_color_space = 2
-colors = PackedColorArray(0.435193, 0.435192, 0.435192, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.205118, 0.205117, 0.205117, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vd7qc"]
 gradient = SubResource("Gradient_eqx4t")
@@ -14,12 +14,14 @@ fill_to = Vector2(1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s2e3"]
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.9239, 0.9239, 0.9239, 1)
+albedo_color = Color(0.408329, 0.408329, 0.408329, 1)
 albedo_texture = SubResource("GradientTexture2D_vd7qc")
+disable_receive_shadows = true
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+distance_fade_min_distance = 10.25
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jdte5"]
 lifetime_randomness = 0.98
@@ -42,8 +44,9 @@ size = Vector2(0.1, 0.1)
 material_override = SubResource("StandardMaterial3D_1s2e3")
 cast_shadow = 0
 amount = 140
-lifetime = 0.69
-speed_scale = 0.8
-randomness = 0.37
+lifetime = 0.18
+preprocess = 0.09
+speed_scale = 0.86
+fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_jdte5")
 draw_pass_1 = SubResource("QuadMesh_xqumi")

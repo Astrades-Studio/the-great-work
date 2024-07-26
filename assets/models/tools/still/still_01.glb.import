@@ -102,7 +102,7 @@ _subresources={
 }
 }
 }
-fbx/importer=0
+fbx/importer=1
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
 gltf/naming_version=1
