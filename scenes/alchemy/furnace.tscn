@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bgpqq5aq2cqtf"]
+[gd_scene load_steps=32 format=4 uid="uid://c3bvquq5q4o5a"]
 
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_ef1cu"]
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_hlpvv"]
@@ -342,6 +342,7 @@ size = Vector2(0.37, 0.29)
 [node name="Furnace" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_hlpvv")
 ingredient_preview = NodePath("IngredientSpot")
+sound = ExtResource("4_cocfm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
@@ -363,7 +364,6 @@ skeleton = NodePath("")
 
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27976, 1.25523, -0.0211237)
-visible = false
 billboard = 2
 text = "30"
 
