@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1kj2h8kb3yk7"
+uid="uid://bhuigrcdehm5e"
 path="res://.godot/imported/pot_01.glb-70e0253e31fce58a6e016c7da25d476a.scn"
 
 [deps]
@@ -31,21 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
-_subresources={
-"meshes": {
-"pot_01_SM_Pot_01_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/pot.res"
-}
-}
-}
-fbx/importer=1
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-gltf/naming_version=1
+_subresources={}
+gltf/naming_version=0
 gltf/embedded_image_handling=1

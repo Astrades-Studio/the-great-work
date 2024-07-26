@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bipgpydyfavnj"
+uid="uid://cpmo2lfqd67en"
 path="res://.godot/imported/vial_02.glb-138da363fc89a2993111707abcace531.scn"
 
 [deps]
@@ -31,21 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
-_subresources={
-"meshes": {
-"vial_02_SM_Flask_03_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/ingredients/vials/vial_pipe.res"
-}
-}
-}
-fbx/importer=1
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-gltf/naming_version=1
+_subresources={}
+gltf/naming_version=0
 gltf/embedded_image_handling=1

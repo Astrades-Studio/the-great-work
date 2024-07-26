@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cwh2rfatrxci4"
+uid="uid://dw7xu0un4d8mt"
 path="res://.godot/imported/still_01.glb-120493bd2311abe079b072de391c1ce2.scn"
 
 [deps]
@@ -31,79 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
-_subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/models/materials/furnace_material.tres"
-},
-"MI_Flask_01_Glass_SM_Flask_01": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/models/materials/glass.tres"
-},
-"MI_Stool_01": {
-"use_external/enabled": true,
-"use_external/path": ""
-},
-"MI_WineBottle_05_Glass_SM_WineBottle_05": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/models/materials/glass.tres"
-},
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/models/materials/glass.tres"
-}
-},
-"meshes": {
-"still_01_Mesh_060": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/still/still_01_Mesh_060.res"
-},
-"still_01_SM_Flask_01_002": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/still/still_01_SM_Flask_01_002.res"
-},
-"still_01_SM_Flask_02_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/still/still_01_SM_Flask_02_001.res"
-},
-"still_01_SM_Stool_01_002": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/still/still_01_SM_Stool_01_002.res"
-},
-"still_01_SM_WineBottle_05_001": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/models/tools/still/still_01_SM_WineBottle_05_001.res"
-}
-}
-}
-fbx/importer=1
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-gltf/naming_version=1
+_subresources={}
+gltf/naming_version=0
 gltf/embedded_image_handling=1
