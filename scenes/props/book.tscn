@@ -3,9 +3,9 @@
 [ext_resource type="ArrayMesh" uid="uid://vfnf7m5jh3jy" path="res://assets/models/props/book/book.res" id="1_1qrht"]
 [ext_resource type="Script" path="res://scenes/props/book.gd" id="1_vl552"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_cb72p"]
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/Cheat_Sheet.png" id="2_vesvm"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="2_vesvm"]
 [ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="3_u5kp2"]
-[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="4_km6cn"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/zodiac_processes.png" id="4_km6cn"]
 [ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="5_4mky8"]
 
 [sub_resource type="Resource" id="Resource_twiq3"]

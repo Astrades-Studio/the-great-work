@@ -11,7 +11,7 @@ class_name UCharacterBody3D
 @onready var head_position: Vector3 = head.position
 @onready var item_camera: Camera3D = %ItemCamera
 
-
+@onready var item_viewport: SubViewport = %ItemViewport
 
 var mouse_sensitivity: float = 0.1
 
@@ -70,17 +70,22 @@ func _ready():
 	
 	camera_gt_previous = camera_target.global_transform
 	camera_gt_current = camera_target.global_transform
+	
+	item_viewport.world_3d = camera.get_world_3d()
+	
 
 func update_camera_transform():
 	camera_gt_previous = camera_gt_current
 	camera_gt_current = camera_target.global_transform
 	
+
 func _process(delta: float) -> void:
 	if update_camera:
 		update_camera_transform()
 		update_camera = false
 	
 	item_camera.global_transform = camera.global_transform
+	
 
 	var interpolation_fraction = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
 

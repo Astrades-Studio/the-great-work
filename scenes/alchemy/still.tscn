@@ -28,8 +28,9 @@ points = PackedVector3Array(0.221691, 0.119621, 0.132599, -0.273794, 0.0601406, 
 [sub_resource type="QuadMesh" id="QuadMesh_q6q3w"]
 material = ExtResource("8_ho0cg")
 
-[node name="Still" type="StaticBody3D"]
+[node name="Still" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_i0ktd")
+ingredient_preview = NodePath("SM_Flask_02_001/IngredientSpot")
 wait_time = 20
 
 [node name="forge_003 " type="MeshInstance3D" parent="."]
@@ -52,12 +53,12 @@ transform = Transform3D(0.0256076, 0, -0.999672, 0, 1, 0, 0.999672, 0, 0.0256076
 shape = SubResource("ConvexPolygonShape3D_jumn7")
 
 [node name="SM_Flask_02_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.999658, -0.0261367, 0.000194154, -0.0261374, 0.999631, -0.00740572, -5.21577e-07, -0.00740826, -0.999973, -0.161758, 0.852941, 0.207722)
+transform = Transform3D(-0.936622, -0.0244886, 0.000181911, -0.0244892, 0.936596, -0.00693873, -4.88687e-07, -0.00694111, -0.936917, -0.161758, 0.885177, 0.207722)
 mesh = ExtResource("4_4cclm")
 skeleton = NodePath("")
 
 [node name="IngredientSpot" type="Node3D" parent="SM_Flask_02_001"]
-transform = Transform3D(1, 1.38851e-10, 2.27374e-13, 1.3869e-10, 1, 0, 7.50333e-12, -4.65661e-10, 1, -0.00112474, 0.0430157, -0.000318676)
+transform = Transform3D(1.0673, -7.05429e-09, -6.88458e-08, -2.8185e-09, 1.0673, 0, 6.85574e-08, 2.79397e-09, 1.0673, -0.00112469, 0.0430157, -0.000318676)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(-0.999658, -0.0261367, 0.000194154, -0.0261374, 0.999631, -0.00740572, -5.21577e-07, -0.00740826, -0.999973, -0.161758, 0.836493, 0.207722)
@@ -83,12 +84,45 @@ shape = SubResource("ConvexPolygonShape3D_615h0")
 
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507468, 1.33975, 0.177747)
+visible = false
 billboard = 2
 text = "30"
 
 [node name="LavaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.747587, 0)
 mesh = SubResource("QuadMesh_q6q3w")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LavaMesh"]
+transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829269, -0.00496584, 0.0829259, -0.996543, 0, -0.124067, 0.0818881)
+light_color = Color(0.641244, 0.230067, 0, 1)
+light_energy = 1.384
+light_indirect_energy = 1.48
+light_volumetric_fog_energy = 2.024
+light_size = 0.87
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_normal_bias = 2.84
+shadow_reverse_cull_face = true
+shadow_blur = 0.0
+omni_range = 0.842
+omni_attenuation = 0.64
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="LavaMesh/OmniLight3D"]
+transform = Transform3D(1, 4.35648e-10, -7.71422e-10, -5.0386e-10, 1, 1.04308e-07, 5.92422e-10, -9.68575e-08, 1, 0.060592, 0.234687, -0.654776)
+light_color = Color(0.641244, 0.230067, 0, 1)
+light_energy = 0.0
+light_indirect_energy = 1.48
+light_volumetric_fog_energy = 2.536
+light_size = 0.595
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_normal_bias = 2.84
+shadow_reverse_cull_face = true
+shadow_blur = 0.0
+omni_range = 3.1454
+omni_attenuation = 10.0
 
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("9_idkqu")

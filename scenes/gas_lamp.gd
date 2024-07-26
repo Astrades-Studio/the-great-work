@@ -1,7 +1,7 @@
-@tool
 class_name GasLamp
 extends StaticBody3D
 
+@onready var spot_light: SpotLight3D = $SpotLight3D
 @onready var light : OmniLight3D = $OmniLight3D
 @onready var mesh: MeshInstance3D = $Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
@@ -14,8 +14,11 @@ extends StaticBody3D
 		if light:
 			if active:
 				light.light_energy = lerp(light.light_energy, 1.0, 1.0)
+				spot_light.light_energy = lerp(light.light_energy, 1.0, 1.0)
+				
 			else:
 				light.light_energy = lerp(light.light_energy, 0.0, 1.0)
+				spot_light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 
 @export var min_value : float = 0.8
 @export var max_value : float = 1.2

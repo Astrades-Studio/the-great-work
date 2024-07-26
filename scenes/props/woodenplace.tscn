@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bjbl5mciq3ytd"]
+[gd_scene load_steps=17 format=4 uid="uid://dqw756t4sb7ly"]
 
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="1_gjw06"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="2_xo5o3"]
@@ -133,13 +133,13 @@ scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
 [sub_resource type="QuadMesh" id="QuadMesh_o3ab1"]
 size = Vector2(0.875, 1.3)
 
-[node name="SmallLogPile_001" type="MeshInstance3D"]
+[node name="LogFire" type="MeshInstance3D"]
 transform = Transform3D(2.49596e-07, 0, 0.697922, 0, 0.697922, 0, -0.697922, 0, 2.49596e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bwbh0")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
-[node name="FireCandle" parent="." instance=ExtResource("1_gjw06")]
+[node name="FireLog" parent="." instance=ExtResource("1_gjw06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
 visibility_range_end = 9.8
 lifetime = 1.61

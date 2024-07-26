@@ -9,7 +9,7 @@ extends UCharacterBody3D
 @export var drop_distance := 1.0
 
 @onready var hand: Node3D = %Hand
-@onready var sub_viewport: SubViewport = $HandLayer/SubViewportContainer/SubViewport
+@onready var sub_viewport: SubViewport = %ItemViewport
 
 # Mini Inventory
 var ingredient_in_hand : Ingredient:
