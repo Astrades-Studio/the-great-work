@@ -1,25 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3ytu1ghl2t8x"]
 
-[sub_resource type="Gradient" id="Gradient_18oco"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_cgmj6"]
+colors = PackedColorArray(0.57299, 0.572988, 0.572988, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
-gradient = SubResource("Gradient_18oco")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d5yc5"]
+gradient = SubResource("Gradient_cgmj6")
 fill = 1
-fill_from = Vector2(0.535613, 0.527066)
-fill_to = Vector2(0.968661, 0.851852)
+fill_from = Vector2(0.542735, 0.517094)
+fill_to = Vector2(1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2ck6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xajql"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 blend_mode = 1
-albedo_color = Color(0.858807, 4.71681e-06, 1.15514e-06, 1)
-albedo_texture = SubResource("GradientTexture2D_pt3h2")
+shading_mode = 0
+albedo_color = Color(1, 0.434811, 0.366139, 1)
+albedo_texture = SubResource("GradientTexture2D_d5yc5")
 albedo_texture_force_srgb = true
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 9.7
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -37,13 +35,16 @@ angular_velocity_max = 22.33
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_igbii"]
-size = Vector2(0.05, 0.05)
+size = Vector2(0.12, 0.12)
 
 [node name="FireBeam" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000130047, 0, 0.0839456)
-material_override = SubResource("StandardMaterial3D_b2ck6")
+material_override = SubResource("StandardMaterial3D_xajql")
 cast_shadow = 0
 amount = 80
-lifetime = 0.25
+lifetime = 0.19
+speed_scale = 26.6
+collision_base_size = 1.0
+trail_lifetime = 0.46
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_igbii")
