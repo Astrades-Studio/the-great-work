@@ -12,8 +12,12 @@ signal next_line_requested
 @export var text_duration := 2.0
 
 func _ready() -> void:
-	play_cinematic(preload("res://assets/dialog/intro_dialog.tres"), text_duration)
-
+	var dialog_1 = load("res://assets/dialog/cutscene_dialog.tres")
+	play_cinematic(dialog_1, text_duration)
+	var dialog_2 = load("res://assets/dialog/cutscene_dialog_2.tres")
+	await get_tree().create_timer(2).timeout
+	play_cinematic(dialog_2, text_duration)
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		skip_line()
