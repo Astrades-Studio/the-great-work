@@ -10,9 +10,6 @@ fill_from = Vector2(0.542735, 0.517094)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xajql"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
 blend_mode = 1
 shading_mode = 0
 albedo_color = Color(1, 0.434811, 0.366139, 1)

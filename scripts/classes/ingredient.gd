@@ -156,9 +156,12 @@ var mesh_type : Mesh
 		collision_shape.global_transform = mesh.global_transform
 			
 		
+signal location_changed
 
 var current_location : Location = Location.ENVIRONMENT :
 	set(value):
+		if current_location != value:
+			location_changed.emit()
 		current_location = value
 		if current_location == Location.HAND:
 			self.freeze = true

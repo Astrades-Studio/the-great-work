@@ -31,16 +31,18 @@ var spent : bool = false
 
 func _ready() -> void:
 	active = false
-	
+	location_changed.connect(_on_location_changed)
 	if type != Ingredient.Type.FLARE:
 		type = Ingredient.Type.FLARE
+	
+
+func _on_location_changed():
 	if current_location == Location.ENVIRONMENT:
-		fire_beam.layers = 0x0001
-		smoke.layers = 0x0001
-	else:
 		fire_beam.layers = 0x0002
 		smoke.layers = 0x0002
-
+	else:
+		fire_beam.layers = 0x0001
+		smoke.layers = 0x0001
 
 func _on_duration_timer_timeout() -> void:
 	active = false

@@ -52,6 +52,7 @@ shape = SubResource("ConvexPolygonShape3D_p15ow")
 [node name="FireBeam" parent="." instance=ExtResource("4_5lh6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000130047, 0, 0.225344)
 emitting = false
+local_coords = true
 
 [node name="Smoke" parent="." instance=ExtResource("5_td1f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.370626)
