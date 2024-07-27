@@ -43,7 +43,7 @@ albedo_texture = SubResource("GradientTexture2D_llot5")
 metallic_specular = 0.0
 emission_enabled = true
 emission = Color(0.439109, 0.0371201, 9.62615e-08, 1)
-emission_energy_multiplier = 2.88
+emission_energy_multiplier = 1.01
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_13v2k"]
 _surfaces = [{
@@ -149,21 +149,6 @@ randomness = 0.4
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_o0crx")
 draw_pass_1 = SubResource("QuadMesh_o3ab1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 1.62498e-10, -6.8249e-09, -1.62498e-10, 1, 1.14465e-07, 6.8249e-09, -1.14465e-07, 1, 0.0914936, 1.11179, -0.231166)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 3.048
-light_indirect_energy = 1.48
-light_volumetric_fog_energy = 2.024
-light_size = 0.87
-light_cull_mask = 4294967279
-shadow_bias = 0.02
-shadow_normal_bias = 2.84
-shadow_reverse_cull_face = true
-shadow_blur = 0.0
-omni_range = 3.082
-omni_attenuation = 3.2
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1.43282, 0, 0, 0, 1.43282, 0, 0, 0, 1.43282, 0.0291595, 0.183518, 0.0167384)

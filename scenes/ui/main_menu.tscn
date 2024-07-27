@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=11 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="1_qspuw"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
 [ext_resource type="FontFile" uid="uid://byo7uij45i4ca" path="res://assets/ui/fonts/old_london/OldLondon.ttf" id="4_20h8w"]
 [ext_resource type="FontFile" uid="uid://bbdwagsu3yfv3" path="res://assets/ui/fonts/Symbola_hint.ttf" id="5_l7eqs"]
+[ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="8_lgtuu"]
+[ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="9_33awd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_66ycg"]
 line_spacing = 2.465
@@ -125,7 +127,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("5_l7eqs")
 theme_override_font_sizes/font_size = 26
-text = "New Game"
+text = "New game"
 flat = true
 alignment = 0
 
@@ -166,7 +168,17 @@ alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3uih3")
-volume_db = -7.776
+volume_db = -11.571
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lgtuu")
+volume_db = -15.864
+autoplay = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_33awd")
+volume_db = -19.728
 autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
