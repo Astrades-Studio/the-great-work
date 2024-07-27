@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://binadt5anxax2"]
+
+[ext_resource type="ArrayMesh" uid="uid://dhqrt56k85ojc" path="res://assets/models/ingredients/vials/bottle.tres" id="1_l7jnr"]
+
+[node name="Vinegar" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = ExtResource("1_l7jnr")

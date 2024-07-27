@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://br83d6xrd141i"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7hovym7t1mm0" path="res://assets/models/ingredients/rocks/Rock_10.res" id="1_8hnow"]
+
+[node name="Cinnabar" type="MeshInstance3D"]
+transform = Transform3D(0.489923, 0, 0, 0, 0.489923, 0, 0, 0, 0.489923, 0, 0.095, 0)
+mesh = ExtResource("1_8hnow")

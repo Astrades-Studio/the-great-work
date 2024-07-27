@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8m46sid55iq8"]
+
+[ext_resource type="ArrayMesh" uid="uid://dp75bbx2x43kr" path="res://assets/models/ingredients/sulfur.res" id="1_ajh7l"]
+
+[node name="Sulfur" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995445, 0.1, 3.04449)
+mesh = ExtResource("1_ajh7l")

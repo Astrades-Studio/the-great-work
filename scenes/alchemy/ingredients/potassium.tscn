@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqn2max7dlh6h"]
+
+[ext_resource type="ArrayMesh" uid="uid://mktffnvuvqm" path="res://assets/models/ingredients/rocks/Rock_07.res" id="1_jqbqr"]
+
+[node name="Potassium" type="MeshInstance3D"]
+transform = Transform3D(0.232319, 0, 0, 0, 0.101869, 0, 0, 0, 0.232319, -0.998974, 0, 2.09088)
+mesh = ExtResource("1_jqbqr")
+metadata/_edit_group_ = true
+
+[node name="Rock08" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.665541, -0.124224, 0.690504, 0.893211, 0.920109, 0, -0.635339, 0.118587, 0.723329, -0.0741696, 0.212095, -0.175461)
+mesh = ExtResource("1_jqbqr")
+skeleton = NodePath("../..")
