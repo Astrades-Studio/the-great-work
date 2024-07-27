@@ -343,6 +343,7 @@ size = Vector2(0.37, 0.29)
 script = ExtResource("1_hlpvv")
 ingredient_preview = NodePath("IngredientSpot")
 sound = ExtResource("4_cocfm")
+type = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
@@ -364,6 +365,7 @@ skeleton = NodePath("")
 
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27976, 1.25523, -0.0211237)
+visible = false
 billboard = 2
 text = "30"
 
@@ -377,8 +379,9 @@ libraries = {
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.919197, 0)
 
-[node name="InteractionComponent" type="Node" parent="."]
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_ef1cu")
+mesh = NodePath("../FurnaceMesh")
 
 [node name="LogFire" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.04545e-07, 9.13958e-15, -0.260489, -4.55454e-08, 0.260489, -9.13958e-15, 0.260489, 4.55454e-08, 1.04545e-07, 0.200012, 0.792932, 0.15083)

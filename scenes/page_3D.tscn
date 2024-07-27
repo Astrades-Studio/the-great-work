@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=4 uid="uid://ddxqgpilfs1fi"]
+
+[ext_resource type="Script" path="res://scenes/page.gd" id="1_kpub4"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="2_rhx6m"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_ujfnc"]
+[ext_resource type="Script" path="res://scripts/classes/page_component.gd" id="4_ukpf3"]
+[ext_resource type="Texture2D" uid="uid://c1hjjis2awao0" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture.webp" id="5_4okbv"]
+[ext_resource type="Texture2D" uid="uid://bphoc562qbna7" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture_2.webp" id="6_b081x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2ivk"]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("5_4okbv")
+metallic = 1.0
+metallic_texture = ExtResource("6_b081x")
+metallic_texture_channel = 2
+roughness = 0.5
+roughness_texture = ExtResource("6_b081x")
+roughness_texture_channel = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qokbn"]
+_surfaces = [{
+"aabb": AABB(-0.130686, 0.000803175, -0.185442, 0.260056, 0.0163264, 0.370826),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAACAAEAAQADAAAAAwABAAQAAAADAAUABAAGAAMABgAEAAcAAwAIAAUAAwAGAAgACQAKAAcABwAKAAsABwALAAYACwAKAAwADAANAAsABgALAA0ADQAMAA4ADQAPAAYABgAPAAgADgAQAA0ADwANABAAEAAOABEACAAPABIAEAASAA8AEQATABAAEgAQABMAEwARABQAEQAVABQAFQAXABYAFAAVABYAGAAUABYAEwAUABgAFgAZABgAEwAaABIAGAAaABMAGwAYABkAGgAYABsAGQAcABsAGwAcAB0AHgAbAB0AHwAbAB4AHwAaABsAIAAfAB4AGgAfACEAIQAfACAAIQASABoAEgAhAAgAIgAhACAABQAIACEAIQAiAAUA"),
+"lods": [0.00623831, PackedByteArray("AAACAAEAAAABAAUAAQAEAAUABAAOAAUABAAHAA4ADAAOAAcABwAKAAwACQAKAAcABQAOACAAIgAFACAAEQAgAA4AGQAgABEAIAAZABwAIAAcAB4AHgAcAB0AGQARABYAEQAVABYAFQAXABYA")],
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("G/0+HKTTAABZwCJxgf0AABT/5NOn/QAAhL5XBxnTAACjgF1eIPwAAHP9AADJqQAAVX+NSBfRAABbQPNjM/0AAIK+XynxqAAAjwGU2///AAABAqBUp9IAAK0+GxWX0AAAdgE5CiypAADoQOIO5KcAAAAAsxSKfwAA4H9mWe6nAAAYRPEeyH4AAAsBxAQLVQAAyoGWMZ5+AAC5Q3cKTVUAAH9BtAsJLAAA9gHNTx4qAAByQnFjaAIAALsAlNsHAgAAz4HTTwIrAAC2gK14ZAEAAOKCS1p+VAAA58BLRmMqAABov26wAAAAAAX///+WAAAA//9nZOYqAAC2wCksGlUAAJD/WiCrVQAAwr/SOU9/AAAS/wo5DYAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6mxfo"]
+resource_name = "vocabularius_model_01_SM_Letter_02_001"
+_surfaces = [{
+"aabb": AABB(-0.130686, 0.000803175, -0.185442, 0.260056, 0.0163264, 0.370826),
+"attribute_data": PackedByteArray("8oEcmDiZ//9AoeGAvYQr4k+CRIG9hP//TKJ5lYOZMuEvwmKBvYS4wt2BLa74rf//18GellKaI8IG37mAvYSGomSisKs6rhHhjv7cgL2EvYTO/m6WEJq9hHveNJfTmkyiK/+iq0uuvYRz3SSsv66po///4sBlwr2EpsFVrJ6uZcLw21bBycJppZD/sNYE172EwcAvwsnCXsM23I7W89YvpUffm+5P6wykMP+47EjsvYRn3Qb////LpOP/SP///72E7cA97qLrf8M3wf////9/w0jAb9hn1+PDb6F77rPr6OHQoPz+//+F4cmBdP//////04Ap8XDr//9xoffXBNfY4fSAmdrS1v//16GvwYbCdOEdgT/EZcL//w=="),
+"format": 34896613431,
+"index_count": 144,
+"index_data": PackedByteArray("AAACAAEAAQADAAAAAwABAAQAAAADAAUABAAGAAMABgAEAAcAAwAIAAUAAwAGAAgACQAKAAcABwAKAAsABwALAAYACwAKAAwADAANAAsABgALAA0ADQAMAA4ADQAPAAYABgAPAAgADgAQAA0ADwANABAAEAAOABEACAAPABIAEAASAA8AEQATABAAEgAQABMAEwARABQAEQAVABQAFQAXABYAFAAVABYAGAAUABYAEwAUABgAFgAZABgAEwAaABIAGAAaABMAGwAYABkAGgAYABsAGQAcABsAGwAcAB0AHgAbAB0AHwAbAB4AHwAaABsAIAAfAB4AGgAfACEAIQAfACAAIQASABoAEgAhAAgAIgAhACAABQAIACEAIQAiAAUA"),
+"lods": [0.00623831, PackedByteArray("AAACAAEAAAABAAUAAQAEAAUABAAOAAUABAAHAA4ADAAOAAcABwAKAAwACQAKAAcABQAOACAAIgAFACAAEQAgAA4AGQAgABEAIAAZABwAIAAcAB4AHgAcAB0AGQARABYAEQAVABYAFQAXABYA")],
+"material": SubResource("StandardMaterial3D_t2ivk"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(2.00025, 1.995, 1.92773, 1.92773),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("G/0+HKTT1P1ZwCJxgf0o/xT/5NOn/TP/hL5XBxnT//2jgF1eIPzw/3P9AADJqeH7VX+NSBfR3f9bQPNjM/3J/4K+XynxqJH9jwGU2///mP8BAqBUp9IG/60+GxWX0OD/dgE5Ciyp///oQOIO5KdN/wAAsxSKf8X/4H9mWe6n7P8YRPEeyH6+/wsBxAQLVcz+yoGWMZ5+7/+5Q3cKTVW8/39BtAsJLAr/9gHNTx4qbPtyQnFjaAJF/rsAlNsHAl39z4HTTwIrVP+2gK14ZAHV/uKCS1p+VKb/58BLRmMqE/9ov26wAADs/QX///+WABv+//9nZOYqLPy2wCksGlUF/pD/WiCrVVn8wr/SOU9/z/0S/wo5DYDq+9q/BgSQvRQCPH1Rw2S/yQFFvhEAZMJhAyWArcCOQdEBC8ElAXlAJwXzQPsCp4ArwYaAO8BCf+G/vX/ev5J/yL/HfmG/pcDPAIfADwHKfiO/PsL+AA7DRgEqw0sA/jqXAjp/XL5Df2K98cBfATDD5QGpf1G8s8b1BMLFjgVNwaIBa8LfA+3AZAHqwWgD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qokbn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iq1wu"]
+size = Vector3(0.836426, 1.21777, 0.0561523)
+
+[node name="Page3D" type="StaticBody3D"]
+transform = Transform3D(0.324858, 0, 0, 0, 0.324858, 0, 0, 0, 0.324858, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_kpub4")
+page = ExtResource("2_rhx6m")
+
+[node name="PageMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.21368, 0, -2.80949e-07, 0, 3.21368, 0, 2.80949e-07, 0, -3.21368, 0, 0, 0)
+mesh = SubResource("ArrayMesh_6mxfo")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0286865, -1.25393e-09)
+shape = SubResource("BoxShape3D_iq1wu")
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_ujfnc")
+sprite = NodePath("")
+
+[node name="PageComponent" type="Node" parent="."]
+script = ExtResource("4_ukpf3")

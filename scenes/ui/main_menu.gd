@@ -10,10 +10,11 @@ signal new_game_requested
 func _ready() -> void:
 	GameManager.current_state = GameManager.GameState.MAIN_MENU
 	new_game_requested.connect(GameManager._on_new_game_requested)
+	
 	new_game_button.grab_focus()
 
 func _on_new_game_button_pressed() -> void:
-	new_game_requested.emit()
+		new_game_requested.emit()
 
 
 func _on_settings_button_pressed() -> void:

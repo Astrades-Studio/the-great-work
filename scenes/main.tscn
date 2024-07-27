@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=29 format=3 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/page.tscn" id="5_6lkja"]
 [ext_resource type="PackedScene" uid="uid://c4d2k12engjc6" path="res://scenes/alchemy/ingredient.tscn" id="5_64sgf"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="6_5pm5j"]
-[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/Parchment_02.png" id="6_kc6qj"]
+[ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/zodiac_processes.png" id="6_kc6qj"]
 [ext_resource type="Texture2D" uid="uid://c4xxdqa3yfsji" path="res://assets/images/paintings/painting-04.jpg" id="6_sp2fh"]
-[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/tool.tscn" id="7_8yktc"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
@@ -197,24 +196,6 @@ transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823,
 [node name="Page2" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
 page = ExtResource("6_kc6qj")
-
-[node name="Mortar" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
-transform = Transform3D(0.0740746, -0.0557444, 0.995693, 0, 0.998437, 0.055898, -0.997253, -0.00414062, 0.0739588, -0.453269, -2.34484, 2.44058)
-
-[node name="Still" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22433, -2.35527, 2.3278)
-type = 0
-
-[node name="Furnace" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91034, -2.35527, 3.19447)
-
-[node name="Mixer" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.35527, 2.41783)
-type = 3
-
-[node name="Still2" parent="Level/Interactibles" instance=ExtResource("7_8yktc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496168, -2.28966, 3.02542)
-type = 0
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true

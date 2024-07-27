@@ -51,14 +51,16 @@ func in_range() -> void:
 			mesh.add_child(outline)
 		else:
 			assert(mesh.get_active_material(0), "Mesh without material assigned")
+			
+			# Get the original material
 			og_material = mesh.get_active_material(0)
+			# Duplicate it to avoid modifying the original shared one
 			duplicate_material = og_material.duplicate()
+			# Change the next pass to the highlight material
 			duplicate_material.next_pass = highlight_material
-			if mesh.get_surface_override_material_count() < 1:
-				mesh.set_surface_override_material(0, duplicate_material)
-			else:
-				mesh.material_override = duplicate_material
-	
+			# Apply the new material to the object's active material slot
+			mesh.material_overlay = highlight_material
+			
 	elif sprite:
 		sprite.modulate = Color("fed1ff")
 	else:
@@ -68,7 +70,7 @@ func in_range() -> void:
 func not_in_range() -> void:
 	GameManager.interaction_label_updated.emit("")
 	if duplicate_material:
-		mesh.material_override = null
+		mesh.material_overlay = null
 		# Free the reference to the duplicate material
 		duplicate_material = null
 	
@@ -80,6 +82,7 @@ func not_in_range() -> void:
 
 
 func on_interact() -> void:
+	print("interacted with " + self.name)
 	pass
 
 

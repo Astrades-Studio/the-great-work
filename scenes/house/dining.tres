@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=6 format=4 uid="uid://b8i6pcmg0bbdt"]
+[gd_resource type="ArrayMesh" load_steps=6 format=4 uid="uid://2le3l2hujtbw"]
 
 [sub_resource type="Gradient" id="Gradient_d7aa7"]
 offsets = PackedFloat32Array(0.73, 0.8, 0.84)

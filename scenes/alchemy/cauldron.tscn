@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://ctjthskm4jy2k"]
+[gd_scene load_steps=16 format=4 uid="uid://dfx4lp3vs1ref"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
-[ext_resource type="Material" uid="uid://ba33p0osun3a1" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
+[ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="2_bh27f"]
-[ext_resource type="PackedScene" uid="uid://dqw756t4sb7ly" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
-[ext_resource type="Material" uid="uid://63nan3qrhp28" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
+[ext_resource type="PackedScene" uid="uid://bjbl5mciq3ytd" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
+[ext_resource type="Material" uid="uid://did56lsjeoaiw" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wb61"]
@@ -215,5 +215,6 @@ skeleton = NodePath("../SmallLogPile_002")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01508, 0)
 
-[node name="InteractionComponent" type="Node" parent="."]
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_6l6km")
+mesh = NodePath("../Pot")

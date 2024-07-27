@@ -204,8 +204,9 @@ shadow_blur = 0.0
 omni_range = 3.1454
 omni_attenuation = 10.0
 
-[node name="InteractionComponent" type="Node" parent="."]
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("9_idkqu")
+mesh = NodePath("../SM_Flask_02_001")
 
 [node name="Timer" type="Timer" parent="."]
 

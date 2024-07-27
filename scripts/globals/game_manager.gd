@@ -3,6 +3,8 @@ extends Node
 const MAIN_SCENE := preload("res://scenes/main.tscn")
 const GAME_OVER_SCENE := preload("res://scenes/ui/game_over_scene.tscn")
 
+const MAX_SPAWNED_INGREDIENT_AMOUNT := 10
+
 enum GameState {
 	MAIN_MENU,
 	PAUSED,
@@ -10,6 +12,8 @@ enum GameState {
 	LOADING,
 	DIALOG
 }
+
+var spawned_ingredients : Array[Ingredient]
 
 # This variable goberns the inputs and pauses. Whenever there is a change, 
 # it should be modified from anywhere needed. Just check for double calls
@@ -91,3 +95,11 @@ func _on_game_over():
 
 func request_page_UI(page: Texture):
 	text_layer.show_text(page)
+
+
+func ingredient_spawned(ingredient: Ingredient):
+	spawned_ingredients.append(ingredient)
+	if spawned_ingredients.size() > MAX_SPAWNED_INGREDIENT_AMOUNT:
+		var ingredient_to_delete = spawned_ingredients.pop_front()
+		if ingredient_to_delete:
+			ingredient_to_delete.queue_free()

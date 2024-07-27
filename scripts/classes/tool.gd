@@ -64,7 +64,8 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 }
 
 func _ready():
-	wait_label.hide()
+	if wait_label:
+		wait_label.hide()
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
 	#await GameManager.ready
 	self.connect("interacted", on_tool_use)
@@ -203,4 +204,6 @@ func give_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
 	if resulting_ingredient.type == Ingredient.Type.SALT:
 		resulting_ingredient.type_name = (Ingredient.Type.keys()[input_type] + " salt").capitalize()
 
+	# Add ingredient to player and Game Manager
+	GameManager.ingredient_spawned(resulting_ingredient)
 	GameManager.player.ingredient_in_hand = resulting_ingredient

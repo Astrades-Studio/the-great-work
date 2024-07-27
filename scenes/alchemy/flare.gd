@@ -30,9 +30,16 @@ var spent : bool = false
 			light.visible = false
 
 func _ready() -> void:
+	active = false
+	
 	if type != Ingredient.Type.FLARE:
 		type = Ingredient.Type.FLARE
-
+	if current_location == Location.ENVIRONMENT:
+		fire_beam.layers = 0x0001
+		smoke.layers = 0x0001
+	else:
+		fire_beam.layers = 0x0002
+		smoke.layers = 0x0002
 
 
 func _on_duration_timer_timeout() -> void:
