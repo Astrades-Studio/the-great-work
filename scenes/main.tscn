@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=43 format=4 uid="uid://d1faedhw8viyw"]
-=======
-[gd_scene load_steps=79 format=4 uid="uid://d1faedhw8viyw"]
->>>>>>> Stashed changes
+[gd_scene load_steps=56 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -15,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/zodiac_processes.png" id="6_kc6qj"]
 [ext_resource type="Texture2D" uid="uid://c4xxdqa3yfsji" path="res://assets/images/paintings/painting-04.jpg" id="6_sp2fh"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
+[ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
 [ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="8_vrqnq"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="9_mnsrf"]
@@ -24,9 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="14_ueicl"]
+[ext_resource type="PackedScene" uid="uid://oy23q6xh7wmx" path="res://scenes/interactable/fireplace.tscn" id="15_m0432"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
-[ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="22_mhrp4"]
+[ext_resource type="Script" path="res://scenes/transition_layer.gd" id="20_4sruo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -48,7 +46,6 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jap7"]
 resource_name = "Humanoid_NotOverlapping"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hrd4c"]
@@ -731,6 +728,43 @@ shadow_mesh = SubResource("ArrayMesh_q07ea")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
+[sub_resource type="Animation" id="Animation_b51in"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vwxdf"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmo3f"]
+_data = {
+"RESET": SubResource("Animation_b51in"),
+"fade_in": SubResource("Animation_vwxdf")
+}
+
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 
@@ -1149,6 +1183,9 @@ painting = ExtResource("12_k1s8s")
 transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
 painting = ExtResource("6_sp2fh")
 
+[node name="Book" parent="Level/Props" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.96302, 0.765783, -5.9918)
+
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
@@ -1202,9 +1239,11 @@ transform = Transform3D(0.71276, 0, 0.850037, 0, 1.10932, 0, -0.850037, 0, 0.712
 
 [node name="FireCandle" parent="Level/Lights/Candle_004" index="2"]
 transform = Transform3D(0.71276, 0, 0.850037, 0, 1.10932, 0, -0.850037, 0, 0.71276, -2.77607, 0.614518, 4.89645)
+visible = false
 
 [node name="OmniLight3D" parent="Level/Lights/Candle_004" index="3"]
 transform = Transform3D(1.04567, 0, 1.24707, 0, 1.62746, 0, -1.24707, 0, 1.04567, -2.83224, -0.0337461, 4.8834)
+visible = false
 light_color = Color(0.834167, 0.557572, 0.353314, 1)
 light_energy = 0.49
 light_indirect_energy = 0.0
@@ -1288,24 +1327,6 @@ mesh = SubResource("ArrayMesh_3ednl")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
-[node name="Fireplace2" type="OmniLight3D" parent="Level/Lights"]
-transform = Transform3D(-0.0984478, -0.338693, 0.935733, 0, 0.9403, 0.340346, -0.995142, 0.0335063, -0.0925705, -0.806382, -1.21509, -4.20225)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 2.861
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_specular = 2.613
-light_bake_mode = 1
-light_cull_mask = 4294967279
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_transmittance_bias = -16.0
-shadow_opacity = 0.79
-shadow_blur = 0.0
-omni_range = 5.996
-omni_attenuation = 0.29
-
 [node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
@@ -1315,6 +1336,8 @@ transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823,
 [node name="Page2" parent="Level/Interactibles" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.237373, 0.0666907, -0.211516, -5.20187e-09, 0.309823, 0.0976867, 0.22178, 0.0713796, -0.226387, 3.81902, 1.2003, 3.28799)
 page = ExtResource("6_kc6qj")
+
+[node name="Fireplace" parent="Level/Interactibles" instance=ExtResource("15_m0432")]
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -1393,9 +1416,11 @@ type = 16
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
+type = 0
 
 [node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.9702, -1.50981, 0.693119)
+type = 0
 
 [node name="SFX" type="Node3D" parent="Level"]
 
@@ -1520,7 +1545,6 @@ color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
-visible = false
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 visible = false
@@ -1528,11 +1552,28 @@ visible = false
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
 visible = false
 
-[node name="SubtitleLayer" parent="." instance=ExtResource("22_mhrp4")]
-visible = false
-
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+script = ExtResource("20_4sruo")
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tmo3f")
+}
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 
