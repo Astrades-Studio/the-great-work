@@ -1,8 +1,7 @@
-[gd_scene load_steps=32 format=4 uid="uid://c3bvquq5q4o5a"]
+[gd_scene load_steps=34 format=4 uid="uid://c3bvquq5q4o5a"]
 
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_ef1cu"]
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_hlpvv"]
-[ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="3_pksus"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="4_cocfm"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7ek7"]
@@ -304,6 +303,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_13v2k")
 
+[sub_resource type="Gradient" id="Gradient_18oco"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
+gradient = SubResource("Gradient_18oco")
+fill = 1
+fill_from = Vector2(0.535613, 0.527066)
+fill_to = Vector2(0.968661, 0.851852)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuwjd"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.622594, 0.345564, 0.0175739, 1)
+albedo_texture = SubResource("GradientTexture2D_pt3h2")
+albedo_texture_force_srgb = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [sub_resource type="Curve" id="Curve_w663s"]
 max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -389,10 +409,13 @@ mesh = SubResource("ArrayMesh_bwbh0")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
-[node name="FireLog" parent="LogFire" instance=ExtResource("3_pksus")]
+[node name="FireLog" type="GPUParticles3D" parent="LogFire"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
+material_override = SubResource("StandardMaterial3D_tuwjd")
+cast_shadow = 0
 visibility_range_end = 9.8
-lifetime = 1.61
+amount = 15
+lifetime = 0.76
 explosiveness = 0.3
 randomness = 0.4
 collision_base_size = 0.0
