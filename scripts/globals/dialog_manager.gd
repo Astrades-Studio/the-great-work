@@ -30,11 +30,11 @@ func play_dialog(dialog : Dialog):
 
 func play_subtitles(dialog : Dialog, duration : float):
 	#GameManager.current_state = GameManager.GameState.DIALOG
-	dialog_layer.play_subtitles(dialog, duration)
+	subtitles_layer.play_subtitles(dialog, duration)
 
 
 func play_cinematic(dialog : Dialog, duration : float):
-	dialog_layer.play_subtitles(dialog, duration)
+	subtitles_layer.play_subtitles(dialog, duration)
 
 
 func skip_dialog():

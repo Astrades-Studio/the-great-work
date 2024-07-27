@@ -23,6 +23,7 @@ Events="*res://scripts/globals/events.gd"
 SfxManager="*res://scripts/globals/sfx_manager.gd"
 MusicManager="*res://scripts/music_manager.gd"
 DialogManager="*res://scripts/globals/dialog_manager.gd"
+TransitionManager="*res://scripts/globals/transition_manager.gd"
 
 [display]
 

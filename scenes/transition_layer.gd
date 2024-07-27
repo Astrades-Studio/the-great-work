@@ -1,15 +1,29 @@
+class_name TransitionLayer
 extends CanvasLayer
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var screen: ColorRect = $Screen
 
 signal animation_finished
+signal game_visible
 
-func _ready() -> void:
-	GameManager.game_started.connect(_on_game_start)
-	
-func _on_game_start():
-	animation_player.play("fade_in")
-	animation_player.animation_finished.connect(on_animation_finished)
-	
-func on_animation_finished(_anim_name: StringName) -> void:
+var tween : Tween
+var duration
+
+func request_transition(_duration, color : Color = Color.BLACK):
+	if tween:
+		tween.kill()
+	duration = _duration
+	show()
+	tween = get_tree().create_tween()
+	tween.tween_property(screen, "modulate", color, duration)
+	await tween.finished
 	animation_finished.emit()
+
+func fade_in():
+	if tween:
+		tween.kill()
+	tween = get_tree().create_tween()
+	tween.tween_property(screen, "modulate", Color.TRANSPARENT, 1.0)
+	await tween.finished
+	hide()
+	game_visible.emit()

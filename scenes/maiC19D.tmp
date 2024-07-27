@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=47 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="14_ueicl"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
+[ext_resource type="Script" path="res://scenes/transition_layer.gd" id="20_4sruo"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="22_mhrp4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
@@ -331,6 +332,43 @@ shadow_mesh = SubResource("ArrayMesh_q07ea")
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
+
+[sub_resource type="Animation" id="Animation_b51in"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vwxdf"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmo3f"]
+_data = {
+"RESET": SubResource("Animation_b51in"),
+"fade_in": SubResource("Animation_vwxdf")
+}
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
@@ -678,9 +716,11 @@ type = 16
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -1.50981, 0.693119)
+type = 0
 
 [node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.9702, -1.50981, 0.693119)
+type = 0
 
 [node name="SFX" type="Node3D" parent="Level"]
 
@@ -805,7 +845,6 @@ color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
-visible = false
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 visible = false
@@ -814,7 +853,28 @@ visible = false
 visible = false
 
 [node name="SubtitleLayer" parent="." instance=ExtResource("22_mhrp4")]
-visible = false
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+script = ExtResource("20_4sruo")
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tmo3f")
+}
+
+[node name="SubtitleLayer" parent="TransitionLayer" instance=ExtResource("22_mhrp4")]
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true

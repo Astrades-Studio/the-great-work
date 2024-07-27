@@ -3,7 +3,6 @@ extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
 @onready var ingredients: Node3D = %Ingredients
-@onready var transition_layer: CanvasLayer = %TransitionLayer
 
 @onready var game_over_timer: Timer = %GameOverTimer
 
@@ -18,7 +17,6 @@ func _ready() -> void:
 	GameManager.environment = world_environment
 	GameManager.ingredient_layer = ingredients
 	GameManager.tick_countdown.emit()
-	GameManager.transition_screen = transition_layer
 	
 	game_over_timer.timeout.connect(_on_timer_tick)
 	start_midnight_game()
@@ -26,9 +24,8 @@ func _ready() -> void:
 
 func start_midnight_game():
 	GameManager.game_started.emit()
-	await transition_layer.animation_finished
 	game_over_timer.start(tick_length)
-	DialogManager.play_dialog(DialogManager.INTRO)
+	#DialogManager.play_dialog(DialogManager.INTRO)
 
 
 func _on_timer_tick():

@@ -28,14 +28,14 @@ enum Type {
 	PHILOSOPHERS_STONE,
 }
 
-enum MeshType {
-	ORE,
-	BANANA,
-	BOWL,
-	VIAL,
-	JAR,
-	CRYSTAL,
-}
+# enum MeshType {
+# 	ORE,
+# 	BANANA,
+# 	BOWL,
+# 	VIAL,
+# 	JAR,
+# 	CRYSTAL,
+# }
 
 enum Location {
 	HAND,
@@ -43,32 +43,32 @@ enum Location {
 }
 
 static var NEXT_STATE : Dictionary = {
-	# For Flare:
-	Type.YELLOW_LIQUID : Type.PHOSPHORUS,
-	Type.BANANA : Type.POTASSIUM,
-	Type.POTASSIUM : Type.POTASSIUM_DUST,
-	Type.POTASSIUM_DUST : Type.FLARE,
-	Type.PHOSPHORUS : Type.FLARE,
+# For Flare:
+Type.YELLOW_LIQUID : Type.PHOSPHORUS,
+Type.BANANA : Type.POTASSIUM,
+Type.POTASSIUM : Type.POTASSIUM_DUST,
+Type.POTASSIUM_DUST : Type.FLARE,
+Type.PHOSPHORUS : Type.FLARE,
 
-	# For Philosophers Stone:
-	Type.MERCURY : Type.PURIFIED_MERCURY,
-	Type.PURIFIED_MERCURY : Type.CINNABAR,
-	Type.SULFUR : Type.PURIFIED_SULFUR,
-	Type.PURIFIED_SULFUR : Type.CINNABAR,
-			
-	Type.CINNABAR : Type.CINNABAR_DUST,
-	Type.CINNABAR_DUST : Type.PHILOSOPHERS_STONE,
-	Type.GOLD : Type.PHILOSOPHERS_STONE,
-	Type.SILVER : Type.PHILOSOPHERS_STONE,
+# For Philosophers Stone:
+Type.MERCURY : Type.PURIFIED_MERCURY,
+Type.PURIFIED_MERCURY : Type.CINNABAR,
+Type.SULFUR : Type.PURIFIED_SULFUR,
+Type.PURIFIED_SULFUR : Type.CINNABAR,
+		
+Type.CINNABAR : Type.CINNABAR_DUST,
+Type.CINNABAR_DUST : Type.PHILOSOPHERS_STONE,
+Type.GOLD : Type.PHILOSOPHERS_STONE,
+Type.SILVER : Type.PHILOSOPHERS_STONE,
 
-	#Unused:
-	Type.LEAD : Type.GOLD,
-	Type.SALT : Type.SALT,
-	Type.IRON : Type.IRON,
-	Type.DRAGONS_BLOOD : Type.DRAGONS_BLOOD,
-	Type.FLARE : Type.FLARE,
-	Type.ACID : Type.ACID,
-	Type.VINEGAR : Type.VINEGAR,
+#Unused:
+Type.LEAD : Type.GOLD,
+Type.SALT : Type.SALT,
+Type.IRON : Type.IRON,
+Type.DRAGONS_BLOOD : Type.DRAGONS_BLOOD,
+Type.FLARE : Type.FLARE,
+Type.ACID : Type.ACID,
+Type.VINEGAR : Type.VINEGAR 
 }
 
 
@@ -124,7 +124,7 @@ var MESH_TABLE : Dictionary = {
 
 
 # TODO: Maybe move to a global
-const BANANA = preload("res://scenes/alchemy/ingredients/banana.tscn")
+#const BANANA = preload("res://scenes/alchemy/ingredients/banana.tscn")
 const CINNABAR = preload("res://scenes/alchemy/ingredients/cinnabar.tscn")
 const CINNABAR_DUST = preload("res://scenes/alchemy/ingredients/cinnabar_dust.tscn")
 const FLARE = preload("res://scenes/alchemy/ingredients/flare.tscn")
@@ -141,11 +141,11 @@ const THE_STONE = preload("res://scenes/alchemy/ingredients/the_stone.tscn")
 const VINEGAR = preload("res://scenes/alchemy/ingredients/vinegar.tscn")
 const YELLOW_LIQUID = preload("res://scenes/alchemy/ingredients/yellow_liquid.tscn")
 
-#
-#const BOWL = preload("res://assets/models/ingredients/bowl.obj")
-#const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
-#const BANANA = preload("res://assets/models/ingredients/banana.res")
-#const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
+
+const BOWL = preload("res://assets/models/ingredients/bowl.obj")
+const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
+const BANANA = preload("res://assets/models/ingredients/banana.res")
+const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
 
 @onready var mesh: MeshInstance3D = %Mesh
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D

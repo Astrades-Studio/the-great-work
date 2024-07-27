@@ -44,7 +44,8 @@ func _on_continue_button_pressed() -> void:
 	
 
 func _on_restart_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	self.hide_pause_menu()
+	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 	
 
 func _on_settings_button_pressed() -> void:

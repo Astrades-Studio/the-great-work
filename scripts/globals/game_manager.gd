@@ -1,7 +1,9 @@
 extends Node
 
-const MAIN_SCENE := preload("res://scenes/main.tscn")
-const GAME_OVER_SCENE := preload("res://scenes/ui/game_over_scene.tscn")
+const MAIN_SCENE := "res://scenes/main.tscn"
+const GAME_OVER_SCENE := "res://scenes/ui/game_over_scene.tscn"
+const INTRO_CUTSCENE = "res://scenes/intro_cutscene.tscn"
+
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 10
 
@@ -85,11 +87,12 @@ func _input(event):
 # Gets connected from main menu
 func _on_new_game_requested():
 	current_state = GameState.PLAYING
-	get_tree().change_scene_to_packed(MAIN_SCENE)
+	TransitionManager.change_scene_to_file(INTRO_CUTSCENE)
+	#get_tree().change_scene_to_packed(INTRO_CUTSCENE)
 
 
 func _on_game_over():
-	get_tree().change_scene_to_packed(GAME_OVER_SCENE)
+	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
 	current_state = GameState.MAIN_MENU
 	
 
