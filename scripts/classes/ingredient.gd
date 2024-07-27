@@ -124,10 +124,28 @@ var MESH_TABLE : Dictionary = {
 
 
 # TODO: Maybe move to a global
-const BOWL = preload("res://assets/models/ingredients/bowl.obj")
-const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
-const BANANA = preload("res://assets/models/ingredients/banana.res")
-const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
+const BANANA = preload("res://scenes/alchemy/ingredients/banana.tscn")
+const CINNABAR = preload("res://scenes/alchemy/ingredients/cinnabar.tscn")
+const CINNABAR_DUST = preload("res://scenes/alchemy/ingredients/cinnabar_dust.tscn")
+const FLARE = preload("res://scenes/alchemy/ingredients/flare.tscn")
+const GOLD = preload("res://scenes/alchemy/ingredients/gold.tscn")
+const MERCURY = preload("res://scenes/alchemy/ingredients/mercury.tscn")
+const PHOSPHORUS = preload("res://scenes/alchemy/ingredients/phosphorus.tscn")
+const POTASSIUM = preload("res://scenes/alchemy/ingredients/potassium.tscn")
+const POTASSIUM_DUST = preload("res://scenes/alchemy/ingredients/potassium_dust.tscn")
+const PURIFIED_MERCURY = preload("res://scenes/alchemy/ingredients/purified_mercury.tscn")
+const PURIFIED_SULFUR = preload("res://scenes/alchemy/ingredients/purified_sulfur.tscn")
+const SALT = preload("res://scenes/alchemy/ingredients/salt.tscn")
+const SULFUR = preload("res://scenes/alchemy/ingredients/sulfur.tscn")
+const THE_STONE = preload("res://scenes/alchemy/ingredients/the_stone.tscn")
+const VINEGAR = preload("res://scenes/alchemy/ingredients/vinegar.tscn")
+const YELLOW_LIQUID = preload("res://scenes/alchemy/ingredients/yellow_liquid.tscn")
+
+#
+#const BOWL = preload("res://assets/models/ingredients/bowl.obj")
+#const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
+#const BANANA = preload("res://assets/models/ingredients/banana.res")
+#const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
 
 @onready var mesh: MeshInstance3D = %Mesh
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://nkuei4sjralq"]
+
+[ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="1_u7rk5"]
+
+[sub_resource type="Gradient" id="Gradient_55pc3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1b0do"]
+frequency = 0.5
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dpn1a"]
+color_ramp = SubResource("Gradient_55pc3")
+noise = SubResource("FastNoiseLite_1b0do")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgd8l"]
+albedo_color = Color(0.654902, 0.352941, 0.313726, 1)
+albedo_texture = SubResource("NoiseTexture2D_dpn1a")
+metallic = 1.0
+uv1_scale = Vector3(2.575, 2.575, 2.575)
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oc32w"]
+material = SubResource("StandardMaterial3D_lgd8l")
+top_radius = 0.05
+bottom_radius = 0.085
+height = 0.04
+
+[sub_resource type="Gradient" id="Gradient_ck72b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tw7we"]
+gradient = SubResource("Gradient_ck72b")
+width = 128
+height = 128
+fill = 2
+fill_to = Vector2(0.148148, 0.128205)
+repeat = 1
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j42o7"]
+gradient = SubResource("Gradient_ck72b")
+width = 128
+height = 128
+fill = 2
+fill_to = Vector2(0.148148, 0.128205)
+repeat = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3f4e"]
+albedo_color = Color(0.324203, 0.324203, 0.324203, 1)
+albedo_texture = SubResource("GradientTexture2D_tw7we")
+albedo_texture_force_srgb = true
+metallic = 1.0
+metallic_specular = 0.55
+metallic_texture = SubResource("GradientTexture2D_j42o7")
+roughness = 0.67
+subsurf_scatter_enabled = true
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_023be"]
+material = SubResource("StandardMaterial3D_a3f4e")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.1
+
+[node name="Flare" type="MeshInstance3D"]
+transform = Transform3D(0.648102, 0, 0, 0, 0.466234, 0, 0, 0, 0.648102, 1, 0, 2)
+mesh = ExtResource("1_u7rk5")
+
+[node name="Contents" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.54297, 0, 0, 0, 4.82191, 0, 0, 0, 1.54297, 0, 0.151897, -2.38419e-07)
+mesh = SubResource("CylinderMesh_oc32w")
+skeleton = NodePath("../../Mercury")
+
+[node name="Contents2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.54297, 0, 0, 0, 4.82191, 0, 0, 0, 1.54297, 0, 0.44446, -2.38419e-07)
+mesh = SubResource("CylinderMesh_023be")
+skeleton = NodePath("../../Mercury")

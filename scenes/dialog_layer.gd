@@ -4,15 +4,18 @@ extends CanvasLayer
 @onready var name_label: Label = %NameLabel
 @onready var text_label: Label = %TextLabel
 
+signal next_line_requested
+signal dialog_finished
+
+var text_on_screen : bool
+var text_writing_in_process : bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.hide()
 	DialogManager.dialog_layer = self
 	dialog_finished.connect(DialogManager._on_dialog_finished)
-	
 
-var text_on_screen : bool
-var text_writing_in_process : bool
 
 func _input(event: InputEvent) -> void:
 	if !text_on_screen:
@@ -22,9 +25,6 @@ func _input(event: InputEvent) -> void:
 	or event.is_action_pressed("interact") :
 		next_line_requested.emit()
 
-
-signal next_line_requested
-signal dialog_finished
 
 func play_dialog(dialog : Dialog):
 	for dialog_piece in dialog.dialog:

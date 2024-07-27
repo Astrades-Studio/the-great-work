@@ -7,9 +7,6 @@ const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
 const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
 
 
-static var spawned_ingredients : Array[Ingredient]
-
-
 func _ready() -> void:
 	if !ingredient_type:
 		push_error("No ingredient type assigned to " + str(self.get_path()))
@@ -35,11 +32,8 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 	resulting_ingredient.type = _ingredient_type
 	print(str(resulting_ingredient.type_name) + " added")
 
-	spawned_ingredients.append(resulting_ingredient)
-	if spawned_ingredients.size() > GameManager.MAX_SPAWNED_INGREDIENT_AMOUNT:
-		var ingredient_to_delete = spawned_ingredients.pop_front()
-		if ingredient_to_delete:
-			ingredient_to_delete.queue_free()
 
+
+	GameManager.ingredient_spawned(resulting_ingredient)
 
 	GameManager.player.ingredient_in_hand = resulting_ingredient

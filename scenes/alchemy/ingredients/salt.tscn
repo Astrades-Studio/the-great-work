@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cigtrvdgnh6wc"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3eepo4h2w8hn" path="res://assets/models/ingredients/powder.res" id="1_aiu0w"]
+
+[node name="Salt" type="MeshInstance3D"]
+transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 1)
+mesh = ExtResource("1_aiu0w")

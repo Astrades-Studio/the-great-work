@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ymtpobcr18y"]
+
+[ext_resource type="ArrayMesh" uid="uid://b37ljda3tfnas" path="res://assets/models/ingredients/the_stone.res" id="1_gqtwh"]
+
+[node name="TheStone" type="MeshInstance3D"]
+transform = Transform3D(1.20224, 0, 0, 0, 1.20224, 0, 0, 0, 1.20224, 1, 0.05, 3)
+mesh = ExtResource("1_gqtwh")
