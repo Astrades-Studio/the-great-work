@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=11 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
-[ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="1_qspuw"]
 [ext_resource type="VideoStream" path="res://assets/videos/output.ogv" id="3_36fp1"]
 [ext_resource type="Texture2D" uid="uid://cy3ju05a0dcem" path="res://assets/images/render.png" id="3_eisaw"]
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
@@ -16,6 +15,13 @@ font_size = 46
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0hxg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oe2c"]
+content_margin_left = 14.0
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+
 [node name="MainMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -24,7 +30,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_qspuw")
+focus_neighbor_top = NodePath("HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton")
+focus_neighbor_right = NodePath("HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton")
+focus_mode = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("1_6645d")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
@@ -125,9 +134,14 @@ size_flags_stretch_ratio = 0.28
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.65, 0.572542, 0.2275, 1)
 theme_override_fonts/font = ExtResource("5_0425m")
 theme_override_font_sizes/font_size = 18
-text = "Start"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0hxg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6oe2c")
+toggle_mode = true
+action_mode = 0
+text = "START"
 flat = true
 alignment = 0
 

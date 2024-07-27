@@ -155,7 +155,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62924, 0.815622, 0)
 
 [node name="Iron" parent="Ingredients" instance=ExtResource("7_iupf5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000963449, 0.815622, 0.436861)
-type = 2
 
 [node name="Yellow Liquid9" parent="Ingredients" instance=ExtResource("7_iupf5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184812, 0.815622, 0.436861)

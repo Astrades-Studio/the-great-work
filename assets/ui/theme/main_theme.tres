@@ -6,6 +6,7 @@
 content_margin_right = 14.0
 
 [resource]
-Button/colors/icon_focus_color = Color(0.646029, 0.646029, 0.646029, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 3
 Button/styles/normal = SubResource("StyleBoxFlat_volxt")
 PanelContainer/styles/panel = ExtResource("2_be7ux")

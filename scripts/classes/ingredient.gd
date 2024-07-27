@@ -141,7 +141,11 @@ const THE_STONE = preload("res://scenes/alchemy/ingredients/the_stone.tscn")
 const VINEGAR = preload("res://scenes/alchemy/ingredients/vinegar.tscn")
 const YELLOW_LIQUID = preload("res://scenes/alchemy/ingredients/yellow_liquid.tscn")
 
+<<<<<<< Updated upstream
 
+=======
+#
+>>>>>>> Stashed changes
 const BOWL = preload("res://assets/models/ingredients/bowl.obj")
 const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
 const BANANA = preload("res://assets/models/ingredients/banana.res")

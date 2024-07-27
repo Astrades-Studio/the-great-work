@@ -55,6 +55,7 @@ folder_colors={
 
 player=""
 ingredient=""
+shadowspawns=""
 
 [gui]
 
