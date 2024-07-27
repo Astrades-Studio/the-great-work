@@ -48,9 +48,9 @@ var current_state : GameState:
 
 
 # References
+var player : UCharacterBody3D
 var environment : WorldEnvironment
 var text_layer : TextLayer
-var player : UCharacterBody3D
 var ingredient_layer : Node
 var transition_screen : Node
 

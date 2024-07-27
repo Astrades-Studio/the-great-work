@@ -1,6 +1,7 @@
 extends Node
 
 var dialog_layer : DialogLayer
+var subtitles_layer : SubtitleLayer
 
 const INTRO := preload("res://assets/dialog/intro_dialog.tres")
 
@@ -27,6 +28,15 @@ func play_dialog(dialog : Dialog):
 	dialog_layer.play_dialog(dialog)
 
 
+func play_subtitles(dialog : Dialog, duration : float):
+	#GameManager.current_state = GameManager.GameState.DIALOG
+	dialog_layer.play_subtitles(dialog, duration)
+
+
+func play_cinematic(dialog : Dialog, duration : float):
+	dialog_layer.play_subtitles(dialog, duration)
+
+
 func skip_dialog():
 	dialog_layer.hide_text()
 
@@ -34,3 +44,8 @@ func skip_dialog():
 func _on_dialog_finished():
 #	await get_tree().create_timer(0.2).timeout
 	GameManager.current_state = GameManager.GameState.PLAYING
+
+
+func _on_subtitle_finished():
+	pass
+	
