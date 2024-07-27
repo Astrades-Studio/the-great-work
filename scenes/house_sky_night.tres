@@ -19,3 +19,6 @@ fog_depth_curve = 0.183011
 fog_depth_begin = 0.0
 fog_depth_end = 1683.3
 volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
+adjustment_brightness = 3.2
+adjustment_contrast = 0.89
+adjustment_saturation = 0.96
