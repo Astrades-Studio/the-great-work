@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
-size = Vector3(0.801, 1.91089, 0.71)
+size = Vector3(0.609619, 1.91089, 0.542969)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
-size = Vector3(0.781006, 0.995728, 0.719727)
+size = Vector3(0.618164, 0.995728, 0.539063)
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -87,7 +87,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.41761
+speed_variance = 1.37701
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)
