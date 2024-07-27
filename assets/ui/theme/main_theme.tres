@@ -1,24 +1,11 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://clr4c14w2t0i0"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://clr4c14w2t0i0"]
 
-[ext_resource type="Texture2D" uid="uid://bss3umq8fcrd0" path="res://assets/ui/theme/uipack_rpg_sheet.png" id="1_unc2a"]
 [ext_resource type="StyleBox" uid="uid://by6kerhi3dx8f" path="res://assets/ui/theme/style_box_outline_small.tres" id="2_be7ux"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyb0n"]
-atlas = ExtResource("1_unc2a")
-region = Rect2(0, 283, 190, 48)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sffh6"]
-texture = SubResource("AtlasTexture_yyb0n")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 10.0
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-modulate_color = Color(0.730216, 0.730216, 0.730216, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_volxt"]
+content_margin_right = 14.0
 
 [resource]
-Button/styles/normal = SubResource("StyleBoxTexture_sffh6")
+Button/colors/icon_focus_color = Color(0.646029, 0.646029, 0.646029, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_volxt")
 PanelContainer/styles/panel = ExtResource("2_be7ux")

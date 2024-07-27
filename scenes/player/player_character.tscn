@@ -36,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, 0, 0)
 cull_mask = 1048573
 current = true
+far = 57.97
 
 [node name="InteractRay" type="RayCast3D" parent="Body/Head/CameraMarker3D/Camera3D"]
 unique_name_in_owner = true
@@ -82,11 +83,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38726, 0)
 keep_aspect = 0
 cull_mask = 2
 current = true
+fov = 85.4
+far = 47.84
 
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 0.839693
+speed_variance = 0.743712
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(-0.909105, -0.179081, 0.376109, 2.09855e-08, 0.902878, 0.429897, -0.416567, 0.390821, -0.820811, 0.349607, -0.235295, -0.556095)
