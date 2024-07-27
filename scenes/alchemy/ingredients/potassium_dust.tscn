@@ -107,5 +107,5 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7teo2")
 
 [node name="PotassiumDust" type="MeshInstance3D"]
-transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, -2.02188, 0, 1.99749)
+transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8lpre")

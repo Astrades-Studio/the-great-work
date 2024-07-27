@@ -49,10 +49,13 @@ func show_book(_book : BookPages):
 	show_book_page(book_page)
 
 
-func show_text(text: Texture):
+func show_text(text: Texture2D):
 	self.show()
 	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
 	GameManager.current_state = GameManager.GameState.PAUSED
+	if text.get_height() > 1000:
+		pass
+	
 	texture_rect.texture = text
 
 

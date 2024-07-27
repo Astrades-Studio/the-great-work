@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://mktffnvuvqm" path="res://assets/models/ingredients/rocks/Rock_07.res" id="1_jqbqr"]
 
 [node name="Potassium" type="MeshInstance3D"]
-transform = Transform3D(0.232319, 0, 0, 0, 0.101869, 0, 0, 0, 0.232319, -0.998974, 0, 2.09088)
+transform = Transform3D(0.232319, 0, 0, 0, 0.101869, 0, 0, 0, 0.232319, 0, 0, 0)
 mesh = ExtResource("1_jqbqr")
 metadata/_edit_group_ = true
 

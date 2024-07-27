@@ -73,28 +73,28 @@ Type.VINEGAR : Type.VINEGAR
 
 
 var MESH_TABLE : Dictionary = {
-	Type.NONE: BOWL,
-	Type.SALT: BOWL,
-	Type.IRON: ORE,
-	Type.LEAD: ORE,
-	Type.MERCURY: JAR,
-	Type.PURIFIED_MERCURY: JAR,
-	Type.SULFUR: BANANA,
-	Type.PURIFIED_SULFUR: BANANA,
+	Type.NONE: null,
+	Type.SALT: SALT,
+	Type.IRON: INGOT,
+	Type.LEAD: INGOT,
+	Type.MERCURY: MERCURY,
+	Type.PURIFIED_MERCURY: PURIFIED_MERCURY,
+	Type.SULFUR: SULFUR,
+	Type.PURIFIED_SULFUR: PURIFIED_SULFUR,
 	Type.ACID: JAR,
-	Type.VINEGAR: JAR,
-	Type.PHOSPHORUS: BANANA,
-	Type.YELLOW_LIQUID: JAR,
+	Type.VINEGAR: VINEGAR,
+	Type.PHOSPHORUS: PHOSPHORUS,
+	Type.YELLOW_LIQUID: YELLOW_LIQUID,
 	Type.BANANA: BANANA,
-	Type.POTASSIUM: BOWL,
-	Type.POTASSIUM_DUST: BOWL,
-	Type.CINNABAR: ORE,
-	Type.CINNABAR_DUST: ORE,
-	Type.GOLD: BOWL,
-	Type.SILVER: BOWL,
-	Type.DRAGONS_BLOOD: BOWL,
-	Type.FLARE: JAR,
-	Type.PHILOSOPHERS_STONE: BOWL,
+	Type.POTASSIUM: POTASSIUM,
+	Type.POTASSIUM_DUST: POTASSIUM_DUST,
+	Type.CINNABAR: CINNABAR,
+	Type.CINNABAR_DUST: CINNABAR_DUST,
+	Type.GOLD: GOLD,
+	Type.SILVER: INGOT,
+	Type.DRAGONS_BLOOD: SALT,
+	Type.FLARE: FLARE,
+	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
 }
 #
 #var COLOR_TABLE : Dictionary = {
@@ -124,28 +124,30 @@ var MESH_TABLE : Dictionary = {
 
 
 # TODO: Maybe move to a global
-#const BANANA = preload("res://scenes/alchemy/ingredients/banana.tscn")
-const CINNABAR = preload("res://scenes/alchemy/ingredients/cinnabar.tscn")
-const CINNABAR_DUST = preload("res://scenes/alchemy/ingredients/cinnabar_dust.tscn")
-const FLARE = preload("res://scenes/alchemy/ingredients/flare.tscn")
-const GOLD = preload("res://scenes/alchemy/ingredients/gold.tscn")
-const MERCURY = preload("res://scenes/alchemy/ingredients/mercury.tscn")
-const PHOSPHORUS = preload("res://scenes/alchemy/ingredients/phosphorus.tscn")
-const POTASSIUM = preload("res://scenes/alchemy/ingredients/potassium.tscn")
-const POTASSIUM_DUST = preload("res://scenes/alchemy/ingredients/potassium_dust.tscn")
-const PURIFIED_MERCURY = preload("res://scenes/alchemy/ingredients/purified_mercury.tscn")
-const PURIFIED_SULFUR = preload("res://scenes/alchemy/ingredients/purified_sulfur.tscn")
-const SALT = preload("res://scenes/alchemy/ingredients/salt.tscn")
-const SULFUR = preload("res://scenes/alchemy/ingredients/sulfur.tscn")
-const THE_STONE = preload("res://scenes/alchemy/ingredients/the_stone.tscn")
-const VINEGAR = preload("res://scenes/alchemy/ingredients/vinegar.tscn")
-const YELLOW_LIQUID = preload("res://scenes/alchemy/ingredients/yellow_liquid.tscn")
-
-#
-const BOWL = preload("res://assets/models/ingredients/bowl.obj")
-const ORE = preload("res://assets/models/ingredients/rocks/Rock_05.res")
-const BANANA = preload("res://assets/models/ingredients/banana.res")
-const JAR = preload("res://assets/models/ingredients/jar_mesh.res")
+const BANANA := "res://scenes/alchemy/ingredients/banana.tscn"
+const CINNABAR := "res://scenes/alchemy/ingredients/cinnabar.tscn"
+const CINNABAR_DUST := "res://scenes/alchemy/ingredients/cinnabar_dust.tscn"
+const FLARE := "res://scenes/alchemy/ingredients/flare.tscn"
+const GOLD := "res://scenes/alchemy/ingredients/gold.tscn"
+const MERCURY := "res://scenes/alchemy/ingredients/mercury.tscn"
+const PHOSPHORUS := "res://scenes/alchemy/ingredients/phosphorus.tscn"
+const POTASSIUM := "res://scenes/alchemy/ingredients/potassium.tscn"
+const POTASSIUM_DUST := "res://scenes/alchemy/ingredients/potassium_dust.tscn"
+const PURIFIED_MERCURY := "res://scenes/alchemy/ingredients/purified_mercury.tscn"
+const PURIFIED_SULFUR := "res://scenes/alchemy/ingredients/purified_sulfur.tscn"
+const SALT := "res://scenes/alchemy/ingredients/salt.tscn"
+const SULFUR := "res://scenes/alchemy/ingredients/sulfur.tscn"
+const THE_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
+const VINEGAR := "res://scenes/alchemy/ingredients/vinegar.tscn"
+const YELLOW_LIQUID := "res://scenes/alchemy/ingredients/yellow_liquid.tscn"
+const PHILOSOPHERS_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
+const INGOT := "res://scenes/alchemy/ingredients/ingot.tscn"
+const JAR := "res://scenes/alchemy/ingredients/jar_mesh.tscn"
+# #
+# const BOWL = "res://assets/models/ingredients/bowl.obj"
+# const ORE = "res://assets/models/ingredients/rocks/Rock_05.res"
+# const BANANA = "res://assets/models/ingredients/banana.res"
+# const JAR = "res://assets/models/ingredients/jar_mesh.res"
 
 @onready var mesh: MeshInstance3D = %Mesh
 @onready var collision_shape: CollisionShape3D = %CollisionShape3D
@@ -162,16 +164,16 @@ var mesh_type : Mesh
 		type = value
 		type_name = str(Type.keys()[type]).capitalize()
 		self.name = type_name
-		if !mesh:
-			await tree_entered
-			mesh = get_node("%Mesh")
-		mesh_type = MESH_TABLE[type]
-		mesh.mesh = mesh_type
-		if !collision_shape:
-			await tree_entered
-			collision_shape = get_node("%CollisionShape3D")
-		collision_shape.make_convex_from_siblings()
-		collision_shape.global_transform = mesh.global_transform
+		# if !mesh:
+		# 	await tree_entered
+		# 	mesh = get_node("%Mesh")
+		# mesh_type = MESH_TABLE[type]
+		# mesh.mesh = mesh_type
+		#if !collision_shape:
+			#await tree_entered
+			#collision_shape = get_node("%CollisionShape3D")
+		#collision_shape.make_convex_from_siblings()
+		#collision_shape.global_transform = mesh.global_transform
 			
 		
 signal location_changed
@@ -193,6 +195,19 @@ var current_location : Location = Location.ENVIRONMENT :
 
 func _ready() -> void:
 	current_location = Location.ENVIRONMENT
+	
 	#var target_color = COLOR_TABLE[type]	
 	#var active_material = mesh.get_active_material(0)
 	#active_material.albedo_color = target_color
+
+
+var _mesh : Mesh
+
+func get_mesh(type : Type) -> Mesh:
+	if _mesh:
+		_mesh.queue_free()
+	_mesh = load(MESH_TABLE[type]).instantiate()
+	_mesh.name = "Mesh"
+	_mesh.unique_name_in_owner = true
+	#add_child(_mesh)
+	return _mesh

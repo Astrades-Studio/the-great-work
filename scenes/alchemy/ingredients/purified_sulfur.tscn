@@ -107,5 +107,5 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7teo2")
 
 [node name="PurifiedSulfur" type="MeshInstance3D"]
-transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, -1.97685, 0, 3.01229)
+transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 0)
 mesh = SubResource("ArrayMesh_idn6o")

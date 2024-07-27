@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt6q7fr3kapmv"]
+
+[ext_resource type="ArrayMesh" uid="uid://cn6cncexuu2se" path="res://assets/models/ingredients/jar_mesh.res" id="1_tkhf5"]
+
+[node name="JarMesh" type="MeshInstance3D"]
+mesh = ExtResource("1_tkhf5")

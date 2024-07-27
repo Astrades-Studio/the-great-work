@@ -11,8 +11,8 @@ enum GameState {
 	MAIN_MENU,
 	PAUSED,
 	PLAYING,
-	LOADING,
-	DIALOG
+	CUTSCENE,
+	DIALOG,
 }
 
 var spawned_ingredients : Array[Ingredient]
@@ -40,7 +40,7 @@ var current_state : GameState:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
-		elif current_state == GameState.LOADING:
+		elif current_state == GameState.CUTSCENE:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		#TODO: decide where to put cutscene CANNOT MOVE behavior

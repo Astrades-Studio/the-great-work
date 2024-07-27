@@ -62,7 +62,7 @@ bottom_radius = 0.01
 height = 0.1
 
 [node name="Flare" type="MeshInstance3D"]
-transform = Transform3D(0.648102, 0, 0, 0, 0.466234, 0, 0, 0, 0.648102, 1, 0, 2)
+transform = Transform3D(0.648102, 0, 0, 0, 0.466234, 0, 0, 0, 0.648102, 0, 0, 0)
 mesh = ExtResource("1_u7rk5")
 
 [node name="Contents" type="MeshInstance3D" parent="."]

@@ -13,10 +13,13 @@ func _ready():
 func on_fireplace_use():
 	if on_active_fire:
 		return
+	
+	GameManager.current_state = GameManager.GameState.CUTSCENE
 	on_active_fire = true
 	SfxManager.play_sound(preload("res://assets/sounds/sfx/light_fireplace.mp3"))
 	await get_tree().create_timer(2.84).timeout
 	fireplace_off.hide()
 	fireplace_on.show()
 	animation_player.play("Emission")
+	GameManager.current_state = GameManager.GameState.PLAYING
 	

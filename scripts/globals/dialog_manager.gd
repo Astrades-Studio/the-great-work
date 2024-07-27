@@ -21,6 +21,13 @@ func create_dialog_piece(text: String, speaker: String = "Melchiades"):
 	_dialog.dialog.append(dialog_piece)
 	play_dialog(_dialog)
 
+func create_subtitles_piece(text: String, duration: float):
+	var dialog_piece := DialogPiece.new()
+	dialog_piece.dialog_text = text
+
+	var _dialog = Dialog.new()
+	_dialog.dialog.append(dialog_piece)
+	play_subtitles(_dialog, duration)
 
 
 func play_dialog(dialog : Dialog):

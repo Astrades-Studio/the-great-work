@@ -3,5 +3,4 @@
 [ext_resource type="ArrayMesh" uid="uid://dgs7ownef4y3m" path="res://assets/models/ingredients/banana.res" id="1_lkpd1"]
 
 [node name="Banana" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0332278, 0, 2.01051)
 mesh = ExtResource("1_lkpd1")

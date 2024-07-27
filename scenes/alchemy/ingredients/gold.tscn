@@ -61,5 +61,5 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ntovm")
 
 [node name="Gold" type="MeshInstance3D"]
-transform = Transform3D(-5.25516e-08, -1.20224, 0, 1.20224, -5.25516e-08, 0, 0, 0, 1.20224, -0.00051165, 0.085, 3.0056)
+transform = Transform3D(-5.25516e-08, -1.20224, 0, 1.20224, -5.25516e-08, 0, 0, 0, 1.20224, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xl7qk")

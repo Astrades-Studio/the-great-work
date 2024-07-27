@@ -1,9 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dy1wo4g1em5uj"]
 
 [ext_resource type="PackedScene" uid="uid://cigtrvdgnh6wc" path="res://scenes/alchemy/ingredients/salt.tscn" id="1_mg1ej"]
-[ext_resource type="ArrayMesh" uid="uid://dqat5egowhepx" path="res://assets/models/ingredients/ingot.res" id="2_ugfy0"]
 [ext_resource type="PackedScene" uid="uid://qn1qvlmo663l" path="res://scenes/alchemy/ingredients/mercury.tscn" id="2_wpbqh"]
-[ext_resource type="ArrayMesh" uid="uid://cn6cncexuu2se" path="res://assets/models/ingredients/jar_mesh.res" id="3_54mml"]
 [ext_resource type="PackedScene" uid="uid://bxfj5n12bitq2" path="res://scenes/alchemy/ingredients/purified_mercury.tscn" id="3_srr7u"]
 [ext_resource type="PackedScene" uid="uid://b8m46sid55iq8" path="res://scenes/alchemy/ingredients/sulfur.tscn" id="4_ljoob"]
 [ext_resource type="PackedScene" uid="uid://dh1ejx73ha3y1" path="res://scenes/alchemy/ingredients/purified_sulfur.tscn" id="5_hmv0t"]
@@ -19,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://br83d6xrd141i" path="res://scenes/alchemy/ingredients/cinnabar.tscn" id="14_bjoeo"]
 [ext_resource type="PackedScene" uid="uid://brqh11pujokpd" path="res://scenes/alchemy/ingredients/cinnabar_dust.tscn" id="15_1xfrl"]
 [ext_resource type="PackedScene" uid="uid://bj3a7iwp4112d" path="res://scenes/alchemy/ingredients/gold.tscn" id="16_hxjpd"]
+[ext_resource type="PackedScene" uid="uid://fk6dcg01x2oq" path="res://scenes/alchemy/ingredients/ingot.tscn" id="17_fd3fx"]
+[ext_resource type="PackedScene" uid="uid://bt6q7fr3kapmv" path="res://scenes/alchemy/ingredients/jar_mesh.tscn" id="18_fm55h"]
 
 [node name="IngredientsScene" type="Node3D"]
 
@@ -54,20 +54,9 @@
 
 [node name="Gold" parent="." instance=ExtResource("16_hxjpd")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26001, 1.05378, 2.2413)
-light_energy = 2.914
-omni_range = 7.33305
+[node name="Ingot" parent="." instance=ExtResource("17_fd3fx")]
 
-[node name="Ingot" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.98711e-09, 0, -0.0805771, -1.59742e-08, -0.0805771, 0, -0.182724, 7.04427e-09, 3.52214e-09, -3.98135, 0.0805773, 3.10655)
-visible = false
-mesh = ExtResource("2_ugfy0")
-
-[node name="JarMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-visible = false
-mesh = ExtResource("3_54mml")
+[node name="JarMesh" parent="." instance=ExtResource("18_fm55h")]
 
 [node name="Vial" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.41731, 0, 0, 0, 1.41731, 0, 0, 0, 1.41731, -4.25193, 0, 2)

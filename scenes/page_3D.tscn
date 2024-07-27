@@ -1,14 +1,19 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddxqgpilfs1fi"]
+[gd_scene load_steps=12 format=4 uid="uid://ddxqgpilfs1fi"]
 
+[ext_resource type="Script" path="res://scenes/page.gd" id="1_kpub4"]
+[ext_resource type="Texture2D" uid="uid://dkkc58bv2i6x1" path="res://assets/images/recipes/adams_letter.png" id="2_0vc4p"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_ujfnc"]
+[ext_resource type="Texture2D" uid="uid://dpnfjm4erkwry" path="res://assets/images/recipes/phosphorus_recipe.png" id="3_xywio"]
 [ext_resource type="Script" path="res://scripts/classes/page_component.gd" id="4_ukpf3"]
-[ext_resource type="Texture2D" uid="uid://c1hjjis2awao0" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture.webp" id="5_4okbv"]
 [ext_resource type="Texture2D" uid="uid://bphoc562qbna7" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture_2.webp" id="6_b081x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr012"]
+albedo_texture = ExtResource("2_0vc4p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2ivk"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_texture = ExtResource("5_4okbv")
+albedo_texture = ExtResource("3_xywio")
 metallic = 1.0
 metallic_texture = ExtResource("6_b081x")
 metallic_texture_channel = 2
@@ -56,9 +61,12 @@ size = Vector3(0.836426, 1.21777, 0.0561523)
 [node name="Page3D" type="StaticBody3D"]
 transform = Transform3D(0.324858, 0, 0, 0, 0.324858, 0, 0, 0, 0.324858, 0, 0, 0)
 collision_layer = 4
+script = ExtResource("1_kpub4")
+page = ExtResource("2_0vc4p")
 
 [node name="PageMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.21368, 0, -2.80949e-07, 0, 3.21368, 0, 2.80949e-07, 0, -3.21368, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rr012")
 mesh = SubResource("ArrayMesh_6mxfo")
 skeleton = NodePath("")
 

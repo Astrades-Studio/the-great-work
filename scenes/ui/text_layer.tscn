@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://by8vwv2cfa15m"]
 
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="2_u4fuq"]
+[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="2_8doit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjdcx"]
 font_color = Color(0, 0, 0, 1)
@@ -19,12 +19,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_u4fuq")
+texture = ExtResource("2_8doit")
 expand_mode = 3
 stretch_mode = 5
 

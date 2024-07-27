@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fk6dcg01x2oq"]
+
+[ext_resource type="ArrayMesh" uid="uid://dqat5egowhepx" path="res://assets/models/ingredients/ingot.res" id="1_fmmj1"]
+
+[node name="Ingot" type="MeshInstance3D"]
+transform = Transform3D(-7.98711e-09, 0, -0.0805771, -1.59742e-08, -0.0805771, 0, -0.182724, 7.04427e-09, 3.52214e-09, 0, 0, 0)
+mesh = ExtResource("1_fmmj1")

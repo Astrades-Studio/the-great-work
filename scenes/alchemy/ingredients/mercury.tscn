@@ -31,7 +31,6 @@ bottom_radius = 0.08
 height = 0.1
 
 [node name="Mercury" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 mesh = ExtResource("1_fgagq")
 
 [node name="Contents" type="MeshInstance3D" parent="."]

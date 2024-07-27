@@ -3,5 +3,5 @@
 [ext_resource type="ArrayMesh" uid="uid://b37ljda3tfnas" path="res://assets/models/ingredients/the_stone.res" id="1_gqtwh"]
 
 [node name="TheStone" type="MeshInstance3D"]
-transform = Transform3D(1.20224, 0, 0, 0, 1.20224, 0, 0, 0, 1.20224, 1, 0.05, 3)
+transform = Transform3D(1.20224, 0, 0, 0, 1.20224, 0, 0, 0, 1.20224, 0, 0, 0)
 mesh = ExtResource("1_gqtwh")

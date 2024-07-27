@@ -108,7 +108,6 @@ bottom_radius = 0.1
 height = 0.2
 
 [node name="YellowLiquid" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 mesh = SubResource("ArrayMesh_d3eht")
 
 [node name="Contents2" type="MeshInstance3D" parent="."]

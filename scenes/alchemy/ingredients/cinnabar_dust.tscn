@@ -127,5 +127,5 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w1sgk")
 
 [node name="CinnabarDust" type="MeshInstance3D"]
-transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 1, 0, 0)
+transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 0)
 mesh = SubResource("ArrayMesh_knnbd")
