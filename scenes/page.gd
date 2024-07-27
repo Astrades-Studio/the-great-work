@@ -1,7 +1,12 @@
+@tool
 class_name Page
 extends StaticBody3D
 
-@export var page : Texture
+@export var page : Texture:
+	set(value):
+		page = value
+	#	sprite_3d.texture = value
+
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
 

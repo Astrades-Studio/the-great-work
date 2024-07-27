@@ -23,7 +23,7 @@ func _ready() -> void:
 	back_button.pressed.connect(_on_back_button_pressed)
 	GameManager.text_layer = self
 	GameManager.request_book_UI.connect(show_book)
-	self.hide_text()
+	hide()
 
 
 func _input(event: InputEvent) -> void:

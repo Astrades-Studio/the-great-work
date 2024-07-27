@@ -1,7 +1,5 @@
-[gd_scene load_steps=11 format=4 uid="uid://ddxqgpilfs1fi"]
+[gd_scene load_steps=9 format=4 uid="uid://ddxqgpilfs1fi"]
 
-[ext_resource type="Script" path="res://scenes/page.gd" id="1_kpub4"]
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="2_rhx6m"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_ujfnc"]
 [ext_resource type="Script" path="res://scripts/classes/page_component.gd" id="4_ukpf3"]
 [ext_resource type="Texture2D" uid="uid://c1hjjis2awao0" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture.webp" id="5_4okbv"]
@@ -58,8 +56,6 @@ size = Vector3(0.836426, 1.21777, 0.0561523)
 [node name="Page3D" type="StaticBody3D"]
 transform = Transform3D(0.324858, 0, 0, 0, 0.324858, 0, 0, 0, 0.324858, 0, 0, 0)
 collision_layer = 4
-script = ExtResource("1_kpub4")
-page = ExtResource("2_rhx6m")
 
 [node name="PageMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.21368, 0, -2.80949e-07, 0, 3.21368, 0, 2.80949e-07, 0, -3.21368, 0, 0, 0)
@@ -70,9 +66,9 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0286865, -1.25393e-09)
 shape = SubResource("BoxShape3D_iq1wu")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_ujfnc")
-sprite = NodePath("")
+sprite = null
 
 [node name="PageComponent" type="Node" parent="."]
 script = ExtResource("4_ukpf3")

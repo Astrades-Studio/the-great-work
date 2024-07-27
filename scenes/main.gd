@@ -19,6 +19,8 @@ func _ready() -> void:
 	GameManager.tick_countdown.emit()
 	
 	game_over_timer.timeout.connect(_on_timer_tick)
+	
+	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
 	start_midnight_game()
 
 
