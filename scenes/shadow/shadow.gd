@@ -4,9 +4,9 @@ extends Node3D
 
 @onready var shadow_influence: Area3D = $ShadowInfluence
 
-@onready var mesh : MeshInstance3D = $MeshInstance3D
-@onready var right_eye: MeshInstance3D = %RightEye
-@onready var left_eye: MeshInstance3D = %LeftEye
+@onready var mesh : MeshInstance3D = %Mesh
+#@onready var right_eye: MeshInstance3D = %RightEye
+#@onready var left_eye: MeshInstance3D = %LeftEye
 @onready var material : StandardMaterial3D = mesh.get_active_material(0)
 
 @export var active : bool = false
@@ -29,8 +29,8 @@ var inv_tween : Tween
 		
 		var new_color = Color(1.0, ratio, ratio, 0.5)
 		
-		right_eye.mesh.material.albedo_color = new_color
-		left_eye.mesh.material.albedo_color = new_color
+		#right_eye.mesh.material.albedo_color = new_color
+		#left_eye.mesh.material.albedo_color = new_color
 		
 		if HP % 10 == 0:
 			follow_player_for(10)

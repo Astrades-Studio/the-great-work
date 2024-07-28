@@ -25,6 +25,7 @@ enum Type {
 	DRAGONS_BLOOD,
 	FLARE,
 	PHILOSOPHERS_STONE,
+	SALT
 }
 
 enum Location {
@@ -107,6 +108,7 @@ const YELLOW_LIQUID := "res://scenes/alchemy/ingredients/yellow_liquid.tscn"
 const PHILOSOPHERS_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
 const INGOT := "res://scenes/alchemy/ingredients/ingot.tscn"
 const JAR := "res://scenes/alchemy/ingredients/jar_mesh.tscn"
+const SALT := "res://scenes/alchemy/ingredients/salt.tscn"
 
 var type_name : String
 
