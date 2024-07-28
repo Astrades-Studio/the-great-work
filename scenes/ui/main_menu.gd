@@ -28,8 +28,9 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_button_mouse_entered() -> void:
-	SfxManager.play_sound(preload("res://assets/sounds/sfx/hover_mouse.mp3"))
 	SfxManager.sound_bus_1.volume_db = -15
+	SfxManager.play_sound(preload("res://assets/sounds/sfx/hover_mouse.mp3"))
+	SfxManager.sound_bus_1.volume_db = 0
 
 func _on_button_mouse_exited() -> void:
 	SfxManager.sound_bus_1.stop()
