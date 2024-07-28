@@ -31,20 +31,26 @@ func _ready() -> void:
 	sound_bus_1 = AudioStreamPlayer.new()
 	sound_bus_2 = AudioStreamPlayer.new()
 	sound_bus_3 = AudioStreamPlayer.new()
+	sound_bus_1.bus = "SFX"
+	sound_bus_2.bus = "SFX"
+	sound_bus_3.bus = "SFX"
 	add_child(sound_bus_1)
 	add_child(sound_bus_2)
 	add_child(sound_bus_3)
 
 
-func play_sound(sound: AudioStream, delay := 0.0):
+func play_sound(sound: AudioStream, delay := 0.0, volume := 0.0):
 	if !sound_bus_1.playing:
 		sound_bus_1.stream = sound
+		sound_bus_1.volume_db = volume
 		sound_bus_1.play(delay)
 	elif !sound_bus_2.playing:
 		sound_bus_2.stream = sound
+		sound_bus_2.volume_db = volume
 		sound_bus_2.play(delay)
 	elif !sound_bus_3.playing:
 		sound_bus_3.stream = sound
+		sound_bus_3.volume_db = volume
 		sound_bus_3.play(delay)
 	else:
 		push_warning("Too many sounds playing")

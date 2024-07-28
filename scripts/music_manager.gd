@@ -12,6 +12,12 @@ func _ready() -> void:
 	ambient_music_stream = AudioStreamPlayer.new()
 	ambient_music_stream_2 = AudioStreamPlayer.new()
 	
+	#Set each stream to bus "Music"
+	music_stream_1.bus = "Music"
+	ambient_music_stream.bus = "Music"
+	ambient_music_stream_2.bus = "Music"
+	ovani_player.bus = "Music"
+
 	add_child(music_stream_1)
 	add_child(ambient_music_stream)
 	add_child(ambient_music_stream_2)
