@@ -1,13 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqn2max7dlh6h"]
+[gd_scene load_steps=7 format=3 uid="uid://bqn2max7dlh6h"]
 
 [ext_resource type="ArrayMesh" uid="uid://mktffnvuvqm" path="res://assets/models/ingredients/rocks/Rock_07.res" id="1_jqbqr"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_v8s13"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_0gcbs"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_yg8g3"]
 
-[node name="Potassium" type="MeshInstance3D"]
-transform = Transform3D(0.232319, 0, 0, 0, 0.101869, 0, 0, 0, 0.232319, 0, 0, 0)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_watkf"]
+points = PackedVector3Array(0.189827, -0.0303833, 0.135564, -0.000330399, 0.0958853, -0.222521, -0.105253, 0.0853478, -0.211922, -0.0535789, -0.147252, -0.171448, -0.235784, 0.0331509, 0.0945654, 0.311259, 0.140943, -0.173577, -0.0743984, 0.159872, 0.103848, -0.296931, 0.110248, -0.165178, 0.363131, -0.00956136, -0.162068, -0.0638814, 0.180946, -0.170891, 0.278145, 0.0224734, 0.105798, -0.0528663, -0.0511193, 0.145017, -0.213431, -0.105194, -0.150678, 0.208149, -0.0713772, 0.112282, 0.212499, -0.0627575, -0.204147, -0.319017, 0.0335595, -0.0228232, -0.0641013, 0.0118946, 0.167687, 0.296254, -0.0623196, -0.1502, 0.156411, 0.147702, -0.0022008, 0.125188, 0.0328078, 0.165125, 0.265589, 0.0650308, -0.214651, 0.0946608, 0.181103, -0.171027, -0.061329, -0.110915, -0.00269157, -0.170454, 0.17111, -0.171584, 0.324568, -0.0316509, 0.00967915, -0.31628, 0.0539731, -0.1599, 0.358538, 0.0770689, -0.164541, 0.0628197, 0.128114, -0.223794, -0.20409, 0.0974141, -0.204858, -0.000134647, -0.144041, -0.168651, 0.0513639, -0.0905208, 0.0998959, -0.17187, 0.0973706, 0.105393)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jr50p"]
+points = PackedVector3Array(0.189827, -0.0303833, 0.135564, -0.000330399, 0.0958853, -0.222521, -0.105253, 0.0853478, -0.211922, -0.0535789, -0.147252, -0.171448, -0.235784, 0.0331509, 0.0945654, 0.311259, 0.140943, -0.173577, -0.0743984, 0.159872, 0.103848, -0.296931, 0.110248, -0.165178, 0.363131, -0.00956136, -0.162068, -0.0638814, 0.180946, -0.170891, 0.278145, 0.0224734, 0.105798, -0.0528663, -0.0511193, 0.145017, -0.213431, -0.105194, -0.150678, 0.208149, -0.0713772, 0.112282, 0.212499, -0.0627575, -0.204147, -0.319017, 0.0335595, -0.0228232, -0.0641013, 0.0118946, 0.167687, 0.296254, -0.0623196, -0.1502, 0.156411, 0.147702, -0.0022008, 0.125188, 0.0328078, 0.165125, 0.265589, 0.0650308, -0.214651, 0.0946608, 0.181103, -0.171027, -0.061329, -0.110915, -0.00269157, -0.170454, 0.17111, -0.171584, 0.324568, -0.0316509, 0.00967915, -0.31628, 0.0539731, -0.1599, 0.358538, 0.0770689, -0.164541, 0.0628197, 0.128114, -0.223794, -0.20409, 0.0974141, -0.204858, -0.000134647, -0.144041, -0.168651, 0.0513639, -0.0905208, 0.0998959, -0.17187, 0.0973706, 0.105393)
+
+[node name="Potassium" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_v8s13")
+type = 13
+
+[node name="Potassium" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.144, 0, 0, 0, 0.144, 0, 0, 0, 0.144, 0, 0, 0)
 mesh = ExtResource("1_jqbqr")
-metadata/_edit_group_ = true
 
 [node name="Rock08" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.665541, -0.124224, 0.690504, 0.893211, 0.920109, 0, -0.635339, 0.118587, 0.723329, -0.0741696, 0.212095, -0.175461)
+transform = Transform3D(0.0747361, -0.0725512, 0.0994326, 0.100302, 0.103323, 1.44619e-07, -0.0713447, 0.0692587, 0.104159, -0.00786775, 0.0216584, -0.0132078)
 mesh = ExtResource("1_jqbqr")
-skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.144, 0, 0, 0, 0.144, 0, 0, 0, 0.144, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_watkf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.0747361, -0.0725512, 0.0994326, 0.100302, 0.103323, 1.44619e-07, -0.0713447, 0.0692587, 0.104159, -0.00786775, 0.0216584, -0.0132078)
+shape = SubResource("ConvexPolygonShape3D_jr50p")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_0gcbs")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("4_yg8g3")

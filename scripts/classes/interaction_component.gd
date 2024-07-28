@@ -43,7 +43,9 @@ func in_range() -> void:
 	
 	GameManager.interaction_label_updated.emit(_text)
 	
-	if mesh:
+	if !is_instance_valid(mesh):
+		mesh = find_mesh()
+	if is_instance_valid(mesh):
 		if use_outline:
 			var outline_mesh = mesh.mesh.create_outline(0.22)
 			outline = MeshInstance3D.new()
@@ -51,7 +53,6 @@ func in_range() -> void:
 			mesh.add_child(outline)
 		else:
 			assert(mesh.get_active_material(0), "Mesh without material assigned")
-			
 			# Get the original material
 			og_material = mesh.get_active_material(0)
 			# Duplicate it to avoid modifying the original shared one
@@ -93,3 +94,9 @@ func connect_parent(node: PhysicsBody3D) -> void:
 	node.connect("focused", Callable(self, "in_range"))
 	node.connect("unfocused", Callable(self, "not_in_range"))
 	node.connect("interacted", Callable(self, "on_interact"))
+
+func find_mesh() -> MeshInstance3D:
+	for child in parent.get_children():
+		if child is MeshInstance3D:
+			return child
+	return null

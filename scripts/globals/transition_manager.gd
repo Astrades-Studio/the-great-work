@@ -10,6 +10,8 @@ var progress : Array = []
 var scene_name : String
 var scene_load_status := 0
 
+var loading : bool = false
+
 signal transition_finished
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +25,7 @@ func _ready() -> void:
 
 
 func change_scene_to_file(path: String) -> void:
+	loading = true
 	scene_name = path
 	transition_layer.request_transition(duration, color)
 	#await transition_layer.animation_finished
@@ -37,6 +40,8 @@ func _on_game_visible():
 
 
 func _process(_delta):
+	if !loading:
+		return
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene_name, progress)
 	# TODO: add countdown or loading bar
 	# Check if there are erros while loading:
@@ -49,3 +54,4 @@ func _process(_delta):
 		var new_scene = ResourceLoader.load_threaded_get(scene_name)
 		get_tree().change_scene_to_packed(new_scene)
 		transition_layer.fade_in()
+		loading = false

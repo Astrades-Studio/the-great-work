@@ -1,4 +1,3 @@
-@tool
 class_name Ingredient
 extends RigidBody3D
 
@@ -27,15 +26,6 @@ enum Type {
 	FLARE,
 	PHILOSOPHERS_STONE,
 }
-
-# enum MeshType {
-# 	ORE,
-# 	BANANA,
-# 	BOWL,
-# 	VIAL,
-# 	JAR,
-# 	CRYSTAL,
-# }
 
 enum Location {
 	HAND,
@@ -143,39 +133,16 @@ const YELLOW_LIQUID := "res://scenes/alchemy/ingredients/yellow_liquid.tscn"
 const PHILOSOPHERS_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
 const INGOT := "res://scenes/alchemy/ingredients/ingot.tscn"
 const JAR := "res://scenes/alchemy/ingredients/jar_mesh.tscn"
-# #
-# const BOWL = "res://assets/models/ingredients/bowl.obj"
-# const ORE = "res://assets/models/ingredients/rocks/Rock_05.res"
-# const BANANA = "res://assets/models/ingredients/banana.res"
-# const JAR = "res://assets/models/ingredients/jar_mesh.res"
-
-@onready var mesh: MeshInstance3D = %Mesh
-@onready var collision_shape: CollisionShape3D = %CollisionShape3D
 
 var type_name : String
-var mesh_type : Mesh
 
 
 @export var type : Type :
 	set(value):
-		if !Engine.is_editor_hint():
-			if !ready:
-				await ready
 		type = value
 		type_name = str(Type.keys()[type]).capitalize()
 		self.name = type_name
-		# if !mesh:
-		# 	await tree_entered
-		# 	mesh = get_node("%Mesh")
-		# mesh_type = MESH_TABLE[type]
-		# mesh.mesh = mesh_type
-		#if !collision_shape:
-			#await tree_entered
-			#collision_shape = get_node("%CollisionShape3D")
-		#collision_shape.make_convex_from_siblings()
-		#collision_shape.global_transform = mesh.global_transform
-			
-		
+
 signal location_changed
 
 var current_location : Location = Location.ENVIRONMENT :
@@ -183,31 +150,30 @@ var current_location : Location = Location.ENVIRONMENT :
 		if current_location != value:
 			location_changed.emit()
 		current_location = value
-		if current_location == Location.HAND:
-			self.freeze = true
-			mesh.layers = 0x0002
-		elif current_location == Location.ENVIRONMENT:
-			self.freeze = false
-			mesh.layers = 0x0001
-		else:
-			printerr("Ingredient visual layer problem")
+		change_layers()
 
 
 func _ready() -> void:
-	current_location = Location.ENVIRONMENT
-	
-	#var target_color = COLOR_TABLE[type]	
-	#var active_material = mesh.get_active_material(0)
-	#active_material.albedo_color = target_color
+	if type == Type.NONE:
+		self.queue_free()
+		return
 
 
-var _mesh : Mesh
+#func instance_body(_type: Type) -> void:
+	#body = load(MESH_TABLE[_type]).instantiate()
+	#
+	#body.name = type_name
+	#add_child(body)
 
-func get_mesh(type : Type) -> Mesh:
-	if _mesh:
-		_mesh.queue_free()
-	_mesh = load(MESH_TABLE[type]).instantiate()
-	_mesh.name = "Mesh"
-	_mesh.unique_name_in_owner = true
-	#add_child(_mesh)
-	return _mesh
+
+func change_layers():
+	for _mesh in self.get_children():
+		if _mesh is MeshInstance3D:
+			if current_location == Location.HAND:
+				self.freeze = true
+				_mesh.layers = 0x0002
+			elif current_location == Location.ENVIRONMENT:
+				self.freeze = false
+				_mesh.layers = 0x0001
+			else:
+				printerr("Ingredient visual layer problem")

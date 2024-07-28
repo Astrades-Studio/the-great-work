@@ -1,7 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://cigtrvdgnh6wc"]
+[gd_scene load_steps=6 format=3 uid="uid://cigtrvdgnh6wc"]
 
 [ext_resource type="ArrayMesh" uid="uid://c3eepo4h2w8hn" path="res://assets/models/ingredients/powder.res" id="1_aiu0w"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_aroew"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_1lhxm"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="3_j7j3w"]
 
-[node name="Salt" type="MeshInstance3D"]
-transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cinr8"]
+size = Vector3(0.314453, 0.0491943, 0.455078)
+
+[node name="Salt" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_aroew")
+type = 1
+
+[node name="Salt" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, 0, 0)
 mesh = ExtResource("1_aiu0w")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, -0.00337589, 0)
+shape = SubResource("BoxShape3D_cinr8")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_1lhxm")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("3_j7j3w")

@@ -1,4 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://brqh11pujokpd"]
+[gd_scene load_steps=22 format=4 uid="uid://brqh11pujokpd"]
+
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_g0n5d"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_qp5jl"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="3_bepsm"]
 
 [sub_resource type="Gradient" id="Gradient_55pc3"]
 
@@ -126,6 +130,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w1sgk")
 
-[node name="CinnabarDust" type="MeshInstance3D"]
-transform = Transform3D(1.01094, 0, 0, 0, 0.713388, 0, 0, 0, 0.713388, 0, 0, 0)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_whnpn"]
+points = PackedVector3Array(0.175895, 0.0287778, 0.250554, -0.172054, 0.0287778, 0.250554, -0.039675, 0.115874, -0.0440657, -0.172054, 0.020876, -0.255554, 0.167925, 0.0287778, -0.255554, -0.0375881, -0.00285397, 0.203094, 0.175895, -0.00285397, 0.029107, 0.0809721, -0.00285397, -0.200167, -0.150846, 0.00485796, -0.0788453, 0.0809721, 0.00506016, 0.250554, -0.0457189, 0.114864, -0.0228831, -0.154175, 0.0036474, 0.103912, -0.0161759, 0.108705, -0.038693, 0.175895, 0.020876, -0.215971, 0.128417, 0.00506016, 0.226824, -0.0873413, 0.0878781, 0.00434025, 0.0967756, -0.00285397, 0.171437, -0.1538, 0.0108677, -0.179427, 0.10266, 0.0100369, -0.2328, -0.157062, 0.00982974, 0.170891, 0.171055, 0.0219759, 0.243513, 0.144254, 0.0287778, -0.255554, -0.0462427, 0.115463, -0.030005, -0.172054, 0.0287778, 0.210971, 0.159032, 0.0104252, -0.159577, 0.161301, 0.0224536, -0.245456, 0.175895, 0.0287778, 0.234701, -0.160981, 0.0233922, 0.234448)
+
+[node name="CinnabarDust" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_g0n5d")
+type = 16
+
+[node name="CinnabarDust" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, 0, 0)
 mesh = SubResource("ArrayMesh_knnbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_whnpn")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_qp5jl")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("3_bepsm")

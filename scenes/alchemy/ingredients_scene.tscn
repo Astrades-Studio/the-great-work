@@ -23,40 +23,60 @@
 [node name="IngredientsScene" type="Node3D"]
 
 [node name="Salt" parent="." instance=ExtResource("1_mg1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121768, 0, -0.13845)
 
 [node name="Mercury" parent="." instance=ExtResource("2_wpbqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93382, 5.96046e-08, -0.968335)
 
 [node name="PurifiedMercury" parent="." instance=ExtResource("3_srr7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701038, 0, 0.583314)
 
 [node name="Sulfur" parent="." instance=ExtResource("4_ljoob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07008, 0, 0.825884)
 
 [node name="PurifiedSulfur" parent="." instance=ExtResource("5_hmv0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461608, 0, -0.513025)
 
 [node name="Potassium" parent="." instance=ExtResource("6_jiak4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.894187, 0, 0)
 
 [node name="PotassiumDust" parent="." instance=ExtResource("7_o13ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.807048, 0, 0.782306)
 
 [node name="YellowLiquid" parent="." instance=ExtResource("8_ucg2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96211, 5.96046e-08, -0.510372)
 
 [node name="Phosphorus" parent="." instance=ExtResource("9_d4b7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33401, 0, 0.669422)
 
 [node name="Banana" parent="." instance=ExtResource("10_golei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497395, 0, 0)
 
 [node name="TheStone" parent="." instance=ExtResource("11_gi8ka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658256, 0, 0.0727841)
 
 [node name="Vinegar" parent="." instance=ExtResource("12_ulmh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926828, 0, 0)
 
 [node name="Flare" parent="." instance=ExtResource("13_2gbu7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.476057)
 
 [node name="Cinnabar" parent="." instance=ExtResource("14_bjoeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394145, 0, -0.926938)
+collision_layer = 4
+metadata/_edit_pinned_properties_ = [&"collision_layer"]
 
 [node name="CinnabarDust" parent="." instance=ExtResource("15_1xfrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.604092, 0, -0.816068)
 
 [node name="Gold" parent="." instance=ExtResource("16_hxjpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.416349, 0, -0.363077)
 
 [node name="Ingot" parent="." instance=ExtResource("17_fd3fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.807226)
 
 [node name="JarMesh" parent="." instance=ExtResource("18_fm55h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11113, 0, -1.20162)
 
 [node name="Vial" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.41731, 0, 0, 0, 1.41731, 0, 0, 0, 1.41731, -4.25193, 0, 2)

@@ -1,4 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://oqwc5e7kvy4w"]
+[gd_scene load_steps=15 format=4 uid="uid://oqwc5e7kvy4w"]
+
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_snll4"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_73lm7"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="3_56041"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg1xb"]
 transparency = 1
@@ -70,6 +74,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nlykh")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_17np2"]
+points = PackedVector3Array(0.0930353, 0.28386, 0.0203736, -0.0960389, 0.0270282, -0.00999774, -0.095717, 0.0276303, 0.014491, -0.0691608, 0.39407, -0.0235774, 0.0388034, 0.0286103, -0.0890941, 0.0207371, 0.0268472, 0.0945642, -0.0301006, 0.39407, 0.0676092, 0.0480593, 0.39407, -0.0561539, -0.0278437, 0.25927, -0.0939835, 0.0942358, 0.0274616, -0.0222344, -0.0753405, 0.264833, 0.0618562, 0.0415559, 0.39407, 0.0610662, -0.0475643, 0.00564191, -0.066287, 0.0759888, 0.0209938, 0.0575361, -0.0469959, 0.020382, 0.0823963, 0.0678269, 0.270789, -0.0693984, 0.0323488, 0.259391, 0.0926198, -0.0939886, 0.259273, -0.027827, -0.0525798, 0.0346319, -0.0830349, -0.0278715, 0.271353, 0.0925078, -0.0496307, 0.400558, -0.0496307, 0.0143604, 0.277936, -0.0947909, 0.0771073, 0.00585653, 0.027221, 0.0800608, 0.265068, 0.0560867, -0.0692534, 0.264719, -0.0692534, -0.0938799, 0.26523, 0.0262058, 0.0925125, 0.271356, -0.0278546, 0.0675894, 0.39407, 0.0284897, -0.0477137, 0.00500433, 0.0649248, -0.056154, 0.400558, 0.0415361, -0.0830349, 0.0346319, -0.0525798, -0.00999775, 0.0270282, -0.0960389)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pbll"]
 albedo_color = Color(0.442008, 0.346739, 0, 1)
 emission_enabled = true
@@ -107,15 +114,32 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.2
 
-[node name="YellowLiquid" type="MeshInstance3D"]
+[node name="YellowLiquid" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_snll4")
+type = 11
+
+[node name="YellowLiquid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.36724, 0, 0, 0, 0.36724, 0, 0, 0, 0.36724, 0, 0, 0)
 mesh = SubResource("ArrayMesh_d3eht")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.36724, 0, 0, 0, 0.36724, 0, 0, 0, 0.36724, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_17np2")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("2_73lm7")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("3_56041")
 
 [node name="Contents2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.24814, 0, 0, 0, 1, 0.00073874, 0.135579, -0.000274301)
+transform = Transform3D(0.36724, 0, 0, 0, 0.825607, 0, 0, 0, 0.36724, 0.000271295, 0.04979, -0.000100734)
 mesh = SubResource("CylinderMesh_m0jj0")
 skeleton = NodePath("../../Mercury")
 
 [node name="Label" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.762755, 0, 0, 0, 0.762755, 0, 0, 0, 0.762755, 0, 0.136469, 0.0105378)
+transform = Transform3D(0.280114, 0, 0, 0, 0.280114, 0, 0, 0, 0.280114, 0, 0.0501169, 0.0038699)
 mesh = SubResource("CylinderMesh_6j4c3")
 skeleton = NodePath("../../Mercury")

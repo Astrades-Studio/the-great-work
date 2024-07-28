@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxfj5n12bitq2"]
+[gd_scene load_steps=8 format=3 uid="uid://bxfj5n12bitq2"]
 
 [ext_resource type="ArrayMesh" uid="uid://c45owidht7cw5" path="res://assets/models/ingredients/vials/flask.res" id="1_bbj8f"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_svudx"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_wetdd"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_r1qkc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6t74b"]
+points = PackedVector3Array(0.0940773, 0.0555657, 0.00334915, -0.0928753, 0.044625, -0.00730701, -0.0927687, 0.0447773, 0.00867642, -0.0473809, 0.359329, -0.0474002, 0.0148314, 0.353622, 0.0657605, 0.0086946, 0.0447793, -0.0927672, 0.054458, 0.353622, -0.0417199, 0.0195417, 0.0113011, 0.0841735, -0.0530418, 0.353622, 0.0431167, -0.0386002, 0.0786978, 0.0871984, -0.0398018, 0.00539342, -0.0722316, 0.0622708, 0.012285, -0.0608739, 0.054458, 0.347951, 0.0431167, 0.0551653, 0.116026, 0.0759282, -0.0642547, 0.10554, -0.0694538, -0.0672578, 0.00428956, 0.0468967, -0.0190955, 0.353622, -0.0643637, 0.0738865, 0.0047817, 0.0359179, -0.0643637, 0.353622, -0.0190955, 0.0501022, 0.110675, -0.0799012, -0.0850229, 0.115933, 0.0396513, 0.0932301, 0.104274, -0.017797, 0.0138524, 0.11509, 0.0928663, 0.0657605, 0.353622, 0.0148314, 0.0869856, 0.120764, 0.0346757, 0.0204923, 0.353622, -0.0643637, -0.0176903, 0.125711, -0.091299, -0.0190955, 0.347951, 0.0657605, -0.0910241, 0.115395, -0.0228787, -0.0771013, 0.0119527, -0.0395435, 0.0756571, 0.126581, -0.0535723, 0.0198034, 0.00350849, -0.0784907)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhpi0"]
 albedo_color = Color(0.28485, 0.28485, 0.28485, 1)
@@ -16,9 +22,26 @@ top_radius = 0.08
 bottom_radius = 0.08
 height = 0.1
 
-[node name="PurifiedMercury" type="MeshInstance3D"]
+[node name="PurifiedMercury" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_svudx")
+type = 5
+
+[node name="PurifiedMercury" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.491051, 0, 0, 0, 0.491051, 0, 0, 0, 0.491051, 0, 0, 0)
 mesh = ExtResource("1_bbj8f")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.491051, 0, 0, 0, 0.491051, 0, 0, 0, 0.491051, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6t74b")
+
 [node name="Contents" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0651619, 0)
+transform = Transform3D(0.491051, 0, 0, 0, 0.491051, 0, 0, 0, 0.491051, 0, 0.0373935, 0)
 mesh = SubResource("CylinderMesh_od7yb")
+skeleton = NodePath("../PurifiedMercury")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_wetdd")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("4_r1qkc")

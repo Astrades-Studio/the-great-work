@@ -2,9 +2,9 @@
 class_name Flare
 extends Ingredient
 
-@onready var fire_beam: GPUParticles3D = $FireBeam
-@onready var smoke: GPUParticles3D = $Smoke
-@onready var light: OmniLight3D = $Light
+@onready var fire_beam: GPUParticles3D = %FireBeam
+@onready var smoke: GPUParticles3D = %Smoke
+@onready var light: OmniLight3D = %Light
 @onready var duration_timer: Timer = $DurationTimer
 @onready var shadow_barrier: Area3D = $ShadowBarrier
 
@@ -30,6 +30,7 @@ var spent : bool = false
 			light.visible = false
 
 func _ready() -> void:
+	super()
 	active = false
 	location_changed.connect(_on_location_changed)
 	if type != Ingredient.Type.FLARE:
@@ -46,8 +47,8 @@ func _on_location_changed():
 
 func _on_duration_timer_timeout() -> void:
 	active = false
-	mesh.mesh.surface_get_material(0).albedo_color = Color.DIM_GRAY
-	mesh.mesh.surface_get_material(1).albedo_color = Color.DIM_GRAY
+	#mesh.mesh.surface_get_material(0).albedo_color = Color.DIM_GRAY
+	#mesh.mesh.surface_get_material(1).albedo_color = Color.DIM_GRAY
 	spent = true
 
 

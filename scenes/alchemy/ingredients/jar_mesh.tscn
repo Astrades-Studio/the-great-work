@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt6q7fr3kapmv"]
+[gd_scene load_steps=6 format=3 uid="uid://bt6q7fr3kapmv"]
 
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_l2yqd"]
 [ext_resource type="ArrayMesh" uid="uid://cn6cncexuu2se" path="res://assets/models/ingredients/jar_mesh.res" id="1_tkhf5"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_48n34"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_vdaxu"]
 
-[node name="JarMesh" type="MeshInstance3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0np3s"]
+points = PackedVector3Array(0.0930353, 0.28386, 0.0203736, -0.0960389, 0.0270282, -0.00999774, -0.095717, 0.0276303, 0.014491, -0.0691608, 0.39407, -0.0235774, 0.0388034, 0.0286103, -0.0890941, 0.0207371, 0.0268472, 0.0945642, -0.0301006, 0.39407, 0.0676092, 0.0480593, 0.39407, -0.0561539, -0.0278437, 0.25927, -0.0939835, 0.0942358, 0.0274616, -0.0222344, -0.0753405, 0.264833, 0.0618562, 0.0415559, 0.39407, 0.0610662, -0.0475643, 0.00564191, -0.066287, 0.0759888, 0.0209938, 0.0575361, -0.0469959, 0.020382, 0.0823963, 0.0678269, 0.270789, -0.0693984, 0.0323488, 0.259391, 0.0926198, -0.0939886, 0.259273, -0.027827, -0.0525798, 0.0346319, -0.0830349, -0.0278715, 0.271353, 0.0925078, -0.0496307, 0.400558, -0.0496307, 0.0143604, 0.277936, -0.0947909, 0.0771073, 0.00585653, 0.027221, 0.0800608, 0.265068, 0.0560867, -0.0692534, 0.264719, -0.0692534, -0.0938799, 0.26523, 0.0262058, 0.0925125, 0.271356, -0.0278546, 0.0675894, 0.39407, 0.0284897, -0.0477137, 0.00500433, 0.0649248, -0.056154, 0.400558, 0.0415361, -0.0830349, 0.0346319, -0.0525798, -0.00999775, 0.0270282, -0.0960389)
+
+[node name="Acid" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_l2yqd")
+type = 8
+
+[node name="Acid" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340683, 0, 0, 0, 0.340683, 0, 0, 0, 0.340683, 0, 0, 0)
 mesh = ExtResource("1_tkhf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.340683, 0, 0, 0, 0.340683, 0, 0, 0, 0.340683, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0np3s")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_48n34")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("4_vdaxu")

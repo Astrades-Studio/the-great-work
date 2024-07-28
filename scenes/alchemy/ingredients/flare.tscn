@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nkuei4sjralq"]
+[gd_scene load_steps=13 format=3 uid="uid://nkuei4sjralq"]
 
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="1_u7rk5"]
 
@@ -61,16 +61,24 @@ top_radius = 0.01
 bottom_radius = 0.01
 height = 0.1
 
-[node name="Flare" type="MeshInstance3D"]
-transform = Transform3D(0.648102, 0, 0, 0, 0.466234, 0, 0, 0, 0.648102, 0, 0, 0)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mxuke"]
+points = PackedVector3Array(0.132402, 0.0354163, 0.081498, -0.161873, 0.0571909, -0.020112, -0.161839, 0.0572502, 0.020319, 0.0216992, 0.686707, -0.0106844, 0.0757622, 0.0920146, -0.162067, -0.032296, 0.0812426, 0.17315, -0.0755531, 0.0920146, -0.162067, 0.17315, 0.0812426, -0.032296, -0.0214902, 0.686707, 0.0108934, 0.119019, 0.102787, 0.129825, 0.0312037, 0.00849892, -0.124403, -0.129616, 0.102787, 0.119019, -0.0930975, 0.00917595, 0.0933079, -0.162067, 0.0920146, -0.0755531, -0.0106844, 0.686707, -0.0214902, 0.16231, 0.0920146, 0.0757622, 0.0108934, 0.686707, 0.0216992, -0.172907, 0.102787, 0.0108934, -0.0931193, 0.00909834, -0.0931193, 0.140699, 0.0920146, -0.108004, 0.0757622, 0.0920146, 0.16231, 0.0622233, 0.0091803, 0.114007, 0.124586, 0.00857239, -0.0309864, -0.0106844, 0.102787, -0.172907, -0.0755531, 0.0920146, 0.16231, -0.162067, 0.0920146, 0.0757622, -0.129616, 0.102787, -0.11881, 0.17315, 0.102787, 0.0108934, 0.0108934, 0.102787, 0.17315, 0.112036, 0.0353244, -0.111825, -0.0101797, 0.0314226, -0.154492, -0.0101714, 0.0316708, 0.154611)
+
+[node name="Flare" type="RigidBody3D"]
+
+[node name="Flare" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.566696, 0, 0, 0, 0.566696, 0, 0, 0, 0.566696, 0, 0, 0)
 mesh = ExtResource("1_u7rk5")
 
-[node name="Contents" type="MeshInstance3D" parent="."]
+[node name="Contents" type="MeshInstance3D" parent="Flare"]
 transform = Transform3D(1.54297, 0, 0, 0, 4.82191, 0, 0, 0, 1.54297, 0, 0.151897, -2.38419e-07)
 mesh = SubResource("CylinderMesh_oc32w")
 skeleton = NodePath("../../Mercury")
 
-[node name="Contents2" type="MeshInstance3D" parent="."]
+[node name="Contents2" type="MeshInstance3D" parent="Flare"]
 transform = Transform3D(1.54297, 0, 0, 0, 4.82191, 0, 0, 0, 1.54297, 0, 0.44446, -2.38419e-07)
 mesh = SubResource("CylinderMesh_023be")
 skeleton = NodePath("../../Mercury")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_mxuke")

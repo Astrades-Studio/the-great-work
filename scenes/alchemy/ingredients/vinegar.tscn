@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://binadt5anxax2"]
+[gd_scene load_steps=6 format=3 uid="uid://binadt5anxax2"]
 
+[ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_3p754"]
 [ext_resource type="ArrayMesh" uid="uid://dhqrt56k85ojc" path="res://assets/models/ingredients/vials/bottle.tres" id="1_l7jnr"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_0686g"]
+[ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_8wwnh"]
 
-[node name="Vinegar" type="MeshInstance3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kcj0y"]
+points = PackedVector3Array(-0.0381621, -0.00350159, -0.0701442, 0.00396356, 0.248543, 0.0699787, -0.00233228, 0.248728, 0.0704858, -0.0168922, 0.450302, -0.0275946, 0.0681876, -0.00350159, -0.0417829, -0.0665317, -0.00350159, 0.0433163, 0.0611025, -0.00350159, 0.0504028, 0.0619732, 0.294167, 0.0200789, 0.0410293, 0.26668, -0.0549049, -0.0642865, 0.254392, 0.0255633, 0.018548, 0.450302, 0.029128, -0.073646, -0.00350159, -0.0346811, -0.0399846, 0.267336, -0.0557488, 0.0114483, -0.00350159, 0.0787794, -0.031077, 0.450302, 0.0149397, 0.0256331, 0.450302, -0.0205081, -0.0651178, 0.254788, -0.0243466, 0.00399286, 0.255142, -0.0690907, 0.0414136, 0.254615, 0.0569704, -0.0400603, 0.254847, 0.057387, 0.0662686, 0.248308, -0.0241598, 0.0104995, 0.0167563, -0.070281, 0.0676264, 0.0198412, 0.0262103, -0.0168922, 0.450302, 0.029128, -0.0168922, -0.00350159, -0.077246, -0.0419707, 0.0127032, 0.0600329, -0.031077, 0.450302, -0.0134063, 0.0654409, 0.247993, 0.0253779, 0.0438625, 0.0115368, -0.0588276, 0.018548, 0.450302, -0.0275946, -0.0523469, -0.00350159, -0.0630577, 0.0327328, -0.00350159, 0.0716776)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 4
+script = ExtResource("1_3p754")
+type = 9
+
+[node name="Vinegar" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_l7jnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_kcj0y")
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_0686g")
+
+[node name="IngredientComponent" type="Node" parent="."]
+script = ExtResource("4_8wwnh")
