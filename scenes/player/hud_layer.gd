@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var interaction_label: Label = %InteractionLabel
 @onready var countdown_label: Label = %CountdownLabel
 
-@onready var state_label: Label = $PanelContainer/VBoxContainer/HBoxContainer2/StateLabel
+@onready var state_label: Label = %StateLabel
 
 func _ready() -> void:
 	GameManager.state_label_updated.connect(_update_state_label)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=15 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -17,12 +17,17 @@ size = Vector3(0.609619, 1.91089, 0.542969)
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
 size = Vector3(0.618164, 0.995728, 0.539063)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfqto"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
+
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_rwwvt")
-ACCELERATION_DEFAULT = 4.0
-SPEED_DEFAULT = 4.895
+ACCELERATION_DEFAULT = 6.0
+SPEED_DEFAULT = 3.5
+SPEED_ON_STAIRS = 3.0
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 
 [node name="Body" type="Node3D" parent="."]
@@ -87,7 +92,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.33209
+speed_variance = 0.830451
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(0.526678, -0.179081, -0.830987, -0.247548, 0.902878, -0.351469, 0.813222, 0.390821, 0.431195, 0.349607, -0.235295, -0.556095)
@@ -99,123 +104,123 @@ transform = Transform3D(1, 2.98023e-08, 8.9407e-08, -2.98023e-08, 0.901583, 0.43
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_16wbu")
 
-[node name="CenterContainer" type="CenterContainer" parent="HUDLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="TextureRect" type="TextureRect" parent="HUDLayer/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="HUDLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("5_pbhtp")
 
-[node name="InteractionLabel" type="Label" parent="HUDLayer/CenterContainer/TextureRect"]
+[node name="InteractionLabel" type="Label" parent="HUDLayer/MarginContainer/CenterContainer/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
+offset_left = -39.0
+offset_top = -33.0
+offset_right = 40.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "
-
-"
 script = ExtResource("6_ur5a8")
 
-[node name="PanelContainer" type="PanelContainer" parent="HUDLayer"]
-offset_right = 132.0
-offset_bottom = 44.0
+[node name="PanelContainer" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mfqto")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Timer:"
 
-[node name="CountdownLabel" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="CountdownLabel" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "State: "
 
-[node name="StateLabel" type="Label" parent="HUDLayer/PanelContainer/VBoxContainer/HBoxContainer2"]
+[node name="StateLabel" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="HUDLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -44.0
-offset_right = 132.0
-grow_vertical = 0
+[node name="PanelContainer2" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aohgk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Interact:"
 
-[node name="InteractIcon" type="TextureRect" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer"]
+[node name="InteractIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("10_dx5ro")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Drop Item:"
 
-[node name="DropIcon" type="TextureRect" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+[node name="DropIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("11_xib7e")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Lamp:"
 
-[node name="LampIcon" type="TextureRect" parent="HUDLayer/PanelContainer2/VBoxContainer/HBoxContainer3"]
+[node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("12_lmv77")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="IngredientLabel" type="Label" parent="HUDLayer"]
+[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer"]
 unique_name_in_owner = true
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -6.0
-offset_bottom = 6.0
-grow_horizontal = 0
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
