@@ -4,27 +4,6 @@ const MAIN_SCENE := "res://scenes/main.tscn"
 const GAME_OVER_SCENE := "res://scenes/ui/game_over_scene.tscn"
 const INTRO_CUTSCENE = "res://scenes/intro_cutscene.tscn"
 
-const BANANA_SCENE := "res://scenes/alchemy/ingredients/banana.tscn"
-const CINNABAR_SCENE := "res://scenes/alchemy/ingredients/cinnabar.tscn"
-const CINNABAR_DUST_SCENE := "res://scenes/alchemy/ingredients/cinnabar_dust.tscn"
-const FLARE_SCENE := "res://scenes/alchemy/ingredients/flare.tscn"
-const GOLD_SCENE := "res://scenes/alchemy/ingredients/gold.tscn"
-const INGOT_SCENE := "res://scenes/alchemy/ingredients/ingot.tscn"
-const JAR_SCENE := "res://scenes/alchemy/ingredients/jar_mesh.tscn"
-const MERCURY_SCENE := "res://scenes/alchemy/ingredients/mercury.tscn"
-const PHOSPHORUS_SCENE := "res://scenes/alchemy/ingredients/phosphorus.tscn"
-const POTASSIUM_SCENE := "res://scenes/alchemy/ingredients/potassium.tscn"
-const POTASSIUM_DUST_SCENE := "res://scenes/alchemy/ingredients/potassium_dust.tscn"
-const PURIFIED_MERCURY_SCENE := "res://scenes/alchemy/ingredients/purified_mercury.tscn"
-const PURIFIED_SULFUR_SCENE := "res://scenes/alchemy/ingredients/purified_sulfur.tscn"
-const CAPUT_MORTUUM_SCENE := "res://scenes/alchemy/ingredients/salt.tscn"
-const SULFUR_SCENE := "res://scenes/alchemy/ingredients/sulfur.tscn"
-const THE_STONE_SCENE := "res://scenes/alchemy/ingredients/the_stone.tscn"
-const VINEGAR_SCENE := "res://scenes/alchemy/ingredients/vinegar.tscn"
-const YELLOW_LIQUID_SCENE := "res://scenes/alchemy/ingredients/yellow_liquid.tscn"
-
-
-
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 10
 

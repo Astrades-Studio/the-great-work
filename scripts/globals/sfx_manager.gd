@@ -28,3 +28,10 @@ func play_sound(sound: AudioStream, delay := 0.0):
 	elif !sound_bus_3.playing:
 		sound_bus_3.stream = sound
 		sound_bus_3.play(delay)
+
+
+func stop_all_sounds():
+	sound_bus_1.stop()
+	sound_bus_2.stop()
+	sound_bus_3.stop()
+	

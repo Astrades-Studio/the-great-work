@@ -29,10 +29,26 @@ func change_scene_to_file(path: String) -> void:
 	scene_name = path
 	transition_layer.request_transition(duration, color)
 	#await transition_layer.animation_finished
-	
+
+# Should be changed to false when the cinematic is done
+var preloading = false
+
+func preload_scene(path: String) -> void:
+	preloading = true
+	loading = true
+	scene_name = path
+	ResourceLoader.load_threaded_request(scene_name)
+
 
 func _on_transition_finished():
+	if preloading:
+		return
 	ResourceLoader.load_threaded_request(scene_name)
+
+
+func _on_cinematic_finished():
+	preloading = false
+	transition_layer.request_transition(duration, color)
 
 
 func _on_game_visible():
@@ -42,16 +58,23 @@ func _on_game_visible():
 func _process(_delta):
 	if !loading:
 		return
+	
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene_name, progress)
 	# TODO: add countdown or loading bar
+
+	if preloading:
+		return
+	
 	# Check if there are erros while loading:
 	if scene_load_status == ResourceLoader.THREAD_LOAD_FAILED:
 		push_error("Failed to load scene: ", scene_name)
 	if scene_load_status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 		push_error("Invalid scene: ", scene_name)
 
+	# Load the new scene as soon as it is finished
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
 		var new_scene = ResourceLoader.load_threaded_get(scene_name)
 		get_tree().change_scene_to_packed(new_scene)
 		transition_layer.fade_in()
 		loading = false
+		preloading = false

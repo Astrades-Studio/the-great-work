@@ -60,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926828, 0, 0)
 
 [node name="Flare" parent="." instance=ExtResource("13_2gbu7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.476057)
+visible = false
 
 [node name="Cinnabar" parent="." instance=ExtResource("14_bjoeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394145, 0, -0.926938)
