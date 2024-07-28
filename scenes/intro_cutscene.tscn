@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6ywkts6xd78k"]
+[gd_scene load_steps=3 format=3 uid="uid://7ax7tqqsyts1"]
 
 [ext_resource type="Script" path="res://scenes/intro_cutscene.gd" id="1_px0tu"]
+[ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="2_0mtod"]
 
 [node name="IntroCutscene" type="CanvasLayer"]
 script = ExtResource("1_px0tu")
@@ -40,7 +41,16 @@ size_flags_stretch_ratio = 3.55
 
 [node name="CinematicLabel" type="Label" parent="CenterContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
+theme = ExtResource("2_0mtod")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CinematicLabel" type="Label" parent="CenterContainer/CinematicLabel"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 200)
+theme = ExtResource("2_0mtod")
 horizontal_alignment = 1
 vertical_alignment = 1

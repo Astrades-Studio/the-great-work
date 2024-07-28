@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://cavuxs1xs2d1s"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_wxpw3"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_igrc1"]
+
+[sub_resource type="Resource" id="Resource_xcvh7"]
+script = ExtResource("1_wxpw3")
+dialog_speaker = ""
+dialog_text = "A pragmatic precaution, perhaps."
+
+[resource]
+script = ExtResource("2_igrc1")
+dialog_id = &"Intro"
+dialog = Array[ExtResource("1_wxpw3")]([SubResource("Resource_xcvh7")])
