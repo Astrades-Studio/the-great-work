@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7ax7tqqsyts1"]
 
 [ext_resource type="Script" path="res://scenes/intro_cutscene.gd" id="1_px0tu"]
-[ext_resource type="Theme" uid="uid://clr4c14w2t0i0" path="res://assets/ui/theme/main_theme.tres" id="2_0mtod"]
+[ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="2_akps3"]
 
 [node name="IntroCutscene" type="CanvasLayer"]
 script = ExtResource("1_px0tu")
@@ -44,13 +44,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
-theme = ExtResource("2_0mtod")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CinematicLabel" type="Label" parent="CenterContainer/CinematicLabel"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(400, 200)
-theme = ExtResource("2_0mtod")
+theme_override_fonts/font = ExtResource("2_akps3")
+theme_override_font_sizes/font_size = 22
 horizontal_alignment = 1
 vertical_alignment = 1
