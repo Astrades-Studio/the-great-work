@@ -14,8 +14,10 @@ func _ready() -> void:
 
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
-		SfxManager.play_sound(preload("res://assets/sounds/sfx/startnewgame_impact.mp3"))
 		SfxManager.sound_bus_1.volume_db = -5
+		SfxManager.play_sound(preload("res://assets/sounds/sfx/startnewgame_impact.mp3"))
+		SfxManager.sound_bus_1.volume_db = 0
+		
 
 func _on_settings_button_pressed() -> void:
 	pass # Replace with function body.

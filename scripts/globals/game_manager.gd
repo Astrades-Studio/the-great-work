@@ -2,8 +2,8 @@ extends Node
 
 const MAIN_SCENE := "res://scenes/main.tscn"
 const GAME_OVER_SCENE := "res://scenes/ui/game_over_scene.tscn"
-const INTRO_CUTSCENE = "res://scenes/intro_cutscene.tscn"
-
+const INTRO_CUTSCENE = "res://scenes/layers/intro_cutscene.tscn"
+const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 10
 
@@ -106,3 +106,47 @@ func ingredient_spawned(ingredient: Ingredient):
 		var ingredient_to_delete = spawned_ingredients.pop_front()
 		if is_instance_valid(ingredient_to_delete):
 			ingredient_to_delete.queue_free()
+
+# Check when there is a tick countdown timer and select a shadow_spawn_point to spawn a shadow in one of those at random
+# The more shadows there are, the faster the timer counts down
+# Play a sound and increase global darkness for each shadow spawned
+var spawned_shadows : Array
+func _on_tick_countdown():
+	if spawned_shadows.size() > 0:
+		var shadow_spawn_points = get_tree().get_nodes_in_group("shadow_spawn_point")
+		var shadow_spawn_point = shadow_spawn_points[randi() % shadow_spawn_points.size()]
+		
+		var shadow_instance = load(SHADOW_SCENE).instantiate()
+		shadow_instance.global_transform = shadow_spawn_point.global_transform
+		add_child(shadow_instance)
+		
+		match spawned_shadows.size():
+			1:
+				SfxManager.play_sound(SfxManager.SHADOW_1_SOUND)
+				update_darkness_effect(1)
+			2:
+				SfxManager.play_sound(SfxManager.SHADOW_2_SOUND)
+				update_darkness_effect(2)
+			3:
+				SfxManager.play_sound(SfxManager.SHADOW_3_SOUND)
+				update_darkness_effect(3)
+			4:
+				SfxManager.play_sound(SfxManager.SHADOW_4_SOUND)
+				update_darkness_effect(4)
+			5:
+				SfxManager.play_sound(SfxManager.SHADOW_5_SOUND)
+				update_darkness_effect(5)
+			6:
+				SfxManager.play_sound(SfxManager.SHADOW_6_SOUND)
+				update_darkness_effect(6)
+			_:
+				SfxManager.play_sound(SfxManager.SHADOW_7_SOUND)
+				update_darkness_effect(7)
+
+
+func update_darkness_effect(amount: int):
+	
+	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
+	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
+	# TODO lerp?
+	environment.environment.fog_density = amount

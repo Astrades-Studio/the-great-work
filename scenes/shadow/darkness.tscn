@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpyih85d271x0"]
 
-[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow.tscn" id="1_eedys"]
+[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="1_eedys"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ykpl7"]
 

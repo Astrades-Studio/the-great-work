@@ -42,3 +42,9 @@ func fade_music_stream(music_stream: AudioStreamPlayer, fade_duration := 5.0):
 	tween.tween_property(music_stream, "volume_db", linear_to_db(0.0), fade_duration)
 	tween.tween_callback(music_stream.stop)
 	tween.finished.connect(music_stream.play.bind(0.0)) 
+
+func stop_all_music():
+	music_stream_1.stop()
+	ambient_music_stream.stop()
+	ambient_music_stream_2.stop()
+	ovani_player.stop()

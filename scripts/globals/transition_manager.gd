@@ -65,11 +65,14 @@ func _process(_delta):
 	if preloading:
 		return
 	
+	if !scene_name:
+		push_error("No scene to load")
+		
 	# Check if there are erros while loading:
 	if scene_load_status == ResourceLoader.THREAD_LOAD_FAILED:
 		push_error("Failed to load scene: ", scene_name)
-	if scene_load_status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
-		push_error("Invalid scene: ", scene_name)
+	#if scene_load_status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+		#push_error("Invalid scene: ", scene_name)
 
 	# Load the new scene as soon as it is finished
 	if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
@@ -78,3 +81,4 @@ func _process(_delta):
 		transition_layer.fade_in()
 		loading = false
 		preloading = false
+		scene_name = ""

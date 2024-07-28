@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdwt62klm5p8p"]
 
-[ext_resource type="Script" path="res://scenes/splash_screen.gd" id="1_fw7aa"]
+[ext_resource type="Script" path="res://scenes/layers/splash_screen.gd" id="1_fw7aa"]
 [ext_resource type="Texture2D" uid="uid://xx8lfdd8ebag" path="res://Astrades_studio_logo.png" id="2_g7bfd"]
 [ext_resource type="AudioStream" uid="uid://b4uyngwe1eyq0" path="res://assets/sounds/music/intro astra.mp3" id="3_26pv2"]
 

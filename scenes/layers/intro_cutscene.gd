@@ -54,7 +54,8 @@ func show_skip_button() -> void:
 
 func skip_cinematic() -> void:
 	SfxManager.stop_all_sounds()
-	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
+	cinematic_finished.emit()
+	#TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 
 var tween : Tween
 func _show_subtitle(text : DialogPiece, label : Label) -> void:
