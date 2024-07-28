@@ -1236,21 +1236,8 @@ mesh = SubResource("ArrayMesh_rsgeb")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Lights/Candle _001"]
-transform = Transform3D(48.4169, -87.4974, 0.00183118, 87.4974, 48.4169, 0.00330925, -0.00378212, 3.82633e-10, 100, 0.81955, -0.886475, -41.5702)
-light_color = Color(0.59677, 0.271121, 0.174335, 1)
-light_energy = 0.887
-light_indirect_energy = 1.296
-light_volumetric_fog_energy = 0.0
-light_specular = 0.76
-light_bake_mode = 1
-light_cull_mask = 4294966273
-shadow_enabled = true
-omni_range = 3.138
-omni_attenuation = 1.8
-
 [node name="Candle_02_001" type="MeshInstance3D" parent="Level/Lights"]
-transform = Transform3D(0.00994183, -0.00107704, 3.76011e-07, 3.78211e-07, -1.6174e-14, -0.01, 0.00107704, 0.00994183, 4.0735e-08, -3.3044, -4.14961, -6.13811)
+transform = Transform3D(0.00994183, -0.00107704, 3.76011e-07, 3.78211e-07, -1.6174e-14, -0.01, 0.00107704, 0.00994183, 4.0735e-08, 2.11707, -4.14961, -7.92131)
 mesh = SubResource("ArrayMesh_ewnp0")
 skeleton = NodePath("")
 
@@ -1268,6 +1255,19 @@ transform = Transform3D(97.5073, 0.857254, 22.1723, -22.1889, 3.75053, 97.4351, 
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Lights/Candle_02_001"]
 transform = Transform3D(100, -4.76837e-06, 1.65528e-09, 4.76837e-06, 100, -6.40284e-10, -1.84809e-09, -8.73115e-11, 100, -0.0458984, -0.0200195, -28.8867)
+light_color = Color(0.59677, 0.271121, 0.174335, 1)
+light_energy = 0.887
+light_indirect_energy = 1.296
+light_volumetric_fog_energy = 0.0
+light_specular = 0.76
+light_bake_mode = 1
+light_cull_mask = 4294966273
+shadow_enabled = true
+omni_range = 3.138
+omni_attenuation = 1.8
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Lights/Candle_02_001"]
+transform = Transform3D(100, -1.52588e-05, 5.68616e-09, 1.52588e-05, 100, -4.07454e-10, -5.76256e-09, -3.20142e-10, 100, 200.738, 523.213, -38.4566)
 light_color = Color(0.59677, 0.271121, 0.174335, 1)
 light_energy = 0.887
 light_indirect_energy = 1.296
@@ -1301,21 +1301,17 @@ page = ExtResource("6_kc6qj")
 transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Interactibles/Page3D"]
-transform = Transform3D(3.07827, -8.41615e-15, -3.57628e-07, 1.69407e-21, 3.07827, -1.09507e-14, 3.57628e-07, 7.6233e-21, 3.07827, -7.25031, 4.80683, -5.16809)
-light_energy = 1.88
-omni_range = 4096.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.69356, -3.92001e-22)
 
 [node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.101629, 0, -0.994822, 0, 1, 0, 0.994822, 0, -0.101629, -6.17527, 0.928972, 0.948056)
 
 [node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
-transform = Transform3D(0.0944532, 0.00726548, -0.816477, -0.0133721, 0.821825, 0.00576616, 0.816399, 0.0126203, 0.0945566, -2.05433, -2.95504, -1.96958)
 
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
 
 [node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.9986, -3.10071, -4.06242)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true

@@ -9,9 +9,6 @@ enum Type {
 	CAULDRON,
 }
 
-const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
-const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
-
 @export var ingredient_preview : Node
 @export var wait_time : int
 @export var sound : AudioStream
@@ -118,7 +115,7 @@ func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
 	
-	return ingredient.Type.SALT
+	return ingredient.Type.CAPUT_MORTUUM
 
 
 func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
@@ -129,7 +126,7 @@ func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
 	
-	return ingredient.Type.SALT
+	return ingredient.Type.CAPUT_MORTUUM
 
 
 func use_still(ingredient: Ingredient) -> Ingredient.Type:
@@ -140,7 +137,7 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
 	
-	return ingredient.Type.SALT
+	return ingredient.Type.CAPUT_MORTUUM
 
 
 func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
@@ -170,7 +167,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 
 	DialogManager.create_dialog_piece("I can't combine the %s with the %s" % [stored_ingredient.type_name, ingredient.type_name])
 	stored_ingredient = null
-	return ingredient.Type.SALT
+	return ingredient.Type.CAPUT_MORTUUM
 
 # Check progress of the philospher's stone
 var progress := 0
@@ -192,16 +189,15 @@ func give_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
 		GameManager.player.ingredient_in_hand = null
 		return
 
-	var resulting_ingredient: Ingredient
-	if new_ingredient_type == Ingredient.Type.FLARE:
-		resulting_ingredient = FLARE_SCENE.instantiate()
-	else:
-		resulting_ingredient = INGREDIENT_SCENE.instantiate()
+	var resulting_ingredient: Node
+
+	resulting_ingredient = load(Ingredient.MESH_TABLE[new_ingredient_type]).instantiate()
+	
 	add_child(resulting_ingredient, true)
 	resulting_ingredient.type = new_ingredient_type
 	print(str(resulting_ingredient.type_name) + " added")
 
-	if resulting_ingredient.type == Ingredient.Type.SALT:
+	if resulting_ingredient.type == Ingredient.Type.CAPUT_MORTUUM:
 		resulting_ingredient.type_name = (Ingredient.Type.keys()[input_type] + " salt").capitalize()
 
 	# Add ingredient to player and Game Manager

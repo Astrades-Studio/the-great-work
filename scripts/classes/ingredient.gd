@@ -4,7 +4,7 @@ extends RigidBody3D
 
 enum Type {
 	NONE,
-	SALT,
+	CAPUT_MORTUUM,
 	IRON,
 	LEAD,
 	MERCURY,
@@ -53,7 +53,7 @@ Type.SILVER : Type.PHILOSOPHERS_STONE,
 
 #Unused:
 Type.LEAD : Type.GOLD,
-Type.SALT : Type.SALT,
+Type.CAPUT_MORTUUM : Type.CAPUT_MORTUUM,
 Type.IRON : Type.IRON,
 Type.DRAGONS_BLOOD : Type.DRAGONS_BLOOD,
 Type.FLARE : Type.FLARE,
@@ -62,9 +62,9 @@ Type.VINEGAR : Type.VINEGAR
 }
 
 
-var MESH_TABLE : Dictionary = {
+static var MESH_TABLE : Dictionary = {
 	Type.NONE: null,
-	Type.SALT: SALT,
+	Type.CAPUT_MORTUUM: CAPUT_MORTUUM,
 	Type.IRON: INGOT,
 	Type.LEAD: INGOT,
 	Type.MERCURY: MERCURY,
@@ -82,42 +82,16 @@ var MESH_TABLE : Dictionary = {
 	Type.CINNABAR_DUST: CINNABAR_DUST,
 	Type.GOLD: GOLD,
 	Type.SILVER: INGOT,
-	Type.DRAGONS_BLOOD: SALT,
+	Type.DRAGONS_BLOOD: CAPUT_MORTUUM,
 	Type.FLARE: FLARE,
 	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
 }
-#
-#var COLOR_TABLE : Dictionary = {
-	#Type.NONE: Color.WHITE,
-	#Type.SALT: Color.WHITE,
-	#Type.IRON: Color.GRAY,
-	#Type.LEAD: Color.DARK_GRAY,
-	#Type.MERCURY: Color.SILVER,
-	#Type.PURIFIED_MERCURY: Color.LIGHT_SLATE_GRAY,
-	#Type.SULFUR: Color.OLIVE,
-	#Type.PURIFIED_SULFUR: Color.GOLDENROD,
-	#Type.ACID: Color.GREEN_YELLOW,
-	#Type.VINEGAR: Color.TRANSPARENT,
-	#Type.PHOSPHORUS: Color.DARK_RED,
-	#Type.YELLOW_LIQUID: Color.YELLOW,
-	#Type.BANANA: Color.YELLOW,
-	#Type.POTASSIUM: Color.DIM_GRAY,
-	#Type.POTASSIUM_DUST: Color.DIM_GRAY,
-	#Type.CINNABAR: Color.LIGHT_CORAL,
-	#Type.CINNABAR_DUST: Color.LIGHT_CORAL,
-	#Type.GOLD: Color.GOLD,
-	#Type.SILVER: Color.SILVER,
-	#Type.DRAGONS_BLOOD: Color.DARK_RED,
-	#Type.FLARE: Color.WHITE,
-	#Type.PHILOSOPHERS_STONE: Color.DARK_RED,
-#}
-
 
 # TODO: Maybe move to a global
 const BANANA := "res://scenes/alchemy/ingredients/banana.tscn"
 const CINNABAR := "res://scenes/alchemy/ingredients/cinnabar.tscn"
 const CINNABAR_DUST := "res://scenes/alchemy/ingredients/cinnabar_dust.tscn"
-const FLARE := "res://scenes/alchemy/ingredients/flare.tscn"
+const FLARE := "res://scenes/alchemy/flare.tscn"
 const GOLD := "res://scenes/alchemy/ingredients/gold.tscn"
 const MERCURY := "res://scenes/alchemy/ingredients/mercury.tscn"
 const PHOSPHORUS := "res://scenes/alchemy/ingredients/phosphorus.tscn"
@@ -125,7 +99,7 @@ const POTASSIUM := "res://scenes/alchemy/ingredients/potassium.tscn"
 const POTASSIUM_DUST := "res://scenes/alchemy/ingredients/potassium_dust.tscn"
 const PURIFIED_MERCURY := "res://scenes/alchemy/ingredients/purified_mercury.tscn"
 const PURIFIED_SULFUR := "res://scenes/alchemy/ingredients/purified_sulfur.tscn"
-const SALT := "res://scenes/alchemy/ingredients/salt.tscn"
+const CAPUT_MORTUUM := "res://scenes/alchemy/ingredients/salt.tscn"
 const SULFUR := "res://scenes/alchemy/ingredients/sulfur.tscn"
 const THE_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
 const VINEGAR := "res://scenes/alchemy/ingredients/vinegar.tscn"
@@ -157,13 +131,6 @@ func _ready() -> void:
 	if type == Type.NONE:
 		self.queue_free()
 		return
-
-
-#func instance_body(_type: Type) -> void:
-	#body = load(MESH_TABLE[_type]).instantiate()
-	#
-	#body.name = type_name
-	#add_child(body)
 
 
 func change_layers():

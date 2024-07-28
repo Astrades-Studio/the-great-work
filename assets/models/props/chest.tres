@@ -16,13 +16,13 @@ roughness = 0.408838
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18r61"]
 resource_name = "chest_belt_mat"
 cull_mode = 2
-albedo_color = Color(0.459985, 0.446549, 0.440591, 1)
+albedo_color = Color(0.262923, 0.253638, 0.249518, 1)
 roughness = 0.334646
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic2u1"]
 resource_name = "chest_mat"
 cull_mode = 2
-albedo_color = Color(0.795411, 0.615762, 0.442601, 1)
+albedo_color = Color(0.337145, 0.237549, 0.138545, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0onnb"]
 _surfaces = [{

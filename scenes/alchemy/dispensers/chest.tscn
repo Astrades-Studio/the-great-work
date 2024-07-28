@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ttaynu1kvyxi"]
+
+[ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_tegtx"]
+[ext_resource type="ArrayMesh" uid="uid://bh20ddlo567tt" path="res://assets/models/props/chest.tres" id="2_3cwok"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_k6pkp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_721eq"]
+points = PackedVector3Array(-9.36546, 15.7366, -0.099361, -26.5928, -2.40483, -42.9265, -24.8253, -13.8421, -34.6366, 26.0264, -2.40595, -42.9348, 23.4471, -13.5153, -0.360504, 24.5129, 14.9386, -34.7774, -24.0244, -13.5157, -0.35993, -25.0898, 14.9387, -34.7776, 22.812, 14.9082, -0.927606, 24.2483, -13.8419, -34.6363, -24.4041, 11.6992, -0.760642, -25.9794, 4.07975, -42.4281, -11.7877, -14.73, -28.9439, 26.2601, 5.86186, -40.6331, 11.4122, -14.157, 0.179575, 23.6187, 15.7231, -25.6701, -24.1926, 15.7246, -25.6706, 23.8317, 11.6987, -0.761497, -23.3853, 14.9061, -0.930623, -26.8753, 5.86668, -39.8319, 11.2589, 15.7355, -0.10516, 25.3808, 4.07958, -42.4103, 11.9347, -14.6066, -28.888, 23.8559, -9.93534, -0.74065, -24.4342, -9.93832, -0.734694, -25.8696, -11.4938, -35.5756, 25.2877, -11.4883, -35.5769, 23.5032, 15.6494, -28.9327, 24.5906, 14.9839, -29.0137, -25.1644, 14.9822, -29.0128, 24.4799, -13.9769, -28.9805, 26.2994, 5.86984, -39.8282)
+
+[node name="Chest" type="StaticBody3D"]
+script = ExtResource("1_tegtx")
+ingredient_type = 17
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0146638, 0, 0, 0, -6.40974e-10, -0.0146638, 0, 0.0146638, -6.40974e-10, 0, 0, 0)
+mesh = ExtResource("2_3cwok")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.0146638, 0, 0, 0, -6.40974e-10, -0.0146638, 0, 0.0146638, -6.40974e-10, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_721eq")
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_k6pkp")
+mesh = NodePath("../Mesh")

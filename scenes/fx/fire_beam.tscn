@@ -1,24 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ytu1ghl2t8x"]
+[gd_scene load_steps=4 format=3 uid="uid://c3ytu1ghl2t8x"]
 
-[sub_resource type="Gradient" id="Gradient_cgmj6"]
-colors = PackedColorArray(0.57299, 0.572988, 0.572988, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d5yc5"]
-gradient = SubResource("Gradient_cgmj6")
-fill = 1
-fill_from = Vector2(0.542735, 0.517094)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xajql"]
-blend_mode = 1
-shading_mode = 0
-albedo_color = Color(1, 0.434811, 0.366139, 1)
-albedo_texture = SubResource("GradientTexture2D_d5yc5")
-albedo_texture_force_srgb = true
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[ext_resource type="Material" uid="uid://cedrsy4g438ux" path="res://scenes/fx/fire_beam_material_wide.tres" id="1_x7xcv"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
 angle_min = -39.1
@@ -37,7 +19,7 @@ size = Vector2(0.12, 0.12)
 [node name="FireBeam" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000130047, 0, 0.0839456)
 layers = 2
-material_override = SubResource("StandardMaterial3D_xajql")
+material_override = ExtResource("1_x7xcv")
 cast_shadow = 0
 gi_mode = 2
 amount = 80

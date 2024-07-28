@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c64sireakacdi"]
+
+[ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_2bj4e"]
+[ext_resource type="ArrayMesh" uid="uid://dnrjw6i47tkvj" path="res://assets/models/props/metal_jug.tres" id="2_42kxi"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_8k83p"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h7lpn"]
+points = PackedVector3Array(-0.0778582, 0.526217, -0.0615314, 0.100213, 0.522387, 0.0451664, 0.110331, 0.0330304, -0.250527, -0.106438, 0.0311398, 0.254719, -0.25315, 0.0296979, -0.108234, -0.250503, 0.4021, 0.109447, 0.227863, 0.00512166, 0.100237, 0.110648, 0.402013, -0.251638, 0.337878, 0.285277, -0.026923, -0.106002, 0.4021, -0.2518, 0.110136, 0.401052, 0.251999, -0.106002, 0.4021, 0.253956, -0.250503, 0.4021, -0.107242, -0.105017, 0.00650895, -0.223083, -0.220027, 0.00804383, 0.108073, 0.10979, 0.0347878, 0.25079, 0.3285, 0.107607, 0.0290785, -0.0417307, 0.525267, 0.0991452, 0.255114, 0.402013, -0.107173, 0.254161, 0.0330304, -0.106697, 0.0473236, 0.523523, -0.0962798, -0.107302, 0.0297352, -0.254076, -0.251381, 0.0311352, 0.109776, 0.101605, 0.00510888, 0.226495, 0.337878, 0.285277, 0.0290785, 0.108946, 0.011068, -0.219154, 0.253575, 0.401052, 0.108559, -0.0952454, 0.525248, 0.0456596, -0.221586, 0.0064841, -0.106514, 0.100482, 0.523502, -0.0431544, -0.0420342, 0.526245, -0.0973116, 0.0472853, 0.522408, 0.0980613)
+
+[node name="BigJug" type="StaticBody3D"]
+script = ExtResource("1_2bj4e")
+ingredient_type = 11
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_42kxi")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_h7lpn")
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_8k83p")
+mesh = NodePath("../Mesh")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://birykl2xlrs1r"]
+
+[ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_hwfd6"]
+[ext_resource type="ArrayMesh" uid="uid://13glbehrmlg5" path="res://assets/models/props/barrel_open.tres" id="2_i8k8s"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_ip5cs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kmcpf"]
+points = PackedVector3Array(2.4402, 21.9274, -0.974979, -1.64527, -28.0003, -50.0088, 1.39444, -28.0003, -50.0088, -0.636987, 22.9825, -65.6296, -28.5006, 1.4213, -18.3218, 16.7637, -14.96, -1.04775, 27.7532, 2.40908, -50.0088, -16.8869, -14.8533, -66.2994, -14.8527, -16.8832, -1.29418, 16.7649, -14.9611, -66.5494, -19.889, 20.6536, -50.0088, 20.869, 19.8437, -18.4377, -14.9635, 16.7628, -1.04973, -2.67546, 27.9805, -18.4719, 20.7961, -20.0208, -18.491, 22.9782, -0.631796, -1.96515, 16.8169, 14.7604, -66.6503, 1.42166, -28.5004, -18.3228, -19.1184, -21.1708, -18.3974, -22.0133, 2.42066, -66.3749, -27.9986, -1.64041, -50.0088, 19.6382, 20.6536, -50.0088, 20.6532, -19.8849, -50.0088, -20.0235, 20.7949, -18.4921, 27.981, -2.6762, -18.4713, 2.4095, 27.7538, -50.0088, -20.8986, -18.8698, -50.0088, -22.2272, -1.66224, -0.901506, -1.6671, -22.2276, -66.6916, -1.66702, -22.2263, -0.905039, 16.8159, 14.7595, -0.946489, -14.9646, 16.7641, -66.5474)
+
+[node name="Barrel" type="StaticBody3D"]
+script = ExtResource("1_hwfd6")
+ingredient_type = 6
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.010405, 0, 0, 0, -4.54819e-10, -0.010405, 0, 0.010405, -4.54819e-10, 0, 0, 0)
+mesh = ExtResource("2_i8k8s")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.010405, 0, 0, 0, -4.54819e-10, -0.010405, 0, 0.010405, -4.54819e-10, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_kmcpf")
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_ip5cs")
+mesh = NodePath("../Mesh")

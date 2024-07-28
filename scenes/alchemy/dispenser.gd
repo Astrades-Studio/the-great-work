@@ -3,10 +3,6 @@ extends StaticBody3D
 
 @export var ingredient_type : Ingredient.Type
 
-const INGREDIENT_SCENE = preload("res://scenes/alchemy/ingredient.tscn")
-const FLARE_SCENE = preload("res://scenes/alchemy/flare.tscn")
-
-
 func _ready() -> void:
 	if !ingredient_type:
 		push_error("No ingredient type assigned to " + str(self.get_path()))
@@ -24,10 +20,7 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 		return
 
 	var resulting_ingredient: Ingredient
-	if _ingredient_type == Ingredient.Type.FLARE:
-		resulting_ingredient = FLARE_SCENE.instantiate()
-	else:
-		resulting_ingredient = INGREDIENT_SCENE.instantiate()
+	resulting_ingredient = load(Ingredient.MESH_TABLE[_ingredient_type]).instantiate()
 	add_child(resulting_ingredient, true)
 	resulting_ingredient.type = _ingredient_type
 	print(str(resulting_ingredient.type_name) + " added")

@@ -20,6 +20,9 @@ surface_material_override/0 = ExtResource("3_18ibf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_hhyqy")
 
+[node name="IngredientSpot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105712, 0.187664, -0.00497681)
+
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600002, 0)
 visible = false
