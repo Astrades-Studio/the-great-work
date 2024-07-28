@@ -295,10 +295,10 @@ draw_pass_1 = SubResource("QuadMesh_o3ab1")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Fireplace_ON"]
 transform = Transform3D(1.43282, 0, 0, 0, 1.43282, 0, 0, 0, 1.43282, 0.0291595, 0.183518, 0.0167384)
 stream = ExtResource("3_stg1k")
-volume_db = -13.435
+attenuation_model = 2
+volume_db = -36.607
 unit_size = 10.76
 max_db = 0.252
-autoplay = true
 max_distance = 10.0
 bus = &"SFX"
 emission_angle_enabled = true

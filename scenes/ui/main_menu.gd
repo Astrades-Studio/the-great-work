@@ -4,6 +4,8 @@ extends Control
 @onready var new_game_button: Button = %NewGameButton
 @onready var settings_button: Button = %SettingsButton
 @onready var quit_button: Button = %QuitButton
+@onready var audio_stream_player_4: AudioStreamPlayer = $AudioStreamPlayer4
+@onready var audio_stream_player_5: AudioStreamPlayer = $AudioStreamPlayer5
 
 signal new_game_requested
 
@@ -14,23 +16,29 @@ func _ready() -> void:
 
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
-		SfxManager.sound_bus_1.volume_db = -15
-		SfxManager.play_sound(preload("res://assets/sounds/sfx/startnewgame_impact.mp3"))
-		SfxManager.sound_bus_1.volume_db = 0
-		
+		audio_stream_player_5.play()
 
 func _on_settings_button_pressed() -> void:
 	pass # Replace with function body.
 
-
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_button_mouse_entered() -> void:
-	SfxManager.sound_bus_1.volume_db = -15
-	SfxManager.play_sound(preload("res://assets/sounds/sfx/hover_mouse.mp3"))
-	SfxManager.sound_bus_1.volume_db = 0
+	var pitches = [0.80, 1.30, 0.95]
+	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
+	audio_stream_player_4.play()
 
 func _on_button_mouse_exited() -> void:
-	SfxManager.sound_bus_1.stop()
+	audio_stream_player_4.stop()
+
+
+func _on_focus_entered() -> void:
+	var pitches = [0.80, 1.30, 0.95]
+	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
+	audio_stream_player_4.play()
+
+func _on_focus_exited() -> void:
+	var pitches = [0.80, 1.30, 0.95]
+	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
+	audio_stream_player_4.play()
