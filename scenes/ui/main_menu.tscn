@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=12 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="VideoStream" path="res://assets/videos/output.ogv" id="3_36fp1"]
 [ext_resource type="Texture2D" uid="uid://cy3ju05a0dcem" path="res://assets/images/render.png" id="3_eisaw"]
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
+[ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="5_1ffgs"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="5_0425m"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="8_lgtuu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="9_33awd"]
@@ -11,14 +12,25 @@
 [sub_resource type="LabelSettings" id="LabelSettings_66ycg"]
 line_spacing = 2.465
 font = ExtResource("5_0425m")
-font_size = 46
+font_size = 48
 shadow_size = 0
-shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0hxg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dr1lg"]
+bg_color = Color(0.54, 0.42516, 0.3834, 0.196078)
+border_color = Color(0.777815, 0, 0.114871, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 5
+expand_margin_left = 290.0
+expand_margin_right = 23.0
+expand_margin_bottom = 7.0
+shadow_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oe2c"]
-content_margin_left = 14.0
+content_margin_left = 10.0
 draw_center = false
 border_color = Color(1, 1, 1, 1)
 
@@ -31,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_top = NodePath("HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton")
-focus_neighbor_right = NodePath("HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton")
+focus_neighbor_bottom = NodePath("HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton")
 focus_mode = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("1_6645d")
@@ -118,7 +130,7 @@ grow_vertical = 2
 [node name="Control2" type="Control" parent="HBoxContainer/Control/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Control/VBoxContainer2"]
 layout_mode = 2
@@ -126,6 +138,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.45
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Control/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(128.185, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.28
@@ -134,10 +147,9 @@ size_flags_stretch_ratio = 0.28
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0.65, 0.572542, 0.2275, 1)
-theme_override_fonts/font = ExtResource("5_0425m")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t0hxg")
+theme_override_fonts/font = ExtResource("5_1ffgs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_dr1lg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6oe2c")
 toggle_mode = true
 action_mode = 0
@@ -149,9 +161,11 @@ alignment = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_0425m")
-theme_override_font_sizes/font_size = 18
-text = "Settings"
+theme_override_fonts/font = ExtResource("5_1ffgs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_dr1lg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6oe2c")
+text = "SETTINGS"
 flat = true
 alignment = 0
 
@@ -159,9 +173,11 @@ alignment = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("5_0425m")
-theme_override_font_sizes/font_size = 18
-text = "Quit"
+theme_override_fonts/font = ExtResource("5_1ffgs")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_dr1lg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6oe2c")
+text = "QUIT"
 flat = true
 alignment = 0
 
@@ -195,6 +211,12 @@ stream = ExtResource("9_33awd")
 volume_db = -19.728
 autoplay = true
 
+[connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

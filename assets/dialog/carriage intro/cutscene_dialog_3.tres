@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://sc30ylwote7h"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_ysva8"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_0iyv7"]
+
+[sub_resource type="Resource" id="Resource_hm4kj"]
+script = ExtResource("1_ysva8")
+dialog_speaker = ""
+dialog_text = "I would not rule out superstitious reasons, given the circumstances…"
+
+[resource]
+script = ExtResource("2_0iyv7")
+dialog_id = &"Intro"
+dialog = Array[ExtResource("1_ysva8")]([SubResource("Resource_hm4kj")])

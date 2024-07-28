@@ -59,7 +59,7 @@ shadowspawns=""
 
 [gui]
 
-theme/custom_font="res://assets/ui/fonts/pixel/PixelifySans-SemiBold.ttf"
+theme/custom_font="res://assets/ui/fonts/cruft.ttf"
 
 [importer_defaults]
 
