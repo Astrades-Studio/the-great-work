@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
 		SfxManager.play_sound(preload("res://assets/sounds/sfx/startnewgame_impact.mp3"))
-		SfxManager.sound_bus_1.volume_db = -5
+		SfxManager.sound_bus_1.volume_db = -15
 
 func _on_settings_button_pressed() -> void:
 	pass # Replace with function body.
@@ -27,7 +27,7 @@ func _on_quit_button_pressed() -> void:
 
 func _on_button_mouse_entered() -> void:
 	SfxManager.play_sound(preload("res://assets/sounds/sfx/hover_mouse.mp3"))
-	SfxManager.sound_bus_1.volume_db = -10
+	SfxManager.sound_bus_1.volume_db = -15
 
 func _on_button_mouse_exited() -> void:
 	SfxManager.sound_bus_1.stop()
