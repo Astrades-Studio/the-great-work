@@ -29,6 +29,7 @@ enum Type {
 	NIGREDO,
 	ALBEDO,
 	RUBEDO,
+	ASH,
 }
 
 enum Location {
@@ -92,6 +93,7 @@ static var MESH_TABLE : Dictionary = {
 	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
 	Type.NIGREDO: null,
 	Type.ALBEDO: null,
+	Type.ASH : SALT,
 }
 
 # TODO: Maybe move to a global

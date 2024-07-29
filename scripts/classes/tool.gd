@@ -29,13 +29,7 @@ var input_type : Ingredient.Type
 var time_passed : int
 var last_ingredient : Ingredient # For salt names
 #var processing_ingredient: Ingredient # Before it is ready
-var stored_ingredient: Ingredient: # For pickup
-	set(value):
-		stored_ingredient = value
-		if stored_ingredient and stored_ingredient.type != Ingredient.Type.NONE and !processing:
-			self.name = "%s with %s" % [og_name, stored_ingredient.type_name]
-		else:
-			self.name = og_name
+var stored_ingredient: Ingredient # For pickup
 
 
 var CORRECT_TOOL_DICTIONARY: Dictionary = {
@@ -89,7 +83,7 @@ func on_tool_use() -> bool:
 	var hand_ingredient = GameManager.player.ingredient_in_hand
 	if !hand_ingredient:	
 		if tool_type == Type.CAULDRON:
-			if stored_ingredient:
+			if is_instance_valid(stored_ingredient):
 				if stored_ingredient.type == Ingredient.Type.NONE:
 					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")	
 					stored_ingredient = null
@@ -103,11 +97,19 @@ func on_tool_use() -> bool:
 				return true
 		DialogManager.create_dialog_piece("I need an ingredient to use this")
 		return false
+
+	# Items that don't mix
 	if hand_ingredient is Flare:
 		DialogManager.create_dialog_piece("I think this is useful enough as it is")
 		return false
+	if hand_ingredient.type == Ingredient.Type.CAPUT_MORTUUM:
+		DialogManager.create_dialog_piece("Caput Mortuum is inert substancce. I need to find something else.")
+		return false
+	if hand_ingredient.type == Ingredient.Type.ASH:
+		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")
+		return false
 	
-	if stored_ingredient and tool_type != Type.CAULDRON:
+	if stored_ingredient:
 		DialogManager.create_dialog_piece("My hands are full.")
 		return false
 
@@ -115,7 +117,12 @@ func on_tool_use() -> bool:
 	var new_ingredient_type: Ingredient.Type
 	input_type = hand_ingredient.type
 	
-	
+	# Update name label
+	if item_1:
+		self.name = "%s with %s" % [og_name, item_1.type_name]
+	else:
+		self.name = "%s with %s" % [og_name, hand_ingredient.type_name]
+
 	if tool_type == Type.MORTAR:
 		new_ingredient_type = use_mortar(hand_ingredient)
 	elif tool_type == Type.FURNACE:
@@ -125,23 +132,20 @@ func on_tool_use() -> bool:
 	elif tool_type == Type.STILL:
 		new_ingredient_type = use_still(hand_ingredient)
 	
-	stored_ingredient = instance_ingredient(new_ingredient_type)
+	if new_ingredient_type != Ingredient.Type.NONE:
+		stored_ingredient = instance_ingredient(new_ingredient_type)
 
-	start_tool_timer()
-	#if new_ingredient_type == Ingredient.Type.ALBEDO or \
-		#new_ingredient_type == Ingredient.Type.NIGREDO:	
-		#GameManager.player.ingredient_in_hand = null
-		#return false
+		start_tool_timer()
 	
+	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
 
 
 func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-
-	print("Mortar used")
-
+	DialogManager.create_dialog_piece("I will grind this %s." % ingredient.type_name)
+	
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MORTAR]:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
@@ -152,18 +156,18 @@ func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 
 func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-
+	DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.FURNACE]:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
 	
-	return ingredient.Type.CAPUT_MORTUUM
+	return ingredient.Type.ASH
 
 
 func use_still(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-
+	DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.STILL]:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
@@ -171,9 +175,8 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 	
 	return ingredient.Type.CAPUT_MORTUUM
 
-var item_1
-var item_2
-
+var item_1 : Ingredient
+var item_2 : Ingredient
 func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
 	
@@ -181,10 +184,11 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	if !item_1:
 		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
+		GameManager.player.ingredient_in_hand = null
 		return Ingredient.Type.NONE
 	else:
 		item_2 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
-		DialogManager.create_dialog_piece("I added %s to the %s" % [item_2.type_name, item_2])
+		DialogManager.create_dialog_piece("I added %s to the %s" % [item_2.type_name, item_1.type_name])
 	
 	# Check all recipes
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.CAULDRON]:
@@ -204,12 +208,14 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 				elif result == Ingredient.Type.PHILOSOPHERS_STONE and progress == 2:
 					result = advance_progress_philosopher_stone()
 					return result
-				
 				return result
 	if item_1.type != Ingredient.Type.NONE and item_2.type != Ingredient.Type.NONE:
-		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [stored_ingredient.type_name, ingredient.type_name])
+		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [item_1.type_name, item_2.type_name])
 	else:
 		push_error("Something went wrong with the cauldron code")
+	if progress > 0:
+		DialogManager.create_dialog_piece("Damn... that was not it.")
+		progress = 0
 	return Ingredient.Type.CAPUT_MORTUUM
 
 # Check progress of the philospher's stone
@@ -250,6 +256,7 @@ func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	stored_ingredient = null
 	item_1 = null
 	item_2 = null
+	self.name = og_name
 	GameManager.ingredient_spawned(ingredient)
 	GameManager.player.ingredient_in_hand = ingredient
 
@@ -269,8 +276,11 @@ func _on_timer_timeout() -> void:
 	if time_passed < wait_time:
 		timer.start(1)
 	else:
+		if GameManager.current_state == GameManager.GameState.CUTSCENE:
+			GameManager.current_state = GameManager.GameState.PLAYING
 		processing = false
-		DialogManager.create_subtitles_piece("I think the %s is ready" % name)
 		ingredient_ready.emit()
 		wait_label.hide()
 		timer.stop()
+		await get_tree().create_timer(0.5).timeout
+		DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
