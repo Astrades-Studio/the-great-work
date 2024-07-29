@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://s0i6g8s4kde0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppmow"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.57)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l5nim"]
+material = SubResource("StandardMaterial3D_ppmow")
+radius = 0.1
+height = 0.1
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2gdj"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Eyes" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.667814, 0.295691, 0, -0.20671, 0.955284, 0, 1.60368, -0.000447782)
+
+[node name="RightEye" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.211323, 0, 0, 0, -0.0455981, -0.219885, 0, 0.135351, -0.0740763, -0.0323384, 0.0841918, 0.128067)
+mesh = SubResource("SphereMesh_l5nim")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="RightEye"]
+transform = Transform3D(0.0409332, 0, 0, 0, 0.246023, 1.49012e-08, 0, 0, 0.528905, 0, 0.0916292, 1.49012e-08)
+mesh = SubResource("SphereMesh_l5nim")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h2gdj")
+
+[node name="LeftEye" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.237778, 0.028258, -1.72874e-09, 0.0162021, -0.042269, -0.219885, -0.0480937, 0.125469, -0.0740763, 0.0380433, 0.0841918, 0.128067)
+mesh = SubResource("SphereMesh_l5nim")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="LeftEye"]
+transform = Transform3D(0.0400316, -0.0513526, 3.72529e-09, 0.00854405, 0.240604, 2.98023e-08, -2.89728e-09, -5.21541e-08, 0.528905, -0.0215883, 0.0890853, -2.30645e-08)
+mesh = SubResource("SphereMesh_l5nim")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_h2gdj")

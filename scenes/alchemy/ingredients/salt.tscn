@@ -11,7 +11,7 @@ size = Vector3(0.314453, 0.0491943, 0.455078)
 [node name="Salt" type="RigidBody3D"]
 collision_layer = 4
 script = ExtResource("1_aroew")
-type = 1
+type = 22
 
 [node name="Salt" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, 0, 0)

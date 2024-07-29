@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpyih85d271x0"]
+[gd_scene load_steps=8 format=3 uid="uid://dpyih85d271x0"]
 
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="1_eedys"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ykpl7"]
+radius = 2.5
+height = 5.0
 
 [sub_resource type="Gradient" id="Gradient_8hmn7"]
 offsets = PackedFloat32Array(0.941441, 1)
@@ -22,11 +24,17 @@ shading_mode = 0
 albedo_color = Color(0.174, 0.174, 0.174, 0.57)
 albedo_texture = SubResource("NoiseTexture2D_qghgo")
 
-[node name="Darkness" type="StaticBody3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_sywq1"]
+radius = 2.5
+
+[node name="Darkness" type="Area3D" groups=["shadowspawns"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.61314, 0, 0, 0, 3.61314, 0, 0, 0, 3.61314, 0, 1.19973, 0)
 mesh = SubResource("SphereMesh_ykpl7")
 surface_material_override/0 = SubResource("StandardMaterial3D_sh5hi")
 
 [node name="Shadow" parent="." instance=ExtResource("1_eedys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sywq1")
