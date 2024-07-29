@@ -7,6 +7,9 @@ extends StaticBody3D
 @onready var timer: Timer = $Timer
 @onready var fire_beam_2: GPUParticles3D = $Eje/Hand_Gas_Lamp_002/FireBeam2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var gas_lamp_on : AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var gas_loop : AudioStreamPlayer3D = $AudioStreamPlayer3D2
+@onready var gas_lamp_off : AudioStreamPlayer3D = $AudioStreamPlayer3D3
 
 @export var active : bool = true : 
 	set(value):
@@ -19,9 +22,13 @@ extends StaticBody3D
 			if active:
 				light.light_energy = lerp(light.light_energy, 1.0, 1.0)
 				fire_beam_2.emitting = true
+				gas_lamp_on.play()
+				gas_loop.play()
 			else:
 				light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 				fire_beam_2.emitting = false
+				gas_lamp_off.play()
+				gas_loop.stop()
 
 @export var min_value : float = 1.4
 @export var max_value : float = 5.0
@@ -35,7 +42,6 @@ var time_passed : float = 0.0
 var countdown := 1.0
 
 func _ready() -> void:
-	active = false
 	timer.start()
 	GameManager.tick_countdown.connect(_on_tick_timeout)
 	animation_player.play("GasLampAnimation")
@@ -57,8 +63,8 @@ func _process(delta: float) -> void:
 		var offset = (max_value + min_value) / 2.0
 		var sine = sin(speed * time_passed)
 		var energy = (offset + amplitude * sine * speed_variance) * countdown
-
 		light.light_energy = clamp(energy, 0.3, 6)
+		
 		
 		# Animate emission in material
 		if mesh:

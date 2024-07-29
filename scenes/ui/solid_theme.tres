@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dqhkl7tbwpitu"]
+
+[ext_resource type="Texture2D" uid="uid://doijaqriohw5c" path="res://assets/ui/UI elements-02.png" id="1_0583l"]
+[ext_resource type="Texture2D" uid="uid://5wx42wp6q62o" path="res://assets/ui/Pause_buttons_02UI elements-03.png" id="2_k0bqu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmtpp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+corner_radius_top_left = 115
+corner_radius_top_right = 680
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0laiq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.317647)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl0un"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxtuk"]
+texture = ExtResource("1_0583l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1retv"]
+texture = ExtResource("1_0583l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp347"]
+texture = ExtResource("1_0583l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b2nk"]
+texture = ExtResource("2_k0bqu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwxe3"]
+bg_color = Color(0.0311336, 0.0523041, 0.0542839, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[resource]
+Button/font_sizes/font_size = 16
+Button/styles/focus = SubResource("StyleBoxFlat_dmtpp")
+Button/styles/hover = SubResource("StyleBoxFlat_0laiq")
+Button/styles/hover_mirrored = null
+Button/styles/normal = SubResource("StyleBoxEmpty_dl0un")
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_qxtuk")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_1retv")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_cp347")
+HSlider/styles/slider = SubResource("StyleBoxTexture_5b2nk")
+Label/font_sizes/font_size = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_uwxe3")
