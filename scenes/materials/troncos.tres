@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bplftd1dc28ta"]
+
+[sub_resource type="Gradient" id="Gradient_rofd0"]
+offsets = PackedFloat32Array(0, 0.26506, 1)
+colors = PackedColorArray(0.415663, 0.415663, 0.415663, 1, 0.838075, 0.838075, 0.838075, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgkp7"]
+gradient = SubResource("Gradient_rofd0")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.243478, 0.752174)
+fill_to = Vector2(0.308696, 0.726087)
+repeat = 1
+
+[resource]
+resource_name = "LightBrown"
+cull_mode = 2
+albedo_color = Color(0.480424, 0.33431, 0.219664, 1)
+albedo_texture = SubResource("GradientTexture2D_dgkp7")
+metallic_specular = 0.0
+normal_enabled = true

@@ -6,6 +6,8 @@ extends Control
 @onready var quit_button: Button = %QuitButton
 @onready var audio_stream_player_4: AudioStreamPlayer = $AudioStreamPlayer4
 @onready var audio_stream_player_5: AudioStreamPlayer = $AudioStreamPlayer5
+@onready var settings_container: CenterContainer = $HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer
+@onready var audio_stream_player_6: AudioStreamPlayer = $AudioStreamPlayer6
 
 signal new_game_requested
 
@@ -19,9 +21,11 @@ func _on_new_game_button_pressed() -> void:
 		audio_stream_player_5.play()
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	audio_stream_player_6.play()
+	settings_container.show()
 
 func _on_quit_button_pressed() -> void:
+	audio_stream_player_6.play()
 	get_tree().quit()
 
 func _on_button_mouse_entered() -> void:
@@ -32,13 +36,7 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	audio_stream_player_4.stop()
 
-
-func _on_focus_entered() -> void:
-	var pitches = [0.80, 1.30, 0.95]
-	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
-	audio_stream_player_4.play()
-
-func _on_focus_exited() -> void:
-	var pitches = [0.80, 1.30, 0.95]
-	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
-	audio_stream_player_4.stop()
+func _on_back_button_pressed() -> void:
+	audio_stream_player_6.play()
+	settings_container.hide()
+	settings_button.grab_focus()

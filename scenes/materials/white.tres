@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blpnt8g32vk24"]
+
+[resource]
+resource_name = "White.008"
+cull_mode = 2
+albedo_color = Color(0.629306, 0.571866, 0.534552, 1)
+metallic_specular = 0.25
+roughness = 0.5
