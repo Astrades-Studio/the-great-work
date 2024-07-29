@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/pause_layer.gd" id="1_fchgq"]
 [ext_resource type="Theme" uid="uid://bux2gvd5li1x1" path="res://scenes/ui/solid_theme.tres" id="2_ecysl"]
-[ext_resource type="Texture2D" uid="uid://bodjm4rrvuos" path="res://assets/ui/UI elements-09.png" id="3_4fu4w"]
+[ext_resource type="PackedScene" uid="uid://bdo7suaqn2xxp" path="res://scenes/ui/settings.tscn" id="3_4cilj"]
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
@@ -68,85 +68,14 @@ theme_override_constants/line_spacing = 0
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="SettingsContainer" type="CenterContainer" parent="Control"]
+[node name="SettingsContainer" parent="Control" instance=ExtResource("3_4cilj")]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_ecysl")
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/SettingsContainer"]
-custom_minimum_size = Vector2(306.08, 0)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/SettingsContainer/PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "VOLUME"
-horizontal_alignment = 1
-
-[node name="MasterVolume" type="VBoxContainer" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MasterVolume"]
-layout_mode = 2
-text = "MASTER"
-
-[node name="MasterSlider" type="HSlider" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MasterVolume"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_icons/grabber = ExtResource("3_4fu4w")
-theme_override_icons/grabber_highlight = ExtResource("3_4fu4w")
-theme_override_icons/grabber_disabled = ExtResource("3_4fu4w")
-value = 100.0
-
-[node name="MusicVolume" type="VBoxContainer" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
-layout_mode = 2
-text = "MUSIC"
-
-[node name="MusicSlider" type="HSlider" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
-unique_name_in_owner = true
-layout_mode = 2
-value = 100.0
-
-[node name="SFXVolume" type="VBoxContainer" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/SFXVolume"]
-layout_mode = 2
-text = "SFX"
-
-[node name="SFXSlider" type="HSlider" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/SFXVolume"]
-unique_name_in_owner = true
-layout_mode = 2
-value = 100.0
-
-[node name="BackButton" type="Button" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "BACK"
+layout_mode = 0
+anchors_preset = 0
 
 [node name="QuitConfirmation" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,6 +121,5 @@ text = "NO"
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitConfirmButton" to="." method="_on_quit_confirm_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitRefuseButton" to="." method="_on_quit_refuse_button_pressed"]

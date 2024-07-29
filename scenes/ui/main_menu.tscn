@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=15 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="VideoStream" path="res://assets/videos/output.ogv" id="3_36fp1"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="5_1ffgs"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="5_0425m"]
+[ext_resource type="PackedScene" uid="uid://bdo7suaqn2xxp" path="res://scenes/ui/settings.tscn" id="6_kbldp"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="8_lgtuu"]
 [ext_resource type="AudioStream" uid="uid://mi3qbnnjh42n" path="res://assets/sounds/sfx/hover_mouse.mp3" id="9_3rmti"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="9_33awd"]
@@ -65,7 +66,6 @@ autoplay = true
 loop = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
@@ -203,6 +203,18 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 45
 alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SettingsContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("6_kbldp")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer" index="0"]
+custom_minimum_size = Vector2(400, 300)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3uih3")
 volume_db = -11.571
@@ -241,3 +253,5 @@ volume_db = -10.868
 [connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer"]
