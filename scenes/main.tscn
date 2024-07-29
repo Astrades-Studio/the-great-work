@@ -1161,15 +1161,18 @@ transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.9999
 [node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_ufp8w")
+the_book = false
 
 [node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 3.08048)
 book = ExtResource("10_ufp8w")
+the_book = false
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 2.14595)
 book = ExtResource("10_ufp8w")
+the_book = false
 
 [node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
@@ -1302,11 +1305,20 @@ transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509
 [node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
 transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
 
+[node name="WaitLabel" parent="Level/Interactibles/Still" index="10"]
+text = "5"
+
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
 
+[node name="WaitLabel" parent="Level/Interactibles/Furnace" index="3"]
+text = "5"
+
 [node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.593229, -2.9589, -4.06195)
+
+[node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
+text = "5"
 
 [node name="Dispensers" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
@@ -1335,6 +1347,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38939, 0, -4.37555)
 
 [node name="BigJug" parent="Level/Interactibles/Dispensers" instance=ExtResource("26_g0qm8")]
 transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
+
+[node name="Mesh" parent="Level/Interactibles/Dispensers/BigJug" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664931, 0, 0.0750827)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11217, 0, -5.76686)
@@ -1521,6 +1536,9 @@ unique_name_in_owner = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("30_8kwqj")]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.905219, -0.0857945, 0.416193, 0, 0.979407, 0.201896, -0.424944, -0.18276, 0.886578, -5.03744, 1.37933, 1.06841)
+
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
@@ -1538,3 +1556,9 @@ unique_name_in_owner = true
 [editable path="Level/Lights/Candle_003"]
 [editable path="Level/Lights/Candle_004"]
 [editable path="Level/Lights/Candle_005"]
+[editable path="Level/Interactibles/Fireplace"]
+[editable path="Level/Interactibles/Mortar"]
+[editable path="Level/Interactibles/Still"]
+[editable path="Level/Interactibles/Furnace"]
+[editable path="Level/Interactibles/Cauldron"]
+[editable path="Level/Interactibles/Dispensers/BigJug"]

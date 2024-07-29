@@ -95,7 +95,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.49842
+speed_variance = 1.08656
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(0.526678, -0.179081, -0.830987, -0.247548, 0.902878, -0.351469, 0.813222, 0.390821, 0.431195, 0.349607, -0.235295, -0.556095)
@@ -137,11 +137,12 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -39.0
-offset_top = -33.0
+offset_top = -56.0
 offset_right = 40.0
-offset_bottom = 33.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_alignment = 1
 script = ExtResource("6_ur5a8")
 
 [node name="PanelContainer" type="PanelContainer" parent="HUDLayer/MarginContainer"]

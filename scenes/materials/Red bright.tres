@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://7aeo0bisoyik"]
+
+[sub_resource type="Gradient" id="Gradient_s7asg"]
+offsets = PackedFloat32Array(0, 0.970968)
+colors = PackedColorArray(0.698764, 0, 0.0274763, 1, 0.321768, 0.405827, 0.433424, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05cf1"]
+gradient = SubResource("Gradient_s7asg")
+
+[resource]
+resource_name = "green_apple_mat"
+cull_mode = 2
+albedo_color = Color(0.66838, 0.223078, 0.0679298, 1)
+albedo_texture = SubResource("GradientTexture2D_05cf1")
+metallic_specular = 1.0
+roughness = 0.28
+emission = Color(0.72992, 0.238344, 0, 1)
+emission_energy_multiplier = 0.43

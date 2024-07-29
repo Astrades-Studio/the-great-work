@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6ymtpobcr18y"]
 
 [ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_5x7f5"]
-[ext_resource type="ArrayMesh" uid="uid://b37ljda3tfnas" path="res://assets/models/ingredients/the_stone.res" id="1_gqtwh"]
+[ext_resource type="ArrayMesh" uid="uid://bha68ae6dp0ln" path="res://assets/models/ingredients/the_stone.res" id="1_gqtwh"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_dqgx6"]
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_txgpg"]
 

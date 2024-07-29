@@ -3,6 +3,6 @@
 [resource]
 resource_name = "BrownB.011"
 cull_mode = 2
-albedo_color = Color(0.449144, 0.279019, 0.183608, 1)
-metallic_specular = 0.0
-roughness = 0.28
+albedo_color = Color(0.358353, 0.247591, 0.142577, 1)
+metallic_specular = 0.15
+roughness = 0.42

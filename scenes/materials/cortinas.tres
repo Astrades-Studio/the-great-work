@@ -4,5 +4,5 @@
 resource_name = "Red.005"
 cull_mode = 2
 albedo_color = Color(0.325314, 0.181164, 0.104415, 1)
-metallic_specular = 0.0
-roughness = 0.0
+metallic_specular = 0.11
+roughness = 0.29
