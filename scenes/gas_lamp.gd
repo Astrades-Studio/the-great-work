@@ -13,6 +13,11 @@ extends StaticBody3D
 
 @export var active : bool = true : 
 	set(value):
+		if active == value:
+			return
+		if disabled:
+			active = false
+			return
 		active = value
 		if mesh:
 			var material = mesh.get_surface_override_material(1)
@@ -30,6 +35,7 @@ extends StaticBody3D
 				gas_lamp_off.play()
 				gas_loop.stop()
 
+
 @export var min_value : float = 1.4
 @export var max_value : float = 5.0
 
@@ -40,6 +46,11 @@ extends StaticBody3D
 
 var time_passed : float = 0.0
 var countdown := 1.0
+var disabled : bool:
+	set(value):
+		disabled = value
+		if disabled:
+			active = false
 
 func _ready() -> void:
 	timer.start()

@@ -58,6 +58,7 @@ ingredient=""
 shadow_spawn_points=""
 flare=""
 shadow=""
+darkness=""
 
 [gui]
 

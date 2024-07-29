@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FootProfile" load_steps=3 format=3 uid="uid://wmvdch34nxkt"]
+
+[ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/FootProfileMaterialSpecification.gd" id="1_7arfl"]
+[ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/FootProfile.gd" id="2_48kw3"]
+
+[resource]
+script = ExtResource("2_48kw3")
+name = &""
+materials = Array[ExtResource("1_7arfl")]([])

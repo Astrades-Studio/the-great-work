@@ -16,11 +16,12 @@ func _ready() -> void:
 	countdown = max_time
 	GameManager.environment = world_environment
 	GameManager.ingredient_layer = ingredients
-	GameManager.tick_countdown.emit()
-	
+	#GameManager.tick_countdown.emit()
+	# GameManager.shadow_spawn_points = get_tree().get_nodes_in_group("darkness")
 	game_over_timer.timeout.connect(_on_timer_tick)
 	
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
+	
 	start_midnight_game()
 
 

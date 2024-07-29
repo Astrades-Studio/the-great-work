@@ -5,7 +5,7 @@ const GAME_OVER_SCENE := "res://scenes/ui/game_over_scene.tscn"
 const INTRO_CUTSCENE = "res://scenes/layers/intro_cutscene.tscn"
 const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 
-const MAX_SPAWNED_INGREDIENT_AMOUNT := 10
+const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
 
 enum GameState {
 	MAIN_MENU,
@@ -14,8 +14,6 @@ enum GameState {
 	CUTSCENE,
 	DIALOG,
 }
-
-var spawned_ingredients : Array[Ingredient]
 
 # This variable goberns the inputs and pauses. Whenever there is a change, 
 # it should be modified from anywhere needed. Just check for double calls
@@ -56,6 +54,11 @@ var text_layer : TextLayer
 var ingredient_layer : Node
 var transition_screen : Node
 
+# Trackers
+var spawned_ingredients : Array[Ingredient]
+var shadow_spawn_points : Array[Darkness]
+var shadows_spawned : Array[Shadow]
+
 # UI Signals
 signal interaction_label_updated(string : String)
 signal state_label_updated(state : GameState)
@@ -66,16 +69,23 @@ signal game_over
 signal game_started
 
 # Game Progression Signals
+signal philosopher_stone_recipe_read #TODO connect to recipe
 signal philosopher_stone_progress(int)
-signal philosopher_stone_made(made:bool)
+#signal philosopher_stone_made(made:bool)
 signal tick_countdown
 
 
 func _ready() -> void:
 	current_state = GameState.MAIN_MENU
 	game_over.connect(_on_game_over)
+	philosopher_stone_progress.connect(_on_philosopher_stone_progress)
+	tick_countdown.connect(_on_tick_countdown)
+
 
 func _input(event):
+	if event.is_action_pressed("interact") and current_state == GameState.PLAYING:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	#if ALT key code is pressed, alternate between capturing and freezing the mouse
 	if event is InputEventKey and event.keycode == KEY_BACKSPACE and event.is_pressed():
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -88,10 +98,10 @@ func _input(event):
 func _on_new_game_requested():
 	current_state = GameState.PLAYING
 	TransitionManager.change_scene_to_file(INTRO_CUTSCENE)
-	#get_tree().change_scene_to_packed(INTRO_CUTSCENE)
 
 
 func _on_game_over():
+	reset_progress()
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
 	current_state = GameState.MAIN_MENU
 	
@@ -108,92 +118,79 @@ func ingredient_spawned(ingredient: Ingredient):
 			ingredient_to_delete.queue_free()
 
 
-# Variables
-var timer: Timer
-var shadow_spawn_points = []
-var shadows_spawned = []
+# Shadow logic
+# Check when there is a tick countdown timer and select a shadow_spawn_point to spawn a shadow in one of those at random
+# The more shadows there are, the faster the timer counts down
+# Play a sound and increase global darkness for each shadow spawned
 
-
-# # Called when the node enters the scene tree for the first time.
-# func _ready():
-# 	timer = $Timer
-# 	timer.start(1)
-# 	flare = $Flare
-# 	shadow_spawn_points = get_tree().get_nodes_in_group("shadow_spawn_points")
-# 	flare.connect("area_entered", self, "_on_flare_area_entered")
-# 	timer.connect("timeout", self, "_on_Timer_timeout")
-
-# func _on_Timer_timeout():
-# 	time_left -= 1
-# 	check_shadow_spawn_points()
-# 	update_environment()
-# 	if time_left <= 0 or len(shadows_spawned) >= len(shadow_spawn_points):
-# 		lose_game()
-# 	timer.start(1)
-
-# func check_shadow_spawn_points():
-# 	if time_left % shadow_spawn_interval == 0:
-# 		spawn_shadow()
-
-# func spawn_shadow():
-# 	var available_spawns = shadow_spawn_points.filter(lambda spawn: spawn.get("has_shadow") == false)
-# 	if available_spawns.size() > 0:
-# 		var spawn = available_spawns[randi() % available_spawns.size()]
-# 		var shadow = load("res://Shadow.tscn").instance()
-# 		shadow.position = spawn.position
-# 		add_child(shadow)
-# 		shadows.append(shadow)
-# 		spawn.set("has_shadow", true)
-# 		shadow.look_at(flare.position)  # Make shadow invisible if looked at directly
-
-
-# func _on_flare_area_entered(area):
-# 	if area.is_in_group("shadows"):
-# 		shadows.erase(area)
-# 		area.queue_free()
-# 		time_left += 10  # Gain 10 seconds for removing a shadow
-
-
-# # Check when there is a tick countdown timer and select a shadow_spawn_point to spawn a shadow in one of those at random
-# # The more shadows there are, the faster the timer counts down
-# # Play a sound and increase global darkness for each shadow spawned
-
-# func _on_tick_countdown():
-# 	if spawned_shadows.size() > 0:
-# 		var shadow_spawn_points = get_tree().get_nodes_in_group("shadow_spawn_point")
-# 		var shadow_spawn_point = shadow_spawn_points[randi() % shadow_spawn_points.size()]
-		
-# 		var shadow_instance = load(SHADOW_SCENE).instantiate()
-# 		shadow_instance.global_transform = shadow_spawn_point.global_transform
-# 		add_child(shadow_instance)
-		
-# 		match spawned_shadows.size():
-# 			1:
-# 				SfxManager.play_sound(SfxManager.SHADOW_1_SOUND)
-# 				update_darkness_effect(1)
-# 			2:
-# 				SfxManager.play_sound(SfxManager.SHADOW_2_SOUND)
-# 				update_darkness_effect(2)
-# 			3:
-# 				SfxManager.play_sound(SfxManager.SHADOW_3_SOUND)
-# 				update_darkness_effect(3)
-# 			4:
-# 				SfxManager.play_sound(SfxManager.SHADOW_4_SOUND)
-# 				update_darkness_effect(4)
-# 			5:
-# 				SfxManager.play_sound(SfxManager.SHADOW_5_SOUND)
-# 				update_darkness_effect(5)
-# 			6:
-# 				SfxManager.play_sound(SfxManager.SHADOW_6_SOUND)
-# 				update_darkness_effect(6)
-# 			_:
-# 				SfxManager.play_sound(SfxManager.SHADOW_7_SOUND)
-# 				update_darkness_effect(7)
-
-
-# func update_darkness_effect(amount: int):
+func _on_tick_countdown():
+	if shadows_spawned.size() >= shadow_spawn_points.size():
+		print("Too many shadows spawned")
+		return
 	
-# 	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
-# 	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
-# 	# TODO lerp?
-# 	environment.environment.fog_density = amount
+	if shadow_spawn_points.size() > 0:
+		spawn_random_shadow()
+	
+	update_darkness_effect(shadows_spawned.size())
+		
+
+func spawn_random_shadow():
+	var available_spawns = shadow_spawn_points.filter(is_spot_available)
+	if available_spawns.size() > 0:
+		var spawn = available_spawns[randi() % available_spawns.size()] # Select random spawn point
+		if !spawn.spawn_shadow():
+			spawn_random_shadow()
+		else:
+			print("Shadow spawned")
+			shadows_spawned.append(spawn.shadow)
+			SfxManager.play_shadow_sound()
+
+
+func update_darkness_effect(amount: int):
+	# TODO lerp?
+	environment.environment.fog_density = amount
+	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
+	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
+
+
+func on_shadow_removed(shadow: Shadow):
+	shadows_spawned.erase(shadow)
+	update_darkness_effect(shadows_spawned.size())
+
+
+func is_spot_available(darkness : Darkness):
+	return not darkness.shadow_present and darkness.cooldown <= 0
+
+
+func _on_philosopher_stone_recipe_read():
+	# Play cutscene
+	# Start game timer
+	print("The game begins")
+
+
+# Endgame progress:
+func _on_philosopher_stone_progress(amount: int):
+	# Check progress from 1 to 4:
+	if amount == 1:
+		pass
+	elif amount == 2:
+		pass
+	elif amount == 3:
+		pass
+	elif amount == 4:
+		_on_philosopher_stone_created()
+
+func _on_philosopher_stone_created():
+	# Play cutscene
+	#TransitionManager.change_scene_to_file(THANKS_CUTSCENE)
+	print("You win the game")
+	reset_progress()
+	pass
+
+
+func reset_progress():
+	spawned_ingredients.clear()
+	shadow_spawn_points.clear()
+	shadows_spawned.clear()
+	philosopher_stone_progress.emit(0)
+	

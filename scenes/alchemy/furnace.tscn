@@ -362,6 +362,7 @@ size = Vector2(0.37, 0.29)
 [node name="Furnace" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_hlpvv")
 ingredient_preview = NodePath("IngredientSpot")
+wait_time = 30
 sound = ExtResource("4_cocfm")
 type = 2
 

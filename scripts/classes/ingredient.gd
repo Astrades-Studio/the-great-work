@@ -66,8 +66,8 @@ Type.VINEGAR : Type.VINEGAR
 static var MESH_TABLE : Dictionary = {
 	Type.NONE: null,
 	Type.CAPUT_MORTUUM: CAPUT_MORTUUM,
-	Type.IRON: INGOT,
-	Type.LEAD: INGOT,
+	Type.IRON: SILVER,
+	Type.LEAD: SILVER,
 	Type.MERCURY: MERCURY,
 	Type.PURIFIED_MERCURY: PURIFIED_MERCURY,
 	Type.SULFUR: SULFUR,
@@ -82,7 +82,7 @@ static var MESH_TABLE : Dictionary = {
 	Type.CINNABAR: CINNABAR,
 	Type.CINNABAR_DUST: CINNABAR_DUST,
 	Type.GOLD: GOLD,
-	Type.SILVER: INGOT,
+	Type.SILVER: SILVER,
 	Type.DRAGONS_BLOOD: CAPUT_MORTUUM,
 	Type.FLARE: FLARE,
 	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
@@ -106,7 +106,7 @@ const THE_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
 const VINEGAR := "res://scenes/alchemy/ingredients/vinegar.tscn"
 const YELLOW_LIQUID := "res://scenes/alchemy/ingredients/yellow_liquid.tscn"
 const PHILOSOPHERS_STONE := "res://scenes/alchemy/ingredients/the_stone.tscn"
-const INGOT := "res://scenes/alchemy/ingredients/ingot.tscn"
+const SILVER := "res://scenes/alchemy/ingredients/silver.tscn"
 const JAR := "res://scenes/alchemy/ingredients/jar_mesh.tscn"
 const SALT := "res://scenes/alchemy/ingredients/salt.tscn"
 

@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dqhkl7tbwpitu"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bux2gvd5li1x1"]
 
-[ext_resource type="Texture2D" uid="uid://doijaqriohw5c" path="res://assets/ui/UI elements-02.png" id="1_0583l"]
-[ext_resource type="Texture2D" uid="uid://5wx42wp6q62o" path="res://assets/ui/Pause_buttons_02UI elements-03.png" id="2_k0bqu"]
+[ext_resource type="Texture2D" uid="uid://bodjm4rrvuos" path="res://assets/ui/UI elements-09.png" id="1_qu6o6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmtpp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -14,20 +13,60 @@ bg_color = Color(0.6, 0.6, 0.6, 0.317647)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl0un"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxtuk"]
-texture = ExtResource("1_0583l")
+[sub_resource type="Image" id="Image_dj73q"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 4
+}
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1retv"]
-texture = ExtResource("1_0583l")
+[sub_resource type="ImageTexture" id="ImageTexture_oh62g"]
+image = SubResource("Image_dj73q")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp347"]
-texture = ExtResource("1_0583l")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhg5v"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.556863, 0.411765, 0.356863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b2nk"]
-texture = ExtResource("2_k0bqu")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s3hh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.768896, 0.621445, 0.565929, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ach3y"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwxe3"]
-bg_color = Color(0.0311336, 0.0523041, 0.0542839, 1)
+bg_color = Color(0.185837, 0.123929, 0.100463, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0591259, 0.059126, 0.0591259, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
@@ -39,9 +78,14 @@ Button/styles/focus = SubResource("StyleBoxFlat_dmtpp")
 Button/styles/hover = SubResource("StyleBoxFlat_0laiq")
 Button/styles/hover_mirrored = null
 Button/styles/normal = SubResource("StyleBoxEmpty_dl0un")
-HScrollBar/styles/grabber = SubResource("StyleBoxTexture_qxtuk")
-HSlider/styles/grabber_area = SubResource("StyleBoxTexture_1retv")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_cp347")
-HSlider/styles/slider = SubResource("StyleBoxTexture_5b2nk")
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("1_qu6o6")
+HSlider/icons/grabber_disabled = ExtResource("1_qu6o6")
+HSlider/icons/grabber_highlight = ExtResource("1_qu6o6")
+HSlider/icons/tick = SubResource("ImageTexture_oh62g")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_qhg5v")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_6s3hh")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ach3y")
 Label/font_sizes/font_size = 16
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_uwxe3")

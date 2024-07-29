@@ -45,6 +45,7 @@ func _on_continue_button_pressed() -> void:
 
 func _on_restart_button_pressed() -> void:
 	self.hide_pause_menu()
+	GameManager.reset_progress()
 	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 	
 

@@ -3,47 +3,72 @@
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="1_eedys"]
 [ext_resource type="Script" path="res://scenes/shadow/darkness.gd" id="1_hrpg6"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ykpl7"]
-radius = 2.5
-height = 5.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_nme3o"]
+size = Vector3(4.00891, 3.75281, 6.62573)
 
-[sub_resource type="Gradient" id="Gradient_8hmn7"]
-offsets = PackedFloat32Array(0.941441, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.486)
+[sub_resource type="Gradient" id="Gradient_eqx4t"]
+offsets = PackedFloat32Array(0.0737705, 0.5, 1)
+colors = PackedColorArray(0.639344, 0.639344, 0.639344, 0.646416, 0.363084, 0.363084, 0.363084, 0.375573, 0, 0, 0, 0.0196078)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cpx7d"]
-offset = Vector3(-410.96, 0, 0)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd7qc"]
+gradient = SubResource("Gradient_eqx4t")
+fill = 1
+fill_from = Vector2(0.501424, 0.527066)
+fill_to = Vector2(1, 1)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qghgo"]
-seamless = true
-color_ramp = SubResource("Gradient_8hmn7")
-noise = SubResource("FastNoiseLite_cpx7d")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh5hi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdbxp"]
 transparency = 1
+blend_mode = 2
 shading_mode = 0
-albedo_color = Color(0.174, 0.174, 0.174, 0.57)
-albedo_texture = SubResource("NoiseTexture2D_qghgo")
+albedo_texture = SubResource("GradientTexture2D_vd7qc")
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_min_distance = 10.25
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_sywq1"]
-radius = 2.5
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dpdx2"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.5, 1)
+angle_min = -111.6
+angle_max = 67.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 1, 0)
 
-[node name="Darkness" type="Area3D"]
+[sub_resource type="QuadMesh" id="QuadMesh_bucoi"]
+size = Vector2(0.6, 0.5)
+
+[node name="Darkness" type="Area3D" groups=["darkness"]]
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("1_hrpg6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
-mesh = SubResource("SphereMesh_ykpl7")
-surface_material_override/0 = SubResource("StandardMaterial3D_sh5hi")
-
 [node name="Shadow" parent="." instance=ExtResource("1_eedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
-shape = SubResource("SphereShape3D_sywq1")
+shape = SubResource("BoxShape3D_nme3o")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
+
+[node name="DarknessFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311001, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_wdbxp")
+cast_shadow = 0
+amount = 140
+lifetime = 1.78
+preprocess = 0.09
+speed_scale = 0.86
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_dpdx2")
+draw_pass_1 = SubResource("QuadMesh_bucoi")
+
+[node name="DarknessLight" type="OmniLight3D" parent="."]
+visible = false
+light_negative = true

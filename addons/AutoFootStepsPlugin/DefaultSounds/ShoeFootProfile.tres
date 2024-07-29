@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FootProfile" load_steps=25 format=3 uid="uid://badwdqtfuxraf"]
+[gd_resource type="Resource" script_class="FootProfile" load_steps=30 format=3 uid="uid://badwdqtfuxraf"]
 
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/FootProfileMaterialSpecification.gd" id="15_wnu8m"]
 [ext_resource type="AudioStream" uid="uid://dtjtfuuyceseo" path="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Shoe Step Wood Hard A.wav" id="44_2c30e"]
@@ -37,8 +37,73 @@ scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
 jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
 landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
 
+[sub_resource type="Resource" id="Resource_a3x3c"]
+resource_name = "Metal"
+script = ExtResource("15_wnu8m")
+name = &"Metal"
+volume_multiplier = 1.0
+similar_names = Array[String](["metal", "plank", "timber", "oak", "pine", "deck", "lumber", "maple", "bark", "floorboard", "birch", "mahogany", "walnut"])
+soft_steps = Array[AudioStream]([ExtResource("60_4wueu"), ExtResource("61_c4gbm"), ExtResource("62_3rnqw"), ExtResource("63_yi8w3"), ExtResource("64_v6a8l")])
+med_steps = Array[AudioStream]([ExtResource("53_b5rx7"), ExtResource("54_fp2h5"), ExtResource("55_xxdmy"), ExtResource("56_aonhm"), ExtResource("57_kb5hi")])
+hard_steps = Array[AudioStream]([ExtResource("44_2c30e"), ExtResource("45_h481p"), ExtResource("46_rcrmp"), ExtResource("47_5q0gi"), ExtResource("48_sbw8c")])
+scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
+jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
+landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
+
+[sub_resource type="Resource" id="Resource_v3850"]
+resource_name = "Air"
+script = ExtResource("15_wnu8m")
+name = &"Air"
+volume_multiplier = 1.0
+similar_names = Array[String](["air", "plank", "timber", "oak", "pine", "deck", "lumber", "maple", "bark", "floorboard", "birch", "mahogany", "walnut"])
+soft_steps = Array[AudioStream]([ExtResource("60_4wueu"), ExtResource("61_c4gbm"), ExtResource("62_3rnqw"), ExtResource("63_yi8w3"), ExtResource("64_v6a8l")])
+med_steps = Array[AudioStream]([ExtResource("53_b5rx7"), ExtResource("54_fp2h5"), ExtResource("55_xxdmy"), ExtResource("56_aonhm"), ExtResource("57_kb5hi")])
+hard_steps = Array[AudioStream]([ExtResource("44_2c30e"), ExtResource("45_h481p"), ExtResource("46_rcrmp"), ExtResource("47_5q0gi"), ExtResource("48_sbw8c")])
+scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
+jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
+landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
+
+[sub_resource type="Resource" id="Resource_kala2"]
+resource_name = "Mud"
+script = ExtResource("15_wnu8m")
+name = &"Mud"
+volume_multiplier = 1.0
+similar_names = Array[String](["wood", "plank", "timber", "oak", "pine", "deck", "lumber", "maple", "bark", "floorboard", "birch", "mahogany", "walnut"])
+soft_steps = Array[AudioStream]([ExtResource("60_4wueu"), ExtResource("61_c4gbm"), ExtResource("62_3rnqw"), ExtResource("63_yi8w3"), ExtResource("64_v6a8l")])
+med_steps = Array[AudioStream]([ExtResource("53_b5rx7"), ExtResource("54_fp2h5"), ExtResource("55_xxdmy"), ExtResource("56_aonhm"), ExtResource("57_kb5hi")])
+hard_steps = Array[AudioStream]([ExtResource("44_2c30e"), ExtResource("45_h481p"), ExtResource("46_rcrmp"), ExtResource("47_5q0gi"), ExtResource("48_sbw8c")])
+scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
+jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
+landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
+
+[sub_resource type="Resource" id="Resource_o6ffa"]
+resource_name = "Grass"
+script = ExtResource("15_wnu8m")
+name = &"Grass"
+volume_multiplier = 1.0
+similar_names = Array[String](["grass", "plank", "timber", "oak", "pine", "deck", "lumber", "maple", "bark", "floorboard", "birch", "mahogany", "walnut"])
+soft_steps = Array[AudioStream]([ExtResource("60_4wueu"), ExtResource("61_c4gbm"), ExtResource("62_3rnqw"), ExtResource("63_yi8w3"), ExtResource("64_v6a8l")])
+med_steps = Array[AudioStream]([ExtResource("53_b5rx7"), ExtResource("54_fp2h5"), ExtResource("55_xxdmy"), ExtResource("56_aonhm"), ExtResource("57_kb5hi")])
+hard_steps = Array[AudioStream]([ExtResource("44_2c30e"), ExtResource("45_h481p"), ExtResource("46_rcrmp"), ExtResource("47_5q0gi"), ExtResource("48_sbw8c")])
+scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
+jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
+landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
+
+[sub_resource type="Resource" id="Resource_ertil"]
+resource_name = "Gravel"
+script = ExtResource("15_wnu8m")
+name = &"Gravel"
+volume_multiplier = 1.0
+similar_names = Array[String](["brick", "base", "timber", "oak", "pine", "deck", "lumber", "maple", "bark", "floorboard", "birch", "mahogany", "walnut"])
+soft_steps = Array[AudioStream]([ExtResource("60_4wueu"), ExtResource("61_c4gbm"), ExtResource("62_3rnqw"), ExtResource("63_yi8w3"), ExtResource("64_v6a8l")])
+med_steps = Array[AudioStream]([ExtResource("53_b5rx7"), ExtResource("54_fp2h5"), ExtResource("55_xxdmy"), ExtResource("56_aonhm"), ExtResource("57_kb5hi")])
+hard_steps = Array[AudioStream]([ExtResource("44_2c30e"), ExtResource("45_h481p"), ExtResource("46_rcrmp"), ExtResource("47_5q0gi"), ExtResource("48_sbw8c")])
+scuffs = Array[AudioStream]([ExtResource("58_g0a3x"), ExtResource("59_u843u")])
+jumps = Array[AudioStream]([ExtResource("49_w1503"), ExtResource("50_xawar")])
+landings = Array[AudioStream]([ExtResource("51_cbg1h"), ExtResource("52_yqtvt")])
+
 [resource]
 resource_name = "Shoe/Boot SFX"
 script = ExtResource("191_lg8li")
 name = &"Shoe/Boot SFX"
-materials = Array[ExtResource("15_wnu8m")]([SubResource("Resource_wrxko")])
+materials = Array[ExtResource("15_wnu8m")]([SubResource("Resource_wrxko"), SubResource("Resource_a3x3c"), SubResource("Resource_v3850"), SubResource("Resource_kala2"), SubResource("Resource_o6ffa"), SubResource("Resource_ertil")])

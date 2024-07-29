@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 func _on_retry_button_pressed() -> void:
-	get_tree().change_scene_to_packed(GameManager.MAIN_SCENE)
+	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 
 
 func _on_quit_button_pressed() -> void:

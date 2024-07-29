@@ -7,6 +7,7 @@ extends Ingredient
 @onready var light: OmniLight3D = %Light
 @onready var duration_timer: Timer = $DurationTimer
 @onready var shadow_barrier: Area3D = $ShadowBarrier
+@onready var contents: MeshInstance3D = $Contents
 
 @export var duration : int = 30
 
@@ -47,10 +48,12 @@ func _on_location_changed():
 
 func _on_duration_timer_timeout() -> void:
 	active = false
+	contents.mesh.material.albedo_color = Color.PAPAYA_WHIP
 	#mesh.mesh.surface_get_material(0).albedo_color = Color.DIM_GRAY
 	#mesh.mesh.surface_get_material(1).albedo_color = Color.DIM_GRAY
+	name = "Spent Flare"
 	spent = true
 
 
-func _on_shadow_barrier_area_entered(area: Area3D) -> void:
+func _on_shadow_barrier_area_entered(_area: Area3D) -> void:
 	pass # Replace with function body.

@@ -23,16 +23,18 @@ func _process(_delta: float) -> void:
 	# 	look_at(target.global_position, Vector3.UP, true)
 
 
-var transition_length := 1.0
+var transition_length := 4.0
 func turn_invisible() -> void:
+	print(self.name + " turning invisible" )
 	invisibility_tween = get_tree().create_tween()
 	invisibility_tween.tween_property(material, "albedo_color:a", 0.0, transition_length)
 	await invisibility_tween.finished
-	hide()
+	#hide()
 	
 
 func reset_invisibility() -> void:	
-	show()
+	#show()
+	print(self.name + " turning visible" )
 	invisibility_tween = get_tree().create_tween()
 	invisibility_tween.tween_property(material, "albedo_color", og_color, transition_length)
 	
