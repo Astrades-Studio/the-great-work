@@ -1,7 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://ulupq25c7dy3"]
+[gd_scene load_steps=25 format=4 uid="uid://ulupq25c7dy3"]
 
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="1_i1yuc"]
 [ext_resource type="Material" uid="uid://hhvpp8s8gsqd" path="res://assets/models/gaslamp.tres" id="2_fv1ti"]
+[ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="3_agvte"]
+[ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="3_jdtk7"]
+[ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="4_0w7bw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2f8ia"]
 resource_name = "Hand_Gas_Lamp_Mat"
@@ -183,7 +186,7 @@ script = ExtResource("1_i1yuc")
 active = false
 min_value = 0.8
 max_value = 2.5
-speed_variance = 1.01375
+speed_variance = 0.794274
 
 [node name="Eje" type="Node3D" parent="."]
 transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
@@ -231,7 +234,7 @@ omni_range = 8.085
 omni_attenuation = 1.63
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.984898
+wait_time = 0.844599
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -239,5 +242,24 @@ root_node = NodePath("../Eje/Hand_Gas_Lamp_002")
 libraries = {
 "": SubResource("AnimationLibrary_e882d")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_agvte")
+attenuation_model = 3
+volume_db = -1.139
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jdtk7")
+attenuation_model = 3
+volume_db = 8.07
+max_db = 6.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_0w7bw")
+attenuation_model = 3
+volume_db = -1.104
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

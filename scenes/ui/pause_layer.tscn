@@ -1,25 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b37a0ifyboyf0"]
+[gd_scene load_steps=3 format=3 uid="uid://b37a0ifyboyf0"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_layer.gd" id="1_fchgq"]
-[ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="2_4pbs7"]
-[ext_resource type="Texture2D" uid="uid://ch04hxe7a0jrd" path="res://assets/ui/Pause menu_UI elements-12.png" id="3_n67fd"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48dc0"]
-texture = ExtResource("3_n67fd")
-texture_margin_left = 50.0
-texture_margin_top = 50.0
-texture_margin_right = 50.0
-texture_margin_bottom = 50.0
-expand_margin_left = 25.0
-expand_margin_right = 25.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-
-[sub_resource type="Theme" id="Theme_eh74u"]
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/fonts/font = ExtResource("2_4pbs7")
-Label/styles/normal = null
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_48dc0")
+[ext_resource type="Theme" uid="uid://dqhkl7tbwpitu" path="res://scenes/ui/solid_theme.tres" id="2_ecysl"]
 
 [node name="PauseLayer" type="CanvasLayer"]
 process_mode = 3
@@ -32,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_eh74u")
+theme = ExtResource("2_ecysl")
 
 [node name="PauseContainer" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
@@ -44,46 +26,46 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/PauseContainer"]
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PauseContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
-
-[node name="Label" type="Label" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.35
-theme_override_constants/line_spacing = 0
-text = "PAUSED"
-horizontal_alignment = 1
+alignment = 1
 
 [node name="ContinueButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 action_mode = 0
-text = "Continue"
+text = "CONTINUE"
 
 [node name="RestartButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Restart"
+text = "RESTART"
 
 [node name="SettingsButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Settings"
+text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "QUIT"
+
+[node name="Label" type="Label" parent="Control/PauseContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.35
+theme_override_constants/line_spacing = 0
+text = "PAUSED"
+horizontal_alignment = 1
 
 [node name="SettingsContainer" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
@@ -94,6 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ecysl")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/SettingsContainer"]
 layout_mode = 2
@@ -111,14 +94,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume"
+size_flags_vertical = 0
+text = "VOLUME"
+horizontal_alignment = 1
 
 [node name="MasterVolume" type="VBoxContainer" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MasterVolume"]
 layout_mode = 2
-text = "Master"
+text = "MASTER"
 
 [node name="MasterSlider" type="HSlider" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MasterVolume"]
 unique_name_in_owner = true
@@ -130,7 +115,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
 layout_mode = 2
-text = "Music"
+text = "MUSIC"
 
 [node name="MusicSlider" type="HSlider" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
 unique_name_in_owner = true
@@ -152,7 +137,7 @@ value = 100.0
 [node name="BackButton" type="Button" parent="Control/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Back"
+text = "BACK"
 
 [node name="QuitConfirmation" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
@@ -163,6 +148,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ecysl")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/QuitConfirmation"]
 layout_mode = 2
@@ -179,7 +165,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Really quit?"
+text = "REALLY QUIT?"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer"]
@@ -188,12 +174,14 @@ layout_mode = 2
 [node name="QuitConfirmButton" type="Button" parent="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Yes"
+size_flags_horizontal = 3
+text = "YES"
 
 [node name="QuitRefuseButton" type="Button" parent="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "No"
+size_flags_horizontal = 3
+text = "NO"
 
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

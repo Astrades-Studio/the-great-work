@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c3nw2xsmxynym"]
+
+[ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="1_y0mjx"]
+[ext_resource type="Texture2D" uid="uid://ch04hxe7a0jrd" path="res://assets/ui/Pause menu_UI elements-12.png" id="2_e3aj2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48dc0"]
+texture = ExtResource("2_e3aj2")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_y0mjx")
+Label/styles/normal = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_48dc0")
