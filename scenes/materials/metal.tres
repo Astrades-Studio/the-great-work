@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvup1364u66le"]
+
+[resource]
+resource_name = "White.024"
+cull_mode = 2
+albedo_color = Color(0.463157, 0.431483, 0.423121, 1)
+metallic = 1.0
+metallic_specular = 0.58
+roughness = 0.33
+uv1_triplanar = true

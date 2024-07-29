@@ -1,7 +1,8 @@
-[gd_scene load_steps=77 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=82 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
+[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
 [ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
@@ -9,12 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
+[ext_resource type="Texture2D" uid="uid://75omdbabs1xa" path="res://assets/images/paintings/painting-38.jpg" id="8_10nsw"]
 [ext_resource type="Texture2D" uid="uid://doyxhumkshwea" path="res://assets/images/paintings/painting-17.jpg" id="8_pjtq0"]
 [ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="8_vrqnq"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="9_mnsrf"]
 [ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
-[ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe.tres" id="10_ufp8w"]
+[ext_resource type="Texture2D" uid="uid://dwxe6rlfamlcj" path="res://assets/images/paintings/painting-27.jpg" id="10_t2oyt"]
+[ext_resource type="Resource" path="res://assets/images/recipes/flare_recipe.tres" id="10_ufp8w"]
 [ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="11_5aosd"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
@@ -41,11 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
 
-[sub_resource type="Environment" id="Environment_hgr2d"]
-background_color = Color(0.735797, 0.735797, 0.735797, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.831761, 0.831761, 0.831761, 1)
-ambient_light_energy = 2.78
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r2ofu"]
+exposure_multiplier = 0.111
+dof_blur_far_distance = 6.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -259,6 +260,12 @@ size = Vector3(3.3826, 2.40158, 1.94965)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6aw5"]
 size = Vector3(1.70316, 2.8847, 5.80588)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqsj4"]
+albedo_texture = ExtResource("8_10nsw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sr0e"]
+albedo_texture = ExtResource("10_t2oyt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l88u"]
 resource_name = "Material.009"
@@ -659,7 +666,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
-environment = SubResource("Environment_hgr2d")
+environment = ExtResource("2_h05f7")
+camera_attributes = SubResource("CameraAttributesPractical_r2ofu")
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
@@ -1121,16 +1129,32 @@ shape = SubResource("BoxShape3D_k6aw5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Painting" parent="Level/Papers" instance=ExtResource("10_2xuse")]
-transform = Transform3D(0.749587, 0, 0, 0, 0.625289, -0.00877517, 0, 0.00769429, 0.713127, 3.17733, 2.01755, -8.38251)
+transform = Transform3D(0.749587, 0, 0, 0, 0.680326, -0.00877517, 0, 0.00837153, 0.713127, 3.17733, 1.80718, -8.3851)
 painting = ExtResource("4_hr77e")
+
+[node name="MeshInstance3D" parent="Level/Papers/Painting" index="0"]
+transform = Transform3D(1.2424, 0, 0, 0, 1.2424, -0.00416333, 0, 0.00416333, 1.2424, 0, 7.15256e-07, -0.0130587)
+material_override = SubResource("StandardMaterial3D_jqsj4")
+
+[node name="CSGBox3D" parent="Level/Papers/Painting/MeshInstance3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999995, 0.00335103, 0, -0.00335103, 0.999995, 0, -2.64645e-05, -0.00792503)
+
+[node name="CSGBox3D2" parent="Level/Papers/Painting/MeshInstance3D/CSGBox3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.06406e-09, 0, -1.06406e-09, 1, 0, 2.38419e-07, 0.00643158)
 
 [node name="Painting2" parent="Level/Papers" instance=ExtResource("10_2xuse")]
 transform = Transform3D(-4.36148e-08, 0.0181504, 0.999835, -2.90378e-09, 0.999835, -0.0181504, -1, -3.69492e-09, -4.35549e-08, -5.3047, 1.82276, 1.77841)
 painting = ExtResource("12_k1s8s")
 
+[node name="MeshInstance3D" parent="Level/Papers/Painting2" index="0"]
+material_override = SubResource("StandardMaterial3D_1sr0e")
+
 [node name="Painting3" parent="Level/Papers" instance=ExtResource("10_2xuse")]
 transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
 painting = ExtResource("8_pjtq0")
+
+[node name="MeshInstance3D" parent="Level/Papers/Painting3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0.392604, -0.120052, -0.013461)
 
 [node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.78635, 0.765783, -5.99975)
@@ -1271,7 +1295,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)
 
 [node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
-transform = Transform3D(-0.101629, 0, -0.994822, 0, 1, 0, 0.994822, 0, -0.101629, -6.17527, 0.928972, 0.948056)
+transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
 
 [node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
 transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
@@ -1294,7 +1318,7 @@ transform = Transform3D(1.15958, 0, 0, 0, 1.15958, 0, 0, 0, 1.15958, 3.32111, -0
 ingredient_type = 8
 
 [node name="Bag" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1, 0, 0)
+transform = Transform3D(0.122729, 5.82077e-11, 0.273748, 0.00135689, 0.299996, -0.00060833, -0.273744, 0.00148701, 0.122727, -0.987738, -0.680817, 1.5398)
 ingredient_type = 2
 
 [node name="Basket" parent="Level/Interactibles/Dispensers" instance=ExtResource("23_j4hhd")]
@@ -1308,7 +1332,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01105, -0.665621, -3.31113
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38939, 0, -4.37555)
 
 [node name="BigJug" parent="Level/Interactibles/Dispensers" instance=ExtResource("26_g0qm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53717, -0.673363, 0.631415)
+transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11217, 0, -5.76686)
@@ -1506,6 +1530,8 @@ unique_name_in_owner = true
 [editable path="Level/Shadows/SpawnBathroom/Darkness"]
 [editable path="Level/Shadows/SpawnStairs/Darkness"]
 [editable path="Level/Papers/Painting"]
+[editable path="Level/Papers/Painting2"]
+[editable path="Level/Papers/Painting3"]
 [editable path="Level/Papers/ReferenceBook"]
 [editable path="Level/Lights/Candle_001"]
 [editable path="Level/Lights/Candle_003"]

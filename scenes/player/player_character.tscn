@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=16 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
 [ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 [ext_resource type="Texture2D" uid="uid://b04pjkwdnnbvb" path="res://assets/ui/icons/mouse_left_outline.png" id="10_dx5ro"]
+[ext_resource type="PackedScene" uid="uid://blykgf66nhee" path="res://scenes/player/fear_effect.tscn" id="11_4yl7r"]
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
 
@@ -70,6 +71,7 @@ disabled = true
 target_position = Vector3(0, 2, 0)
 
 [node name="HandLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HandLayer"]
 offset_right = 40.0
@@ -92,7 +94,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.25728
+speed_variance = 1.39043
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(0.526678, -0.179081, -0.830987, -0.247548, 0.902878, -0.351469, 0.813222, 0.390821, 0.431195, 0.349607, -0.235295, -0.556095)
@@ -102,6 +104,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 2.98023e-08, 8.9407e-08, -2.98023e-08, 0.901583, 0.432605, -2.98023e-08, -0.432605, 0.901583, -0.0375136, 3.48091e-05, 0.0707181)
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 2
 script = ExtResource("5_16wbu")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUDLayer"]
@@ -224,3 +227,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+
+[node name="PanicEffects" parent="." instance=ExtResource("11_4yl7r")]
+
+[editable path="PanicEffects"]

@@ -1,7 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6ywkts6xd78k"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ywkts6xd78k"]
 
 [ext_resource type="Script" path="res://scenes/layers/intro_cutscene.gd" id="1_px0tu"]
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="2_akps3"]
+
+[sub_resource type="Animation" id="Animation_hdbxu"]
+resource_name = "loading"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Loading:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Loading:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, -1, -1]
+}
+
+[sub_resource type="Animation" id="Animation_yaypw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Loading:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Loading:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ld6xd"]
+_data = {
+"RESET": SubResource("Animation_yaypw"),
+"loading": SubResource("Animation_hdbxu")
+}
 
 [node name="IntroCutscene" type="CanvasLayer"]
 script = ExtResource("1_px0tu")
@@ -60,8 +122,16 @@ grow_vertical = 2
 theme_override_constants/margin_right = 70
 theme_override_constants/margin_bottom = 65
 
-[node name="Countdown" type="Label" parent="MarginContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ld6xd")
+}
+
+[node name="Loading" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Loading..."
+visible_characters = 0
+visible_ratio = 0.0

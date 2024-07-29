@@ -3,11 +3,12 @@
 [resource]
 background_mode = 5
 background_color = Color(0.0272565, 0.0306932, 0.0273626, 1)
-background_energy_multiplier = 10.69
+background_energy_multiplier = 3.75
 ambient_light_source = 2
 ambient_light_color = Color(0.187429, 0.182905, 0.177697, 1)
-ambient_light_energy = 4.79
+ambient_light_energy = 2.66
 tonemap_mode = 2
+tonemap_exposure = 1.78
 sdfgi_read_sky_light = false
 sdfgi_bounce_feedback = 0.0
 fog_enabled = true

@@ -44,12 +44,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_uj67y")
-
-[node name="VSlider" type="VSlider" parent="."]
-offset_top = 5.0
-offset_right = 27.0
-offset_bottom = 716.0
-min_value = 1.0
-value = 1.0
-
-[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]

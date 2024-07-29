@@ -3,27 +3,27 @@ extends CanvasLayer
 @onready var cinematic_label: Label = %CinematicLabel
 @onready var background: ColorRect = $Background
 @onready var subtitle_label: Label = %SubtitleLabel
+@onready var loading: Label = $MarginContainer/Loading
+@onready var animation_player: AnimationPlayer = $MarginContainer/AnimationPlayer
 
 signal cinematic_finished
 signal next_line_requested
 
-@export var text_duration := 4.5
-@export var sound_duration := 90.10  # Duración del sonido en segundos
+@export var text_duration := 4.3 # tiempo de cada dialogo
+@export var sound_duration := 87.10  # Duración del sonido en segundos
 
 func _ready() -> void:
 	subtitle_label.hide()
-	
 	cinematic_finished.connect(TransitionManager._on_cinematic_finished)
 	TransitionManager.preload_scene(GameManager.MAIN_SCENE)
 	play_intro_cinematic()
-	
+	loading.show()
+	animation_player.play("loading")
 
-func _input(event: InputEvent) -> void: #TODO: Remove before launch
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or \
-	event.is_action_pressed("pause"): #TODO: Remove before launch
+	event.is_action_pressed("pause"):
 		skip_cinematic()
-	if event in InputMap.get_actions():
-		show_skip_button()
 	
 
 func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:
@@ -83,9 +83,10 @@ func play_intro_cinematic() -> void:
 	get_tree().create_timer(sound_duration).timeout.connect(_on_timer_timeout)
 	# Reproduce el sonido
 	SfxManager.play_sound(preload("res://assets/sounds/sfx/Intro_carriage.mp3"))
+	SfxManager.sound_bus_1.volume_db = -1.0 #volumen musica
 	# Comienza el diálogo
 	var dialog_1 = load("res://assets/dialog/carriage intro/cutscene_dialog.tres")
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(8).timeout
 	play_cinematic(dialog_1, text_duration)
 	var dialog_2 = load("res://assets/dialog/carriage intro/cutscene_dialog_2.tres")
 	await get_tree().create_timer(11).timeout
@@ -102,4 +103,5 @@ func play_intro_cinematic() -> void:
 	var dialog_6 = load("res://assets/dialog/carriage intro/cutscene_dialog_6.tres")
 	await get_tree().create_timer(8).timeout
 	play_cinematic(dialog_6, text_duration)
+	
 	
