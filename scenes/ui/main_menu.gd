@@ -41,4 +41,4 @@ func _on_focus_entered() -> void:
 func _on_focus_exited() -> void:
 	var pitches = [0.80, 1.30, 0.95]
 	audio_stream_player_4.pitch_scale = pitches[randi() % pitches.size()]
-	audio_stream_player_4.play()
+	audio_stream_player_4.stop()
