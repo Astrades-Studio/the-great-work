@@ -7,6 +7,7 @@ extends StaticBody3D
 
 var book_material : StandardMaterial3D = preload("res://scenes/props/book_material.tres")
 
+@export var the_book : bool
 
 @export var color := Color.WHITE:
 	set(value):
@@ -23,4 +24,6 @@ func _ready() -> void:
 
 
 func open_book() -> void:
+	if the_book:
+		GameManager.philosopher_stone_recipe_read = true
 	GameManager.request_book_UI.emit(book)

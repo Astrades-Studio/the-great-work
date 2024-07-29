@@ -40,7 +40,7 @@ color_ramp = SubResource("Gradient_55pc3")
 noise = SubResource("FastNoiseLite_1b0do")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgd8l"]
-albedo_color = Color(0.654902, 0.352941, 0.313726, 1)
+albedo_color = Color(0.513726, 0.113725, 0, 1)
 albedo_texture = SubResource("NoiseTexture2D_hun70")
 metallic = 1.0
 uv1_scale = Vector3(2.575, 2.575, 2.575)
@@ -103,7 +103,8 @@ radius = 1.5
 height = 3.0
 
 [node name="FLARE" type="RigidBody3D"]
-collision_layer = 4
+collision_layer = 20
+collision_mask = 33
 linear_damp = 5.0
 script = ExtResource("1_vanpb")
 type = 20
@@ -131,8 +132,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.524017, -2.29055e-08)
 visible = false
 light_color = Color(1, 0.26, 0.26, 1)
-light_energy = 3.598
-omni_range = 5.269
+light_energy = 5.0
+omni_range = 4.0
 
 [node name="Contents" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.0958546, -1.50454e-07)

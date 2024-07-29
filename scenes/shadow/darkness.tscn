@@ -41,13 +41,13 @@ gravity = Vector3(0, 1, 0)
 size = Vector2(0.6, 0.5)
 
 [node name="Darkness" type="Area3D" groups=["darkness"]]
+visible = false
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("1_hrpg6")
 
 [node name="Shadow" parent="." instance=ExtResource("1_eedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
@@ -58,7 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
 
 [node name="DarknessFX" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311001, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_wdbxp")
 cast_shadow = 0
 amount = 140
@@ -70,5 +69,4 @@ process_material = SubResource("ParticleProcessMaterial_dpdx2")
 draw_pass_1 = SubResource("QuadMesh_bucoi")
 
 [node name="DarknessLight" type="OmniLight3D" parent="."]
-visible = false
 light_negative = true

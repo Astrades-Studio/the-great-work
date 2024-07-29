@@ -6,6 +6,7 @@ extends CenterContainer
 
 @onready var mute_check_box: CheckBox = %MuteCheckBox
 @onready var fullscreen_checkbox: CheckBox = %FullscreenCheckbox
+@onready var back_button: Button = %BackButton
 
 var master_bus : = AudioServer.get_bus_index("Master")
 var music_bus : = AudioServer.get_bus_index("Music")

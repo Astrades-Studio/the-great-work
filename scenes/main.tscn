@@ -748,6 +748,7 @@ transform = Transform3D(0.918273, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918273, 
 
 [node name="Running Crawl_Imported" type="Node3D" parent="Level/Shadows/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103037, -0.553378)
+visible = false
 metadata/run = true
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Level/Shadows/ShadowCrawl/Running Crawl_Imported"]
@@ -1047,6 +1048,7 @@ skin = SubResource("Skin_xd80g")
 libraries = {
 "": SubResource("AnimationLibrary_pevfd")
 }
+speed_scale = 1.767
 
 [node name="SpawnDiningRoom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(0.0610294, 0.0296874, -0.997694, 2.52236e-12, 0.999558, 0.0297428, 0.998136, -0.00181519, 0.0610024, -8.699, 0.19758, 4.64143)
@@ -1377,13 +1379,12 @@ transform = Transform3D(0.0149868, -0.609253, -0.0445947, 0.210208, 0.0470271, -
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
 
-[node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
-transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.4015, -2.07498, 2.46134)
+[node name="Spent Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 
-[node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
-transform = Transform3D(-0.999962, 0.00496914, -0.00717516, 0, 0.8221, 0.569343, 0.00872784, 0.569321, -0.822069, -15.9702, -1.68784, 2.31217)
+[node name="FLARE2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 
 [node name="SFX" type="Node3D" parent="Level"]
+metadata/_edit_lock_ = true
 
 [node name="Rain" type="Node3D" parent="Level/SFX"]
 

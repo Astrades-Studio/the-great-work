@@ -33,7 +33,7 @@ func _show_subtitle(text : DialogPiece, duration : float) -> void:
 	if !duration:
 		var length := text.dialog_text.length()
 		duration = length * 0.1
-	subtitle_label.text = text.dialog_text
+	subtitle_label.text = "[center]" + text.dialog_text
 	await get_tree().create_timer(duration).timeout
 	next_line_request.emit()
 

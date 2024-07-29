@@ -122,7 +122,7 @@ material = ExtResource("4_3u2cw")
 [node name="Cauldron" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_ccfdh")
 ingredient_preview = NodePath("Pot/IngredientSpot")
-wait_time = 30
+wait_time = 5
 tool_type = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

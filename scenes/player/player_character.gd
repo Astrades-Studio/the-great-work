@@ -59,7 +59,9 @@ func _input(event: InputEvent) -> void:
 func drop_ingredient() -> void:
 	if !ingredient_in_hand:
 		return
-	
+	if ingredient_in_hand.get_parent() == null:
+		ingredient_in_hand.queue_free()
+		
 	var target_position : Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
 	var target_node = GameManager.ingredient_layer
 
@@ -118,15 +120,16 @@ func _physics_process(delta: float) -> void:
 # define an "interact()" function that takes a parameter if they need a specific item
 # Check the PageComponent in Page.tscn to see how this works along the InteractComponent
 func interact():	
-	if is_instance_valid(ingredient_in_hand):
-		if ingredient_in_hand is Flare:
-			if !ingredient_in_hand.active:
-				ingredient_in_hand.active = true
-				return
-
 	if !interaction_result:
 		return
 	
 	if interaction_result.has_user_signal("interacted"):
 		interaction_result.emit_signal("interacted")
-		
+	
+	if is_instance_valid(ingredient_in_hand):
+		if ingredient_in_hand is Flare:
+			if !ingredient_in_hand.active:
+				ingredient_in_hand.active = true
+				return
+		if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+			GameManager.stone_consumed.emit()

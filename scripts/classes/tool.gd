@@ -24,14 +24,15 @@ enum Type {
 
 signal ingredient_ready
 
+var processing : bool
 var input_type : Ingredient.Type 
 var time_passed : int
 var last_ingredient : Ingredient # For salt names
-var processing_ingredient: Ingredient # Before it is ready
+#var processing_ingredient: Ingredient # Before it is ready
 var stored_ingredient: Ingredient: # For pickup
 	set(value):
 		stored_ingredient = value
-		if stored_ingredient:
+		if stored_ingredient and stored_ingredient.type != Ingredient.Type.NONE and !processing:
 			self.name = "%s with %s" % [og_name, stored_ingredient.type_name]
 		else:
 			self.name = og_name
@@ -78,7 +79,10 @@ func _ready():
 	
 #TODO: Make the dialogs for each case
 func on_tool_use() -> bool:
-	if processing_ingredient:
+	if GameManager.philosopher_stone_recipe_read == false:
+		DialogManager.create_dialog_piece("I should check the recipe first.")
+		return false
+	if processing:
 		DialogManager.create_dialog_piece("Now I just need to wait a little.")
 		return false
 	
@@ -86,8 +90,11 @@ func on_tool_use() -> bool:
 	if !hand_ingredient:	
 		if tool_type == Type.CAULDRON:
 			if stored_ingredient:
-				DialogManager.create_dialog_piece("There's some %s in the Cauldron." % stored_ingredient.type_name)
-				# move_ingredient_to_player(stored_ingredient)
+				if stored_ingredient.type == Ingredient.Type.NONE:
+					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")	
+					stored_ingredient = null
+				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
+				move_ingredient_to_player(stored_ingredient)
 				return false
 		else:
 			if stored_ingredient:
@@ -108,7 +115,6 @@ func on_tool_use() -> bool:
 	var new_ingredient_type: Ingredient.Type
 	input_type = hand_ingredient.type
 	
-	start_tool_timer()
 	
 	if tool_type == Type.MORTAR:
 		new_ingredient_type = use_mortar(hand_ingredient)
@@ -119,16 +125,14 @@ func on_tool_use() -> bool:
 	elif tool_type == Type.STILL:
 		new_ingredient_type = use_still(hand_ingredient)
 	
-	processing_ingredient = instance_ingredient(new_ingredient_type)
+	stored_ingredient = instance_ingredient(new_ingredient_type)
 
-	if new_ingredient_type == Ingredient.Type.NONE or \
-		new_ingredient_type == Ingredient.Type.ALBEDO or \
-		new_ingredient_type == Ingredient.Type.NIGREDO:
-		
-		hand_ingredient.queue_free()
-		GameManager.player.ingredient_in_hand = null
-		return false
-
+	start_tool_timer()
+	#if new_ingredient_type == Ingredient.Type.ALBEDO or \
+		#new_ingredient_type == Ingredient.Type.NIGREDO:	
+		#GameManager.player.ingredient_in_hand = null
+		#return false
+	
 	hand_ingredient.queue_free()
 	return true
 
@@ -167,25 +171,29 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 	
 	return ingredient.Type.CAPUT_MORTUUM
 
+var item_1
+var item_2
 
 func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
 	
 	# If this is the first ingredient, return nothing
-	if !processing_ingredient:
-		processing_ingredient = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
+	if !item_1:
+		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
 		return Ingredient.Type.NONE
+	else:
+		item_2 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
+		DialogManager.create_dialog_piece("I added %s to the %s" % [item_2.type_name, item_2])
 	
 	# Check all recipes
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.CAULDRON]:
 		# Check if the recipe exists
-		if ingredient.type == correct_type:
+		if item_2.type == correct_type:
 			# Check if the stored ingredient combines with the ingredient on hand
-			if processing_ingredient.type == CORRECT_TOOL_DICTIONARY[Type.CAULDRON][correct_type]:
+			if item_1.type == CORRECT_TOOL_DICTIONARY[Type.CAULDRON][correct_type]:
 				# Return the next state of the ingredient
-				DialogManager.create_dialog_piece("I combined the %s with the %s" % [processing_ingredient.type_name, ingredient.type_name])
-				result = ingredient.NEXT_STATE[ingredient.type]
+				result = item_2.NEXT_STATE[item_2.type]
 				# Unless it's the philosophers stone, in which case we need to check the progress
 				if result == Ingredient.Type.NIGREDO and progress == 0:
 					result = advance_progress_philosopher_stone()
@@ -198,10 +206,11 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 					return result
 				
 				return result
-
-	DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [stored_ingredient.type_name, ingredient.type_name])
-	stored_ingredient = null
-	return ingredient.Type.CAPUT_MORTUUM
+	if item_1.type != Ingredient.Type.NONE and item_2.type != Ingredient.Type.NONE:
+		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [stored_ingredient.type_name, ingredient.type_name])
+	else:
+		push_error("Something went wrong with the cauldron code")
+	return Ingredient.Type.CAPUT_MORTUUM
 
 # Check progress of the philospher's stone
 var progress := 0
@@ -217,27 +226,11 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	if progress == 3:
 		progress = 0
 		DialogManager.create_dialog_piece("Glorious red. This must be it!")
-		GameManager.philosopher_stone_made.emit()
 		return Ingredient.Type.PHILOSOPHERS_STONE
 	else:
 		push_error("Something went wrong with the philospher's stone code")
 		progress = 0
 		return Ingredient.Type.CAPUT_MORTUUM
-
-
-# func give_new_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
-# 	if new_ingredient_type == Ingredient.Type.NONE or \
-# 	new_ingredient_type == Ingredient.Type.NIGREDO or \
-# 	new_ingredient_type == Ingredient.Type.ALBEDO:
-# 		GameManager.player.ingredient_in_hand = null
-# 		return
-
-# 	var resulting_ingredient = instance_ingredient(new_ingredient_type)
-# 	add_child(resulting_ingredient, true)
-# 	move_ingredient_to_player(resulting_ingredient)
-	# print(str(resulting_ingredient.type_name) + " added")
-	# if resulting_ingredient.type == Ingredient.Type.CAPUT_MORTUUM:
-	# 	resulting_ingredient.type_name = (Ingredient.Type.keys()[input_type] + " salt").capitalize()
 
 
 func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
@@ -253,12 +246,16 @@ func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
 
 func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	# TODO play animation?
+	add_child(ingredient, true)
 	stored_ingredient = null
+	item_1 = null
+	item_2 = null
 	GameManager.ingredient_spawned(ingredient)
 	GameManager.player.ingredient_in_hand = ingredient
 
 
 func start_tool_timer() -> void:
+	processing = true
 	wait_label.show()
 	wait_label.text = str(wait_time)
 	time_passed = 0
@@ -272,9 +269,8 @@ func _on_timer_timeout() -> void:
 	if time_passed < wait_time:
 		timer.start(1)
 	else:
+		processing = false
 		DialogManager.create_subtitles_piece("I think the %s is ready" % name)
 		ingredient_ready.emit()
-		stored_ingredient = processing_ingredient
-		processing_ingredient = null
 		wait_label.hide()
 		timer.stop()
