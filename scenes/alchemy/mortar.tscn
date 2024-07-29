@@ -12,7 +12,8 @@ data = PackedVector3Array(0.0811, 0.091, -0.0015, 0.0459, 0.091, 0.051, 0.1147, 
 collision_layer = 4
 script = ExtResource("1_f5mii")
 ingredient_preview = NodePath("IngredientSpot")
-type = 1
+wait_time = 1
+tool_type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_gjy1p")
@@ -33,3 +34,6 @@ text = "30"
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("4_kkm5h")
 mesh = NodePath("../MeshInstance3D")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true

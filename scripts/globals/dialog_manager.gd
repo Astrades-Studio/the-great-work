@@ -21,7 +21,7 @@ func create_dialog_piece(text: String, speaker: String = "Melchiades"):
 	_dialog.dialog.append(dialog_piece)
 	play_dialog(_dialog)
 
-func create_subtitles_piece(text: String, duration: float):
+func create_subtitles_piece(text: String, duration: float = 2.0):
 	var dialog_piece := DialogPiece.new()
 	dialog_piece.dialog_text = text
 
@@ -35,7 +35,7 @@ func play_dialog(dialog : Dialog):
 	dialog_layer.play_dialog(dialog)
 
 
-func play_subtitles(dialog : Dialog, duration : float):
+func play_subtitles(dialog : Dialog, duration : float = 2.0):
 	#GameManager.current_state = GameManager.GameState.DIALOG
 	subtitles_layer.play_subtitles(dialog, duration)
 

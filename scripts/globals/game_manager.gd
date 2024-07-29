@@ -52,7 +52,7 @@ var player : UCharacterBody3D
 var environment : WorldEnvironment
 var text_layer : TextLayer
 var ingredient_layer : Node
-var transition_screen : Node
+
 
 # Trackers
 var spawned_ingredients : Array[Ingredient]
@@ -63,6 +63,7 @@ var shadows_spawned : Array[Shadow]
 signal interaction_label_updated(string : String)
 signal state_label_updated(state : GameState)
 signal request_book_UI(book : BookPages)
+signal request_debug_panel
 
 # Game State Signals
 signal game_over

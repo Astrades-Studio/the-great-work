@@ -1487,7 +1487,6 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
-visible = false
 
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
 visible = false

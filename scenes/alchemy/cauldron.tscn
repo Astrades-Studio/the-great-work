@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dfx4lp3vs1ref"]
+[gd_scene load_steps=20 format=4 uid="uid://dfx4lp3vs1ref"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
@@ -90,6 +90,32 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tvmmu")
 
+[sub_resource type="Gradient" id="Gradient_153bb"]
+offsets = PackedFloat32Array(0.40458, 0.932692)
+colors = PackedColorArray(0.33, 0.33, 0.33, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rk0de"]
+noise_type = 3
+frequency = 0.0673
+fractal_octaves = 1
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jjqdt"]
+color_ramp = SubResource("Gradient_153bb")
+noise = SubResource("FastNoiseLite_rk0de")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sepv"]
+blend_mode = 1
+albedo_color = Color(0.856328, 0.890452, 0.843422, 1)
+albedo_texture = SubResource("NoiseTexture2D_jjqdt")
+emission_enabled = true
+emission = Color(0.93, 0.341, 0, 1)
+emission_energy_multiplier = 1.94
+emission_operator = 1
+uv1_offset = Vector3(0.38, 0.455, -0.165)
+uv1_triplanar = true
+
 [sub_resource type="QuadMesh" id="QuadMesh_5xtoe"]
 material = ExtResource("4_3u2cw")
 
@@ -97,7 +123,7 @@ material = ExtResource("4_3u2cw")
 script = ExtResource("1_ccfdh")
 ingredient_preview = NodePath("Pot/IngredientSpot")
 wait_time = 30
-type = 3
+tool_type = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.36968e-08, -5.44901e-09, -1, 6.98496e-10, 1, -5.44901e-09, 1, -6.98496e-10, -4.36968e-08, -0.00851685, 0.376678, -0.138085)
@@ -125,10 +151,18 @@ metadata/ant_landscape = "{  }"
 [node name="IngredientSpot" type="Node3D" parent="Pot"]
 transform = Transform3D(-4.37114e-08, 0, 1, -0.0577034, 0.998334, -2.52229e-09, -0.998334, -0.0577034, -4.36385e-08, 0.037844, 0.222742, -0.000659954)
 
-[node name="Spoon" type="MeshInstance3D" parent="Pot"]
+[node name="MixPivot" type="Node3D" parent="Pot"]
+
+[node name="Spoon" type="MeshInstance3D" parent="Pot/MixPivot"]
 transform = Transform3D(-2.80122e-08, -0.560587, 0.310521, -0.0369789, 0.310004, 0.559653, -0.639776, -0.0179181, -0.0323478, 0.0554363, 0.0656392, -0.0654637)
 mesh = ExtResource("2_bh27f")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
+
+[node name="Contents" type="CSGCylinder3D" parent="Pot"]
+transform = Transform3D(1, -2.22045e-16, -3.55271e-15, 0, 1, 1.10069e-16, 0, 1.1007e-16, 1, 0, 0.11673, -0.00674696)
+radius = 0.220883
+height = 0.160229
+material = SubResource("StandardMaterial3D_2sepv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829268, -0.00496584, 0.0829259, -0.996543, 0.0142202, 1.24062, -0.0681245)
@@ -161,6 +195,7 @@ mesh = SubResource("QuadMesh_5xtoe")
 skeleton = NodePath("../SmallLogPile_002")
 
 [node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
