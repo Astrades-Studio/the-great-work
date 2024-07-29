@@ -12,6 +12,7 @@ signal line_hidden
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	fade_in(true)
 	DialogManager.subtitles_layer = self
 	next_line_request.connect(_on_next_line_request)
 	subtitle_finished.connect(DialogManager._on_subtitle_finished)
@@ -23,6 +24,7 @@ func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:
 		await line_hidden
 	
 	subtitle_label.hide()
+	subtitle_label.text = ""
 	subtitle_finished.emit()
 
 
@@ -52,21 +54,7 @@ func fade_in(reversed : bool) -> void:
 		tween.kill()
 	tween = get_tree().create_tween()
 	if !reversed:
-		tween.tween_property(subtitle_label, "modulate", Color(1.0, 1.0, 1.0, 1.0), 1.0)
+		tween.tween_property(subtitle_label, "modulate", Color.WHITE, 1.0)
 	else:
-		tween.tween_property(subtitle_label, "modulate", Color(1.0, 1.0, 1.0, 0.0), 1.0)
+		tween.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
 	await tween.finished
-	
-#signal cinematic_finished
-# func play_cinematic(dialog : Dialog, duration : float) -> void:
-# 	cinematic_label.show()
-# 	background.show()
-
-# 	for dialog_piece in dialog.dialog:
-# 		await _show_subtitle(dialog_piece, cinematic_label)
-		
-# 		_hide_subtitle(cinematic_label)
-
-# 	cinematic_label.show()
-# 	background.hide()
-# 	cinematic_finished.emit()

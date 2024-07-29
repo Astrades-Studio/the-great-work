@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105712, 0.187664, -0.004
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600002, 0)
 visible = false
 billboard = 2
-text = "30"
+text = "5"
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("4_kkm5h")

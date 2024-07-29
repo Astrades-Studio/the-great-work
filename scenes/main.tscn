@@ -1161,15 +1161,18 @@ transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.9999
 [node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_ufp8w")
+the_book = false
 
 [node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 3.08048)
 book = ExtResource("10_ufp8w")
+the_book = false
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 2.14595)
 book = ExtResource("10_ufp8w")
+the_book = false
 
 [node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
