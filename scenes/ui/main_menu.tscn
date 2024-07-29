@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://2ou037vtlkeu" path="res://assets/sounds/music/Main Theme 01.mp3" id="4_3uih3"]
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="5_1ffgs"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="5_0425m"]
-[ext_resource type="PackedScene" uid="uid://bdo7suaqn2xxp" path="res://scenes/ui/settings.tscn" id="6_kbldp"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings.tscn" id="6_kbldp"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="8_lgtuu"]
 [ext_resource type="AudioStream" uid="uid://mi3qbnnjh42n" path="res://assets/sounds/sfx/hover_mouse.mp3" id="9_3rmti"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="9_33awd"]
