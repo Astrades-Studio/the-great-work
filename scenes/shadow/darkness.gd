@@ -30,13 +30,15 @@ func _ready() -> void:
 	# self.area_exited.connect(_on_area_exited)
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 	GameManager.shadow_spawn_points.append(self)
+	remove_shadow()
+	
 
 
 func _process(delta: float) -> void:
 	if flare_reference:
 		if flare_reference.active and shadow_present:
 			hp -= delta
-			print(hp)
+			print("HP: " + str(hp))
 	if !shadow_present and cooldown >= 0.:
 		cooldown -= delta
 
@@ -46,8 +48,8 @@ func _on_tick_countdown() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is Flare:
-		flare_reference = body.ingredient_in_hand
+	#if body is Flare:
+		#flare_reference = body
 	if body is Player:
 		if body.ingredient_in_hand is Flare:
 			flare_reference = body.ingredient_in_hand
@@ -58,26 +60,14 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_body_exited(body: Node3D) -> void:
-	if body is Flare:
-		flare_reference = null
+	#if body is Flare:
+		#flare_reference = null
 	if body is Player:
 		body.gas_lamp.disabled = false
 		shadow.reset_invisibility()
-		if body.ingredient_in_hand is Flare:
-			flare_reference = null
-
-
-# func _on_area_entered(_area: Area3D) -> void:
-# 	if _area.is_in_group("flare"):
-# 		if _area.get_parent().active:
-# 			print("Flare near")
-# 			flare_near = true
-
-
-# func _on_area_exited(_area: Area3D) -> void:
-# 	if _area.is_in_group("flare"):
-# 		print("Flare left")
-# 		flare_near = false
+		if is_instance_valid(body.ingredient_in_hand):
+			if body.ingredient_in_hand is Flare:
+				flare_reference = null
 
 
 var tween : Tween        
@@ -89,9 +79,10 @@ func spawn_shadow() -> bool:
 	hp = MAX_HP
 	shadow_present = true
 	# TODO: VFX
-	shadow.visible = true
-	darkness_fx.emitting = true
-	darkness_light.visible = true
+	show()
+	#shadow.visible = true
+	#darkness_fx.emitting = true
+	#darkness_light.visible = true
 	return true
 
 
@@ -99,6 +90,7 @@ func remove_shadow() -> void:
 	cooldown = MAX_COOLDOWN
 	shadow_present = false
 	# TODO: VFX
-	shadow.visible = false
-	darkness_fx.emitting = false
-	darkness_light.visible = false
+	hide()
+	#shadow.visible = false
+	#darkness_fx.emitting = false
+	#darkness_light.visible = false

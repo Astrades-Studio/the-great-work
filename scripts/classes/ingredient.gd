@@ -92,7 +92,6 @@ static var MESH_TABLE : Dictionary = {
 	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
 	Type.NIGREDO: null,
 	Type.ALBEDO: null,
-	Type.RUBEDO: null,
 }
 
 # TODO: Maybe move to a global

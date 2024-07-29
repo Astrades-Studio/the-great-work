@@ -12,10 +12,10 @@ func _ready():
 	var vignette_material = vignette.material
 	nausea_material.set_shader_parameter("time", 0.0)  # Initialize time
 	set_process(true)
-	await get_tree().create_timer(5).timeout
-	increase_agitation()
-	await get_tree().create_timer(10).timeout
-	decrease_agitation()
+	#await get_tree().create_timer(5).timeout
+	#increase_agitation()
+	#await get_tree().create_timer(10).timeout
+	#decrease_agitation()
 
 func _process(delta):
 	var current_time = nausea.material.get_shader_parameter("time")
@@ -24,8 +24,8 @@ func _process(delta):
 	nausea.material.set_shader_parameter("time", current_time + delta)
 	vignette.material.set_shader_parameter("inner_radius",vignette_inner_radius)
 	vignette.material.set_shader_parameter("outer_radius",vignette_outer_radius)
-	print(nausea.material.get_shader_parameter("amplitude"))
-	print(nausea.material.get_shader_parameter("frequency"))
+	#print(nausea.material.get_shader_parameter("amplitude"))
+	#print(nausea.material.get_shader_parameter("frequency"))
 
 	
 func increase_agitation():

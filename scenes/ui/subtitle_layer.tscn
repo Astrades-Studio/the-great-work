@@ -35,6 +35,8 @@ mouse_filter = 2
 [node name="SubtitleLabel" type="RichTextLabel" parent="VBoxContainer/CenterContainer2"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
+text = "[center]asdasfashfkalsfnla"

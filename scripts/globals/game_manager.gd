@@ -46,6 +46,9 @@ var current_state : GameState:
 			printerr("Invalid game state")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+# Progression
+var philosopher_stone_recipe_read : bool = false
+
 
 # References
 var player : UCharacterBody3D
@@ -70,7 +73,6 @@ signal game_over
 signal game_started
 
 # Game Progression Signals
-signal philosopher_stone_recipe_read #TODO connect to recipe
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
@@ -151,7 +153,7 @@ func spawn_random_shadow():
 
 func update_darkness_effect(amount: int):
 	# TODO lerp?
-	environment.environment.fog_density = amount
+	environment.environment.fog_density = amount * 0.1
 	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
 	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
 

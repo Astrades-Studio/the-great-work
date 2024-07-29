@@ -25,6 +25,7 @@ var spent : bool = false
 			fire_beam.emitting = true
 			smoke.emitting = true
 			light.visible = true
+			light.light_energy = 5.0
 		else:
 			fire_beam.emitting = false
 			smoke.emitting = false
@@ -42,11 +43,15 @@ func _on_location_changed():
 	if current_location == Location.ENVIRONMENT:
 		fire_beam.layers = 0x0002
 		smoke.layers = 0x0002
+		light.layers = 0x0002
 	else:
 		fire_beam.layers = 0x0001
 		smoke.layers = 0x0001
+		light.layers = 0x0001
 
 func _on_duration_timer_timeout() -> void:
+	if Engine.is_editor_hint():
+		return
 	active = false
 	contents.mesh.material.albedo_color = Color.PAPAYA_WHIP
 	#mesh.mesh.surface_get_material(0).albedo_color = Color.DIM_GRAY

@@ -79,6 +79,9 @@ func _ready():
 	
 #TODO: Make the dialogs for each case
 func on_tool_use() -> bool:
+	if GameManager.philosopher_stone_recipe_read == false:
+		DialogManager.create_dialog_piece("I should check the recipe first.")
+		return false
 	if processing:
 		DialogManager.create_dialog_piece("Now I just need to wait a little.")
 		return false
@@ -230,21 +233,6 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 		return Ingredient.Type.CAPUT_MORTUUM
 
 
-# func give_new_ingredient_to_player(new_ingredient_type: Ingredient.Type) -> void:
-# 	if new_ingredient_type == Ingredient.Type.NONE or \
-# 	new_ingredient_type == Ingredient.Type.NIGREDO or \
-# 	new_ingredient_type == Ingredient.Type.ALBEDO:
-# 		GameManager.player.ingredient_in_hand = null
-# 		return
-
-# 	var resulting_ingredient = instance_ingredient(new_ingredient_type)
-# 	add_child(resulting_ingredient, true)
-# 	move_ingredient_to_player(resulting_ingredient)
-	# print(str(resulting_ingredient.type_name) + " added")
-	# if resulting_ingredient.type == Ingredient.Type.CAPUT_MORTUUM:
-	# 	resulting_ingredient.type_name = (Ingredient.Type.keys()[input_type] + " salt").capitalize()
-
-
 func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
 	if Ingredient.MESH_TABLE[_type]:
 		var new_ingredient = load(Ingredient.MESH_TABLE[_type]).instantiate() as Ingredient
@@ -275,13 +263,13 @@ func start_tool_timer() -> void:
 
 
 func _on_timer_timeout() -> void:
-	processing = false
 	time_passed += 1
 	wait_label.text = str(wait_time - time_passed)
 	
 	if time_passed < wait_time:
 		timer.start(1)
 	else:
+		processing = false
 		DialogManager.create_subtitles_piece("I think the %s is ready" % name)
 		ingredient_ready.emit()
 		wait_label.hide()

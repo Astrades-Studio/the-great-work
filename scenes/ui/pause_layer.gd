@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var settings_container: CenterContainer = %SettingsContainer
 
 @onready var continue_button: Button = %ContinueButton
-@onready var back_button: Button = %BackButton
+@onready var back_button: Button = settings_container.back_button
 @onready var quit_refuse_button: Button = %QuitRefuseButton
 
 func _ready() -> void:

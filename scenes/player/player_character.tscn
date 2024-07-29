@@ -76,6 +76,7 @@ layer = 2
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HandLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="ItemViewport" type="SubViewport" parent="HandLayer/SubViewportContainer"]
 unique_name_in_owner = true
@@ -94,7 +95,7 @@ current = true
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.153563, -0.268041)
-speed_variance = 1.39043
+speed_variance = 1.49842
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
 transform = Transform3D(0.526678, -0.179081, -0.830987, -0.247548, 0.902878, -0.351469, 0.813222, 0.390821, 0.431195, 0.349607, -0.235295, -0.556095)
@@ -113,6 +114,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -120,9 +122,11 @@ theme_override_constants/margin_bottom = 20
 
 [node name="CenterContainer" type="CenterContainer" parent="HUDLayer/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("5_pbhtp")
 
 [node name="InteractionLabel" type="Label" parent="HUDLayer/MarginContainer/CenterContainer/TextureRect"]
@@ -144,13 +148,16 @@ script = ExtResource("6_ur5a8")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mfqto")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -162,6 +169,7 @@ layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -175,13 +183,16 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_aohgk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -190,12 +201,14 @@ text = "Interact:"
 [node name="InteractIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 texture = ExtResource("10_dx5ro")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -204,12 +217,14 @@ text = "Drop Item:"
 [node name="DropIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 texture = ExtResource("11_xib7e")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -218,6 +233,7 @@ text = "Lamp:"
 [node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 texture = ExtResource("12_lmv77")
 expand_mode = 1
 stretch_mode = 5
