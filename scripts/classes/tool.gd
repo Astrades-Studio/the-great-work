@@ -137,6 +137,7 @@ func on_tool_use() -> bool:
 
 		start_tool_timer()
 	
+	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
 
@@ -183,6 +184,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	if !item_1:
 		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
+		GameManager.player.ingredient_in_hand = null
 		return Ingredient.Type.NONE
 	else:
 		item_2 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)

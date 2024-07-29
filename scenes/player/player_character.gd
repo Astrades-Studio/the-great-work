@@ -122,10 +122,7 @@ func _physics_process(delta: float) -> void:
 func interact():	
 	if !interaction_result:
 		return
-	
-	if interaction_result.has_user_signal("interacted"):
-		interaction_result.emit_signal("interacted")
-	
+
 	if is_instance_valid(ingredient_in_hand):
 		if ingredient_in_hand is Flare:
 			if !ingredient_in_hand.active:
@@ -133,3 +130,7 @@ func interact():
 				return
 		if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
 			GameManager.stone_consumed.emit()
+		
+	if interaction_result.has_user_signal("interacted"):
+		interaction_result.emit_signal("interacted")
+	
