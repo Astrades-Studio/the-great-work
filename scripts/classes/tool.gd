@@ -106,7 +106,7 @@ func on_tool_use() -> bool:
 		DialogManager.create_dialog_piece("Caput Mortuum is inert substancce. I need to find something else.")
 		return false
 	if hand_ingredient.type == Ingredient.Type.ASH:
-		DialogManager.create_dialog_piece("This is burned beyond reach. I need something else.")
+		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")
 		return false
 	
 	if stored_ingredient:
@@ -161,7 +161,7 @@ func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
 	
-	return ingredient.Type.CAPUT_MORTUUM
+	return ingredient.Type.ASH
 
 
 func use_still(ingredient: Ingredient) -> Ingredient.Type:
