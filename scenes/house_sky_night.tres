@@ -1,9 +1,8 @@
 [gd_resource type="Environment" format=3 uid="uid://dxjf3e8aefdjw"]
 
 [resource]
-background_mode = 5
 background_color = Color(0.0272565, 0.0306932, 0.0273626, 1)
-background_energy_multiplier = 3.75
+background_energy_multiplier = 0.32
 ambient_light_source = 2
 ambient_light_color = Color(0.187429, 0.182905, 0.177697, 1)
 ambient_light_energy = 2.66

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dpd53rydy51iw"]
+
+[resource]
+resource_name = "Light.010"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.0155533, 0.0271792, 0.0396033, 1)
+albedo_texture_force_srgb = true
+metallic_specular = 0.23
+roughness = 0.26
+emission = Color(0.00454174, 0.005615, 0.0362529, 1)
+emission_energy_multiplier = 0.0
+refraction_scale = 1.0
