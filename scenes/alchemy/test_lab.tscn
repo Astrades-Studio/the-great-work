@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=32 format=3 uid="uid://bi2r2nphbktxx"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="20_aw3yg"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="20_fwnm8"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="20_onw05"]
+[ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="22_h6p0o"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="22_phwuf"]
 [ext_resource type="PackedScene" uid="uid://dy1wo4g1em5uj" path="res://scenes/alchemy/ingredients_scene.tscn" id="26_57agx"]
 
@@ -90,6 +91,10 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesa/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_vgynt")
+
+[node name="Book" parent="Mesa" instance=ExtResource("22_h6p0o")]
+transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0.73298, 0.520226)
+the_book = true
 
 [node name="Tools" type="Node3D" parent="."]
 
