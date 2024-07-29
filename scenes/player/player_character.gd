@@ -1,5 +1,5 @@
 extends UCharacterBody3D
-
+class_name Player
 
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp

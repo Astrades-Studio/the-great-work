@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=24 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="2_yvr0d"]
@@ -91,9 +91,18 @@ height = 0.1
 points = PackedVector3Array(0.132402, 0.0354163, 0.081498, -0.161873, 0.0571909, -0.020112, -0.161839, 0.0572502, 0.020319, 0.0216992, 0.686707, -0.0106844, 0.0757622, 0.0920146, -0.162067, -0.032296, 0.0812426, 0.17315, -0.0755531, 0.0920146, -0.162067, 0.17315, 0.0812426, -0.032296, -0.0214902, 0.686707, 0.0108934, 0.119019, 0.102787, 0.129825, 0.0312037, 0.00849892, -0.124403, -0.129616, 0.102787, 0.119019, -0.0930975, 0.00917595, 0.0933079, -0.162067, 0.0920146, -0.0755531, -0.0106844, 0.686707, -0.0214902, 0.16231, 0.0920146, 0.0757622, 0.0108934, 0.686707, 0.0216992, -0.172907, 0.102787, 0.0108934, -0.0931193, 0.00909834, -0.0931193, 0.140699, 0.0920146, -0.108004, 0.0757622, 0.0920146, 0.16231, 0.0622233, 0.0091803, 0.114007, 0.124586, 0.00857239, -0.0309864, -0.0106844, 0.102787, -0.172907, -0.0755531, 0.0920146, 0.16231, -0.162067, 0.0920146, 0.0757622, -0.129616, 0.102787, -0.11881, 0.17315, 0.102787, 0.0108934, 0.0108934, 0.102787, 0.17315, 0.112036, 0.0353244, -0.111825, -0.0101797, 0.0314226, -0.154492, -0.0101714, 0.0316708, 0.154611)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mr75j"]
-radius = 4.0
+radius = 2.5
 
-[node name="FLARE" type="RigidBody3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgy2q"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5idfu"]
+material = SubResource("StandardMaterial3D_jgy2q")
+radius = 2.5
+height = 5.0
+
+[node name="FLARE" type="RigidBody3D" groups=["flare"]]
 collision_layer = 4
 linear_damp = 5.0
 script = ExtResource("1_vanpb")
@@ -139,10 +148,17 @@ skeleton = NodePath("../../Mercury")
 transform = Transform3D(0.63105, 0, 0, 0, 0.63105, -6.72582e-15, 0, 6.72582e-15, 0.63105, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_dyg0k")
 
-[node name="ShadowBarrier" type="Area3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="ShadowBarrier" type="Area3D" parent="." groups=["flare"]]
+collision_layer = 16
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowBarrier"]
 shape = SubResource("SphereShape3D_mr75j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShadowBarrier"]
+mesh = SubResource("SphereMesh_5idfu")
 
 [node name="DurationTimer" type="Timer" parent="."]
 wait_time = 30.0

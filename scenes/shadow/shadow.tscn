@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=15 format=4 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow/shadow.gd" id="1_4x05d"]
 [ext_resource type="Animation" uid="uid://dqfsqto83tklk" path="res://assets/animations/crawl.res" id="3_wcyuf"]
@@ -181,10 +181,12 @@ _data = {
 "standing_idle_2": ExtResource("5_6ohqd")
 }
 
-[node name="Shadow" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_3vo5b"]
+radius = 2.5
+
+[node name="Shadow" type="Node3D" groups=["shadow"]]
 transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 script = ExtResource("1_4x05d")
-SPEED = 0.2
 
 [node name="Import" type="Node3D" parent="."]
 metadata/run = true
@@ -495,8 +497,15 @@ autoplay = "standing_idle"
 light_negative = true
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15677, 0)
-aabb = AABB(-0.253812, -0.826183, -0.167749, 0.507625, 1.2217, 0.335498)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05718, 0)
+aabb = AABB(-0.189666, -1.04463, -0.100428, 0.395934, 1.6586, 0.200857)
+
+[node name="Influence" type="Area3D" parent="." groups=["shadow"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Influence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967721, 0)
+shape = SubResource("SphereShape3D_3vo5b")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

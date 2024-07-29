@@ -1,12 +1,12 @@
-[gd_scene load_steps=57 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=58 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
-[ext_resource type="PackedScene" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="6_5pm5j"]
+[ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
+[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
 [ext_resource type="Texture2D" uid="uid://dsiwfab46tw32" path="res://assets/images/recipes/zodiac_processes.png" id="6_kc6qj"]
 [ext_resource type="Texture2D" uid="uid://c4xxdqa3yfsji" path="res://assets/images/paintings/painting-04.jpg" id="6_sp2fh"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
@@ -19,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
-[ext_resource type="PackedScene" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
+[ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="14_ueicl"]
-[ext_resource type="PackedScene" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
 [ext_resource type="PackedScene" uid="uid://oy23q6xh7wmx" path="res://scenes/interactable/fireplace.tscn" id="15_m0432"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
@@ -29,8 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
 [ext_resource type="PackedScene" uid="uid://dy1wo4g1em5uj" path="res://scenes/alchemy/ingredients_scene.tscn" id="20_vy2o3"]
-[ext_resource type="PackedScene" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
+[ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
+
+[sub_resource type="Environment" id="Environment_hgr2d"]
+ambient_light_source = 2
+ambient_light_color = Color(0.831761, 0.831761, 0.831761, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -531,18 +535,16 @@ shadow_mesh = SubResource("ArrayMesh_q07ea")
 script = ExtResource("1_bkhrr")
 
 [node name="Level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 
 [node name="Ambient" type="Node3D" parent="Level"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
-environment = ExtResource("6_5pm5j")
+environment = SubResource("Environment_hgr2d")
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
-
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="Level/House"]
-environment = ExtResource("6_5pm5j")
 
 [node name="Ground" type="Node3D" parent="Level"]
 
@@ -614,14 +616,14 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="Shadows" type="Node3D" parent="Level"]
 
-[node name="ShadowSpawn" type="Marker3D" parent="Level/Shadows" groups=["shadowspawns"]]
+[node name="ShadowCrawl" type="Marker3D" parent="Level/Shadows"]
 transform = Transform3D(0.918273, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918273, -14.0334, 0.21762, 3.00247)
 
-[node name="Running Crawl_Imported" type="Node3D" parent="Level/Shadows/ShadowSpawn"]
+[node name="Running Crawl_Imported" type="Node3D" parent="Level/Shadows/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103037, -0.553378)
 metadata/run = true
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Level/Shadows/ShadowSpawn/Running Crawl_Imported"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Level/Shadows/ShadowCrawl/Running Crawl_Imported"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00230419, 1.03563, 0.0123485)
@@ -910,14 +912,56 @@ bones/40/position = Vector3(-7.60848e-11, 0.0608778, 4.04071e-12)
 bones/40/rotation = Quaternion(1.63527e-10, -2.90783e-16, -6.93889e-18, 1)
 bones/40/scale = Vector3(1, 1, 1)
 
-[node name="HumanoidBase_NotOverlapping" type="MeshInstance3D" parent="Level/Shadows/ShadowSpawn/Running Crawl_Imported/Skeleton3D"]
+[node name="HumanoidBase_NotOverlapping" type="MeshInstance3D" parent="Level/Shadows/ShadowCrawl/Running Crawl_Imported/Skeleton3D"]
 mesh = SubResource("ArrayMesh_hrd4c")
 skin = SubResource("Skin_xd80g")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/ShadowSpawn/Running Crawl_Imported"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/ShadowCrawl/Running Crawl_Imported"]
 libraries = {
 "": SubResource("AnimationLibrary_pevfd")
 }
+
+[node name="SpawnDiningRoom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(0.0610294, 0.0296874, -0.997694, 2.52236e-12, 0.999558, 0.0297428, 0.998136, -0.00181519, 0.0610024, -8.699, 0.19758, 4.64143)
+
+[node name="Darkness" parent="Level/Shadows/SpawnDiningRoom" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnEntrance" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0.0471823, -0.113186, -0.0468791, 0.992467, -12.5333, 0.335908, -7.24484)
+
+[node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnBedroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(-0.942463, -0.0172306, 0.333868, 6.26803e-10, 0.998671, 0.0515405, -0.334312, 0.048575, -0.94121, -18.82, 0.287143, -4.70714)
+
+[node name="Darkness" parent="Level/Shadows/SpawnBedroom" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnBasement" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(0.900681, 0.0129225, -0.434289, 0, 0.999558, 0.0297424, 0.434481, -0.0267884, 0.900282, -11.4671, -2.89808, -6.47169)
+
+[node name="Darkness" parent="Level/Shadows/SpawnBasement" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnKitchen" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(-0.49999, -0.0158041, -0.865887, 0, 0.999834, -0.0182488, 0.866031, -0.00912424, -0.499907, -23.0682, 0.210962, 2.21717)
+
+[node name="Darkness" parent="Level/Shadows/SpawnKitchen" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnBathroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823, -0.968144, 0.0118141, -0.250115, -16.2179, 0.157982, 1.70638)
+
+[node name="Darkness" parent="Level/Shadows/SpawnBathroom" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+
+[node name="SpawnStairs" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
+transform = Transform3D(0.00476587, 0.338283, 0.941033, -0.00661438, 0.941033, -0.33825, -0.999967, -0.00461221, 0.00672236, -19.5686, 1.84717, 6.72934)
+
+[node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("4_vkn8q")]
+transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 
 [node name="Props" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1221,12 +1265,6 @@ visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("6_5pm5j")
-
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = ExtResource("6_5pm5j")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("30_8kwqj")]
 

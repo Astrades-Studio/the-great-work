@@ -55,7 +55,9 @@ folder_colors={
 
 player=""
 ingredient=""
-shadowspawns=""
+shadow_spawn_points=""
+flare=""
+shadow=""
 
 [gui]
 
@@ -151,6 +153,8 @@ pause={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Items"
 3d_physics/layer_4="Interactibles"
+3d_physics/layer_5="Flare"
+3d_physics/layer_6="ShadowArea"
 
 [rendering]
 
