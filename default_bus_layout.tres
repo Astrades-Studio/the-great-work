@@ -1,7 +1,26 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://de86gh4stcpxw"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://de86gh4stcpxw"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_cyolg"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_xtpkd"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_vhmdf"]
+resource_name = "Amplify"
+volume_db = 6.9
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_nyl23"]
+resource_name = "Distortion"
+mode = 4
 
 [resource]
-bus/0/volume_db = -9.92555
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_cyolg")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectSpectrumAnalyzer_xtpkd")
+bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectAmplify_vhmdf")
+bus/0/effect/2/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -14,3 +33,5 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectDistortion_nyl23")
+bus/2/effect/0/enabled = true

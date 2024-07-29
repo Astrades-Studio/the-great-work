@@ -7,8 +7,8 @@ extends CanvasLayer
 signal cinematic_finished
 signal next_line_requested
 
-@export var text_duration := 4.5
-@export var sound_duration := 90.10  # Duración del sonido en segundos
+@export var text_duration := 4.3 # tiempo de cada dialogo
+@export var sound_duration := 87.10  # Duración del sonido en segundos
 
 func _ready() -> void:
 	subtitle_label.hide()
@@ -83,9 +83,10 @@ func play_intro_cinematic() -> void:
 	get_tree().create_timer(sound_duration).timeout.connect(_on_timer_timeout)
 	# Reproduce el sonido
 	SfxManager.play_sound(preload("res://assets/sounds/sfx/Intro_carriage.mp3"))
+	SfxManager.sound_bus_1.volume_db = -1.0 #volumen musica
 	# Comienza el diálogo
 	var dialog_1 = load("res://assets/dialog/carriage intro/cutscene_dialog.tres")
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(8).timeout
 	play_cinematic(dialog_1, text_duration)
 	var dialog_2 = load("res://assets/dialog/carriage intro/cutscene_dialog_2.tres")
 	await get_tree().create_timer(11).timeout

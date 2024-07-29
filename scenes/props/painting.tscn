@@ -15,7 +15,7 @@ metallic_specular = 0.0
 albedo_texture = ExtResource("3_m4jpa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31ew6"]
-albedo_color = Color(0.336156, 0.0694933, 2.40654e-08, 1)
+albedo_color = Color(0.17, 0.102907, 0.0612, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ykjg7"]
 size = Vector3(1, 1.053, 0.061)
@@ -40,6 +40,7 @@ material = SubResource("StandardMaterial3D_31ew6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00643158)
 operation = 2
 size = Vector3(0.97876, 0.988525, 0.0219574)
+material = SubResource("StandardMaterial3D_31ew6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ykjg7")
