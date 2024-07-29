@@ -131,9 +131,9 @@ mesh = ExtResource("2_bh27f")
 skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829269, -0.00496584, 0.0829259, -0.996543, 0.0142202, 1.17511, -0.174224)
+transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829268, -0.00496584, 0.0829259, -0.996543, 0.0142202, 1.24062, -0.0681245)
 light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 1.384
+light_energy = 1.204
 light_indirect_energy = 1.48
 light_volumetric_fog_energy = 2.024
 light_size = 0.87
@@ -143,56 +143,8 @@ shadow_bias = 0.02
 shadow_normal_bias = 2.84
 shadow_reverse_cull_face = true
 shadow_blur = 0.0
-omni_range = 0.842
-omni_attenuation = 0.64
-
-[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D"]
-transform = Transform3D(1, 4.07454e-10, -3.25963e-09, -4.36557e-10, 1, 1.09416e-07, 3.25963e-09, -1.06654e-07, 1, 0.0641041, -0.539967, -0.00852489)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 1.768
-light_indirect_energy = 1.48
-light_volumetric_fog_energy = 2.024
-light_size = 0.87
-light_specular = 0.116
-shadow_enabled = true
-shadow_bias = 0.02
-shadow_normal_bias = 2.84
-shadow_reverse_cull_face = true
-shadow_blur = 0.0
-omni_range = 3.082
-omni_attenuation = 3.2
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="OmniLight3D"]
-transform = Transform3D(1, 4.36557e-10, -9.31323e-10, -4.65661e-10, 1, 1.09417e-07, 9.31323e-10, -1.06654e-07, 1, 0.0582867, 0.273184, -1.11741)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 0.0
-light_indirect_energy = 1.48
-light_volumetric_fog_energy = 2.536
-light_size = 0.595
-light_specular = 0.0
-shadow_enabled = true
-shadow_bias = 0.02
-shadow_normal_bias = 2.84
-shadow_reverse_cull_face = true
-shadow_blur = 0.0
-omni_range = 3.762
-omni_attenuation = 10.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D/OmniLight3D2"]
-transform = Transform3D(1, 4.07454e-10, -3.25963e-09, -4.36557e-10, 1, 1.09416e-07, 3.25963e-09, -1.06654e-07, 1, 0.0641041, -0.539967, -0.00852489)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 1.768
-light_indirect_energy = 1.48
-light_volumetric_fog_energy = 2.024
-light_size = 0.87
-light_specular = 0.116
-shadow_enabled = true
-shadow_bias = 0.02
-shadow_normal_bias = 2.84
-shadow_reverse_cull_face = true
-shadow_blur = 0.0
-omni_range = 3.082
-omni_attenuation = 3.2
+omni_range = 0.453
+omni_attenuation = 2.307
 
 [node name="SmallLogPile_002" parent="." instance=ExtResource("3_mrpge")]
 transform = Transform3D(0.00482974, -0.0396628, 0.485454, 0.0394689, 0.483913, 0.0391442, -0.48547, 0.0389477, 0.00801202, 0.10202, 0.310468, 0.0192511)
@@ -204,7 +156,7 @@ billboard = 2
 text = "30"
 
 [node name="LavaMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0158676, -0.876343, 0.0204894, -0.0158137, 0.0207756, 0.876337, -0.87644, 0.015491, -0.0161829, 0.072369, 0.74045, -0.0771935)
+transform = Transform3D(-0.0156377, -0.876552, 0.00783877, -0.0160411, 0.00812485, 0.876541, -0.87644, 0.015491, -0.0161829, 0.0213266, 0.74045, -0.0771935)
 mesh = SubResource("QuadMesh_5xtoe")
 skeleton = NodePath("../SmallLogPile_002")
 
