@@ -31,7 +31,7 @@ var current_state : GameState:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 		elif current_state == GameState.DIALOG:
-			get_tree().paused = false
+			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 		elif current_state == GameState.MAIN_MENU:
@@ -74,6 +74,7 @@ signal philosopher_stone_recipe_read #TODO connect to recipe
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
+signal stone_consumed
 
 
 func _ready() -> void:
@@ -81,6 +82,7 @@ func _ready() -> void:
 	game_over.connect(_on_game_over)
 	philosopher_stone_progress.connect(_on_philosopher_stone_progress)
 	tick_countdown.connect(_on_tick_countdown)
+	stone_consumed.connect(_on_stone_consumed)
 
 
 func _input(event):
@@ -184,8 +186,8 @@ func _on_philosopher_stone_progress(amount: int):
 func _on_philosopher_stone_created():
 	# Play cutscene
 	#TransitionManager.change_scene_to_file(THANKS_CUTSCENE)
-	print("You win the game")
-	reset_progress()
+	#print("You win the game")
+	#reset_progress()
 	pass
 
 
@@ -195,3 +197,6 @@ func reset_progress():
 	shadows_spawned.clear()
 	philosopher_stone_progress.emit(0)
 	
+func _on_stone_consumed():
+	# TODO play ending
+	pass

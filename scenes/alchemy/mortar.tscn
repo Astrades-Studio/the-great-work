@@ -12,7 +12,7 @@ data = PackedVector3Array(0.0811, 0.091, -0.0015, 0.0459, 0.091, 0.051, 0.1147, 
 collision_layer = 4
 script = ExtResource("1_f5mii")
 ingredient_preview = NodePath("IngredientSpot")
-wait_time = 1
+wait_time = 5
 tool_type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

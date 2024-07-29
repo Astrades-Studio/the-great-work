@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=31 format=3 uid="uid://bi2r2nphbktxx"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b8m46sid55iq8" path="res://scenes/alchemy/ingredients/sulfur.tscn" id="11_1hf73"]
 [ext_resource type="PackedScene" uid="uid://byqdytipjwlmk" path="res://scenes/alchemy/ingredients/banana.tscn" id="12_nupgb"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="13_ijyn7"]
+[ext_resource type="PackedScene" uid="uid://dh1ejx73ha3y1" path="res://scenes/alchemy/ingredients/purified_sulfur.tscn" id="14_aemo4"]
 [ext_resource type="PackedScene" uid="uid://dqvd8vemxkjcd" path="res://scenes/alchemy/dispensers/dispensers.tscn" id="16_b4oue"]
 [ext_resource type="PackedScene" uid="uid://cqsp0rwu7i28e" path="res://scenes/alchemy/dispenser.tscn" id="19_of1ck"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="20_aw3yg"]
@@ -114,7 +115,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.744248, 0)
 
 [node name="Mercury" parent="Ingredients" instance=ExtResource("9_mhv5q")]
 
+[node name="Mercury4" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143233, 5.96046e-08, -0.303402)
+
+[node name="Mercury5" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0305416, 5.96046e-08, -0.303402)
+
+[node name="Mercury6" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288648, 5.96046e-08, -0.303402)
+
+[node name="Mercury7" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625597, 5.96046e-08, -0.303402)
+
+[node name="Mercury8" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625597, 5.96046e-08, -0.303402)
+
+[node name="Mercury9" parent="Ingredients" instance=ExtResource("9_mhv5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02296, 5.96046e-08, -0.303402)
+
 [node name="YellowLiquid" parent="Ingredients" instance=ExtResource("10_ab5ff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00179, 0, -0.562921)
+
+[node name="YellowLiquid4" parent="Ingredients" instance=ExtResource("10_ab5ff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27979, 0, -0.562921)
+
+[node name="YellowLiquid5" parent="Ingredients" instance=ExtResource("10_ab5ff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27979, 0, -0.562921)
 
 [node name="Sulfur" parent="Ingredients" instance=ExtResource("11_1hf73")]
 
@@ -155,6 +181,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347069, 0, 0)
 
 [node name="Flare" parent="Ingredients" instance=ExtResource("13_ijyn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376898, 0, 0)
+
+[node name="PurifiedSulfur" parent="Ingredients" instance=ExtResource("14_aemo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224913, 0, -0.519791)
+
+[node name="PurifiedSulfur2" parent="Ingredients" instance=ExtResource("14_aemo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00690395, 0, -0.519791)
+
+[node name="PurifiedSulfur3" parent="Ingredients" instance=ExtResource("14_aemo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270215, 0, -0.519791)
+
+[node name="PurifiedSulfur4" parent="Ingredients" instance=ExtResource("14_aemo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668481, 0, -0.519791)
 
 [node name="Dispensers" type="Node3D" parent="."]
 

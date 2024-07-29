@@ -50,6 +50,12 @@ func _input(event: InputEvent) -> void:
 		gas_lamp.active = !gas_lamp.active
 	
 	if event.is_action_pressed("interact"): # Interact call
+		if is_instance_valid(ingredient_in_hand):
+			if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+				GameManager.stone_consumed.emit()
+				# TODO play eating animation
+				drop_ingredient()
+				return
 		interact()
 	
 	if event.is_action_pressed("drop"): # Drop call
