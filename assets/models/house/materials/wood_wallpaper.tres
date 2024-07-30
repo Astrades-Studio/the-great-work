@@ -6,9 +6,10 @@
 [resource]
 albedo_color = Color(0.747255, 0.875321, 0.856143, 1)
 albedo_texture = ExtResource("1_q4dcg")
-metallic_specular = 0.0
+metallic_specular = 0.35
+roughness = 0.5
 normal_enabled = true
-normal_scale = 1.75
+normal_scale = 1.25
 normal_texture = ExtResource("2_ln5ya")
 refraction_scale = -1.0
 uv1_triplanar_sharpness = 0.176777
