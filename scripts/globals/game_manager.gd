@@ -197,7 +197,7 @@ func _on_philosopher_stone_recipe_read():
 	fog_environment.environment.fog_density = GAME_START_FOG_DENSITY
 	game_started.emit()
 	print("The game begins")
-
+	
 
 # Endgame progress:
 func _on_philosopher_stone_progress(amount: int):
