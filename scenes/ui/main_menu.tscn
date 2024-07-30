@@ -53,6 +53,17 @@ focus_mode = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("1_6645d")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_eisaw")
+expand_mode = 2
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_direction = 1
 layout_mode = 1
@@ -64,17 +75,6 @@ grow_vertical = 2
 stream = ExtResource("3_36fp1")
 autoplay = true
 loop = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_eisaw")
-expand_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
