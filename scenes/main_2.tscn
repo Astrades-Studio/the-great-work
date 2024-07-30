@@ -1729,6 +1729,9 @@ visible = true
 collision_layer = 4
 on_hand = false
 
+[node name="Eje" parent="Level/Interactibles/GasLamp" index="0"]
+transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
+
 [node name="Hand_Gas_Lamp_002" parent="Level/Interactibles/GasLamp/Eje" index="0"]
 layers = 1
 

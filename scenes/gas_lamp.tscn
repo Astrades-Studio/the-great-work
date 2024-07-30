@@ -111,10 +111,9 @@ _data = {
 
 [node name="GasLamp" type="StaticBody3D"]
 visible = false
-collision_layer = 0
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_i1yuc")
-on_hand = null
 min_value = 0.8
 max_value = 2.5
 
@@ -123,7 +122,6 @@ transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="Eje"]
 transform = Transform3D(1, 1.77636e-15, 7.45059e-09, 0, 1, 0, -7.45058e-09, 0, 1, 4.76838e-07, 0.180256, 72.849)
-layers = 2
 cast_shadow = 0
 mesh = ExtResource("2_53st1")
 skeleton = NodePath("")
@@ -132,7 +130,6 @@ surface_material_override/1 = ExtResource("2_fv1ti")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
-layers = 2
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 emitting = false
@@ -151,7 +148,6 @@ shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, -0.00260109)
-layers = 3
 light_color = Color(1, 0.591041, 0.285807, 1)
 light_energy = 2.74097
 light_indirect_energy = 0.0
