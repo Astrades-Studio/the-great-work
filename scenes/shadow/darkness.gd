@@ -21,17 +21,16 @@ var hp : float:
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
 @onready var darkness_light: OmniLight3D = $DarknessLight
 
+signal shadow_banished(Shadow)
 
 func _ready() -> void:
 	hp = MAX_HP
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_exited)
-	# self.area_entered.connect(_on_area_entered)
-	# self.area_exited.connect(_on_area_exited)
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 	GameManager.shadow_spawn_points.append(self)
-	remove_shadow()
-	
+	shadow_banished.connect(GameManager.on_shadow_removed(shadow))
+	remove_shadow()	
 
 
 func _process(delta: float) -> void:
@@ -48,8 +47,6 @@ func _on_tick_countdown() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	#if body is Flare:
-		#flare_reference = body
 	if body is Player:
 		if body.ingredient_in_hand is Flare:
 			flare_reference = body.ingredient_in_hand
@@ -60,8 +57,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_body_exited(body: Node3D) -> void:
-	#if body is Flare:
-		#flare_reference = null
 	if body is Player:
 		body.gas_lamp.disabled = false
 		shadow.reset_invisibility()
@@ -87,6 +82,7 @@ func spawn_shadow() -> bool:
 
 
 func remove_shadow() -> void:
+	shadow_banished.emit()
 	cooldown = MAX_COOLDOWN
 	shadow_present = false
 	# TODO: VFX

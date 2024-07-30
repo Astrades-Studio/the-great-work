@@ -26,13 +26,3 @@ func reset_invisibility() -> void:
 	show()
 	invisibility_tween = get_tree().create_tween()
 	invisibility_tween.tween_property(material, "albedo_color", og_color, transition_length)
-	
-
-# func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-# 	print("Shadow on screen")
-# 	turn_invisible()
-
-
-# func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-# 	print("Shadow off screen")
-# 	reset_invisibility()
