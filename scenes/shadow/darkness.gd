@@ -15,6 +15,7 @@ var hp : float:
 		if hp <= 0:
 			remove_shadow()
 
+
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var shadow: Shadow = $Shadow
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
@@ -56,7 +57,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if shadow_present:
 			body.gas_lamp.disabled = true
 			shadow.turn_invisible()
-			# TODO: VFX and SFX
+			body.panic_effects.increase_agitation()
 
 
 func _on_body_exited(body: Node3D) -> void:
@@ -66,7 +67,8 @@ func _on_body_exited(body: Node3D) -> void:
 		if is_instance_valid(body.ingredient_in_hand):
 			if body.ingredient_in_hand is Flare:
 				flare_reference = null
-
+	await get_tree().create_timer(2).timeout			
+	body.panic_effects.decrease_agitation()
 
 var tween : Tween        
 func spawn_shadow() -> bool:
