@@ -4,7 +4,7 @@ class_name Player
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp
 @onready var ingredient_label: Label = %IngredientLabel
-
+@onready var panic_effects : Node = $PanicEffects
 @export var interact_distance := 2.0
 @export var drop_distance := 1.0
 

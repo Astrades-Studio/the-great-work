@@ -214,10 +214,12 @@ func _get_mat_fmat(mat : Material) -> FootProfileMaterialSpecification:
 						target_textures.append(found_texture)
 	
 	for texture in target_textures:
-		if texture.resource_name != "":
-			return foot_profile.string_to_material(texture.resource_name)
-		return foot_profile._string_to_material(texture.resource_path)
-	
+		if texture != null:
+			if texture.resource_name != "":
+				return foot_profile.string_to_material(texture.resource_name)
+			return foot_profile._string_to_material(texture.resource_path)
+		else:
+			pass
 	
 	return FootProfile._AIR_MAT_SPEC
 
