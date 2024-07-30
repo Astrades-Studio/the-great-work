@@ -62,7 +62,7 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oe2c"]
 content_margin_left = 10.0
-bg_color = Color(0.0945844, 0.0699015, 0.0705314, 0.607843)
+bg_color = Color(0.1001, 0.11, 0.109175, 1)
 border_color = Color(1, 1, 1, 1)
 
 [resource]
@@ -71,6 +71,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_dmtpp")
 Button/styles/hover = SubResource("StyleBoxFlat_0laiq")
 Button/styles/hover_mirrored = null
 Button/styles/normal = SubResource("StyleBoxEmpty_dl0un")
+CheckBox/icons/unchecked = null
 HSlider/constants/center_grabber = 0
 HSlider/constants/grabber_offset = 0
 HSlider/icons/grabber = ExtResource("1_qu6o6")

@@ -3,6 +3,7 @@ extends CenterContainer
 @onready var master_slider: HSlider = %MasterSlider
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SFXSlider
+@onready var settings_container: CenterContainer = $"."
 
 @onready var mute_check_box: CheckBox = %MuteCheckBox
 @onready var fullscreen_checkbox: CheckBox = %FullscreenCheckbox
@@ -43,3 +44,6 @@ func _on_sfx_slider_value_changed(value):
 
 func _on_fullscreen_checkbox_toggled(button_pressed):
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN if button_pressed else DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_back_button_pressed() -> void:
+	settings_container.hide()
