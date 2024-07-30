@@ -134,4 +134,5 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Loading..."
 visible_characters = 0
+visible_characters_behavior = 1
 visible_ratio = 0.0

@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://dohxl7lttuciy"]
+[gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://dtwe55f6v6id8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si5d1"]
 resource_name = "Candle_Mat_01"

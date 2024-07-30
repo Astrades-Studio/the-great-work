@@ -4,6 +4,5 @@
 resource_name = "White.024"
 cull_mode = 2
 metallic = 1.0
-metallic_specular = 0.45
-roughness = 0.5
-uv1_triplanar = true
+metallic_specular = 0.32
+roughness = 0.55
