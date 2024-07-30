@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=119 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="10_ufp8w"]
 [ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="11_5aosd"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
+[ext_resource type="Resource" uid="uid://t507in4tinkw" path="res://assets/images/recipes/reference/reference_book.tres" id="12_1wat7"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
 [ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
@@ -1389,6 +1390,7 @@ color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="Guide to Alchemy" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
+book = ExtResource("12_1wat7")
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" parent="Level/Recipes/Guide to Alchemy" index="0"]
@@ -1396,6 +1398,7 @@ mesh = SubResource("ArrayMesh_4y0pv")
 
 [node name="Alchemic Principles" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36903, 1.01699, 3.8777)
+book = ExtResource("12_1wat7")
 
 [node name="Torn page" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.0113763, 0.324381, 0.0134455, -0.00817415, -0.0137356, 0.324464, 0.324555, 0.0110243, 0.00864293, 5.94475, 0.989621, 0.35326)
@@ -1978,7 +1981,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.350371
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1991,7 +1994,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.71057
+wait_time = 0.842655
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
