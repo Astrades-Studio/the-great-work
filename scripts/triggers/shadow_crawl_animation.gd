@@ -3,6 +3,8 @@ extends Marker3D
 @onready var running_crawl_imported: Node3D = $"Running Crawl_Imported"
 @onready var animation_player: AnimationPlayer = $"Running Crawl_Imported/AnimationPlayer"
 
+var played : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	running_crawl_imported.hide()
@@ -10,5 +12,8 @@ func _ready() -> void:
 	
 
 func _on_player_walk_by():
+	if played:
+		return
 	running_crawl_imported.show()
 	animation_player.play("Crawl_downstairs")
+	played = true

@@ -6,6 +6,7 @@ extends StaticBody3D
 func _ready() -> void:
 	assert(self.has_user_signal("interacted"), "Dispenser has no interacted signal")
 	self.connect("interacted", request_ingredient.bind(ingredient_type))
+	GameManager.dispensers.append(self)
 
 
 func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
