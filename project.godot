@@ -57,6 +57,7 @@ flare=""
 shadow=""
 darkness=""
 dispenser=""
+candle=""
 
 [gui]
 

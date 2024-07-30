@@ -84,10 +84,15 @@ func _on_game_started():
 	
 func on_lamp_interact():
 	if !on_hand:
+		var candle = get_tree().get_first_node_in_group("candle")
+		candle.hide()
 		hide()
 		GameManager.lamp_in_hand = true
 		GameManager.lamp_collected.emit()
 		DialogManager.create_subtitles_piece("This will come in handy.")
+		await get_tree().process_frame
+		candle.show.call_deferred()
+		
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():
