@@ -40,7 +40,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if flare_reference:
+	if is_instance_valid(flare_reference):
 		if flare_reference.active and shadow_present:
 			hp -= delta
 			print("HP: " + str(hp))
@@ -121,8 +121,8 @@ func play_random_whisper() -> void:
 	dialog.dialog.shuffle()
 	
 	# choose a DialogPiece at random from WHISPERS_DIALOG
-	var index = randi() % dialog.size()
-	var piece = dialog[index]
+	var index = randi() % dialog.dialog.size()
+	var piece = dialog.dialog[index]
 	DialogManager.create_subtitles_piece(piece)
 	play_random_shadow_sound()
 	# remove that piece from the dialog

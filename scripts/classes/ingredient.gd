@@ -91,6 +91,7 @@ static var MESH_TABLE : Dictionary = {
 	Type.DRAGONS_BLOOD: CAPUT_MORTUUM,
 	Type.FLARE: FLARE,
 	Type.PHILOSOPHERS_STONE: PHILOSOPHERS_STONE,
+	Type.SALT : SALT,
 	Type.NIGREDO: null,
 	Type.ALBEDO: null,
 	Type.ASH : SALT,

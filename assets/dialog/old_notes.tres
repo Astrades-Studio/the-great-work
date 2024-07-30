@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://dlyj7fc330ij2"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_bvxkm"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_j4rms"]
+
+[sub_resource type="Resource" id="Resource_w0ea7"]
+script = ExtResource("1_bvxkm")
+dialog_speaker = "Melchiades"
+dialog_text = "My old notes... "
+
+[sub_resource type="Resource" id="Resource_n5cso"]
+script = ExtResource("1_bvxkm")
+dialog_speaker = "Melchiades"
+dialog_text = "Adam must have brought them here."
+
+[resource]
+script = ExtResource("2_j4rms")
+dialog_id = &""
+dialog = Array[ExtResource("1_bvxkm")]([SubResource("Resource_w0ea7"), SubResource("Resource_n5cso")])

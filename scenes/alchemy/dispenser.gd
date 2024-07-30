@@ -25,7 +25,7 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 	print(str(resulting_ingredient.type_name) + " added")
 
 
-
+	DialogManager.create_subtitles_piece("I've picked up some %s" % resulting_ingredient.type_name)
 	GameManager.ingredient_spawned(resulting_ingredient)
 
 	GameManager.player.ingredient_in_hand = resulting_ingredient
