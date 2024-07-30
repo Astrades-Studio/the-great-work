@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://b3ls0l4i0gr7v"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://b3ls0l4i0gr7v"]
 
 [ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_83h7y"]
 [ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_g4ksk"]
@@ -16,14 +16,19 @@ dialog_text = "I've read about them before in an ancient tome whose name I can't
 [sub_resource type="Resource" id="Resource_4tt2k"]
 script = ExtResource("1_83h7y")
 dialog_speaker = "Melchiades"
-dialog_text = "\"This... entity will devour this place in its hollow darkness unless I do something to stop it.\""
+dialog_text = "This... entity will devour this place in its hollow darkness unless I do something to stop it."
 
 [sub_resource type="Resource" id="Resource_2tb5n"]
 script = ExtResource("1_83h7y")
 dialog_speaker = "Melchiades"
-dialog_text = "\"The book mentioned something about a powerful source of light. There must be something I can do with the tools at my disposal.\""
+dialog_text = "The book mentioned something about a powerful source of light."
+
+[sub_resource type="Resource" id="Resource_qft0f"]
+script = ExtResource("1_83h7y")
+dialog_speaker = "Melchiades"
+dialog_text = "There must be something I can do with the tools at my disposal."
 
 [resource]
 script = ExtResource("2_g4ksk")
 dialog_id = &"Intro"
-dialog = Array[ExtResource("1_83h7y")]([SubResource("Resource_11twa"), SubResource("Resource_x6fce"), SubResource("Resource_4tt2k"), SubResource("Resource_2tb5n")])
+dialog = Array[ExtResource("1_83h7y")]([SubResource("Resource_11twa"), SubResource("Resource_x6fce"), SubResource("Resource_4tt2k"), SubResource("Resource_2tb5n"), SubResource("Resource_qft0f")])
