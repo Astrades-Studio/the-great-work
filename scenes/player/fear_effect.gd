@@ -2,9 +2,10 @@ extends CanvasLayer
 
 @onready var nausea : TextureRect = $FearEffect
 @onready var vignette : TextureRect = $Vignette
+@onready var breathing_sounds = $BreathingSounds
 @export var amplitude : float = 0.0 #0.05 is target for tween
 @export var frequency: float = 0.0 #10 is rapid breathing
-@export var vignette_inner_radius : float = 0.1 #0.01 is target for tween
+@export var vignette_inner_radius : float = 1 #0.01 is target for tween
 @export var vignette_outer_radius: float = 10.0 #1 is target for tween
 
 func _ready():
@@ -30,10 +31,12 @@ func _process(delta):
 	
 func increase_agitation():
 	var tween = get_tree().create_tween().set_parallel(true) 
+	breathing_sounds.play()
 	tween.tween_property(self, "amplitude", 0.1, 2.0)
 	frequency = 10.0
 	tween.tween_property(self, "vignette_outer_radius", 1.0, 1.0)
 	tween.tween_property(self, "vignette_inner_radius", 0.01, 1.0)
+	
 	
 
 
@@ -43,3 +46,4 @@ func decrease_agitation():
 	amplitude = 0
 	tween.tween_property(self, "vignette_outer_radius", 10.0, 10.0)
 	tween.tween_property(self, "vignette_inner_radius", 0.1, 10.0)
+	breathing_sounds.stop()
