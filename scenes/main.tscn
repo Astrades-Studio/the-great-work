@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="Material" uid="uid://b3awbhdjxn2ot" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
@@ -1360,7 +1360,6 @@ color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="Reference" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
-read_stone_trigger_book = true
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" parent="Level/Recipes/Reference" index="0"]
@@ -1953,7 +1952,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.827203
+wait_time = 0.690715
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]

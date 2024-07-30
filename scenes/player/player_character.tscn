@@ -112,7 +112,6 @@ visible = false
 on_hand = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
-layer = 2
 script = ExtResource("5_16wbu")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUDLayer"]

@@ -59,7 +59,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if body.ingredient_in_hand is Flare:
 			flare_reference = body.ingredient_in_hand
 		if shadow_present:
-			body.gas_lamp.disabled = true
+			#body.gas_lamp.disabled = true
 			shadow.turn_invisible()
 			body.panic_effects.increase_agitation()
 			if !GameManager.first_shadow_encountered:
