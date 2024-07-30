@@ -6,24 +6,17 @@ var sound_bus_3 : AudioStreamPlayer
 
 const PAGE_BOOK = preload("res://assets/sounds/sfx/Page Book.wav")
 
-const SHADOW_1_SOUND = preload("res://assets/sounds/sfx/shadow/Devil Tremolo 001.wav")
-const SHADOW_2_SOUND = preload("res://assets/sounds/sfx/shadow/Nightmare Songbird 001.wav")
-const SHADOW_3_SOUND = preload("res://assets/sounds/sfx/shadow/Tormented Souls 001.wav")
-const SHADOW_4_SOUND = preload("res://assets/sounds/sfx/shadow/Warp Wave 001.wav")
-const SHADOW_5_SOUND = preload("res://assets/sounds/sfx/shadow/Well Of Nightmares 001.wav")
-const SHADOW_6_SOUND = preload("res://assets/sounds/sfx/shadow/Whisper From Behind 001.wav")
-const SHADOW_7_SOUND = preload("res://assets/sounds/sfx/shadow/Whisper Out Of Nowhere 001.wav")
-const SHADOW_8_SOUND = preload("res://assets/sounds/sfx/shadow/Whispering Tunnels 001.wav")
+const SHADOW_01 = preload("res://assets/sounds/sfx/shadow/Shadow_01.wav")
+const SHADOW_02 = preload("res://assets/sounds/sfx/shadow/Shadow_02.wav")
+const SHADOW_03 = preload("res://assets/sounds/sfx/shadow/Shadow_03.wav")
+const SHADOW_04 = preload("res://assets/sounds/sfx/shadow/Shadow_04.wav")
 
-
-var shadow_sounds = [SHADOW_1_SOUND,
-	SHADOW_2_SOUND,
-	SHADOW_3_SOUND,
-	SHADOW_4_SOUND,
-	SHADOW_5_SOUND,
-	SHADOW_6_SOUND,
-	SHADOW_7_SOUND,
-	SHADOW_8_SOUND]
+var shadow_sounds = [
+	SHADOW_01,
+	SHADOW_02,
+	SHADOW_03,
+	SHADOW_04,
+	]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

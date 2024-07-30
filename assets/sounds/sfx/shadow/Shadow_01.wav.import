@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://do28tldp5wxqf"
-path="res://.godot/imported/Whisper From Behind 002.wav-5f598f439358b694ed377f4776122b6b.sample"
+path="res://.godot/imported/Shadow_01.wav-915fcc79e30dd1c276f33a27a9b605dd.sample"
 
 [deps]
 
-source_file="res://assets/sounds/sfx/shadow/Whisper From Behind 002.wav"
-dest_files=["res://.godot/imported/Whisper From Behind 002.wav-5f598f439358b694ed377f4776122b6b.sample"]
+source_file="res://assets/sounds/sfx/shadow/Shadow_01.wav"
+dest_files=["res://.godot/imported/Shadow_01.wav-915fcc79e30dd1c276f33a27a9b605dd.sample"]
 
 [params]
 
