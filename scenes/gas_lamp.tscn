@@ -110,12 +110,9 @@ _data = {
 }
 
 [node name="GasLamp" type="StaticBody3D"]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_i1yuc")
-min_value = 0.8
-max_value = 2.5
 
 [node name="Eje" type="Node3D" parent="."]
 transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
@@ -149,18 +146,18 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 2.74097
+light_energy = 2.76482
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_bias = 1.881
 shadow_opacity = 0.45
 shadow_blur = 0.0
 distance_fade_enabled = true
-omni_range = 8.085
-omni_attenuation = 1.63
+omni_range = 16.17
+omni_attenuation = 1.353
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.803573
+wait_time = 0.962184
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
