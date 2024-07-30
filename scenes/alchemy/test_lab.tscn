@@ -95,7 +95,6 @@ shape = SubResource("ConvexPolygonShape3D_vgynt")
 
 [node name="Book" parent="Mesa" instance=ExtResource("22_h6p0o")]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0.73298, 0.520226)
-flare_book = false
 
 [node name="Tools" type="Node3D" parent="."]
 
@@ -238,3 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74375, 0.150933, -3.70244)
 [node name="DialogLayer" parent="." instance=ExtResource("20_onw05")]
 
 [node name="PauseLayer" parent="." instance=ExtResource("22_phwuf")]
+
+[node name="Book" parent="." instance=ExtResource("22_h6p0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458195, 0.733905, -0.486352)
+read_stone_trigger_book = true
