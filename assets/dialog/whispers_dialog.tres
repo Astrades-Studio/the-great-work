@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=18 format=3 uid="uid://n6u8ct0tat0o"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_tjktl"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_fq8fj"]
+
+[sub_resource type="Resource" id="Resource_qw4tf"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "???"
+dialog_text = "Your obsession will lead you to ruin."
+
+[sub_resource type="Resource" id="Resource_6exvf"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Do you think you can fool me? I know all your fears."
+
+[sub_resource type="Resource" id="Resource_blpft"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "You are not in control; you never were."
+
+[sub_resource type="Resource" id="Resource_5t8yc"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Do you think someone like you deserves the Stone?"
+
+[sub_resource type="Resource" id="Resource_kn7ow"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Your mentor is disappointed in you, he always has been."
+
+[sub_resource type="Resource" id="Resource_b5xje"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "What will you do when you fail? Who will you blame?"
+
+[sub_resource type="Resource" id="Resource_05cch"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "You’re only fooling yourself thinking you have a chance."
+
+[sub_resource type="Resource" id="Resource_do4br"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "No one will remember you when you fail."
+
+[sub_resource type="Resource" id="Resource_t3bvj"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "You don’t even understand the basic principles of alchemy."
+
+[sub_resource type="Resource" id="Resource_ma52a"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Your efforts will only lead you to despair."
+
+[sub_resource type="Resource" id="Resource_v4q6b"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "True alchemy requires a true genius, and you are not one."
+
+[sub_resource type="Resource" id="Resource_i5gur"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "You’re your own worst enemy, you always have been."
+
+[sub_resource type="Resource" id="Resource_waloi"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Your will is weak; you’ll break before reaching the end."
+
+[sub_resource type="Resource" id="Resource_ic4vu"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Every doubt you have is proof of your incompetence."
+
+[sub_resource type="Resource" id="Resource_77ody"]
+script = ExtResource("1_tjktl")
+dialog_speaker = "Melchiades"
+dialog_text = "Success will always be out of your reach."
+
+[resource]
+script = ExtResource("2_fq8fj")
+dialog_id = &"whispers"
+dialog = Array[ExtResource("1_tjktl")]([SubResource("Resource_qw4tf"), SubResource("Resource_6exvf"), SubResource("Resource_blpft"), SubResource("Resource_5t8yc"), SubResource("Resource_kn7ow"), SubResource("Resource_b5xje"), SubResource("Resource_05cch"), SubResource("Resource_do4br"), SubResource("Resource_t3bvj"), SubResource("Resource_ma52a"), SubResource("Resource_v4q6b"), SubResource("Resource_i5gur"), SubResource("Resource_waloi"), SubResource("Resource_ic4vu"), SubResource("Resource_77ody")])
