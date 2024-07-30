@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/gas_lamp_on_loop.mp3-86c8c0a405679dddd3de8ebe
 
 [params]
 
-loop=true
-loop_offset=0.0
-bpm=0.0
+loop=false
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

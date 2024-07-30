@@ -1646,7 +1646,7 @@ unique_name_in_owner = true
 
 [node name="GasLamp" parent="." instance=ExtResource("48_pb1fo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
-collision_layer = 13
+active = false
 
 [node name="Spoon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.31749, 0, 1.98415e-08, 0, 0.144783, 0, -2.77558e-08, 0, -0.22696, -1.6157, 1.56935, -0.683258)
