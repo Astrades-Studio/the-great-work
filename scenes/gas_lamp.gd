@@ -73,6 +73,8 @@ func _ready() -> void:
 
 func _on_lamp_collected():
 	if on_hand:
+		disabled = false
+		active = true
 		mesh.layers = 0x0002
 		fire_beam_2.layers = 0x0002
 		show()
@@ -83,9 +85,9 @@ func _on_game_started():
 func on_lamp_interact():
 	if !on_hand:
 		hide()
+		GameManager.lamp_in_hand = true
 		GameManager.lamp_collected.emit()
-	GameManager.lamp_in_hand = true
-	DialogManager.create_subtitles_piece("This will come in handy.")
+		DialogManager.create_subtitles_piece("This will come in handy.")
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():
