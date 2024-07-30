@@ -7,6 +7,7 @@ extends Area3D
 
 const WHISPERS_DIALOG = preload("res://assets/dialog/whispers_dialog.tres")
 
+var already_seen : bool = false
 var shadow_present : bool
 var cooldown : float = 0.0
 var flare_near : bool
@@ -59,12 +60,15 @@ func _on_body_entered(body: Node3D) -> void:
 		if body.ingredient_in_hand is Flare:
 			flare_reference = body.ingredient_in_hand
 		if shadow_present:
+			if !GameManager.first_shadow_encountered:
+				DialogManager.play_dialog(load("res://assets/dialog/first_shadow_encounter.tres"))
+				GameManager.first_shadow_encountered = true
 			#body.gas_lamp.disabled = true
 			shadow.turn_invisible()
 			body.panic_effects.increase_agitation()
-			if !GameManager.first_shadow_encountered:
-				DialogManager.play_subtitles(load("res://assets/dialog/first_shadow_encounter.tres"), 2.0)
-				GameManager.first_shadow_encountered = true
+			if !already_seen:
+				DialogManager.create_subtitles_piece("Get away from me!")
+				already_seen = false
 				
 				
 func _on_body_exited(body: Node3D) -> void:
@@ -83,6 +87,9 @@ func spawn_shadow() -> bool:
 		return false
 	if cooldown >= 0.:
 		return false
+	if !GameManager.first_shadow_spawned:
+		DialogManager.create_subtitles_piece("What was that? I feel a presence.")
+		GameManager.first_shadow_spawned = false
 	hp = MAX_HP
 	shadow_present = true
 	show()
