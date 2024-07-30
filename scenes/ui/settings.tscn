@@ -44,6 +44,7 @@ text = "MASTER"
 
 [node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MasterVolume2"]
 unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
 theme_override_icons/grabber = ExtResource("3_ckjy1")
 theme_override_icons/grabber_highlight = ExtResource("3_ckjy1")
@@ -61,6 +62,7 @@ text = "MUSIC"
 
 [node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
 unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
 max_value = 1.0
 step = 0.1
@@ -75,6 +77,7 @@ text = "SFX"
 
 [node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/SFXVolume"]
 unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
 max_value = 1.0
 step = 0.1
@@ -90,6 +93,7 @@ text = "MUTE"
 
 [node name="MuteCheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
 unique_name_in_owner = true
+modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
 layout_mode = 2
 
 [node name="FullscreenLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
@@ -98,9 +102,12 @@ text = "FULLSCREEN"
 
 [node name="FullscreenCheckbox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
 unique_name_in_owner = true
+modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "BACK"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

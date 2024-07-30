@@ -71,12 +71,11 @@ horizontal_alignment = 1
 
 [node name="SettingsContainer" parent="Control" instance=ExtResource("3_4cilj")]
 unique_name_in_owner = true
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" parent="Control/SettingsContainer/PanelContainer" index="0"]
+size_flags_horizontal = 4
 
 [node name="QuitConfirmation" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
@@ -128,3 +127,5 @@ text = "NO"
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitConfirmButton" to="." method="_on_quit_confirm_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitRefuseButton" to="." method="_on_quit_refuse_button_pressed"]
+
+[editable path="Control/SettingsContainer"]

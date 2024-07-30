@@ -3,5 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://l6wutmnvd7bt" path="res://assets/models/house/wood_wallpaper_texture.png" id="1_s58x0"]
 
 [resource]
+albedo_color = Color(0.856349, 0.910353, 0.976795, 1)
 albedo_texture = ExtResource("1_s58x0")
 metallic_specular = 0.0
+uv1_scale = Vector3(2.63, 2.63, 2.63)
+uv1_triplanar_sharpness = 0.176777
