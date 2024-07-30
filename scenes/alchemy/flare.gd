@@ -8,6 +8,7 @@ extends Ingredient
 @onready var duration_timer: Timer = $DurationTimer
 @onready var shadow_barrier: Area3D = $ShadowBarrier
 @onready var contents: MeshInstance3D = $Contents
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var duration : int = 30
 
@@ -22,11 +23,13 @@ var spent : bool = false
 		active = value
 		if active:
 			duration_timer.start(duration)
+			audio.play()
 			fire_beam.emitting = true
 			smoke.emitting = true
 			light.visible = true
 			light.light_energy = 5.0
 		else:
+			audio.stop()
 			fire_beam.emitting = false
 			smoke.emitting = false
 			light.visible = false
@@ -52,9 +55,10 @@ func _on_duration_timer_timeout() -> void:
 		return
 	active = false
 	if is_instance_valid(contents):
-		var new_material = contents.mesh.material as StandardMaterial3D
-		contents.mesh = new_material.duplicate()
-		new_material.albedo_color = Color.PAPAYA_WHIP
+		var active_material : StandardMaterial3D = contents.get_active_material(0)
+		if active_material:
+			contents.mesh = active_material.duplicate()
+			active_material.albedo_color = Color.PAPAYA_WHIP
 	name = "Spent Flare"
 	spent = true
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=25 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="2_yvr0d"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_hwk3w"]
 [ext_resource type="PackedScene" uid="uid://c3ytu1ghl2t8x" path="res://scenes/fx/fire_beam.tscn" id="4_5lh6f"]
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_lha62"]
+[ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="5_2mdkg"]
 [ext_resource type="PackedScene" uid="uid://deqfjrh5bdyvk" path="res://scenes/fx/smoke.tscn" id="5_td1f0"]
 
 [sub_resource type="Gradient" id="Gradient_d7r2j"]
@@ -142,7 +143,7 @@ transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14
 mesh = SubResource("CylinderMesh_7h51u")
 skeleton = NodePath("../../Mercury")
 
-[node name="Contents2" type="MeshInstance3D" parent="."]
+[node name="Pipe" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.224892, -1.50454e-07)
 mesh = SubResource("CylinderMesh_70wug")
 skeleton = NodePath("../../Mercury")
@@ -153,6 +154,8 @@ shape = SubResource("ConvexPolygonShape3D_dyg0k")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0555848, 0)
+stream = ExtResource("5_2mdkg")
+pitch_scale = 1.39
 
 [node name="ShadowBarrier" type="Area3D" parent="." groups=["flare"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0555848, 0)

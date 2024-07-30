@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://byqdytipjwlmk" path="res://scenes/alchemy/ingredients/banana.tscn" id="10_golei"]
 [ext_resource type="PackedScene" uid="uid://c6ymtpobcr18y" path="res://scenes/alchemy/ingredients/the_stone.tscn" id="11_gi8ka"]
 [ext_resource type="PackedScene" uid="uid://binadt5anxax2" path="res://scenes/alchemy/ingredients/vinegar.tscn" id="12_ulmh5"]
-[ext_resource type="PackedScene" uid="uid://nkuei4sjralq" path="res://scenes/alchemy/ingredients/flare.tscn" id="13_2gbu7"]
 [ext_resource type="PackedScene" uid="uid://br83d6xrd141i" path="res://scenes/alchemy/ingredients/cinnabar.tscn" id="14_bjoeo"]
 [ext_resource type="PackedScene" uid="uid://brqh11pujokpd" path="res://scenes/alchemy/ingredients/cinnabar_dust.tscn" id="15_1xfrl"]
 [ext_resource type="PackedScene" uid="uid://bj3a7iwp4112d" path="res://scenes/alchemy/ingredients/gold.tscn" id="16_hxjpd"]
@@ -24,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="18_okio1"]
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="19_21tc4"]
 [ext_resource type="ArrayMesh" uid="uid://cn6cncexuu2se" path="res://assets/models/ingredients/jar_mesh.res" id="23_6uyy1"]
+[ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="24_4x25a"]
 
 [sub_resource type="Gradient" id="Gradient_55pc3"]
 
@@ -197,10 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.658256, 0, 0.0727841)
 [node name="Vinegar" parent="." instance=ExtResource("12_ulmh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926828, 0, 0)
 
-[node name="Flare" parent="." instance=ExtResource("13_2gbu7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.476057)
-visible = false
-
 [node name="Cinnabar" parent="." instance=ExtResource("14_bjoeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.394145, 0, -0.926938)
 collision_layer = 4
@@ -262,3 +258,6 @@ script = ExtResource("19_21tc4")
 transform = Transform3D(1.41731, 0, 0, 0, 1.41731, 0, 0, 0, 1.41731, -4.25193, 0, 2)
 visible = false
 mesh = ExtResource("8_o878l")
+
+[node name="FLARE" parent="." instance=ExtResource("24_4x25a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04664, 0, -0.481362)
