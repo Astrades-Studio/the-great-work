@@ -62,8 +62,11 @@ func _on_body_entered(body: Node3D) -> void:
 			body.gas_lamp.disabled = true
 			shadow.turn_invisible()
 			body.panic_effects.increase_agitation()
-
-
+			if !GameManager.first_shadow_encountered:
+				DialogManager.play_subtitles(load("res://assets/dialog/first_shadow_encounter.tres"), 2.0)
+				GameManager.first_shadow_encountered = true
+				
+				
 func _on_body_exited(body: Node3D) -> void:
 	if body is Player:
 		body.gas_lamp.disabled = false

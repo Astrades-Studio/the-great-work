@@ -55,6 +55,7 @@ var current_state : GameState:
 # Progression
 var philosopher_stone_recipe_read : bool = false
 var lamp_in_hand : bool = false
+var first_shadow_encountered : bool = false
 
 # References
 var player : UCharacterBody3D

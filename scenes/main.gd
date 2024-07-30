@@ -3,7 +3,6 @@ extends Node3D
 
 @onready var world_environment: WorldEnvironment = %WorldEnvironment
 @onready var ingredients: Node3D = %Ingredients
-
 @onready var game_over_timer: Timer = %GameOverTimer
 
 @export var max_time := 10
