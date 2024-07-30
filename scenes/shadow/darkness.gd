@@ -5,6 +5,8 @@ extends Area3D
 @export var MAX_HP : int = 3
 @export var HP_DOWN_TICK : float = 1.
 
+const WHISPERS_DIALOG = preload("res://assets/dialog/whispers_dialog.tres")
+
 var shadow_present : bool
 var cooldown : float = 0.0
 var flare_near : bool
@@ -22,6 +24,7 @@ var hp : float:
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
 @onready var darkness_fx_intensity = darkness_fx.amount_ratio
 @onready var darkness_light: OmniLight3D = $DarknessLight
+@onready var passive_sound: AudioStreamPlayer3D = $PassiveSound
 
 signal shadow_banished(Shadow)
 
@@ -79,11 +82,11 @@ func spawn_shadow() -> bool:
 		return false
 	hp = MAX_HP
 	shadow_present = true
-	# TODO: VFX
 	show()
-	#shadow.visible = true
-	#darkness_fx.emitting = true
-	#darkness_light.visible = true
+	tween = get_tree().create_tween()
+	tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
+	play_random_whisper()
+	await tween.finished
 	return true
 
 
@@ -93,5 +96,31 @@ func remove_shadow() -> void:
 	shadow_present = false
 	# TODO: VFX
 	shadow.visible = false
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(self, "darkness_fx_intensity",0.0,3.0)
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(darkness_fx, "amount_ratio", 0, 2)
+	await tween.finished
+	hide()
+
+
+func play_random_whisper() -> void:
+	var dialog : Dialog = WHISPERS_DIALOG
+	# if dialog is empty, reload it
+	if dialog.dialog.is_empty():
+		dialog = load("res://assets/dialog/whispers_dialog.tres")
+	dialog.dialog.shuffle()
+	
+	# choose a DialogPiece at random from WHISPERS_DIALOG
+	var index = randi() % dialog.size()
+	var piece = dialog[index]
+	DialogManager.create_subtitles_piece(piece)
+	play_random_shadow_sound()
+	# remove that piece from the dialog
+	dialog.dialog.remove_at(index)
+
+
+func play_random_shadow_sound():
+	SfxManager.shadow_sounds.shuffle()
+	var selected_sound = SfxManager.shadow_sounds[0]
+	audio.stream = selected_sound
+	audio.play()

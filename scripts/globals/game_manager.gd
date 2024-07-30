@@ -171,7 +171,6 @@ func spawn_random_shadow():
 		else:
 			print("Shadow spawned")
 			shadows_spawned.append(spawn.shadow)
-			SfxManager.play_shadow_sound()
 
 
 func update_darkness_effect(amount: int):

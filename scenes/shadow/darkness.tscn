@@ -56,6 +56,9 @@ shape = SubResource("BoxShape3D_nme3o")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
 
+[node name="PassiveSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
+
 [node name="DarknessFX" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.311001, 0)
 material_override = SubResource("StandardMaterial3D_wdbxp")
