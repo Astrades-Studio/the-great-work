@@ -38,7 +38,6 @@ var disabled : bool = false:
 func _ready() -> void:
 	_setup_lamp()
 	_connect_signals()
-	_setup_input_actions()
 	if !on_hand:
 		active = true
 		_update_lamp_state()
@@ -92,13 +91,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_lamp") and GameManager.lamp_in_hand:
 		active = not active
 		_play_lamp_sound()
-
-func _setup_input_actions() -> void:
-	if not InputMap.has_action("toggle_lamp"):
-		InputMap.add_action("toggle_lamp")
-		var event = InputEventKey.new()
-		event.keycode = KEY_F  # Puedes cambiar KEY_F por la tecla que prefieras
-		InputMap.action_add_event("toggle_lamp", event)
 
 func _play_lamp_sound() -> void:
 	if active and gas_lamp_on:
