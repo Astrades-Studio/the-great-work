@@ -30,13 +30,14 @@ func _input(event: InputEvent) -> void:
 	if !visible:
 		return
 	if event.is_action_pressed("interact") \
-	or event.is_action_pressed("ui_accept"):
+	or event.is_action_pressed("ui_accept") \
+	or event.is_action_pressed("ui_cancel"):
 		_on_next_button_pressed.call_deferred()
 	elif event.is_action_pressed("drop"):
 		_on_previous_button_pressed.call_deferred()
-
-	elif event.is_action_pressed("ui_cancel"):
-		_on_back_button_pressed.call_deferred()
+#
+	#elif event.is_action_pressed("ui_cancel"):
+		#_on_back_button_pressed.call_deferred()
 
 
 func show_book(_book : BookPages):
@@ -107,4 +108,5 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_back_button_pressed():
+	book_page = 0
 	hide_text()

@@ -1,9 +1,8 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://clr4c14w2t0i0"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://clr4c14w2t0i0"]
 
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="1_1ktsd"]
-[ext_resource type="StyleBox" uid="uid://by6kerhi3dx8f" path="res://assets/ui/theme/style_box_outline_small.tres" id="2_be7ux"]
 
 [resource]
 Button/fonts/font = ExtResource("1_1ktsd")
 Label/fonts/font = ExtResource("1_1ktsd")
-PanelContainer/styles/panel = ExtResource("2_be7ux")
+PanelContainer/styles/panel = null
