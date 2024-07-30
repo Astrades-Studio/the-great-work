@@ -30,20 +30,20 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id="Curve_w663s"]
+[sub_resource type="Curve" id="Curve_kfn2p"]
 max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2ar4f"]
-curve = SubResource("Curve_w663s")
+[sub_resource type="CurveTexture" id="CurveTexture_ul7h3"]
+curve = SubResource("Curve_kfn2p")
 
-[sub_resource type="Curve" id="Curve_4hn5e"]
+[sub_resource type="Curve" id="Curve_eey8k"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492188, 0.260377), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_wj65h"]
-curve = SubResource("Curve_4hn5e")
+[sub_resource type="CurveTexture" id="CurveTexture_66n07"]
+curve = SubResource("Curve_eey8k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
 angle_min = -39.1
@@ -56,9 +56,9 @@ initial_velocity_min = 17.7
 initial_velocity_max = 247.78
 angular_velocity_min = -214.46
 angular_velocity_max = 288.52
-velocity_limit_curve = SubResource("CurveTexture_wj65h")
+velocity_limit_curve = SubResource("CurveTexture_66n07")
 gravity = Vector3(0, 1, 0)
-scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
+scale_over_velocity_curve = SubResource("CurveTexture_ul7h3")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fl4fo"]
 size = Vector2(0.03, 0.03)
@@ -110,12 +110,11 @@ _data = {
 }
 
 [node name="GasLamp" type="StaticBody3D"]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_i1yuc")
-min_value = 0.8
-max_value = 2.5
+min_value = 0.61
+max_value = 2.99
 
 [node name="Eje" type="Node3D" parent="."]
 transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
@@ -150,18 +149,18 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, -0.00260109)
 layers = 3
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 1.6442
+light_energy = 2.32771
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_bias = 1.881
 shadow_opacity = 0.45
 shadow_blur = 0.0
 distance_fade_enabled = true
-omni_range = 8.085
-omni_attenuation = 1.63
+omni_range = 39.2
+omni_attenuation = 1.547
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.671536
+wait_time = 0.720819
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

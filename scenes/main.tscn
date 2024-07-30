@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=111 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -46,12 +46,14 @@
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
-[ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="48_pb1fo"]
+[ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
+[ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r2ofu"]
-exposure_multiplier = 0.111
-dof_blur_far_distance = 6.0
+[ext_resource type="Material" uid="uid://dvup1364u66le" path="res://scenes/materials/metal.tres" id="50_m17s2"]
+[ext_resource type="Material" uid="uid://hhvpp8s8gsqd" path="res://assets/models/gaslamp.tres" id="51_prvkr"]
+[ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="52_xp1lg"]
+[ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="53_j1orv"]
+[ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="54_ow8vm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -666,6 +668,106 @@ size = Vector3(1, 1.66846, 0.131348)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
+[sub_resource type="Gradient" id="Gradient_18oco"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
+gradient = SubResource("Gradient_18oco")
+fill = 1
+fill_from = Vector2(0.535613, 0.527066)
+fill_to = Vector2(0.968661, 0.851852)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuwjd"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.622594, 0.345564, 0.0175739, 1)
+albedo_texture = SubResource("GradientTexture2D_pt3h2")
+albedo_texture_force_srgb = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_kfn2p"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ul7h3"]
+curve = SubResource("Curve_kfn2p")
+
+[sub_resource type="Curve" id="Curve_eey8k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492188, 0.260377), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_66n07"]
+curve = SubResource("Curve_eey8k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
+angle_min = -39.1
+angle_max = 55.9
+velocity_pivot = Vector3(0, 1, 0)
+direction = Vector3(0, 0, 0)
+spread = 3.0
+flatness = 1.0
+initial_velocity_min = 17.7
+initial_velocity_max = 247.78
+angular_velocity_min = -214.46
+angular_velocity_max = 288.52
+velocity_limit_curve = SubResource("CurveTexture_66n07")
+gravity = Vector3(0, 1, 0)
+scale_over_velocity_curve = SubResource("CurveTexture_ul7h3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fl4fo"]
+size = Vector2(0.03, 0.03)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rgq48"]
+height = 0.3
+radius = 0.0521055
+
+[sub_resource type="Animation" id="Animation_0erm1"]
+resource_name = "GasLampAnimation"
+length = 2.0015
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.48353, -1.5708, -1.5708), Vector3(1.5708, -1.5708, -1.5708), Vector3(1.65806, -1.5708, -1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_00dwj"]
+resource_name = "GasLampON"
+
+[sub_resource type="Animation" id="Animation_voj86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e882d"]
+_data = {
+"GasLampAnimation": SubResource("Animation_0erm1"),
+"GasLampON": SubResource("Animation_00dwj"),
+"RESET": SubResource("Animation_voj86")
+}
+
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 tick_length = 20.0
@@ -678,7 +780,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
 environment = ExtResource("2_h05f7")
-camera_attributes = SubResource("CameraAttributesPractical_r2ofu")
 
 [node name="House" parent="Level" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
@@ -1157,7 +1258,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
-flare_book = null
 color = Color(0.253955, 0.170005, 0.0537775, 1)
 
 [node name="How to make a flare" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
@@ -1170,13 +1270,11 @@ color = Color(0.341178, 0.0541443, 0.198094, 1)
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.34975, -2.26857, 3.07447)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
-flare_book = null
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="Reference" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
 read_stone_trigger_book = true
-flare_book = null
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" parent="Level/Recipes/Reference" index="0"]
@@ -1187,7 +1285,6 @@ transform = Transform3D(-0.0113763, 0.324381, 0.0134455, -0.00817415, -0.0137356
 
 [node name="Reference2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36903, 1.01699, 3.8777)
-flare_book = null
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -1205,9 +1302,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114187, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577545, 0.450216, 0.000962257)
 
 [node name="OmniLight3D" parent="Level/Lights/Candle_001" index="3"]
-light_energy = 0.795
+layers = 4
+light_energy = 0.912
 light_indirect_energy = 0.0
-light_specular = 0.255
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
 shadow_transmittance_bias = -16.0
@@ -1216,8 +1316,8 @@ shadow_blur = 2.117
 distance_fade_begin = 209.28
 distance_fade_shadow = 0.0
 distance_fade_length = 69.8
-omni_range = 11.698
-omni_attenuation = 0.993
+omni_range = 3.895
+omni_attenuation = 1.723
 
 [node name="Candle_003" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
 transform = Transform3D(-0.165039, -0.0336357, 0.985713, 0, 0.999418, 0.0341033, -0.986287, 0.00562838, -0.164943, -6.22212, -1.14805, 0.0136564)
@@ -1230,6 +1330,16 @@ transform = Transform3D(1, -1.39698e-09, -1.49012e-08, -1.39698e-09, 1, -3.49246
 
 [node name="FireCandle" parent="Level/Lights/Candle_003" index="2"]
 transform = Transform3D(1, -1.39698e-09, -1.49012e-08, -1.39698e-09, 1, -3.49246e-10, 0, -8.90577e-09, 1, -0.00577593, 0.431655, 0.00422478)
+
+[node name="OmniLight3D" parent="Level/Lights/Candle_003" index="3"]
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
 
 [node name="Candle_004" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
 transform = Transform3D(-0.614456, 0, -5.37174e-08, 0, 0.614456, 0, 5.37174e-08, 0, -0.614456, 1.93308, -1.449, -4.80092)
@@ -1246,7 +1356,14 @@ visible = false
 
 [node name="OmniLight3D" parent="Level/Lights/Candle_004" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51723, 0.411926, 4.38879)
-visible = false
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
 
 [node name="Candle_005" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
 transform = Transform3D(0.561793, 0, 0, 0, 0.561793, 0, 0, 0, 0.561793, 0.101422, -4.35355, 3.1429)
@@ -1260,18 +1377,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170317, 0)
 [node name="FireCandle" parent="Level/Lights/Candle_005" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577736, 0.506346, 0.000962257)
 
+[node name="OmniLight3D" parent="Level/Lights/Candle_005" index="3"]
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
+
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(0.993299, 0.00444563, 0.115493, 4.72937e-11, 0.99926, -0.0384641, -0.115579, 0.0382064, 0.992564, 3.58325, -4.21116, -2.47108)
 
 [node name="OmniLight3D" parent="Level/Lights/Candle" index="3"]
-omni_range = 3.691
-omni_attenuation = 2.314
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_size = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
 
 [node name="Candle2" parent="Level/Lights" instance=ExtResource("18_p4q7v")]
 transform = Transform3D(0.999895, -0.00955501, -0.0109224, 0.00995477, 0.99926, 0.0371517, 0.0105594, -0.0372565, 0.99925, -3.24659, -4.35835, -6.06368)
 
 [node name="OmniLight3D" parent="Level/Lights/Candle2" index="5"]
-omni_range = 3.074
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_size = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
 
 [node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1331,14 +1473,14 @@ libraries = {
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Interactibles/Fireplace"]
 transform = Transform3D(-0.0984478, -0.338693, 0.935732, 0, 0.9403, 0.340346, -0.995142, 0.0335064, -0.0925705, -0.857195, 0.749484, -4.16515)
+layers = 4
 light_color = Color(1, 0.393223, 0.0797581, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
-light_specular = 11.486
-light_bake_mode = 1
+light_specular = 0.0
+light_bake_mode = 0
 light_cull_mask = 4294967279
-shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
 shadow_reverse_cull_face = true
@@ -1353,14 +1495,14 @@ omni_attenuation = 1.961
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Level/Interactibles/Fireplace"]
 transform = Transform3D(-0.0984478, -0.338693, 0.935732, 0, 0.9403, 0.340346, -0.995142, 0.0335064, -0.0925705, 1.16263, 2.01606, -3.95411)
+layers = 4
 light_color = Color(1, 0.393223, 0.0797581, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
-light_bake_mode = 1
+light_bake_mode = 0
 light_cull_mask = 4294967279
-shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
 shadow_reverse_cull_face = true
@@ -1386,10 +1528,26 @@ transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.0
 text = "5"
 
 [node name="OmniLight3D" parent="Level/Interactibles/Still/LavaMesh" index="0"]
-light_bake_mode = 1
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 1.377
+omni_attenuation = 1.723
 
 [node name="OmniLight3D2" parent="Level/Interactibles/Still/LavaMesh/OmniLight3D" index="0"]
-light_bake_mode = 1
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 1.377
+omni_attenuation = 1.723
 
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
@@ -1398,13 +1556,28 @@ transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0
 text = "5"
 
 [node name="OmniLight3D" parent="Level/Interactibles/Furnace/LogFire" index="2"]
-light_bake_mode = 1
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+omni_range = 1.377
+omni_attenuation = 1.723
 
 [node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.593229, -2.9589, -4.06195)
 
 [node name="OmniLight3D" parent="Level/Interactibles/Cauldron" index="5"]
-light_bake_mode = 1
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 1.377
+omni_attenuation = 1.723
 
 [node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
 text = "5"
@@ -1646,13 +1819,95 @@ unique_name_in_owner = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("30_8kwqj")]
 
-[node name="GasLamp" parent="." instance=ExtResource("48_pb1fo")]
+[node name="GasLamp" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
-visible = true
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("48_cjxys")
+min_value = 0.09
+max_value = 0.55
+
+[node name="Eje" type="Node3D" parent="GasLamp"]
+transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
+
+[node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="GasLamp/Eje"]
+transform = Transform3D(0.997921, 1.77636e-15, 0.0644452, 3.69253e-18, 1, -1.14478e-16, -0.0644452, 0, 0.997921, 2.5116, 0.180256, 73.6234)
+cast_shadow = 0
+mesh = ExtResource("49_3msja")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("50_m17s2")
+surface_material_override/1 = ExtResource("51_prvkr")
+
+[node name="FireBeam2" type="GPUParticles3D" parent="GasLamp/Eje/Hand_Gas_Lamp_002"]
+transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
+material_override = SubResource("StandardMaterial3D_tuwjd")
+cast_shadow = 0
+amount = 15
+amount_ratio = 0.7404
+lifetime = 3.9
+preprocess = 215.6
+speed_scale = 17.9
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_fr5m7")
+draw_pass_1 = SubResource("QuadMesh_fl4fo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GasLamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("CylinderShape3D_rgq48")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
+layers = 3
+light_color = Color(1, 0.591041, 0.285807, 1)
+light_energy = 0.424334
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_bake_mode = 0
+light_cull_mask = 4294967293
+shadow_bias = 1.881
+shadow_opacity = 0.45
+shadow_blur = 0.0
+distance_fade_enabled = true
+omni_range = 1.259
+omni_attenuation = 1.356
+
+[node name="Timer" type="Timer" parent="GasLamp"]
+wait_time = 0.78499
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
+root_node = NodePath("../Eje/Hand_Gas_Lamp_002")
+libraries = {
+"": SubResource("AnimationLibrary_e882d")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GasLamp"]
+stream = ExtResource("52_xp1lg")
+attenuation_model = 3
+volume_db = -1.139
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="GasLamp"]
+stream = ExtResource("53_j1orv")
+attenuation_model = 3
+volume_db = 8.07
+max_db = 6.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="GasLamp"]
+stream = ExtResource("54_ow8vm")
+attenuation_model = 3
+volume_db = -1.104
+bus = &"SFX"
+
+[node name="InteractionComponent" type="Node" parent="GasLamp" node_paths=PackedStringArray("mesh")]
+script = ExtResource("20_3awsj")
+mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
+[connection signal="timeout" from="GasLamp/Timer" to="GasLamp" method="_on_timer_timeout"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
 [editable path="Level/Shadows/SpawnEntrance/Darkness"]

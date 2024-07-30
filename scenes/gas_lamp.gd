@@ -36,8 +36,8 @@ extends StaticBody3D
 				gas_loop.stop()
 
 @export var on_hand : bool = false
-@export var min_value : float = 1.4
-@export var max_value : float = 5.0
+@export var min_value : float = 5.0
+@export var max_value : float = 10.0
 
 @export var speed : float = 1.0
 @export var min_speed := 0.5
