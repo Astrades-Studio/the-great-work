@@ -98,7 +98,7 @@ current = true
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, -1.49012e-08, 7.45058e-09, 0.488537, -1.49012e-08, 0, 0, 0.488537, -0.155251, -0.102508, -0.268041)
 visible = false
-active = true
+active = false
 on_hand = true
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
