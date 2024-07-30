@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uvho"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
 border_color = Color(0.8, 0.8, 0.8, 0)
 shadow_color = Color(0, 0, 0, 0.380392)
 anti_aliasing = false

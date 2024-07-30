@@ -168,7 +168,7 @@ func spawn_random_shadow():
 	var available_spawns = shadow_spawn_points.filter(is_spot_available)
 	if available_spawns.size() > 0:
 		var spawn = available_spawns[randi() % available_spawns.size()] # Select random spawn point
-		if !spawn.shadow_present:
+		if spawn.shadow_present:
 			spawn_random_shadow()
 		else:
 			print("Shadow spawned")
