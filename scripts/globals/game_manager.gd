@@ -6,6 +6,11 @@ const INTRO_CUTSCENE = "res://scenes/layers/intro_cutscene.tscn"
 const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
+const INITIAL_FOG_DENSITY := 0.04
+const GAME_START_FOG_DENSITY := 0.1
+const FOG_DENSITY_MAX := 0.65
+
+var fog_density_increment : float
 
 enum GameState {
 	MAIN_MENU,
@@ -49,7 +54,6 @@ var current_state : GameState:
 # Progression
 var philosopher_stone_recipe_read : bool = false
 
-
 # References
 var player : UCharacterBody3D
 var environment : WorldEnvironment
@@ -73,6 +77,7 @@ signal game_over
 signal game_started
 
 # Game Progression Signals
+signal recipe_read
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
@@ -81,10 +86,12 @@ signal stone_consumed
 
 func _ready() -> void:
 	current_state = GameState.MAIN_MENU
+	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / shadow_spawn_points.size()
 	game_over.connect(_on_game_over)
 	philosopher_stone_progress.connect(_on_philosopher_stone_progress)
 	tick_countdown.connect(_on_tick_countdown)
 	stone_consumed.connect(_on_stone_consumed)
+	recipe_read.connect(_on_philosopher_stone_recipe_read)
 
 
 func _input(event):
@@ -152,8 +159,7 @@ func spawn_random_shadow():
 
 
 func update_darkness_effect(amount: int):
-	# TODO lerp?
-	environment.environment.fog_density = amount * 0.1
+	environment.environment.fog_density = amount * fog_density_increment
 	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
 	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
 
@@ -168,8 +174,10 @@ func is_spot_available(darkness : Darkness):
 
 
 func _on_philosopher_stone_recipe_read():
+	philosopher_stone_recipe_read = true
 	# Play cutscene
 	# Start game timer
+	game_started.emit()
 	print("The game begins")
 
 
@@ -185,6 +193,7 @@ func _on_philosopher_stone_progress(amount: int):
 	elif amount == 4:
 		_on_philosopher_stone_created()
 
+
 func _on_philosopher_stone_created():
 	# Play cutscene
 	#TransitionManager.change_scene_to_file(THANKS_CUTSCENE)
@@ -198,7 +207,9 @@ func reset_progress():
 	shadow_spawn_points.clear()
 	shadows_spawned.clear()
 	philosopher_stone_progress.emit(0)
-	
+	environment.environment.fog_density = INITIAL_FOG_DENSITY
+
+
 func _on_stone_consumed():
 	# TODO play ending
 	pass
