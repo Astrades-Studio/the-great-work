@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Material" uid="uid://b3awbhdjxn2ot" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
@@ -1355,7 +1355,7 @@ flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="How to make a flare2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.983511, -0.0124713, 0.180417, 0, 0.99762, 0.0689605, -0.180847, -0.0678234, 0.98117, -7.67448, 1.00289, -2.25297)
+transform = Transform3D(-0.440655, -0.0124713, 0.89759, -0.0663703, 0.99762, -0.0187221, -0.89522, -0.0678234, -0.440434, -6.20168, 0.923381, 0.000502147)
 book = ExtResource("10_ufp8w")
 flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
@@ -1707,7 +1707,7 @@ transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664931, 0, 0.0750827)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -7.66396, 0.360807, -2.20489)
+transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -7.77171, 0.184257, -2.1719)
 ingredient_type = 26
 
 [node name="SaltPouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
@@ -1757,7 +1757,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.803, -2.15049, 3.17388)
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.471, 0.296871, -2.15701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2756, 0.296871, -2.15701)
 
 [node name="SFX" type="Node3D" parent="Level"]
 process_mode = 3
@@ -1957,7 +1957,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.393234
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1970,7 +1970,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.664347
+wait_time = 0.704648
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]

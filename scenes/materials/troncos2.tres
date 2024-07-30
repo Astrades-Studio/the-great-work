@@ -1,20 +1,11 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://0dt3kmstuhrw"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0dt3kmstuhrw"]
 
-[sub_resource type="Gradient" id="Gradient_8h3wk"]
-offsets = PackedFloat32Array(0, 0.025641, 0.235897, 1)
-colors = PackedColorArray(0.539142, 0.422887, 0.251632, 1, 0.55936, 0.450854, 0.300734, 1, 0.629976, 0.548533, 0.472232, 1, 0.687141, 0.627606, 0.611064, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_llot5"]
-gradient = SubResource("Gradient_8h3wk")
-width = 128
-height = 128
-fill_from = Vector2(0.82906, 0)
-repeat = 1
+[ext_resource type="Texture2D" uid="uid://clpohbm8bdtw1" path="res://addons/AutoFootStepsPlugin/Example/Materials/streaky-plywood-unity/streaky-plywood_albedo.png" id="1_y3k2f"]
 
 [resource]
 resource_name = "BrownB.020"
 cull_mode = 2
 albedo_color = Color(0.561535, 0.439994, 0.325299, 1)
-albedo_texture = SubResource("GradientTexture2D_llot5")
+albedo_texture = ExtResource("1_y3k2f")
 metallic_specular = 0.97
 roughness = 0.0

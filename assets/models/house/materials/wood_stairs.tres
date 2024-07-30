@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://caadkhd8x7eck"]
 
-[ext_resource type="Texture2D" uid="uid://clpohbm8bdtw1" path="res://addons/AutoFootStepsPlugin/Example/Materials/streaky-plywood-unity/streaky-plywood_albedo.png" id="1_cpabj"]
+[ext_resource type="Texture2D" uid="uid://b74iqwun5ar8k" path="res://assets/models/house/materials/wood_wall2.png" id="1_yn5kl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kkrlj"]
 frequency = 0.23
@@ -15,7 +15,7 @@ noise = SubResource("FastNoiseLite_kkrlj")
 
 [resource]
 albedo_color = Color(0.215094, 0.138019, 0.00801543, 1)
-albedo_texture = ExtResource("1_cpabj")
+albedo_texture = ExtResource("1_yn5kl")
 normal_enabled = true
 normal_scale = 2.51
 normal_texture = SubResource("NoiseTexture2D_et2mh")

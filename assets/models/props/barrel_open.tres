@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://13glbehrmlg5"]
 
-[ext_resource type="Material" uid="uid://d2kdb086qvmfa" path="res://scenes/materials/wooden_barrel.tres" id="1_0irar"]
+[ext_resource type="Material" uid="uid://5co4bf0vtdw4" path="res://scenes/materials/wooden_barrel.tres" id="1_0irar"]
 [ext_resource type="Material" uid="uid://dvup1364u66le" path="res://scenes/materials/metal.tres" id="2_p6t3l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8wlwu"]
