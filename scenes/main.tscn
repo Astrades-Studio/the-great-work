@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=92 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
 [ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
 [ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="8_vrqnq"]
@@ -16,7 +17,6 @@
 [ext_resource type="Resource" uid="uid://0nyw3n73kvo1" path="res://assets/images/recipes/stone_recipe/stone_recipe.tres" id="10_s76sh"]
 [ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="10_ufp8w"]
 [ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="11_5aosd"]
-[ext_resource type="Resource" uid="uid://t507in4tinkw" path="res://assets/images/recipes/reference/reference_book.tres" id="11_ij3sh"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
+[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="48_pb1fo"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
@@ -766,6 +767,7 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="ShadowCrawl" type="Marker3D" parent="Level/Shadows"]
 transform = Transform3D(0.918273, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918273, -14.0334, 0.21762, 3.00247)
+script = ExtResource("6_ougbu")
 
 [node name="Running Crawl_Imported" type="Node3D" parent="Level/Shadows/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103037, -0.553378)
@@ -1155,23 +1157,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
+flare_book = null
 color = Color(0.253955, 0.170005, 0.0537775, 1)
 
 [node name="How to make a flare" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -0.600911, -2.26857, 3.06078)
 book = ExtResource("10_ufp8w")
+flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="StoneRecipe" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.34975, -2.26857, 3.07447)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
+flare_book = null
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="Reference" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
-book = ExtResource("11_ij3sh")
 read_stone_trigger_book = true
+flare_book = null
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" parent="Level/Recipes/Reference" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
@@ -1181,6 +1187,7 @@ transform = Transform3D(-0.0113763, 0.324381, 0.0134455, -0.00817415, -0.0137356
 
 [node name="Reference2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36903, 1.01699, 3.8777)
+flare_book = null
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -1586,12 +1593,22 @@ script = ExtResource("9_7hkxv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
 shape = SubResource("WorldBoundaryShape3D_v46o1")
 
-[node name="Area3D" type="Area3D" parent="Triggers"]
+[node name="GasLampReminder" type="Area3D" parent="Triggers"]
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("44_64vvj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/GasLampReminder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
+shape = SubResource("BoxShape3D_vvvnc")
+
+[node name="ShadowCrawl" type="Area3D" parent="Triggers"]
+transform = Transform3D(0.0166671, 0, 0.999861, 0, 1, 0, -0.999861, 0, 0.0166671, -5.84593, 0.145517, 3.72983)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("41_lqb1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
 shape = SubResource("BoxShape3D_vvvnc")
 
@@ -1631,7 +1648,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
 visible = true
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Area3D" to="Triggers/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
 [editable path="Level/Shadows/SpawnEntrance/Darkness"]
