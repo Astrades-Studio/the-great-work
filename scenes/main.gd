@@ -34,3 +34,7 @@ func _on_timer_tick():
 		GameManager.game_over.emit()
 		game_over_timer.stop()
 	
+
+
+func _on_basement_trigger_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
