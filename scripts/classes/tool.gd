@@ -107,7 +107,10 @@ func on_tool_use() -> bool:
 	if hand_ingredient.type == Ingredient.Type.ASH:
 		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")
 		return false
-	
+	# Couple of hints:
+	if tool_type == Type.CAULDRON and (hand_ingredient.type == Ingredient.Type.CINNABAR or hand_ingredient.type == Ingredient.Type.POTASSIUM):
+		DialogManager.create_dialog_piece("This substance is too tough to dissolve like this.")
+		return false	
 	if stored_ingredient:
 		DialogManager.create_dialog_piece("My hands are full.")
 		return false
@@ -178,7 +181,7 @@ var item_1 : Ingredient
 var item_2 : Ingredient
 func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-	
+
 	# If this is the first ingredient, return nothing
 	if !item_1:
 		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
@@ -188,7 +191,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	else:
 		item_2 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
 		DialogManager.create_dialog_piece("I added %s to the %s" % [item_2.type_name, item_1.type_name])
-	
+
 	# Check all recipes
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.CAULDRON]:
 		# Check if the recipe exists
