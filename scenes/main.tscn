@@ -876,6 +876,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 3.102, 0.116, 7.117]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OmniLight3D2:omni_attenuation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.009, 2.624]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../OmniLight3D2:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.933333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 16.0, 4.512, 16.0]
+}
 
 [sub_resource type="Animation" id="Animation_pya5x"]
 length = 0.001
@@ -898,6 +922,30 @@ tracks/1/path = NodePath("../OmniLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OmniLight3D2:omni_attenuation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.009]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../OmniLight3D2:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1420,18 +1468,15 @@ transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.9999
 [node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_ufp8w")
-the_book = false
 
 [node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 3.08048)
 book = ExtResource("10_ufp8w")
-the_book = false
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 2.14595)
 book = ExtResource("10_ufp8w")
-the_book = false
 
 [node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
@@ -1607,12 +1652,12 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Interactibles/Fireplace"]
-transform = Transform3D(-0.0984478, -0.338693, 0.935732, 0, 0.9403, 0.340346, -0.995142, 0.0335064, -0.0925705, -0.572635, 0.891442, -4.1933)
+transform = Transform3D(-0.0984478, -0.338693, 0.935732, 0, 0.9403, 0.340346, -0.995142, 0.0335064, -0.0925705, -0.857195, 0.749484, -4.16515)
 light_color = Color(1, 0.393223, 0.0797581, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
-light_specular = 12.073
+light_specular = 11.486
 light_bake_mode = 1
 light_cull_mask = 4294967279
 shadow_enabled = true
@@ -1625,8 +1670,30 @@ shadow_blur = 0.0
 distance_fade_begin = 0.0
 distance_fade_shadow = 0.0
 distance_fade_length = 29.9
-omni_range = 7.408
-omni_attenuation = 0.361
+omni_range = 0.737
+omni_attenuation = 1.961
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level/Interactibles/Fireplace"]
+transform = Transform3D(-0.0984478, -0.338693, 0.935732, 0, 0.9403, 0.340346, -0.995142, 0.0335064, -0.0925705, 0.742678, 1.44986, -3.91256)
+light_color = Color(1, 0.393223, 0.0797581, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 1
+light_cull_mask = 4294967279
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = -16.0
+shadow_opacity = 0.53
+shadow_blur = 0.0
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 29.9
+omni_range = 27.937
+omni_attenuation = 5.009
 
 [node name="Adam\'s letter" parent="Level/Interactibles" instance=ExtResource("14_mag3s")]
 transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)

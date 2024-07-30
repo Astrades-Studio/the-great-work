@@ -95,7 +95,7 @@ shape = SubResource("ConvexPolygonShape3D_vgynt")
 
 [node name="Book" parent="Mesa" instance=ExtResource("22_h6p0o")]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0.73298, 0.520226)
-the_book = true
+read_stone_trigger_book = null
 
 [node name="Tools" type="Node3D" parent="."]
 
