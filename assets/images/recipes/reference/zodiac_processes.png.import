@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqn0rn87k7nc1"
-path.s3tc="res://.godot/imported/planet_metals.png-f69a0289e761b95b48c88ce96b06effe.s3tc.ctex"
+uid="uid://dsiwfab46tw32"
+path.s3tc="res://.godot/imported/zodiac_processes.png-4d674d5c416ca025ac690c86752eb2d5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/recipes/planet_metals.png"
-dest_files=["res://.godot/imported/planet_metals.png-f69a0289e761b95b48c88ce96b06effe.s3tc.ctex"]
+source_file="res://assets/images/recipes/reference/zodiac_processes.png"
+dest_files=["res://.godot/imported/zodiac_processes.png-4d674d5c416ca025ac690c86752eb2d5.s3tc.ctex"]
 
 [params]
 

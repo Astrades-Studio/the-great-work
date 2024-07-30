@@ -114,6 +114,7 @@ visible = false
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_i1yuc")
+on_hand = null
 min_value = 0.8
 max_value = 2.5
 
@@ -150,10 +151,9 @@ shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10214, -0.00260109)
-visible = false
 layers = 3
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.775184
+light_energy = 2.74097
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_bias = 1.881
@@ -164,7 +164,7 @@ omni_range = 8.085
 omni_attenuation = 1.63
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.580415
+wait_time = 0.803573
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

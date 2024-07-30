@@ -56,6 +56,7 @@ shadow_spawn_points=""
 flare=""
 shadow=""
 darkness=""
+dispenser=""
 
 [gui]
 

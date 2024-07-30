@@ -1,51 +1,51 @@
-[gd_scene load_steps=106 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=106 format=4 uid="uid://c22bjtxa0166u"]
 
-[ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
-[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
-[ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
-[ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
-[ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
-[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
-[ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
-[ext_resource type="Texture2D" uid="uid://75omdbabs1xa" path="res://assets/images/paintings/painting-38.jpg" id="8_10nsw"]
-[ext_resource type="Texture2D" uid="uid://doyxhumkshwea" path="res://assets/images/paintings/painting-17.jpg" id="8_pjtq0"]
-[ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="8_vrqnq"]
-[ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
-[ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="9_mnsrf"]
-[ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
-[ext_resource type="Texture2D" uid="uid://dwxe6rlfamlcj" path="res://assets/images/paintings/painting-27.jpg" id="10_t2oyt"]
-[ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="10_ufp8w"]
-[ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="11_5aosd"]
-[ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
-[ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
-[ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
-[ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
-[ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
-[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="14_ueicl"]
-[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
-[ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
-[ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
-[ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
-[ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
-[ext_resource type="Script" path="res://scenes/fireplace_off.gd" id="18_afs66"]
-[ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
-[ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="19_swayh"]
-[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
-[ext_resource type="PackedScene" uid="uid://cbstr3dw00tjg" path="res://scenes/alchemy/dispensers/pot.tscn" id="20_p2kc1"]
-[ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="21_n1n2k"]
-[ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="22_d81xl"]
-[ext_resource type="PackedScene" uid="uid://bgqw4duvf0vps" path="res://scenes/alchemy/dispensers/basket.tscn" id="23_j4hhd"]
-[ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
-[ext_resource type="PackedScene" uid="uid://ttaynu1kvyxi" path="res://scenes/alchemy/dispensers/chest.tscn" id="24_ut00p"]
-[ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
-[ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
-[ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
-[ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
-[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
-[ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="35_g2kq8"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_n1vv5"]
+[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_758ei"]
+[ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="3_fknth"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_gyxji"]
+[ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="5_7u0sl"]
+[ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="6_fstmv"]
+[ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="7_4gakk"]
+[ext_resource type="Texture2D" uid="uid://75omdbabs1xa" path="res://assets/images/paintings/painting-38.jpg" id="8_3w31q"]
+[ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="9_gudx3"]
+[ext_resource type="Texture2D" uid="uid://dwxe6rlfamlcj" path="res://assets/images/paintings/painting-27.jpg" id="10_mwsuu"]
+[ext_resource type="Texture2D" uid="uid://doyxhumkshwea" path="res://assets/images/paintings/painting-17.jpg" id="11_jd0db"]
+[ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="12_6dlfs"]
+[ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="13_qwnxm"]
+[ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="14_mypea"]
+[ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="15_vt27g"]
+[ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="16_iio3a"]
+[ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="17_4s2th"]
+[ext_resource type="Script" path="res://scenes/fireplace_off.gd" id="18_7cfk0"]
+[ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="19_qb0ft"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_d5cwk"]
+[ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="21_lvxli"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="22_qnije"]
+[ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="23_yy47r"]
+[ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="24_73w8l"]
+[ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="25_2nmu1"]
+[ext_resource type="PackedScene" uid="uid://cbstr3dw00tjg" path="res://scenes/alchemy/dispensers/pot.tscn" id="26_4p487"]
+[ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="27_tad74"]
+[ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="28_nrpiy"]
+[ext_resource type="PackedScene" uid="uid://bgqw4duvf0vps" path="res://scenes/alchemy/dispensers/basket.tscn" id="29_mjqhw"]
+[ext_resource type="PackedScene" uid="uid://ttaynu1kvyxi" path="res://scenes/alchemy/dispensers/chest.tscn" id="30_h0tx8"]
+[ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="31_tgj82"]
+[ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="32_76klp"]
+[ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="33_i0pre"]
+[ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="34_vb7bi"]
+[ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="35_mqpya"]
+[ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="36_jhix4"]
+[ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="37_gh17q"]
+[ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="38_voa36"]
+[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="39_invbo"]
+[ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="40_gjidu"]
+[ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="41_mm6f4"]
+[ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="42_by4kb"]
+[ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="43_4iolf"]
+[ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="44_3nw4h"]
+[ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="45_pujrb"]
+[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="46_vm7la"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_r2ofu"]
 exposure_multiplier = 0.111
@@ -242,7 +242,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pevfd"]
 _data = {
-"Crawl_downstairs": ExtResource("4_3yjmc"),
+"Crawl_downstairs": ExtResource("4_gyxji"),
 "RESET": SubResource("Animation_o1igu")
 }
 
@@ -265,10 +265,10 @@ size = Vector3(3.3826, 2.40158, 1.94965)
 size = Vector3(1.70316, 2.8847, 5.80588)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqsj4"]
-albedo_texture = ExtResource("8_10nsw")
+albedo_texture = ExtResource("8_3w31q")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sr0e"]
-albedo_texture = ExtResource("10_t2oyt")
+albedo_texture = ExtResource("10_mwsuu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l88u"]
 resource_name = "Material.009"
@@ -324,7 +324,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 288,
 "index_data": PackedByteArray("awB2AGwAawB4AHYAZwB/AGkAZwCBAH8AdQBtAHcAdQBvAG0AZACAAGYAZACCAIAAcgBuAHQAcgBwAG4AIAAWACIAIAAUABYAIwAZACUAIwAXABkAMgAmADQAMgAaACYAHQAnABsAHQApACcAHgAoABwAHgAqACgASAAuAEoASAAsAC4ASwAxAE0ASwAvADEATAAyAE4ATAAwADIANgBPAFIANgAzAE8AVQA8ADkAVQBYADwAWQBBAD0AWQBdAEEAagB4AGsAagB7AHgARQBfAEMARQBhAF8ARgBgAEQARgBiAGAAJABOAFAAJAAYAE4AaAB7AGoAaAB+AHsAQgBqAGsAQgBeAGoAfAA+AFoAfAB5AD4AOACGAIUAOAA6AIYAOwCJAIcAOwBAAIkAEACNAA8AEACKAI0AEwCLABEAEwCPAIsANQCEAJAANQA3AIQADgCRACsADgCMAJEAcwCOABIAcwCSAI4APwCTAIgAPwB6AJMACwCUAC0ACwCWAJQAHwCVAAoAHwCXAJUAAwCbAAEAAwCZAJsABQCYAAIABQCdAJgAIQCcAAQAIQCeAJwAUwCfAKAAUwBRAJ8AVgChAKIAVgBUAKEAXACjAKUAXABXAKMAfQCkAKYAfQBbAKQAAACnAIMAAACaAKcABgCoABUABgCpAKgASQCqAAcASQCrAKoARwCuAA0ARwCsAK4ADACvAHEADACtAK8ACQCwAGMACQCyALAAZQCxAAgAZQCzALEAMgBQAE4AMgA0AFAA"),
-"material": ExtResource("11_5aosd"),
+"material": ExtResource("14_mypea"),
 "name": "Material.008",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -916,7 +916,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
 [node name="MainScene" type="Node3D"]
-script = ExtResource("1_bkhrr")
+script = ExtResource("1_n1vv5")
 tick_length = 20.0
 
 [node name="Level" type="Node3D" parent="."]
@@ -926,10 +926,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
-environment = ExtResource("2_h05f7")
+environment = ExtResource("2_758ei")
 camera_attributes = SubResource("CameraAttributesPractical_r2ofu")
 
-[node name="House" parent="Level" instance=ExtResource("1_7hj75")]
+[node name="House" parent="Level" instance=ExtResource("3_fknth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
 metadata/_edit_lock_ = true
 
@@ -1313,7 +1313,7 @@ speed_scale = 1.767
 [node name="SpawnDiningRoom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(0.0610294, 0.0296874, -0.997694, 2.52236e-12, 0.999558, 0.0297428, 0.998136, -0.00181519, 0.0610024, -8.699, 0.19758, 4.64143)
 
-[node name="Darkness" parent="Level/Shadows/SpawnDiningRoom" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnDiningRoom" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -1324,7 +1324,7 @@ transform = Transform3D(1, 7.33417e-09, -2.94298e-07, -4.65661e-10, 1, 4.1473e-1
 [node name="SpawnEntrance" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0.0471823, -0.113186, -0.0468791, 0.992467, -12.5333, 0.335908, -7.24484)
 
-[node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1335,7 +1335,7 @@ shape = SubResource("BoxShape3D_slyix")
 [node name="SpawnBedroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(-0.942463, -0.0172306, 0.333868, 6.26803e-10, 0.998671, 0.0515405, -0.334312, 0.048575, -0.94121, -18.82, 0.287143, -4.70714)
 
-[node name="Darkness" parent="Level/Shadows/SpawnBedroom" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnBedroom" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1346,7 +1346,7 @@ shape = SubResource("BoxShape3D_c085k")
 [node name="SpawnBasement" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(0.900681, 0.0129225, -0.434289, 0, 0.999558, 0.0297424, 0.434481, -0.0267884, 0.900283, -11.4671, -2.89808, -6.47169)
 
-[node name="Darkness" parent="Level/Shadows/SpawnBasement" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnBasement" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1357,7 +1357,7 @@ shape = SubResource("BoxShape3D_wqk3c")
 [node name="SpawnKitchen" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(-0.49999, -0.0158041, -0.865887, 0, 0.999834, -0.0182488, 0.866031, -0.00912424, -0.499907, -23.0682, 0.210962, 2.21717)
 
-[node name="Darkness" parent="Level/Shadows/SpawnKitchen" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnKitchen" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1368,7 +1368,7 @@ shape = SubResource("BoxShape3D_3smdt")
 [node name="SpawnBathroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823, -0.968144, 0.0118141, -0.250115, -16.2179, 0.157982, 1.70638)
 
-[node name="Darkness" parent="Level/Shadows/SpawnBathroom" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnBathroom" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1379,7 +1379,7 @@ shape = SubResource("BoxShape3D_x8xtm")
 [node name="SpawnStairs" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(0.00476587, 0.338283, 0.941033, -0.00661438, 0.941033, -0.33825, -0.999967, -0.00461221, 0.00672236, -19.5686, 1.84717, 6.72934)
 
-[node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("4_vkn8q")]
+[node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("5_7u0sl")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
 metadata/_edit_lock_ = true
 
@@ -1390,9 +1390,9 @@ shape = SubResource("BoxShape3D_k6aw5")
 [node name="Papers" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="Painting" parent="Level/Papers" instance=ExtResource("10_2xuse")]
+[node name="Painting" parent="Level/Papers" instance=ExtResource("6_fstmv")]
 transform = Transform3D(0.749587, 0, 0, 0, 0.680326, -0.00877517, 0, 0.00837153, 0.713127, 3.17733, 1.80718, -8.3851)
-painting = ExtResource("4_hr77e")
+painting = ExtResource("7_4gakk")
 
 [node name="MeshInstance3D" parent="Level/Papers/Painting" index="0"]
 transform = Transform3D(1.2424, 0, 0, 0, 1.2424, -0.00416333, 0, 0.00416333, 1.2424, 0, 7.15256e-07, -0.0130587)
@@ -1404,45 +1404,45 @@ transform = Transform3D(1, 0, 0, 0, 0.999995, 0.00335103, 0, -0.00335103, 0.9999
 [node name="CSGBox3D2" parent="Level/Papers/Painting/MeshInstance3D/CSGBox3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.06406e-09, 0, -1.06406e-09, 1, 0, 2.38419e-07, 0.00643158)
 
-[node name="Painting2" parent="Level/Papers" instance=ExtResource("10_2xuse")]
+[node name="Painting2" parent="Level/Papers" instance=ExtResource("6_fstmv")]
 transform = Transform3D(-4.36148e-08, 0.0181504, 0.999835, -2.90378e-09, 0.999835, -0.0181504, -1, -3.69492e-09, -4.35549e-08, -5.3047, 1.82276, 1.77841)
-painting = ExtResource("12_k1s8s")
+painting = ExtResource("9_gudx3")
 
 [node name="MeshInstance3D" parent="Level/Papers/Painting2" index="0"]
 material_override = SubResource("StandardMaterial3D_1sr0e")
 
-[node name="Painting3" parent="Level/Papers" instance=ExtResource("10_2xuse")]
+[node name="Painting3" parent="Level/Papers" instance=ExtResource("6_fstmv")]
 transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
-painting = ExtResource("8_pjtq0")
+painting = ExtResource("11_jd0db")
 
 [node name="MeshInstance3D" parent="Level/Papers/Painting3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0.392604, -0.120052, -0.013461)
 
-[node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
+[node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("12_6dlfs")]
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
-book = ExtResource("10_ufp8w")
+book = ExtResource("13_qwnxm")
 read_stone_trigger_book = true
 
-[node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
+[node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("12_6dlfs")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 3.08048)
-book = ExtResource("10_ufp8w")
+book = ExtResource("13_qwnxm")
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
+[node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("12_6dlfs")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
-book = ExtResource("10_ufp8w")
+book = ExtResource("13_qwnxm")
 read_stone_trigger_book = true
 
 [node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
 
-[node name="Page" parent="Level/Papers" instance=ExtResource("5_6lkja")]
+[node name="Page" parent="Level/Papers" instance=ExtResource("15_vt27g")]
 transform = Transform3D(0.253773, 0.0609861, -0.193423, 1.64004e-09, 0.309823, 0.0976867, 0.202809, -0.0763112, 0.242028, 3.97987, 1.2003, 0.557442)
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
-[node name="Candle_001" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
+[node name="Candle_001" parent="Level/Lights" instance=ExtResource("16_iio3a")]
 transform = Transform3D(1.02503, 0, 0, 0, 0.837945, 0, 0, 0, 0.837945, 4.19767, -1.07652, 4.01175)
 
 [node name="CollisionShape3D" parent="Level/Lights/Candle_001" index="0"]
@@ -1454,7 +1454,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114187, 0)
 [node name="FireCandle" parent="Level/Lights/Candle_001" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577545, 0.450216, 0.000962257)
 
-[node name="Candle_003" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
+[node name="Candle_003" parent="Level/Lights" instance=ExtResource("16_iio3a")]
 transform = Transform3D(-0.165039, -0.0336357, 0.985713, 0, 0.999418, 0.0341033, -0.986287, 0.00562838, -0.164943, -6.21042, -1.13439, 0.011699)
 
 [node name="CollisionShape3D" parent="Level/Lights/Candle_003" index="0"]
@@ -1466,7 +1466,7 @@ transform = Transform3D(1, -1.39698e-09, -1.49012e-08, -1.39698e-09, 1, -3.49246
 [node name="FireCandle" parent="Level/Lights/Candle_003" index="2"]
 transform = Transform3D(1, -1.39698e-09, -1.49012e-08, -1.39698e-09, 1, -3.49246e-10, 0, -8.90577e-09, 1, -0.00577593, 0.431655, 0.00422478)
 
-[node name="Candle_004" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
+[node name="Candle_004" parent="Level/Lights" instance=ExtResource("16_iio3a")]
 transform = Transform3D(-0.614456, 0, -5.37174e-08, 0, 0.614456, 0, 5.37174e-08, 0, -0.614456, 1.50897, -1.449, -4.80092)
 
 [node name="CollisionShape3D" parent="Level/Lights/Candle_004" index="0"]
@@ -1483,7 +1483,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51723, 0.411926, 4.38879)
 visible = false
 
-[node name="Candle_005" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
+[node name="Candle_005" parent="Level/Lights" instance=ExtResource("16_iio3a")]
 transform = Transform3D(0.561793, 0, 0, 0, 0.561793, 0, 0, 0, 0.561793, 0.101422, -4.35355, 3.1429)
 
 [node name="CollisionShape3D" parent="Level/Lights/Candle_005" index="0"]
@@ -1506,16 +1506,16 @@ transform = Transform3D(0.00994183, -0.00107704, 3.76011e-07, 3.78211e-07, -1.61
 mesh = SubResource("ArrayMesh_ewnp0")
 skeleton = NodePath("")
 
-[node name="FireCandle" parent="Level/Lights/Candle_02_001" instance=ExtResource("9_mnsrf")]
+[node name="FireCandle" parent="Level/Lights/Candle_02_001" instance=ExtResource("17_4s2th")]
 transform = Transform3D(1, -1.49012e-08, -2.84217e-14, 1.49012e-08, 1, 0, -1.17097e-11, -4.54747e-13, 1, -6.37292, 1.02588, -23.4752)
 
-[node name="FireCandle2" parent="Level/Lights/Candle_02_001" instance=ExtResource("9_mnsrf")]
+[node name="FireCandle2" parent="Level/Lights/Candle_02_001" instance=ExtResource("17_4s2th")]
 transform = Transform3D(1, -1.49012e-08, -2.84217e-14, 1.49012e-08, 1, 0, -1.53477e-11, -4.54747e-13, 1, -0.067749, 0.342896, -23.475)
 
-[node name="FireCandle3" parent="Level/Lights/Candle_02_001" instance=ExtResource("9_mnsrf")]
+[node name="FireCandle3" parent="Level/Lights/Candle_02_001" instance=ExtResource("17_4s2th")]
 transform = Transform3D(1, -1.49012e-08, -2.84217e-14, 1.49012e-08, 1, 0, -1.53477e-11, -4.54747e-13, 1, 6.41968, -0.359985, -23.4747)
 
-[node name="FireCandle3" parent="Level/Lights/Candle_02_001/FireCandle3" instance=ExtResource("9_mnsrf")]
+[node name="FireCandle3" parent="Level/Lights/Candle_02_001/FireCandle3" instance=ExtResource("17_4s2th")]
 transform = Transform3D(97.5073, 0.857254, 22.1723, -22.1889, 3.75053, 97.4351, 0.00368783, -99.926, 3.84725, 194.606, 524.731, -11.7391)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/Lights/Candle_02_001"]
@@ -1554,7 +1554,7 @@ metadata/ant_landscape = "{  }"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Fireplace" type="StaticBody3D" parent="Level/Interactibles"]
-script = ExtResource("18_afs66")
+script = ExtResource("18_7cfk0")
 
 [node name="Fireplace_OFF" type="MeshInstance3D" parent="Level/Interactibles/Fireplace"]
 transform = Transform3D(-0.00346583, 0.056552, -0.695618, 0, 0.695627, 0.0565527, 0.697913, 0.000280836, -0.00345443, -0.960608, 0.298723, -4.1897)
@@ -1573,7 +1573,7 @@ mesh = SubResource("ArrayMesh_bwbh0")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
-[node name="FireLog" parent="Level/Interactibles/Fireplace/Fireplace_ON" instance=ExtResource("9_mnsrf")]
+[node name="FireLog" parent="Level/Interactibles/Fireplace/Fireplace_ON" instance=ExtResource("17_4s2th")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
 visibility_range_end = 9.8
 lifetime = 1.61
@@ -1585,7 +1585,7 @@ draw_pass_1 = SubResource("QuadMesh_o3ab1")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Interactibles/Fireplace/Fireplace_ON"]
 transform = Transform3D(1.43282, 0, 0, 0, 1.43282, 0, 0, 0, 1.43282, 0.0291595, 0.183518, 0.0167384)
-stream = ExtResource("19_swayh")
+stream = ExtResource("19_qb0ft")
 attenuation_model = 2
 volume_db = -36.607
 unit_size = 10.76
@@ -1597,7 +1597,7 @@ emission_angle_degrees = 45.8
 emission_angle_filter_attenuation_db = -60.6
 
 [node name="InteractionComponent" type="Node" parent="Level/Interactibles/Fireplace" node_paths=PackedStringArray("mesh")]
-script = ExtResource("20_3awsj")
+script = ExtResource("20_d5cwk")
 mesh = NodePath("../Fireplace_OFF")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Interactibles/Fireplace"]
@@ -1628,25 +1628,25 @@ distance_fade_length = 29.9
 omni_range = 7.408
 omni_attenuation = 0.361
 
-[node name="Adam\'s letter" parent="Level/Interactibles" instance=ExtResource("14_mag3s")]
+[node name="Adam\'s letter" parent="Level/Interactibles" instance=ExtResource("21_lvxli")]
 transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)
 
-[node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
+[node name="Mortar" parent="Level/Interactibles" instance=ExtResource("22_qnije")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
 
-[node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
+[node name="Still" parent="Level/Interactibles" instance=ExtResource("23_yy47r")]
 transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
 
 [node name="WaitLabel" parent="Level/Interactibles/Still" index="10"]
 text = "5"
 
-[node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
+[node name="Furnace" parent="Level/Interactibles" instance=ExtResource("24_73w8l")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
 
 [node name="WaitLabel" parent="Level/Interactibles/Furnace" index="3"]
 text = "5"
 
-[node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
+[node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("25_2nmu1")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.593229, -2.9589, -4.06195)
 
 [node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
@@ -1655,75 +1655,75 @@ text = "5"
 [node name="Dispensers" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
 
-[node name="Pot" parent="Level/Interactibles/Dispensers" instance=ExtResource("20_p2kc1")]
+[node name="Pot" parent="Level/Interactibles/Dispensers" instance=ExtResource("26_4p487")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79605, -0.668254, -0.0733199)
 ingredient_type = 1
 
-[node name="Barrel" parent="Level/Interactibles/Dispensers" instance=ExtResource("21_n1n2k")]
+[node name="Barrel" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_tad74")]
 transform = Transform3D(1.15958, 0, 0, 0, 1.15958, 0, 0, 0, 1.15958, 3.32111, -0.677634, 6.33997)
 ingredient_type = 8
 
-[node name="Bag" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
+[node name="Bag" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_nrpiy")]
 transform = Transform3D(0.122729, 5.82077e-11, 0.273748, 0.00135689, 0.299996, -0.00060833, -0.273744, 0.00148701, 0.122727, -0.987738, -0.680817, 1.5398)
 ingredient_type = 2
 
-[node name="Basket" parent="Level/Interactibles/Dispensers" instance=ExtResource("23_j4hhd")]
+[node name="Basket" parent="Level/Interactibles/Dispensers" instance=ExtResource("29_mjqhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -7.57384)
 ingredient_type = 9
 
-[node name="Chest" parent="Level/Interactibles/Dispensers" instance=ExtResource("24_ut00p")]
+[node name="Chest" parent="Level/Interactibles/Dispensers" instance=ExtResource("30_h0tx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01105, -0.665621, -3.31113)
 
-[node name="Jug" parent="Level/Interactibles/Dispensers" instance=ExtResource("25_3hjij")]
+[node name="Jug" parent="Level/Interactibles/Dispensers" instance=ExtResource("31_tgj82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38939, 0, -4.37555)
 
-[node name="BigJug" parent="Level/Interactibles/Dispensers" instance=ExtResource("26_g0qm8")]
+[node name="BigJug" parent="Level/Interactibles/Dispensers" instance=ExtResource("32_76klp")]
 transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
 
 [node name="Mesh" parent="Level/Interactibles/Dispensers/BigJug" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664931, 0, 0.0750827)
 
-[node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
+[node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("33_i0pre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11217, 0, -5.76686)
 
-[node name="Bunch" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
+[node name="Bunch" parent="Level/Interactibles/Dispensers" instance=ExtResource("34_vb7bi")]
 transform = Transform3D(-0.290724, 0.121487, 0.523568, 0.0028181, 0.595589, -0.136633, -0.537471, -0.0625908, -0.28392, -7.32353, 0.424519, -2.23792)
 
 [node name="Dispensers2" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
 
-[node name="Pot" parent="Level/Interactibles/Dispensers2" instance=ExtResource("20_p2kc1")]
+[node name="Pot" parent="Level/Interactibles/Dispensers2" instance=ExtResource("26_4p487")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62089, 0, -7.575)
 ingredient_type = 1
 
-[node name="Barrel" parent="Level/Interactibles/Dispensers2" instance=ExtResource("21_n1n2k")]
+[node name="Barrel" parent="Level/Interactibles/Dispensers2" instance=ExtResource("27_tad74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68468, 2.38419e-07, -1.60681)
 ingredient_type = 8
 
-[node name="Bag" parent="Level/Interactibles/Dispensers2" instance=ExtResource("22_d81xl")]
+[node name="Bag" parent="Level/Interactibles/Dispensers2" instance=ExtResource("28_nrpiy")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.56, 0, 4.92542)
 ingredient_type = 2
 
-[node name="Basket" parent="Level/Interactibles/Dispensers2" instance=ExtResource("23_j4hhd")]
+[node name="Basket" parent="Level/Interactibles/Dispensers2" instance=ExtResource("29_mjqhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18942, 0, -4.26726)
 ingredient_type = 9
 
-[node name="Chest" parent="Level/Interactibles/Dispensers2" instance=ExtResource("24_ut00p")]
+[node name="Chest" parent="Level/Interactibles/Dispensers2" instance=ExtResource("30_h0tx8")]
 transform = Transform3D(0.0481002, 0, -0.998843, 0, 1, 0, 0.998843, 0, 0.0481002, -8.86983, -0.019793, 2.83954)
 
-[node name="Jug" parent="Level/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
+[node name="Jug" parent="Level/Interactibles/Dispensers2" instance=ExtResource("31_tgj82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.659813, 2.18815)
 
-[node name="BigJug" parent="Level/Interactibles/Dispensers2" instance=ExtResource("26_g0qm8")]
+[node name="BigJug" parent="Level/Interactibles/Dispensers2" instance=ExtResource("32_76klp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63884, 0, 1.16678)
 
-[node name="Pouch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("27_qdm0i")]
+[node name="Pouch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("33_i0pre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72814, 0.746445, -2.83245)
 
-[node name="Bunch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("28_djx7f")]
+[node name="Bunch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("34_vb7bi")]
 transform = Transform3D(0.0149868, -0.609253, -0.0445947, 0.210208, 0.0470271, -0.571842, 0.573577, -0.00131583, 0.210738, 1.03374, 1.74549, -0.421317)
 
-[node name="GasLamp" parent="Level/Interactibles" instance=ExtResource("35_g2kq8")]
+[node name="GasLamp" parent="Level/Interactibles" instance=ExtResource("35_mqpya")]
 transform = Transform3D(-0.999877, -0.001052, -0.0156232, 0, 0.997741, -0.0671835, 0.0156586, -0.0671752, -0.997618, -4.81726, 0.844456, -5.99782)
 visible = true
 collision_layer = 4
@@ -1738,17 +1738,17 @@ emitting = true
 
 [node name="OmniLight3D" parent="Level/Interactibles/GasLamp" index="2"]
 layers = 1
-light_energy = 2.63373
+light_energy = 1.01859
 
 [node name="Timer" parent="Level/Interactibles/GasLamp" index="3"]
-wait_time = 0.813223
+wait_time = 0.753112
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
 
-[node name="Spent Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+[node name="Spent Flare" parent="Level/Ingredients" instance=ExtResource("36_jhix4")]
 
-[node name="FLARE2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+[node name="FLARE2" parent="Level/Ingredients" instance=ExtResource("36_jhix4")]
 
 [node name="SFX" type="Node3D" parent="Level"]
 metadata/_edit_lock_ = true
@@ -1756,7 +1756,7 @@ metadata/_edit_lock_ = true
 [node name="Rain" type="Node3D" parent="Level/SFX"]
 
 [node name="RainAmbience" type="AudioStreamPlayer" parent="Level/SFX/Rain"]
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = -25.615
 autoplay = true
 bus = &"Music"
@@ -1765,7 +1765,7 @@ bus = &"Music"
 
 [node name="LivingRoom1" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -8.26163, 1.75702, 3.15995)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1775,7 +1775,7 @@ attenuation_filter_db = -11.2
 
 [node name="LivingRoom2" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -12.6257, 1.82085, 7.32208)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1785,7 +1785,7 @@ attenuation_filter_db = -11.2
 
 [node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 2.04425, -2.72421)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1795,7 +1795,7 @@ attenuation_filter_db = -11.2
 
 [node name="LivingRoom4" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -15.8086, 2.03809, -6.81071)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1805,7 +1805,7 @@ attenuation_filter_db = -11.2
 
 [node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.095153, 0.169163, -23.795, 2.19062, 4.42008)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1815,7 +1815,7 @@ attenuation_filter_db = -11.2
 
 [node name="LivingRoom7" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
 transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.083052, 0.174927, -16.3438, 2.76406, 7.33648)
-stream = ExtResource("7_qg76f")
+stream = ExtResource("37_gh17q")
 volume_db = 5.0
 max_db = -5.267
 autoplay = true
@@ -1825,7 +1825,7 @@ attenuation_filter_db = -11.2
 
 [node name="Clock" type="AudioStreamPlayer3D" parent="Level/SFX"]
 transform = Transform3D(0.058939, -0.759683, -0.647617, -0.00349997, 0.648584, -0.761135, 0.998255, 0.0471272, 0.035568, -14.5908, 0.815401, 2.65366)
-stream = ExtResource("13_03t40")
+stream = ExtResource("38_voa36")
 attenuation_model = 2
 volume_db = 9.907
 unit_size = 1.6
@@ -1836,7 +1836,7 @@ bus = &"SFX"
 emission_angle_enabled = true
 emission_angle_degrees = 55.8
 
-[node name="Shadow" parent="Level" instance=ExtResource("14_ueicl")]
+[node name="Shadow" parent="Level" instance=ExtResource("39_invbo")]
 transform = Transform3D(0.0568038, 0.116561, -0.991558, 0, 0.993161, 0.11675, 0.998385, -0.00663182, 0.0564154, 0, 0, 0)
 visible = false
 
@@ -1851,13 +1851,13 @@ disabled = true
 
 [node name="WorldSafeguard" type="Area3D" parent="Triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
-script = ExtResource("9_7hkxv")
+script = ExtResource("40_gjidu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
 shape = SubResource("WorldBoundaryShape3D_v46o1")
 
-[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
+[node name="UCharacterBody3D" parent="." instance=ExtResource("41_mm6f4")]
 transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, 0.115936, 0.494191, -3.90981)
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
@@ -1873,20 +1873,20 @@ grow_vertical = 2
 color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
+[node name="TextLayer" parent="." instance=ExtResource("42_by4kb")]
 
-[node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
+[node name="DialogLayer" parent="." instance=ExtResource("43_4iolf")]
 visible = false
 
-[node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
+[node name="SubtitleLayer" parent="." instance=ExtResource("44_3nw4h")]
 
-[node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+[node name="PauseLayer" parent="." instance=ExtResource("45_pujrb")]
 visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("30_8kwqj")]
+[node name="CanvasLayer" parent="." instance=ExtResource("46_vm7la")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.905219, -0.0857945, 0.416193, 0, 0.979407, 0.201896, -0.424944, -0.18276, 0.886578, -5.03744, 1.37933, 1.06841)

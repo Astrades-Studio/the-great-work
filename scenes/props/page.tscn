@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cuib3e7qbheb2"]
 
-[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/planet_metals.png" id="1_3cmcr"]
+[ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/reference/planet_metals.png" id="1_3cmcr"]
 [ext_resource type="Script" path="res://scenes/props/page.gd" id="1_ap8k2"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_sl4il"]
 [ext_resource type="Script" path="res://scripts/classes/page_component.gd" id="4_be23u"]

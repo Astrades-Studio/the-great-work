@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3b4hpbvrloo0"
-path.s3tc="res://.godot/imported/flare_recipe_part_1.png-fc9c3d440084047785cf26d918dcd5f2.s3tc.ctex"
+uid="uid://cqn0rn87k7nc1"
+path.s3tc="res://.godot/imported/planet_metals.png-46923b7b4da9604e3c215d2c67640ca9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/recipes/flare_recipe_part_1.png"
-dest_files=["res://.godot/imported/flare_recipe_part_1.png-fc9c3d440084047785cf26d918dcd5f2.s3tc.ctex"]
+source_file="res://assets/images/recipes/reference/planet_metals.png"
+dest_files=["res://.godot/imported/planet_metals.png-46923b7b4da9604e3c215d2c67640ca9.s3tc.ctex"]
 
 [params]
 

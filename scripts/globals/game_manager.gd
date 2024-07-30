@@ -67,6 +67,7 @@ var ingredient_layer : Node
 var spawned_ingredients : Array[Ingredient]
 var shadow_spawn_points : Array[Darkness]
 var shadows_spawned : Array[Shadow]
+var dispensers : Array[Dispenser]
 
 # UI Signals
 signal interaction_label_updated(string : String)
@@ -80,6 +81,7 @@ signal game_started
 
 # Game Progression Signals
 signal recipe_read
+signal lamp_collected
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
@@ -94,6 +96,7 @@ func _ready() -> void:
 	tick_countdown.connect(_on_tick_countdown)
 	stone_consumed.connect(_on_stone_consumed)
 	recipe_read.connect(_on_philosopher_stone_recipe_read)
+	assign_random_ingredient_to_each_dispenser()
 	
 
 
@@ -123,6 +126,15 @@ func _on_game_over():
 
 func request_page_UI(page: Texture):
 	text_layer.show_text(page)
+
+# Ingredient logic
+# Assign a random ingredient to each dispenser
+func assign_random_ingredient_to_each_dispenser():
+	var essential_ingredients := [Ingredient.Type.GOLD, Ingredient.Type.SILVER, Ingredient.Type.MERCURY, Ingredient.Type.SALT, Ingredient.Type.SULFUR]
+	for dispenser : Dispenser in get_tree().get_nodes_in_group("dispenser"):
+		if dispenser.ingredient_type != Ingredient.Type.BANANA or dispenser.ingredient_type != Ingredient.Type.YELLOW_LIQUID:
+			dispenser.ingredient_type = essential_ingredients[randi() % essential_ingredients.size()]
+			print("Dispenser %s has ingredient: %s" % [dispenser.name, dispenser.ingredient_type])
 
 
 func ingredient_spawned(ingredient: Ingredient):

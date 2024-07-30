@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpnfjm4erkwry"
-path.s3tc="res://.godot/imported/phosphorus_recipe.png-5d0774720aa95330cf603d8c06ae1a8e.s3tc.ctex"
+uid="uid://ial7mu3yik7v"
+path.s3tc="res://.godot/imported/Parchment_01.png-d7fa71ed53650364f5ff18cafc5d620c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/recipes/phosphorus_recipe.png"
-dest_files=["res://.godot/imported/phosphorus_recipe.png-5d0774720aa95330cf603d8c06ae1a8e.s3tc.ctex"]
+source_file="res://assets/images/recipes/reference/Parchment_01.png"
+dest_files=["res://.godot/imported/Parchment_01.png-d7fa71ed53650364f5ff18cafc5d620c.s3tc.ctex"]
 
 [params]
 

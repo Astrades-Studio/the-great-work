@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://by8vwv2cfa15m"]
 
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
-[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/Parchment_01.png" id="2_8doit"]
+[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/reference/Parchment_01.png" id="2_8doit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjdcx"]
 font_color = Color(0, 0, 0, 1)

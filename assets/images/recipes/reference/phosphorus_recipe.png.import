@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsiwfab46tw32"
-path.s3tc="res://.godot/imported/zodiac_processes.png-e78c84d90d9411ad18cc625e7b143a19.s3tc.ctex"
+uid="uid://dpnfjm4erkwry"
+path.s3tc="res://.godot/imported/phosphorus_recipe.png-c12dbc9f80a44c779dfb0345326a6bb0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/recipes/zodiac_processes.png"
-dest_files=["res://.godot/imported/zodiac_processes.png-e78c84d90d9411ad18cc625e7b143a19.s3tc.ctex"]
+source_file="res://assets/images/recipes/reference/phosphorus_recipe.png"
+dest_files=["res://.godot/imported/phosphorus_recipe.png-c12dbc9f80a44c779dfb0345326a6bb0.s3tc.ctex"]
 
 [params]
 

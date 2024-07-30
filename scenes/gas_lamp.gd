@@ -15,10 +15,6 @@ extends StaticBody3D
 	set(value):
 		if !GameManager.lamp_in_hand:
 			return
-		if !GameManager.philosopher_stone_recipe_read:
-			DialogManager.create_dialog_piece("No need. I can see well enough")
-			active = false
-			return
 		if active == value:
 			return
 		if disabled:
@@ -41,7 +37,7 @@ extends StaticBody3D
 				gas_lamp_off.play()
 				gas_loop.stop()
 
-
+@export var on_hand : bool = false
 @export var min_value : float = 1.4
 @export var max_value : float = 5.0
 
@@ -60,21 +56,41 @@ var disabled : bool:
 			active = false
 
 func _ready() -> void:
-	hide()
+	if on_hand:
+		hide()
+		disabled = true
+		animation_player.play("GasLampAnimation")
+		#mesh.layers = 0x0002
+		#light.layers = 0x0002
+		#fire_beam_2.layers = 0x0002
+	else:
+		set_collision_layer_value(3, true)
+		animation_player.stop()
+		mesh.layers = 0x0001
+		light.layers = 0x0001
+		fire_beam_2.layers = 0x0001
+
 	timer.start()
-	disabled = true
+	GameManager.lamp_collected.connect(_on_lamp_collected)
 	GameManager.tick_countdown.connect(_on_tick_timeout)
-	animation_player.play("GasLampAnimation")
 	GameManager.game_started.connect(_on_game_started)
 	assert(self.has_user_signal("interacted"), "Lamp has no interacted signal")
 	self.connect("interacted", on_lamp_interact)
+
+func _on_lamp_collected():
+	if on_hand:
+		mesh.layers = 0x0002
+		fire_beam_2.layers = 0x0002
+		show()
 
 func _on_game_started():
 	disabled = false
 	
 func on_lamp_interact():
-	show()
-	GameManager.lamp
+	if !on_hand:
+		hide()
+		GameManager.lamp_collected.emit()
+	GameManager.lamp_in_hand = true
 	DialogManager.create_subtitles_piece("This will come in handy.")
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time

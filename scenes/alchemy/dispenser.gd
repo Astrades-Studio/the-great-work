@@ -4,8 +4,6 @@ extends StaticBody3D
 @export var ingredient_type : Ingredient.Type
 
 func _ready() -> void:
-	if !ingredient_type:
-		push_error("No ingredient type assigned to " + str(self.get_path()))
 	assert(self.has_user_signal("interacted"), "Dispenser has no interacted signal")
 	self.connect("interacted", request_ingredient.bind(ingredient_type))
 
