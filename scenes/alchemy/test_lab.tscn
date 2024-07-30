@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="13_ijyn7"]
 [ext_resource type="PackedScene" uid="uid://dh1ejx73ha3y1" path="res://scenes/alchemy/ingredients/purified_sulfur.tscn" id="14_aemo4"]
 [ext_resource type="PackedScene" uid="uid://dqvd8vemxkjcd" path="res://scenes/alchemy/dispensers/dispensers.tscn" id="16_b4oue"]
-[ext_resource type="PackedScene" path="res://scenes/alchemy/dispenser.tscn" id="19_of1ck"]
+[ext_resource type="PackedScene" uid="uid://cqsp0rwu7i28e" path="res://scenes/alchemy/dispenser.tscn" id="19_of1ck"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="20_aw3yg"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="20_fwnm8"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="20_onw05"]
@@ -95,7 +95,6 @@ shape = SubResource("ConvexPolygonShape3D_vgynt")
 
 [node name="Book" parent="Mesa" instance=ExtResource("22_h6p0o")]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0.73298, 0.520226)
-the_book = true
 
 [node name="Tools" type="Node3D" parent="."]
 

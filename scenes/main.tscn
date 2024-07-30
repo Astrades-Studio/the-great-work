@@ -1159,20 +1159,18 @@ painting = ExtResource("8_pjtq0")
 transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0.392604, -0.120052, -0.013461)
 
 [node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.00717227, 0, -0.00414091, 0, 0.00547983, 0, 0.00414091, 0, -0.00717227, -4.78635, 0.765783, -5.99975)
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_ufp8w")
-the_book = false
 
 [node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 3.08048)
+transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 3.08048)
 book = ExtResource("10_ufp8w")
-the_book = false
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.00145875, -8.77836e-05, -0.00815126, 0.000249588, 0.00547702, -9.00593e-05, 0.00814852, -0.000152045, 0.001462, -1.89306, -2.26857, 2.14595)
+transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
 book = ExtResource("10_ufp8w")
-the_book = false
+read_stone_trigger_book = true
 
 [node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")

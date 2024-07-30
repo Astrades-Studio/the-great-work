@@ -13,6 +13,12 @@ extends StaticBody3D
 
 @export var active : bool = true : 
 	set(value):
+		if !GameManager.lamp_in_hand:
+			return
+		if !GameManager.philosopher_stone_recipe_read:
+			DialogManager.create_dialog_piece("No need. I can see well enough")
+			active = false
+			return
 		if active == value:
 			return
 		if disabled:
@@ -42,7 +48,8 @@ extends StaticBody3D
 @export var speed : float = 1.0
 @export var min_speed := 0.5
 @export var max_speed := 1.5
-@export var speed_variance := 1.0
+
+var speed_variance := 1.0
 
 var time_passed : float = 0.0
 var countdown := 1.0
@@ -53,13 +60,27 @@ var disabled : bool:
 			active = false
 
 func _ready() -> void:
+	hide()
 	timer.start()
+	disabled = true
 	GameManager.tick_countdown.connect(_on_tick_timeout)
 	animation_player.play("GasLampAnimation")
+	GameManager.game_started.connect(_on_game_started)
+	assert(self.has_user_signal("interacted"), "Lamp has no interacted signal")
+	self.connect("interacted", on_lamp_interact)
+
+func _on_game_started():
+	disabled = false
+	
+func on_lamp_interact():
+	show()
+	GameManager.lamp
+	DialogManager.create_subtitles_piece("This will come in handy.")
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():
-	countdown -= 0.1
+	#countdown -= 0.1
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
