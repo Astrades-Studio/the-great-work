@@ -2,7 +2,7 @@ class_name Darkness
 extends Area3D
 
 @export var MAX_COOLDOWN : float = 30.0
-@export var MAX_HP : int = 20
+@export var MAX_HP : int = 3
 @export var HP_DOWN_TICK : float = 1.
 
 var shadow_present : bool
@@ -20,6 +20,7 @@ var hp : float:
 @onready var shadow: Shadow = $Shadow
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
+@onready var darkness_fx_intensity = darkness_fx.amount_ratio
 @onready var darkness_light: OmniLight3D = $DarknessLight
 
 signal shadow_banished(Shadow)
@@ -67,8 +68,8 @@ func _on_body_exited(body: Node3D) -> void:
 		if is_instance_valid(body.ingredient_in_hand):
 			if body.ingredient_in_hand is Flare:
 				flare_reference = null
-	await get_tree().create_timer(2).timeout			
-	body.panic_effects.decrease_agitation()
+		await get_tree().create_timer(2).timeout			
+		body.panic_effects.decrease_agitation()
 
 var tween : Tween        
 func spawn_shadow() -> bool:
@@ -91,7 +92,6 @@ func remove_shadow() -> void:
 	cooldown = MAX_COOLDOWN
 	shadow_present = false
 	# TODO: VFX
-	hide()
-	#shadow.visible = false
-	#darkness_fx.emitting = false
-	#darkness_light.visible = false
+	shadow.visible = false
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(self, "darkness_fx_intensity",0.0,3.0)

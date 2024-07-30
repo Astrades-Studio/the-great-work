@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://blykgf66nhee"]
+[gd_scene load_steps=9 format=3 uid="uid://blykgf66nhee"]
 
 [ext_resource type="Script" path="res://scenes/player/fear_effect.gd" id="1_fpfb8"]
 [ext_resource type="Shader" path="res://assets/shaders/fear.gdshader" id="2_e25md"]
 [ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="3_fxagf"]
+[ext_resource type="AudioStream" uid="uid://cylmbhbsga8ng" path="res://assets/sounds/sfx/agitated_breathing.mp3" id="4_0ogk8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rrqvb"]
 shader = ExtResource("2_e25md")
@@ -25,6 +26,7 @@ shader_parameter/outer_radius = 1.0
 
 [node name="PanicEffects" type="CanvasLayer"]
 script = ExtResource("1_fpfb8")
+vignette_inner_radius = 10.0
 
 [node name="FearEffect" type="TextureRect" parent="."]
 top_level = true
@@ -38,6 +40,7 @@ mouse_filter = 2
 texture = SubResource("CameraTexture_v277f")
 
 [node name="Vignette" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_7cdmb")
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,3 +49,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("CanvasTexture_3f3sk")
+
+[node name="BreathingSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0ogk8")
+volume_db = 10.0
+pitch_scale = 0.8
+bus = &"SFX"
+parameters/looping = true

@@ -1790,17 +1790,14 @@ grow_vertical = 2
 color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
-
 [node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
-layer = 3
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
-layer = 4
 visible = false
 
+[node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
+
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
-layer = 3
 visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
