@@ -66,7 +66,6 @@ func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
-	#await GameManager.ready
 	self.connect("interacted", on_tool_use)
 	assert(self.tool_type != null, "Tool has no type")
 

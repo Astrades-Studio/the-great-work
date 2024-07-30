@@ -53,10 +53,11 @@ var current_state : GameState:
 
 # Progression
 var philosopher_stone_recipe_read : bool = false
+var lamp_in_hand : bool = false
 
 # References
 var player : UCharacterBody3D
-var environment : WorldEnvironment
+var fog_environment : WorldEnvironment
 var text_layer : TextLayer
 var ingredient_layer : Node
 
@@ -92,6 +93,7 @@ func _ready() -> void:
 	tick_countdown.connect(_on_tick_countdown)
 	stone_consumed.connect(_on_stone_consumed)
 	recipe_read.connect(_on_philosopher_stone_recipe_read)
+	
 
 
 func _input(event):
@@ -159,7 +161,7 @@ func spawn_random_shadow():
 
 
 func update_darkness_effect(amount: int):
-	environment.environment.fog_density = amount * fog_density_increment
+	fog_environment.environment.fog_density = amount * fog_density_increment
 	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
 	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
 
@@ -177,6 +179,7 @@ func _on_philosopher_stone_recipe_read():
 	philosopher_stone_recipe_read = true
 	# Play cutscene
 	# Start game timer
+	fog_environment.environment.fog_density = GAME_START_FOG_DENSITY
 	game_started.emit()
 	print("The game begins")
 
@@ -207,7 +210,8 @@ func reset_progress():
 	shadow_spawn_points.clear()
 	shadows_spawned.clear()
 	philosopher_stone_progress.emit(0)
-	environment.environment.fog_density = INITIAL_FOG_DENSITY
+	philosopher_stone_recipe_read = false
+	fog_environment.environment.fog_density = INITIAL_FOG_DENSITY
 
 
 func _on_stone_consumed():

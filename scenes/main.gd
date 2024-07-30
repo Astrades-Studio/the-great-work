@@ -14,17 +14,18 @@ static var countdown
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	countdown = max_time
-	GameManager.environment = world_environment
+	GameManager.fog_environment = world_environment
 	GameManager.ingredient_layer = ingredients
-	GameManager.game_started.connect(start_midnight_game())	
+	GameManager.game_started.connect(start_midnight_game)	
+	GameManager.reset_progress()
 	game_over_timer.timeout.connect(_on_timer_tick)
-	
+
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
-	
 
 
 func start_midnight_game():
 	game_over_timer.start(tick_length)
+	print("Shadows start now")
 
 
 func _on_timer_tick():

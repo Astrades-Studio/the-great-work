@@ -24,13 +24,13 @@ var hp : float:
 signal shadow_banished(Shadow)
 
 func _ready() -> void:
+	hide()
 	hp = MAX_HP
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_exited)
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 	GameManager.shadow_spawn_points.append(self)
-	shadow_banished.connect(GameManager.on_shadow_removed(shadow))
-	remove_shadow()	
+	shadow_banished.connect(GameManager.on_shadow_removed.bind(shadow))
 
 
 func _process(delta: float) -> void:
