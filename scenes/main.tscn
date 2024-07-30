@@ -1089,6 +1089,7 @@ transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0
 
 [node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+visible = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnEntrance/Darkness" index="1"]
@@ -1628,14 +1629,17 @@ grow_vertical = 2
 color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
-
-[node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
-visible = false
-
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
 
+[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
+layer = 3
+
+[node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
+layer = 4
+visible = false
+
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+layer = 3
 visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
