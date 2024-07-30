@@ -28,12 +28,12 @@ func _ready() -> void:
 func open_book() -> void:
 	if book.resource_path == FLARE_RECIPE:
 		if !GameManager.philosopher_stone_recipe_read:
-			DialogManager.create_dialog_piece("These are instructions on how to make an illuminant")
+			DialogManager.create_subtitles_piece("These are instructions on how to make an illuminant")
 		else:
-			DialogManager.create_dialog_piece("Maybe if I make this it will keep me safe")
+			DialogManager.create_subtitles_piece("Maybe if I make this it will keep me safe")
 		
 	if read_stone_trigger_book:
 		if !GameManager.philosopher_stone_recipe_read:
 			GameManager.recipe_read.emit()
-			DialogManager.create_dialog_piece("So this is the recipe... I feel something strange is going on.")
+			DialogManager.create_subtitles_piece("So this is the recipe... I feel something strange is going on.")
 	GameManager.request_book_UI.emit(book)

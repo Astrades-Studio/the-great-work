@@ -10,4 +10,5 @@ func _ready() -> void:
 	
 
 func _on_player_walk_by():
+	running_crawl_imported.show()
 	animation_player.play("Crawl_downstairs")

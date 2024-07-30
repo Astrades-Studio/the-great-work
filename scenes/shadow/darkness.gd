@@ -47,6 +47,9 @@ func _on_tick_countdown() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
+	if body is Flare:
+		if is_instance_valid(body):
+			flare_reference = body
 	if body is Player:
 		if body.ingredient_in_hand is Flare:
 			flare_reference = body.ingredient_in_hand
