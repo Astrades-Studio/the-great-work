@@ -1,4 +1,3 @@
-@tool
 extends StaticBody3D
 
 @export var book : BookPages
