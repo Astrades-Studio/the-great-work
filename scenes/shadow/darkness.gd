@@ -40,7 +40,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if flare_reference:
+	if is_instance_valid(flare_reference):
 		if flare_reference.active and shadow_present:
 			hp -= delta
 			print("HP: " + str(hp))

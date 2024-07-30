@@ -1970,7 +1970,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.664347
+wait_time = 0.553052
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
