@@ -122,7 +122,7 @@ func play_random_whisper() -> void:
 	
 	# choose a DialogPiece at random from WHISPERS_DIALOG
 	var index = randi() % dialog.dialog.size()
-	var piece = dialog[index]
+	var piece = dialog.dialog[index]
 	DialogManager.create_subtitles_piece(piece)
 	play_random_shadow_sound()
 	# remove that piece from the dialog

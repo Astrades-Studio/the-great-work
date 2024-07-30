@@ -45,6 +45,9 @@ visible = false
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("1_hrpg6")
+MAX_COOLDOWN = null
+MAX_HP = null
+HP_DOWN_TICK = null
 
 [node name="Shadow" parent="." instance=ExtResource("1_eedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

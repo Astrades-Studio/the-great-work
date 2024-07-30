@@ -858,7 +858,7 @@ _data = {
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
 max_time = 8
-tick_length = 240.0
+tick_length = 20.0
 
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
@@ -1267,9 +1267,9 @@ transform = Transform3D(0.0610294, 0.0296874, -0.997694, 2.52236e-12, 0.999558, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnDiningRoom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -1281,9 +1281,9 @@ transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0
 
 [node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnEntrance/Darkness" index="1"]
@@ -1295,9 +1295,9 @@ transform = Transform3D(-0.942463, -0.0172306, 0.333868, 6.26803e-10, 0.998671, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnBedroom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBedroom/Darkness" index="1"]
@@ -1309,9 +1309,9 @@ transform = Transform3D(0.900681, 0.0129225, -0.434289, 0, 0.999558, 0.0297424, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnBasement" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBasement/Darkness" index="1"]
@@ -1323,9 +1323,9 @@ transform = Transform3D(-0.49999, -0.0158041, -0.865887, 0, 0.999834, -0.0182488
 
 [node name="Darkness" parent="Level/Shadows/SpawnKitchen" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnKitchen/Darkness" index="1"]
@@ -1337,9 +1337,9 @@ transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823,
 
 [node name="Darkness" parent="Level/Shadows/SpawnBathroom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBathroom/Darkness" index="1"]
@@ -1351,9 +1351,9 @@ transform = Transform3D(0.00476587, 0.338283, 0.941033, -0.00661438, 0.941033, -
 
 [node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = null
-MAX_HP = null
-HP_DOWN_TICK = null
+MAX_COOLDOWN = 30.0
+MAX_HP = 3
+HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnStairs/Darkness" index="1"]
@@ -1363,41 +1363,41 @@ shape = SubResource("BoxShape3D_k6aw5")
 [node name="Recipes" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="SecretBook" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
 
-[node name="How to make a flare" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="A light in the darkness" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -0.600911, -2.26857, 3.06078)
 book = ExtResource("10_ufp8w")
 flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="How to make a flare2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="How to leverage phosphorus" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.983511, -0.0124713, 0.180417, 0, 0.99762, 0.0689605, -0.180847, -0.0678234, 0.98117, -7.67448, 1.00289, -2.25297)
 book = ExtResource("10_ufp8w")
 flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="StoneRecipe" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="The ultimate goal" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.34975, -2.26857, 3.07447)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="Reference" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="Guide to Alchemy" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" parent="Level/Recipes/Reference" index="0"]
+[node name="MeshInstance3D" parent="Level/Recipes/Guide to Alchemy" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
 
-[node name="Reference2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+[node name="Alchemic Principles" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36903, 1.01699, 3.8777)
 
-[node name="Page" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
+[node name="Torn page" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
 transform = Transform3D(-0.0113763, 0.324381, 0.0134455, -0.00817415, -0.0137356, 0.324464, 0.324555, 0.0110243, 0.00864293, 5.94475, 0.989621, 0.35326)
 
 [node name="Lights" type="Node3D" parent="Level"]
@@ -1991,7 +1991,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.986514
+wait_time = 0.71057
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2036,7 +2036,7 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [editable path="Level/Shadows/SpawnKitchen/Darkness"]
 [editable path="Level/Shadows/SpawnBathroom/Darkness"]
 [editable path="Level/Shadows/SpawnStairs/Darkness"]
-[editable path="Level/Recipes/Reference"]
+[editable path="Level/Recipes/Guide to Alchemy"]
 [editable path="Level/Lights/Candle_003"]
 [editable path="Level/Lights/Candle_005"]
 [editable path="Level/Lights/Candle3"]
