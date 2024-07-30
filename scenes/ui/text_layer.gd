@@ -50,6 +50,8 @@ func show_book(_book : BookPages):
 
 
 func show_text(text: Texture2D):
+	if !text:
+		return
 	self.show()
 	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
 	GameManager.current_state = GameManager.GameState.PAUSED

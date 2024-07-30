@@ -9,6 +9,7 @@ const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
 const INITIAL_FOG_DENSITY := 0.04
 const GAME_START_FOG_DENSITY := 0.1
 const FOG_DENSITY_MAX := 0.65
+const MAX_SHADOW_SPAWNS := 7
 
 var fog_density_increment : float
 
@@ -87,7 +88,7 @@ signal stone_consumed
 
 func _ready() -> void:
 	current_state = GameState.MAIN_MENU
-	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / shadow_spawn_points.size()
+	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / MAX_SHADOW_SPAWNS
 	game_over.connect(_on_game_over)
 	philosopher_stone_progress.connect(_on_philosopher_stone_progress)
 	tick_countdown.connect(_on_tick_countdown)
@@ -211,7 +212,6 @@ func reset_progress():
 	shadows_spawned.clear()
 	philosopher_stone_progress.emit(0)
 	philosopher_stone_recipe_read = false
-	fog_environment.environment.fog_density = INITIAL_FOG_DENSITY
 
 
 func _on_stone_consumed():

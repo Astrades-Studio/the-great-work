@@ -83,7 +83,6 @@ func not_in_range() -> void:
 
 
 func on_interact() -> void:
-	print("interacted with " + self.name)
 	pass
 
 

@@ -65,6 +65,7 @@ func stop_all_sounds():
 func play_shadow_sound():
 	# Play the first shadow sound, then if called again play the second, and so on
 	if shadow_sounds.size() > 0:
+		shadow_sounds.shuffle()
 		var sound = shadow_sounds.pop_front()
 		play_sound(sound)
 		shadow_sounds.append(sound)

@@ -25,5 +25,6 @@ func _ready() -> void:
 
 func open_book() -> void:
 	if read_stone_trigger_book:
-		GameManager.recipe_read.emit()
+		if !GameManager.philosopher_stone_recipe_read:
+			GameManager.recipe_read.emit()
 	GameManager.request_book_UI.emit(book)

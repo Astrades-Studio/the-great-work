@@ -9,10 +9,10 @@ extends CanvasLayer
 signal subtitle_finished
 signal next_line_request
 signal line_hidden
+signal line_shown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	fade_in(true)
 	DialogManager.subtitles_layer = self
 	next_line_request.connect(_on_next_line_request)
 	subtitle_finished.connect(DialogManager._on_subtitle_finished)
@@ -20,7 +20,7 @@ func _ready() -> void:
 func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:	
 	subtitle_label.show()
 	for dialog_piece in dialog.dialog:
-		_show_subtitle(dialog_piece, duration)
+		await _show_subtitle(dialog_piece, duration)
 		await line_hidden
 	
 	subtitle_label.hide()
@@ -30,18 +30,17 @@ func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:
 
 var tween : Tween
 func _show_subtitle(text : DialogPiece, duration : float) -> void:
+	subtitle_label.text = "[center]" + text.dialog_text
 	await fade_in(false)
-	
 	if !duration:
 		var length := text.dialog_text.length()
 		duration = length * 0.1
-	subtitle_label.text = "[center]" + text.dialog_text
 	await get_tree().create_timer(duration).timeout
 	next_line_request.emit()
 
 
 func _on_next_line_request() -> void:
-	_hide_subtitle()
+	await _hide_subtitle()
 
 
 func _hide_subtitle() -> void:

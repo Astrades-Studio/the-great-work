@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="BookPages" load_steps=2 format=3 uid="uid://bhmwdxrspnnsf"]
+[gd_resource type="Resource" script_class="BookPages" load_steps=4 format=3 uid="uid://bhmwdxrspnnsf"]
 
+[ext_resource type="Texture2D" uid="uid://b3b4hpbvrloo0" path="res://assets/images/recipes/flare_recipe_part_1.png" id="1_deuqm"]
 [ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="1_jhllp"]
+[ext_resource type="Texture2D" uid="uid://nhybstkbl3d4" path="res://assets/images/recipes/flare_recipe_part_2.png" id="2_c237b"]
 
 [resource]
 script = ExtResource("1_jhllp")
-pages = Array[Texture]([null, null, null])
+pages = Array[Texture]([ExtResource("1_deuqm"), ExtResource("2_c237b")])
