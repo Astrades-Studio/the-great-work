@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="Material" uid="uid://b3awbhdjxn2ot" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
@@ -770,7 +770,6 @@ _data = {
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
-tick_length = 20.0
 
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
@@ -1516,7 +1515,7 @@ omni_range = 8.241
 omni_attenuation = 5.009
 
 [node name="Adam\'s letter" parent="Level/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.238926, 7.23689e-15, -0.129249, -4.51261e-15, 0.362426, 2.88766e-15, 0.27252, 9.74354e-16, 0.113316, 3.53475, 0.729159, -7.55218)
+transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)
 
 [node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
@@ -1786,7 +1785,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426
 shape = SubResource("BoxShape3D_vvvnc")
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.129867, -5.16659)
+transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.494191, -5.16659)
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
