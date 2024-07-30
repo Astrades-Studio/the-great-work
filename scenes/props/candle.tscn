@@ -2,27 +2,12 @@
 
 [ext_resource type="Script" path="res://scenes/props/candle.gd" id="1_0mdo7"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="1_jw78f"]
+[ext_resource type="Material" uid="uid://5gifihi1px23" path="res://scenes/materials/oro.tres" id="2_qjh1n"]
+[ext_resource type="Material" uid="uid://blpnt8g32vk24" path="res://scenes/materials/white.tres" id="3_1ha26"]
+[ext_resource type="Material" uid="uid://bahi03ushehw5" path="res://scenes/materials/stone.tres" id="4_tgvbq"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jrd2d"]
 points = PackedVector3Array(0.115807, -0.00473748, 0.0299568, 0.00135317, 0.345025, -0.00819603, -0.00994967, 0.0060899, -0.160725, 0.0747751, 0.0173795, 0.144333, 0.125622, 0.0117524, -0.104198, -0.0720688, 0.0173795, 0.144333, -0.128552, 0.0060899, -0.104228, 0.159531, 0.0117524, 0.0369832, -0.0155856, 0.345025, 0.00870514, -0.0476627, -0.0100857, 0.0952923, -0.156825, 0.0117524, 0.0425971, -0.00407382, -0.00978861, -0.106102, 0.00135317, 0.345025, 0.00870514, 0.00695813, 0.0173795, -0.160725, -0.101927, -0.00971813, 0.00807197, 0.0727454, -0.0115271, -0.0685893, 0.041126, 0.26868, -0.0131642, -0.00994967, 0.345025, -0.00819603, 0.0501662, -0.00936418, 0.094864, -0.156825, 0.0173795, 0.025666, -0.128552, 0.0173795, -0.0985546, -0.0664019, 0.0173795, -0.132476, 0.131258, 0.0173795, -0.0872672, -0.0155856, 0.345025, -0.00258221, 0.142561, 0.0173795, 0.0595579, -0.0641869, 0.00578306, 0.133829, -0.0856563, -0.00978609, -0.0625684, -0.0833407, 0.0173795, 0.133015, -0.00428277, 0.0173795, -0.160725, 0.0728134, -0.0116944, 0.0577476, 0.080442, 0.0117524, 0.138659, 0.0465335, 0.0060899, -0.143764)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36s3l"]
-resource_name = "Brass.001"
-cull_mode = 2
-albedo_color = Color(0.719823, 0.534984, 0.181866, 1)
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35pp6"]
-resource_name = "White.003"
-cull_mode = 2
-albedo_color = Color(0.629306, 0.571866, 0.534552, 1)
-roughness = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfdwn"]
-resource_name = "DarkGrey.002"
-cull_mode = 2
-albedo_color = Color(0.150857, 0.150857, 0.150857, 1)
-roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q07ea"]
 _surfaces = [{
@@ -69,7 +54,7 @@ _surfaces = [{
 "index_count": 156,
 "index_data": PackedByteArray("AAAGAAMABgANAAoADQASAA8AEgAGAAAABgASAA0AHAA8ADgAHAAgADwAEwAXAC8AEwACABcADgArACgADgAQACsABwAjAB0ABwALACMAAQAZABUAAQAEABkAEQAwACwAEQAUADAACQAmACIACQAMACYABQAeABoABQAIAB4ALQAyAEoALQAWADIAJwBHAEQAJwApAEcAHwBAADsAHwAkAEAAGAA2ADQAGAAbADYAKgBMAEgAKgAuAEwAIQBBAD0AIQAlAEEARgBhAF4ARgBLAGEAPgBZAFYAPgBCAFkANwBVAFIANwA6AFUASQBOAGAASQAxAE4AQwBdAFsAQwBFAF0AOQBYAFQAOQA/AFgAMwBRAE8AMwA1AFEAUwBNAFAATQBcAF8AXABXAFoAVwBNAFMATQBXAFwA"),
 "lods": [0.0296923, PackedByteArray("BgAmACIABgAiAB0AJgAvACsAJgASAC8ABgASACYAEgAVAC8AAwAGAB0AEgAGAAMAEgADABUAAwAdABkAAwAZABUAdAA7ADYAcwB0ADYAcwA2ADIAeQBzADIAeQAyAEoAdAB1AHoAdQA9ADsAdgBBAD0AdQB2AHsAeAB5AH0AeAB9AEcAdwB4AEcAdgB3AHwAdwBHAHwARQBJAFwAQgBFAFwASQAxAFwAXAA+AEIAMQA+AFwANQA+ADEANQA5AD4A"), 0.0541787, PackedByteArray("AwAvACYAAwAZAC8AAwBtAGkAagBwAG8AbgBqAG8AbABuAHIALQAyAEoALQA2ADIAJQBKAEcAawBHAHEAGwAlAD0AawBBAD0ANQA+ADEAMQA+AEUARQA+AEIASQAxAEUA"), 0.121269, PackedByteArray("ZQBoAGcAZgBlAGcALQAyAEoALQA2ADIALQBKAD0AGwAtAD0ANQA+ADEASQAxAD4A"), 0.128769, PackedByteArray("YgBkAGMAYgA2AEcAGwBHAD0ANQA+AEUA")],
-"material": SubResource("StandardMaterial3D_36s3l"),
+"material": ExtResource("2_qjh1n"),
 "name": "Brass.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -82,7 +67,7 @@ _surfaces = [{
 "index_count": 111,
 "index_data": PackedByteArray("AQAwAAIANQATACwAAQA1ADAAEwABABAANQABABMATAAgAAoAGwBGAAYAQgAgAEwAGwBCAEYAIABCABsAAwAZAAUAGQAuABQAOAADADIAGQA4AC4AGQADADgAAAAfAA0AAAAJAB8ACAAWABwACAAEABYAHgAaACIAEQAOACkAJwAMACMAFQAoACQADwAhACUAFwASACoAHQAYACYAMQA7ADYANAA6AC8ANwA8AC0AKwA5ADMASgAHAEcABwBNAAsASgBNAAcAPgBFAEEAPQBIAEQAPwBLAEkAQABDAE4A"),
 "lods": [0.00829594, PackedByteArray("AQBUAAIAVAABABMAEwABABAAVwAgAAoABgBXAAoAVQBXAAYAVQAGAFYAVgAgAFcAQABWAFcAIABWABsAGwBWAAYAAwAZAAUAGQADAC0AGQAtABQAAAAfAA0AAAAJAB8ACABQABwACAAEAFAAUABPAFMAEQAMAB4AUgBRAB4A")],
-"material": SubResource("StandardMaterial3D_35pp6"),
+"material": ExtResource("3_1ha26"),
 "name": "White.003",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -94,7 +79,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 18,
 "index_data": PackedByteArray("AAALAAYAAAAFAAsABAAIAAoABAACAAgAAwAHAAkAAwABAAcA"),
-"material": SubResource("StandardMaterial3D_lfdwn"),
+"material": ExtResource("4_tgvbq"),
 "name": "DarkGrey.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -125,5 +110,5 @@ light_energy = 3.831
 light_indirect_energy = 1.68
 light_volumetric_fog_energy = 0.0
 light_specular = 0.76
-light_bake_mode = 1
+light_bake_mode = 0
 shadow_enabled = true

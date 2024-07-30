@@ -31,5 +31,5 @@ light_indirect_energy = 1.68
 light_volumetric_fog_energy = 0.0
 light_size = 0.122
 light_specular = 0.76
-light_bake_mode = 1
+light_bake_mode = 0
 shadow_enabled = true

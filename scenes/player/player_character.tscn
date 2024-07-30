@@ -108,6 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.123455, -0.18
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
 transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.213559, -0.185076, -0.285833)
+visible = false
 on_hand = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
