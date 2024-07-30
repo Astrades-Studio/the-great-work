@@ -55,6 +55,7 @@ visible = false
 spot_range = 6.743
 
 [node name="AutoFootSteps" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("2_wncd0")
 foot_profile = ExtResource("3_yrwvo")
 

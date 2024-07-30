@@ -21,7 +21,7 @@ shader_parameter/alpha = 1.0
 shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uj67y"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_3f3sk"]
 
 [node name="PanicEffects" type="CanvasLayer"]
 script = ExtResource("1_fpfb8")
@@ -45,4 +45,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("NoiseTexture2D_uj67y")
+texture = SubResource("CanvasTexture_3f3sk")

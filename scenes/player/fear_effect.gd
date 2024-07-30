@@ -30,8 +30,8 @@ func _process(delta):
 	
 func increase_agitation():
 	var tween = get_tree().create_tween().set_parallel(true) 
-	tween.tween_property(self, "amplitude", 0.25, 2.0)
-	frequency = 8.0
+	tween.tween_property(self, "amplitude", 0.1, 2.0)
+	frequency = 10.0
 	tween.tween_property(self, "vignette_outer_radius", 1.0, 1.0)
 	tween.tween_property(self, "vignette_inner_radius", 0.01, 1.0)
 	
@@ -39,13 +39,7 @@ func increase_agitation():
 
 
 func decrease_agitation():
-	var tween = get_tree().create_tween().set_parallel(true) 
-	#tween.tween_property(self, "amplitude", 0.0, 10.0)
-	#tween.tween_property(self, "frequency", 0.0, 10.0)
-	for time_counter in range(10,0,-1):
-		await get_tree().create_timer(1).timeout
-		frequency = time_counter
+	var tween = get_tree().create_tween().set_parallel(true)
 	amplitude = 0
-	
 	tween.tween_property(self, "vignette_outer_radius", 10.0, 10.0)
 	tween.tween_property(self, "vignette_inner_radius", 0.1, 10.0)
