@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ttm57krlas"
-path.s3tc="res://.godot/imported/philosophers_stone_recipe_part_1.png-3bd7d0ab9830655b8e389d73047e1fdc.s3tc.ctex"
+uid="uid://ccum5hdepd1k0"
+path.s3tc="res://.godot/imported/philosophers_stone_recipe_part_3.png-6ad35821485c9a6c8d54f7ba8833d988.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_1.png"
-dest_files=["res://.godot/imported/philosophers_stone_recipe_part_1.png-3bd7d0ab9830655b8e389d73047e1fdc.s3tc.ctex"]
+source_file="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_3.png"
+dest_files=["res://.godot/imported/philosophers_stone_recipe_part_3.png-6ad35821485c9a6c8d54f7ba8833d988.s3tc.ctex"]
 
 [params]
 

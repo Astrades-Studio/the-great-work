@@ -67,6 +67,3 @@ speed_scale = 0.86
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_dpdx2")
 draw_pass_1 = SubResource("QuadMesh_bucoi")
-
-[node name="DarknessLight" type="OmniLight3D" parent="."]
-light_negative = true

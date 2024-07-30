@@ -13,9 +13,7 @@ extends StaticBody3D
 
 @export var active : bool = true : 
 	set(value):
-		if !GameManager.lamp_in_hand:
-			return
-		if active == value:
+		if !GameManager.lamp_in_hand or !on_hand:
 			return
 		if disabled:
 			active = false

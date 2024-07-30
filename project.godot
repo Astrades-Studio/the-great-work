@@ -158,6 +158,7 @@ debug={
 3d_physics/layer_4="Interactibles"
 3d_physics/layer_5="Flare"
 3d_physics/layer_6="ShadowArea"
+3d_physics/layer_7="Triggers"
 
 [rendering]
 

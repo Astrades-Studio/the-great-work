@@ -24,7 +24,7 @@ size = Vector3(0.618164, 0.995728, 0.539063)
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
-collision_layer = 2
+collision_layer = 66
 script = ExtResource("1_rwwvt")
 ACCELERATION_DEFAULT = 6.0
 SPEED_DEFAULT = 3.5

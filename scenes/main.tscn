@@ -1,28 +1,24 @@
-[gd_scene load_steps=95 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=92 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
 [ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
-[ext_resource type="Texture2D" uid="uid://b8pjuuttm51o8" path="res://assets/images/paintings/painting-15.jpg" id="4_hr77e"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
 [ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
-[ext_resource type="Texture2D" uid="uid://75omdbabs1xa" path="res://assets/images/paintings/painting-38.jpg" id="8_10nsw"]
-[ext_resource type="Texture2D" uid="uid://doyxhumkshwea" path="res://assets/images/paintings/painting-17.jpg" id="8_pjtq0"]
 [ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="8_vrqnq"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="9_mnsrf"]
-[ext_resource type="PackedScene" uid="uid://cq5ekg3eobo0e" path="res://scenes/props/painting.tscn" id="10_2xuse"]
-[ext_resource type="Texture2D" uid="uid://dwxe6rlfamlcj" path="res://assets/images/paintings/painting-27.jpg" id="10_t2oyt"]
+[ext_resource type="Resource" uid="uid://0nyw3n73kvo1" path="res://assets/images/recipes/stone_recipe/stone_recipe.tres" id="10_s76sh"]
 [ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="10_ufp8w"]
 [ext_resource type="Material" uid="uid://cd1iwg8xw2hda" path="res://scenes/props/book_material.tres" id="11_5aosd"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="12_anbsx"]
-[ext_resource type="Texture2D" uid="uid://ccdrr8wya76kk" path="res://assets/images/paintings/painting-12.jpg" id="12_k1s8s"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
 [ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="14_ueicl"]
@@ -48,6 +44,8 @@
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
 [ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
+[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
+[ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="48_pb1fo"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
 
@@ -267,12 +265,6 @@ size = Vector3(3.3826, 2.40158, 1.94965)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6aw5"]
 size = Vector3(1.70316, 2.8847, 5.80588)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqsj4"]
-albedo_texture = ExtResource("8_10nsw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sr0e"]
-albedo_texture = ExtResource("10_t2oyt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l88u"]
 resource_name = "Material.009"
@@ -669,6 +661,9 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
+size = Vector3(1, 1.66846, 0.131348)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
 [node name="MainScene" type="Node3D"]
@@ -772,6 +767,7 @@ shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="ShadowCrawl" type="Marker3D" parent="Level/Shadows"]
 transform = Transform3D(0.918273, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918273, -14.0334, 0.21762, 3.00247)
+script = ExtResource("6_ougbu")
 
 [node name="Running Crawl_Imported" type="Node3D" parent="Level/Shadows/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103037, -0.553378)
@@ -1093,6 +1089,7 @@ transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0
 
 [node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
+visible = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnEntrance/Darkness" index="1"]
@@ -1154,56 +1151,44 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.999968, -0.00310436, -0.00409222, 0.00493532, 0.801509, 0.597963, 0.00142378, -0.597975, 0.801513, 0.262158, -0.439255, 1.93591)
 shape = SubResource("BoxShape3D_k6aw5")
 
-[node name="Papers" type="Node3D" parent="Level"]
+[node name="Recipes" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
-[node name="Painting" parent="Level/Papers" instance=ExtResource("10_2xuse")]
-transform = Transform3D(0.749587, 0, 0, 0, 0.680326, -0.00877517, 0, 0.00837153, 0.713127, 3.17733, 1.80718, -8.3851)
-painting = ExtResource("4_hr77e")
-
-[node name="MeshInstance3D" parent="Level/Papers/Painting" index="0"]
-transform = Transform3D(1.2424, 0, 0, 0, 1.2424, -0.00416333, 0, 0.00416333, 1.2424, 0, 7.15256e-07, -0.0130587)
-material_override = SubResource("StandardMaterial3D_jqsj4")
-
-[node name="CSGBox3D" parent="Level/Papers/Painting/MeshInstance3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.999995, 0.00335103, 0, -0.00335103, 0.999995, 0, -2.64645e-05, -0.00792503)
-
-[node name="CSGBox3D2" parent="Level/Papers/Painting/MeshInstance3D/CSGBox3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.06406e-09, 0, -1.06406e-09, 1, 0, 2.38419e-07, 0.00643158)
-
-[node name="Painting2" parent="Level/Papers" instance=ExtResource("10_2xuse")]
-transform = Transform3D(-4.36148e-08, 0.0181504, 0.999835, -2.90378e-09, 0.999835, -0.0181504, -1, -3.69492e-09, -4.35549e-08, -5.3047, 1.82276, 1.77841)
-painting = ExtResource("12_k1s8s")
-
-[node name="MeshInstance3D" parent="Level/Papers/Painting2" index="0"]
-material_override = SubResource("StandardMaterial3D_1sr0e")
-
-[node name="Painting3" parent="Level/Papers" instance=ExtResource("10_2xuse")]
-transform = Transform3D(0.895615, 0, 0, 0, 0.895405, 0.0193971, 0, -0.0193971, 0.895405, 4.456, 2.07771, -0.392745)
-painting = ExtResource("8_pjtq0")
-
-[node name="MeshInstance3D" parent="Level/Papers/Painting3" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00335103, 0, 0.00335103, 0.999994, 0.392604, -0.120052, -0.013461)
-
-[node name="FlareRecipeBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
+[node name="SecretBook" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -4.78635, 0.765783, -5.99975)
-book = ExtResource("10_ufp8w")
+book = ExtResource("10_s76sh")
+read_stone_trigger_book = true
+flare_book = null
+color = Color(0.253955, 0.170005, 0.0537775, 1)
 
-[node name="FlareRecipeBook2" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 3.08048)
+[node name="How to make a flare" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -0.600911, -2.26857, 3.06078)
 book = ExtResource("10_ufp8w")
+flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="ReferenceBook" parent="Level/Papers" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
-book = ExtResource("10_ufp8w")
+[node name="StoneRecipe" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.34975, -2.26857, 3.07447)
+book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
+flare_book = null
+color = Color(0.341178, 0.0541443, 0.198094, 1)
 
-[node name="MeshInstance3D" parent="Level/Papers/ReferenceBook" index="0"]
+[node name="Reference" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(0.176139, -0.0160194, -0.984235, 0.0301368, 0.999487, -0.0108743, 0.983904, -0.0277463, 0.176531, -1.89306, -2.26857, 2.14595)
+read_stone_trigger_book = true
+flare_book = null
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" parent="Level/Recipes/Reference" index="0"]
 mesh = SubResource("ArrayMesh_4y0pv")
 
-[node name="Page" parent="Level/Papers" instance=ExtResource("5_6lkja")]
-transform = Transform3D(0.253773, 0.0609861, -0.193423, 1.64004e-09, 0.309823, 0.0976867, 0.202809, -0.0763112, 0.242028, 3.97987, 1.2003, 0.557442)
+[node name="Page" parent="Level/Recipes" instance=ExtResource("5_6lkja")]
+transform = Transform3D(-0.0113763, 0.324381, 0.0134455, -0.00817415, -0.0137356, 0.324464, 0.324555, 0.0110243, 0.00864293, 5.94475, 0.989621, 0.35326)
+
+[node name="Reference2" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36903, 1.01699, 3.8777)
+flare_book = null
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -1466,7 +1451,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
 
 [node name="Pot" parent="Level/Interactibles/Dispensers2" instance=ExtResource("20_p2kc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62089, 0, -7.575)
-ingredient_type = 1
+ingredient_type = 18
 
 [node name="Barrel" parent="Level/Interactibles/Dispensers2" instance=ExtResource("21_n1n2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68468, 2.38419e-07, -1.60681)
@@ -1609,6 +1594,25 @@ script = ExtResource("9_7hkxv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
 shape = SubResource("WorldBoundaryShape3D_v46o1")
 
+[node name="GasLampReminder" type="Area3D" parent="Triggers"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("44_64vvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/GasLampReminder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
+shape = SubResource("BoxShape3D_vvvnc")
+
+[node name="ShadowCrawl" type="Area3D" parent="Triggers"]
+transform = Transform3D(0.0166671, 0, 0.999861, 0, 1, 0, -0.999861, 0, 0.0166671, -5.84593, 0.145517, 3.72983)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("41_lqb1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/ShadowCrawl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
+shape = SubResource("BoxShape3D_vvvnc")
+
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.494191, -5.16659)
 
@@ -1625,14 +1629,17 @@ grow_vertical = 2
 color = Color(0.263882, 0.325489, 0.43773, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
-
-[node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
-visible = false
-
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
 
+[node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
+layer = 3
+
+[node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
+layer = 4
+visible = false
+
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+layer = 3
 visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
@@ -1645,6 +1652,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
 visible = true
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
 [editable path="Level/Shadows/SpawnEntrance/Darkness"]
@@ -1653,10 +1662,7 @@ visible = true
 [editable path="Level/Shadows/SpawnKitchen/Darkness"]
 [editable path="Level/Shadows/SpawnBathroom/Darkness"]
 [editable path="Level/Shadows/SpawnStairs/Darkness"]
-[editable path="Level/Papers/Painting"]
-[editable path="Level/Papers/Painting2"]
-[editable path="Level/Papers/Painting3"]
-[editable path="Level/Papers/ReferenceBook"]
+[editable path="Level/Recipes/Reference"]
 [editable path="Level/Lights/Candle_001"]
 [editable path="Level/Lights/Candle_003"]
 [editable path="Level/Lights/Candle_004"]
