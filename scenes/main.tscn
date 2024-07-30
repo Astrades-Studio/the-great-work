@@ -30,10 +30,10 @@
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
-[ext_resource type="PackedScene" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
+[ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
 [ext_resource type="Script" path="res://scenes/fireplace_off.gd" id="18_afs66"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
-[ext_resource type="PackedScene" path="res://scenes/props/candle_2.tscn" id="18_p4q7v"]
+[ext_resource type="PackedScene" uid="uid://c2x73jm1cmb4p" path="res://scenes/props/candle_2.tscn" id="18_p4q7v"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="19_swayh"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
 [ext_resource type="PackedScene" uid="uid://cbstr3dw00tjg" path="res://scenes/alchemy/dispensers/pot.tscn" id="20_p2kc1"]
@@ -1195,7 +1195,7 @@ transform = Transform3D(0.253773, 0.0609861, -0.193423, 1.64004e-09, 0.309823, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
 [node name="Candle_001" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
-transform = Transform3D(1.02503, 0, 0, 0, 0.837945, 0, 0, 0, 0.837945, 3.75504, -1.07652, 2.63822)
+transform = Transform3D(1.02503, 0, 0, 0, 0.837945, 0, 0, 0, 0.837945, 4.233, -1.07652, 2.63822)
 
 [node name="CollisionShape3D" parent="Level/Lights/Candle_001" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114187, 0)
@@ -1205,6 +1205,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114187, 0)
 
 [node name="FireCandle" parent="Level/Lights/Candle_001" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577545, 0.450216, 0.000962257)
+
+[node name="OmniLight3D" parent="Level/Lights/Candle_001" index="3"]
+light_energy = 4.766
+light_indirect_energy = 0.0
+light_specular = 0.255
+shadow_bias = 1.633
+shadow_normal_bias = 0.0
+shadow_transmittance_bias = 0.0
+shadow_opacity = 0.0
+shadow_blur = 0.0
+omni_range = 2.564
+omni_attenuation = 1.577
 
 [node name="Candle_003" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
 transform = Transform3D(-0.165039, -0.0336357, 0.985713, 0, 0.999418, 0.0341033, -0.986287, 0.00562838, -0.164943, -6.22212, -1.14805, 0.0136564)
@@ -1250,8 +1262,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577736, 0.506346, 0.0009
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(0.993299, 0.00444563, 0.115493, 4.72937e-11, 0.99926, -0.0384641, -0.115579, 0.0382064, 0.992564, 3.58325, -4.21116, -2.47108)
 
+[node name="OmniLight3D" parent="Level/Lights/Candle" index="3"]
+omni_range = 3.691
+omni_attenuation = 2.314
+
 [node name="Candle2" parent="Level/Lights" instance=ExtResource("18_p4q7v")]
 transform = Transform3D(0.999895, -0.00955501, -0.0109224, 0.00995477, 0.99926, 0.0371517, 0.0105594, -0.0372565, 0.99925, -3.24659, -4.35835, -6.06368)
+
+[node name="OmniLight3D" parent="Level/Lights/Candle2" index="5"]
+omni_range = 3.074
 
 [node name="Interactibles" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1365,14 +1384,26 @@ transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.0
 [node name="WaitLabel" parent="Level/Interactibles/Still" index="10"]
 text = "5"
 
+[node name="OmniLight3D" parent="Level/Interactibles/Still/LavaMesh" index="0"]
+light_bake_mode = 1
+
+[node name="OmniLight3D2" parent="Level/Interactibles/Still/LavaMesh/OmniLight3D" index="0"]
+light_bake_mode = 1
+
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
 
 [node name="WaitLabel" parent="Level/Interactibles/Furnace" index="3"]
 text = "5"
 
+[node name="OmniLight3D" parent="Level/Interactibles/Furnace/LogFire" index="2"]
+light_bake_mode = 1
+
 [node name="Cauldron" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.593229, -2.9589, -4.06195)
+
+[node name="OmniLight3D" parent="Level/Interactibles/Cauldron" index="5"]
+light_bake_mode = 1
 
 [node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
 text = "5"

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c01wtba8bae5c"]
+[gd_scene load_steps=5 format=3 uid="uid://bsny5rbtvydc3"]
 
 [ext_resource type="Script" path="res://scenes/props/candle.gd" id="1_on6si"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="1_yhmwn"]
-[ext_resource type="ArrayMesh" uid="uid://dohxl7lttuciy" path="res://scenes/props/candle_3.tres" id="2_khggc"]
+[ext_resource type="ArrayMesh" uid="uid://dtwe55f6v6id8" path="res://scenes/props/candle_3.tres" id="2_khggc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jui0a"]
 points = PackedVector3Array(-2.20268, -1.174, -35.6225, 8.15013, 4.30434, 0.304493, 8.15013, -4.21828, 0.304493, -12.5555, 0.649811, -6.39486, -4.02679, -8.48306, 0.304493, -4.02679, 8.56738, 0.304493, 0.841545, 2.47708, -35.6225, 5.71393, -3.00126, -27.0995, -2.81072, 5.52137, -27.0995, -2.81072, -5.43704, -27.0995, 3.88577, -8.48306, -1.52295, 3.88577, 8.56738, -0.916348, 5.20974, 2.30257, -26.5953, -12.5555, -0.565484, -9.43933, -8.29114, -4.21828, 0.304493, 3.27774, -5.43704, -27.0995, 2.35838, 5.15402, -26.5968, 0.231483, -0.565484, -38.6708, -5.85292, 2.47708, -27.0995, -8.29114, 4.30434, 0.304493, 2.05964, -9.0933, -0.305927, -12.5555, 0.649811, -9.43933, -5.85292, -2.39102, -27.0995, -2.20268, 1.25832, -35.6225, 2.66768, 0.649811, -35.6225, 0.841545, -2.39102, -36.2329, -4.02679, 8.56738, -0.916348, 8.15013, 4.30434, -0.916348, -1.59465, -9.0933, -0.305927, 8.15013, -4.21828, -1.52295, -4.02679, -8.48306, -0.916348, 3.88577, 8.56738, 0.304493)
@@ -31,4 +31,5 @@ light_indirect_energy = 1.68
 light_volumetric_fog_energy = 0.0
 light_size = 0.122
 light_specular = 0.76
+light_bake_mode = 1
 shadow_enabled = true
