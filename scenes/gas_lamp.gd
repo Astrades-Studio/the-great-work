@@ -60,14 +60,10 @@ func _ready() -> void:
 		hide()
 		disabled = true
 		animation_player.play("GasLampAnimation")
-		#mesh.layers = 0x0002
-		#light.layers = 0x0002
-		#fire_beam_2.layers = 0x0002
 	else:
 		set_collision_layer_value(3, true)
 		animation_player.stop()
 		mesh.layers = 0x0001
-		light.layers = 0x0001
 		fire_beam_2.layers = 0x0001
 
 	timer.start()
