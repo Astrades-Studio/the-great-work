@@ -10,6 +10,7 @@ extends StaticBody3D
 @onready var gas_lamp_on : AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var gas_loop : AudioStreamPlayer3D = $AudioStreamPlayer3D2
 @onready var gas_lamp_off : AudioStreamPlayer3D = $AudioStreamPlayer3D3
+@onready var interaction_component: InteractionComponent = $InteractionComponent
 
 @export var active : bool = true : 
 	set(value):
@@ -88,6 +89,8 @@ func on_lamp_interact():
 		GameManager.lamp_in_hand = true
 		GameManager.lamp_collected.emit()
 		DialogManager.create_subtitles_piece("This will come in handy.")
+		if is_instance_valid(interaction_component):
+			interaction_component.queue_free()
 
 # Called by GameManager on tick timeout, multiplies the luminosity negatively with time
 func _on_tick_timeout():

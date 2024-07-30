@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="5_6lkja"]
-[ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
+[ext_resource type="Material" uid="uid://b3awbhdjxn2ot" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
@@ -1340,30 +1340,6 @@ shadow_enabled = false
 omni_range = 3.895
 omni_attenuation = 1.723
 
-[node name="Candle_004" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
-transform = Transform3D(-0.614456, 0, -5.37174e-08, 0, 0.614456, 0, 5.37174e-08, 0, -0.614456, 1.93308, -1.449, -4.80092)
-
-[node name="CollisionShape3D" parent="Level/Lights/Candle_004" index="0"]
-transform = Transform3D(0.71276, 0, 0.850037, 0, 1.10932, 0, -0.850037, 0, 0.71276, -2.77982, 0.244706, 4.88495)
-
-[node name="CandleMesh" parent="Level/Lights/Candle_004" index="1"]
-transform = Transform3D(0.71276, 0, 0.850037, 0, 1.10932, 0, -0.850037, 0, 0.71276, -2.77914, 0.241753, 4.88551)
-
-[node name="FireCandle" parent="Level/Lights/Candle_004" index="2"]
-transform = Transform3D(0.71276, 0, 0.850037, 0, 1.10932, 0, -0.850037, 0, 0.71276, -2.77607, 0.614518, 4.89645)
-visible = false
-
-[node name="OmniLight3D" parent="Level/Lights/Candle_004" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51723, 0.411926, 4.38879)
-layers = 4
-light_energy = 0.912
-light_indirect_energy = 0.0
-light_specular = 0.0
-light_bake_mode = 0
-shadow_enabled = false
-omni_range = 3.895
-omni_attenuation = 1.723
-
 [node name="Candle_005" parent="Level/Lights" instance=ExtResource("8_vrqnq")]
 transform = Transform3D(0.561793, 0, 0, 0, 0.561793, 0, 0, 0, 0.561793, 0.101422, -4.35355, 3.1429)
 
@@ -1380,6 +1356,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00577736, 0.506346, 0.0009
 layers = 4
 light_energy = 0.912
 light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = false
+omni_range = 3.895
+omni_attenuation = 1.723
+
+[node name="Candle3" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
+transform = Transform3D(0.973294, 0.0132708, 0.229182, 0.00444564, 0.997051, -0.0766137, -0.229524, 0.0755866, 0.970365, 3.67523, -1.29252, -8.00523)
+
+[node name="OmniLight3D" parent="Level/Lights/Candle3" index="3"]
+layers = 4
+light_energy = 0.912
+light_indirect_energy = 0.0
+light_size = 0.0
 light_specular = 0.0
 light_bake_mode = 0
 shadow_enabled = false
@@ -1515,7 +1505,7 @@ omni_range = 8.241
 omni_attenuation = 5.009
 
 [node name="Adam\'s letter" parent="Level/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.0866342, 6.48674e-15, 0.313093, 3.28023e-29, 0.324858, -5.32907e-15, -0.313093, 8.73356e-16, 0.0866342, 3.65242, 0.729159, -7.31122)
+transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.466132, 1.65963e-15, 0.147018, 1.25316e-15, 0.151051, 3.65901, 0.729159, -7.62755)
 
 [node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
@@ -1586,7 +1576,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
 
 [node name="Pot" parent="Level/Interactibles/Dispensers" instance=ExtResource("20_p2kc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79605, -0.668254, -0.0733199)
-ingredient_type = 1
+ingredient_type = 2
 
 [node name="Barrel" parent="Level/Interactibles/Dispensers" instance=ExtResource("21_n1n2k")]
 transform = Transform3D(1.45119, 0, 0, 0, 1.45119, 0, 0, 0, 1.45119, 3.96219, -0.677634, 6.0822)
@@ -1785,7 +1775,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426
 shape = SubResource("BoxShape3D_vvvnc")
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.494191, -5.16659)
+transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.129867, -5.16659)
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
@@ -1823,6 +1813,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("48_cjxys")
+active = false
 min_value = 0.09
 max_value = 0.55
 
@@ -1856,22 +1847,21 @@ shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
-layers = 3
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.434509
+light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+light_specular = 3.303
 light_bake_mode = 0
 light_cull_mask = 4294967293
 shadow_bias = 1.881
 shadow_opacity = 0.45
 shadow_blur = 0.0
-distance_fade_enabled = true
-omni_range = 1.259
-omni_attenuation = 1.356
+omni_range = 10.542
+omni_attenuation = 2.086
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.69725
+wait_time = 0.883205
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -1906,6 +1896,7 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
+[connection signal="visibility_changed" from="GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="GasLamp/Timer" to="GasLamp" method="_on_timer_timeout"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
@@ -1918,8 +1909,8 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [editable path="Level/Recipes/Reference"]
 [editable path="Level/Lights/Candle_001"]
 [editable path="Level/Lights/Candle_003"]
-[editable path="Level/Lights/Candle_004"]
 [editable path="Level/Lights/Candle_005"]
+[editable path="Level/Lights/Candle3"]
 [editable path="Level/Lights/Candle"]
 [editable path="Level/Lights/Candle2"]
 [editable path="Level/Interactibles/Mortar"]
