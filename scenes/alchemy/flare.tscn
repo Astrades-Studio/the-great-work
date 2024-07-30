@@ -110,7 +110,7 @@ script = ExtResource("1_vanpb")
 type = 20
 
 [node name="Flare" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.63105, 0, 0, 0, 0.63105, -6.72582e-15, 0, 6.72582e-15, 0.63105, 0, 0, 0)
+transform = Transform3D(0.63105, 0, 0, 0, 0.63105, -6.72582e-15, 0, 6.72582e-15, 0.63105, 0, -0.0555848, 0)
 mesh = ExtResource("2_yvr0d")
 
 [node name="FireBeam" parent="Flare" instance=ExtResource("4_5lh6f")]
@@ -131,27 +131,31 @@ local_coords = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.524017, -2.29055e-08)
 visible = false
+layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
-light_energy = 5.0
-omni_range = 4.0
+light_energy = 7.697
+light_bake_mode = 0
+omni_range = 11.182
 
 [node name="Contents" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.0958546, -1.50454e-07)
+transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.0402698, -1.50454e-07)
 mesh = SubResource("CylinderMesh_7h51u")
 skeleton = NodePath("../../Mercury")
 
 [node name="Contents2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.280477, -1.50454e-07)
+transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.224892, -1.50454e-07)
 mesh = SubResource("CylinderMesh_70wug")
 skeleton = NodePath("../../Mercury")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.63105, 0, 0, 0, 0.63105, -6.72582e-15, 0, 6.72582e-15, 0.63105, 0, 0, 0)
+transform = Transform3D(0.63105, 0, 0, 0, 0.63105, -6.72582e-15, 0, 6.72582e-15, 0.63105, 0, -0.0555848, 0)
 shape = SubResource("ConvexPolygonShape3D_dyg0k")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0555848, 0)
 
 [node name="ShadowBarrier" type="Area3D" parent="." groups=["flare"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0555848, 0)
 collision_layer = 16
 collision_mask = 32
 
