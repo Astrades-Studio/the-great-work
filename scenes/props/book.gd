@@ -7,6 +7,7 @@ extends StaticBody3D
 var book_material : StandardMaterial3D = preload("res://scenes/props/book_material.tres")
 const FLARE_RECIPE = "res://assets/images/recipes/flare_recipe/flare_recipe.tres"
 const STONE_RECIPE = "res://assets/images/recipes/stone_recipe/stone_recipe.tres"
+const ALCHEMY_GUIDE = "res://assets/images/recipes/reference/reference_book.tres"
 
 @export var read_stone_trigger_book : bool
 @export var flare_book : bool
@@ -36,4 +37,9 @@ func open_book() -> void:
 		if !GameManager.philosopher_stone_recipe_read:
 			GameManager.recipe_read.emit()
 			DialogManager.create_subtitles_piece("So this is the recipe... I feel something strange is going on.")
+	
+
+	if book.resource_path == ALCHEMY_GUIDE:
+		DialogManager.create_subtitles_piece("My old notes... Adam must have brought them here.")
+		
 	GameManager.request_book_UI.emit(book)
