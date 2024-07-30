@@ -17,9 +17,8 @@ func _ready() -> void:
 	GameManager.fog_environment = world_environment
 	GameManager.ingredient_layer = ingredients
 	GameManager.game_started.connect(start_midnight_game)	
-	GameManager.reset_progress()
 	game_over_timer.timeout.connect(_on_timer_tick)
-
+	await get_tree().create_timer(1).timeout
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
 
 
