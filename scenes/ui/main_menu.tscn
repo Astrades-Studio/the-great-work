@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
-[ext_resource type="VideoStream" path="res://assets/videos/output.ogv" id="3_36fp1"]
+[ext_resource type="VideoStream" path="res://assets/videos/main_menu_render.ogv" id="3_83lyj"]
 [ext_resource type="Texture2D" uid="uid://cy3ju05a0dcem" path="res://assets/images/render.png" id="3_eisaw"]
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="5_1ffgs"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="5_0425m"]
@@ -76,7 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("3_36fp1")
+stream = ExtResource("3_83lyj")
 autoplay = true
 expand = true
 loop = true
