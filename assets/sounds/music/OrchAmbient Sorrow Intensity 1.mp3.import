@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drnlpyxx2owcf"
+path="res://.godot/imported/OrchAmbient Sorrow Intensity 1.mp3-bb0706705f139868124f16fbcf8c76b6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/OrchAmbient Sorrow Intensity 1.mp3"
+dest_files=["res://.godot/imported/OrchAmbient Sorrow Intensity 1.mp3-bb0706705f139868124f16fbcf8c76b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpixoad5ramlu"
+path="res://.godot/imported/Light Rain Ambience Loop.mp3-834fb581f033fa068bbe78e09933c0a9.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Light Rain Ambience Loop.mp3"
+dest_files=["res://.godot/imported/Light Rain Ambience Loop.mp3-834fb581f033fa068bbe78e09933c0a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
