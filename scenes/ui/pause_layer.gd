@@ -47,6 +47,7 @@ func _on_restart_button_pressed() -> void:
 	self.hide_pause_menu()
 	GameManager.current_state = GameManager.GameState.CUTSCENE
 	GameManager.reset_progress()
+	GameManager.clear_arrays()
 	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 	
 

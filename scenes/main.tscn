@@ -1701,15 +1701,14 @@ ingredient_type = 18
 
 [node name="Barrel" parent="Level/Interactibles/Dispensers" instance=ExtResource("21_n1n2k")]
 transform = Transform3D(1.45119, 0, 0, 0, 1.45119, 0, 0, 0, 1.45119, 3.96219, -0.677634, 6.0822)
-ingredient_type = 18
 metadata/_edit_group_ = true
 
 [node name="Bag" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
 transform = Transform3D(0.122729, 5.82077e-11, 0.273748, 0.00135689, 0.299996, -0.00060833, -0.273744, 0.00148701, 0.122727, -0.987738, -0.680817, 1.5398)
 
 [node name="Basket" parent="Level/Interactibles/Dispensers" instance=ExtResource("23_j4hhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -8.16959)
-ingredient_type = 12
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -7.57384)
+ingredient_type = 4
 
 [node name="Chest" parent="Level/Interactibles/Dispensers" instance=ExtResource("24_ut00p")]
 transform = Transform3D(-5.13409e-08, 0, 1.17454, 0, 1.17454, 0, -1.17454, 0, -5.13409e-08, -1.89055, -0.665621, -2.59206)
@@ -1724,11 +1723,7 @@ transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664931, 0, 0.0750827)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -7.80175, 0.203004, -2.1627)
-ingredient_type = 4
-
-[node name="Salt Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -6.60717, 0.937598, -2.20489)
+transform = Transform3D(-0.535723, 0, -0.844393, 0, 1, 0, 0.844393, 0, -0.535723, -7.80175, 0.203004, -2.1627)
 ingredient_type = 22
 
 [node name="Bunch" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
@@ -1800,7 +1795,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.659813, 2.18815)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63884, 0, 1.16678)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0263, 0.746445, -3.60083)
+transform = Transform3D(-0.980826, 0, -0.194885, 0, 1, 0, 0.194885, 0, -0.980826, 4.0263, 0.746445, -3.60083)
 ingredient_type = 22
 
 [node name="Bunch" parent="Level/Interactibles/Dispensers2" instance=ExtResource("28_djx7f")]
@@ -2162,7 +2157,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.916635
+wait_time = 0.935781
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]

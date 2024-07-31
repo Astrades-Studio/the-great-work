@@ -23,6 +23,8 @@ func _ready() -> void:
 
 
 func _on_retry_button_pressed() -> void:
+	GameManager.reset_progress()
+	GameManager.clear_arrays()
 	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
 
 
