@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=130 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -62,6 +62,7 @@
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="52_xp1lg"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="53_j1orv"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="54_ow8vm"]
+[ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -882,7 +883,7 @@ _data = {
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
-tick_length = 200.0
+tick_length = 240.0
 
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
@@ -1678,6 +1679,9 @@ shadow_enabled = false
 omni_range = 1.377
 omni_attenuation = 1.723
 
+[node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
+text = "10"
+
 [node name="Dispensers" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
 
@@ -2093,7 +2097,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.536117
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2106,7 +2110,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.555635
+wait_time = 0.586841
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2137,6 +2141,9 @@ bus = &"SFX"
 [node name="InteractionComponent" type="Node" parent="GasLamp" node_paths=PackedStringArray("mesh")]
 script = ExtResource("20_3awsj")
 mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
+
+[node name="OvaniPlayer" type="Node" parent="."]
+script = ExtResource("63_fo8fa")
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]

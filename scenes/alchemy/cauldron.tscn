@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="2_bh27f"]
-[ext_resource type="PackedScene" uid="uid://bjbl5mciq3ytd" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
+[ext_resource type="PackedScene" uid="uid://dqw756t4sb7ly" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
 [ext_resource type="Material" uid="uid://did56lsjeoaiw" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
 [ext_resource type="AudioStream" uid="uid://dyco67xmd824" path="res://assets/sounds/sfx/Bubbles Short A.wav" id="6_gvs0u"]
@@ -123,7 +123,7 @@ material = ExtResource("4_3u2cw")
 [node name="Cauldron" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_ccfdh")
 ingredient_preview = NodePath("Pot/IngredientSpot")
-wait_time = 5
+wait_time = 10
 tool_type = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

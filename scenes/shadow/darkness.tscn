@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="1_eedys"]
 [ext_resource type="Script" path="res://scenes/shadow/darkness.gd" id="1_hrpg6"]
-[ext_resource type="AudioStream" uid="uid://d2y53j6metvdy" path="res://assets/sounds/ambient/Sinister Chants Loop.wav" id="3_2c0qy"]
 [ext_resource type="AudioStream" uid="uid://bs5ao0dwaqhlf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/shadow_death.wav" id="3_m6fyt"]
+[ext_resource type="AudioStream" uid="uid://cnhihtfmpeutf" path="res://assets/sounds/sfx/shadow/shadow_killing.mp3" id="4_rgwk0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nme3o"]
 size = Vector3(4.00891, 3.75281, 6.62573)
@@ -55,18 +55,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
 shape = SubResource("BoxShape3D_nme3o")
 
-[node name="FlareSound" type="AudioStreamPlayer3D" parent="."]
+[node name="ShadowDeathSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
 stream = ExtResource("3_m6fyt")
 unit_size = 16.31
 max_distance = 30.0
 bus = &"SFX"
 
-[node name="PassiveSound" type="AudioStreamPlayer3D" parent="."]
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31373, 0)
-stream = ExtResource("3_2c0qy")
-attenuation_model = 1
-volume_db = -10.0
+stream = ExtResource("4_rgwk0")
+pitch_scale = 1.42
+autoplay = true
 max_distance = 6.0
 panning_strength = 2.7
 bus = &"SFX"

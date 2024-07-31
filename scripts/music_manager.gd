@@ -25,13 +25,14 @@ func _ready() -> void:
 
 
 var tween : Tween
-func play_music(music: AudioStream, fade_duration := 5.0):
+func play_music(music: AudioStream, delay := 0.0, fade_duration := 5.0):
 	if !music_stream_1.playing:
 		music_stream_1.volume_db = linear_to_db(1.0)
 		music_stream_1.stream = music
-		music_stream_1.play(0.0)
+		music_stream_1.play(delay)
 	else:
-		fade_music_stream(music_stream_1, fade_duration)
+		await fade_music_stream(music_stream_1, fade_duration)
+		play_music(music, fade_duration)
 
 	
 func play_ambient_music(music: AudioStream, fade_duration := 5.0):
@@ -40,14 +41,14 @@ func play_ambient_music(music: AudioStream, fade_duration := 5.0):
 		ambient_music_stream.stream = music
 		ambient_music_stream.play(0.0)
 	else:
-		fade_music_stream(ambient_music_stream, fade_duration)
-
+		await fade_music_stream(ambient_music_stream, fade_duration)
+		play_ambient_music(music, fade_duration)
 
 func fade_music_stream(music_stream: AudioStreamPlayer, fade_duration := 5.0):
 	tween = get_tree().create_tween()
 	tween.tween_property(music_stream, "volume_db", linear_to_db(0.0), fade_duration)
 	tween.tween_callback(music_stream.stop)
-	tween.finished.connect(music_stream.play.bind(0.0)) 
+	await tween.finished
 
 func stop_all_music():
 	music_stream_1.stop()

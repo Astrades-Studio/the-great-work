@@ -25,8 +25,8 @@ var hp : float:
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
 @onready var darkness_fx_intensity = darkness_fx.amount_ratio
 @onready var darkness_light: OmniLight3D = $DarknessLight
-@onready var passive_sound: AudioStreamPlayer3D = $PassiveSound
-@onready var shadow_death_player: AudioStreamPlayer3D = $FlareSound
+@onready var shadow_death_player: AudioStreamPlayer3D = $ShadowDeathSound
+@onready var damage_sound: AudioStreamPlayer3D = $DamageSound
 
 
 signal shadow_banished(Shadow)
@@ -45,6 +45,8 @@ func _process(delta: float) -> void:
 	if is_instance_valid(flare_reference):
 		if flare_reference.active and shadow_present:
 			hp -= delta
+			if !damage_sound.playing:
+				damage_sound.play()
 
 	if !shadow_present and cooldown >= 0.:
 		cooldown -= delta
@@ -68,7 +70,7 @@ func _on_body_entered(body: Node3D) -> void:
 			#body.gas_lamp.disabled = true
 			shadow.turn_invisible()
 			body.panic_effects.increase_agitation()
-			passive_sound.play()
+		
 			if !already_seen:
 				DialogManager.create_subtitles_piece("Get away from me!")
 				already_seen = false
@@ -84,7 +86,6 @@ func _on_body_exited(body: Node3D) -> void:
 		await get_tree().create_timer(2).timeout			
 		body.panic_effects.decrease_agitation()
 		if shadow_present:
-			passive_sound.stop()
 			MusicManager.play_music(HORROR_HALLWAYS_INTENSITY_1)
 			
 		
@@ -111,6 +112,7 @@ func spawn_shadow() -> bool:
 
 func remove_shadow() -> void:
 	shadow_death_player.play()
+	damage_sound.stop()
 	shadow_banished.emit()
 	cooldown = MAX_COOLDOWN
 	shadow_present = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=20 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="2_yvr0d"]
@@ -28,30 +28,6 @@ billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="Gradient" id="Gradient_55pc3"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1b0do"]
-frequency = 0.5
-domain_warp_enabled = true
-domain_warp_type = 1
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hun70"]
-color_ramp = SubResource("Gradient_55pc3")
-noise = SubResource("FastNoiseLite_1b0do")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgd8l"]
-albedo_color = Color(0.513726, 0.113725, 0, 1)
-albedo_texture = SubResource("NoiseTexture2D_hun70")
-metallic = 1.0
-uv1_scale = Vector3(2.575, 2.575, 2.575)
-uv1_triplanar = true
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7h51u"]
-material = SubResource("StandardMaterial3D_lgd8l")
-top_radius = 0.05
-bottom_radius = 0.085
-height = 0.04
 
 [sub_resource type="Gradient" id="Gradient_ck72b"]
 
@@ -141,7 +117,6 @@ omni_range = 11.182
 
 [node name="Contents" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.973692, 0, 0, 0, 3.04287, -1.03777e-14, 0, 3.24313e-14, 0.973692, 0, 0.0402698, -1.50454e-07)
-mesh = SubResource("CylinderMesh_7h51u")
 skeleton = NodePath("../../Mercury")
 
 [node name="Pipe" type="MeshInstance3D" parent="."]
@@ -156,6 +131,7 @@ shape = SubResource("ConvexPolygonShape3D_dyg0k")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0555848, 0)
 stream = ExtResource("5_2mdkg")
+volume_db = 5.0
 pitch_scale = 1.39
 
 [node name="ShadowBarrier" type="Area3D" parent="." groups=["flare"]]

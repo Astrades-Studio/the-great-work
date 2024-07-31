@@ -257,8 +257,4 @@ read_stone_trigger_book = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430456, 5.32912)
 visible = true
 
-[node name="PassiveSound" parent="Book/Darkness" index="3"]
-autoplay = true
-panning_strength = 2.72
-
 [editable path="Book/Darkness"]

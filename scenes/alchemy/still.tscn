@@ -50,7 +50,7 @@ material = ExtResource("8_ho0cg")
 [node name="Still" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_i0ktd")
 ingredient_preview = NodePath("SM_Flask_02_001/IngredientSpot")
-wait_time = 5
+wait_time = 8
 
 [node name="forge_003 " type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.00798749, 4.79215e-06, 1.68299e-08, 5.38463e-09, 3.70266e-05, -0.00798741, -4.79218e-06, -0.00798741, -3.70266e-05, 0.0423494, 1.34166, -0.0986378)
@@ -167,7 +167,7 @@ shape = SubResource("ConvexPolygonShape3D_615h0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507468, 1.33975, 0.177747)
 visible = false
 billboard = 2
-text = "5"
+text = "8"
 
 [node name="LavaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.08867, 0, 0, 0, -4.75871e-08, 1.08867, 0, -1.08867, -4.75871e-08, 0.0266741, 0.747587, 0)

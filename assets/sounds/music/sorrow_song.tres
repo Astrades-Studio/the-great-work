@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=5 format=3 uid="uid://cv6teujbtdcdv"]
+
+[ext_resource type="Script" path="res://addons/ovani player/OvaniSong.gd" id="1_kpefp"]
+[ext_resource type="AudioStream" uid="uid://cue3hvq2ql1c0" path="res://assets/sounds/music/OrchAmbient Sorrow Intensity 1.wav" id="1_rfe6c"]
+[ext_resource type="AudioStream" uid="uid://b4wf8fq6s0yee" path="res://assets/sounds/music/OrchAmbient Sorrow Intensity 2.wav" id="2_2nxpf"]
+[ext_resource type="AudioStream" uid="uid://bbpg50pfnch1i" path="res://assets/sounds/music/OrchAmbient Sorrow Main.wav" id="3_xy1y7"]
+
+[resource]
+script = ExtResource("1_kpefp")
+Intensity1 = ExtResource("1_rfe6c")
+Intensity2 = ExtResource("2_2nxpf")
+Intensity3 = ExtResource("3_xy1y7")
+ReverbTail = 0.0
+SongMode = 0

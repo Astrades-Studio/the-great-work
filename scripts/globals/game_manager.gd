@@ -6,6 +6,8 @@ const INTRO_CUTSCENE = "res://scenes/layers/intro_cutscene.tscn"
 const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 const MAIN_MENU = "res://scenes/ui/main_menu.tscn"
 
+const SORROW_SONG = preload("res://assets/sounds/music/sorrow_song.tres")
+
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
 const INITIAL_FOG_DENSITY := 0.04
 const GAME_START_FOG_DENSITY := 0.1
@@ -66,7 +68,7 @@ var player : UCharacterBody3D
 var fog_environment : WorldEnvironment
 var text_layer : TextLayer
 var ingredient_layer : Node
-
+var ovani_player : OvaniPlayer
 
 # Trackers
 var spawned_ingredients : Array[Ingredient]
@@ -94,9 +96,13 @@ signal stone_consumed
 signal shadow_crawl_trigger
 signal shadow_removed
 
-
+var bus
 func _ready() -> void:
 	reset_progress()
+	ovani_player = OvaniPlayer.new()
+	ovani_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	bus = AudioServer.get_bus_index("Music")
+	add_child(ovani_player)
 	current_state = GameState.MAIN_MENU
 	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / MAX_SHADOW_SPAWNS
 	game_over.connect(_on_game_over)
@@ -119,6 +125,8 @@ func _input(event):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _process(delta: float) -> void:
+	ovani_player.FadeVolume(AudioServer.get_bus_volume_db(bus), 1)
 
 # Gets connected from main menu
 func _on_new_game_requested():
@@ -209,13 +217,20 @@ func _on_philosopher_stone_recipe_read():
 # Endgame progress:
 func _on_philosopher_stone_progress(amount: int):
 	# Check progress from 1 to 4:
+	ovani_player.FadeIntensity(amount/3, 5)
+	if amount == 0:
+		ovani_player.FadeVolume(-80, 10)
+		pass
 	if amount == 1:
+		ovani_player.FadeVolume(-15, 10)
+		ovani_player.PlaySongNow(SORROW_SONG)
+		shadow_removed.emit()
 		pass
 	elif amount == 2:
+		shadow_removed.emit()
 		pass
 	elif amount == 3:
-		pass
-	elif amount == 4:
+		shadow_removed.emit()
 		_on_philosopher_stone_created()
 
 

@@ -9,14 +9,12 @@ extends CanvasLayer
 @export var vignette_outer_radius: float = 10.0 #1 is target for tween
 
 func _ready():
+	GameManager.shadow_removed.connect(_on_shadow_removed)
 	var nausea_material = nausea.material
 	var vignette_material = vignette.material
 	nausea_material.set_shader_parameter("time", 0.0)  # Initialize time
 	set_process(true)
-	#await get_tree().create_timer(5).timeout
-	#increase_agitation()
-	#await get_tree().create_timer(10).timeout
-	#decrease_agitation()
+
 
 func _process(delta):
 	var current_time = nausea.material.get_shader_parameter("time")
@@ -36,9 +34,10 @@ func increase_agitation():
 	frequency = 10.0
 	tween.tween_property(self, "vignette_outer_radius", 1.0, 1.0)
 	tween.tween_property(self, "vignette_inner_radius", 0.01, 1.0)
-	
-	
 
+
+func _on_shadow_removed():
+	decrease_agitation()
 
 
 func decrease_agitation():
