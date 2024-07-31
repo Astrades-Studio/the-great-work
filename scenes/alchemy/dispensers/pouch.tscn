@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqjjayyb2ihey"]
+[gd_scene load_steps=8 format=3 uid="uid://dqjjayyb2ihey"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_cliku"]
 [ext_resource type="ArrayMesh" uid="uid://dq48pccntacop" path="res://assets/models/props/pouch.res" id="2_yc5i4"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_q8qkr"]
+[ext_resource type="Texture2D" uid="uid://bgeg1u5rtg1f1" path="res://salt_symbol.png" id="4_jpnty"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_34ttj"]
 points = PackedVector3Array(-0.00591563, 0.0366204, -0.102489, -0.000471589, 0.113104, 0.120853, 0.0511598, 0.355726, -0.0447573, -0.113284, 0.194451, -0.0149314, 0.108444, 0.0477102, 0.00112875, 0.0625926, 0.355726, 0.0638854, -0.0935136, 0.00867169, 0.0339326, -0.0803853, 0.344294, 0.0295734, -0.0517806, 0.355726, -0.0619495, -0.0861246, 0.172738, 0.115366, 0.0703284, 0.0204497, 0.077333, 0.036907, 0.167747, -0.105781, 0.090345, 0.162427, 0.102692, 0.085458, 0.344294, -0.0218826, -0.0912431, 0.0502904, -0.0575483, 0.0595934, 0.0091595, -0.0643963, -0.0279304, 0.00801076, 0.0945291, -0.0592239, 0.189035, -0.0949221, 0.101384, 0.0604281, -0.0417239, -0.0431088, 0.226291, 0.112956, -0.0500517, 0.00185188, -0.0485788, -0.114922, 0.0312481, 0.00114883, -0.0174824, 0.344294, -0.0790935, -0.0289381, 0.33856, 0.0753228, 0.0267995, 0.0365295, 0.11569, 0.0713374, 0.00171292, 0.0176149, -0.0219921, 0.1784, -0.111747, -0.096593, 0.20509, -0.0575588, -0.0803853, 0.355726, -0.0161519, 0.0636064, 0.108928, -0.0896774, 0.108208, 0.134997, -0.0097296, -0.0460872, 0.36146, 0.03528)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urjlj"]
+albedo_texture = ExtResource("4_jpnty")
+uv1_scale = Vector3(3.04, 1.7, 1.7)
+uv1_offset = Vector3(0.6, 0.1, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xiyqs"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
 
 [node name="Pouch" type="StaticBody3D"]
 script = ExtResource("1_cliku")
@@ -21,3 +32,9 @@ shape = SubResource("ConvexPolygonShape3D_34ttj")
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("3_q8qkr")
 mesh = NodePath("../Mesh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121113, 0.137405, -0.00750464)
+material_override = SubResource("StandardMaterial3D_urjlj")
+mesh = SubResource("CylinderMesh_xiyqs")
+skeleton = NodePath("../Mesh")
