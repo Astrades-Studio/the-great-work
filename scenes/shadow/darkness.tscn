@@ -58,15 +58,18 @@ shape = SubResource("BoxShape3D_nme3o")
 [node name="ShadowDeathSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.764533, 0)
 stream = ExtResource("3_m6fyt")
-unit_size = 16.31
-max_distance = 30.0
+volume_db = 0.119
+unit_size = 100.0
+max_db = -2.937
+max_distance = 6.0
+panning_strength = 1.24
 bus = &"SFX"
 
 [node name="DamageSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31373, 0)
 stream = ExtResource("4_rgwk0")
+volume_db = -14.545
 pitch_scale = 1.42
-autoplay = true
 max_distance = 6.0
 panning_strength = 2.7
 bus = &"SFX"

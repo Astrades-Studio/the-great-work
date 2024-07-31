@@ -6,7 +6,6 @@ extends Area3D
 @export var HP_DOWN_TICK : float = 1.
 
 const WHISPERS_DIALOG = preload("res://assets/dialog/whispers_dialog.tres")
-const HORROR_HALLWAYS_INTENSITY_1 = preload("res://assets/sounds/music/Suspense/Horror Hallways Intensity 1.wav")
 
 var already_seen : bool = false
 var shadow_present : bool
@@ -85,10 +84,6 @@ func _on_body_exited(body: Node3D) -> void:
 				flare_reference = null
 		await get_tree().create_timer(2).timeout			
 		body.panic_effects.decrease_agitation()
-		if shadow_present:
-			MusicManager.play_music(HORROR_HALLWAYS_INTENSITY_1)
-			
-		
 
 var tween : Tween        
 func spawn_shadow() -> bool:

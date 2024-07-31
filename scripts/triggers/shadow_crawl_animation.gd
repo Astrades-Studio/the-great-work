@@ -18,5 +18,5 @@ func _on_player_walk_by():
 		return
 	running_crawl_imported.show()
 	animation_player.play("Crawl_downstairs")
-	SfxManager.play_sound(SOUND)
+	SfxManager.play_sound(SOUND, 0.0, +5.0)
 	played = true
