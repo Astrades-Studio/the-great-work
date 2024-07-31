@@ -101,7 +101,7 @@ func _ready() -> void:
 	reset_progress()
 	ovani_player = OvaniPlayer.new()
 	ovani_player.process_mode = Node.PROCESS_MODE_ALWAYS
-	bus = AudioServer.get_bus_index("Music")
+	ovani_player.FadeVolume(-80, 10)
 	add_child(ovani_player)
 	current_state = GameState.MAIN_MENU
 	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / MAX_SHADOW_SPAWNS
@@ -125,8 +125,6 @@ func _input(event):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta: float) -> void:
-	ovani_player.FadeVolume(AudioServer.get_bus_volume_db(bus), 1)
 
 # Gets connected from main menu
 func _on_new_game_requested():

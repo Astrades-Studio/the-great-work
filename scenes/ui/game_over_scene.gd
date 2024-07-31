@@ -1,7 +1,7 @@
 extends Control
 
-@onready var retry_button: Button = $CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton
-@onready var quit_button: Button = $CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton
+@onready var retry_button: Button = %RetryButton
+@onready var quit_button: Button = %QuitButton
 @onready var bad_ending_ui: Control = $BadEndingUI
 @onready var good_ending_ui: Control = $GoodEndingUI
 
