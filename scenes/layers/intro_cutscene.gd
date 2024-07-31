@@ -24,6 +24,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or \
 	event.is_action_pressed("pause"):
 		skip_cinematic()
+	if event.is_action_pressed("interact"):
+		show_skip_button()
 	
 
 func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:

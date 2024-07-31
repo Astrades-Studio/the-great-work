@@ -1,17 +1,7 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://cnguwk3xy035p"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://cnguwk3xy035p"]
 
 [ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_83h7y"]
 [ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_g4ksk"]
-
-[sub_resource type="Resource" id="Resource_11twa"]
-script = ExtResource("1_83h7y")
-dialog_speaker = "Adam"
-dialog_text = "This cannot be! A shadow!"
-
-[sub_resource type="Resource" id="Resource_x6fce"]
-script = ExtResource("1_83h7y")
-dialog_speaker = "Melchiades"
-dialog_text = "I've read about it before in an ancient tome whose name I can't recall."
 
 [sub_resource type="Resource" id="Resource_4tt2k"]
 script = ExtResource("1_83h7y")
@@ -31,4 +21,4 @@ dialog_text = "There must be something I can do with the tools at my disposal."
 [resource]
 script = ExtResource("2_g4ksk")
 dialog_id = &"Intro"
-dialog = Array[ExtResource("1_83h7y")]([SubResource("Resource_11twa"), SubResource("Resource_x6fce"), SubResource("Resource_4tt2k"), SubResource("Resource_2tb5n"), SubResource("Resource_qft0f")])
+dialog = Array[ExtResource("1_83h7y")]([SubResource("Resource_4tt2k"), SubResource("Resource_2tb5n"), SubResource("Resource_qft0f")])

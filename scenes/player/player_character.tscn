@@ -182,6 +182,7 @@ unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(640, 360)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="ItemCamera" type="Camera3D" parent="HandLayer/SubViewportContainer/ItemViewport"]

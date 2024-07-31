@@ -191,7 +191,7 @@ process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.25523, -0.0211237)
 visible = false
 billboard = 2
-text = "5"
+text = "10"
 
 [node name="LavaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0156377, -0.876552, 0.00783877, -0.0160411, 0.00812485, 0.876541, -0.87644, 0.015491, -0.0161829, 0.0213266, 0.74045, -0.0771935)

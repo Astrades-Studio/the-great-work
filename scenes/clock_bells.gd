@@ -4,5 +4,6 @@ extends Area3D
 var played : bool = false
 
 func _on_body_entered(body: Node3D) -> void:
-	clock_bells.play()
-	played = true
+	if !played:
+		clock_bells.play()
+		played = true

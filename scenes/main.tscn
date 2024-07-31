@@ -893,7 +893,7 @@ _data = {
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
-tick_length = 240.0
+tick_length = 30.0
 
 [node name="Level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
@@ -1692,9 +1692,6 @@ shadow_enabled = false
 omni_range = 1.377
 omni_attenuation = 1.723
 
-[node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
-text = "10"
-
 [node name="Dispensers" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
 
@@ -2147,7 +2144,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 visible = false
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.459591
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2160,7 +2157,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.511107
+wait_time = 0.630425
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
