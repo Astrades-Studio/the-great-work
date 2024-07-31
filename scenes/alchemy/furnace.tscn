@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=4 uid="uid://c3bvquq5q4o5a"]
+[gd_scene load_steps=35 format=4 uid="uid://c3bvquq5q4o5a"]
 
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_ef1cu"]
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_hlpvv"]
+[ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="3_t3i41"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="4_cocfm"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7ek7"]
@@ -388,7 +389,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27976, 1.25523, -0.0211237)
 visible = false
 billboard = 2
-text = "30"
+text = "5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -400,6 +401,7 @@ unique_name_in_owner = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.919197, 0)
+stream = ExtResource("3_t3i41")
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_ef1cu")

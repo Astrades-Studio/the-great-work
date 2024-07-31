@@ -8,6 +8,8 @@ enum Type {
 	FURNACE,
 	CAULDRON,
 }
+const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var ingredient_preview : Node
 @export var wait_time : int
@@ -292,6 +294,8 @@ func _on_timer_timeout() -> void:
 	else:
 		if GameManager.current_state == GameManager.GameState.CUTSCENE:
 			GameManager.current_state = GameManager.GameState.PLAYING
+		if audio_stream_player_3d:
+			audio_stream_player_3d.play(0.0)
 		processing = false
 		ingredient_ready.emit()
 		wait_label.hide()

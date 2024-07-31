@@ -1,7 +1,7 @@
 class_name SubtitleLayer
 extends CanvasLayer
 
-@onready var subtitle_label: RichTextLabel = %SubtitleLabel
+@onready var subtitle_label: Label = %SubtitleLabel
 #@onready var cinematic_label: Label = %CinematicLabel
 #@onready var background: ColorRect = $Background
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dfx4lp3vs1ref"]
+[gd_scene load_steps=21 format=4 uid="uid://dfx4lp3vs1ref"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjbl5mciq3ytd" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
 [ext_resource type="Material" uid="uid://did56lsjeoaiw" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
+[ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="6_mcxab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wb61"]
 size = Vector3(1.20654, 0.754822, 1.24414)
@@ -187,7 +188,7 @@ transform = Transform3D(0.00482974, -0.0396628, 0.485454, 0.0394689, 0.483913, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.25523, -0.0211237)
 visible = false
 billboard = 2
-text = "30"
+text = "5"
 
 [node name="LavaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0156377, -0.876552, 0.00783877, -0.0160411, 0.00812485, 0.876541, -0.87644, 0.015491, -0.0161829, 0.0213266, 0.74045, -0.0771935)
@@ -201,6 +202,7 @@ unique_name_in_owner = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01508, 0)
+stream = ExtResource("6_mcxab")
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_6l6km")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d16g48k8u865c"]
+[gd_scene load_steps=7 format=3 uid="uid://d16g48k8u865c"]
 
 [ext_resource type="Script" path="res://scenes/layers/dialog_layer.gd" id="1_hnis6"]
 [ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
@@ -12,6 +12,11 @@ anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_wg113"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_1uvho")
+
+[sub_resource type="LabelSettings" id="LabelSettings_swpuc"]
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.647059)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
 atlas = ExtResource("2_j5dhc")
@@ -51,9 +56,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.72
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
@@ -68,13 +70,16 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Placeholder name"
+label_settings = SubResource("LabelSettings_swpuc")
 horizontal_alignment = 1
 
 [node name="TextLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Placeholder text"
+label_settings = SubResource("LabelSettings_swpuc")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="NextIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 visible = false

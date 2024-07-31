@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=126 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -47,7 +47,6 @@
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
-[ext_resource type="PackedScene" uid="uid://cggqb75a8w8r" path="res://addons/debug_menu/debug_menu.tscn" id="30_8kwqj"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="Script" path="res://scripts/triggers/basement_trigger.gd" id="46_f8hxx"]
@@ -1292,9 +1291,6 @@ transform = Transform3D(0.0610294, 0.0296874, -0.997694, 2.52236e-12, 0.999558, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnDiningRoom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -1306,9 +1302,6 @@ transform = Transform3D(0.993574, -0.00534038, 0.11306, 4.60545e-10, 0.998886, 0
 
 [node name="Darkness" parent="Level/Shadows/SpawnEntrance" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnEntrance/Darkness" index="1"]
@@ -1320,9 +1313,6 @@ transform = Transform3D(-0.942463, -0.0172306, 0.333868, 6.26803e-10, 0.998671, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnBedroom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBedroom/Darkness" index="1"]
@@ -1334,9 +1324,6 @@ transform = Transform3D(0.900681, 0.0129225, -0.434289, 0, 0.999558, 0.0297424, 
 
 [node name="Darkness" parent="Level/Shadows/SpawnBasement" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBasement/Darkness" index="1"]
@@ -1348,9 +1335,6 @@ transform = Transform3D(-0.49999, -0.0158041, -0.865887, 0, 0.999834, -0.0182488
 
 [node name="Darkness" parent="Level/Shadows/SpawnKitchen" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnKitchen/Darkness" index="1"]
@@ -1362,9 +1346,6 @@ transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823,
 
 [node name="Darkness" parent="Level/Shadows/SpawnBathroom" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBathroom/Darkness" index="1"]
@@ -1376,9 +1357,6 @@ transform = Transform3D(0.00476587, 0.338283, 0.941033, -0.00661438, 0.941033, -
 
 [node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("4_vkn8q")]
 transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-MAX_COOLDOWN = 30.0
-MAX_HP = 3
-HP_DOWN_TICK = 1.0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnStairs/Darkness" index="1"]
@@ -2042,17 +2020,17 @@ metadata/_edit_use_anchors_ = true
 [node name="TextLayer" parent="." instance=ExtResource("16_juw1q")]
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
+layer = 3
 visible = false
 
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
 
 [node name="PauseLayer" parent="." instance=ExtResource("11_ko4et")]
+layer = 4
 visible = false
 
 [node name="GameOverTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-
-[node name="CanvasLayer" parent="." instance=ExtResource("30_8kwqj")]
 
 [node name="GasLamp" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61278, 1.2725, -0.773156)
@@ -2093,7 +2071,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.30253
+light_energy = 0.487079
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2106,7 +2084,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.790427
+wait_time = 0.654148
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]

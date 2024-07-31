@@ -8,7 +8,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="TextLayer" type="CanvasLayer"]
 process_mode = 3
-layer = 2
+layer = 3
 script = ExtResource("1_xxey0")
 audio_delay = 0.6
 
