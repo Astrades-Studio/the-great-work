@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=135 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -755,6 +755,9 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8bed2"]
+size = Vector3(3.24377, 2.1, 1.58984)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
 size = Vector3(1.66699, 2.1, 0.131348)
 
@@ -781,6 +784,9 @@ size = Vector3(0.852024, 3.65749, 2.18561)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mffq4"]
 size = Vector3(0.852024, 3.65749, 2.18561)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnvt3"]
+size = Vector3(3.4021, 2.1, 1.39063)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
@@ -1926,8 +1932,8 @@ collision_mask = 2
 script = ExtResource("44_64vvj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/GasLampReminder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
-shape = SubResource("BoxShape3D_vvvnc")
+transform = Transform3D(0.996022, 0, 0.0891029, 0, 1, 0, -0.0891029, 0, 0.996022, -0.825619, 1.13643, -1.16264)
+shape = SubResource("BoxShape3D_8bed2")
 
 [node name="ShadowCrawl" type="Area3D" parent="Triggers"]
 transform = Transform3D(0.0166671, 0, 0.999861, 0, 1, 0, -0.999861, 0, 0.0166671, -5.84593, 0.145517, 3.72983)
@@ -2057,8 +2063,8 @@ collision_mask = 2
 script = ExtResource("51_htmeu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/HintLamp"]
-transform = Transform3D(0.998558, -0.0098729, 0.0527702, 0.00987653, 0.999951, 0.00019222, -0.0527696, 0.000329243, 0.998607, -0.775393, 0.688939, 1.48737)
-shape = SubResource("BoxShape3D_vvvnc")
+transform = Transform3D(0.998558, -0.00987296, 0.0527702, 0.00987653, 0.999951, 0.00019222, -0.0527696, 0.000329243, 0.998618, -0.796774, 0.688939, 0.846249)
+shape = SubResource("BoxShape3D_mnvt3")
 
 [node name="HintLamp" type="AudioStreamPlayer3D" parent="Triggers/HintLamp"]
 transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, -0.0999932, 1.14081, 0.342756)
@@ -2123,7 +2129,6 @@ surface_material_override/1 = ExtResource("51_prvkr")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="GasLamp/Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
-visible = false
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 amount = 15
@@ -2156,7 +2161,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.92797
+wait_time = 0.935974
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
