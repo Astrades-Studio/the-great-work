@@ -1,6 +1,8 @@
 extends UCharacterBody3D
 class_name Player
 
+
+@onready var animation_player: AnimationPlayer = $Body/AnimationPlayer
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp
 @onready var ingredient_label: Label = %IngredientLabel
@@ -129,6 +131,8 @@ func interact():
 				ingredient_in_hand.active = true
 				return
 		if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+			animation_player.play("swallow")
+			await animation_player.animation_finished
 			GameManager.stone_consumed.emit()
 	if !interaction_result:
 		return

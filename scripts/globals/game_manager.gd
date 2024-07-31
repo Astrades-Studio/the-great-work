@@ -4,6 +4,7 @@ const MAIN_SCENE := "res://scenes/main.tscn"
 const GAME_OVER_SCENE := "res://scenes/ui/game_over_scene.tscn"
 const INTRO_CUTSCENE = "res://scenes/layers/intro_cutscene.tscn"
 const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
+const MAIN_MENU = "res://scenes/ui/main_menu.tscn"
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
 const INITIAL_FOG_DENSITY := 0.04
@@ -57,6 +58,8 @@ var philosopher_stone_recipe_read : bool = false
 var lamp_in_hand : bool = false
 var first_shadow_encountered : bool = false
 var first_shadow_spawned : bool = false
+var good_ending : bool = false
+var bad_ending : bool = false
 
 # References
 var player : UCharacterBody3D
@@ -93,6 +96,7 @@ signal shadow_removed
 
 
 func _ready() -> void:
+	reset_progress()
 	current_state = GameState.MAIN_MENU
 	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / MAX_SHADOW_SPAWNS
 	game_over.connect(_on_game_over)
@@ -123,7 +127,8 @@ func _on_new_game_requested():
 
 
 func _on_game_over():
-	reset_progress()
+	bad_ending = true
+	clear_arrays()
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
 	current_state = GameState.MAIN_MENU
 	
@@ -216,20 +221,25 @@ func _on_philosopher_stone_progress(amount: int):
 
 func _on_philosopher_stone_created():
 	# Play cutscene
-	#TransitionManager.change_scene_to_file(THANKS_CUTSCENE)
-	#print("You win the game")
-	#reset_progress()
-	pass
+	DialogManager.create_subtitles_piece("Now there is only one thing left to do...")
 
 
 func reset_progress():
+	philosopher_stone_recipe_read = false
+	lamp_in_hand = false
+	first_shadow_encountered = false
+	first_shadow_spawned = false
+	good_ending = false
+	bad_ending = false
+
+
+func clear_arrays():
 	spawned_ingredients.clear()
 	shadow_spawn_points.clear()
 	shadows_spawned.clear()
-	philosopher_stone_progress.emit(0)
-	philosopher_stone_recipe_read = false
 
 
 func _on_stone_consumed():
-	# TODO play ending
-	pass
+	clear_arrays()
+	good_ending = true
+	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)

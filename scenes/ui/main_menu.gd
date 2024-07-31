@@ -8,6 +8,7 @@ extends Control
 @onready var audio_stream_player_5: AudioStreamPlayer = $AudioStreamPlayer5
 @onready var settings_container: CenterContainer = $HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer
 @onready var audio_stream_player_6: AudioStreamPlayer = $AudioStreamPlayer6
+@onready var credits: Control = $Credits
 
 signal new_game_requested
 
@@ -15,6 +16,11 @@ func _ready() -> void:
 	GameManager.current_state = GameManager.GameState.MAIN_MENU
 	new_game_requested.connect(GameManager._on_new_game_requested)
 	new_game_button.grab_focus()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton or event is InputEventKey or event is InputEventJoypadButton:
+		if credits.visible:
+			credits.hide()
 
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
@@ -40,3 +46,7 @@ func _on_back_button_pressed() -> void:
 	audio_stream_player_6.play()
 	settings_container.hide()
 	settings_button.grab_focus()
+
+
+func _on_credits_button_pressed() -> void:
+	credits.show()

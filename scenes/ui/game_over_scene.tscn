@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgcj3inhh4egk"]
+[gd_scene load_steps=7 format=3 uid="uid://bgcj3inhh4egk"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over_scene.gd" id="1_u8hxs"]
+[ext_resource type="Texture2D" uid="uid://cxxquctrrij8f" path="res://assets/images/Death-01.png" id="2_634vh"]
+[ext_resource type="VideoStream" path="res://assets/videos/main_menu_render.ogv" id="3_dp47j"]
+
+[sub_resource type="Theme" id="Theme_a4lp7"]
+Button/colors/font_color = Color(0.596078, 0.152941, 0.188235, 1)
+Button/constants/outline_size = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kx6u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rpbu2"]
+font_size = 42
+font_color = Color(0.59555, 0.153028, 0.187063, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="GameOverScene" type="Control"]
 layout_mode = 3
@@ -11,44 +26,89 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u8hxs")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BadEndingUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_a4lp7")
+
+[node name="TextureRect" type="TextureRect" parent="BadEndingUI"]
+layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_634vh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BadEndingUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0475577, 0.0475576, 0.0475576, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="Control2" type="Control" parent="BadEndingUI/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="BadEndingUI/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8kx6u")
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BadEndingUI/VBoxContainer/PanelContainer"]
 layout_mode = 2
-text = "Game Over..."
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "And so the shadows have taken you..."
+label_settings = SubResource("LabelSettings_rpbu2")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="RetryButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="RetryButton" type="Button" parent="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Retry"
+flat = true
 
-[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit"
+flat = true
 
-[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Control" type="Control" parent="BadEndingUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.1
+
+[node name="GoodEndingUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_a4lp7")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="GoodEndingUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_dp47j")
+expand = true
+
+[connection signal="pressed" from="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="BadEndingUI/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

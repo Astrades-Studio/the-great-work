@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=17 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="VideoStream" path="res://assets/videos/output.ogv" id="3_36fp1"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://mi3qbnnjh42n" path="res://assets/sounds/sfx/hover_mouse.mp3" id="9_3rmti"]
 [ext_resource type="AudioStream" uid="uid://ry3x1phryshy" path="res://assets/sounds/music/Light Rain Ambience Loop.wav" id="9_33awd"]
 [ext_resource type="AudioStream" uid="uid://d2fhtn4o6qxm5" path="res://assets/sounds/sfx/startnewgame_impact.mp3" id="11_ld470"]
+[ext_resource type="Texture2D" uid="uid://xx8lfdd8ebag" path="res://Astrades_studio_logo.png" id="12_e4lwa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_66ycg"]
 line_spacing = 2.465
@@ -36,6 +37,9 @@ shadow_color = Color(0, 0, 0, 0)
 content_margin_left = 10.0
 bg_color = Color(0.0945844, 0.0699015, 0.0705314, 0.607843)
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wuxp"]
+font_size = 32
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -74,6 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("3_36fp1")
 autoplay = true
+expand = true
 loop = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -215,6 +220,19 @@ size_flags_horizontal = 3
 [node name="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer" index="0"]
 custom_minimum_size = Vector2(400, 300)
 
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Credits"
+flat = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mo6k3")
 volume_db = -3.994
@@ -248,6 +266,94 @@ stream = ExtResource("9_3rmti")
 volume_db = -14.372
 bus = &"SFX"
 
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Credits/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_e4lwa")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "by"
+
+[node name="Label" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ASTRADES STUDIO"
+label_settings = SubResource("LabelSettings_0wuxp")
+
+[node name="Control" type="Control" parent="Credits/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label6" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "IGNACIO PARENTELLA"
+
+[node name="Label3" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ANDRES PARENTELLA"
+
+[node name="Label4" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BIANCA MARCHESINI"
+
+[node name="Label5" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "NICOLAS ARISTEGUI"
+
+[node name="Control2" type="Control" parent="Credits/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label7" type="Label" parent="Credits/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "For the Pirate Game Jam 15, 2024"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="focus_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/NewGameButton" to="." method="_on_focus_exited"]
@@ -265,5 +371,6 @@ bus = &"SFX"
 [connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 
 [editable path="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer"]
