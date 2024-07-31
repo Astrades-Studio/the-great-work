@@ -5,5 +5,5 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
-		DialogManager.create_subtitles_piece(trigger_dialogue, 2.0)
+		await DialogManager.create_subtitles_piece(trigger_dialogue, 2.5)
 		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=127 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -754,8 +754,29 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
 size = Vector3(1, 1.66846, 0.131348)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_soov2"]
-size = Vector3(1.31295, 0.001, 1.2901)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jbud"]
+size = Vector3(2.16751, 0.001, 1.60355)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yuph2"]
+size = Vector3(5.43167, 0.001, 1.2901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7hmv7"]
+size = Vector3(1.00638, 0.001, 1.2901)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prxis"]
+size = Vector3(1.2425, 0.001, 0.906769)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bgfv0"]
+size = Vector3(1.71514, 0.001, 1.16653)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nd2fv"]
+size = Vector3(1.53871, 0.001, 0.908463)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4cxse"]
+size = Vector3(0.852024, 3.65749, 2.18561)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mffq4"]
+size = Vector3(0.852024, 3.65749, 2.18561)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
@@ -1911,50 +1932,96 @@ script = ExtResource("41_lqb1m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793338, 1.13643, 0.0482426)
 shape = SubResource("BoxShape3D_vvvnc")
 
-[node name="BasementTrigger" type="Area3D" parent="Triggers"]
+[node name="Basement" type="Area3D" parent="Triggers"]
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("46_f8hxx")
 trigger_dialogue = "This place.. Feels old. 
 Very old."
 
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/BasementTrigger"]
-transform = Transform3D(-0.996676, -0.0812465, 0.00598677, 0.000582997, 0.0663719, 0.997795, -0.0814647, 0.994482, -0.0661041, -9.44533, -2.40939, 5.41786)
-shape = SubResource("BoxShape3D_soov2")
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Basement"]
+transform = Transform3D(-0.996676, -0.0812465, 0.00598677, 0.000582997, 0.0663719, 0.997795, -0.0814647, 0.994482, -0.0661041, -9.5711, -2.11838, 5.16354)
+shape = SubResource("BoxShape3D_2jbud")
 
-[node name="DiningRoomTrigger" type="Area3D" parent="Triggers"]
+[node name="DiningRoom" type="Area3D" parent="Triggers"]
 transform = Transform3D(-0.999702, 0.00670848, -0.0234657, 0, 0.961481, 0.274872, 0.0244058, 0.27479, -0.961194, -1.59064, 2.28417, 3.36703)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("46_f8hxx")
 trigger_dialogue = "The book on the table... I recognise it."
 
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/DiningRoomTrigger"]
-transform = Transform3D(-0.99939, -0.0306836, 0.0166876, 0.025934, -0.331841, 0.942979, -0.0233964, 0.942836, 0.332434, -1.29496, -1.0299, -1.18602)
-shape = SubResource("BoxShape3D_soov2")
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/DiningRoom"]
+transform = Transform3D(-0.99939, -0.0306831, 0.0166871, 0.0259333, -0.33184, 0.942979, -0.0233961, 0.942836, 0.332434, -1.69991, -1.19963, -0.647851)
+shape = SubResource("BoxShape3D_yuph2")
 
-[node name="SulfurRoomTrigger" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.0132755, 0.0646018, -0.997823, -5.37638e-10, 0.997911, 0.0646075, 0.999912, 0.0008577, -0.0132478, -6.36158, 1.36715, 3.33002)
+[node name="SulfurRoom" type="Area3D" parent="Triggers"]
+transform = Transform3D(-0.0132755, 0.0646018, -0.997823, -5.37638e-10, 0.997911, 0.0646075, 0.999912, 0.0008577, -0.0132478, -6.31488, 1.36715, 2.93275)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("46_f8hxx")
 trigger_dialogue = "God, the stench in this room.
 The unmistakable foulness of sulfur."
 
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/SulfurRoomTrigger"]
-transform = Transform3D(-0.999658, -0.0254567, -0.00604411, -0.00451034, -0.0598827, 0.998195, -0.0257726, 0.997881, 0.0597474, -0.640561, -0.298652, -0.00524282)
-shape = SubResource("BoxShape3D_soov2")
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/SulfurRoom"]
+transform = Transform3D(-0.999658, -0.0254565, -0.00604407, -0.00451034, -0.0598821, 0.998188, -0.0257726, 0.997878, 0.0597472, -0.33004, -0.290786, 0.0718126)
+shape = SubResource("BoxShape3D_7hmv7")
 
 [node name="LockedDoor" type="Area3D" parent="Triggers"]
-transform = Transform3D(0.0005154, -0.999891, 0.0147679, -0.999984, -0.000431783, 0.00566751, -0.00566047, -0.0147706, -0.999875, -9.62374, 0.975335, 5.08946)
+transform = Transform3D(0.0005154, -0.999891, 0.0147679, -0.999984, -0.000431783, 0.00566751, -0.00566047, -0.0147706, -0.999875, -9.62346, 0.972572, 5.08808)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("46_f8hxx")
 trigger_dialogue = "This door is locked... How strange."
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/LockedDoor"]
-transform = Transform3D(-0.999658, -0.0254567, -0.00604411, -0.00451034, -0.0598827, 0.998195, -0.0257726, 0.997881, 0.0597474, -0.640561, -0.298652, -0.00524282)
-shape = SubResource("BoxShape3D_soov2")
+transform = Transform3D(-0.999652, -0.0255045, -0.00670074, -0.0081191, 0.0559211, 0.998402, -0.0250891, 0.998109, -0.0561088, -0.231668, -0.0379229, -0.146935)
+shape = SubResource("BoxShape3D_prxis")
+
+[node name="Bedroom" type="Area3D" parent="Triggers"]
+transform = Transform3D(-0.0220519, 0.998122, -0.0571503, -0.996407, -0.0172667, 0.0829121, 0.0817695, 0.0587732, 0.994917, -7.16639, 0.525401, -0.687032)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("46_f8hxx")
+trigger_dialogue = "Adam's room? Where is he?"
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Bedroom"]
+transform = Transform3D(-0.999658, -0.0254529, -0.00604401, -0.00451048, -0.0598817, 0.998195, -0.0257689, 0.997881, 0.0597464, -0.545448, -0.251501, -0.200087)
+shape = SubResource("BoxShape3D_bgfv0")
+
+[node name="Pantry" type="Area3D" parent="Triggers"]
+transform = Transform3D(0.999612, 0.0210443, -0.018264, 0, 0.655456, 0.755233, 0.0278646, -0.75494, 0.655202, -10.6665, 2.3753, 0.428602)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("46_f8hxx")
+trigger_dialogue = "What's that bottle on the shelf?
+It looks familiar..."
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Pantry"]
+transform = Transform3D(-0.0114281, 0.0406467, 0.999109, 0.654144, -0.755405, 0.0382148, 0.756285, 0.653997, -0.017956, 0.074049, -0.14271, -1.32136)
+shape = SubResource("BoxShape3D_nd2fv")
+
+[node name="Mortar" type="Area3D" parent="Triggers"]
+transform = Transform3D(0.0637436, 0.410608, -0.909581, 0, 0.911435, 0.411445, 0.997966, -0.026227, 0.0580982, -9.79793, 1.59438, 1.09777)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("46_f8hxx")
+trigger_dialogue = "A mortar... the most ancient of all alchemical tools."
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Mortar"]
+transform = Transform3D(0.0293772, -0.056274, 0.997983, 0.936651, -0.34708, -0.0471425, 0.349034, 0.936146, 0.0425125, -0.0524558, -0.375941, -0.369063)
+shape = SubResource("BoxShape3D_4cxse")
+
+[node name="LabTable" type="Area3D" parent="Triggers"]
+transform = Transform3D(-0.420167, 0.173859, -0.890636, 0, 0.981475, 0.191591, 0.907447, 0.0805002, -0.412383, -6.32686, -1.46558, 2.81159)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("46_f8hxx")
+trigger_dialogue = "The books on this table are all about obscure alchemy.
+They may be exactly what I need."
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/LabTable"]
+transform = Transform3D(0.027231, 0.408939, 0.912156, 0.986925, -0.155967, 0.0404607, 0.158816, 0.899138, -0.407841, -1.11802, -0.388899, -2.24073)
+shape = SubResource("BoxShape3D_mffq4")
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.129867, -5.16659)
@@ -2026,7 +2093,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.30253
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2039,7 +2106,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.620405
+wait_time = 0.790427
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2074,10 +2141,14 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/BasementTrigger" to="Triggers/BasementTrigger" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/DiningRoomTrigger" to="Triggers/DiningRoomTrigger" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/SulfurRoomTrigger" to="Triggers/SulfurRoomTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/Basement" to="Triggers/Basement" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/DiningRoom" to="Triggers/DiningRoom" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/SulfurRoom" to="Triggers/SulfurRoom" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/LockedDoor" to="Triggers/LockedDoor" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/Bedroom" to="Triggers/Bedroom" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/Pantry" to="Triggers/Pantry" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/Mortar" to="Triggers/Mortar" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/LabTable" to="Triggers/LabTable" method="_on_body_entered"]
 [connection signal="visibility_changed" from="GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="GasLamp/Timer" to="GasLamp" method="_on_timer_timeout"]
 
