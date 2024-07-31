@@ -24,7 +24,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
-		audio_stream_player_5.play()
+		SfxManager.play_sound(load("res://assets/sounds/sfx/startnewgame_impact.mp3"), 0.5, 0.0)
+
 
 func _on_settings_button_pressed() -> void:
 	audio_stream_player_6.play()

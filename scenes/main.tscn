@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=133 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -63,6 +63,7 @@
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="52_xp1lg"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="53_j1orv"]
+[ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="54_ow8vm"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 
@@ -755,7 +756,7 @@ _data = {
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
-size = Vector3(1.66699, 1.66846, 0.131348)
+size = Vector3(1.66699, 2.1, 0.131348)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2jbud"]
 size = Vector3(2.16751, 0.001, 1.60355)
@@ -1700,8 +1701,8 @@ metadata/_edit_group_ = true
 transform = Transform3D(0.122729, 5.82077e-11, 0.273748, 0.00135689, 0.299996, -0.00060833, -0.273744, 0.00148701, 0.122727, -0.987738, -0.680817, 1.5398)
 
 [node name="Basket" parent="Level/Interactibles/Dispensers" instance=ExtResource("23_j4hhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -7.57384)
-ingredient_type = 20
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -8.16959)
+ingredient_type = 12
 
 [node name="Chest" parent="Level/Interactibles/Dispensers" instance=ExtResource("24_ut00p")]
 transform = Transform3D(-5.13409e-08, 0, 1.17454, 0, 1.17454, 0, -1.17454, 0, -5.13409e-08, -1.89055, -0.665621, -2.59206)
@@ -2049,6 +2050,27 @@ max_distance = 6.0
 panning_strength = 1.63
 bus = &"SFX"
 
+[node name="HintLamp" type="Area3D" parent="Triggers"]
+transform = Transform3D(-0.999444, 0, 0.0333296, 0, 1, 0, -0.0333296, 0, -0.999444, -1.71756, 0.291034, -0.428935)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("51_htmeu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/HintLamp"]
+transform = Transform3D(0.998558, -0.0098729, 0.0527702, 0.00987653, 0.999951, 0.00019222, -0.0527696, 0.000329243, 0.998607, -0.775393, 0.688939, 1.48737)
+shape = SubResource("BoxShape3D_vvvnc")
+
+[node name="HintLamp" type="AudioStreamPlayer3D" parent="Triggers/HintLamp"]
+transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, -0.0999932, 1.14081, 0.342756)
+stream = ExtResource("53_meanb")
+volume_db = -7.761
+unit_size = 78.34
+max_db = 0.694
+pitch_scale = 1.65
+max_distance = 6.0
+panning_strength = 2.05
+bus = &"SFX"
+
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(0.00490597, 0, -0.783042, 0, 0.783057, 0, 0.783042, 0, 0.00490597, -0.357251, 0.129867, -5.16659)
 
@@ -2101,6 +2123,7 @@ surface_material_override/1 = ExtResource("51_prvkr")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="GasLamp/Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
+visible = false
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 amount = 15
@@ -2118,8 +2141,9 @@ shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
+visible = false
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.550715
+light_energy = 0.3
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2132,7 +2156,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.726528
+wait_time = 0.92797
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2179,6 +2203,7 @@ script = ExtResource("63_fo8fa")
 [connection signal="body_entered" from="Triggers/Mortar" to="Triggers/Mortar" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/LabTable" to="Triggers/LabTable" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ClockBells" to="Triggers/ClockBells" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/HintLamp" to="Triggers/HintLamp" method="_on_body_entered"]
 [connection signal="visibility_changed" from="GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="GasLamp/Timer" to="GasLamp" method="_on_timer_timeout"]
 
@@ -2200,4 +2225,5 @@ script = ExtResource("63_fo8fa")
 [editable path="Level/Interactibles/Cauldron"]
 [editable path="Level/Interactibles/Cauldron/SmallLogPile_002"]
 [editable path="Level/Interactibles/Dispensers/Barrel"]
+[editable path="Level/Interactibles/Dispensers/Basket"]
 [editable path="Level/Interactibles/Dispensers/BigJug"]

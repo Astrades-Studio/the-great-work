@@ -258,7 +258,7 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ld470")
-volume_db = -3.981
+volume_db = -5.377
 bus = &"SFX"
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]

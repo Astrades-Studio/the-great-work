@@ -6,10 +6,12 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8xm8"]
 resource_name = "MI_ColorPalette.023"
 cull_mode = 2
+albedo_color = Color(0.621524, 0.621524, 0.621524, 1)
 albedo_texture = ExtResource("1_6y662")
-metallic = 1.0
+metallic_specular = 0.2
 metallic_texture = ExtResource("2_xjlfm")
 metallic_texture_channel = 2
+roughness = 0.0
 roughness_texture = ExtResource("2_xjlfm")
 roughness_texture_channel = 1
 

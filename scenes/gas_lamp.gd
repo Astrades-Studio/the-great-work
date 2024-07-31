@@ -73,6 +73,7 @@ func _ready() -> void:
 	self.connect("interacted", on_lamp_interact)
 
 func _on_lamp_collected():
+	set_collision_layer_value(3, false)
 	if on_hand:
 		disabled = false
 		active = true
@@ -114,7 +115,7 @@ func _process(delta: float) -> void:
 		
 		
 		# Animate emission in material
-		if mesh:
+		if mesh and on_hand:
 			var material = mesh.get_surface_override_material(1)
 			if material and material is StandardMaterial3D:
 				# Animate emission from x to x and back
@@ -125,6 +126,7 @@ func _process(delta: float) -> void:
 				var emission_sine = sin(speed * time_passed)
 				var emission_energy = emission_offset + emission_amplitude * emission_sine
 				material.emission_energy = emission_energy
+
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.5, 1.0)

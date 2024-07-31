@@ -82,7 +82,7 @@ func play_intro_cinematic() -> void:
 	# Inicializa y comienza el temporizador
 	get_tree().create_timer(sound_duration).timeout.connect(_on_timer_timeout)
 	# Reproduce el sonido
-	SfxManager.play_sound(preload("res://assets/sounds/sfx/Intro_carriage.mp3"))
+	SfxManager.play_sound(preload("res://assets/sounds/sfx/Intro_carriage2.mp3"))
 	SfxManager.sound_bus_1.volume_db = -1.0 #volumen musica
 	# Comienza el diálogo
 	var dialog_1 = load("res://assets/dialog/carriage intro/cutscene_dialog.tres")
