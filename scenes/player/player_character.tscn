@@ -324,7 +324,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 texture = ExtResource("11_xib7e")
-expand_mode = 1
+expand_mode = 3
 stretch_mode = 5
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]

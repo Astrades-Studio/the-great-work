@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=136 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -58,10 +58,11 @@
 [ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
 [ext_resource type="Material" uid="uid://dvup1364u66le" path="res://scenes/materials/metal.tres" id="50_m17s2"]
-[ext_resource type="Script" path="res://scenes/clock.gd" id="51_htmeu"]
+[ext_resource type="Script" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
 [ext_resource type="Material" uid="uid://hhvpp8s8gsqd" path="res://assets/models/gaslamp.tres" id="51_prvkr"]
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="52_xp1lg"]
+[ext_resource type="Script" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="53_j1orv"]
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="54_ow8vm"]
@@ -2040,7 +2041,7 @@ shape = SubResource("BoxShape3D_mffq4")
 transform = Transform3D(-0.999444, 0, 0.0333296, 0, 1, 0, -0.0333296, 0, -0.999444, -7.58746, 0.291034, -2.01844)
 collision_layer = 64
 collision_mask = 2
-script = ExtResource("51_htmeu")
+script = ExtResource("51_lkl6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/ClockBells"]
 transform = Transform3D(0.983675, 0, -0.179953, 0, 1, 0, 0.179953, 0, 0.983675, -0.191473, 0.688939, -0.88157)
@@ -2060,10 +2061,10 @@ bus = &"SFX"
 transform = Transform3D(-0.999444, 0, 0.0333296, 0, 1, 0, -0.0333296, 0, -0.999444, -1.71756, 0.291034, -0.428935)
 collision_layer = 64
 collision_mask = 2
-script = ExtResource("51_htmeu")
+script = ExtResource("53_b1s8b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/HintLamp"]
-transform = Transform3D(0.998558, -0.00987296, 0.0527702, 0.00987653, 0.999951, 0.00019222, -0.0527696, 0.000329243, 0.998618, -0.796774, 0.688939, 0.846249)
+transform = Transform3D(0.998558, -0.00987292, 0.0527703, 0.00987653, 0.999951, 0.000192226, -0.0527696, 0.000329239, 0.998607, -0.796774, 0.688939, 0.846249)
 shape = SubResource("BoxShape3D_mnvt3")
 
 [node name="HintLamp" type="AudioStreamPlayer3D" parent="Triggers/HintLamp"]
@@ -2161,7 +2162,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.935974
+wait_time = 0.916635
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
