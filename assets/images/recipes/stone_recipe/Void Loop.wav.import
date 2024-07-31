@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btcxh8wrhe1o7"
+path="res://.godot/imported/Void Loop.wav-44ea1752bb47a4dcd4ebb80fa345a542.sample"
+
+[deps]
+
+source_file="res://assets/images/recipes/stone_recipe/Void Loop.wav"
+dest_files=["res://.godot/imported/Void Loop.wav-44ea1752bb47a4dcd4ebb80fa345a542.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1
