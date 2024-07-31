@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=129 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -47,7 +47,11 @@
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="28_djx7f"]
+[ext_resource type="ArrayMesh" uid="uid://c45owidht7cw5" path="res://assets/models/ingredients/vials/flask.res" id="39_j6gva"]
+[ext_resource type="ArrayMesh" uid="uid://cj68k6ent27e6" path="res://assets/models/tools/still/still_01_SM_Flask_02_001.res" id="40_ktfaq"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
+[ext_resource type="ArrayMesh" uid="uid://b1ui1f44shpe0" path="res://assets/models/ingredients/vials/vial.res" id="41_uj1jk"]
+[ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="42_asyi8"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="Script" path="res://scripts/triggers/basement_trigger.gd" id="46_f8hxx"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
@@ -1337,8 +1341,6 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.866026, 0.0091244, 0.499917, -0.0091244, 0.999955, -0.00244544, -0.499917, -0.00244447, 0.86607, -1.29756, 1.22821, -0.56834)
 shape = SubResource("BoxShape3D_3smdt")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Level/Shadows/SpawnKitchen"]
-
 [node name="SpawnBathroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823, -0.968144, 0.0118141, -0.250115, -16.2179, 0.157982, 1.70638)
 
@@ -1366,7 +1368,7 @@ flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
 
 [node name="How to leverage phosphorus" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.983511, -0.0124713, 0.180417, 0, 0.99762, 0.0689605, -0.180847, -0.0678234, 0.98117, -7.67448, 1.00289, -2.25297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2332, 0.937195, 0.145042)
 book = ExtResource("10_ufp8w")
 flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
@@ -1708,14 +1710,53 @@ transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664931, 0, 0.0750827)
 
 [node name="Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -7.66396, 0.360807, -2.20489)
-ingredient_type = 26
+transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -7.80175, 0.203004, -2.1627)
+ingredient_type = 4
 
-[node name="SaltPouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
+[node name="Salt Pouch" parent="Level/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
 transform = Transform3D(-0.292789, 0, 0.956177, 0, 1, 0, -0.956177, 0, -0.292789, -6.60717, 0.937598, -2.20489)
+ingredient_type = 22
 
 [node name="Bunch" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
-transform = Transform3D(-0.290724, 0.121487, 0.523568, 0.0028181, 0.595589, -0.136633, -0.537471, -0.0625908, -0.28392, -7.32353, 0.424519, -2.23792)
+transform = Transform3D(-0.162943, 0.559062, 0.18521, 0.240786, 0.238611, -0.508418, -0.537471, -0.0625908, -0.28392, -9.09716, 0.734458, 2.04286)
+
+[node name="Bunch2" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
+transform = Transform3D(-0.162943, 0.559062, 0.18521, 0.240786, 0.238611, -0.508418, -0.537471, -0.0625908, -0.28392, -9.09716, 0.734458, 2.46393)
+
+[node name="Bunch3" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
+transform = Transform3D(-0.162943, 0.559062, 0.18521, 0.240786, 0.238611, -0.508418, -0.537471, -0.0625908, -0.28392, -9.09716, 0.734458, 2.90786)
+
+[node name="Flask" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53842, 0.939311, -2.23822)
+mesh = ExtResource("39_j6gva")
+
+[node name="Flask2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.10494, 0.939311, -2.23822)
+mesh = ExtResource("39_j6gva")
+
+[node name="Flask3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41013, 0.939311, -2.23822)
+mesh = ExtResource("39_j6gva")
+
+[node name="Still01SmFlask02001" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61634, 0.264263, -2.29578)
+mesh = ExtResource("40_ktfaq")
+
+[node name="Vial" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.20628, -0.570842, -2.14738)
+mesh = ExtResource("41_uj1jk")
+
+[node name="Vial3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81615, 0.939017, -2.14738)
+mesh = ExtResource("41_uj1jk")
+
+[node name="VialPipe" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(0.36464, 0, 0, 0, 0.36464, 0, 0, 0, 0.36464, -6.60378, -0.570842, -2.12031)
+mesh = ExtResource("42_asyi8")
+
+[node name="Vial2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1445, 0.20149, -2.24325)
+mesh = ExtResource("41_uj1jk")
 
 [node name="Dispensers2" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
@@ -1758,6 +1799,9 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.803, -2.15049, 3.17388)
 
 [node name="Flare" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.471, 0.296871, -2.15701)
+
+[node name="Flare2" parent="Level/Ingredients" instance=ExtResource("12_anbsx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.471, 0.296871, -2.15701)
 
 [node name="SFX" type="Node3D" parent="Level"]
@@ -2049,7 +2093,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.428198
+light_energy = 0.3
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2062,7 +2106,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.558096
+wait_time = 0.555635
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]

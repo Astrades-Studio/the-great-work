@@ -38,6 +38,12 @@ func _ready() -> void:
 	super()
 	active = false
 	location_changed.connect(_on_location_changed)
+	if is_instance_valid(contents):
+		var active_material : StandardMaterial3D = contents.get_active_material(0)
+		if active_material:
+			contents.mesh = active_material.duplicate()
+			active_material.albedo_color = Color.DARK_RED
+	
 	if type != Ingredient.Type.FLARE:
 		type = Ingredient.Type.FLARE
 	
