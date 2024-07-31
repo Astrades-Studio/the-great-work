@@ -101,7 +101,7 @@ func _ready() -> void:
 	reset_progress()
 	ovani_player = OvaniPlayer.new()
 	ovani_player.process_mode = Node.PROCESS_MODE_ALWAYS
-	ovani_player.FadeVolume(-80, 10)
+	bus = AudioServer.get_bus_index("Music")
 	add_child(ovani_player)
 	current_state = GameState.MAIN_MENU
 	fog_density_increment = (FOG_DENSITY_MAX - INITIAL_FOG_DENSITY) / MAX_SHADOW_SPAWNS
@@ -110,7 +110,7 @@ func _ready() -> void:
 	tick_countdown.connect(_on_tick_countdown)
 	stone_consumed.connect(_on_stone_consumed)
 	recipe_read.connect(_on_philosopher_stone_recipe_read)
-	#assign_random_ingredient_to_each_dispenser()
+	assign_random_ingredient_to_each_dispenser()
 	
 
 
@@ -125,6 +125,8 @@ func _input(event):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _process(delta: float) -> void:
+	ovani_player.FadeVolume(AudioServer.get_bus_volume_db(bus), 1)
 
 # Gets connected from main menu
 func _on_new_game_requested():
@@ -143,13 +145,13 @@ func request_page_UI(page: Texture):
 	text_layer.show_text(page)
 
 # Ingredient logic
-## Assign a random ingredient to each dispenser
-#func assign_random_ingredient_to_each_dispenser():
-	#var essential_ingredients := [Ingredient.Type.GOLD, Ingredient.Type.SILVER, Ingredient.Type.MERCURY, Ingredient.Type.SALT, Ingredient.Type.SULFUR]
-	#for dispenser : Dispenser in get_tree().get_nodes_in_group("dispenser"):
-		#if dispenser.ingredient_type != Ingredient.Type.BANANA or dispenser.ingredient_type != Ingredient.Type.YELLOW_LIQUID:
-			#dispenser.ingredient_type = essential_ingredients[randi() % essential_ingredients.size()]
-			#print("Dispenser %s has ingredient: %s" % [dispenser.name, dispenser.ingredient_type])
+# Assign a random ingredient to each dispenser
+func assign_random_ingredient_to_each_dispenser():
+	var essential_ingredients := [Ingredient.Type.GOLD, Ingredient.Type.SILVER, Ingredient.Type.MERCURY, Ingredient.Type.SALT, Ingredient.Type.SULFUR]
+	for dispenser : Dispenser in get_tree().get_nodes_in_group("dispenser"):
+		if dispenser.ingredient_type != Ingredient.Type.BANANA or dispenser.ingredient_type != Ingredient.Type.YELLOW_LIQUID:
+			dispenser.ingredient_type = essential_ingredients[randi() % essential_ingredients.size()]
+			print("Dispenser %s has ingredient: %s" % [dispenser.name, dispenser.ingredient_type])
 
 
 func ingredient_spawned(ingredient: Ingredient):
@@ -255,5 +257,4 @@ func clear_arrays():
 func _on_stone_consumed():
 	clear_arrays()
 	good_ending = true
-	ovani_player.FadeVolume(-80, 3)
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)

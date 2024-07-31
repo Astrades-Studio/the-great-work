@@ -18,6 +18,7 @@ func _ready() -> void:
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	GameManager.ingredient_layer = ingredients
+	GameManager.ovani_player = ovani_player
 	GameManager.game_started.connect(start_midnight_game)
 	GameManager.shadow_removed.connect(_timer_up)
 	game_over_timer.timeout.connect(_on_timer_tick)
