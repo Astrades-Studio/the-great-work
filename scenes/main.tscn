@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=129 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -62,7 +62,6 @@
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="52_xp1lg"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="53_j1orv"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="54_ow8vm"]
-[ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 size = Vector2(50, 50)
@@ -909,6 +908,46 @@ mesh = ExtResource("49_l4tq0")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_s8skm")
 
+[node name="Flask" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95008, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask2" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38356, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask3" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07837, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Still01SmFlask02001" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87216, 1.05936, -9.78176)
+mesh = ExtResource("40_ktfaq")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28222, 0.224252, -9.63336)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial3" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67235, 1.73411, -9.63336)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="VialPipe" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.36464, 0, 0, 0, 0.36464, 0, 0, 0, 0.36464, 2.88472, 0.224252, -9.60629)
+mesh = ExtResource("42_asyi8")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial2" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.344, 0.996584, -9.72923)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
 [node name="Ground" type="Node3D" parent="Level"]
 
 [node name="Ground" type="MeshInstance3D" parent="Level/Ground"]
@@ -1627,6 +1666,9 @@ transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.46613
 [node name="Mortar" parent="Level/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
 
+[node name="WaitLabel" parent="Level/Interactibles/Mortar" index="3"]
+text = "3"
+
 [node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
 transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
 
@@ -1729,38 +1771,6 @@ transform = Transform3D(-0.162943, 0.559062, 0.18521, 0.240786, 0.238611, -0.508
 
 [node name="Bunch3" parent="Level/Interactibles/Dispensers" instance=ExtResource("28_djx7f")]
 transform = Transform3D(-0.162943, 0.559062, 0.18521, 0.240786, 0.238611, -0.508418, -0.537471, -0.0625908, -0.28392, -9.09716, 0.734458, 2.90786)
-
-[node name="Flask" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53842, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.10494, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41013, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Still01SmFlask02001" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61634, 0.264263, -2.29578)
-mesh = ExtResource("40_ktfaq")
-
-[node name="Vial" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.20628, -0.570842, -2.14738)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Vial3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81615, 0.939017, -2.14738)
-mesh = ExtResource("41_uj1jk")
-
-[node name="VialPipe" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.36464, 0, 0, 0, 0.36464, 0, 0, 0, 0.36464, -6.60378, -0.570842, -2.12031)
-mesh = ExtResource("42_asyi8")
-
-[node name="Vial2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1445, 0.20149, -2.24325)
-mesh = ExtResource("41_uj1jk")
 
 [node name="Dispensers2" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
@@ -2097,7 +2107,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.536117
+light_energy = 0.344912
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2110,7 +2120,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.586841
+wait_time = 0.974068
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2141,9 +2151,6 @@ bus = &"SFX"
 [node name="InteractionComponent" type="Node" parent="GasLamp" node_paths=PackedStringArray("mesh")]
 script = ExtResource("20_3awsj")
 mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
-
-[node name="OvaniPlayer" type="Node" parent="."]
-script = ExtResource("63_fo8fa")
 
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
