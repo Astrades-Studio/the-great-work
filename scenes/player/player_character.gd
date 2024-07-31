@@ -8,6 +8,8 @@ class_name Player
 @export var interact_distance := 2.0
 @export var drop_distance := 1.0
 
+@onready var interaction_label: Label = %InteractionLabel
+
 @onready var hand: Node3D = %Hand
 @onready var sub_viewport: SubViewport = %ItemViewport
 
@@ -87,12 +89,13 @@ func raycast_forward(to_position : Vector3) -> Vector3:
 	else:
 		return to_position
 
-
 func _process(delta: float) -> void:
 	if GameManager.current_state != GameManager.GameState.PLAYING:
 		return
 	super(delta)
 	
+	if !interact_ray.is_colliding():
+		interaction_label.text = ""
 	# Different case scenarios for handling hovering interactible components
 	if interact_ray.is_colliding():
 		var current_interact_result = interact_ray.get_collider()

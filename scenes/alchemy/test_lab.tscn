@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=34 format=3 uid="uid://bi2r2nphbktxx"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="13_ijyn7"]
 [ext_resource type="PackedScene" uid="uid://dh1ejx73ha3y1" path="res://scenes/alchemy/ingredients/purified_sulfur.tscn" id="14_aemo4"]
 [ext_resource type="PackedScene" uid="uid://dqvd8vemxkjcd" path="res://scenes/alchemy/dispensers/dispensers.tscn" id="16_b4oue"]
+[ext_resource type="PackedScene" uid="uid://fk6dcg01x2oq" path="res://scenes/alchemy/ingredients/silver.tscn" id="16_v3cs8"]
 [ext_resource type="PackedScene" uid="uid://cqsp0rwu7i28e" path="res://scenes/alchemy/dispenser.tscn" id="19_of1ck"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="20_aw3yg"]
 [ext_resource type="PackedScene" uid="uid://cuib3e7qbheb2" path="res://scenes/props/page.tscn" id="20_fwnm8"]
@@ -95,7 +96,6 @@ shape = SubResource("ConvexPolygonShape3D_vgynt")
 
 [node name="Book" parent="Mesa" instance=ExtResource("22_h6p0o")]
 transform = Transform3D(0.008, 0, 0, 0, 0.008, 0, 0, 0, 0.008, 0, 0.73298, 0.520226)
-flare_book = false
 
 [node name="Tools" type="Node3D" parent="."]
 
@@ -200,6 +200,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270215, 0, -0.519791)
 [node name="PurifiedSulfur4" parent="Ingredients" instance=ExtResource("14_aemo4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668481, 0, -0.519791)
 
+[node name="Silver" parent="Ingredients" instance=ExtResource("16_v3cs8")]
+transform = Transform3D(0.0671812, -0.707328, 0.703686, 0, 0.705279, 0.70893, -0.997741, -0.0476268, 0.0473815, -1.79689, 0.133155, -0.133827)
+
+[node name="Silver2" parent="Ingredients" instance=ExtResource("16_v3cs8")]
+transform = Transform3D(0.0671812, -0.707328, 0.703686, 0, 0.705279, 0.70893, -0.997741, -0.0476268, 0.0473815, -1.79689, 0.133155, -0.533756)
+
+[node name="Silver3" parent="Ingredients" instance=ExtResource("16_v3cs8")]
+transform = Transform3D(0.0671812, -0.707328, 0.703686, 0, 0.705279, 0.70893, -0.997741, -0.0476268, 0.0473815, -1.79689, 0.133155, -0.347276)
+
 [node name="Dispensers" type="Node3D" parent="."]
 
 [node name="Pot" parent="Dispensers" instance=ExtResource("19_of1ck")]
@@ -238,3 +247,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74375, 0.150933, -3.70244)
 [node name="DialogLayer" parent="." instance=ExtResource("20_onw05")]
 
 [node name="PauseLayer" parent="." instance=ExtResource("22_phwuf")]
+
+[node name="Book" parent="." instance=ExtResource("22_h6p0o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458195, 0.733905, -0.486352)
+read_stone_trigger_book = true

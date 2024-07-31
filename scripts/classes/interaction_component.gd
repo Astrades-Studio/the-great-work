@@ -85,6 +85,10 @@ func not_in_range() -> void:
 func on_interact() -> void:
 	pass
 
+func _on_parent_visibility_change():
+	if !parent.visible:
+		if parent.has_user_signal("unfocused"):
+			parent.unfocused.emit()
 
 func connect_parent(node: PhysicsBody3D) -> void:
 	node.add_user_signal("focused")

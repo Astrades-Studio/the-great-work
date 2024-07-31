@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func open_book() -> void:
 	if book.resource_path == FLARE_RECIPE:
-		if !GameManager.philosopher_stone_recipe_read:
+		if !randi() % 2:
 			DialogManager.create_subtitles_piece("These are instructions on how to make an illuminant")
 		else:
 			DialogManager.create_subtitles_piece("Maybe if I make this it will keep me safe")
