@@ -119,8 +119,9 @@ func on_tool_use() -> bool:
 		return false
 
 	if stored_ingredient:
-		DialogManager.create_dialog_piece("My hands are full.")
-		return false
+		if stored_ingredient.type != Ingredient.Type.ALBEDO and stored_ingredient.type != Ingredient.Type.NIGREDO:
+			DialogManager.create_dialog_piece("My hands are full.")
+			return false
 
 
 	var new_ingredient_type: Ingredient.Type
@@ -153,7 +154,8 @@ func on_tool_use() -> bool:
 
 func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
-	DialogManager.create_dialog_piece("I will grind this %s." % ingredient.type_name)
+	DialogManager.create_subtitles_piece("I will grind this %s." % ingredient.type_name)
+	GameManager.current_state = GameManager.GameState.CUTSCENE
 	
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MORTAR]:
 		if ingredient.type == correct_type:
@@ -234,11 +236,12 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	GameManager.philosopher_stone_progress.emit(progress)
 	if progress == 1:
 		DialogManager.create_dialog_piece("The cinnabar has turned black. I'm doing something right.")
-		stored_ingredient = instance_ingredient(Ingredient.Type.NIGREDO)
+		item_1 = instance_ingredient(Ingredient.Type.NIGREDO)
+		#stored_ingredient = instance_ingredient(Ingredient.Type.NIGREDO)
 		return Ingredient.Type.NONE
 	if progress == 2:
 		DialogManager.create_dialog_piece("Now the substance is white... I'm getting closer.")
-		stored_ingredient = instance_ingredient(Ingredient.Type.ALBEDO)
+		item_1 = instance_ingredient(Ingredient.Type.ALBEDO)
 		return Ingredient.Type.NONE
 	if progress == 3:
 		progress = 0
