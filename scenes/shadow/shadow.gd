@@ -8,11 +8,9 @@ extends Node3D
 @onready var animation_player: AnimationPlayer = $Import/AnimationPlayer
 
 
-# TODO not working
 var invisible : bool = true
 var invisibility_tween : Tween
 var og_color : Color = Color.BLACK
-
 
 
 var transition_length := 5.0

@@ -71,8 +71,7 @@ func _ready():
 	self.connect("interacted", on_tool_use)
 	assert(self.tool_type != null, "Tool has no type")
 
-	
-#TODO: Make the dialogs for each case
+
 func on_tool_use() -> bool:
 	if GameManager.philosopher_stone_recipe_read == false:
 		DialogManager.create_dialog_piece("I should check the recipe first.")
