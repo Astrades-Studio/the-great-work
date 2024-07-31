@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=125 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -268,9 +268,6 @@ size = Vector3(5.69656, 2.84641, 3.53625)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x8xtm"]
 size = Vector3(3.3826, 2.40158, 1.94965)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_k6aw5"]
-size = Vector3(1.70316, 2.8847, 5.80588)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7l88u"]
 resource_name = "Material.009"
@@ -1341,6 +1338,8 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.866026, 0.0091244, 0.499917, -0.0091244, 0.999955, -0.00244544, -0.499917, -0.00244447, 0.86607, -1.29756, 1.22821, -0.56834)
 shape = SubResource("BoxShape3D_3smdt")
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Level/Shadows/SpawnKitchen"]
+
 [node name="SpawnBathroom" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
 transform = Transform3D(-0.250393, -0.0456793, 0.967066, 0, 0.998887, 0.0471823, -0.968144, 0.0118141, -0.250115, -16.2179, 0.157982, 1.70638)
 
@@ -1351,17 +1350,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" parent="Level/Shadows/SpawnBathroom/Darkness" index="1"]
 transform = Transform3D(0.980773, -0.00254311, -0.195135, -0.00654825, 0.998926, -0.0459323, 0.195042, 0.0463272, 0.9797, 0.191674, 1.50126, -0.267645)
 shape = SubResource("BoxShape3D_x8xtm")
-
-[node name="SpawnStairs" type="Marker3D" parent="Level/Shadows" groups=["shadow_spawn_points", "shadowspawns"]]
-transform = Transform3D(0.00476587, 0.338283, 0.941033, -0.00661438, 0.941033, -0.33825, -0.999967, -0.00461221, 0.00672236, -19.5686, 1.84717, 6.72934)
-
-[node name="Darkness" parent="Level/Shadows/SpawnStairs" instance=ExtResource("4_vkn8q")]
-transform = Transform3D(1, 0, -3.72529e-09, -1.16415e-10, 1, 1.60799e-09, 0, -2.83762e-10, 1, 0, 0, 0)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" parent="Level/Shadows/SpawnStairs/Darkness" index="1"]
-transform = Transform3D(0.999968, -0.00310436, -0.00409222, 0.00493532, 0.801509, 0.597963, 0.00142378, -0.597975, 0.801513, 0.262158, -0.439255, 1.93591)
-shape = SubResource("BoxShape3D_k6aw5")
 
 [node name="Recipes" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1640,9 +1628,6 @@ transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509
 [node name="Still" parent="Level/Interactibles" instance=ExtResource("16_ofarb")]
 transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
 
-[node name="WaitLabel" parent="Level/Interactibles/Still" index="10"]
-text = "5"
-
 [node name="OmniLight3D" parent="Level/Interactibles/Still/LavaMesh" index="0"]
 layers = 4
 light_energy = 0.912
@@ -1668,9 +1653,6 @@ omni_attenuation = 1.723
 [node name="Furnace" parent="Level/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(1.28848, 0, 0, 0, 1.28848, 0, 0, 0, 1.28848, -8.87676, 0, 0.461369)
 
-[node name="WaitLabel" parent="Level/Interactibles/Furnace" index="3"]
-text = "5"
-
 [node name="OmniLight3D" parent="Level/Interactibles/Furnace/LogFire" index="2"]
 layers = 4
 light_energy = 0.912
@@ -1694,9 +1676,6 @@ light_bake_mode = 0
 shadow_enabled = false
 omni_range = 1.377
 omni_attenuation = 1.723
-
-[node name="WaitLabel" parent="Level/Interactibles/Cauldron" index="7"]
-text = "5"
 
 [node name="Dispensers" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
@@ -2071,7 +2050,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.487079
+light_energy = 0.3
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -2084,7 +2063,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="GasLamp"]
-wait_time = 0.654148
+wait_time = 0.806308
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GasLamp"]
@@ -2136,7 +2115,6 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [editable path="Level/Shadows/SpawnBasement/Darkness"]
 [editable path="Level/Shadows/SpawnKitchen/Darkness"]
 [editable path="Level/Shadows/SpawnBathroom/Darkness"]
-[editable path="Level/Shadows/SpawnStairs/Darkness"]
 [editable path="Level/Recipes/Guide to Alchemy"]
 [editable path="Level/Lights/Candle_003"]
 [editable path="Level/Lights/Candle_005"]
@@ -2147,5 +2125,6 @@ mesh = NodePath("../Eje/Hand_Gas_Lamp_002")
 [editable path="Level/Interactibles/Still"]
 [editable path="Level/Interactibles/Furnace"]
 [editable path="Level/Interactibles/Cauldron"]
+[editable path="Level/Interactibles/Cauldron/SmallLogPile_002"]
 [editable path="Level/Interactibles/Dispensers/Barrel"]
 [editable path="Level/Interactibles/Dispensers/BigJug"]

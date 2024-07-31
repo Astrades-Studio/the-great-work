@@ -110,7 +110,7 @@ func on_tool_use() -> bool:
 		DialogManager.create_dialog_piece("I think this is useful enough as it is")
 		return false
 	if hand_ingredient.type == Ingredient.Type.CAPUT_MORTUUM:
-		DialogManager.create_dialog_piece("Caput Mortuum is inert substancce. I need to find something else.")
+		DialogManager.create_dialog_piece("Caput Mortuum is an inert substance. I need to find something else.")
 		return false
 	if hand_ingredient.type == Ingredient.Type.ASH:
 		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")

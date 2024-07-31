@@ -15,7 +15,8 @@ func _ready() -> void:
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	GameManager.ingredient_layer = ingredients
-	GameManager.game_started.connect(start_midnight_game)	
+	GameManager.game_started.connect(start_midnight_game)
+	GameManager.shadow_removed.connect(_timer_up)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	await get_tree().create_timer(1).timeout
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
@@ -25,6 +26,9 @@ func start_midnight_game():
 	game_over_timer.start(tick_length)
 	print("Shadows start now")
 
+func _timer_up():
+	countdown += 1
+	print(countdown)
 
 func _on_timer_tick():
 	countdown -= 1

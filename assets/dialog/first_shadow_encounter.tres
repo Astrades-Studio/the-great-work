@@ -11,17 +11,17 @@ dialog_text = "This cannot be! A shadow!"
 [sub_resource type="Resource" id="Resource_x6fce"]
 script = ExtResource("1_83h7y")
 dialog_speaker = "Melchiades"
-dialog_text = "I've read about them before in an ancient tome whose name I can't recall."
+dialog_text = "I've read about it before in an ancient tome whose name I can't recall."
 
 [sub_resource type="Resource" id="Resource_4tt2k"]
 script = ExtResource("1_83h7y")
 dialog_speaker = "Melchiades"
-dialog_text = "This... entity will devour this place in its hollow darkness unless I do something to stop it."
+dialog_text = "This... manifestation seems familiar, but I feel ill intent stemming from it."
 
 [sub_resource type="Resource" id="Resource_2tb5n"]
 script = ExtResource("1_83h7y")
 dialog_speaker = "Melchiades"
-dialog_text = "The book mentioned something about a powerful source of light."
+dialog_text = "I think I've read something about a powerful source of light that could help me."
 
 [sub_resource type="Resource" id="Resource_qft0f"]
 script = ExtResource("1_83h7y")

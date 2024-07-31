@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=35 format=3 uid="uid://bi2r2nphbktxx"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="22_h6p0o"]
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="22_phwuf"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="23_26m4s"]
+[ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="25_r5nwv"]
 [ext_resource type="PackedScene" uid="uid://dy1wo4g1em5uj" path="res://scenes/alchemy/ingredients_scene.tscn" id="26_57agx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e4uqg"]
@@ -251,3 +252,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74375, 0.150933, -3.70244)
 [node name="Book" parent="." instance=ExtResource("22_h6p0o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458195, 0.733905, -0.486352)
 read_stone_trigger_book = true
+
+[node name="Darkness" parent="Book" instance=ExtResource("25_r5nwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430456, 5.32912)
+visible = true
+
+[node name="PassiveSound" parent="Book/Darkness" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31373, 0)
+autoplay = true
+panning_strength = 2.72
+
+[editable path="Book/Darkness"]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjbl5mciq3ytd" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
 [ext_resource type="Material" uid="uid://did56lsjeoaiw" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
-[ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="6_mcxab"]
+[ext_resource type="AudioStream" uid="uid://dyco67xmd824" path="res://assets/sounds/sfx/Bubbles Short A.wav" id="6_gvs0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wb61"]
 size = Vector3(1.20654, 0.754822, 1.24414)
@@ -184,6 +184,9 @@ omni_attenuation = 2.307
 [node name="SmallLogPile_002" parent="." instance=ExtResource("3_mrpge")]
 transform = Transform3D(0.00482974, -0.0396628, 0.485454, 0.0394689, 0.483913, 0.0391442, -0.48547, 0.0389477, 0.00801202, 0.10202, 0.310468, 0.0192511)
 
+[node name="AudioStreamPlayer3D" parent="SmallLogPile_002" index="1"]
+process_mode = 3
+
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.25523, -0.0211237)
 visible = false
@@ -202,8 +205,11 @@ unique_name_in_owner = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01508, 0)
-stream = ExtResource("6_mcxab")
+stream = ExtResource("6_gvs0u")
+bus = &"SFX"
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_6l6km")
 mesh = NodePath("../Pot")
+
+[editable path="SmallLogPile_002"]

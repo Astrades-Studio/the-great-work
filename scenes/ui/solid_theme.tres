@@ -61,9 +61,12 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oe2c"]
-content_margin_left = 10.0
-bg_color = Color(0.1001, 0.11, 0.109175, 1)
+bg_color = Color(0.0169267, 0.0196587, 0.019422, 1)
 border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [resource]
 Button/font_sizes/font_size = 16

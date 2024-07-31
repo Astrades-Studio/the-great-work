@@ -104,6 +104,7 @@ radius = 1.5
 height = 3.0
 
 [node name="FLARE" type="RigidBody3D"]
+transform = Transform3D(0.480948, 0, 0, 0, 0.480948, 0, 0, 0, 0.480948, 0, 0, 0)
 collision_layer = 20
 collision_mask = 33
 linear_damp = 5.0
@@ -131,6 +132,7 @@ local_coords = true
 [node name="Light" type="OmniLight3D" parent="Flare"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.524017, -2.29055e-08)
+visible = false
 layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
 light_energy = 7.697

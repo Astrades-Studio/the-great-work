@@ -6,6 +6,7 @@ extends Area3D
 @export var HP_DOWN_TICK : float = 1.
 
 const WHISPERS_DIALOG = preload("res://assets/dialog/whispers_dialog.tres")
+const HORROR_HALLWAYS_INTENSITY_1 = preload("res://assets/sounds/music/Suspense/Horror Hallways Intensity 1.wav")
 
 var already_seen : bool = false
 var shadow_present : bool
@@ -21,11 +22,12 @@ var hp : float:
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var shadow: Shadow = $Shadow
-@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
 @onready var darkness_fx_intensity = darkness_fx.amount_ratio
 @onready var darkness_light: OmniLight3D = $DarknessLight
 @onready var passive_sound: AudioStreamPlayer3D = $PassiveSound
+@onready var shadow_death_player: AudioStreamPlayer3D = $FlareSound
+
 
 signal shadow_banished(Shadow)
 
@@ -38,12 +40,12 @@ func _ready() -> void:
 	GameManager.shadow_spawn_points.append(self)
 	shadow_banished.connect(GameManager.on_shadow_removed.bind(shadow))
 
-
+var getting_hurt : bool = false
 func _process(delta: float) -> void:
 	if is_instance_valid(flare_reference):
 		if flare_reference.active and shadow_present:
 			hp -= delta
-			print("HP: " + str(hp))
+
 	if !shadow_present and cooldown >= 0.:
 		cooldown -= delta
 
@@ -66,6 +68,7 @@ func _on_body_entered(body: Node3D) -> void:
 			#body.gas_lamp.disabled = true
 			shadow.turn_invisible()
 			body.panic_effects.increase_agitation()
+			passive_sound.play()
 			if !already_seen:
 				DialogManager.create_subtitles_piece("Get away from me!")
 				already_seen = false
@@ -80,6 +83,11 @@ func _on_body_exited(body: Node3D) -> void:
 				flare_reference = null
 		await get_tree().create_timer(2).timeout			
 		body.panic_effects.decrease_agitation()
+		if shadow_present:
+			passive_sound.stop()
+			MusicManager.play_music(HORROR_HALLWAYS_INTENSITY_1)
+			
+		
 
 var tween : Tween        
 func spawn_shadow() -> bool:
@@ -95,12 +103,14 @@ func spawn_shadow() -> bool:
 	show()
 	tween = get_tree().create_tween()
 	tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
+	tween.parallel().tween_property(darkness_fx, "lifetime", 1.7, 0.1)
 	play_random_whisper()
 	await tween.finished
 	return true
 
 
 func remove_shadow() -> void:
+	shadow_death_player.play()
 	shadow_banished.emit()
 	cooldown = MAX_COOLDOWN
 	shadow_present = false
@@ -109,6 +119,7 @@ func remove_shadow() -> void:
 	
 	tween = get_tree().create_tween()
 	tween.tween_property(darkness_fx, "amount_ratio", 0, 2)
+	tween.parallel().tween_property(darkness_fx, "lifetime", 10, 0.1)
 	await tween.finished
 	hide()
 
@@ -129,7 +140,4 @@ func play_random_whisper() -> void:
 
 
 func play_random_shadow_sound():
-	SfxManager.shadow_sounds.shuffle()
-	var selected_sound = SfxManager.shadow_sounds[0]
-	audio.stream = selected_sound
-	audio.play()
+	SfxManager.play_shadow_sound(-20.)

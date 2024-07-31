@@ -43,7 +43,7 @@ vertical_alignment = 1
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.27
+size_flags_stretch_ratio = 2.09
 mouse_filter = 2
 
 [node name="SubtitleLabel" type="Label" parent="VBoxContainer/CenterContainer2"]

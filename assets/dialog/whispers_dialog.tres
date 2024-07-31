@@ -76,4 +76,4 @@ dialog_text = "Every doubt you have is proof of your incompetence."
 [resource]
 script = ExtResource("2_fq8fj")
 dialog_id = &"whispers"
-dialog = Array[ExtResource("1_tjktl")]([SubResource("Resource_qw4tf"), SubResource("Resource_6exvf"), SubResource("Resource_blpft"), SubResource("Resource_5t8yc"), SubResource("Resource_kn7ow"), SubResource("Resource_b5xje"), SubResource("Resource_05cch"), SubResource("Resource_do4br"), SubResource("Resource_t3bvj"), SubResource("Resource_ma52a"), SubResource("Resource_v4q6b"), SubResource("Resource_i5gur"), SubResource("Resource_waloi"), SubResource("Resource_ic4vu"), null])
+dialog = Array[ExtResource("1_tjktl")]([SubResource("Resource_qw4tf"), SubResource("Resource_6exvf"), SubResource("Resource_blpft"), SubResource("Resource_5t8yc"), SubResource("Resource_kn7ow"), SubResource("Resource_b5xje"), SubResource("Resource_05cch"), SubResource("Resource_do4br"), SubResource("Resource_t3bvj"), SubResource("Resource_ma52a"), SubResource("Resource_v4q6b"), SubResource("Resource_i5gur"), SubResource("Resource_waloi"), SubResource("Resource_ic4vu")])

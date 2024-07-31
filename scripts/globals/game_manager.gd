@@ -89,6 +89,7 @@ signal philosopher_stone_progress(int)
 signal tick_countdown
 signal stone_consumed
 signal shadow_crawl_trigger
+signal shadow_removed
 
 
 func _ready() -> void:

@@ -34,31 +34,43 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="Control/PauseContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 action_mode = 0
 text = "CONTINUE"
 
-[node name="RestartButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "RESTART"
 
-[node name="SettingsButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "QUIT"
+
+[node name="Control" type="Control" parent="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Control/PauseContainer/PanelContainer"]
 visible = false
@@ -121,10 +133,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "NO"
 
-[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitConfirmButton" to="." method="_on_quit_confirm_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitRefuseButton" to="." method="_on_quit_refuse_button_pressed"]
 

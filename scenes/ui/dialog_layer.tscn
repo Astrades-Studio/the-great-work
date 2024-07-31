@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d16g48k8u865c"]
+[gd_scene load_steps=8 format=3 uid="uid://d16g48k8u865c"]
 
 [ext_resource type="Script" path="res://scenes/layers/dialog_layer.gd" id="1_hnis6"]
 [ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
@@ -12,6 +12,9 @@ anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_wg113"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_1uvho")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3o05"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 0.309804)
 
 [sub_resource type="LabelSettings" id="LabelSettings_swpuc"]
 outline_color = Color(0, 0, 0, 1)
@@ -45,7 +48,7 @@ size_flags_stretch_ratio = 5.32
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.09
+size_flags_stretch_ratio = 1.54
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -55,6 +58,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.72
+theme_override_styles/panel = SubResource("StyleBoxFlat_b3o05")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2

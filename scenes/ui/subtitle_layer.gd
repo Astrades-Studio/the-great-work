@@ -30,7 +30,7 @@ func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:
 
 var tween : Tween
 func _show_subtitle(text : DialogPiece, duration : float) -> void:
-	subtitle_label.text = "[center]" + text.dialog_text
+	subtitle_label.text = text.dialog_text
 	await fade_in(false)
 	if !duration:
 		var length := text.dialog_text.length()

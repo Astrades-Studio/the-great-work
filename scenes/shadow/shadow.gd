@@ -5,6 +5,7 @@ extends Node3D
 @onready var influence: Area3D = %Influence
 @onready var mesh : MeshInstance3D = %Mesh
 @onready var material : StandardMaterial3D = mesh.get_active_material(0)
+@onready var animation_player: AnimationPlayer = $Import/AnimationPlayer
 
 
 # TODO not working
@@ -13,8 +14,10 @@ var invisibility_tween : Tween
 var og_color : Color = Color.BLACK
 
 
+
 var transition_length := 5.0
 func turn_invisible() -> void:
+	animation_player.play("standing_idle_2")
 	await get_tree().create_timer(3.0).timeout # timer 3 seconds
 	invisibility_tween = get_tree().create_tween()
 	invisibility_tween.tween_property(material, "albedo_color:a", 0.0, transition_length)

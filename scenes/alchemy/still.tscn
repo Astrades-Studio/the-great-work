@@ -175,6 +175,7 @@ mesh = SubResource("QuadMesh_q6q3w")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LavaMesh"]
 transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829269, -0.00496584, 0.0829259, -0.996543, 0.156766, -0.14057, 0.0818881)
+visible = false
 light_color = Color(0.641244, 0.230067, 0, 1)
 light_energy = 1.384
 light_indirect_energy = 1.48
@@ -191,6 +192,7 @@ omni_attenuation = 0.64
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="LavaMesh/OmniLight3D"]
 transform = Transform3D(1, 4.35648e-10, -7.71422e-10, -5.0386e-10, 1, 1.04308e-07, 5.92422e-10, -9.68575e-08, 1, 0.060592, 0.234687, -0.654776)
+visible = false
 light_color = Color(0.641244, 0.230067, 0, 1)
 light_energy = 0.0
 light_indirect_energy = 1.48
@@ -215,3 +217,4 @@ unique_name_in_owner = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685144, 0.89713, 2.38419e-07)
 stream = ExtResource("11_1trh0")
+bus = &"SFX"
