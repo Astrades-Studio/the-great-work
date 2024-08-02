@@ -5,6 +5,7 @@ extends Control
 @onready var bad_ending_ui: Control = $BadEndingUI
 @onready var good_ending_ui: Control = $GoodEndingUI
 
+
 @onready var video_stream_player: VideoStreamPlayer = $GoodEndingUI/VideoStreamPlayer
 
 const CREDITS = "res://scenes/ui/credits.tscn"

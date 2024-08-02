@@ -111,6 +111,7 @@ func _ready() -> void:
 	stone_consumed.connect(_on_stone_consumed)
 	recipe_read.connect(_on_philosopher_stone_recipe_read)
 	#assign_random_ingredient_to_each_dispenser()
+
 	
 
 
@@ -190,8 +191,6 @@ func spawn_random_shadow():
 
 func update_darkness_effect(amount: int):
 	fog_environment.environment.fog_density = amount * fog_density_increment
-	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
-	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
 
 
 func on_shadow_removed(shadow: Shadow):
