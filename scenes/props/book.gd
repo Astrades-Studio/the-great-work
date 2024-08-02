@@ -10,7 +10,8 @@ const STONE_RECIPE = "res://assets/images/recipes/stone_recipe/stone_recipe.tres
 const ALCHEMY_GUIDE = "res://assets/images/recipes/reference/reference_book.tres"
 
 @export var read_stone_trigger_book : bool
-@export var flare_book : bool
+@export var is_flare_book : bool
+@export var is_alchemy_book : bool
 
 @export var color := Color.WHITE:
 	set(value):
@@ -27,19 +28,28 @@ func _ready() -> void:
 
 
 func open_book() -> void:
-	if book.resource_path == FLARE_RECIPE:
-		if !randi() % 2:
-			DialogManager.create_subtitles_piece("These are instructions on how to make an illuminant")
-		else:
-			DialogManager.create_subtitles_piece("Maybe if I make this it will keep me safe")
-		
+	GameManager.request_book_UI.emit(book)
+
 	if read_stone_trigger_book:
 		if !GameManager.philosopher_stone_recipe_read:
 			GameManager.recipe_read.emit()
 			DialogManager.create_subtitles_piece("So this is the recipe... I feel something strange is going on.")
 	
 
-	if book.resource_path == ALCHEMY_GUIDE:
-		DialogManager.create_subtitles_piece("My old notes... Adam must have brought them here.")
+	if is_flare_book:
+		if !GameManager.flare_recipe_read:
+			GameManager.flare_read_signal.emit()
+		if !randi() % 2:
+			DialogManager.create_subtitles_piece("What does it mean by 'the darkness'?")
+		else:
+			DialogManager.create_subtitles_piece("This recipe appears to be for a protective purpose")
+
+
+	if is_alchemy_book:
+		if !GameManager.alchemy_recipe_read:
+			GameManager.alchemy_read_signal.emit()
+		if !randi() % 2:
+			DialogManager.create_subtitles_piece("Adam must have written these notes")
+		else:
+			DialogManager.create_subtitles_piece("I don't understand...")
 		
-	GameManager.request_book_UI.emit(book)

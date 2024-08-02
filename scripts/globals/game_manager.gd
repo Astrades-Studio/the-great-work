@@ -22,6 +22,7 @@ enum GameState {
 	PLAYING,
 	CUTSCENE,
 	DIALOG,
+	STATIC  # Nuevo estado
 }
 
 # This variable goberns the inputs and pauses. Whenever there is a change, 
@@ -47,6 +48,10 @@ var current_state : GameState:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
+		elif current_state == GameState.STATIC:
+			get_tree().paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		
 		elif current_state == GameState.CUTSCENE:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -57,6 +62,8 @@ var current_state : GameState:
 
 # Progression
 var philosopher_stone_recipe_read : bool = false
+var alchemy_recipe_read : bool = false
+var flare_recipe_read : bool = false
 var lamp_in_hand : bool = false
 var first_shadow_encountered : bool = false
 var first_shadow_spawned : bool = false
@@ -87,8 +94,10 @@ signal game_over
 signal game_started
 
 # Game Progression Signals
-signal recipe_read
 signal lamp_collected
+signal recipe_read
+signal alchemy_read_signal
+signal flare_read_signal
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
@@ -97,6 +106,7 @@ signal shadow_crawl_trigger
 signal shadow_removed
 
 var bus
+
 func _ready() -> void:
 	reset_progress()
 	ovani_player = OvaniPlayer.new()
@@ -109,7 +119,9 @@ func _ready() -> void:
 	philosopher_stone_progress.connect(_on_philosopher_stone_progress)
 	tick_countdown.connect(_on_tick_countdown)
 	stone_consumed.connect(_on_stone_consumed)
-	recipe_read.connect(_on_philosopher_stone_recipe_read)
+	recipe_read.connect(_on_read_stone_trigger_book)
+	alchemy_read_signal.connect(_on_read_alchemy_trigger_book)
+	flare_read_signal.connect(_on_read_flare_trigger_book)
 	#assign_random_ingredient_to_each_dispenser()
 	
 
@@ -203,14 +215,18 @@ func is_spot_available(darkness : Darkness):
 	return not darkness.shadow_present and darkness.cooldown <= 0
 
 
-func _on_philosopher_stone_recipe_read():
+func _on_read_stone_trigger_book():
 	philosopher_stone_recipe_read = true
 	# Play cutscene
-	# Start game timer
 	fog_environment.environment.fog_density = GAME_START_FOG_DENSITY
 	game_started.emit()
 	print("The game begins")
-	
+
+func _on_read_alchemy_trigger_book():
+	alchemy_recipe_read = true
+
+func _on_read_flare_trigger_book():
+	flare_recipe_read = true
 
 # Endgame progress:
 func _on_philosopher_stone_progress(amount: int):

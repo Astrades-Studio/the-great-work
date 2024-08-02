@@ -71,15 +71,15 @@ func _ready():
 	self.connect("interacted", on_tool_use)
 	assert(self.tool_type != null, "Tool has no type")
 
-
 func on_tool_use() -> bool:
-	if GameManager.philosopher_stone_recipe_read == false:
+	if GameManager.read_flare_book == false and GameManager.read_stone_trigger_book == false and GameManager.read_alchemy_book == false:
 		DialogManager.create_dialog_piece("I should check the recipe first.")
 		return false
 	if processing:
 		DialogManager.create_dialog_piece("Now I just need to wait a little.")
 		return false
 	
+
 	var hand_ingredient = GameManager.player.ingredient_in_hand
 	if !hand_ingredient:	
 		if tool_type == Type.CAULDRON:

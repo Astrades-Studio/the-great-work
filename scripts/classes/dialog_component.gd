@@ -1,3 +1,4 @@
+class_name DialogComponent
 extends Node
 
 @export var dialog : Dialog

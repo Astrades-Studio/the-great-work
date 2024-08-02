@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 	if !_ingredient_type:
-		printerr("No ingredient type assigned")
+		DialogManager.create_subtitles_piece("It seems to be empty")
 		return
   
 	if _ingredient_type == Ingredient.Type.NONE:

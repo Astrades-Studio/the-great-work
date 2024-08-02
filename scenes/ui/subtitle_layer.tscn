@@ -27,7 +27,7 @@ mouse_filter = 2
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.55
+size_flags_stretch_ratio = 9.83
 mouse_filter = 2
 
 [node name="CinematicLabel" type="Label" parent="VBoxContainer/CenterContainer"]

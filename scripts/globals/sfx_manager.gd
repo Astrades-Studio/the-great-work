@@ -5,7 +5,7 @@ var sound_bus_2 : AudioStreamPlayer
 var sound_bus_3 : AudioStreamPlayer
 
 const PAGE_BOOK = preload("res://assets/sounds/sfx/Page Book.wav")
-
+const OPEN_BOOK = preload("res://assets/sounds/sfx/Open Book.wav")
 const SHADOW_01 = preload("res://assets/sounds/sfx/shadow/Shadow_01.wav")
 const SHADOW_02 = preload("res://assets/sounds/sfx/shadow/Shadow_02.wav")
 const SHADOW_03 = preload("res://assets/sounds/sfx/shadow/Shadow_03.wav")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://bfcsgna6rb617"]
+[gd_scene load_steps=7 format=4 uid="uid://bfcsgna6rb617"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_f5mii"]
 [ext_resource type="Material" uid="uid://dpxfji40c7crm" path="res://scenes/materials/stone2.tres" id="2_bmm5d"]
+[ext_resource type="AudioStream" uid="uid://ces6vvc4otma7" path="res://assets/sounds/sfx/Mortar.wav" id="4_jamf7"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="4_kkm5h"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kax00"]
@@ -43,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105712, 0.187664, -0.004
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600002, 0)
 visible = false
 billboard = 2
-text = "5"
+text = "3"
 
 [node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("4_kkm5h")
@@ -51,3 +52,7 @@ mesh = NodePath("../MeshInstance3D")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_jamf7")
+volume_db = -17.902

@@ -137,4 +137,4 @@ func play_random_whisper() -> void:
 
 
 func play_random_shadow_sound():
-	SfxManager.play_shadow_sound(-20.)
+	SfxManager.play_shadow_sound(-20.0)

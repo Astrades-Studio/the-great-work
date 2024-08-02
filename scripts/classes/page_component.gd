@@ -18,3 +18,4 @@ func request_page_UI(_page: Texture):
 		printerr("No page assigned")
 		return
 	GameManager.request_page_UI(_page)
+	DialogManager.create_subtitles_piece("I probably should light the fireplace")

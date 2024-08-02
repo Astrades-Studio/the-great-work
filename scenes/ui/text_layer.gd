@@ -54,8 +54,9 @@ func show_text(text: Texture2D):
 	if !text:
 		return
 	self.show()
-	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
-	GameManager.current_state = GameManager.GameState.PAUSED
+	SfxManager.play_sound(SfxManager.OPEN_BOOK, audio_delay)
+	SfxManager.sound_bus_1.volume_db = -5.0
+	GameManager.current_state = GameManager.GameState.STATIC
 	if text.get_height() > 1000:
 		pass
 	
@@ -70,6 +71,7 @@ func hide_text():
 	if texture_rect.texture:
 		texture_rect.texture = null
 		SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
+		SfxManager.sound_bus_1.volume_db = -5.0
 
 var last_page : int = -1
 

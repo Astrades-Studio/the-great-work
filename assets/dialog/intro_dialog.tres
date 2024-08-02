@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_11twa"]
 script = ExtResource("1_fadr2")
 dialog_speaker = "Adam"
-dialog_text = "It should not be long now."
+dialog_text = ""
 
 [resource]
 script = ExtResource("2_21uvw")

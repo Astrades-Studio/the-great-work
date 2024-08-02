@@ -5,6 +5,7 @@ extends Node3D
 @onready var ingredients: Node3D = %Ingredients
 @onready var game_over_timer: Timer = %GameOverTimer
 @onready var ovani_player: OvaniPlayer = $OvaniPlayer
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var max_time := 10
 @export var tick_length := 60.
@@ -23,9 +24,8 @@ func _ready() -> void:
 	GameManager.shadow_removed.connect(_timer_up)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	await get_tree().create_timer(1).timeout
-	
-	DialogManager.play_subtitles(load("res://assets/dialog/intro_fireplace.tres"), 2.0)
-
+	audio_stream_player_3d.play()
+	DialogManager.play_subtitles(load("res://assets/dialog/intro_adam.tres"), 2.0)
 
 func start_midnight_game():
 	game_over_timer.start(tick_length)
@@ -55,7 +55,6 @@ func trigger_death_timer():
 	get_tree().create_timer(tick_length - 4.89).timeout.connect(
 		func(): MusicManager.play_music(DEATH_SOUND)
 	)
-
 
 
 func _on_basement_trigger_body_entered(body: Node3D) -> void:

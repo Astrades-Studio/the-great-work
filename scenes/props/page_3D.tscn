@@ -76,7 +76,6 @@ shape = SubResource("BoxShape3D_iq1wu")
 
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_ujfnc")
-sprite = null
 
 [node name="PageComponent" type="Node" parent="."]
 script = ExtResource("4_ukpf3")
