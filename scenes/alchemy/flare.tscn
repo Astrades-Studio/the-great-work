@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=25 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="2_yvr0d"]
@@ -28,6 +28,25 @@ billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_g433d"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_st2nh"]
+frequency = 0.086
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2upg7"]
+color_ramp = SubResource("Gradient_g433d")
+noise = SubResource("FastNoiseLite_st2nh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv2ra"]
+albedo_color = Color(0.457303, 0, 0.00978763, 1)
+albedo_texture = SubResource("NoiseTexture2D_2upg7")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rowkc"]
+material = SubResource("StandardMaterial3D_bv2ra")
+top_radius = 0.03
+bottom_radius = 0.1
+height = 0.05
 
 [sub_resource type="Gradient" id="Gradient_ck72b"]
 
@@ -111,12 +130,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5
 visible = false
 layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
-light_energy = 7.697
+light_energy = 5.0
 light_bake_mode = 0
 omni_range = 11.182
 
 [node name="Contents" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.484496, 0, 0, 0, 1.51409, -5.16381e-15, 0, 1.61374e-14, 0.484496, 0, 0.0236235, -1.00061e-07)
+transform = Transform3D(0.451846, 0, 0, 0, 1.41205, -4.81582e-15, 0, 1.50499e-14, 0.451846, 0, 0.0246428, -1.00061e-07)
+mesh = SubResource("CylinderMesh_rowkc")
 skeleton = NodePath("../../Mercury")
 
 [node name="Pipe" type="MeshInstance3D" parent="."]

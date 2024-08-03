@@ -1,4 +1,3 @@
-@tool
 class_name Flare
 extends Ingredient
 
@@ -41,8 +40,9 @@ func _ready() -> void:
 	if is_instance_valid(contents):
 		var active_material : StandardMaterial3D = contents.get_active_material(0)
 		if active_material:
-			contents.mesh = active_material.duplicate()
 			active_material.albedo_color = Color.DARK_RED
+			contents.mesh.surface_set_material(0, active_material.duplicate())
+			
 	
 	if type != Ingredient.Type.FLARE:
 		type = Ingredient.Type.FLARE
@@ -63,7 +63,7 @@ func _on_duration_timer_timeout() -> void:
 	if is_instance_valid(contents):
 		var active_material : StandardMaterial3D = contents.get_active_material(0)
 		if active_material:
-			contents.mesh = active_material.duplicate()
+			contents.mesh.surface_set_material(0, active_material.duplicate())
 			active_material.albedo_color = Color.PAPAYA_WHIP
 	name = "Spent Flare"
 	spent = true
