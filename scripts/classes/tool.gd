@@ -72,7 +72,7 @@ func _ready():
 	assert(self.tool_type != null, "Tool has no type")
 
 func on_tool_use() -> bool:
-	if GameManager.read_flare_book == false and GameManager.read_stone_trigger_book == false and GameManager.read_alchemy_book == false:
+	if GameManager.flare_recipe_read == false:
 		DialogManager.create_dialog_piece("I should check the recipe first.")
 		return false
 	if processing:
