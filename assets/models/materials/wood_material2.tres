@@ -24,7 +24,7 @@ color_ramp = SubResource("Gradient_ae5a6")
 noise = SubResource("FastNoiseLite_a7ous")
 
 [resource]
-albedo_color = Color(0.676482, 0.432441, 0.243992, 1)
+albedo_color = Color(0.522383, 0.324737, 0.170555, 1)
 albedo_texture = SubResource("NoiseTexture2D_tabk3")
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_7mx5l")

@@ -5,7 +5,7 @@ extends Node3D
 @onready var ingredients: Node3D = %Ingredients
 @onready var game_over_timer: Timer = %GameOverTimer
 @onready var ovani_player: OvaniPlayer = $OvaniPlayer
-@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $Level/Ambient/AudioStreamPlayer3D
 
 @export var max_time := 10
 @export var tick_length := 60.
@@ -16,6 +16,7 @@ static var countdown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SimpleGrass.set_interactive(true)
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	GameManager.ingredient_layer = ingredients

@@ -1,11 +1,15 @@
-[gd_resource type="Environment" format=3 uid="uid://dxjf3e8aefdjw"]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dxjf3e8aefdjw"]
+
+[ext_resource type="Sky" uid="uid://x2114snxil" path="res://scenes/starry_sky.tres" id="1_oynbs"]
 
 [resource]
-background_color = Color(0.0272565, 0.0306932, 0.0273626, 1)
-background_energy_multiplier = 0.0
+background_mode = 2
+background_color = Color(0.010241, 0.0115341, 0.0102809, 1)
+background_energy_multiplier = 1.1
+sky = ExtResource("1_oynbs")
 ambient_light_source = 2
-ambient_light_color = Color(0.187429, 0.182905, 0.177697, 1)
-ambient_light_energy = 4.52
+ambient_light_color = Color(0.508815, 0.500091, 0.490053, 1)
+ambient_light_energy = 0.99
 tonemap_mode = 2
 tonemap_exposure = 0.21
 tonemap_white = 0.5

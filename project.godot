@@ -24,6 +24,7 @@ SfxManager="*res://scripts/globals/sfx_manager.gd"
 MusicManager="*res://scripts/music_manager.gd"
 DialogManager="*res://scripts/globals/dialog_manager.gd"
 TransitionManager="*res://scripts/globals/transition_manager.gd"
+SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
@@ -33,12 +34,11 @@ window/size/initial_position_type=0
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
@@ -48,6 +48,10 @@ folder_colors={
 "res://scenes/": "green",
 "res://scripts/": "purple"
 }
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global_group]
 
@@ -169,3 +173,42 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 occlusion_culling/use_occlusion_culling=true
 occlusion_culling/quality/use_taa=false
+
+[shader_globals]
+
+sgt_player_position={
+"type": "vec3",
+"value": Vector3(1e+06, 1e+06, 1e+06)
+}
+sgt_player_mov={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+sgt_normal_displacement={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/normal.png"
+}
+sgt_motion_texture={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/motion.png"
+}
+sgt_wind_direction={
+"type": "vec3",
+"value": Vector3(1, 0, 0)
+}
+sgt_wind_movement={
+"type": "vec3",
+"value": Vector2(0, 0)
+}
+sgt_wind_strength={
+"type": "float",
+"value": 0.15
+}
+sgt_wind_turbulence={
+"type": "float",
+"value": 1.0
+}
+sgt_wind_pattern={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
+}

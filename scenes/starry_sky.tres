@@ -4,14 +4,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpvms"]
 shader = ExtResource("1_wociv")
-shader_parameter/sky_color = Color(0.022728, 0.0385338, 0.0920149, 1)
-shader_parameter/star_base_color = Color(0.844561, 0.943968, 0.865579, 1)
-shader_parameter/star_hue_offset = 0.322
-shader_parameter/star_intensity = 0.075
+shader_parameter/sky_color = Color(0.0641952, 0.053973, 0.118229, 1)
+shader_parameter/star_base_color = Color(0.605274, 0.605274, 0.605274, 1)
+shader_parameter/star_hue_offset = 0.133
+shader_parameter/star_intensity = 0.032
 shader_parameter/star_twinkle_speed = 0.875
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 0.0
+shader_parameter/star_twinkle_intensity = 0.121
+shader_parameter/layer_scale = 12.162
+shader_parameter/layer_scale_step = 5.406
 shader_parameter/layers_count = 3
 
 [resource]

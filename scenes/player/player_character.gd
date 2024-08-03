@@ -84,6 +84,7 @@ func raycast_forward(to_position: Vector3) -> Vector3:
 		return to_position
 
 func _process(delta: float) -> void:
+	SimpleGrass.set_player_position(global_position)
 	if GameManager.current_state == GameManager.GameState.STATIC:
 		# Permite el movimiento de la cámara pero no del jugador
 		return

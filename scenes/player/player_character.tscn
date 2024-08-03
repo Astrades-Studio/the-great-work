@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=21 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -108,6 +108,8 @@ size = Vector3(0.618164, 0.995728, 0.539063)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_yu7m1"]
+
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 collision_layer = 66
@@ -126,7 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Body/Head/CameraMarker3D"]
 transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, 0, 0)
-cull_mask = 1048573
+cull_mask = 983037
 current = true
 far = 57.97
 
@@ -354,5 +356,10 @@ size_flags_vertical = 8
 
 [node name="FearEffect" parent="PanicEffects" index="0"]
 metadata/_edit_lock_ = true
+
+[node name="Interactive" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.873934, 0, 0, 0, 0.873934, 0, 0, 0, 0.873934, 0, 0.625356, 0)
+layers = 65536
+mesh = SubResource("SphereMesh_yu7m1")
 
 [editable path="PanicEffects"]
