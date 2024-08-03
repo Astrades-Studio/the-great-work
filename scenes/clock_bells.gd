@@ -9,3 +9,4 @@ func _on_body_entered(body: Node3D) -> void:
 		clock_bells.play(6.0)
 		if !played:
 			played = true
+			
