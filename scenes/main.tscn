@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=145 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -66,8 +66,9 @@
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
 [ext_resource type="Script" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
+[ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
-[ext_resource type="ArrayOccluder3D" uid="uid://cqvnwpf0nljlr" path="res://scenes/occluder_test.occ" id="68_46fks"]
+[ext_resource type="ArrayOccluder3D" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
@@ -874,35 +875,15 @@ size = Vector3(1.64551, 3.65749, 2.8418)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mnvt3"]
 size = Vector3(3.4021, 2.1, 3.23853)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k054j"]
+size = Vector3(3.76218, 3.29941, 1.64557)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ieb32"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fja2a"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_lu6va")
-shader_parameter/albedo = Color(0.292293, 0.242754, 0.462412, 1)
-shader_parameter/texture_frames = Vector2(1, 1)
-shader_parameter/light_mode = 1
-shader_parameter/alpha_scissor_threshold = 0.5
-shader_parameter/normal_scale = 1.0
-shader_parameter/metallic = 0.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/roughness = 1.0
-shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/scale_h = 0.915
-shader_parameter/scale_w = 0.525
-shader_parameter/scale_var = 1.165
-shader_parameter/grass_strength = 0.081
-shader_parameter/optimization_by_distance = false
-shader_parameter/optimization_level = 7.0
-shader_parameter/optimization_dist_min = 10.0
-shader_parameter/optimization_dist_max = 50.0
-shader_parameter/grass_size_y = 1.0
-shader_parameter/interactive_mode = true
-shader_parameter/interactive_level_xz = 5.065
-shader_parameter/interactive_level_y = 0.805
-shader_parameter/texture_albedo = ExtResource("14_7i5hq")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j6f1r"]
 _surfaces = [{
@@ -911,7 +892,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_ieb32"),
+"material": SubResource("ShaderMaterial_fja2a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -1000,7 +981,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 visible = false
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.625288
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1013,7 +994,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="Level/House/GasLamp"]
-wait_time = 0.666251
+wait_time = 0.978883
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/House/GasLamp"]
@@ -2188,6 +2169,19 @@ max_distance = 6.0
 panning_strength = 2.05
 bus = &"SFX"
 
+[node name="FlareProgressionCheck" type="Area3D" parent="Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6351, -0.0856415, 7.0101)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("54_yf16p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/FlareProgressionCheck"]
+transform = Transform3D(0.999993, 0, -0.00352552, 0, 1, 0, 0.00352552, 0, 0.999993, -0.489532, 1.70743, -0.52182)
+shape = SubResource("BoxShape3D_k054j")
+
+[node name="TargetPosition" type="Node3D" parent="Triggers/FlareProgressionCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
+
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.417234, 0.129867, -5.76971)
 
@@ -2278,6 +2272,7 @@ omni_attenuation = 3.717
 [connection signal="body_entered" from="Triggers/LabTable" to="Triggers/LabTable" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ClockBells" to="Triggers/ClockBells" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/HintLamp" to="Triggers/HintLamp" method="_on_body_entered"]
+[connection signal="body_entered" from="Triggers/FlareProgressionCheck" to="Triggers/FlareProgressionCheck" method="_on_body_entered"]
 
 [editable path="Level/Shadows/SpawnDiningRoom/Darkness"]
 [editable path="Level/Shadows/SpawnEntrance/Darkness"]
