@@ -8,7 +8,7 @@ const MAIN_MENU = "res://scenes/ui/main_menu.tscn"
 
 const SORROW_SONG = preload("res://assets/sounds/music/sorrow_song.tres")
 
-const MAX_SPAWNED_INGREDIENT_AMOUNT := 15
+const MAX_SPAWNED_INGREDIENT_AMOUNT := 20
 const INITIAL_FOG_DENSITY := 0.04
 const GAME_START_FOG_DENSITY := 0.1
 const FOG_DENSITY_MAX := 0.65
@@ -64,6 +64,7 @@ var current_state : GameState:
 var philosopher_stone_recipe_read : bool = false
 var alchemy_recipe_read : bool = false
 var flare_recipe_read : bool = false
+var flare_already_made : bool = false
 var lamp_in_hand : bool = false
 var first_shadow_encountered : bool = false
 var first_shadow_spawned : bool = false
@@ -260,6 +261,7 @@ func reset_progress():
 	first_shadow_spawned = false
 	good_ending = false
 	bad_ending = false
+	flare_already_made = false
 
 
 func clear_arrays():

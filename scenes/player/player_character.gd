@@ -130,6 +130,8 @@ func interact():
 		if ingredient_in_hand is Flare:
 			if !ingredient_in_hand.active:
 				ingredient_in_hand.active = true
+			else:
+				animation_player.play("attack")
 				return
 		if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
 			animation_player.play("swallow")

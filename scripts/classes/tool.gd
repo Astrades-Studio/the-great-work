@@ -73,7 +73,7 @@ func _ready():
 
 func on_tool_use() -> bool:
 	if GameManager.flare_recipe_read == false:
-		DialogManager.create_dialog_piece("I should check the recipe first.")
+		DialogManager.create_dialog_piece("I should look for Adam first.")
 		return false
 	if processing:
 		DialogManager.create_dialog_piece("Now I just need to wait a little.")
@@ -94,6 +94,16 @@ func on_tool_use() -> bool:
 					DialogManager.create_dialog_piece("The mix looks very dark. This is the first step towards attaining the stone.")
 					return false	
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
+				
+				if (stored_ingredient.type == Ingredient.Type.FLARE):
+					GameManager.flare_already_made = true
+					var flare_1 : Node = stored_ingredient.duplicate()
+					var flare_2 : Node = stored_ingredient.duplicate()
+					var flare_3 : Node = stored_ingredient.duplicate()
+					move_ingredient_to_player(flare_1)
+					move_ingredient_to_player(flare_2)
+					move_ingredient_to_player(flare_3)
+					return false
 				move_ingredient_to_player(stored_ingredient)
 				return false
 		else:
@@ -145,7 +155,7 @@ func on_tool_use() -> bool:
 	
 	if new_ingredient_type != Ingredient.Type.NONE:
 		stored_ingredient = instance_ingredient(new_ingredient_type)
-
+	
 		start_tool_timer()
 	
 	GameManager.player.ingredient_in_hand = null

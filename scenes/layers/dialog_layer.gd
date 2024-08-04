@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @onready var name_label: Label = %NameLabel
 @onready var text_label: Label = %TextLabel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 signal next_line_requested
 signal dialog_finished
@@ -15,6 +16,7 @@ func _ready() -> void:
 	self.hide()
 	DialogManager.dialog_layer = self
 	dialog_finished.connect(DialogManager._on_dialog_finished)
+	animation_player.play("next_line_indication")
 
 
 func _input(event: InputEvent) -> void:

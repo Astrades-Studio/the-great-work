@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://c24q6iu8obwb0"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_pf2p7"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_12e4l"]
+
+[sub_resource type="Resource" id="Resource_0i25i"]
+script = ExtResource("1_pf2p7")
+dialog_speaker = "Melchiades"
+dialog_text = "Adam might be down there...."
+
+[sub_resource type="Resource" id="Resource_u2tn6"]
+script = ExtResource("1_pf2p7")
+dialog_speaker = "Melchiades"
+dialog_text = "But it's too dark to see anything."
+
+[sub_resource type="Resource" id="Resource_e5r7b"]
+script = ExtResource("1_pf2p7")
+dialog_speaker = "Melchiades"
+dialog_text = "I think I can craft something that can help, I should check the kitchen."
+
+[resource]
+script = ExtResource("2_12e4l")
+dialog_id = &""
+dialog = Array[ExtResource("1_pf2p7")]([SubResource("Resource_0i25i"), SubResource("Resource_u2tn6"), SubResource("Resource_e5r7b")])

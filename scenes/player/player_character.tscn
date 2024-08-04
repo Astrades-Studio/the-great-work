@@ -7,7 +7,6 @@
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/dot_small.png" id="5_pbhtp"]
-[ext_resource type="Script" path="res://scenes/player/interaction_label.gd" id="6_ur5a8"]
 [ext_resource type="Texture2D" uid="uid://b04pjkwdnnbvb" path="res://assets/ui/icons/mouse_left_outline.png" id="10_dx5ro"]
 [ext_resource type="PackedScene" uid="uid://blykgf66nhee" path="res://scenes/player/fear_effect.tscn" id="11_4yl7r"]
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
@@ -92,9 +91,26 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_gleqa"]
+resource_name = "attack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 2.56667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.25364, 0, 0), Vector3(-1.25364, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qaw5b"]
 _data = {
 "RESET": SubResource("Animation_1635k"),
+"attack": SubResource("Animation_gleqa"),
 "swallow": SubResource("Animation_qv0sh")
 }
 
@@ -249,7 +265,6 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 uppercase = true
-script = ExtResource("6_ur5a8")
 
 [node name="PanelContainer" type="PanelContainer" parent="HUDLayer/MarginContainer"]
 layout_mode = 2

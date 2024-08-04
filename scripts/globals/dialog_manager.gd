@@ -5,6 +5,9 @@ var subtitles_layer : SubtitleLayer
 
 const INTRO := preload("res://assets/dialog/intro_dialog.tres")
 
+signal dialog_finished
+
+
 # First create DialogPiece.new() and set dialog_text to be the text to say and dialog_name to be the name
 # To write dialog to the screen, just call DialogManager.show_text(DialoguePiece)
 # Can be done from wherever
@@ -50,6 +53,7 @@ func skip_dialog():
 
 func _on_dialog_finished():
 #	await get_tree().create_timer(0.2).timeout
+	dialog_finished.emit()
 	GameManager.current_state = GameManager.GameState.PLAYING
 
 

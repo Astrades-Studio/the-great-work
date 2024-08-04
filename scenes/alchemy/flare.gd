@@ -69,5 +69,6 @@ func _on_duration_timer_timeout() -> void:
 	spent = true
 
 
+
 func _on_shadow_barrier_area_entered(_area: Area3D) -> void:
 	pass # Replace with function body.
