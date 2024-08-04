@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=4 uid="uid://dfx4lp3vs1ref"]
+[gd_scene load_steps=33 format=4 uid="uid://dfx4lp3vs1ref"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="2_bh27f"]
-[ext_resource type="PackedScene" uid="uid://dqw756t4sb7ly" path="res://scenes/props/woodenplace.tscn" id="3_mrpge"]
-[ext_resource type="Material" uid="uid://did56lsjeoaiw" path="res://assets/models/materials/lava.tres" id="4_3u2cw"]
+[ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="4_sebr7"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
 [ext_resource type="AudioStream" uid="uid://dyco67xmd824" path="res://assets/sounds/sfx/Bubbles Short A.wav" id="6_gvs0u"]
+[ext_resource type="AudioStream" uid="uid://bymjk5f48qfhn" path="res://assets/sounds/sfx/Brewing 2.wav" id="7_ylrkn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wb61"]
 size = Vector3(1.20654, 0.754822, 1.24414)
@@ -91,9 +91,38 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tvmmu")
 
+[sub_resource type="Gradient" id="Gradient_ysfbc"]
+colors = PackedColorArray(0.383216, 0.195311, 0.0616978, 1, 0.982045, 0.898739, 0.850716, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_02yhb"]
+noise_type = 2
+seed = 180
+frequency = 0.0163
+fractal_type = 3
+fractal_lacunarity = 1.95
+fractal_gain = 0.785
+cellular_jitter = -1.67
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wa2ct"]
+seamless = true
+seamless_blend_skirt = 0.825
+color_ramp = SubResource("Gradient_ysfbc")
+noise = SubResource("FastNoiseLite_02yhb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3xkk"]
+blend_mode = 3
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_wa2ct")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(0.85, 0.85, 0.85)
+uv1_triplanar_sharpness = 0.535887
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3rqef"]
+material = SubResource("StandardMaterial3D_d3xkk")
+
 [sub_resource type="Gradient" id="Gradient_153bb"]
-offsets = PackedFloat32Array(0.40458, 0.932692)
-colors = PackedColorArray(0.33, 0.33, 0.33, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.0330578, 0.280992, 0.61157)
+colors = PackedColorArray(0.81994, 0.343134, 0, 1, 0.447075, 0.175987, 0.0223667, 1, 0.942656, 0.537075, 0.313595, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rk0de"]
 noise_type = 3
@@ -103,22 +132,90 @@ domain_warp_enabled = true
 domain_warp_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jjqdt"]
+seamless = true
+seamless_blend_skirt = 0.588
 color_ramp = SubResource("Gradient_153bb")
 noise = SubResource("FastNoiseLite_rk0de")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sepv"]
-blend_mode = 1
-albedo_color = Color(0.856328, 0.890452, 0.843422, 1)
+albedo_color = Color(0.731021, 0.489331, 0, 1)
 albedo_texture = SubResource("NoiseTexture2D_jjqdt")
 emission_enabled = true
-emission = Color(0.93, 0.341, 0, 1)
-emission_energy_multiplier = 1.94
-emission_operator = 1
+emission = Color(0.632256, 0.132328, 4.81308e-08, 1)
+emission_energy_multiplier = 4.84
 uv1_offset = Vector3(0.38, 0.455, -0.165)
 uv1_triplanar = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_5xtoe"]
-material = ExtResource("4_3u2cw")
+[sub_resource type="Gradient" id="Gradient_pmrm7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.0973451, 0.40708, 1)
+colors = PackedColorArray(0.119245, 0.0187897, 0, 1, 0.238491, 0.0375794, 0, 1, 0.119245, 0.0187897, 0, 1, 0.704209, 0.110963, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5r7p3"]
+noise_type = 3
+frequency = 0.0673
+fractal_octaves = 1
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qbw6n"]
+color_ramp = SubResource("Gradient_pmrm7")
+noise = SubResource("FastNoiseLite_5r7p3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma111"]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = SubResource("NoiseTexture2D_qbw6n")
+albedo_texture_force_srgb = true
+emission = Color(0.59623, 0.254178, 0, 1)
+emission_energy_multiplier = 0.0
+emission_on_uv2 = true
+uv1_scale = Vector3(6.75, 6.75, 6.75)
+uv1_offset = Vector3(0.16, 0, 0)
+uv1_triplanar_sharpness = 1.46409
+uv2_scale = Vector3(1.005, 1.005, 1.005)
+
+[sub_resource type="QuadMesh" id="QuadMesh_t8wf7"]
+material = SubResource("StandardMaterial3D_ma111")
+uv2_padding = 0.0
+
+[sub_resource type="Animation" id="Animation_pdm6r"]
+resource_name = "brewing"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pot/MixPivot/MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2a0h3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pot/MixPivot/MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xb6qh"]
+_data = {
+"RESET": SubResource("Animation_2a0h3"),
+"brewing": SubResource("Animation_pdm6r")
+}
 
 [node name="Cauldron" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 script = ExtResource("1_ccfdh")
@@ -144,7 +241,7 @@ mesh = SubResource("ArrayMesh_q7uy7")
 skeleton = NodePath("")
 
 [node name="Pot" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -0.0577034, -0.998334, 0, 0.998334, -0.0577034, 1, -2.5223e-09, -4.36386e-08, 0.0121941, 0.7465, -0.037844)
+transform = Transform3D(-4.36582e-08, -0.00837745, -0.999965, 2.15663e-09, 0.999965, -0.00837745, 1, -2.5223e-09, -4.36386e-08, 0.0121941, 0.764264, -0.037844)
 mesh = SubResource("ArrayMesh_7vbbs")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
@@ -155,37 +252,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, -0.0577034, 0.998334, -2.52229e-09, 
 [node name="MixPivot" type="Node3D" parent="Pot"]
 
 [node name="Spoon" type="MeshInstance3D" parent="Pot/MixPivot"]
-transform = Transform3D(-2.80122e-08, -0.560587, 0.310521, -0.0369789, 0.310004, 0.559653, -0.639776, -0.0179181, -0.0323478, 0.0554363, 0.0656392, -0.0654637)
+transform = Transform3D(-0.724623, -0.281121, 0.153274, -0.0204054, 0.419003, 0.672027, -0.319539, 0.610744, -0.390495, -0.0301896, 0.113569, -0.118831)
 mesh = ExtResource("2_bh27f")
 skeleton = NodePath("../../..")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pot/MixPivot"]
+transform = Transform3D(0.440862, -6.07153e-18, 1.06581e-14, 4.44089e-16, 0.00470553, 3.49246e-09, -1.06581e-14, -2.91038e-11, 0.445979, 2.6077e-08, 0.215169, -0.00180263)
+mesh = SubResource("CylinderMesh_3rqef")
+
 [node name="Contents" type="CSGCylinder3D" parent="Pot"]
-transform = Transform3D(1, -2.22045e-16, -3.55271e-15, 0, 1, 1.10069e-16, 0, 1.1007e-16, 1, 0, 0.11673, -0.00674696)
+transform = Transform3D(1, -1.11022e-15, -7.10543e-15, 4.44089e-16, 1, 9.31323e-10, 0, -9.31322e-10, 1, 0, 0.136154, -0.000834113)
 radius = 0.220883
 height = 0.160229
 material = SubResource("StandardMaterial3D_2sepv")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(-0.999988, -0.000402387, 0.00494952, 9.44712e-06, 0.996556, 0.0829268, -0.00496584, 0.0829259, -0.996543, 0.0142202, 1.24062, -0.0681245)
-light_color = Color(0.641244, 0.230067, 0, 1)
-light_energy = 1.204
-light_indirect_energy = 1.48
-light_volumetric_fog_energy = 2.024
-light_size = 0.87
-light_specular = 0.0
-shadow_enabled = true
-shadow_bias = 0.02
-shadow_normal_bias = 2.84
-shadow_reverse_cull_face = true
-shadow_blur = 0.0
-omni_range = 0.453
-omni_attenuation = 2.307
-
-[node name="SmallLogPile_002" parent="." instance=ExtResource("3_mrpge")]
-transform = Transform3D(0.00482974, -0.0396628, 0.485454, 0.0394689, 0.483913, 0.0391442, -0.48547, 0.0389477, 0.00801202, 0.10202, 0.310468, 0.0192511)
-
-[node name="AudioStreamPlayer3D" parent="SmallLogPile_002" index="1"]
-process_mode = 3
 
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.25523, -0.0211237)
@@ -193,10 +272,10 @@ visible = false
 billboard = 2
 text = "10"
 
-[node name="LavaMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0156377, -0.876552, 0.00783877, -0.0160411, 0.00812485, 0.876541, -0.87644, 0.015491, -0.0161829, 0.0213266, 0.74045, -0.0771935)
-mesh = SubResource("QuadMesh_5xtoe")
-skeleton = NodePath("../SmallLogPile_002")
+[node name="LavaMesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0174634, -0.954264, 0.00884528, 0.0170243, 0.00853383, 0.954276, -0.954154, 0.0176178, 0.0168646, 0.0357752, 0.714157, -0.0887516)
+mesh = SubResource("QuadMesh_t8wf7")
+skeleton = NodePath("")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -208,8 +287,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01508, 0)
 stream = ExtResource("6_gvs0u")
 bus = &"SFX"
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("5_6l6km")
-mesh = NodePath("../Pot")
 
-[editable path="SmallLogPile_002"]
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+transform = Transform3D(-0.996676, 0.0814476, -0.00193918, 0.081029, 0.993467, 0.0803626, 0.00847185, 0.0799383, -0.996764, -0.0552411, 0.717774, -0.814715)
+stream = ExtResource("7_ylrkn")
+volume_db = -23.231
+unit_size = 15.87
+max_db = 5.456
+pitch_scale = 0.8
+autoplay = true
+max_distance = 6.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 66.3
+emission_angle_filter_attenuation_db = -60.6
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xb6qh")
+}
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+transform = Transform3D(-0.996676, 0.0814476, -0.00193918, 0.081029, 0.993467, 0.0803626, 0.00847185, 0.0799383, -0.996764, -0.00951131, 0.651541, -1.00129)
+stream = ExtResource("4_sebr7")
+volume_db = -13.435
+unit_size = 10.76
+max_db = 0.252
+autoplay = true
+max_distance = 10.0
+bus = &"SFX"
+emission_angle_enabled = true
+emission_angle_degrees = 67.3
+emission_angle_filter_attenuation_db = -60.6
