@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=146 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -60,6 +60,7 @@
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
+[ext_resource type="PackedScene" uid="uid://dsm7lxrw0sdi5" path="res://scenes/alchemy/flask.tscn" id="49_yw85j"]
 [ext_resource type="Material" uid="uid://dvup1364u66le" path="res://scenes/materials/metal.tres" id="50_m17s2"]
 [ext_resource type="Script" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
 [ext_resource type="Material" uid="uid://hhvpp8s8gsqd" path="res://assets/models/gaslamp.tres" id="51_prvkr"]
@@ -880,7 +881,7 @@ size = Vector3(3.76218, 3.29941, 1.64557)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ah3r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fja2a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44ox3"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("13_lu6va")
@@ -892,7 +893,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_fja2a"),
+"material": SubResource("ShaderMaterial_44ox3"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -981,7 +982,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 visible = false
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.625288
+light_energy = 0.404683
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -994,7 +995,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="Level/House/GasLamp"]
-wait_time = 0.978883
+wait_time = 0.591428
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/House/GasLamp"]
@@ -1005,6 +1006,106 @@ libraries = {
 
 [node name="InteractionComponent" type="Node" parent="Level/House/GasLamp"]
 script = ExtResource("20_3awsj")
+
+[node name="Flask" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95008, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask6" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.809146, 0, 0, 0, 0.809146, 0, 0, 0, 0.809146, 1.15357, 0.220134, -9.6523)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask8" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.80593, 0, -0.0720691, 0, 0.809146, 0, 0.0720691, 0, 0.80593, 1.74955, 0.257467, -9.6523)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask7" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35327, 0.220134, -9.6523)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask5" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.746952, 0, 0, 0, 0.746952, 0, 0, 0, 0.746952, 3.08098, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask2" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45147, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask3" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07837, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Still01SmFlask02001" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.703575, 0, 0, 0, 0.703575, 0, 0, 0, 0.703575, 2.51871, 1.09409, -9.66228)
+mesh = ExtResource("40_ktfaq")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1.22732, 0, 0, 0, 1.22732, 0, 0, 0, 1.22732, 2.83645, 0.224252, -9.65645)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial3" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74026, 1.73411, -9.63336)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask4" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4088, 1.7344, -9.7242)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial4" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69759, 1.73411, -9.63336)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask9" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.00830814, 0, 0.369233, 0, 0.369327, 0, -0.369233, 0, 0.00830814, 0.347839, 1.82336, -3.84512)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask10" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.01178, 0, 0.52353, 0, 0.523662, 0, -0.52353, 0, 0.01178, 0.44987, 1.57062, -3.68536)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Flask11" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.01178, 0, 0.52353, 0, 0.523662, 0, -0.52353, 0, 0.01178, 0.36832, 1.57517, -4.77106)
+mesh = ExtResource("39_j6gva")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial5" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, 0.479179, 1.58501, -4.2898)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial6" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, 0.40347, 1.82605, -4.29638)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial7" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, 0.40261, 1.82797, -4.14274)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="VialPipe" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(0.482829, 0, 0, 0, 0.482829, 0, 0, 0, 0.482829, 2.43262, 0.224252, -9.65144)
+mesh = ExtResource("42_asyi8")
+skeleton = NodePath("../../Interactibles/Dispensers")
+
+[node name="Vial2" type="MeshInstance3D" parent="Level/House"]
+transform = Transform3D(1.17415, 0, 0, 0, 1.17415, 0, 0, 0, 1.17415, 3.14209, 0.996584, -9.72923)
+mesh = ExtResource("41_uj1jk")
+skeleton = NodePath("../../Interactibles/Dispensers")
 
 [node name="Ground" type="CSGCombiner3D" parent="Level"]
 
@@ -1806,86 +1907,6 @@ shape = SubResource("ConvexPolygonShape3D_ds7vd")
 [node name="InteractionComponent" type="Node" parent="Level/Interactibles/Dispensers/Banana"]
 script = ExtResource("20_3awsj")
 
-[node name="Flask" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53842, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask6" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.809146, 0, 0, 0, 0.809146, 0, 0, 0, 0.809146, -8.33493, -0.57496, -2.16632)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask8" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.80593, 0, -0.0720691, 0, 0.809146, 0, 0.0720691, 0, 0.80593, -7.73895, -0.537627, -2.16632)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask7" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13523, -0.57496, -2.16632)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask5" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.746952, 0, 0, 0, 0.746952, 0, 0, 0, 0.746952, -6.40752, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03703, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41013, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Still01SmFlask02001" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.703575, 0, 0, 0, 0.703575, 0, 0, 0, 0.703575, -6.96979, 0.298993, -2.1763)
-mesh = ExtResource("40_ktfaq")
-
-[node name="Vial" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1.22732, 0, 0, 0, 1.22732, 0, 0, 0, 1.22732, -6.65205, -0.570842, -2.17047)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Vial3" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74824, 0.939017, -2.14738)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Flask4" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0797, 0.939311, -2.23822)
-mesh = ExtResource("39_j6gva")
-
-[node name="Vial4" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79091, 0.939017, -2.14738)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Flask9" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.00830814, 0, 0.369233, 0, 0.369327, 0, -0.369233, 0, 0.00830814, -9.14066, 1.02827, 2.76099)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask10" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.01178, 0, 0.52353, 0, 0.523662, 0, -0.52353, 0, 0.01178, -9.03863, 0.775522, 2.92075)
-mesh = ExtResource("39_j6gva")
-
-[node name="Flask11" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.01178, 0, 0.52353, 0, 0.523662, 0, -0.52353, 0, 0.01178, -9.12018, 0.780076, 1.83505)
-mesh = ExtResource("39_j6gva")
-
-[node name="Vial5" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, -9.00932, 0.789921, 2.31631)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Vial6" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, -9.08503, 1.03096, 2.30973)
-mesh = ExtResource("41_uj1jk")
-
-[node name="Vial7" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.0128265, 0, 0.57004, 0, 0.570184, 0, -0.57004, 0, 0.0128265, -9.08589, 1.03288, 2.46337)
-mesh = ExtResource("41_uj1jk")
-
-[node name="VialPipe" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(0.482829, 0, 0, 0, 0.482829, 0, 0, 0, 0.482829, -7.05588, -0.570842, -2.16546)
-mesh = ExtResource("42_asyi8")
-
-[node name="Vial2" type="MeshInstance3D" parent="Level/Interactibles/Dispensers"]
-transform = Transform3D(1.17415, 0, 0, 0, 1.17415, 0, 0, 0, 1.17415, -6.34641, 0.20149, -2.24325)
-mesh = ExtResource("41_uj1jk")
-
 [node name="Dispensers2" type="Node3D" parent="Level/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
 
@@ -1903,6 +1924,12 @@ ingredient_type = 18
 [node name="BigJug2" parent="Level/Interactibles/Dispensers2" instance=ExtResource("26_g0qm8")]
 transform = Transform3D(0.344751, 0, 0.89577, 0, 0.959822, 0, -0.89577, 0, 0.344751, -0.983589, 0, -2.60049)
 ingredient_type = 2
+
+[node name="Cauldron2" parent="Level/Interactibles" instance=ExtResource("18_bbofm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.84681, 0.127423, 1.79913)
+
+[node name="Still2" parent="Level/Interactibles" instance=ExtResource("49_yw85j")]
+transform = Transform3D(-0.208368, -0.00504691, -0.978038, 2.64093e-10, 0.999987, -0.00516017, 0.97805, -0.00107521, -0.208365, -6.22752, 1.06911, -0.000473857)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
