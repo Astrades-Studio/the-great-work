@@ -10,6 +10,7 @@ enum Type {
 }
 const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var ingredient_preview : Node
 @export var wait_time : int
@@ -62,6 +63,8 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 }
 
 func _ready():
+	if animation_player:
+		animation_player.play("boiling")
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)
