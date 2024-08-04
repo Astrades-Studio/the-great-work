@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b3b4hpbvrloo0" path="res://assets/images/recipes/flare_recipe/flare_recipe_part_1.png" id="1_deuqm"]
 [ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="1_jhllp"]
-[ext_resource type="Texture2D" uid="uid://dnolrgln2melu" path="res://assets/images/recipes/flare_recipe/flare_recipe_text.png" id="1_sxiy3"]
+[ext_resource type="Texture2D" uid="uid://denvgxpms1jcn" path="res://assets/images/recipes/flare_recipe/flare_recipe_text2.png" id="1_qhv8c"]
 [ext_resource type="Texture2D" uid="uid://nhybstkbl3d4" path="res://assets/images/recipes/flare_recipe/flare_recipe_part_2.png" id="2_c237b"]
 
 [resource]
 script = ExtResource("1_jhllp")
-pages = Array[Texture]([ExtResource("1_sxiy3"), ExtResource("1_deuqm"), ExtResource("2_c237b")])
+pages = Array[Texture]([ExtResource("1_qhv8c"), ExtResource("1_deuqm"), ExtResource("2_c237b")])
