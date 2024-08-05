@@ -10,9 +10,7 @@ const SHADOW_01 = preload("res://assets/sounds/sfx/shadow/Shadow_01.wav")
 const SHADOW_02 = preload("res://assets/sounds/sfx/shadow/Shadow_02.wav")
 const SHADOW_03 = preload("res://assets/sounds/sfx/shadow/Shadow_03.wav")
 const SHADOW_04 = preload("res://assets/sounds/sfx/shadow/Shadow_04.wav")
-const DOOR_OPENING = preload("res://assets/sounds/sfx/door_opening.mp3")
-const DOOR_CLOSING = preload("res://assets/sounds/sfx/door_closing.mp3")
-const DOOR_LOCKED = preload("res://assets/sounds/sfx/door_locked.wav")
+
 
 var shadow_sounds = [
 	SHADOW_01,

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" path="res://assets/animations/human/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
@@ -66,7 +66,7 @@
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
-[ext_resource type="ArrayOccluder3D" uid="uid://cqvnwpf0nljlr" path="res://scenes/occluder_test.occ" id="68_46fks"]
+[ext_resource type="ArrayOccluder3D" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
@@ -951,7 +951,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 visible = false
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.413602
+light_energy = 0.558847
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -964,7 +964,7 @@ omni_range = 5.088
 omni_attenuation = 3.22
 
 [node name="Timer" type="Timer" parent="Level/House/GasLamp"]
-wait_time = 0.91791
+wait_time = 0.834034
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/House/GasLamp"]

@@ -307,7 +307,7 @@ transform = Transform3D(-1.19209e-07, -1.86265e-09, 1, -0.0577033, 0.998334, 0, 
 rotation_edit_mode = 1
 
 [node name="Spoon" type="MeshInstance3D" parent="Pot/SpoonPivot"]
-transform = Transform3D(0.320184, -0.633904, 0.351066, -0.00193292, 0.383063, 0.69344, -0.724623, -0.281121, 0.153274, 0.116461, 0.0559823, -0.0680336)
+transform = Transform3D(0.323369, -0.486684, 0.218037, -0.00195215, 0.294099, 0.430675, -0.731831, -0.215832, 0.0951939, 0.116461, 0.0559823, -0.0680336)
 mesh = ExtResource("2_bh27f")
 skeleton = NodePath("../../..")
 
