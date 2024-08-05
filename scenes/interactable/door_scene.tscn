@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://dp6hy2d0eqryu"]
+[gd_scene load_steps=16 format=4 uid="uid://dp6hy2d0eqryu"]
 
 [ext_resource type="Material" uid="uid://b8x7mnu0gseib" path="res://scenes/materials/cortinas.tres" id="1_ue1q1"]
 [ext_resource type="Script" path="res://scenes/interactable/door_scene.gd" id="1_uqvrx"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_6fclx"]
+[ext_resource type="AudioStream" uid="uid://beavarl7mmqx0" path="res://assets/sounds/sfx/door_opening.mp3" id="4_flqml"]
+[ext_resource type="AudioStream" uid="uid://bh0g4gk051wxk" path="res://assets/sounds/sfx/door_closing.mp3" id="5_2pltj"]
+[ext_resource type="AudioStream" uid="uid://dg0d3e4tpkmos" path="res://assets/sounds/sfx/door_locked.wav" id="6_j6lml"]
 
 [sub_resource type="Gradient" id="Gradient_bsnkw"]
 interpolation_mode = 2
@@ -99,6 +102,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lxw3k"]
 resource_name = "open"
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,10 +110,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.333333, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 1.50016, 0)]
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 2.93215, 0), Vector3(0, 1.50016, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vlogh"]
@@ -119,11 +123,11 @@ _data = {
 }
 
 [node name="DoorStatic" type="StaticBody3D"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 1.10044, 0)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 script = ExtResource("1_uqvrx")
 
 [node name="door_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.59261e-09, 0.0120139, -3.96503e-10, 0, -5.25145e-10, -0.00907092, -0.0189182, -4.82166e-09, 1.59132e-16, 0, 0.0956826, 0)
+transform = Transform3D(-7.59262e-09, 0.0120139, -3.96502e-10, 0, -5.25144e-10, -0.00907092, -0.0189182, -4.82165e-09, 1.59132e-16, 0, 0.0956826, 0)
 mesh = SubResource("ArrayMesh_rn2sk")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
@@ -143,3 +147,33 @@ libraries = {
 
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_6fclx")
+
+[node name="DoorOpening" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("4_flqml")
+volume_db = 3.265
+unit_size = 11.02
+max_db = 3.245
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5
+
+[node name="DoorClosing" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("5_2pltj")
+volume_db = 1.667
+unit_size = 11.02
+max_db = 2.693
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5
+
+[node name="DoorLocked" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("6_j6lml")
+volume_db = -3.265
+unit_size = 11.02
+max_db = 1.775
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5
