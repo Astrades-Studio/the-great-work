@@ -25,16 +25,13 @@ func open_door():
 		return
 	
 	#OPENING DOOR
-	tween = get_tree().create_tween()
 	if !locked and !open:
-		#tween.tween_property(self, "rotation:y", 0.0, 1.0)
 		door_opening.play()
 		animation_player.play("open")
 		open = true
 		
 	#CLOSING DOOR
 	elif !locked and open:
-		#tween.tween_property(self, "rotation:y", 1.0, 1.0)
 		door_closing.play()
 		animation_player.play_backwards("open")
 		open = false

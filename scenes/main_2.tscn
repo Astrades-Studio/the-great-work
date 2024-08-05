@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="11_ufo6k"]
 [ext_resource type="Texture2D" uid="uid://yq4sxpjbr6xa" path="res://scenes/materials/grass/ground_0032_color_1k.jpg" id="12_kplbf"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="13_0us0l"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="14_xidyk"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/human/Crawl_downstairs.res" id="14_xidyk"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="15_tjmi0"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="16_kf31o"]
 [ext_resource type="Resource" uid="uid://0nyw3n73kvo1" path="res://assets/images/recipes/stone_recipe/stone_recipe.tres" id="17_o3yoe"]
