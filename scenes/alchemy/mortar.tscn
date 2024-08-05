@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_f5mii"]
 [ext_resource type="Material" uid="uid://dpxfji40c7crm" path="res://scenes/materials/stone2.tres" id="2_bmm5d"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="4_kkm5h"]
+[ext_resource type="Animation" uid="uid://tnwi335j3dp3" path="res://assets/animations/grind.res" id="5_52u5v"]
 [ext_resource type="ArrayMesh" uid="uid://cefjvy8eh20rq" path="res://assets/models/tools/mortar and pestle_mortar_pestle_001.res" id="5_om76g"]
 [ext_resource type="ArrayMesh" uid="uid://b2liv60l8nlwu" path="res://assets/models/tools/mortar and pestle_mortar_pestle_002.res" id="6_btekb"]
 
@@ -51,56 +52,17 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_1juvs"]
-resource_name = "grind"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PestleAxis:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.7, 1.06667, 1.16667, 1.26667, 1.4, 1.5, 1.63333, 1.73333, 1.83333, 1.96667, 2.06667, 2.43333, 2.6, 2.83333, 2.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.208662, 0.0488261, 0.0504928), Vector3(0.208662, 0.265809, 0.0504928), Vector3(0.20725, 0.421304, -0.00997947), Vector3(0.124426, 0.377376, -0.0704517), Vector3(0.100725, 0.310395, -0.0704517), Vector3(0.0538785, 0.364362, -0.0704517), Vector3(0.0538785, 0.282363, -0.0704517), Vector3(-0.000616305, 0.358934, -0.0704517), Vector3(-0.00589191, 0.300854, -0.0704517), Vector3(0.100725, 0.310395, -0.0704517), Vector3(0.0538785, 0.364362, -0.0704517), Vector3(0.0538785, 0.282363, -0.0704517), Vector3(-0.000616305, 0.358934, -0.0704517), Vector3(-0.00589191, 0.300854, -0.0704517), Vector3(0.124426, 0.377376, -0.0704517), Vector3(0.20725, 0.421304, -0.00997947), Vector3(0.208662, 0.265809, 0.0504928), Vector3(0.208662, 0.0488261, 0.0504928)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PestleAxis:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.7, 1.06667, 1.16667, 1.26667, 1.4, 1.5, 1.63333, 1.73333, 1.83333, 1.96667, 2.06667, 2.43333, 2.6, 2.83333, 2.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.63612, 0), Vector3(1.70457e-08, 0.63612, 0.961903), Vector3(2.44463e-08, 0.63612, 0.961903), Vector3(-1.70457e-08, 0.63612, 0.961903), Vector3(-1.70457e-08, 0.63612, 0.961903), Vector3(-0.161388, 0.618071, 1.18417), Vector3(-0.161388, 0.618071, 1.18417), Vector3(-0.291358, 0.573881, 1.38005), Vector3(-0.291358, 0.573881, 1.38005), Vector3(-1.70457e-08, 0.63612, 0.961903), Vector3(-0.161388, 0.618071, 1.18417), Vector3(-0.161388, 0.618071, 1.18417), Vector3(-0.291358, 0.573881, 1.38005), Vector3(-0.291358, 0.573881, 1.38005), Vector3(-1.70457e-08, 0.63612, 0.961903), Vector3(2.44463e-08, 0.63612, 0.961903), Vector3(1.70457e-08, 0.63612, 0.961903), Vector3(0, 0.63612, 0)]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer3D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [],
-"times": PackedFloat32Array()
-}
-tracks/2/use_blend = true
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d7781"]
 _data = {
 "RESET": SubResource("Animation_lrluq"),
-"grind": SubResource("Animation_1juvs")
+"grind": ExtResource("5_52u5v")
 }
 
 [node name="Mortar" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
 collision_layer = 4
 script = ExtResource("1_f5mii")
 ingredient_preview = NodePath("IngredientSpot")
-wait_time = 3
+wait_time = 4
 tool_type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -128,6 +90,7 @@ unique_name_in_owner = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = -17.902
+autoplay = true
 bus = &"SFX"
 
 [node name="Mortar" type="MeshInstance3D" parent="."]
@@ -141,6 +104,7 @@ libraries = {
 }
 
 [node name="PestleAxis" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 metadata/_edit_group_ = true
 
 [node name="Pestle" type="MeshInstance3D" parent="PestleAxis"]
