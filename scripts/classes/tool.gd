@@ -298,7 +298,6 @@ func spawn_at_target(ingredient : Ingredient) -> void:
 
 
 func start_tool_timer() -> void:
-	play_use_animation()
 	processing = true
 	wait_label.show()
 	wait_label.text = str(wait_time)

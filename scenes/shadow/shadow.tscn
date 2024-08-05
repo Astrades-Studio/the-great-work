@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=4 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow/shadow.gd" id="1_4x05d"]
-[ext_resource type="Animation" uid="uid://dqfsqto83tklk" path="res://assets/animations/crawl.res" id="3_wcyuf"]
-[ext_resource type="Animation" uid="uid://dv4khgmsk6rm3" path="res://assets/animations/standing_idle.res" id="4_6qy5x"]
-[ext_resource type="Animation" uid="uid://qtvkxs4um4ek" path="res://assets/animations/standing_idle_2.res" id="5_6ohqd"]
-[ext_resource type="Animation" uid="uid://c4sbyf2kqerwl" path="res://assets/animations/hanging.res" id="6_6ig0p"]
-[ext_resource type="Animation" uid="uid://c1sirprteysj7" path="res://assets/animations/dynamic.res" id="7_bqpw2"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="8_rj03y"]
+[ext_resource type="Animation" uid="uid://dqfsqto83tklk" path="res://assets/animations/human/crawl.res" id="3_wcyuf"]
+[ext_resource type="Animation" uid="uid://dv4khgmsk6rm3" path="res://assets/animations/human/standing_idle.res" id="4_6qy5x"]
+[ext_resource type="Animation" uid="uid://qtvkxs4um4ek" path="res://assets/animations/human/standing_idle_2.res" id="5_6ohqd"]
+[ext_resource type="Animation" uid="uid://c4sbyf2kqerwl" path="res://assets/animations/human/hanging.res" id="6_6ig0p"]
+[ext_resource type="Animation" uid="uid://c1sirprteysj7" path="res://assets/animations/human/dynamic.res" id="7_bqpw2"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/human/Crawl_downstairs.res" id="8_rj03y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7oee"]
 transparency = 3

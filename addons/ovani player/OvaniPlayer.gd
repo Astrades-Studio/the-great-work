@@ -120,6 +120,7 @@ func _constructPolySoundManager(song : OvaniSong) -> PolySoundManager:
 func _ready():
 	var audioPlayer : AudioStreamPlayer = AudioStreamPlayer.new();
 	audioPlayer.stream = AudioStreamPolyphonic.new();
+	audioPlayer.set_bus("Music")
 	add_child(audioPlayer, INTERNAL_MODE_BACK);
 	audioPlayer.owner = null;
 	audioPlayer.play();
