@@ -43,7 +43,6 @@ gravity = Vector3(0, 1, 0)
 size = Vector2(0.6, 0.5)
 
 [node name="Darkness" type="Area3D" groups=["darkness"]]
-visible = false
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("1_hrpg6")

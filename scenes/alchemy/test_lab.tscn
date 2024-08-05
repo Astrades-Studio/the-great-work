@@ -255,6 +255,6 @@ read_stone_trigger_book = true
 
 [node name="Darkness" parent="Book" instance=ExtResource("25_r5nwv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430456, 5.32912)
-visible = true
 
+[editable path="Tools/Cauldron"]
 [editable path="Book/Darkness"]

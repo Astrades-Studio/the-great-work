@@ -209,6 +209,7 @@ func update_darkness_effect(amount: int):
 
 func on_shadow_removed(shadow: Shadow):
 	shadows_spawned.erase(shadow)
+	shadow_removed.emit()
 	update_darkness_effect(shadows_spawned.size())
 
 

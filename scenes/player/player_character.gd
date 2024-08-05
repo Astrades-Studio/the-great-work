@@ -6,8 +6,14 @@ class_name Player
 @onready var gas_lamp: GasLamp = %GasLamp
 @onready var ingredient_label: Label = %IngredientLabel
 @onready var panic_effects: Node = $PanicEffects
+
+
 @export var interact_distance := 2.0
 @export var drop_distance := 1.0
+@export var throw_impulse := 10.0
+
+var charging := false
+var charge := 0.0
 
 @onready var interaction_label: Label = %InteractionLabel
 @onready var hand: Node3D = %Hand
@@ -52,14 +58,27 @@ func _input(event: InputEvent) -> void:
 		interact()
 	
 	if event.is_action_pressed("drop"): # Drop call
-		drop_ingredient()
+		charging = true
+		
+	if event.is_action_released("drop"):
+		charging = false
+		if charge >= 1.0:
+			throw_ingredient(throw_impulse * charge)
+		else:
+			drop_ingredient()
+		charge = 0.0
+		
 
 func drop_ingredient() -> void:
 	if !ingredient_in_hand:
 		return
 	if ingredient_in_hand.get_parent() == null:
 		ingredient_in_hand.queue_free()
-		
+	
+	# Stop Axel from dropping the stone
+	if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		return
+	
 	var target_position: Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
 	var target_node = GameManager.ingredient_layer
 
@@ -72,6 +91,26 @@ func drop_ingredient() -> void:
 	
 	ingredient_label.text = ""
 
+
+func throw_ingredient(_throw_impulse : float) -> void:
+	if !ingredient_in_hand:
+		return
+	# Stop Axel from dropping the stone
+	if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		DialogManager.create_dialog_piece("I'm not insane enough to throw it.")
+	
+	var target_node = GameManager.ingredient_layer
+
+	ingredient_in_hand.current_location = Ingredient.Location.ENVIRONMENT
+	ingredient_in_hand.reparent(target_node)
+	
+	# apply forward force to the rigid body
+	ingredient_in_hand.apply_impulse(-camera.global_transform.basis.z * (_throw_impulse))
+
+	ingredient_in_hand = null
+	ingredient_label.text = ""
+
+
 # Check if there's anything in front of the player
 func raycast_forward(to_position: Vector3) -> Vector3:
 	var from_position = camera.global_transform.origin
@@ -83,6 +122,12 @@ func raycast_forward(to_position: Vector3) -> Vector3:
 	else:
 		return to_position
 
+func charge_throw(delta: float) -> void:
+	if !charging:
+		return
+	charge += delta
+	charge = clamp(charge, 0.0, 2.0)
+
 func _process(delta: float) -> void:
 	SimpleGrass.set_player_position(global_position)
 	if GameManager.current_state == GameManager.GameState.STATIC:
@@ -93,6 +138,8 @@ func _process(delta: float) -> void:
 		return
 	
 	super(delta)
+	if charging:
+		charge_throw(delta)
 	
 	if !interact_ray.is_colliding():
 		interaction_label.text = ""

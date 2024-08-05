@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dfx4lp3vs1ref"]
+[gd_scene load_steps=34 format=4 uid="uid://dfx4lp3vs1ref"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="Material" path="res://assets/models/materials/furnace_material.tres" id="2_0c0x5"]
@@ -179,6 +179,45 @@ uv2_scale = Vector3(1.005, 1.005, 1.005)
 material = SubResource("StandardMaterial3D_ma111")
 uv2_padding = 0.0
 
+[sub_resource type="Animation" id="Animation_2a0h3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pot/MixPivot/MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pot/SpoonPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.037844, 0.222742, -0.000659954)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pot/SpoonPivot:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.0204097, 0.706812, -0.0204097, 0.706812)]
+}
+
 [sub_resource type="Animation" id="Animation_pdm6r"]
 resource_name = "brewing"
 length = 10.0
@@ -196,25 +235,39 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(1, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_2a0h3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_rnayt"]
+resource_name = "mixing"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pot/MixPivot/MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/path = NodePath("Pot/SpoonPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.46667, 1.7, 2, 2.3, 2.6, 2.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954), Vector3(0.037844, 0.222742, -0.000659954)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pot/SpoonPivot:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.46667, 1.7, 2, 2.3, 2.6, 2.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.0204097, 0.706812, -0.0204097, 0.706812), Quaternion(0.165233, 0.687531, 0.165233, 0.68753), Quaternion(0.237761, 0.971302, -0.00526982, -0.00391204), Quaternion(-0.192744, -0.77691, 0.145755, 0.581392), Quaternion(-0.00584035, -0.00624286, 0.237767, 0.971285), Quaternion(-0.0204097, 0.706812, -0.0204097, 0.706812), Quaternion(0.165233, 0.687531, 0.165233, 0.68753), Quaternion(0.237761, 0.971302, -0.00526982, -0.00391204), Quaternion(-0.192744, -0.77691, 0.145755, 0.581392), Quaternion(-0.00584035, -0.00624286, 0.237767, 0.971285), Quaternion(-0.0204097, 0.706812, -0.0204097, 0.706812)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xb6qh"]
 _data = {
 "RESET": SubResource("Animation_2a0h3"),
-"brewing": SubResource("Animation_pdm6r")
+"brewing": SubResource("Animation_pdm6r"),
+"mix": SubResource("Animation_rnayt")
 }
 
 [node name="Cauldron" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
@@ -249,12 +302,16 @@ metadata/ant_landscape = "{  }"
 [node name="IngredientSpot" type="Node3D" parent="Pot"]
 transform = Transform3D(-4.37114e-08, 0, 1, -0.0577034, 0.998334, -2.52229e-09, -0.998334, -0.0577034, -4.36385e-08, 0.037844, 0.222742, -0.000659954)
 
-[node name="MixPivot" type="Node3D" parent="Pot"]
+[node name="SpoonPivot" type="Node3D" parent="Pot"]
+transform = Transform3D(0, 3.72529e-09, 1, -0.0577034, 0.998334, -3.72529e-09, -0.998334, -0.0577034, 0, 0.037844, 0.222742, -0.000659954)
+rotation_edit_mode = 1
 
-[node name="Spoon" type="MeshInstance3D" parent="Pot/MixPivot"]
-transform = Transform3D(-0.724623, -0.281121, 0.153274, -0.0204054, 0.419003, 0.672027, -0.319539, 0.610744, -0.390495, -0.0301896, 0.113569, -0.118831)
+[node name="Spoon" type="MeshInstance3D" parent="Pot/SpoonPivot"]
+transform = Transform3D(0.320184, -0.633904, 0.351066, -0.00193292, 0.383063, 0.69344, -0.724623, -0.281121, 0.153274, 0.116461, 0.0559823, -0.0680336)
 mesh = ExtResource("2_bh27f")
 skeleton = NodePath("../../..")
+
+[node name="MixPivot" type="Node3D" parent="Pot"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pot/MixPivot"]
 transform = Transform3D(0.440862, -6.07153e-18, 1.06581e-14, 4.44089e-16, 0.00470553, 3.49246e-09, -1.06581e-14, -2.91038e-11, 0.445979, 2.6077e-08, 0.215169, -0.00180263)
@@ -323,3 +380,6 @@ bus = &"SFX"
 emission_angle_enabled = true
 emission_angle_degrees = 67.3
 emission_angle_filter_attenuation_db = -60.6
+
+[node name="Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897752, 0.370977)

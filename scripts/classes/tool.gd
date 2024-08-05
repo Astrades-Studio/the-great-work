@@ -11,8 +11,6 @@ enum Type {
 const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
-@onready var audio_stream_player_3d_2: AudioStreamPlayer3D = $AudioStreamPlayer3D2
 
 @export var ingredient_preview : Node
 @export var wait_time : int
@@ -26,6 +24,8 @@ const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var og_name : String = self.name
 @onready var wait_label: Label3D = $WaitLabel
 @onready var timer: Timer = %Timer
+@onready var target_spot : Node3D = $Target 
+
 
 signal ingredient_ready
 
@@ -65,12 +65,8 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 }
 
 func _ready():
-	if audio_stream_player_3d_2:
-		audio_stream_player_3d_2.play()
-	if animation_player_2:
-		animation_player_2.play("brewing")
-	if animation_player:
-		animation_player.play("boiling")
+	play_animation()
+
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)
@@ -109,9 +105,9 @@ func on_tool_use() -> bool:
 					var flare_1 : Node = stored_ingredient.duplicate()
 					var flare_2 : Node = stored_ingredient.duplicate()
 					var flare_3 : Node = stored_ingredient.duplicate()
-					move_ingredient_to_player(flare_1)
-					move_ingredient_to_player(flare_2)
-					move_ingredient_to_player(flare_3)
+					spawn_at_target(flare_1)
+					spawn_at_target(flare_2)
+					move_ingredient_to_player(stored_ingredient)
 					return false
 				move_ingredient_to_player(stored_ingredient)
 				return false
@@ -295,7 +291,14 @@ func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	GameManager.player.ingredient_in_hand = ingredient
 
 
+func spawn_at_target(ingredient : Ingredient) -> void:
+	add_child(ingredient, true)
+	ingredient.global_position = target_spot.global_position
+	GameManager.ingredient_spawned(ingredient)
+
+
 func start_tool_timer() -> void:
+	play_use_animation()
 	processing = true
 	wait_label.show()
 	wait_label.text = str(wait_time)
@@ -320,3 +323,24 @@ func _on_timer_timeout() -> void:
 		timer.stop()
 		await get_tree().create_timer(0.5).timeout
 		DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
+
+
+func play_animation():
+	if tool_type == Tool.Type.CAULDRON:
+		animation_player.play("brewing")
+	elif tool_type == Tool.Type.STILL:
+		animation_player.play("boiling")
+	elif tool_type == Tool.Type.MORTAR:
+		return
+	elif tool_type == Tool.Type.FURNACE:
+		return
+
+func play_use_animation():
+	if tool_type == Tool.Type.MORTAR:
+		animation_player.play("grind")
+	if tool_type == Tool.Type.CAULDRON:
+		animation_player.play("mix")
+	if tool_type == Tool.Type.FURNACE:
+		animation_player.play("open_door")
+		await get_tree().create_timer(1).timeout
+		animation_player.play_backwards("open_door")

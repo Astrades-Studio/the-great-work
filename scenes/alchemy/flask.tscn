@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsm7lxrw0sdi5"]
+[gd_scene load_steps=15 format=3 uid="uid://dsm7lxrw0sdi5"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_b0vld"]
 [ext_resource type="ArrayMesh" uid="uid://cj68k6ent27e6" path="res://assets/models/tools/still/still_01_SM_Flask_02_001.res" id="1_yx462"]
-[ext_resource type="Texture2D" uid="uid://3vgfsjeti7nk" path="res://assets/shaders/boiling_noise.tres" id="3_u68tv"]
+[ext_resource type="Texture2D" path="res://assets/shaders/boiling_noise.tres" id="3_u68tv"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_xclvp"]
+[ext_resource type="Animation" uid="uid://bggxebv704tl2" path="res://assets/animations/brewing.res" id="5_thii8"]
+[ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="6_5wbk4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklbw"]
 transparency = 1
@@ -65,7 +67,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqs8p"]
 _data = {
 "RESET": SubResource("Animation_285id"),
-"boiling": SubResource("Animation_fjdvp")
+"boiling": SubResource("Animation_fjdvp"),
+"brewing": ExtResource("5_thii8")
 }
 
 [node name="Flask" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
@@ -125,7 +128,7 @@ script = ExtResource("3_xclvp")
 unique_name_in_owner = true
 
 [node name="WaitLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507468, 1.33975, 0.177747)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.638434, 0)
 visible = false
 billboard = 2
 text = "8"
@@ -134,3 +137,8 @@ text = "8"
 libraries = {
 "": SubResource("AnimationLibrary_hqs8p")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685144, 0.89713, 2.38419e-07)
+stream = ExtResource("6_5wbk4")
+bus = &"SFX"

@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 func _on_tick_countdown() -> void:
 	pass
 
-
+var last : int = -1
 func _on_body_entered(body: Node3D) -> void:
 	if body is Flare:
 		if is_instance_valid(body):
@@ -71,10 +71,21 @@ func _on_body_entered(body: Node3D) -> void:
 			body.panic_effects.increase_agitation()
 		
 			if !already_seen:
-				DialogManager.create_subtitles_piece("Get away from me!")
+				var random_int =  randi() % 3
+				while last == random_int:
+					random_int = randi() % 3
+				if random_int == 0:
+					DialogManager.create_subtitles_piece("Gordo puto!!")
+				if random_int == 1:
+					DialogManager.create_subtitles_piece("MAMAAA!")
+				if random_int == 2:
+					DialogManager.create_subtitles_piece("Get away from me!")
+				last = random_int
+				
 				already_seen = false
 				
-				
+
+
 func _on_body_exited(body: Node3D) -> void:
 	if body is Player:
 		body.gas_lamp.disabled = false

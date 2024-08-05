@@ -403,9 +403,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.919197, 0)
 stream = ExtResource("3_t3i41")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("1_ef1cu")
-mesh = NodePath("../FurnaceMesh")
 
 [node name="LogFire" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.04545e-07, 9.13958e-15, -0.260489, -4.55454e-08, 0.260489, -9.13958e-15, 0.260489, 4.55454e-08, 1.04545e-07, 0.200012, 0.792932, 0.15083)
