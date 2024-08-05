@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogPiece" load_steps=2 format=3 uid="uid://dorexnqmrun6v"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_wqujj"]
+
+[resource]
+script = ExtResource("1_wqujj")
+dialog_speaker = "Melchiades"
+dialog_text = "This painting reminds me of how far Adam has come in his journey. I hope I can live up to his expectations."

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://4j8ta0a3i0nf"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_fjr6e"]
+[ext_resource type="Resource" uid="uid://dorexnqmrun6v" path="res://assets/dialog/painting_03.tres" id="2_ceuod"]
+[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_ekofa"]
+
+[resource]
+script = ExtResource("2_ekofa")
+dialog_id = &""
+dialog = Array[ExtResource("1_fjr6e")]([ExtResource("2_ceuod")])
