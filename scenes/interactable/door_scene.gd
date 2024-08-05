@@ -3,6 +3,9 @@ extends StaticBody3D
 
 @export var door_id : StringName
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var door_opening: AudioStreamPlayer3D = $DoorOpening
+@onready var door_closing: AudioStreamPlayer3D = $DoorClosing
+@onready var door_locked: AudioStreamPlayer3D = $DoorLocked
 
 @export var locked = true
 var open = false
@@ -11,21 +14,24 @@ var open = false
 func _ready() -> void:
 	if self.has_user_signal("interacted"):
 		self.connect("interacted", Callable(self, "open_door"))
-
-
+		
+var tween : Tween
+		
+	#LOCKED DOOR
 func open_door():
-	if door_id == "Entrance":
-		DialogManager.create_dialog_piece("I can't turn back now.")
-	
-	elif locked:
+	if locked:
+		door_locked.play()
 		DialogManager.create_dialog_piece("It's locked")
 		return
 	
-
+	#OPENING DOOR
 	if !locked and !open:
+		door_opening.play()
 		animation_player.play("open")
 		open = true
 		
+	#CLOSING DOOR
 	elif !locked and open:
+		door_closing.play()
 		animation_player.play_backwards("open")
 		open = false
