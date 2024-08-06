@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=16 format=4 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow/shadow.gd" id="1_4x05d"]
-[ext_resource type="Animation" uid="uid://dqfsqto83tklk" path="res://assets/animations/human/crawl.res" id="3_wcyuf"]
-[ext_resource type="Animation" uid="uid://dv4khgmsk6rm3" path="res://assets/animations/human/standing_idle.res" id="4_6qy5x"]
-[ext_resource type="Animation" uid="uid://qtvkxs4um4ek" path="res://assets/animations/human/standing_idle_2.res" id="5_6ohqd"]
-[ext_resource type="Animation" uid="uid://c4sbyf2kqerwl" path="res://assets/animations/human/hanging.res" id="6_6ig0p"]
-[ext_resource type="Animation" uid="uid://c1sirprteysj7" path="res://assets/animations/human/dynamic.res" id="7_bqpw2"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/human/Crawl_downstairs.res" id="8_rj03y"]
+[ext_resource type="Animation" path="res://assets/animations/crawl.res" id="3_wcyuf"]
+[ext_resource type="Animation" path="res://assets/animations/standing_idle.res" id="4_6qy5x"]
+[ext_resource type="Animation" path="res://assets/animations/standing_idle_2.res" id="5_6ohqd"]
+[ext_resource type="Animation" path="res://assets/animations/hanging.res" id="6_6ig0p"]
+[ext_resource type="Animation" path="res://assets/animations/dynamic.res" id="7_bqpw2"]
+[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="8_rj03y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7oee"]
 transparency = 3
@@ -184,7 +184,11 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_3vo5b"]
 radius = 2.5
 
-[node name="Shadow" type="Node3D" groups=["shadow"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ck7wb"]
+height = 1.35469
+radius = 0.225038
+
+[node name="Shadow" type="CharacterBody3D" groups=["shadow"]]
 transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 script = ExtResource("1_4x05d")
 
@@ -192,6 +196,7 @@ script = ExtResource("1_4x05d")
 metadata/run = true
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Import"]
+transform = Transform3D(0.814103, 0, 5.96046e-08, 0, 0.814103, 0, -5.96046e-08, 0, 0.814103, 0, 0, 0)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00230419, 1.03563, 0.0123485)
@@ -482,6 +487,7 @@ bones/40/scale = Vector3(1, 1, 1)
 
 [node name="Mesh" type="MeshInstance3D" parent="Import/Skeleton3D"]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_y3kr7")
 skin = SubResource("Skin_73ey6")
 
@@ -504,5 +510,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967721, 0)
 shape = SubResource("SphereShape3D_3vo5b")
 
-[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.847333, 0)
+shape = SubResource("CylinderShape3D_ck7wb")

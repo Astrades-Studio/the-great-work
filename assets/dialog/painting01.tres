@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://bunem0rm2m72a"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://binanijook0rs"]
 
 [ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_507ak"]
 [ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_nma8m"]
-[ext_resource type="Resource" uid="uid://cpgsn60v25ntn" path="res://assets/dialog/painting_01.tres" id="2_tt2cg"]
+[ext_resource type="Resource" path="res://assets/dialog/painting_01.tres" id="2_tt2cg"]
 
 [resource]
 script = ExtResource("2_nma8m")

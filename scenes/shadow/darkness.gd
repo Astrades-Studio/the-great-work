@@ -31,7 +31,7 @@ var hp : float:
 signal shadow_banished(Shadow)
 
 func _ready() -> void:
-	hide()
+	#hide()
 	hp = MAX_HP
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_exited)
