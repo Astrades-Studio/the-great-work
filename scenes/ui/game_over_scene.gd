@@ -15,6 +15,7 @@ func _ready() -> void:
 		bad_ending_ui.hide()
 		good_ending_ui.show()
 		video_stream_player.play()
+		get_tree().create_timer(135).timeout.connect(_on_video_finished)
 		
 	else:
 		bad_ending_ui.show()

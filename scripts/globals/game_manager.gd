@@ -202,9 +202,8 @@ func spawn_random_shadow():
 
 
 func update_darkness_effect(amount: int):
-	fog_environment.environment.fog_density = amount * fog_density_increment
-	#var fog_increment : float = worlds_environment.environment.fog_density + (countdown / max_time)
-	#world_environment.environment.fog_density = clamp(fog_increment, 1, 10)
+	if fog_environment:
+		fog_environment.environment.fog_density = amount * fog_density_increment
 
 
 func on_shadow_removed(shadow: Shadow):
@@ -256,6 +255,10 @@ func _on_philosopher_stone_created():
 
 
 func reset_progress():
+	if flare_already_made:
+		flare_recipe_read = true
+	else:
+		flare_recipe_read = false
 	philosopher_stone_recipe_read = false
 	lamp_in_hand = false
 	first_shadow_encountered = false
@@ -263,6 +266,7 @@ func reset_progress():
 	good_ending = false
 	bad_ending = false
 	flare_already_made = false
+	update_darkness_effect(1)
 
 
 func clear_arrays():

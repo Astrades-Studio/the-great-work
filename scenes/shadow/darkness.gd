@@ -4,11 +4,12 @@ extends Area3D
 @export var MAX_COOLDOWN : float = 30.0
 @export var MAX_HP : int = 3
 @export var HP_DOWN_TICK : float = 1.
+@onready var wait_point: Node3D = $WaitPoint
 
 const WHISPERS_DIALOG = preload("res://assets/dialog/whispers_dialog.tres")
 
 var already_seen : bool = false
-var shadow_present : bool
+@export var shadow_present : bool
 var cooldown : float = 0.0
 var flare_near : bool
 var flare_reference : Flare
@@ -31,7 +32,7 @@ var hp : float:
 signal shadow_banished(Shadow)
 
 func _ready() -> void:
-	#hide()
+	hide()
 	hp = MAX_HP
 	self.body_entered.connect(_on_body_entered)
 	self.body_exited.connect(_on_body_exited)
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 	if is_instance_valid(flare_reference):
 		if flare_reference.active and shadow_present:
 			hp -= delta
+			shadow.change_state_to(Shadow.State.HURT)
 			if !damage_sound.playing:
 				damage_sound.play()
 
@@ -54,6 +56,8 @@ func _process(delta: float) -> void:
 func _on_tick_countdown() -> void:
 	pass
 
+var _pursue_cooldown : float = 0.0
+const MAX_PURSUE_COOLDOWN := 2.
 var last : int = -1
 func _on_body_entered(body: Node3D) -> void:
 	if body is Flare:
@@ -67,7 +71,9 @@ func _on_body_entered(body: Node3D) -> void:
 				DialogManager.play_dialog(load("res://assets/dialog/first_shadow_encounter.tres"))
 				GameManager.first_shadow_encountered = true
 			#body.gas_lamp.disabled = true
-			shadow.turn_invisible()
+			#shadow.turn_invisible()
+			shadow.target = body
+			shadow.change_state_to(Shadow.State.PURSUING)
 			body.panic_effects.increase_agitation()
 		
 			if !already_seen:
@@ -89,12 +95,16 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_body_exited(body: Node3D) -> void:
 	if body is Player:
 		body.gas_lamp.disabled = false
-		shadow.reset_invisibility()
+		#shadow.reset_invisibility()
 		if is_instance_valid(body.ingredient_in_hand):
 			if body.ingredient_in_hand is Flare:
 				flare_reference = null
+		shadow.target = null
+		shadow.target_position = body.global_position
 		await get_tree().create_timer(2).timeout			
 		body.panic_effects.decrease_agitation()
+		
+
 
 var tween : Tween        
 func spawn_shadow() -> bool:
@@ -144,7 +154,6 @@ func play_random_whisper() -> void:
 	var piece = dialog.dialog[index]
 	DialogManager.create_subtitles_piece(piece.dialog_text)
 	play_random_shadow_sound()
-	
 
 
 func play_random_shadow_sound():

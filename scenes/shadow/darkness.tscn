@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cnhihtfmpeutf" path="res://assets/sounds/sfx/shadow/shadow_killing.mp3" id="4_rgwk0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nme3o"]
-size = Vector3(4.00891, 3.75281, 6.62573)
+size = Vector3(7.69044, 2.77631, 6.78699)
 
 [sub_resource type="Gradient" id="Gradient_eqx4t"]
 offsets = PackedFloat32Array(0.0737705, 0.5, 1)
@@ -46,6 +46,8 @@ size = Vector2(0.6, 0.5)
 collision_layer = 32
 collision_mask = 18
 script = ExtResource("1_hrpg6")
+
+[node name="WaitPoint" type="Node3D" parent="."]
 
 [node name="Shadow" parent="." instance=ExtResource("1_eedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

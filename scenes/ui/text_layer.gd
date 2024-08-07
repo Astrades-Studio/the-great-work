@@ -35,9 +35,6 @@ func _input(event: InputEvent) -> void:
 		_on_next_button_pressed.call_deferred()
 	elif event.is_action_pressed("drop"):
 		_on_previous_button_pressed.call_deferred()
-#
-	#elif event.is_action_pressed("ui_cancel"):
-		#_on_back_button_pressed.call_deferred()
 
 
 func show_book(_book : BookPages):

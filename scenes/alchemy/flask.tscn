@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsm7lxrw0sdi5"]
+[gd_scene load_steps=14 format=3 uid="uid://dsm7lxrw0sdi5"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_b0vld"]
 [ext_resource type="ArrayMesh" uid="uid://cj68k6ent27e6" path="res://assets/models/tools/still/still_01_SM_Flask_02_001.res" id="1_yx462"]
 [ext_resource type="Texture2D" path="res://assets/shaders/boiling_noise.tres" id="3_u68tv"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_xclvp"]
-[ext_resource type="Animation" uid="uid://bggxebv704tl2" path="res://assets/animations/brewing.res" id="5_thii8"]
 [ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="6_5wbk4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklbw"]
@@ -67,8 +66,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hqs8p"]
 _data = {
 "RESET": SubResource("Animation_285id"),
-"boiling": SubResource("Animation_fjdvp"),
-"brewing": ExtResource("5_thii8")
+"boiling": SubResource("Animation_fjdvp")
 }
 
 [node name="Flask" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]

@@ -163,6 +163,7 @@ func on_tool_use() -> bool:
 	
 		start_tool_timer()
 	
+	play_use_animation()
 	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
@@ -341,5 +342,6 @@ func play_use_animation():
 		animation_player.play("mix")
 	if tool_type == Tool.Type.FURNACE:
 		animation_player.play("open_door")
+		await animation_player.animation_finished
 		await get_tree().create_timer(1).timeout
 		animation_player.play_backwards("open_door")

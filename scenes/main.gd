@@ -19,6 +19,7 @@ func _ready() -> void:
 	SimpleGrass.set_interactive(true)
 	countdown = max_time
 	GameManager.fog_environment = world_environment
+	GameManager.update_darkness_effect(1)
 	GameManager.ingredient_layer = ingredients
 	GameManager.ovani_player = ovani_player
 	GameManager.game_started.connect(start_midnight_game)

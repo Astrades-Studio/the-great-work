@@ -20,6 +20,8 @@ var mouse_sensitivity: float = 0.1
 @export var SPEED_DEFAULT: float = 7.0
 @export var SPEED_ON_STAIRS: float = 5.0
 
+var ANALOG_SENS := 36.0
+
 var acceleration: float = ACCELERATION_DEFAULT
 var speed: float = SPEED_DEFAULT
 
@@ -115,9 +117,19 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		body.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+		rotate_camera(event)
+
+func rotate_player_analog(delta):
+	var look_dir_vector := Input.get_vector("look_right", "look_left", "look_down", "look_up")
+	look_dir_vector *= -ANALOG_SENS
+	var fake_event = InputEventMouseMotion.new()
+	fake_event.relative = look_dir_vector
+	rotate_camera(fake_event)
+
+func rotate_camera(event: InputEventMouseMotion) -> void:
+	body.rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+	head.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+	head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
 	update_camera = true
@@ -166,6 +178,7 @@ func _physics_process(delta):
 
 	set_velocity(movement)
 	set_max_slides(6)
+	rotate_player_analog(delta)
 	move_and_slide()
 	
 	if is_step and step_result.is_step_up and is_enabled_stair_stepping_in_air:
