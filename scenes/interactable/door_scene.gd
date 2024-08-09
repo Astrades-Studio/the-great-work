@@ -8,6 +8,8 @@ extends StaticBody3D
 @onready var door_locked: AudioStreamPlayer3D = $DoorLocked
 
 @export var locked = true
+@export var oppposite := false
+
 var open = false
 
 # Called when the node enters the scene tree for the first time.
@@ -27,11 +29,17 @@ func open_door():
 	#OPENING DOOR
 	if !locked and !open:
 		door_opening.play()
-		animation_player.play("open")
+		if oppposite:
+			animation_player.play("open_back")
+		else:
+			animation_player.play("open")
 		open = true
 		
 	#CLOSING DOOR
 	elif !locked and open:
 		door_closing.play()
-		animation_player.play_backwards("open")
+		if oppposite:
+			animation_player.play_backwards("open_back")
+		else:
+			animation_player.play_backwards("open")
 		open = false
