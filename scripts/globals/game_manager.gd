@@ -25,7 +25,7 @@ enum GameState {
 	STATIC  # Nuevo estado
 }
 
-# This variable goberns the inputs and pauses. Whenever there is a change, 
+# This variable governs the inputs and pauses. Whenever there is a change, 
 # it should be modified from anywhere needed. Just check for double calls
 var current_state : GameState:
 	set(value):
@@ -99,6 +99,7 @@ signal lamp_collected
 signal recipe_read
 signal alchemy_read_signal
 signal flare_read_signal
+signal flare_created
 signal philosopher_stone_progress(int)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
@@ -123,6 +124,7 @@ func _ready() -> void:
 	recipe_read.connect(_on_read_stone_trigger_book)
 	alchemy_read_signal.connect(_on_read_alchemy_trigger_book)
 	flare_read_signal.connect(_on_read_flare_trigger_book)
+	flare_created.connect(_on_flare_created)
 	#assign_random_ingredient_to_each_dispenser()
 	
 
@@ -204,6 +206,10 @@ func spawn_random_shadow():
 func update_darkness_effect(amount: int):
 	if fog_environment:
 		fog_environment.environment.fog_density = amount * fog_density_increment
+		if flare_already_made:
+			fog_environment.environment.fog_height_density = 0.2
+		else:
+			fog_environment.environment.fog_height_density = 0.8
 
 
 func on_shadow_removed(shadow: Shadow):
@@ -223,11 +229,19 @@ func _on_read_stone_trigger_book():
 	game_started.emit()
 	print("The game begins")
 
+
 func _on_read_alchemy_trigger_book():
 	alchemy_recipe_read = true
 
+
 func _on_read_flare_trigger_book():
 	flare_recipe_read = true
+
+
+func _on_flare_created():
+	flare_already_made = true
+	update_darkness_effect(1)
+
 
 # Endgame progress:
 func _on_philosopher_stone_progress(amount: int):
@@ -257,7 +271,9 @@ func _on_philosopher_stone_created():
 func reset_progress():
 	if flare_already_made:
 		flare_recipe_read = true
+		flare_already_made = true
 	else:
+		flare_already_made = false
 		flare_recipe_read = false
 	philosopher_stone_recipe_read = false
 	lamp_in_hand = false
@@ -265,8 +281,6 @@ func reset_progress():
 	first_shadow_spawned = false
 	good_ending = false
 	bad_ending = false
-	flare_already_made = false
-	update_darkness_effect(1)
 
 
 func clear_arrays():

@@ -77,9 +77,9 @@ func _ready():
 	assert(self.tool_type != null, "Tool has no type")
 
 func on_tool_use() -> bool:
-	if GameManager.flare_recipe_read == false:
-		DialogManager.create_dialog_piece("I should look for Adam first.")
-		return false
+	# if GameManager.flare_recipe_read == false:
+	# 	DialogManager.create_dialog_piece("I should look for Adam first.")
+	# 	return false
 	if processing:
 		DialogManager.create_dialog_piece("Now I just need to wait a little.")
 		return false
@@ -101,7 +101,8 @@ func on_tool_use() -> bool:
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
 				
 				if (stored_ingredient.type == Ingredient.Type.FLARE):
-					GameManager.flare_already_made = true
+					DialogManager.create_dialog_piece("I made enough luminant for three flares. This should be enough to banish those shadows.")
+					GameManager.flare_created.emit()
 					var flare_1 : Node = stored_ingredient.duplicate()
 					var flare_2 : Node = stored_ingredient.duplicate()
 					var flare_3 : Node = stored_ingredient.duplicate()

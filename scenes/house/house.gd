@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@onready var roof: Node3D = $house_Imported/Roof_001
+@onready var roof: Node3D = %Roof
 
 @export var roof_visible: bool:
 	set(value):
