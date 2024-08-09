@@ -194,7 +194,6 @@ look_right={
 3d_render/layer_3="Lights"
 3d_render/layer_4="Shadows"
 3d_render/layer_5="Ignore Light Source"
-3d_render/layer_6="Light-only"
 3d_physics/layer_1="Static"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Items"

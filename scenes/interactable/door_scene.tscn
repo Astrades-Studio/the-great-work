@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp6hy2d0eqryu"]
+[gd_scene load_steps=12 format=3 uid="uid://dp6hy2d0eqryu"]
 
 [ext_resource type="Script" path="res://scenes/interactable/door_scene.gd" id="1_uqvrx"]
 [ext_resource type="ArrayMesh" uid="uid://dnvfbb2hjk3cx" path="res://assets/models/props/door.res" id="2_llld5"]
@@ -11,23 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_cowdo"]
 size = Vector3(0.150696, 2.128, 0.907807)
 
-[sub_resource type="Animation" id="Animation_lxw3k"]
-resource_name = "open"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 1.27234, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_0e7qf"]
+[sub_resource type="Animation" id="Animation_3oxq8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,8 +26,9 @@ tracks/0/keys = {
 "values": [Vector3(0, 3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_k2b0j"]
-resource_name = "open_back"
+[sub_resource type="Animation" id="Animation_lxw3k"]
+resource_name = "open"
+length = 1.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,33 +36,24 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.333333, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, -1.37635, 0)]
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 2.93215, 0), Vector3(0, 1.50016, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vlogh"]
 _data = {
-"RESET": SubResource("Animation_0e7qf"),
-"open": SubResource("Animation_lxw3k"),
-"open_back": SubResource("Animation_k2b0j")
+"RESET": SubResource("Animation_3oxq8"),
+"open": SubResource("Animation_lxw3k")
 }
 
-[node name="DoorFrame" type="MeshInstance3D"]
-transform = Transform3D(1, 0, -6.35732e-08, 0, 1, 0, 6.35732e-08, 0, 1, 0, 0, 0)
-mesh = ExtResource("7_tujis")
-
-[node name="DoorStatic" type="StaticBody3D" parent="."]
+[node name="DoorStatic" type="StaticBody3D"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 script = ExtResource("1_uqvrx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorStatic"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.463115, -0.0308374, 0.061371)
-shape = SubResource("BoxShape3D_cowdo")
-
-[node name="door_002" type="MeshInstance3D" parent="DoorStatic"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, -1.09242, 0)
+[node name="door_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, 0, -1.09242, 0)
 mesh = ExtResource("2_llld5")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
@@ -86,8 +62,20 @@ metadata/size_x = "24.3704"
 metadata/size_z = "217.5816"
 metadata/size_y = "98.6269"
 
-[node name="DoorOpening" type="AudioStreamPlayer3D" parent="DoorStatic"]
-transform = Transform3D(0.956585, 0.016569, 0.290983, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, -0.450401, -0.0308373, 0.051138)
+shape = SubResource("BoxShape3D_cowdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vlogh")
+}
+
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_6fclx")
+
+[node name="DoorOpening" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("4_flqml")
 volume_db = 3.265
 unit_size = 11.02
@@ -96,8 +84,8 @@ max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
 
-[node name="DoorClosing" type="AudioStreamPlayer3D" parent="DoorStatic"]
-transform = Transform3D(0.956585, 0.016569, 0.290983, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+[node name="DoorClosing" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("5_2pltj")
 volume_db = 1.667
 unit_size = 11.02
@@ -106,8 +94,8 @@ max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
 
-[node name="DoorLocked" type="AudioStreamPlayer3D" parent="DoorStatic"]
-transform = Transform3D(0.956585, 0.016569, 0.290983, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+[node name="DoorLocked" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("6_j6lml")
 volume_db = -3.265
 unit_size = 11.02
@@ -116,10 +104,6 @@ max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
 
-[node name="InteractionComponent" type="Node" parent="DoorStatic"]
-script = ExtResource("3_6fclx")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorStatic"]
-libraries = {
-"": SubResource("AnimationLibrary_vlogh")
-}
+[node name="DoorFrame" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.000206348, -1.08948, 0.00144941)
+mesh = ExtResource("7_tujis")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=154 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -67,7 +67,6 @@
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
-[ext_resource type="PackedScene" uid="uid://7bwy7o531t5j" path="res://scenes/fx/dust.tscn" id="65_b3nyi"]
 [ext_resource type="Shader" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
 [ext_resource type="ArrayOccluder3D" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
@@ -917,29 +916,6 @@ size = Vector3(3.4021, 2.1, 3.23853)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k054j"]
 size = Vector3(3.76218, 3.29941, 1.64557)
 
-[sub_resource type="Gradient" id="Gradient_eqx4t"]
-offsets = PackedFloat32Array(0.111732, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.137255)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd7qc"]
-gradient = SubResource("Gradient_eqx4t")
-fill = 1
-fill_from = Vector2(0.501424, 0.527066)
-fill_to = Vector2(0.900285, 0.920228)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ungl"]
-transparency = 1
-blend_mode = 1
-diffuse_mode = 2
-disable_ambient_light = true
-albedo_texture = SubResource("GradientTexture2D_vd7qc")
-disable_receive_shadows = true
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-distance_fade_min_distance = 10.25
-
 [sub_resource type="Gradient" id="Gradient_cf24q"]
 offsets = PackedFloat32Array(0, 0.15625, 0.375, 0.4375, 0.59375, 0.78125)
 colors = PackedColorArray(0, 0, 0, 1, 0.154946, 0.106139, 0.191911, 1, 0.45098, 0.282353, 0.054902, 0.576471, 0, 0, 0, 1, 0.531376, 0.388277, 0.225237, 1, 1, 1, 0.619608, 1)
@@ -1050,7 +1026,7 @@ shape = SubResource("CylinderShape3D_rgq48")
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/NavigationRegion3D/House/GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.331648
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1063,7 +1039,7 @@ omni_range = 0.636
 omni_attenuation = 1.658
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.855964
+wait_time = 0.871253
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]
@@ -2308,11 +2284,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.417234, 0.129867, -5.76971)
 throw_impulse = 5.0
 
-[node name="GPUParticles3D" parent="UCharacterBody3D" instance=ExtResource("65_b3nyi")]
-transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 1.72963, 0)
-material_override = SubResource("StandardMaterial3D_3ungl")
-amount = 1000
-
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
 [node name="PaletteLimiter" type="TextureRect" parent="PostProcessing"]
@@ -2327,10 +2298,8 @@ texture = SubResource("CameraTexture_dmcjn")
 expand_mode = 3
 
 [node name="PostProcessing2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Dithering" type="ColorRect" parent="PostProcessing2"]
-visible = false
 material = SubResource("ShaderMaterial_ku3q6")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2340,10 +2309,8 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="PostProcessing3" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorReduction" type="ColorRect" parent="PostProcessing3"]
-visible = false
 material = SubResource("ShaderMaterial_dmilm")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2353,7 +2320,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="PostProcessing5" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorReduction" type="ColorRect" parent="PostProcessing5"]
 material = SubResource("ShaderMaterial_dmilm")

@@ -8,7 +8,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.137255)
 gradient = SubResource("Gradient_eqx4t")
 fill = 1
 fill_from = Vector2(0.501424, 0.527066)
-fill_to = Vector2(0.900285, 0.920228)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s2e3"]
 transparency = 1
