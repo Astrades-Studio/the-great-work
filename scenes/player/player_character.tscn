@@ -216,9 +216,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123455, -0.186833, -0.38092
 
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(0.488537, 0, 0, 0, 0.488537, 0, 0, 0, 0.488537, -0.213559, -0.185076, -0.285833)
-visible = false
+transform = Transform3D(0.90026, -0.00268246, -0.0180782, -0.00395444, 0.841004, -0.321712, 0.0178432, 0.321725, 0.84082, -0.198405, -0.121983, -0.49121)
 on_hand = true
+
+[node name="Hand_Gas_Lamp_002" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje" index="0"]
+layers = 2
+
+[node name="GasLampLight" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje/Hand_Gas_Lamp_002" index="1"]
+light_energy = 1.79079
+
+[node name="Timer" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="2"]
+wait_time = 0.937137
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -372,4 +380,5 @@ transform = Transform3D(0.873934, 0, 0, 0, 0.873934, 0, 0, 0, 0.873934, 0, 0.625
 layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
 
+[editable path="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp"]
 [editable path="PanicEffects"]
