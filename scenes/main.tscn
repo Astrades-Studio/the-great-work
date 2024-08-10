@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
@@ -28,7 +28,7 @@
 [ext_resource type="Material" uid="uid://blpnt8g32vk24" path="res://scenes/materials/white.tres" id="16_ejx62"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
-[ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="Material" uid="uid://bahi03ushehw5" path="res://scenes/materials/stone.tres" id="17_kxpbk"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
@@ -930,7 +930,7 @@ shader_parameter/pixelSize = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmilm"]
 shader = ExtResource("68_qo80q")
-shader_parameter/colors = 10.0
+shader_parameter/colors = 16.0
 shader_parameter/dither = 0.0
 
 [node name="MainScene" type="Node3D"]
@@ -968,7 +968,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
 metadata/_edit_lock_ = true
 
 [node name="Hook" type="MeshInstance3D" parent="Level/NavigationRegion3D/House"]
-transform = Transform3D(-0.31749, 0, 1.98415e-08, 0, 0.144783, 0, -2.77558e-08, 0, -0.22696, 10.9307, 1.5695, -8.16924)
+transform = Transform3D(-0.31749, 0, 1.98415e-08, 0, 0.144783, 0, -2.77558e-08, 0, -0.22696, 10.9502, 1.5695, -8.09276)
 mesh = ExtResource("49_l4tq0")
 skeleton = NodePath("../../../..")
 
@@ -979,7 +979,7 @@ skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("5_s8skm")
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/House"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9336, 1.27265, -8.25914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9531, 1.27265, -8.18266)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("48_cjxys")
@@ -990,7 +990,7 @@ max_value = 0.55
 transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="Level/NavigationRegion3D/House/GasLamp/Eje"]
-transform = Transform3D(0.997921, 1.77636e-15, 0.0644452, 3.69253e-18, 1, -1.14478e-16, -0.0644452, 0, 0.997921, 2.5116, 0.180256, 73.6234)
+transform = Transform3D(0.997921, 1.77636e-15, 0.0644452, -1.11022e-15, 1, 1.77636e-14, -0.0644452, -1.77636e-14, 0.997921, 4.12506, 0.180191, 73.6234)
 cast_shadow = 0
 mesh = ExtResource("49_3msja")
 skeleton = NodePath("")
@@ -999,7 +999,6 @@ surface_material_override/1 = ExtResource("51_prvkr")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="Level/NavigationRegion3D/House/GasLamp/Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
-visible = false
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 amount = 15
@@ -1013,9 +1012,9 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 
 [node name="GasLampLight" type="OmniLight3D" parent="Level/NavigationRegion3D/House/GasLamp/Eje/Hand_Gas_Lamp_002"]
 unique_name_in_owner = true
-transform = Transform3D(255.479, 16.4987, 7.21181e-07, 5.68509e-14, -1.11906e-05, 256.011, 16.4987, -255.479, -1.11673e-05, 4.04181, -0.846161, -21.7025)
+transform = Transform3D(255.479, 16.4987, 7.21178e-07, 6.53384e-12, -1.11907e-05, 256.011, 16.4987, -255.479, -1.11673e-05, -1.3465, -0.846146, -22.0504)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.502593
+light_energy = 0.585996
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1024,15 +1023,15 @@ light_cull_mask = 4294967293
 shadow_bias = 1.881
 shadow_opacity = 0.45
 shadow_blur = 0.0
-omni_range = 0.636
-omni_attenuation = 1.658
+omni_range = 1.649
+omni_attenuation = 1.357
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/House/GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.843094
+wait_time = 0.81699
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]
@@ -1248,7 +1247,7 @@ omni_range = 8.241
 omni_attenuation = 5.009
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.466132, 1.65963e-15, 0.147018, 1.25316e-15, 0.151051, 3.65901, 0.729159, -7.62755)
+transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.466132, 1.65963e-15, 0.147018, 1.25316e-15, 0.151051, 3.71401, 0.670438, -7.68547)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
@@ -1955,19 +1954,23 @@ omni_range = 1.505
 omni_attenuation = 1.723
 
 [node name="Candle3" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
-transform = Transform3D(0.973294, 0.0132708, 0.229182, 0.00444564, 0.997051, -0.0766137, -0.229524, 0.0755866, 0.970365, 3.67523, -1.29252, -8.00523)
+transform = Transform3D(0.973294, 0.0132708, 0.229182, 0.00444564, 0.997051, -0.0766137, -0.229524, 0.0755866, 0.970365, 3.7435, -1.29252, -8.03381)
+
+[node name="CandleMesh" parent="Level/Lights/Candle3" index="0"]
+transform = Transform3D(0.00977227, 0, -2.91038e-11, 0, -2.91038e-10, -0.00977227, 2.32831e-10, 0.00977227, -4.07454e-10, -0.000261307, -0.0576934, 0.00449896)
 
 [node name="OmniLight3D" parent="Level/Lights/Candle3" index="3"]
 transform = Transform3D(0.999999, 2.04891e-08, 1.16229e-06, 0, 1, -2.38419e-07, 2.98023e-08, -1.49012e-08, 0.999999, -0.00631762, 0.403467, -0.0010128)
 layers = 4
 light_color = Color(0.976835, 0.593424, 0.382894, 1)
-light_energy = 1.764
+light_energy = 0.681
 light_indirect_energy = 0.0
 light_size = 0.0
 light_specular = 0.0
 shadow_enabled = false
-omni_range = 2.379
-omni_attenuation = 2.646
+omni_range = 2.188
+omni_attenuation = 5.292
+omni_shadow_mode = 0
 
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(0.993299, 0.00444563, 0.115493, 4.72937e-11, 0.99926, -0.0384641, -0.115579, 0.0382064, 0.992564, 3.58325, -4.21116, -2.47108)
@@ -2293,6 +2296,7 @@ expand_mode = 3
 
 [node name="DitheringLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="Dithering" type="ColorRect" parent="DitheringLayer"]
 material = SubResource("ShaderMaterial_ku3q6")
@@ -2305,6 +2309,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorReductionLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
 material = SubResource("ShaderMaterial_dmilm")
@@ -2316,6 +2321,8 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="PixelizeLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
 
 [node name="Pixelize" type="ColorRect" parent="PixelizeLayer"]
 material = SubResource("ShaderMaterial_ku3q6")
