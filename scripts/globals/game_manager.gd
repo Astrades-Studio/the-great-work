@@ -142,7 +142,6 @@ signal stone_consumed
 signal shadow_crawl_trigger
 signal shadow_removed
 
-var bus
 
 func _ready() -> void:
 	reset_progress()

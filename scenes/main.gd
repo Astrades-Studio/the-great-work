@@ -38,25 +38,28 @@ func _ready() -> void:
 	audio_stream_player_3d.play()
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_adam.tres"), 2.0)
 
+
 func start_midnight_game():
 	game_over_timer.start(tick_length)
 	print("Shadows start now")
+
 
 func _timer_up():
 	countdown += 1
 	print(countdown)
 
+
 func _on_timer_tick():
 	countdown -= 1
 	GameManager.tick_countdown.emit()
 	
-	if countdown == 1:
-		trigger_death_timer()
-	
-	if countdown <= 0:
-		MusicManager
-		GameManager.game_over.emit()
-		game_over_timer.stop()
+	#if countdown == 1:
+		#trigger_death_timer()
+	#
+	#if countdown <= 0:
+		#MusicManager
+		#GameManager.game_over.emit()
+		#game_over_timer.stop()
 
 
 func trigger_death_timer():

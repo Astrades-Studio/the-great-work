@@ -25,13 +25,26 @@ var music_volume : float
 var sfx_volume : float
 
 func _ready():
+	connect_signals()
+	set_current_values()
+
+
+func set_current_values():
 	master_volume = db_to_linear(AudioServer.get_bus_volume_db(master_bus))
 	music_volume = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
 	sfx_volume = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
 	
 	mute_button.button_pressed = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
-	
-	connect_signals()
+	fullscreen_button.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN or \
+	DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+	retro_filter.button_pressed = GameManager.retro_filter
+
+	sensitivity_slider.value = remap(GameManager.mouse_sensitivity, 0.01, 0.2, 0, 1)
+	fov_slider.value = remap(GameManager.fov_value, 60, 90, 0, 1)
+	if retro_filter:
+		brightness_slider.value = clamp(remap(GameManager.brightness, 2.0, 3.8, 0, 1), 0, 1)
+	else:
+		brightness_slider.value = clamp(remap(GameManager.brightness, 1.0, 2.0, 0, 1), 0, 1)
 
 
 func connect_signals():

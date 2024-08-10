@@ -63,3 +63,23 @@ func play_shadow_sound(volume : float):
 		var sound = shadow_sounds.pop_front()
 		play_sound(sound, volume)
 		shadow_sounds.append(sound)
+
+
+func change_bus_volume(bus : String, _target : float = 0.1):
+	var idx = AudioServer.get_bus_index(bus)
+	if idx == -1:
+		push_error("Bus not found: " + bus)
+		return
+	var current_volume = AudioServer.get_bus_volume_db(idx)
+	var target_volume = linear_to_db(_target)
+
+	var duration = abs(current_volume - target_volume) / 20.0
+
+	var tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_method(set_bus_volume.bind(idx), current_volume, target_volume, duration)
+	await tween.finished
+	
+
+func set_bus_volume(target_db : float, bus_idx : int):
+	AudioServer.set_bus_volume_db(bus_idx, target_db)

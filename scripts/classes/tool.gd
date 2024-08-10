@@ -150,6 +150,11 @@ func on_tool_use() -> bool:
 	else:
 		self.name = "%s with %s" % [og_name, hand_ingredient.type_name]
 
+	GameManager.current_state = GameManager.GameState.CUTSCENE
+	await play_use_animation()
+	await get_tree().create_timer(0.5).timeout
+	GameManager.current_state = GameManager.GameState.PLAYING
+
 	if tool_type == Type.MORTAR:
 		new_ingredient_type = use_mortar(hand_ingredient)
 	elif tool_type == Type.FURNACE:
@@ -164,7 +169,7 @@ func on_tool_use() -> bool:
 	
 		start_tool_timer()
 	
-	play_use_animation()
+	
 	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
@@ -337,12 +342,25 @@ func play_animation():
 		return
 
 func play_use_animation():
-	if tool_type == Tool.Type.MORTAR:
-		animation_player.play("grind")
-	if tool_type == Tool.Type.CAULDRON:
-		animation_player.play("mix")
+	var ingredient = GameManager.player.ingredient_in_hand
+	#ingredient.current_location = Ingredient.Location.ENVIRONMENT
 	if tool_type == Tool.Type.FURNACE:
 		animation_player.play("open_door")
 		await animation_player.animation_finished
+		await tween_to_target(ingredient, ingredient_preview)
 		await get_tree().create_timer(1).timeout
 		animation_player.play_backwards("open_door")
+	else:
+		await tween_to_target(ingredient, ingredient_preview)
+	if tool_type == Tool.Type.MORTAR:
+		animation_player.play("grind")
+		await animation_player.animation_finished
+	if tool_type == Tool.Type.CAULDRON:
+		animation_player.play("mix")
+		await animation_player.animation_finished
+
+
+func tween_to_target(ingredient : Ingredient, _target_spot : Node3D):
+	var tween = get_tree().create_tween()
+	tween.tween_property(ingredient, "global_position", _target_spot.global_position, 0.5)
+	await tween.finished
