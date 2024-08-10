@@ -10,6 +10,13 @@ extends Node3D
 @export var max_time := 10
 @export var tick_length := 60.
 
+@onready var palette_layer: CanvasLayer = $PaletteLayer
+@onready var dithering_layer: CanvasLayer = $DitheringLayer
+@onready var color_reduction_layer: CanvasLayer = $ColorReductionLayer
+@onready var pixelize_layer: CanvasLayer = $PixelizeLayer
+
+
+
 const DEATH_SOUND = preload("res://assets/sounds/sfx/death_sound.mp3")
 
 static var countdown
@@ -19,11 +26,13 @@ func _ready() -> void:
 	SimpleGrass.set_interactive(true)
 	countdown = max_time
 	GameManager.fog_environment = world_environment
+	world_environment.environment.adjustment_brightness = GameManager.brightness
 	GameManager.update_darkness_effect(1)
 	GameManager.ingredient_layer = ingredients
 	GameManager.ovani_player = ovani_player
 	GameManager.game_started.connect(start_midnight_game)
 	GameManager.shadow_removed.connect(_timer_up)
+	GameManager.retro_filter_signal.connect(retro_filter_toggle)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	await get_tree().create_timer(1).timeout
 	audio_stream_player_3d.play()
@@ -61,3 +70,17 @@ func trigger_death_timer():
 
 func _on_basement_trigger_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
+
+
+func retro_filter_toggle(value : bool) -> void:
+	if value:
+		palette_layer.show()
+		dithering_layer.show()
+		color_reduction_layer.show()
+		pixelize_layer.show()
+	else:
+		palette_layer.hide()
+		dithering_layer.hide()
+		color_reduction_layer.hide()
+		pixelize_layer.hide()
+	

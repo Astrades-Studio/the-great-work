@@ -1,11 +1,15 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dxjf3e8aefdjw"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://dxjf3e8aefdjw"]
 
 [ext_resource type="Sky" uid="uid://x2114snxil" path="res://scenes/starry_sky.tres" id="1_oynbs"]
+
+[sub_resource type="Gradient" id="Gradient_3lppx"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o8rxp"]
+gradient = SubResource("Gradient_3lppx")
 
 [resource]
 background_mode = 2
 background_color = Color(0.010241, 0.0115341, 0.0102809, 1)
-background_energy_multiplier = 1.1
 sky = ExtResource("1_oynbs")
 ambient_light_source = 2
 ambient_light_color = Color(0.954301, 0.952822, 0.951124, 1)
@@ -23,6 +27,6 @@ fog_depth_curve = 0.183011
 fog_depth_begin = 0.0
 fog_depth_end = 1683.3
 volumetric_fog_albedo = Color(0.0962047, 0.0962048, 0.0962047, 1)
-adjustment_brightness = 3.2
-adjustment_contrast = 0.89
-adjustment_saturation = 0.96
+adjustment_enabled = true
+adjustment_brightness = 3.79
+adjustment_color_correction = SubResource("GradientTexture1D_o8rxp")

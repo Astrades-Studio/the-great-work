@@ -84,7 +84,42 @@ var shadow_spawn_points : Array[Darkness]
 var shadows_spawned : Array[Shadow]
 var dispensers : Array[Dispenser]
 
+# Settings
+var fov_value : float = 0.75:
+	set(value):
+		fov_value = clamp(remap(value, 0, 1, 60, 90), 60, 90)
+		if player:
+			player.camera.fov = fov_value
+
+
+var brightness : float = 1.0:
+	set(value):
+		if retro_filter:
+			brightness = clamp(remap(value, 0, 1, 2.0, 3.8), 2.0, 3.8)
+		else:
+			brightness = clamp(remap(value, 0, 1, 1.0, 2.0), 1.0, 2.0)
+		if fog_environment:
+			fog_environment.environment.adjustment_brightness = brightness
+
+
+var mouse_sensitivity : float = 0.1:
+	set(value):
+		mouse_sensitivity = clamp(remap(value, 0, 1, 0.01, 0.2), 0.01, 0.2)
+		if player:
+			player.mouse_sensitivity = mouse_sensitivity
+
+
+var retro_filter : bool = false:
+	set(value):
+		retro_filter = value
+		retro_filter_signal.emit(retro_filter)
+		if !retro_filter:
+			brightness = clamp(remap(brightness, 2.0, 3.8, 1., 2.), 1.0, 2.0)
+		else:
+			brightness = clamp(remap(brightness, 1.0, 2.0, 2., 3.8), 2.0, 3.8)
+
 # UI Signals
+signal retro_filter_signal(value : bool)
 signal interaction_label_updated(string : String)
 signal state_label_updated(state : GameState)
 signal request_book_UI(book : BookPages)

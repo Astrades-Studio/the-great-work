@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=153 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -67,6 +67,7 @@
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
+[ext_resource type="Texture2D" uid="uid://d23lmkr58umli" path="res://scripts/shaders/palette_slso8-1x.png" id="66_hmr1k"]
 [ext_resource type="Shader" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
 [ext_resource type="ArrayOccluder3D" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
@@ -916,19 +917,10 @@ size = Vector3(3.4021, 2.1, 3.23853)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k054j"]
 size = Vector3(3.76218, 3.29941, 1.64557)
 
-[sub_resource type="Gradient" id="Gradient_cf24q"]
-offsets = PackedFloat32Array(0, 0.15625, 0.375, 0.4375, 0.59375, 0.78125)
-colors = PackedColorArray(0, 0, 0, 1, 0.154946, 0.106139, 0.191911, 1, 0.45098, 0.282353, 0.054902, 0.576471, 0, 0, 0, 1, 0.531376, 0.388277, 0.225237, 1, 1, 1, 0.619608, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 32
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqgdf"]
-gradient = SubResource("Gradient_cf24q")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ol78e"]
 shader = ExtResource("66_t385j")
 shader_parameter/flip = null
-shader_parameter/gradient = SubResource("GradientTexture2D_dqgdf")
+shader_parameter/gradient = ExtResource("66_hmr1k")
 
 [sub_resource type="CameraTexture" id="CameraTexture_dmcjn"]
 
@@ -938,8 +930,8 @@ shader_parameter/pixelSize = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmilm"]
 shader = ExtResource("68_qo80q")
-shader_parameter/colors = 9.57
-shader_parameter/dither = 0.18
+shader_parameter/colors = 16.0
+shader_parameter/dither = 0.0
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_bkhrr")
@@ -1023,7 +1015,7 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 unique_name_in_owner = true
 transform = Transform3D(255.479, 16.4987, 7.21181e-07, 5.68509e-14, -1.11906e-05, 256.011, 16.4987, -255.479, -1.11673e-05, 4.04181, -0.846161, -21.7025)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.3
+light_energy = 0.456567
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1040,7 +1032,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.68894
+wait_time = 0.758295
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]
@@ -2285,10 +2277,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.417234, 0.129867, -5.76971)
 throw_impulse = 5.0
 
-[node name="PostProcessing" type="CanvasLayer" parent="."]
-
-[node name="PaletteLimiter" type="TextureRect" parent="PostProcessing"]
+[node name="PaletteLayer" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
+
+[node name="PaletteLimiter" type="TextureRect" parent="PaletteLayer"]
 material = SubResource("ShaderMaterial_ol78e")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2298,9 +2291,11 @@ grow_vertical = 2
 texture = SubResource("CameraTexture_dmcjn")
 expand_mode = 3
 
-[node name="PostProcessing2" type="CanvasLayer" parent="."]
+[node name="DitheringLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
 
-[node name="Dithering" type="ColorRect" parent="PostProcessing2"]
+[node name="Dithering" type="ColorRect" parent="DitheringLayer"]
 material = SubResource("ShaderMaterial_ku3q6")
 anchors_preset = 15
 anchor_right = 1.0
@@ -2309,32 +2304,24 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="PostProcessing3" type="CanvasLayer" parent="."]
-
-[node name="ColorReduction" type="ColorRect" parent="PostProcessing3"]
-material = SubResource("ShaderMaterial_dmilm")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="PostProcessing5" type="CanvasLayer" parent="."]
-
-[node name="ColorReduction" type="ColorRect" parent="PostProcessing5"]
-material = SubResource("ShaderMaterial_dmilm")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="PostProcessing4" type="CanvasLayer" parent="."]
+[node name="ColorReductionLayer" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
-[node name="Pixelize" type="ColorRect" parent="PostProcessing4"]
+[node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
+material = SubResource("ShaderMaterial_dmilm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PixelizeLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Pixelize" type="ColorRect" parent="PixelizeLayer"]
 material = SubResource("ShaderMaterial_ku3q6")
 anchors_preset = 15
 anchor_right = 1.0

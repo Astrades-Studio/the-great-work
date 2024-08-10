@@ -1,0 +1,741 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b26tokokamyik"
+path="res://.godot/imported/old west 1_webp.glb-7ec80c9cfb9a5c68c99d285597aa5e37.scn"
+
+[deps]
+
+source_file="res://assets/models/old_west/old west 1_webp.glb"
+dest_files=["res://.godot/imported/old west 1_webp.glb-7ec80c9cfb9a5c68c99d285597aa5e37.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
+_subresources={
+"meshes": {
+"old west 1_webp_SM_Candles_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Candles_01a.res"
+},
+"old west 1_webp_SM_Candles_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Candles_01b.res"
+},
+"old west 1_webp_SM_Candles_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Candles_01c.res"
+},
+"old west 1_webp_SM_Chimney_Set_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01a.res"
+},
+"old west 1_webp_SM_Chimney_Set_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01b.res"
+},
+"old west 1_webp_SM_Chimney_Set_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01c.res"
+},
+"old west 1_webp_SM_Chimney_Set_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01d.res"
+},
+"old west 1_webp_SM_Chimney_Set_01e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01e.res"
+},
+"old west 1_webp_SM_Chimney_Set_01f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01f.res"
+},
+"old west 1_webp_SM_Chimney_Set_01g": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01g.res"
+},
+"old west 1_webp_SM_Chimney_Set_01h": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01h.res"
+},
+"old west 1_webp_SM_Door_06a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_06a.res"
+},
+"old west 1_webp_SM_Door_06b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_06b.res"
+},
+"old west 1_webp_SM_Door_06c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_06c.res"
+},
+"old west 1_webp_SM_Door_07a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_07a.res"
+},
+"old west 1_webp_SM_Door_07b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_07b.res"
+},
+"old west 1_webp_SM_Door_07c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_07c.res"
+},
+"old west 1_webp_SM_Door_07d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_07d.res"
+},
+"old west 1_webp_SM_Door_Double_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_01a.res"
+},
+"old west 1_webp_SM_Door_Double_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_01b.res"
+},
+"old west 1_webp_SM_Door_Double_02a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_02a.res"
+},
+"old west 1_webp_SM_Door_Double_02b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_02b.res"
+},
+"old west 1_webp_SM_Door_Double_02d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_02d.res"
+},
+"old west 1_webp_SM_Door_Double_NN_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_NN_01c.res"
+},
+"old west 1_webp_SM_Door_Double_NN_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_NN_01d.res"
+},
+"old west 1_webp_SM_Door_Double_NN_02c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_NN_02c.res"
+},
+"old west 1_webp_SM_Farm_Tool_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Farm_Tool_01a.res"
+},
+"old west 1_webp_SM_Farm_Tool_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Farm_Tool_01b.res"
+},
+"old west 1_webp_SM_Farm_Tool_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Farm_Tool_01c.res"
+},
+"old west 1_webp_SM_Farm_Tool_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Farm_Tool_01d.res"
+},
+"old west 1_webp_SM_Flag_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Flag_01a.res"
+},
+"old west 1_webp_SM_Gear_Set_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01a.res"
+},
+"old west 1_webp_SM_Gear_Set_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01b.res"
+},
+"old west 1_webp_SM_Gear_Set_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01c.res"
+},
+"old west 1_webp_SM_Gear_Set_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01d.res"
+},
+"old west 1_webp_SM_Gear_Set_01e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01e.res"
+},
+"old west 1_webp_SM_Gear_Set_01f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01f.res"
+},
+"old west 1_webp_SM_Gear_Set_01g": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01g.res"
+},
+"old west 1_webp_SM_Gear_Set_01h": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01h.res"
+},
+"old west 1_webp_SM_Gear_Set_01i": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01i.res"
+},
+"old west 1_webp_SM_Job_Board_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Job_Board_01b.res"
+},
+"old west 1_webp_SM_Lighting_Outdoor_05a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Lighting_Outdoor_05a.res"
+},
+"old west 1_webp_SM_Lighting_Outdoor_05b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Lighting_Outdoor_05b.res"
+},
+"old west 1_webp_SM_Piano_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Piano_01a.res"
+},
+"old west 1_webp_SM_Piano_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Piano_01b.res"
+},
+"old west 1_webp_SM_Saw_Blades_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Saw_Blades_01a.res"
+},
+"old west 1_webp_SM_Saw_Blades_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Saw_Blades_01b.res"
+},
+"old west 1_webp_SM_Saw_Blades_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Saw_Blades_01c.res"
+},
+"old west 1_webp_SM_Shelf_12a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shelf_12a.res"
+},
+"old west 1_webp_SM_Shutter_Set_03a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutter_Set_03a.res"
+},
+"old west 1_webp_SM_Shutter_Set_03b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutter_Set_03b.res"
+},
+"old west 1_webp_SM_Shutter_Set_03d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutter_Set_03d.res"
+},
+"old west 1_webp_SM_Shutter_Set_03e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutter_Set_03e.res"
+},
+"old west 1_webp_SM_Shutter_Set_NN_03c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutter_Set_NN_03c.res"
+},
+"old west 1_webp_SM_Shutters_02a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutters_02a.res"
+},
+"old west 1_webp_SM_Shutters_02b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutters_02b.res"
+},
+"old west 1_webp_SM_Shutters_02c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutters_02c.res"
+},
+"old west 1_webp_SM_Shutters_02d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutters_02d.res"
+},
+"old west 1_webp_SM_Shutters_02e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Shutters_02e.res"
+},
+"old west 1_webp_SM_Toolbox_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01a.res"
+},
+"old west 1_webp_SM_Toolbox_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01b.res"
+},
+"old west 1_webp_SM_Toolbox_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01c.res"
+},
+"old west 1_webp_SM_Toolbox_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01d.res"
+},
+"old west 1_webp_SM_Toolbox_01e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01e.res"
+},
+"old west 1_webp_SM_Toolbox_01f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01f.res"
+},
+"old west 1_webp_SM_Toolbox_01g": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01g.res"
+},
+"old west 1_webp_SM_Toolbox_01h": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01h.res"
+},
+"old west 1_webp_SM_Toolbox_01i": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01i.res"
+},
+"old west 1_webp_SM_Toolbox_01l": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01l.res"
+},
+"old west 1_webp_SM_Toolbox_01m": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01m.res"
+},
+"old west 1_webp_SM_Toolbox_01n": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01n.res"
+},
+"old west 1_webp_SM_Toolbox_01o": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01o.res"
+},
+"old west 1_webp_SM_Toolbox_01p": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01p.res"
+},
+"old west 1_webp_SM_Toolbox_01q": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01q.res"
+},
+"old west 1_webp_SM_Toolbox_01r": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01r.res"
+},
+"old west 1_webp_SM_Toolbox_NN_01w": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_NN_01w.res"
+},
+"old west 1_webp_SM_Wall_Deer_Mount_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Wall_Deer_Mount_01a.res"
+},
+"old west 1_webp_SM_Wall_Deer_Mount_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/old_west/meshes/old west 1_webp_SM_Wall_Deer_Mount_01b.res"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

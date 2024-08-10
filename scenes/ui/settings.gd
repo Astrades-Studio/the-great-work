@@ -7,10 +7,11 @@ extends CenterContainer
 
 @onready var mute_button: Button = %MuteButton
 @onready var fullscreen_button: Button = %FullscreenButton
+@onready var retro_filter: Button = %RetroFilter
 
 @onready var fov_slider: HSlider = %FOVSlider
 @onready var brightness_slider: HSlider = %BrightnessSlider
-@onready var sensibility_slider: HSlider = %SensibilitySlider
+@onready var sensitivity_slider: HSlider = %SensitivitySlider
 
 
 @onready var back_button: Button = %BackButton
@@ -41,8 +42,11 @@ func connect_signals():
 	fullscreen_button.toggled.connect(_on_fullscreen_checkbox_toggled)
 	fov_slider.value_changed.connect(_on_fov_slider_value_changed)
 	brightness_slider.value_changed.connect(_on_brightness_slider_value_changed)
-	sensibility_slider.value_changed.connect(_on_sensibility_slider_value_changed)
+	sensitivity_slider.value_changed.connect(_on_sensitivity_slider_value_changed)
+	retro_filter.toggled.connect(_on_retro_filter_toggled)
 
+func _on_retro_filter_toggled(button_pressed):
+	GameManager.retro_filter = button_pressed
 
 func _on_fov_slider_value_changed(value):
 	GameManager.fov_value = value
@@ -50,8 +54,8 @@ func _on_fov_slider_value_changed(value):
 func _on_brightness_slider_value_changed(value):
 	GameManager.brightness = value
 
-func _on_sensibility_slider_value_changed(value):
-	GameManager.mouse_sensibility = value
+func _on_sensitivity_slider_value_changed(value):
+	GameManager.mouse_sensitivity = value
 
 func _on_mute_check_box_toggled(button_pressed):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)

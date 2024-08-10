@@ -65,6 +65,8 @@ class StepResult:
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera.fov = GameManager.fov_value
+	mouse_sensitivity = GameManager.mouse_sensitivity
 	
 	camera_target_position = camera.global_transform.origin
 	camera.set_as_top_level(true)
