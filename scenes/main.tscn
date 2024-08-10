@@ -1014,7 +1014,7 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 unique_name_in_owner = true
 transform = Transform3D(255.479, 16.4987, 7.21178e-07, 6.53384e-12, -1.11907e-05, 256.011, 16.4987, -255.479, -1.11673e-05, -1.3465, -0.846146, -22.0504)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.524107
+light_energy = 0.585996
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1031,7 +1031,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.651914
+wait_time = 0.81699
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]
@@ -1247,7 +1247,7 @@ omni_range = 8.241
 omni_attenuation = 5.009
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.466132, 1.65963e-15, 0.147018, 1.25316e-15, 0.151051, 3.65901, 0.729159, -7.62755)
+transform = Transform3D(0.302047, 9.30769e-15, -0.0735225, -5.50805e-15, 0.466132, 1.65963e-15, 0.147018, 1.25316e-15, 0.151051, 3.71401, 0.670438, -7.68547)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
@@ -1954,7 +1954,10 @@ omni_range = 1.505
 omni_attenuation = 1.723
 
 [node name="Candle3" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
-transform = Transform3D(0.973294, 0.0132708, 0.229182, 0.00444564, 0.997051, -0.0766137, -0.229524, 0.0755866, 0.970365, 3.67523, -1.29252, -8.00523)
+transform = Transform3D(0.973294, 0.0132708, 0.229182, 0.00444564, 0.997051, -0.0766137, -0.229524, 0.0755866, 0.970365, 3.7435, -1.29252, -8.03381)
+
+[node name="CandleMesh" parent="Level/Lights/Candle3" index="0"]
+transform = Transform3D(0.00977227, 0, -2.91038e-11, 0, -2.91038e-10, -0.00977227, 2.32831e-10, 0.00977227, -4.07454e-10, -0.000261307, -0.0576934, 0.00449896)
 
 [node name="OmniLight3D" parent="Level/Lights/Candle3" index="3"]
 transform = Transform3D(0.999999, 2.04891e-08, 1.16229e-06, 0, 1, -2.38419e-07, 2.98023e-08, -1.49012e-08, 0.999999, -0.00631762, 0.403467, -0.0010128)
