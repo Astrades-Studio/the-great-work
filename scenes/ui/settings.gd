@@ -5,8 +5,14 @@ extends CenterContainer
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var settings_container: CenterContainer = $"."
 
-@onready var mute_check_box: CheckBox = %MuteCheckBox
-@onready var fullscreen_checkbox: CheckBox = %FullscreenCheckbox
+@onready var mute_button: Button = %MuteButton
+@onready var fullscreen_button: Button = %FullscreenButton
+
+@onready var fov_slider: HSlider = %FOVSlider
+@onready var brightness_slider: HSlider = %BrightnessSlider
+@onready var sensibility_slider: HSlider = %SensibilitySlider
+
+
 @onready var back_button: Button = %BackButton
 
 var master_bus : = AudioServer.get_bus_index("Master")
@@ -22,13 +28,30 @@ func _ready():
 	music_volume = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
 	sfx_volume = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
 	
-	mute_check_box.button_pressed = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
+	mute_button.button_pressed = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
 	
-	mute_check_box.toggled.connect(_on_mute_check_box_toggled)
+	connect_signals()
+
+
+func connect_signals():
+	mute_button.toggled.connect(_on_mute_check_box_toggled)
 	master_slider.value_changed.connect(_on_master_slider_value_changed)
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
 	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
-	fullscreen_checkbox.toggled.connect(_on_fullscreen_checkbox_toggled)
+	fullscreen_button.toggled.connect(_on_fullscreen_checkbox_toggled)
+	fov_slider.value_changed.connect(_on_fov_slider_value_changed)
+	brightness_slider.value_changed.connect(_on_brightness_slider_value_changed)
+	sensibility_slider.value_changed.connect(_on_sensibility_slider_value_changed)
+
+
+func _on_fov_slider_value_changed(value):
+	GameManager.fov_value = value
+
+func _on_brightness_slider_value_changed(value):
+	GameManager.brightness = value
+
+func _on_sensibility_slider_value_changed(value):
+	GameManager.mouse_sensibility = value
 
 func _on_mute_check_box_toggled(button_pressed):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)

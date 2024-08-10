@@ -224,7 +224,7 @@ unique_name_in_owner = true
 transform = Transform3D(256.011, 1.90743e-06, -3.71391e-13, -4.96963e-21, -1.11906e-05, 256.011, 1.90743e-06, -256.011, -1.11906e-05, -3.77217e-07, -0.846161, -13.3708)
 layers = 3
 light_color = Color(0.804074, 0.58192, 0.367227, 1)
-light_energy = 2.89659
+light_energy = 2.12452
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 shadow_bias = 1.881
@@ -239,7 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.609774
+wait_time = 0.989964
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

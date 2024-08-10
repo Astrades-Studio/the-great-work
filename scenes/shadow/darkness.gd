@@ -20,11 +20,9 @@ var hp : float:
 			remove_shadow()
 
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var shadow: Shadow = $Shadow
 @onready var darkness_fx: GPUParticles3D = $DarknessFX
 @onready var darkness_fx_intensity = darkness_fx.amount_ratio
-@onready var darkness_light: OmniLight3D = $DarknessLight
 @onready var shadow_death_player: AudioStreamPlayer3D = $ShadowDeathSound
 @onready var damage_sound: AudioStreamPlayer3D = $DamageSound
 

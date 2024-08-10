@@ -8,6 +8,10 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = 16.0
+offset_right = -175.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cqpxu")
@@ -24,25 +28,29 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(80, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "VOLUME"
 horizontal_alignment = 1
 
-[node name="MasterVolume2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MasterVolume2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MasterVolume2"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
 layout_mode = 2
 text = "MASTER"
 
-[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MasterVolume2"]
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -53,14 +61,14 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="MusicVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MusicVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
 layout_mode = 2
 text = "MUSIC"
 
-[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/MusicVolume"]
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -68,14 +76,14 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="SFXVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFXVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/SFXVolume"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
 layout_mode = 2
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/SFXVolume"]
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -83,31 +91,82 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Bottom" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Bottom" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MuteLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
+[node name="MuteButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Bottom"]
+unique_name_in_owner = true
 layout_mode = 2
+toggle_mode = true
 text = "MUTE"
 
-[node name="MuteCheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
+[node name="FullscreenButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Bottom"]
 unique_name_in_owner = true
-modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
 layout_mode = 2
-
-[node name="FullscreenLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
-layout_mode = 2
+toggle_mode = true
 text = "FULLSCREEN"
 
-[node name="FullscreenCheckbox" type="CheckBox" parent="PanelContainer/MarginContainer/VBoxContainer/Bottom"]
-unique_name_in_owner = true
-modulate = Color(0.0646965, 0.0646965, 0.0646965, 1)
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "BACK"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FOV" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="FOVLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
+layout_mode = 2
+text = "FOV"
+horizontal_alignment = 1
+
+[node name="FOVSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
+unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Brightness" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="BrightnessLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
+layout_mode = 2
+text = "BRIGHTNESS
+"
+horizontal_alignment = 1
+
+[node name="BrightnessSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
+unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Sensibility" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="SensibilityLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensibility"]
+layout_mode = 2
+text = "SENSIBILITY"
+horizontal_alignment = 1
+
+[node name="SensibilitySlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensibility"]
+unique_name_in_owner = true
+modulate = Color(0.463083, 0.592747, 0.748785, 1)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

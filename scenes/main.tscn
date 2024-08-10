@@ -1019,14 +1019,11 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_fl4fo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/House/GasLamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-shape = SubResource("CylinderShape3D_rgq48")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Level/NavigationRegion3D/House/GasLamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0201023, 0.10214, -0.00260109)
+[node name="GasLampLight" type="OmniLight3D" parent="Level/NavigationRegion3D/House/GasLamp/Eje/Hand_Gas_Lamp_002"]
+unique_name_in_owner = true
+transform = Transform3D(255.479, 16.4987, 7.21181e-07, 5.68509e-14, -1.11906e-05, 256.011, 16.4987, -255.479, -1.11673e-05, 4.04181, -0.846161, -21.7025)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.331648
+light_energy = 0.3
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1038,8 +1035,12 @@ shadow_blur = 0.0
 omni_range = 0.636
 omni_attenuation = 1.658
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/House/GasLamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("CylinderShape3D_rgq48")
+
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.871253
+wait_time = 0.68894
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]

@@ -48,11 +48,16 @@ _data = {
 "open": SubResource("Animation_lxw3k")
 }
 
-[node name="DoorStatic" type="StaticBody3D"]
+[node name="DoorFrame" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+mesh = ExtResource("7_tujis")
+
+[node name="DoorStatic" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 script = ExtResource("1_uqvrx")
+locked = false
 
-[node name="door_002" type="MeshInstance3D" parent="."]
+[node name="door_002" type="MeshInstance3D" parent="DoorStatic"]
 transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, 0, -1.09242, 0)
 mesh = ExtResource("2_llld5")
 skeleton = NodePath("")
@@ -62,19 +67,19 @@ metadata/size_x = "24.3704"
 metadata/size_z = "217.5816"
 metadata/size_y = "98.6269"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorStatic"]
 transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, -0.450401, -0.0308373, 0.051138)
 shape = SubResource("BoxShape3D_cowdo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorStatic"]
 libraries = {
 "": SubResource("AnimationLibrary_vlogh")
 }
 
-[node name="InteractionComponent" type="Node" parent="."]
+[node name="InteractionComponent" type="Node" parent="DoorStatic"]
 script = ExtResource("3_6fclx")
 
-[node name="DoorOpening" type="AudioStreamPlayer3D" parent="."]
+[node name="DoorOpening" type="AudioStreamPlayer3D" parent="DoorStatic"]
 transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("4_flqml")
 volume_db = 3.265
@@ -84,7 +89,7 @@ max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
 
-[node name="DoorClosing" type="AudioStreamPlayer3D" parent="."]
+[node name="DoorClosing" type="AudioStreamPlayer3D" parent="DoorStatic"]
 transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("5_2pltj")
 volume_db = 1.667
@@ -94,7 +99,7 @@ max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
 
-[node name="DoorLocked" type="AudioStreamPlayer3D" parent="."]
+[node name="DoorLocked" type="AudioStreamPlayer3D" parent="DoorStatic"]
 transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
 stream = ExtResource("6_j6lml")
 volume_db = -3.265
@@ -103,7 +108,3 @@ max_db = 1.775
 max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
-
-[node name="DoorFrame" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.000206348, -1.08948, 0.00144941)
-mesh = ExtResource("7_tujis")
