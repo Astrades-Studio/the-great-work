@@ -930,7 +930,7 @@ shader_parameter/pixelSize = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmilm"]
 shader = ExtResource("68_qo80q")
-shader_parameter/colors = 16.0
+shader_parameter/colors = 10.0
 shader_parameter/dither = 0.0
 
 [node name="MainScene" type="Node3D"]
@@ -1015,7 +1015,7 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 unique_name_in_owner = true
 transform = Transform3D(255.479, 16.4987, 7.21181e-07, 5.68509e-14, -1.11906e-05, 256.011, 16.4987, -255.479, -1.11673e-05, 4.04181, -0.846161, -21.7025)
 light_color = Color(1, 0.591041, 0.285807, 1)
-light_energy = 0.456567
+light_energy = 0.502593
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 16.0
@@ -1032,7 +1032,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/House/GasLamp"]
-wait_time = 0.758295
+wait_time = 0.843094
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/House/GasLamp"]
@@ -2293,7 +2293,6 @@ expand_mode = 3
 
 [node name="DitheringLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="Dithering" type="ColorRect" parent="DitheringLayer"]
 material = SubResource("ShaderMaterial_ku3q6")
@@ -2306,7 +2305,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorReductionLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
 material = SubResource("ShaderMaterial_dmilm")
@@ -2318,8 +2316,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="PixelizeLayer" type="CanvasLayer" parent="."]
-layer = 2
-visible = false
 
 [node name="Pixelize" type="ColorRect" parent="PixelizeLayer"]
 material = SubResource("ShaderMaterial_ku3q6")

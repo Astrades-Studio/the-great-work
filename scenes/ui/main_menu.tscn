@@ -370,7 +370,6 @@ text = "For the Pirate Game Jam 15, 2024"
 [connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MarginContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/MarginContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 
 [editable path="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer"]

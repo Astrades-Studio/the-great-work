@@ -116,6 +116,7 @@ func spawn_shadow() -> bool:
 	hp = MAX_HP
 	shadow_present = true
 	show()
+	shadow.show()
 	tween = get_tree().create_tween()
 	tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
 	tween.parallel().tween_property(darkness_fx, "lifetime", 1.7, 0.1)

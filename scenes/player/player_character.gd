@@ -173,18 +173,17 @@ func _physics_process(delta: float) -> void:
 # define an "interact()" function that takes a parameter if they need a specific item
 # Check the PageComponent in Page.tscn to see how this works along the InteractComponent
 func interact():	
+	if interaction_result:
+		if interaction_result.has_user_signal("interacted"):
+			interaction_result.emit_signal("interacted")
+			return
 	if is_instance_valid(ingredient_in_hand):
 		if ingredient_in_hand is Flare:
 			if !ingredient_in_hand.active:
 				ingredient_in_hand.active = true
 			else:
 				animation_player.play("attack")
-				return
-		if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		elif ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
 			animation_player.play("swallow")
 			await animation_player.animation_finished
 			GameManager.stone_consumed.emit()
-	if !interaction_result:
-		return
-	if interaction_result.has_user_signal("interacted"):
-		interaction_result.emit_signal("interacted")

@@ -19,8 +19,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey or event is InputEventJoypadButton:
-		if credits.visible:
-			credits.hide()
+		if event.is_pressed():
+			if credits.visible:
+				credits.hide()
 
 func _on_new_game_button_pressed() -> void:
 		new_game_requested.emit()
