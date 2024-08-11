@@ -223,17 +223,20 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 unique_name_in_owner = true
 transform = Transform3D(256.011, 1.90743e-06, -3.71391e-13, -4.96963e-21, -1.11906e-05, 256.011, 1.90743e-06, -256.011, -1.11906e-05, -3.77217e-07, -0.846161, -13.3708)
 layers = 3
-light_color = Color(0.948002, 0.542128, 0.297085, 1)
-light_energy = 2.0607
+light_color = Color(0.754546, 0.413845, 3.85046e-07, 1)
+light_energy = 0.117
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.949
-shadow_bias = 1.881
-shadow_opacity = 0.45
-shadow_blur = 0.0
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_transmittance_bias = 1.545
+shadow_opacity = 0.55
+shadow_blur = 2.617
 distance_fade_enabled = true
-omni_range = 12.515
-omni_attenuation = 3.418
+omni_range = 4.924
+omni_attenuation = 1.287
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -279,7 +282,7 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Hand  - Realistic2"]
 transform = Transform3D(0.88589, -7.45058e-09, 7.34581e-08, -5.58794e-08, 0.885889, 5.58794e-09, -1.11177e-07, -1.86265e-09, 0.885891, -0.0521104, -0.0120547, 0.116716)
-layers = 3
+layers = 2
 light_color = Color(0.666245, 0.404674, 0.228184, 1)
 light_energy = 0.363
 light_indirect_energy = 0.759
