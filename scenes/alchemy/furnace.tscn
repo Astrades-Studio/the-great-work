@@ -305,7 +305,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_13v2k")
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.0863309, 0.330935, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.929134, 0.929134, 0.929134, 0.929134, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
 gradient = SubResource("Gradient_18oco")
@@ -317,9 +318,10 @@ fill_to = Vector2(0.968661, 0.851852)
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.666621, 0.307051, 0.00930781, 1)
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.496041, 0.143159, 0, 1)
 albedo_texture = SubResource("GradientTexture2D_pt3h2")
-albedo_texture_force_srgb = true
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -413,7 +415,7 @@ skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
 [node name="FireLog" type="GPUParticles3D" parent="LogFire"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0558933, 0.183518, 0.0330287)
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 visibility_range_end = 9.8
