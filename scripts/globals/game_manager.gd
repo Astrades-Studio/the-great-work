@@ -121,6 +121,7 @@ var retro_filter : bool = false:
 # UI Signals
 signal retro_filter_signal(value : bool)
 signal interaction_label_updated(string : String)
+signal crosshair_signal(crosshair : InteractionComponent.InteractionType)
 signal state_label_updated(state : GameState)
 signal request_book_UI(book : BookPages)
 signal request_debug_panel
