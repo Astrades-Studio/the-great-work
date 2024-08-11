@@ -11,7 +11,7 @@ extends CanvasLayer
 func _ready():
 	GameManager.shadow_removed.connect(_on_shadow_removed)
 	var nausea_material = nausea.material
-	var vignette_material = vignette.material
+	var _vignette_material = vignette.material
 	nausea_material.set_shader_parameter("time", 0.0)  # Initialize time
 	set_process(true)
 

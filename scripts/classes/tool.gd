@@ -81,7 +81,7 @@ func on_tool_use() -> bool:
 	# 	DialogManager.create_dialog_piece("I should look for Adam first.")
 	# 	return false
 	if processing:
-		DialogManager.create_dialog_piece("Now I just need to wait a little.")
+		DialogManager.create_dialog_piece("It's processing. I need to wait.")
 		return false
 	
 
@@ -105,7 +105,7 @@ func on_tool_use() -> bool:
 					GameManager.flare_created.emit()
 					var flare_1 : Node = stored_ingredient.duplicate()
 					var flare_2 : Node = stored_ingredient.duplicate()
-					var flare_3 : Node = stored_ingredient.duplicate()
+					#var flare_3 : Node = stored_ingredient.duplicate()
 					spawn_at_target(flare_1)
 					spawn_at_target(flare_2)
 					move_ingredient_to_player(stored_ingredient)
@@ -123,7 +123,17 @@ func on_tool_use() -> bool:
 				DialogManager.create_dialog_piece("The result of this formula was %s." % [stored_ingredient.type_name])
 				move_ingredient_to_player(stored_ingredient)
 				return true
-		DialogManager.create_dialog_piece("I need an ingredient to use this")
+		if tool_type == Type.CAULDRON:
+			if item_1:
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. It currently has %s in it.", % item_1.type_name)
+			else:
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. I should try putting something in it.")
+		elif tool_type == Type.FURNACE:
+			DialogManager.create_dialog_piece("The furnace burns elements to a crisp, leaving only the most resistant essence.")
+		elif tool_type == Type.MORTAR:
+			DialogManager.create_dialog_piece("I can use this mortar to pulverize elements that are too tough to dissolve.")
+		elif tool_type == Type.STILL:
+			DialogManager.create_dialog_piece("The still extracts impurities from a substance.")
 		return false
 
 	# Items that don't mix
@@ -350,6 +360,7 @@ func play_animation():
 		return
 	elif tool_type == Tool.Type.FURNACE:
 		return
+
 
 func play_use_animation():
 	var ingredient = GameManager.player.ingredient_in_hand

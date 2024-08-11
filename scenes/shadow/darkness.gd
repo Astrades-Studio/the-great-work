@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 func _on_tick_countdown() -> void:
 	pass
 
-var _pursue_cooldown : float = 0.0
+
 const MAX_PURSUE_COOLDOWN := 2.
 var last : int = -1
 func _on_body_entered(body: Node3D) -> void:
@@ -75,17 +75,29 @@ func _on_body_entered(body: Node3D) -> void:
 			body.panic_effects.increase_agitation()
 		
 			if !already_seen:
-				var random_int =  randi() % 3
-				while last == random_int:
-					random_int = randi() % 3
-				if random_int == 0:
-					DialogManager.create_subtitles_piece("Gordo puto!!")
-				if random_int == 1:
-					DialogManager.create_subtitles_piece("MAMAAA!")
-				if random_int == 2:
-					DialogManager.create_subtitles_piece("Get away from me!")
-				last = random_int
-				
+				if body.ingredient_in_hand is Flare:
+					var random_int =  randi() % 3
+					while last == random_int:
+						random_int = randi() % 3
+					if random_int == 0:
+						DialogManager.create_subtitles_piece("This light will guide me.")
+					if random_int == 1:
+						DialogManager.create_subtitles_piece("As long as I have this, I have nothing to fear.")
+					if random_int == 2:
+						DialogManager.create_subtitles_piece("The illuminant will keep the darkness at bay.")
+					last = random_int
+				else:
+					var random_int =  randi() % 3
+					while last == random_int:
+						random_int = randi() % 3
+					if random_int == 0:
+						DialogManager.create_subtitles_piece("This manifestation is dangerous.")
+					if random_int == 1:
+						DialogManager.create_subtitles_piece("I should get rid of this abomination")
+					if random_int == 2:
+						DialogManager.create_subtitles_piece("Darkness shall not stop me")
+					last = random_int
+					
 				already_seen = false
 				
 
