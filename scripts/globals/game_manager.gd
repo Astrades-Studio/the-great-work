@@ -85,7 +85,7 @@ var shadows_spawned : Array[Shadow]
 var dispensers : Array[Dispenser]
 
 # Settings
-var fov_value : float = 0.75:
+var fov_value : float = 75:
 	set(value):
 		fov_value = clamp(remap(value, 0, 1, 60, 90), 60, 90)
 		if player:
@@ -283,12 +283,12 @@ func _on_flare_created():
 # Endgame progress:
 func _on_philosopher_stone_progress(amount: int):
 	# Check progress from 1 to 4:
-	ovani_player.FadeIntensity(amount/3, 5)
+	ovani_player.FadeIntensity(amount/3.0, 5.0)
 	if amount == 0:
-		ovani_player.FadeVolume(-80, 10)
+		ovani_player.FadeVolume(-80, 5)
 		pass
 	if amount == 1:
-		ovani_player.FadeVolume(-15, 10)
+		ovani_player.FadeVolume(-15, 5)
 		ovani_player.PlaySongNow(SORROW_SONG)
 		shadow_removed.emit()
 		pass

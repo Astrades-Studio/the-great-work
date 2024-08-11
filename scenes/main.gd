@@ -71,7 +71,7 @@ func trigger_death_timer():
 	)
 
 
-func _on_basement_trigger_body_entered(body: Node3D) -> void:
+func _on_basement_trigger_body_entered(_body: Node3D) -> void:
 	pass # Replace with function body.
 
 
