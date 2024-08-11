@@ -19,9 +19,14 @@ func _input(event: InputEvent) -> void:
 			_on_back_button_pressed()
 		elif pause_container.visible:
 			hide_pause_menu()
+		elif event.is_action_pressed("pause"):
+			if pause_container.visible:
+				hide_pause_menu()
+			elif GameManager.current_state == GameManager.GameState.PLAYING:
+				show_pause_menu()
 		#elif GameManager.current_state == GameManager.GameState.PLAYING:
 			#show_pause_menu()
-	if event.is_action_pressed("pause"):
+	elif event.is_action_pressed("pause"):
 		if pause_container.visible:
 			hide_pause_menu()
 		elif GameManager.current_state == GameManager.GameState.PLAYING:
