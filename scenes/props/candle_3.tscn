@@ -1,11 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsny5rbtvydc3"]
+[gd_scene load_steps=9 format=3 uid="uid://bsny5rbtvydc3"]
 
 [ext_resource type="Script" path="res://scenes/props/candle.gd" id="1_on6si"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="1_yhmwn"]
 [ext_resource type="ArrayMesh" uid="uid://dtwe55f6v6id8" path="res://scenes/props/candle_3.tres" id="2_khggc"]
+[ext_resource type="Animation" uid="uid://dndtd7uvnv8j4" path="res://assets/animations/candle.res" id="4_an2pr"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jui0a"]
 points = PackedVector3Array(-2.20268, -1.174, -35.6225, 8.15013, 4.30434, 0.304493, 8.15013, -4.21828, 0.304493, -12.5555, 0.649811, -6.39486, -4.02679, -8.48306, 0.304493, -4.02679, 8.56738, 0.304493, 0.841545, 2.47708, -35.6225, 5.71393, -3.00126, -27.0995, -2.81072, 5.52137, -27.0995, -2.81072, -5.43704, -27.0995, 3.88577, -8.48306, -1.52295, 3.88577, 8.56738, -0.916348, 5.20974, 2.30257, -26.5953, -12.5555, -0.565484, -9.43933, -8.29114, -4.21828, 0.304493, 3.27774, -5.43704, -27.0995, 2.35838, 5.15402, -26.5968, 0.231483, -0.565484, -38.6708, -5.85292, 2.47708, -27.0995, -8.29114, 4.30434, 0.304493, 2.05964, -9.0933, -0.305927, -12.5555, 0.649811, -9.43933, -5.85292, -2.39102, -27.0995, -2.20268, 1.25832, -35.6225, 2.66768, 0.649811, -35.6225, 0.841545, -2.39102, -36.2329, -4.02679, 8.56738, -0.916348, 8.15013, 4.30434, -0.916348, -1.59465, -9.0933, -0.305927, 8.15013, -4.21828, -1.52295, -4.02679, -8.48306, -0.916348, 3.88577, 8.56738, 0.304493)
+
+[sub_resource type="Animation" id="Animation_klq71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.861]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OmniLight3D:omni_attenuation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oko8q"]
+_data = {
+"RESET": SubResource("Animation_klq71"),
+"candle": ExtResource("4_an2pr")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fqph5"]
 
 [node name="Candle" type="StaticBody3D"]
 script = ExtResource("1_on6si")
@@ -24,12 +60,38 @@ shape = SubResource("ConvexPolygonShape3D_jui0a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64262e-05, 0.367031, -0.000597959)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428038, 0.00227527)
-light_color = Color(0.59677, 0.271121, 0.174335, 1)
-light_energy = 3.831
-light_indirect_energy = 1.68
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46212, 0.00227527)
+light_color = Color(0.411716, 0.114246, 0.00597036, 1)
+light_energy = 0.608
+light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_size = 0.122
-light_specular = 0.76
+light_specular = 0.0
 light_bake_mode = 0
 shadow_enabled = true
+shadow_normal_bias = 0.0
+shadow_transmittance_bias = -16.0
+shadow_opacity = 0.95
+omni_range = 1.861
+omni_attenuation = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CandleMesh")
+libraries = {
+"": SubResource("AnimationLibrary_oko8q")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.52031, 0, 0, 0, 0.52031, 0, 0, 0, 0.52031, 0, -0.0082829, 0)
+visible = false
+mesh = SubResource("PlaneMesh_fqph5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.52031, 0, 0, 0, 0.52031, 0, 0, 0, 0.52031, 0.580145, -0.106617, 0)
+visible = false
+mesh = SubResource("PlaneMesh_fqph5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.258819, -0.965926, 0, 0.965926, -0.258819, 0, 1.16876, 0.0352757)
+visible = false
+mesh = SubResource("PlaneMesh_fqph5")

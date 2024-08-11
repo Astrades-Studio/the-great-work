@@ -227,10 +227,10 @@ transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390
 layers = 2
 
 [node name="GasLampLight" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje/Hand_Gas_Lamp_002" index="1"]
-light_energy = 3.32055
+light_energy = 2.42506
 
 [node name="Timer" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="2"]
-wait_time = 0.566234
+wait_time = 0.598825
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 layer = 2

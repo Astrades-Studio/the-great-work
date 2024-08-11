@@ -1,8 +1,11 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8x7mnu0gseib"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8x7mnu0gseib"]
+
+[ext_resource type="Texture2D" uid="uid://c8g0l8yblu4qk" path="res://assets/textures/Wood_Table_02/wood_table_worn_diff_1K.jpg" id="1_tkjnh"]
 
 [resource]
 resource_name = "Red.005"
 cull_mode = 2
-albedo_color = Color(0.325314, 0.181164, 0.104415, 1)
+albedo_texture = ExtResource("1_tkjnh")
 metallic_specular = 0.29
 roughness = 0.44
+uv1_scale = Vector3(1024, 1024, 1024)

@@ -1,20 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr1byn8k8aawh"]
+[gd_scene load_steps=11 format=3 uid="uid://dr1byn8k8aawh"]
 
-[sub_resource type="Gradient" id="Gradient_18oco"]
+[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="1_43v76"]
+
+[sub_resource type="Gradient" id="Gradient_yjcha"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pt3h2"]
-gradient = SubResource("Gradient_18oco")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_krocc"]
+gradient = SubResource("Gradient_yjcha")
 fill = 1
 fill_from = Vector2(0.535613, 0.527066)
 fill_to = Vector2(0.968661, 0.851852)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuwjd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2q43"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.622594, 0.345564, 0.0175739, 1)
-albedo_texture = SubResource("GradientTexture2D_pt3h2")
+diffuse_mode = 2
+specular_mode = 1
+disable_ambient_light = true
+albedo_color = Color(0.700772, 0.223685, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_krocc")
 albedo_texture_force_srgb = true
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -53,9 +58,12 @@ scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
 size = Vector2(0.05, 0.05)
 
 [node name="FireBeam" type="GPUParticles3D"]
-material_override = SubResource("StandardMaterial3D_tuwjd")
+material_override = SubResource("StandardMaterial3D_f2q43")
 cast_shadow = 0
 amount = 15
 lifetime = 0.25
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_igbii")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_43v76")

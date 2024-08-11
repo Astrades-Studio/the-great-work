@@ -4,6 +4,8 @@ extends StaticBody3D
 @onready var fireplace_on: MeshInstance3D = $Fireplace_ON
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fireplace_2: OmniLight3D = $Fireplace2
+@onready var fire_log: GPUParticles3D = $Fireplace_ON/FireLog
+
 var on_active_fire: bool = false
 
 func _ready():
@@ -21,5 +23,6 @@ func on_fireplace_use():
 	fireplace_off.hide()
 	fireplace_on.show()
 	animation_player.play("Emission")
+	fire_log.emitting = true
 	GameManager.current_state = GameManager.GameState.PLAYING
 	

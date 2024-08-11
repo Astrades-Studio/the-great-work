@@ -2,4 +2,5 @@
 
 [resource]
 transparency = 1
+depth_draw_mode = 1
 albedo_color = Color(0.35714, 0.417625, 0.496801, 0.298039)

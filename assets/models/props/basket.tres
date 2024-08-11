@@ -1,19 +1,22 @@
 [gd_resource type="ArrayMesh" load_steps=5 format=4 uid="uid://dkorbyisor3s3"]
 
-[ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="1_6y662"]
-[ext_resource type="Texture2D" uid="uid://crupw3vvb28np" path="res://assets/models/house/MI_ColorPalette_MetallicRoughness.png" id="2_xjlfm"]
+[ext_resource type="Texture2D" uid="uid://bgdok2ijwir4" path="res://assets/textures/Basket_01/Fabric013_1K_Color (1024).jpg" id="1_wa0vg"]
+[ext_resource type="Texture2D" uid="uid://c1167thuiv442" path="res://assets/textures/Basket_01/Fabric013_1K_NormalGL (1024).jpg" id="2_qxeyt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8xm8"]
 resource_name = "MI_ColorPalette.023"
 cull_mode = 2
-albedo_color = Color(0.621524, 0.621524, 0.621524, 1)
-albedo_texture = ExtResource("1_6y662")
+albedo_color = Color(0.741073, 0.755017, 0.688598, 1)
+albedo_texture = ExtResource("1_wa0vg")
 metallic_specular = 0.2
-metallic_texture = ExtResource("2_xjlfm")
 metallic_texture_channel = 2
 roughness = 0.0
-roughness_texture = ExtResource("2_xjlfm")
 roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 1.27
+normal_texture = ExtResource("2_qxeyt")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+uv1_triplanar = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wdcbp"]
 _surfaces = [{

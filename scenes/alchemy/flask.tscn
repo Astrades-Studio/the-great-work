@@ -10,10 +10,13 @@
 transparency = 1
 blend_mode = 1
 cull_mode = 1
+depth_draw_mode = 1
 shading_mode = 0
-albedo_color = Color(0.932281, 0.953873, 0.940628, 1)
+albedo_color = Color(0.47, 0.47, 0.47, 0.329412)
 albedo_texture = ExtResource("3_u68tv")
 albedo_texture_force_srgb = true
+albedo_texture_msdf = true
+uv1_scale = Vector3(4.605, 3.89, 2.335)
 uv2_offset = Vector3(-2, -6.99, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_yrtwt"]
@@ -83,7 +86,12 @@ skeleton = NodePath("")
 transform = Transform3D(1.0673, -7.05429e-09, -6.88458e-08, -2.8185e-09, 1.0673, 0, 6.85574e-08, 2.79397e-09, 1.0673, -0.00112469, 0.0430157, -0.000318676)
 
 [node name="IngredientSubstance" type="MeshInstance3D" parent="Flask/IngredientSpot"]
-transform = Transform3D(-0.927545, 1.21549e-07, 1.06756e-06, -6.83298e-08, -1.24303, 0.0142887, 1.02774e-06, 0.018419, 0.964293, 0.00433303, 0.0483356, -6.1118e-10)
+transform = Transform3D(-1.03314, 1.35386e-07, 1.18909e-06, -7.61084e-08, -1.38454, 0.0159153, 1.14474e-06, 0.0205158, 1.07407, 0.00433303, 0.0483356, -6.1118e-10)
+mesh = SubResource("SphereMesh_yrtwt")
+skeleton = NodePath("../..")
+
+[node name="IngredientSubstance2" type="MeshInstance3D" parent="Flask/IngredientSpot"]
+transform = Transform3D(1.03314, 6.11286e-18, -1.42109e-14, 2.22045e-16, -0.00489185, -2.64698e-23, 0, -8.67362e-19, 1.08964, 0.00433303, 0.0532877, -0.00447096)
 mesh = SubResource("SphereMesh_yrtwt")
 skeleton = NodePath("../..")
 

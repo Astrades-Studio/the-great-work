@@ -1,9 +1,14 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://5gifihi1px23"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://5gifihi1px23"]
+
+[ext_resource type="Texture2D" uid="uid://dwmwp4pkqhd70" path="res://assets/textures/Gold_01/1K-Metallic_gold_Base Color.jpg" id="1_hedoj"]
+[ext_resource type="Texture2D" uid="uid://dh2b3jcsfxaot" path="res://assets/textures/Gold_01/1K-Metallic_gold_Metallic.jpg" id="2_yklvy"]
+[ext_resource type="Texture2D" uid="uid://chkppw4s02jth" path="res://assets/textures/Gold_01/1K-Metallic_gold_Roughness.jpg" id="3_ns4jx"]
 
 [resource]
 resource_name = "Brass.003"
 cull_mode = 2
-albedo_color = Color(0.688716, 0.510835, 0.170259, 1)
-metallic = 0.82
-metallic_specular = 0.9
-roughness = 0.39
+albedo_texture = ExtResource("1_hedoj")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_yklvy")
+roughness_texture = ExtResource("3_ns4jx")
