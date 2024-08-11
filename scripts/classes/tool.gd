@@ -113,6 +113,12 @@ func on_tool_use() -> bool:
 				move_ingredient_to_player(stored_ingredient)
 				return false
 		else:
+			if tool_type == Type.FURNACE:
+				animation_player.play("open_door")
+				await animation_player.animation_finished
+				await get_tree().create_timer(0.1).timeout
+				animation_player.play_backwards("open_door")
+				
 			if stored_ingredient:
 				DialogManager.create_dialog_piece("The result of this formula was %s." % [stored_ingredient.type_name])
 				move_ingredient_to_player(stored_ingredient)
@@ -129,6 +135,9 @@ func on_tool_use() -> bool:
 		return false
 	if hand_ingredient.type == Ingredient.Type.ASH:
 		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")
+		return false
+	if hand_ingredient.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		DialogManager.create_dialog_piece("That would be a grave mistake.")
 		return false
 	# Couple of hints:
 	if tool_type == Type.CAULDRON and (hand_ingredient.type == Ingredient.Type.CINNABAR or hand_ingredient.type == Ingredient.Type.POTASSIUM):
@@ -151,7 +160,8 @@ func on_tool_use() -> bool:
 		self.name = "%s with %s" % [og_name, hand_ingredient.type_name]
 
 	GameManager.current_state = GameManager.GameState.CUTSCENE
-	await play_use_animation()
+	if tool_type != Type.MORTAR:
+		await play_use_animation()
 	await get_tree().create_timer(0.5).timeout
 	GameManager.current_state = GameManager.GameState.PLAYING
 
@@ -179,7 +189,7 @@ func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
 	DialogManager.create_subtitles_piece("I will grind this %s." % ingredient.type_name)
 	GameManager.current_state = GameManager.GameState.CUTSCENE
-	
+	play_use_animation()
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MORTAR]:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
@@ -348,8 +358,9 @@ func play_use_animation():
 		animation_player.play("open_door")
 		await animation_player.animation_finished
 		await tween_to_target(ingredient, ingredient_preview)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.2).timeout
 		animation_player.play_backwards("open_door")
+		await animation_player.animation_finished
 	else:
 		await tween_to_target(ingredient, ingredient_preview)
 	if tool_type == Tool.Type.MORTAR:
@@ -361,6 +372,8 @@ func play_use_animation():
 
 
 func tween_to_target(ingredient : Ingredient, _target_spot : Node3D):
+	ingredient.change_layers(Ingredient.Location.ENVIRONMENT)
+	ingredient.freeze = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(ingredient, "global_position", _target_spot.global_position, 0.5)
 	await tween.finished

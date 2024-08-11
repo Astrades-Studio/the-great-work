@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bphoc562qbna7" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture_2.webp" id="6_b081x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr012"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
 albedo_texture = ExtResource("2_0vc4p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2ivk"]

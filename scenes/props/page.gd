@@ -5,6 +5,8 @@ extends StaticBody3D
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var page_mesh: MeshInstance3D = $PageMesh
 
+@export var text : DialogPiece
+
 @export var page : Texture:
 	set(value):
 		page = value

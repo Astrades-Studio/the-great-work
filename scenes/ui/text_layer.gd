@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var next_button: Button = %NextButton
 @onready var page_label: Label = %PageLabel
 
+@onready var text_label: Label = %TextLabel
 
 var book : BookPages
 var book_page : int = 0:
@@ -47,19 +48,24 @@ func show_book(_book : BookPages):
 	show_book_page(book_page)
 
 
-func show_text(text: Texture2D):
+func show_text(text: DialogPiece):
 	if !text:
+		printerr("Empty dialog piece at " + str(self.get_path()))
+	
+	show()
+	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
+	GameManager.current_state = GameManager.GameState.PAUSED
+	text_label.text = text.dialog_text
+	
+
+func show_page(page: Texture2D):
+	if !page:
 		return
 	self.show()
-	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
-	SfxManager.sound_bus_1.volume_db = -8.0
-	SfxManager.sound_bus_2.volume_db = -8.0
-	SfxManager.sound_bus_3.volume_db = -8.0
-	GameManager.current_state = GameManager.GameState.STATIC
-	if text.get_height() > 1000:
-		pass
+	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
+	GameManager.current_state = GameManager.GameState.PAUSED
 	
-	texture_rect.texture = text
+	texture_rect.texture = page
 
 
 func hide_text():
@@ -88,7 +94,7 @@ func show_book_page(_page : int):
 	
 		book_page = _page
 		page_label.text = str(_page + 1) + "/" + str(book.pages.size())
-		show_text(book.pages[book_page])
+		show_page(book.pages[book_page])
 	else:
 		hide_text()
 

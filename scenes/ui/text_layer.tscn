@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://by8vwv2cfa15m"]
+[gd_scene load_steps=6 format=3 uid="uid://by8vwv2cfa15m"]
 
 [ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
-[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/reference/Parchment_01.png" id="2_8doit"]
+[ext_resource type="Texture2D" uid="uid://bik365ixx2ww8" path="res://assets/images/recipes/reference/base_page.png" id="2_38aqv"]
+[ext_resource type="FontFile" uid="uid://bk1ir5fqsgter" path="res://assets/ui/fonts/old_london/OldLondonAlternate.ttf" id="3_7od04"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogi12"]
+line_spacing = 5.0
+font = ExtResource("3_7od04")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjdcx"]
 font_color = Color(0, 0, 0, 1)
@@ -23,18 +30,54 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_8doit")
+texture = ExtResource("2_38aqv")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 95
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TextLabel" type="Label" parent="HBoxContainer/MarginContainer/HBoxContainer/TextureRect/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "This is some text that you will find in a book somewhere. The text can get overly long and be a bitch to fit accordingly, but it's nothing a little bit of "
+label_settings = SubResource("LabelSettings_ogi12")
+autowrap_mode = 3
+visible_ratio = -0.00645161
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/HBoxContainer/TextureRect/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

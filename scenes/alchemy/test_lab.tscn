@@ -112,9 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23598, 0.734933, 0)
 [node name="Cauldron" parent="Tools" instance=ExtResource("5_5qm7l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000734985, -3.66688)
 
-[node name="SpoonPivot" parent="Tools/Cauldron/Pot" index="1"]
-transform = Transform3D(-1.19209e-07, -1.86265e-09, 1, -0.0577033, 0.998334, 0, -0.998334, -0.0577033, -1.19209e-07, 0.037844, 0.222742, -0.000659954)
-
 [node name="UCharacterBody3D" parent="." instance=ExtResource("6_tf4ew")]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 2.29506, 0.00317848, 0)
 

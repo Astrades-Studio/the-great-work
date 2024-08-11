@@ -135,7 +135,7 @@ var current_location : Location = Location.ENVIRONMENT :
 		if current_location != value:
 			location_changed.emit()
 		current_location = value
-		change_layers()
+		change_layers(current_location)
 
 
 func _ready() -> void:
@@ -144,13 +144,13 @@ func _ready() -> void:
 		return
 
 
-func change_layers():
+func change_layers(location : Location):
 	for _mesh in self.get_children():
 		if _mesh is MeshInstance3D:
-			if current_location == Location.HAND:
+			if location == Location.HAND:
 				self.freeze = true
 				_mesh.layers = 0x0002
-			elif current_location == Location.ENVIRONMENT:
+			elif location == Location.ENVIRONMENT:
 				self.freeze = false
 				_mesh.layers = 0x0001
 			else:

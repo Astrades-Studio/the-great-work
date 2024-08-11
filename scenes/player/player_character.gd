@@ -77,6 +77,7 @@ func drop_ingredient() -> void:
 	
 	# Stop Axel from dropping the stone
 	if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		DialogManager.create_dialog_piece("I have no need of parting with it.")
 		return
 	
 	var target_position: Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
@@ -98,6 +99,7 @@ func throw_ingredient(_throw_impulse : float) -> void:
 	# Stop Axel from dropping the stone
 	if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
 		DialogManager.create_dialog_piece("I'm not insane enough to throw it.")
+		return
 	
 	var target_node = GameManager.ingredient_layer
 

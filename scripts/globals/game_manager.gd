@@ -189,7 +189,10 @@ func _on_game_over():
 	
 
 func request_page_UI(page: Texture):
-	text_layer.show_text(page)
+	text_layer.show_page(page)
+
+func request_text_UI(text : DialogPiece):
+	text_layer.show_text(text)
 
 # Ingredient logic
 # Assign a random ingredient to each dispenser
