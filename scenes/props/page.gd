@@ -1,4 +1,3 @@
-@tool
 class_name Page
 extends StaticBody3D
 

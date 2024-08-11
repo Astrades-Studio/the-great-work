@@ -1,4 +1,3 @@
-@tool
 class_name GasLamp
 extends StaticBody3D
 

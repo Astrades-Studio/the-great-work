@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_507ak"]
 [ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_nma8m"]
-[ext_resource type="Resource" path="res://assets/dialog/painting_01.tres" id="2_tt2cg"]
+[ext_resource type="Resource" uid="uid://bkbjwafniywlv" path="res://assets/dialog/painting_01.tres" id="2_tt2cg"]
 
 [resource]
 script = ExtResource("2_nma8m")
