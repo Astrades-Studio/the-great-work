@@ -133,12 +133,12 @@ script = ExtResource("1_rwwvt")
 ACCELERATION_DEFAULT = 5.0
 SPEED_DEFAULT = 2.5
 SPEED_ON_STAIRS = 3.0
-STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
+STEP_HEIGHT_DEFAULT = Vector3(0, 0.5, 0)
 
 [node name="Body" type="Node3D" parent="."]
 
 [node name="Head" type="Node3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77287, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0958, 0)
 
 [node name="CameraMarker3D" type="Marker3D" parent="Body/Head"]
 

@@ -5,7 +5,7 @@ extends Node3D
 @onready var ingredients: Node3D = %Ingredients
 @onready var game_over_timer: Timer = %GameOverTimer
 @onready var ovani_player: OvaniPlayer = $OvaniPlayer
-@onready var audio_stream_player_3d: AudioStreamPlayer3D = $Level/Ambient/AudioStreamPlayer3D
+@onready var audio_stream_player: AudioStreamPlayer = $Level/Ambient/AudioStreamPlayer
 
 @export var max_time := 10
 @export var tick_length := 60.
@@ -35,7 +35,7 @@ func _ready() -> void:
 	GameManager.retro_filter_signal.connect(retro_filter_toggle)
 	game_over_timer.timeout.connect(_on_timer_tick)
 	await get_tree().create_timer(1).timeout
-	audio_stream_player_3d.play()
+	audio_stream_player.play()
 	DialogManager.play_subtitles(load("res://assets/dialog/intro_adam.tres"), 2.0)
 
 
