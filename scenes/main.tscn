@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=147 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://b37a0ifyboyf0" path="res://scenes/ui/pause_layer.tscn" id="11_ko4et"]
 [ext_resource type="Resource" uid="uid://t507in4tinkw" path="res://assets/images/recipes/reference/reference_book.tres" id="12_1wat7"]
 [ext_resource type="Texture2D" uid="uid://yq4sxpjbr6xa" path="res://scenes/materials/grass/ground_0032_color_1k.jpg" id="12_36dai"]
-[ext_resource type="ArrayMesh" uid="uid://bam56ho4g01uc" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Gear_Set_01c.res" id="12_o3u88"]
 [ext_resource type="AudioStream" uid="uid://bssvgho6uk3av" path="res://assets/sounds/sfx/ticking_clock.wav" id="13_03t40"]
 [ext_resource type="PackedScene" uid="uid://ddxqgpilfs1fi" path="res://scenes/props/page_3D.tscn" id="14_mag3s"]
 [ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="14_ueicl"]
@@ -365,10 +364,9 @@ fill_to = Vector2(0.968661, 0.851852)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2q43"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
+cull_mode = 2
 diffuse_mode = 2
-specular_mode = 1
-disable_ambient_light = true
+specular_mode = 2
 albedo_color = Color(0.700772, 0.223685, 0, 1)
 albedo_texture = SubResource("GradientTexture2D_krocc")
 albedo_texture_force_srgb = true
@@ -892,11 +890,9 @@ environment = ExtResource("2_h05f7")
 camera_attributes = SubResource("CameraAttributesPractical_kyep0")
 compositor = SubResource("Compositor_yk3r5")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/Ambient"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4536, 0, 0)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Ambient"]
 stream = ExtResource("68_xeaa7")
-volume_db = 42.448
-max_db = 6.0
+volume_db = 8.0
 bus = &"Music"
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="Level/Ambient"]
@@ -923,7 +919,7 @@ skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("5_s8skm")
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/House"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9531, 1.27265, -8.18266)
+transform = Transform3D(0.998222, 0.0596026, 0, -0.0596026, 0.998222, 0, 0, 0, 1, 10.9376, 1.27839, -8.13792)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("48_cjxys")
@@ -969,10 +965,6 @@ shadow_opacity = 0.45
 shadow_blur = 0.0
 omni_range = 1.862
 omni_attenuation = 2.058
-
-[node name="OldWest1WebpSmGearSet01c" type="MeshInstance3D" parent="Level/NavigationRegion3D/House/GasLamp/Eje/Hand_Gas_Lamp_002"]
-transform = Transform3D(255.479, 16.4987, 7.2118e-07, 5.68509e-14, -1.11906e-05, 256.011, 16.4987, -255.479, -1.11673e-05, -562.034, -1247.27, -70.3411)
-mesh = ExtResource("12_o3u88")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/House/GasLamp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -1263,7 +1255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -8.18806)
 ingredient_type = 0
 
 [node name="Mesh" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Basket" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0960784, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0960784, 0, 2.68272)
 
 [node name="Chest" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("24_ut00p")]
 transform = Transform3D(-5.13409e-08, 0, 1.17454, 0, 1.17454, 0, -1.17454, 0, -5.13409e-08, -1.89055, -0.665621, -2.59206)
@@ -2096,7 +2088,7 @@ shape = SubResource("BoxShape3D_k054j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.417234, 0.129867, -5.76971)
+transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.11666, 0.159842, -5.40803)
 throw_impulse = 5.0
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
