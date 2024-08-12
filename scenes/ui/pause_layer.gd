@@ -38,6 +38,8 @@ func show_pause_menu():
 	GameManager.current_state = GameManager.GameState.PAUSED
 	pause_container.show()
 	continue_button.grab_focus()
+	SfxManager.change_bus_volume("SFX", 0.4)
+	SfxManager.change_bus_volume("Music", 0.4)
 
 
 func hide_pause_menu():
@@ -45,6 +47,8 @@ func hide_pause_menu():
 	quit_confirmation.hide()
 	settings_container.hide()
 	pause_container.hide()
+	SfxManager.change_bus_volume("SFX", 1.0)
+	SfxManager.change_bus_volume("Music", 1.0)
 	hide()
 
 

@@ -891,6 +891,7 @@ camera_attributes = SubResource("CameraAttributesPractical_kyep0")
 compositor = SubResource("Compositor_yk3r5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Ambient"]
+process_mode = 3
 stream = ExtResource("68_xeaa7")
 volume_db = 8.0
 bus = &"Music"
