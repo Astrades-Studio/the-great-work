@@ -39,7 +39,6 @@ var tween : Tween
 
 func show_text(dialog_piece: DialogPiece):
 	#assert(dialog_piece, "Empty dialog piece at " + str(self.get_path()))
-	SfxManager.change_bus_volume("SFX", 0.1)
 	if !dialog_piece:
 		printerr("Empty dialog piece at " + str(self.get_path()))
 		dialog_piece = DialogPiece.new()
@@ -52,7 +51,6 @@ func show_text(dialog_piece: DialogPiece):
 
 func hide_text():
 	hide()
-	SfxManager.change_bus_volume("SFX", 1)
 	text_on_screen = false
 	name_label.text = ""
 	text_label.text = "???"

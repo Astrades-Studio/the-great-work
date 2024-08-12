@@ -12,10 +12,8 @@ blend_mode = 1
 cull_mode = 1
 depth_draw_mode = 1
 shading_mode = 0
-albedo_color = Color(0.47, 0.47, 0.47, 0.329412)
+albedo_color = Color(0.37, 0.37, 0.37, 0.0862745)
 albedo_texture = ExtResource("3_u68tv")
-albedo_texture_force_srgb = true
-albedo_texture_msdf = true
 uv1_scale = Vector3(4.605, 3.89, 2.335)
 uv2_offset = Vector3(-2, -6.99, 0)
 

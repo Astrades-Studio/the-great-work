@@ -221,7 +221,7 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 
 [node name="GasLampLight" type="OmniLight3D" parent="Eje/Hand_Gas_Lamp_002"]
 unique_name_in_owner = true
-transform = Transform3D(256.011, 1.90743e-06, -3.71391e-13, -4.96963e-21, -1.11906e-05, 256.011, 1.90743e-06, -256.011, -1.11906e-05, -3.77217e-07, -0.846161, -13.3708)
+transform = Transform3D(256.011, 1.90743e-06, -3.71391e-13, -8.13232e-21, -1.11906e-05, 256.011, 1.90743e-06, -256.011, -1.11906e-05, -2.84123e-07, -0.846162, -25.8656)
 layers = 3
 light_color = Color(0.754546, 0.413845, 3.85046e-07, 1)
 light_energy = 0.117

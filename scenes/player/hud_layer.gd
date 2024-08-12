@@ -1,14 +1,11 @@
 extends CanvasLayer
 
-const LOOK_CROSSHAIR = preload("res://assets/ui/crosshairs/crosshair140.png")
-const INTERACT_CROSSHAIR = preload("res://assets/ui/crosshairs/crosshair179.png")
+const LOOK_CROSSHAIR = preload("res://assets/ui/crosshairs/eye_corsshair2.png")
+const INTERACT_CROSSHAIR = preload("res://assets/ui/crosshairs/HAND_CROSSHAIR (1).png")
 const IDLE_CROSSHAIR = preload("res://assets/ui/crosshairs/dot_small.png")
-
 @onready var crosshair: TextureRect = %Crosshair
-
 @onready var interaction_label: Label = %InteractionLabel
 @onready var countdown_label: Label = %CountdownLabel
-
 @onready var state_label: Label = %StateLabel
 
 func _ready() -> void:

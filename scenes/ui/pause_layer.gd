@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var settings_container: CenterContainer = %SettingsContainer
 
 @onready var continue_button: Button = %ContinueButton
-@onready var back_button: Button = settings_container.back_button
+@onready var back_button: Button = %BackButton
 @onready var quit_refuse_button: Button = %QuitRefuseButton
 
 func _ready() -> void:
@@ -33,7 +33,6 @@ func show_pause_menu():
 	GameManager.current_state = GameManager.GameState.PAUSED
 	pause_container.show()
 	continue_button.grab_focus()
-	SfxManager.change_bus_volume("SFX", 0.4)
 
 
 func hide_pause_menu():
@@ -41,7 +40,6 @@ func hide_pause_menu():
 	quit_confirmation.hide()
 	settings_container.hide()
 	pause_container.hide()
-	SfxManager.change_bus_volume("SFX", 1)
 	hide()
 
 

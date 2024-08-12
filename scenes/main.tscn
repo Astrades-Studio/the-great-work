@@ -1830,9 +1830,10 @@ metadata/_edit_lock_ = true
 
 [node name="RainAmbience" type="AudioStreamPlayer" parent="Level/SFX/Rain"]
 stream = ExtResource("7_qg76f")
-volume_db = -25.615
+volume_db = -21.45
+pitch_scale = 0.53
 autoplay = true
-bus = &"Music"
+bus = &"SFX"
 
 [node name="RainOnWindows" type="Node3D" parent="Level/SFX/Rain"]
 
