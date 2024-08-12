@@ -62,7 +62,7 @@ func _on_restart_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	settings_container.show()
-	back_button.grab_focus()
+	settings_container.back_button.grab_focus()
 
 func _on_back_button_pressed() -> void:
 	settings_container.hide()

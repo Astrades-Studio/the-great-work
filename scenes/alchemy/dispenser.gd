@@ -18,6 +18,11 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 		GameManager.player.ingredient_in_hand = null
 		return
 
+	# if ingredient type is the same as ingredient in hand, create a dialog saying I already have the ingredient:
+	if GameManager.player.ingredient_in_hand and GameManager.player.ingredient_in_hand.type == _ingredient_type:
+		DialogManager.create_subtitles_piece("I am already carrying %s" % GameManager.player.ingredient_in_hand.type_name)
+		return
+		
 	var resulting_ingredient: Ingredient
 	resulting_ingredient = load(Ingredient.MESH_TABLE[_ingredient_type]).instantiate()
 	add_child(resulting_ingredient, true)

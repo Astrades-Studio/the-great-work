@@ -115,7 +115,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
-size = Vector3(0.609619, 1.91089, 0.542969)
+size = Vector3(0.609619, 2.30396, 0.542969)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
 size = Vector3(0.618164, 0.995728, 0.539063)
@@ -143,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0958, 0)
 [node name="CameraMarker3D" type="Marker3D" parent="Body/Head"]
 
 [node name="Camera3D" type="Camera3D" parent="Body/Head/CameraMarker3D"]
-transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, 0, 0)
+transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, -0.31244, 0)
 cull_mask = 983037
 current = true
 far = 57.97
@@ -169,7 +169,7 @@ script = ExtResource("2_wncd0")
 foot_profile = ExtResource("3_yrwvo")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951386, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14792, 0)
 shape = SubResource("BoxShape3D_ekw6g")
 
 [node name="CollisionShapeCrouch" type="CollisionShape3D" parent="."]
@@ -219,6 +219,9 @@ unique_name_in_owner = true
 transform = Transform3D(0.90026, -0.00268246, -0.0180782, -0.00395444, 0.841004, -0.321712, 0.0178432, 0.321725, 0.84082, -0.198405, -0.121983, -0.49121)
 visible = false
 on_hand = true
+
+[node name="Eje" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="0"]
+transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0, 0)
 
 [node name="Hand_Gas_Lamp_002" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje" index="0"]
 layers = 2

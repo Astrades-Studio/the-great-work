@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://dpyih85d271x0" path="res://scenes/shadow/darkness.tscn" id="4_vkn8q"]
 [ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
-[ext_resource type="PackedScene" uid="uid://bnnthcbblvtp0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
 [ext_resource type="Script" path="res://scenes/fireplace_off.gd" id="18_afs66"]
@@ -1223,7 +1223,7 @@ omni_attenuation = 1.723
 omni_shadow_mode = 0
 
 [node name="IngredientSpot" parent="Level/NavigationRegion3D/Interactibles/Furnace" index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0691724, 0.853413, -0.156647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173121, 0.853413, -0.156647)
 
 [node name="Cauldron" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("18_bbofm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.593229, -2.9589, -4.06195)
@@ -2120,12 +2120,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorReductionLayer" type="CanvasLayer" parent="."]
+[node name="PixelizeLayer" type="CanvasLayer" parent="."]
 layer = 2
 visible = false
 
-[node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
-material = SubResource("ShaderMaterial_dmilm")
+[node name="Pixelize" type="ColorRect" parent="PixelizeLayer"]
+material = SubResource("ShaderMaterial_ku3q6")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2133,12 +2133,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="PixelizeLayer" type="CanvasLayer" parent="."]
+[node name="ColorReductionLayer" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
-[node name="Pixelize" type="ColorRect" parent="PixelizeLayer"]
-material = SubResource("ShaderMaterial_ku3q6")
+[node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
+material = SubResource("ShaderMaterial_dmilm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
