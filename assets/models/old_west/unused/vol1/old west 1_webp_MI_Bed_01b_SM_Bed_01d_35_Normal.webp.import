@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://flp3mcdqgcbc"
+path.s3tc="res://.godot/imported/old west 1_webp_MI_Bed_01b_SM_Bed_01d_35_Normal.webp-26379f4114f7ff5b82182924931887dd.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "aa4b5d8fb807f14811bbe20f24c682f2"
+}
+
+[deps]
+
+source_file="res://assets/models/old_west/unused/vol1/old west 1_webp_MI_Bed_01b_SM_Bed_01d_35_Normal.webp"
+dest_files=["res://.godot/imported/old west 1_webp_MI_Bed_01b_SM_Bed_01d_35_Normal.webp-26379f4114f7ff5b82182924931887dd.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/old_west/vol1/old west 1_webp_MI_Bed_01b_SM_Bed_01d_35_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

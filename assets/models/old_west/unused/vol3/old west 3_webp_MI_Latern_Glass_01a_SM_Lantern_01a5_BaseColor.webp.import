@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c0dh1ys4bnq4s"
+path.s3tc="res://.godot/imported/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_BaseColor.webp-5896565766d2e6cfc5c9d89524ad5acc.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e0829e72663d849b30b0f3b6af6359ec"
+}
+
+[deps]
+
+source_file="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_BaseColor.webp"
+dest_files=["res://.godot/imported/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_BaseColor.webp-5896565766d2e6cfc5c9d89524ad5acc.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
