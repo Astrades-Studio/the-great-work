@@ -55,7 +55,6 @@ var current_state : GameState:
 		elif current_state == GameState.CUTSCENE:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		#TODO: decide where to put cutscene CANNOT MOVE behavior
 		else:
 			printerr("Invalid game state")
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

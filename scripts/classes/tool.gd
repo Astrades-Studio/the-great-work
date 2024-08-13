@@ -307,7 +307,6 @@ func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
 		
 
 func move_ingredient_to_player(ingredient: Ingredient) -> void:
-	# TODO play animation?
 	add_child(ingredient, true)
 	stored_ingredient = null
 	item_1 = null

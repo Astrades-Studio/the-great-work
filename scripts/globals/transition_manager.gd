@@ -13,6 +13,7 @@ var scene_load_status := 0
 var loading : bool = false
 
 signal transition_finished
+signal loading_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,6 +64,8 @@ func _process(_delta):
 	# TODO: add countdown or loading bar
 
 	if preloading:
+		if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
+			TransitionManager.loading_finished.emit()
 		return
 	
 	if !scene_name:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=21 format=4 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow/shadow.gd" id="1_4x05d"]
+[ext_resource type="Texture2D" uid="uid://cjj1njkrgubmi" path="res://assets/images/sprites/feather_01.png" id="2_yxtnb"]
 [ext_resource type="Animation" path="res://assets/animations/crawl.res" id="3_wcyuf"]
 [ext_resource type="Animation" path="res://assets/animations/standing_idle.res" id="4_6qy5x"]
 [ext_resource type="Animation" path="res://assets/animations/standing_idle_2.res" id="5_6ohqd"]
@@ -151,6 +152,38 @@ bind/33/name = &"mixamorig_RightHandThumb3"
 bind/33/bone = -1
 bind/33/pose = Transform3D(66.7181, -74.4766, -1.39153, -32.9458, -27.828, -90.2229, 66.8077, 60.6535, -43.1032, 0.459471, 0.720706, 0.955956)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kehe"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_yxtnb")
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_min_distance = 10.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_74tpn"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.5, 0.5)
+angle_min = 59.0
+angle_max = 454.8
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+angular_velocity_min = -8.42002
+angular_velocity_max = 8.41998
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 1, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 1.17
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 1.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_k3ftl"]
+size = Vector2(0.6, 0.5)
+
 [sub_resource type="Animation" id="Animation_v0cq2"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -187,6 +220,7 @@ collision_layer = 128
 script = ExtResource("1_4x05d")
 
 [node name="Import" type="Node3D" parent="."]
+transform = Transform3D(1.25233, 0, 8.9407e-08, 0, 1.25233, 0, -8.9407e-08, 0, 1.25233, 0, -0.0210216, 0)
 metadata/run = true
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Import"]
@@ -487,6 +521,18 @@ skin = SubResource("Skin_73ey6")
 
 [node name="@PhysicalBoneSimulator3D@24340" type="PhysicalBoneSimulator3D" parent="Import/Skeleton3D"]
 
+[node name="DarknessFX" type="GPUParticles3D" parent="Import/Skeleton3D"]
+transform = Transform3D(1.22835, 0, -5.96046e-08, 0, 1.22835, 0, 5.96046e-08, 0, 1.22835, 0, 0.493001, 0)
+material_override = SubResource("StandardMaterial3D_0kehe")
+cast_shadow = 0
+amount = 125
+lifetime = 1.78
+preprocess = 0.09
+speed_scale = 0.86
+fract_delta = false
+process_material = SubResource("ParticleProcessMaterial_74tpn")
+draw_pass_1 = SubResource("QuadMesh_k3ftl")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Import"]
 libraries = {
 "": SubResource("AnimationLibrary_c5t6o")
@@ -495,11 +541,12 @@ autoplay = "standing_idle"
 speed_scale = 0.5
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05718, 0)
+transform = Transform3D(1.25233, 0, 5.96046e-08, 0, 1.25233, 0, -5.96046e-08, 0, 1.25233, 0, 1.30292, 0)
 aabb = AABB(-0.189666, -1.04463, -0.100428, 0.395934, 1.6586, 0.200857)
 
 [node name="Influence" type="Area3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1.25233, 0, 5.96046e-08, 0, 1.25233, 0, -5.96046e-08, 0, 1.25233, 0, -0.0210216, 0)
 collision_layer = 128
 collision_mask = 2
 
@@ -510,14 +557,14 @@ shape = SubResource("SphereShape3D_3vo5b")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.847333, 0)
+transform = Transform3D(1.25233, 0, 8.9407e-08, 0, 1.25233, 0, -8.9407e-08, 0, 1.25233, 0, 1.04012, 0)
 shape = SubResource("CylinderShape3D_ck7wb")
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 1.66441, 0)
+transform = Transform3D(1.25233, 0, 8.9407e-08, 0, 1.25233, 0, -8.9407e-08, 0, 1.25233, 0, 2.06337, 0)
 visible = false
 billboard = 2
 text = "adsad"

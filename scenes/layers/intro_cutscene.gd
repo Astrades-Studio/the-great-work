@@ -19,6 +19,7 @@ func _ready() -> void:
 	play_intro_cinematic()
 	loading.show()
 	animation_player.play("loading")
+	TransitionManager.loading_finished.connect(_on_loading_finished)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or \
@@ -27,6 +28,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		show_skip_button()
 	
+
+func _on_loading_finished() -> void:
+	animation_player.stop()
+	loading.text = "Done"
+
 
 func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:
 	cinematic_label.show()

@@ -21,8 +21,8 @@ var hp : float:
 
 
 @onready var shadow: Shadow = $Shadow
-@onready var darkness_fx: GPUParticles3D = $DarknessFX
-@onready var darkness_fx_intensity = darkness_fx.amount_ratio
+#@onready var darkness_fx: GPUParticles3D = $DarknessFX
+#@onready var darkness_fx_intensity = darkness_fx.amount_ratio
 @onready var shadow_death_player: AudioStreamPlayer3D = $ShadowDeathSound
 @onready var damage_sound: AudioStreamPlayer3D = $DamageSound
 
@@ -129,11 +129,13 @@ func spawn_shadow() -> bool:
 	shadow_present = true
 	show()
 	shadow.show()
-	tween = get_tree().create_tween()
-	tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
-	tween.parallel().tween_property(darkness_fx, "lifetime", 1.7, 0.1)
+	
+	#TODO: Move to shadow
+	#tween = get_tree().create_tween()
+	#tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
+	#tween.parallel().tween_property(darkness_fx, "lifetime", 1.7, 0.1)
+	#await tween.finished
 	play_random_whisper()
-	await tween.finished
 	return true
 
 
@@ -146,10 +148,11 @@ func remove_shadow() -> void:
 	# TODO: VFX
 	shadow.visible = false
 	
-	tween = get_tree().create_tween()
-	tween.tween_property(darkness_fx, "amount_ratio", 0, 2)
-	tween.parallel().tween_property(darkness_fx, "lifetime", 10, 0.1)
-	await tween.finished
+	#TODO: Move to shadow
+	#tween = get_tree().create_tween()
+	#tween.tween_property(darkness_fx, "amount_ratio", 0, 2)
+	#tween.parallel().tween_property(darkness_fx, "lifetime", 10, 0.1)
+	#await tween.finished
 	hide()
 
 
