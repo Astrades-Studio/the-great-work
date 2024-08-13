@@ -2192,7 +2192,7 @@ shadow_bias = 0.02
 shadow_normal_bias = 2.84
 shadow_reverse_cull_face = true
 shadow_blur = 0.0
-omni_range = 0.914
+omni_range = 0.3
 omni_attenuation = 3.717
 
 [node name="DEBUG_LIGHT" type="OmniLight3D" parent="."]
