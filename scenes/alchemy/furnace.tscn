@@ -317,10 +317,12 @@ fill_to = Vector2(0.968661, 0.851852)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuwjd"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
+cull_mode = 2
+shading_mode = 2
+specular_mode = 1
 disable_ambient_light = true
 disable_fog = true
-albedo_color = Color(0.496041, 0.143159, 0, 1)
+albedo_color = Color(0.769275, 0.272534, 0, 1)
 albedo_texture = SubResource("GradientTexture2D_pt3h2")
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -415,7 +417,7 @@ skeleton = NodePath("")
 metadata/ant_landscape = "{  }"
 
 [node name="FireLog" type="GPUParticles3D" parent="LogFire"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0558933, 0.183518, 0.0330287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152107, 0.183518, 0.177102)
 material_override = SubResource("StandardMaterial3D_tuwjd")
 cast_shadow = 0
 visibility_range_end = 9.8
@@ -438,12 +440,11 @@ bus = &"SFX"
 emission_angle_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LogFire"]
-transform = Transform3D(3.83893, 0, -4.54747e-13, 0, 3.83893, -1.6263e-19, 4.54747e-13, 2.1684e-19, 3.83893, -0.554461, 0.331251, 0.0502055)
-visible = false
+transform = Transform3D(3.83893, 0, -4.54747e-13, 0, 3.83893, -1.6263e-19, 4.54747e-13, 2.1684e-19, 3.83893, -0.30302, 0.687561, -0.0244364)
 light_color = Color(0.544843, 0.316832, 0.0410668, 1)
-light_energy = 2.73
-omni_range = 0.3
-omni_attenuation = 0.525
+light_energy = 11.253
+omni_range = 0.2
+omni_attenuation = 0.712
 
 [node name="IngredientSpot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202623, 0.820048, -0.106761)
