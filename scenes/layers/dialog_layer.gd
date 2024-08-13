@@ -44,6 +44,8 @@ func show_text(dialog_piece: DialogPiece):
 		dialog_piece = DialogPiece.new()
 	
 	show()
+	SfxManager.change_bus_volume("SFX", 0.4)
+	SfxManager.change_bus_volume("Music", 0.4)
 	text_on_screen = true
 	name_label.text = dialog_piece.dialog_speaker
 	text_label.text = dialog_piece.dialog_text
@@ -51,6 +53,8 @@ func show_text(dialog_piece: DialogPiece):
 
 func hide_text():
 	hide()
+	SfxManager.change_bus_volume("SFX", 1.0)
+	SfxManager.change_bus_volume("Music", 1.0)
 	text_on_screen = false
 	name_label.text = ""
 	text_label.text = "???"

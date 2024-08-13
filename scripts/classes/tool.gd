@@ -313,7 +313,8 @@ func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	item_1 = null
 	item_2 = null
 	self.name = og_name
-	GameManager.ingredient_spawned(ingredient)
+	if ingredient is not Flare:
+		GameManager.ingredient_spawned(ingredient)
 	GameManager.player.ingredient_in_hand = ingredient
 
 

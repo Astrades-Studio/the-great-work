@@ -30,7 +30,6 @@ metallic = 1.0
 metallic_specular = 0.55
 metallic_texture = SubResource("GradientTexture2D_j42o7")
 roughness = 0.67
-subsurf_scatter_enabled = true
 uv1_triplanar = true
 
 [sub_resource type="Gradient" id="Gradient_8x46b"]
