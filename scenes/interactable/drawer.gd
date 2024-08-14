@@ -11,5 +11,5 @@ func _ready() -> void:
 		self.connect("interacted", Callable(self, "open_drawer"))
 
 
-func open_drawer() -> void:
-	
+#func open_drawer() -> void:
+	#
