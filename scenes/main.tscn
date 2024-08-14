@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=147 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -34,7 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="22_d81xl"]
 [ext_resource type="PackedScene" uid="uid://bgqw4duvf0vps" path="res://scenes/alchemy/dispensers/basket.tscn" id="23_j4hhd"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
-[ext_resource type="PackedScene" uid="uid://ttaynu1kvyxi" path="res://scenes/alchemy/dispensers/chest.tscn" id="24_ut00p"]
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
@@ -536,9 +535,6 @@ loop_end = 697850
 stereo = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1m4ix"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8tspe"]
-points = PackedVector3Array(0.0361559, 0.14493, 0.299858, -0.0301075, 0.00604401, -0.0178763, 0.0324762, 0.00604401, -0.0178763, 0.0161642, 0.204935, -0.319898, -0.0337857, 0.174933, 0.319898, -0.0337857, 0.164925, -0.319898, -0.0737984, 0.0749801, 0.139909, 0.0661434, 0.0849877, -0.0999526, 0.0331275, 0.0132307, 0.127795, 0.0261601, 0.18494, 0.319898, 0.0161642, 0.14493, -0.319898, -0.0311678, 0.0213584, 0.147973, 0.0661434, 0.0849877, 0.179927, -0.0337857, 0.18494, -0.319898, -0.0237898, 0.194927, 0.319898, -0.0303735, 0.0142765, -0.0721696, -0.0625155, 0.0617548, -0.0339432, -0.0223827, 0.0763884, 0.245254, 0.0261601, 0.194927, -0.319898, 0.0320382, 0.016188, -0.0705598, -0.013794, 0.204935, -0.319898, 0.0654421, 0.0614122, -0.00853502, 0.0245168, 0.0766237, 0.242806, -0.053792, 0.104962, 0.249881, 0.0161642, 0.194927, 0.319898, -0.0237898, 0.14493, -0.319898, -0.0337857, 0.154918, 0.319898, 0.0261601, 0.14493, -0.309815, -0.0373332, 0.0100858, 0.0599015, 0.0330507, 0.00432013, 0.063744, 0.023744, 0.0593359, -0.162526, 0.0561476, 0.104962, 0.239861)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_425i6"]
 points = PackedVector3Array(0.0361559, 0.14493, 0.299858, -0.0301075, 0.00604401, -0.0178763, 0.0324762, 0.00604401, -0.0178763, 0.0161642, 0.204935, -0.319898, -0.0337857, 0.174933, 0.319898, -0.0337857, 0.164925, -0.319898, -0.0737984, 0.0749801, 0.139909, 0.0661434, 0.0849877, -0.0999526, 0.0331275, 0.0132307, 0.127795, 0.0261601, 0.18494, 0.319898, 0.0161642, 0.14493, -0.319898, -0.0311678, 0.0213584, 0.147973, 0.0661434, 0.0849877, 0.179927, -0.0337857, 0.18494, -0.319898, -0.0237898, 0.194927, 0.319898, -0.0303735, 0.0142765, -0.0721696, -0.0625155, 0.0617548, -0.0339432, -0.0223827, 0.0763884, 0.245254, 0.0261601, 0.194927, -0.319898, 0.0320382, 0.016188, -0.0705598, -0.013794, 0.204935, -0.319898, 0.0654421, 0.0614122, -0.00853502, 0.0245168, 0.0766237, 0.242806, -0.053792, 0.104962, 0.249881, 0.0161642, 0.194927, 0.319898, -0.0237898, 0.14493, -0.319898, -0.0337857, 0.154918, 0.319898, 0.0261601, 0.14493, -0.309815, -0.0373332, 0.0100858, 0.0599015, 0.0330507, 0.00432013, 0.063744, 0.023744, 0.0593359, -0.162526, 0.0561476, 0.104962, 0.239861)
@@ -1127,36 +1123,13 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/Fireplace"]
-transform = Transform3D(0.0984479, 0.338693, -0.935732, 3.70719e-09, 0.9403, 0.340346, 0.995142, -0.0335064, 0.0925706, 5.91632, 0.749484, 2.86712)
+transform = Transform3D(0.0984479, 0.338693, -0.935732, 3.70719e-09, 0.9403, 0.340346, 0.995142, -0.0335064, 0.0925706, 5.92099, 0.848918, 2.86797)
 layers = 4
 light_color = Color(0.804792, 0.255816, 0, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.481
-light_bake_mode = 0
-light_cull_mask = 4294967279
-shadow_bias = 0.0
-shadow_normal_bias = 10.0
-shadow_reverse_cull_face = true
-shadow_transmittance_bias = -16.0
-shadow_opacity = 0.53
-shadow_blur = 0.0
-distance_fade_begin = 0.0
-distance_fade_shadow = 0.0
-distance_fade_length = 29.9
-omni_range = 0.731
-omni_attenuation = 3.766
-omni_shadow_mode = 0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/Fireplace"]
-transform = Transform3D(0.0984479, 0.338693, -0.935732, 3.70719e-09, 0.9403, 0.340346, 0.995142, -0.0335064, 0.0925706, 5.22069, 0.709317, 2.86847)
-layers = 4
-light_color = Color(0.810101, 0.344495, 0, 1)
-light_energy = 0.0
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_specular = 0.0
 light_bake_mode = 0
 light_cull_mask = 4294967279
 shadow_enabled = true
@@ -1169,12 +1142,36 @@ shadow_blur = 0.0
 distance_fade_begin = 0.0
 distance_fade_shadow = 0.0
 distance_fade_length = 29.9
-omni_range = 4.694
+omni_range = 0.794
+omni_attenuation = 2.933
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/Fireplace"]
+transform = Transform3D(0.0984479, 0.338693, -0.935732, 3.70719e-09, 0.9403, 0.340346, 0.995142, -0.0335064, 0.0925706, 5.22069, 1.04279, 2.86847)
+layers = 4
+light_color = Color(0.810101, 0.344495, 0, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.287
+light_bake_mode = 0
+light_cull_mask = 4294967279
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = -16.0
+shadow_opacity = 0.53
+shadow_blur = 0.0
+distance_fade_begin = 0.0
+distance_fade_shadow = 0.0
+distance_fade_length = 29.9
+omni_range = 2.634
 omni_attenuation = 5.009
 omni_shadow_mode = 0
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.258666, 4.7046e-15, 0.123249, -5.85815e-15, 0.49576, 1.76512e-15, -0.246454, -8.81131e-15, 0.129357, -4.82343, 0.775334, -5.83199)
+transform = Transform3D(0.293989, 6.87876e-15, 0.0527568, -5.12139e-15, 0.43341, 1.54313e-15, -0.105495, -5.37931e-15, 0.147022, -4.27462, 0.916484, -5.98386)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
@@ -1261,9 +1258,6 @@ ingredient_type = 0
 [node name="Mesh" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Basket" index="0"]
 transform = Transform3D(0.955251, 0, 0, 0, 0.955251, 0, 0, 0, 0.955251, 6.89323, 0.00813556, 8.02044)
 
-[node name="Chest" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("24_ut00p")]
-transform = Transform3D(-5.13409e-08, 0, 1.17454, 0, 1.17454, 0, -1.17454, 0, -5.13409e-08, -1.89055, -0.665621, -2.59206)
-
 [node name="Latrine" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers"]
 transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
 script = ExtResource("39_sfcat")
@@ -1281,23 +1275,10 @@ transform = Transform3D(-0.0438801, 0, -0.848624, 0, 0.849758, 0, 0.848624, 0, -
 ingredient_type = 22
 
 [node name="Banana" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers"]
-transform = Transform3D(-0.0818117, 0.348551, -0.337427, 0.484, 0.081927, -0.0327203, 0.0330093, -0.337399, -0.356525, 4.34893, 0.379214, 3.40678)
+transform = Transform3D(-0.0818117, 0.348551, -0.337427, 0.484, 0.081927, -0.0327203, 0.0330093, -0.337399, -0.356525, 4.3618, 0.379214, 3.40678)
+visible = false
 script = ExtResource("39_sfcat")
 ingredient_type = 12
-
-[node name="Mesh" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Banana"]
-transform = Transform3D(0.957209, -0.204112, 0.205156, 0.253037, 0.934317, -0.251048, -0.140439, 0.292218, 0.945984, 0.0918418, -0.227072, 0.216853)
-mesh = ExtResource("40_8bjfj")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Banana"]
-transform = Transform3D(0.957209, -0.204112, 0.205156, 0.253037, 0.934317, -0.251048, -0.140439, 0.292218, 0.945984, 0.0918418, -0.227072, 0.216853)
-shape = SubResource("ConvexPolygonShape3D_8tspe")
-
-[node name="Mesh2" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Banana"]
-transform = Transform3D(0.971906, -0.204112, -0.1172, 0.157668, 0.934317, -0.319677, 0.174752, 0.292218, 0.94025, 0.001264, -0.246355, 0.215242)
-mesh = ExtResource("40_8bjfj")
-skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Banana"]
 transform = Transform3D(0.971906, -0.204112, -0.1172, 0.157668, 0.934317, -0.319677, 0.174752, 0.292218, 0.94025, 0.001264, -0.246355, 0.215242)
@@ -2154,6 +2135,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorReductionLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="ColorReduction" type="ColorRect" parent="ColorReductionLayer"]
 material = SubResource("ShaderMaterial_dmilm")

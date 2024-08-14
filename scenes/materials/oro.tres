@@ -7,9 +7,10 @@
 [resource]
 resource_name = "Brass.003"
 cull_mode = 2
+albedo_color = Color(0.778997, 0.683803, 0.559659, 1)
 albedo_texture = ExtResource("1_hedoj")
-metallic = 0.99
-metallic_specular = 1.0
+metallic = 0.74
+metallic_specular = 0.95
 metallic_texture = ExtResource("2_yklvy")
 metallic_texture_channel = 4
 roughness_texture = ExtResource("3_ns4jx")

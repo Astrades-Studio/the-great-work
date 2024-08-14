@@ -142,18 +142,18 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhs6f"]
-albedo_color = Color(0.576737, 0.551314, 0.583154, 1)
+albedo_color = Color(0.721418, 0.699832, 0.726865, 1)
 albedo_texture = ExtResource("8_8wlam")
-metallic_specular = 1.0
-roughness = 0.0
+metallic_specular = 0.59
+metallic_texture_channel = 3
 roughness_texture = ExtResource("11_vnipf")
+roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 2.31
 normal_texture = ExtResource("10_437o2")
-ao_enabled = true
 ao_light_affect = 0.56
 ao_texture = ExtResource("9_den5c")
-uv1_scale = Vector3(25.51, 25.51, 25.51)
+uv1_scale = Vector3(10.075, 10.075, 10.075)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i4tk2"]
 _surfaces = [{
@@ -231,12 +231,12 @@ light_specular = 0.949
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
-shadow_transmittance_bias = 1.545
-shadow_opacity = 0.55
+shadow_transmittance_bias = -2.899
+shadow_opacity = 0.63
 shadow_blur = 2.617
 distance_fade_enabled = true
 omni_range = 4.924
-omni_attenuation = 1.287
+omni_attenuation = -0.102
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -281,7 +281,7 @@ mesh = SubResource("ArrayMesh_3t15q")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Hand  - Realistic2"]
-transform = Transform3D(0.88589, -7.45058e-09, 7.34581e-08, -5.58794e-08, 0.885889, 5.58794e-09, -1.11177e-07, -1.86265e-09, 0.885891, -0.0521104, -0.0120547, 0.116716)
+transform = Transform3D(0.88589, -5.96046e-08, 8.26549e-08, -3.72529e-09, 0.885889, 9.31323e-09, -1.22702e-07, -5.58794e-09, 0.885891, -0.0512802, 0.0141126, 0.0328306)
 layers = 2
 light_color = Color(0.666245, 0.404674, 0.228184, 1)
 light_energy = 0.363
