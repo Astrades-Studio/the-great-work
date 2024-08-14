@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsk5dj384s6by" path="res://assets/textures/Stone_Bircks_01/Bricks008_1K_Roughness.jpg" id="3_vuha1"]
 
 [resource]
-albedo_color = Color(0.351562, 0.351563, 0.351562, 1)
+albedo_color = Color(0.509286, 0.509287, 0.509285, 1)
 albedo_texture = ExtResource("1_i34wn")
 metallic_specular = 0.13
 roughness = 0.91
@@ -14,6 +14,6 @@ roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 2.88
 normal_texture = ExtResource("2_1glgi")
-uv1_scale = Vector3(1.08, 1.08, 1.08)
+uv1_scale = Vector3(1.645, 1.645, 1.645)
 uv1_offset = Vector3(0.09, 0, 0)
 uv1_triplanar = true
