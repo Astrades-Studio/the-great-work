@@ -100,7 +100,7 @@ func on_tool_use() -> bool:
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
 				
 				if (stored_ingredient.type == Ingredient.Type.FLARE):
-					DialogManager.create_dialog_piece("I made enough luminant for three flares. This should be enough to banish those shadows.")
+					DialogManager.create_dialog_piece("I made enough illuminant for three flares. \n This should be enough to banish those shadows.")
 					GameManager.flare_created.emit()
 					var flare_1 : Node = stored_ingredient.duplicate()
 					var flare_2 : Node = stored_ingredient.duplicate()
@@ -124,13 +124,13 @@ func on_tool_use() -> bool:
 				return true
 		if tool_type == Type.CAULDRON:
 			if item_1:
-				DialogManager.create_dialog_piece("I can combine elements if I put them in here. It currently has %s in it.", % item_1.type_name)
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. \n It currently has %s in it." % [item_1.type_name])
 			else:
-				DialogManager.create_dialog_piece("I can combine elements if I put them in here. I should try putting something in it.")
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. \n  I should try putting something in it.")
 		elif tool_type == Type.FURNACE:
-			DialogManager.create_dialog_piece("The furnace burns elements to a crisp, leaving only the most resistant essence.")
+			DialogManager.create_dialog_piece("The furnace burns elements to a crisp, \n leaving only the most resistant essence.")
 		elif tool_type == Type.MORTAR:
-			DialogManager.create_dialog_piece("I can use this mortar to pulverize elements that are too tough to dissolve.")
+			DialogManager.create_dialog_piece("I can use this mortar to pulverize elements \n that are too tough to dissolve.")
 		elif tool_type == Type.STILL:
 			DialogManager.create_dialog_piece("The still extracts impurities from a substance.")
 		return false
