@@ -133,7 +133,7 @@ script = ExtResource("1_rwwvt")
 ACCELERATION_DEFAULT = 5.0
 SPEED_DEFAULT = 2.5
 SPEED_ON_STAIRS = 3.0
-STEP_HEIGHT_DEFAULT = Vector3(0, 0.5, 0)
+STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 
 [node name="Body" type="Node3D" parent="."]
 
@@ -206,9 +206,12 @@ cull_mask = 2
 h_offset = -0.05
 v_offset = -0.025
 current = true
+fov = 97.5
+near = 0.063
+far = 12.79
 
 [node name="Marker3D" type="Marker3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.990932, 0.134367, 0, -0.134367, 0.990931, 0, 0, -0.121289)
 
 [node name="Hand" type="Node3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D"]
 unique_name_in_owner = true
@@ -216,7 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123455, -0.186833, -0.38092
 
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(0.90026, -0.00268246, -0.0180782, -0.00395444, 0.841004, -0.321712, 0.0178432, 0.321725, 0.84082, -0.198405, -0.121983, -0.49121)
+transform = Transform3D(0.90026, -0.00268246, -0.0180782, -0.00395444, 0.841004, -0.321712, 0.0178432, 0.321725, 0.84082, -0.198405, -0.121983, -0.281173)
 visible = false
 on_hand = true
 
@@ -227,10 +230,15 @@ transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390
 layers = 2
 
 [node name="GasLampLight" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje/Hand_Gas_Lamp_002" index="1"]
+transform = Transform3D(284.316, 8.70228e-06, -9.53674e-07, 2.38419e-06, -1.14441e-05, 284.316, 2.14577e-06, -284.316, -0.000102997, 1.94857, 92.9206, -47.8842)
 light_energy = 2.42506
 
 [node name="Timer" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="2"]
 wait_time = 0.598825
+
+[node name="OmniLight3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Hand  - Realistic2" index="0"]
+transform = Transform3D(0.983835, -1.11759e-08, 4.37722e-08, -5.96046e-08, 0.983834, 3.27826e-07, -1.22935e-07, -2.98023e-08, 0.983836, -0.0517853, -0.0032292, 0.083467)
+light_energy = 0.598
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 layer = 2

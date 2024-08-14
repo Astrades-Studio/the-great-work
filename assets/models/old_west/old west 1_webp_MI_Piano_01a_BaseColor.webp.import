@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgvwkxfoab4fi"
-path.s3tc="res://.godot/imported/old west 1_webp_MI_Piano_01a_BaseColor.webp-88977c4a0cea3ecb6c410098cd12a513.s3tc.ctex"
+path.bptc="res://.godot/imported/old west 1_webp_MI_Piano_01a_BaseColor.webp-88977c4a0cea3ecb6c410098cd12a513.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -15,12 +15,12 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/old_west/old west 1_webp_MI_Piano_01a_BaseColor.webp"
-dest_files=["res://.godot/imported/old west 1_webp_MI_Piano_01a_BaseColor.webp-88977c4a0cea3ecb6c410098cd12a513.s3tc.ctex"]
+dest_files=["res://.godot/imported/old west 1_webp_MI_Piano_01a_BaseColor.webp-88977c4a0cea3ecb6c410098cd12a513.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
