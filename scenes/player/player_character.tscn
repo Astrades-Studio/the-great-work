@@ -118,7 +118,7 @@ _data = {
 size = Vector3(0.609619, 2.30396, 0.542969)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_an4li"]
-size = Vector3(0.618164, 0.995728, 0.539063)
+size = Vector3(0.618164, 1.18817, 0.539063)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfqto"]
 
@@ -128,8 +128,10 @@ size = Vector3(0.618164, 0.995728, 0.539063)
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
-collision_layer = 66
+collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_rwwvt")
+throw_impulse = 4.0
 ACCELERATION_DEFAULT = 5.0
 SPEED_DEFAULT = 2.5
 SPEED_ON_STAIRS = 3.0
@@ -152,7 +154,7 @@ far = 57.97
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 2, 0)
-collision_mask = 5
+collision_mask = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 root_node = NodePath("../..")
@@ -173,9 +175,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14792, 0)
 shape = SubResource("BoxShape3D_ekw6g")
 
 [node name="CollisionShapeCrouch" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510168, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60639, 0)
 shape = SubResource("BoxShape3D_an4li")
 disabled = true
+
+[node name="CrouchHeight" type="Marker3D" parent="CollisionShapeCrouch"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42239, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)

@@ -10,7 +10,7 @@ class_name Player
 
 @export var interact_distance := 2.0
 @export var drop_distance := 1.0
-@export var throw_impulse := 10.0
+@export var throw_impulse := 3.0
 
 var charging := false
 var charge := 0.0
@@ -18,6 +18,11 @@ var charge := 0.0
 @onready var interaction_label: Label = %InteractionLabel
 @onready var hand: Node3D = %Hand
 @onready var sub_viewport: SubViewport = %ItemViewport
+
+@onready var collision_shape_normal: CollisionShape3D = $CollisionShapeNormal
+@onready var collision_shape_crouch: CollisionShape3D = $CollisionShapeCrouch
+@onready var crouch_height: Marker3D = %CrouchHeight
+
 
 # Mini Inventory
 var ingredient_in_hand: Ingredient:
@@ -76,9 +81,9 @@ func drop_ingredient() -> void:
 		ingredient_in_hand.queue_free()
 	
 	# Stop Axel from dropping the stone
-	if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
-		DialogManager.create_dialog_piece("I have no need of parting with it.")
-		return
+	#if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		#DialogManager.create_dialog_piece("I have no need of parting with it.")
+		#return
 	
 	var target_position: Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
 	var target_node = GameManager.ingredient_layer

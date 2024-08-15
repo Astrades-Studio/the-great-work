@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=36 format=3 uid="uid://bi2r2nphbktxx"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="4_pc5y6"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="5_5qm7l"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="6_tf4ew"]
+[ext_resource type="PackedScene" uid="uid://dle67yxqc5nj5" path="res://scenes/interactable/desk_drawers.tscn" id="8_d7yoh"]
 [ext_resource type="PackedScene" uid="uid://cigtrvdgnh6wc" path="res://scenes/alchemy/ingredients/salt.tscn" id="8_r758t"]
 [ext_resource type="PackedScene" uid="uid://qn1qvlmo663l" path="res://scenes/alchemy/ingredients/mercury.tscn" id="9_mhv5q"]
 [ext_resource type="PackedScene" uid="uid://oqwc5e7kvy4w" path="res://scenes/alchemy/ingredients/yellow_liquid.tscn" id="10_ab5ff"]
@@ -58,8 +59,8 @@ uv1_world_triplanar = true
 material = SubResource("StandardMaterial3D_srfcq")
 size = Vector2(80, 80)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ot2f"]
-data = PackedVector3Array(40, 0, 40, -40, 0, 40, 40, 0, -40, -40, 0, 40, -40, 0, -40, 40, 0, -40)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogi18"]
+size = Vector3(35.8252, 0.499878, 45.2576)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vgynt"]
 points = PackedVector3Array(7.09013, -2.42729, -5.63293, 7.19137, -3.09021, -5.47361, 7.02118, -2.42729, -5.5466, 7.09013, -2.37632, -5.63293, 10.1538, -2.42729, -5.63293, 7.19137, -3.09021, -4.18877, 10.0526, -3.09021, -5.47361, 7.02118, -2.42729, -4.11578, 7.02118, -2.37632, -5.5466, 7.04124, -2.34941, -5.53608, 7.0986, -2.34941, -5.60766, 10.1538, -2.37632, -5.63293, 10.2231, -2.42729, -5.5466, 7.09013, -2.42729, -4.02928, 10.0526, -3.09021, -4.18877, 7.02118, -2.37632, -4.11578, 7.04124, -2.34941, -4.12629, 10.1453, -2.34941, -5.60766, 10.2231, -2.37632, -5.5466, 10.2231, -2.42729, -4.11578, 7.09013, -2.37632, -4.02928, 10.1538, -2.42729, -4.02944, 7.0986, -2.34941, -4.05471, 10.2027, -2.34941, -5.53608, 10.2231, -2.37632, -4.11578, 10.1538, -2.37632, -4.02944, 10.1453, -2.34941, -4.05471, 10.2027, -2.34941, -4.12629)
@@ -80,7 +81,8 @@ mesh = SubResource("PlaneMesh_5oro7")
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_0ot2f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250061, 0)
+shape = SubResource("BoxShape3D_ogi18")
 
 [node name="Mesa" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000925899, 0)
@@ -114,6 +116,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000734985, -3.66688)
 
 [node name="SpoonPivot" parent="Tools/Cauldron/Pot" index="1"]
 transform = Transform3D(-1.19209e-07, -1.86265e-09, 1, -0.0577033, 0.998334, 0, -0.998334, -0.0577033, -1.19209e-07, 0.037844, 0.222742, -0.000659954)
+
+[node name="SecretaryDesk" parent="Tools" instance=ExtResource("8_d7yoh")]
+transform = Transform3D(-0.608271, 0, -1.03363, 0, 1.19933, 0, 1.03363, 0, -0.608271, 4.0839, 0.00494397, -0.705085)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("6_tf4ew")]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 2.29506, 0.00317848, 0)
@@ -191,6 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347069, 0, 0)
 
 [node name="Flare" parent="Ingredients" instance=ExtResource("13_ijyn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376898, 0, 0)
+duration = 3
 
 [node name="PurifiedSulfur" parent="Ingredients" instance=ExtResource("14_aemo4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224913, 0, -0.519791)
@@ -224,11 +230,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7918, 0, 0.780551)
 ingredient_type = 17
 
 [node name="Pot3" parent="Dispensers" instance=ExtResource("19_of1ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68667, 0, -0.177465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97639, 0, 2.50765)
 ingredient_type = 12
 
 [node name="Pot5" parent="Dispensers" instance=ExtResource("19_of1ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54356, 0, -1.31551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34395, 0, 2.55244)
 ingredient_type = 11
 
 [node name="Pot4" parent="Dispensers" instance=ExtResource("19_of1ck")]

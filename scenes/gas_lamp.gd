@@ -74,6 +74,8 @@ func _ready() -> void:
 
 func _on_lamp_collected():
 	set_collision_layer_value(3, false)
+	GameManager.interaction_label_updated.emit("")
+	GameManager.crosshair_signal.emit(InteractionComponent.InteractionType.IDLE)
 	if on_hand:
 		disabled = false
 		active = true

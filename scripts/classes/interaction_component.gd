@@ -27,8 +27,8 @@ func _ready() -> void:
 	if parent is Ingredient || parent is Tool || \
 	parent is Door || parent is Dispenser || parent is GasLamp:
 		interaction_type = InteractionType.INTERACT
-	else:
-		interaction_type = InteractionType.LOOK
+	#else:
+		#interaction_type = InteractionType.LOOK
 	# if parent is MeshInstance3D:
 	# 	meshes.append(parent)
 	# 	var body = find_body()
@@ -110,7 +110,7 @@ func _on_parent_visibility_change():
 			parent.unfocused.emit()
 
 
-func connect_parent(node: PhysicsBody3D) -> void:
+func connect_parent(node: Node3D) -> void:
 	node.add_user_signal("focused")
 	node.add_user_signal("unfocused")
 	node.add_user_signal("interacted")

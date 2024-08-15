@@ -139,6 +139,8 @@ var current_location : Location = Location.ENVIRONMENT :
 
 
 func _ready() -> void:
+	self.set_collision_mask_value(4, true)
+	self.set_collision_mask_value(3, true)
 	if type == Type.NONE:
 		self.queue_free()
 		return
