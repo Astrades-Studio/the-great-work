@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 		skip_cinematic()
 	if event.is_action_pressed("interact"):
 		show_skip_button()
-	
+
 
 func _on_loading_finished() -> void:
 	animation_player.stop()
@@ -38,12 +38,12 @@ func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:
 	cinematic_label.show()
 	background.show()
 
-	for dialog_piece in dialog.dialog: 
+	for dialog_piece in dialog.dialog:
 		_show_subtitle(dialog_piece, cinematic_label)
 		await get_tree().create_timer(duration).timeout
 		_hide_subtitle(cinematic_label)
-		await next_line_requested	
-	
+		await next_line_requested
+
 
 func _on_timer_timeout() -> void:
 	cinematic_finished.emit()
@@ -58,7 +58,7 @@ func show_skip_button() -> void:
 	await tween_subs.finished
 	await get_tree().create_timer(1.0).timeout
 	tween_subs.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
-	
+
 
 func skip_cinematic() -> void:
 	SfxManager.stop_all_sounds()
@@ -111,5 +111,3 @@ func play_intro_cinematic() -> void:
 	var dialog_6 = load("res://assets/dialog/carriage intro/cutscene_dialog_6.tres")
 	await get_tree().create_timer(8).timeout
 	play_cinematic(dialog_6, text_duration)
-	
-	

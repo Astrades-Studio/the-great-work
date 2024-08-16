@@ -46,11 +46,11 @@ func _ready() -> void:
 		if active_material:
 			active_material.albedo_color = Color.DARK_RED
 			contents.mesh.surface_set_material(0, active_material.duplicate())
-			
-	
+
+
 	if type != Ingredient.Type.FLARE:
 		type = Ingredient.Type.FLARE
-	
+
 
 func _on_location_changed():
 	if current_location == Location.ENVIRONMENT:

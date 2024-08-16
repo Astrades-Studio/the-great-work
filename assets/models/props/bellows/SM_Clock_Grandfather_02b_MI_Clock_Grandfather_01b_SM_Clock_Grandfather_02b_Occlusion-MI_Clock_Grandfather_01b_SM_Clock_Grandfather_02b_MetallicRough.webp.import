@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bfnawmb2wvxua"
+path.s3tc="res://.godot/imported/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Occlusion-MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_MetallicRough.webp-39f5a7c3832d5309e2d6986bc3ae0fa2.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "37dd56fa6d62322e9e63d4c06b3d716b"
+}
+
+[deps]
+
+source_file="res://assets/models/props/bellows/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Occlusion-MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_MetallicRough.webp"
+dest_files=["res://.godot/imported/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Occlusion-MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_MetallicRough.webp-39f5a7c3832d5309e2d6986bc3ae0fa2.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/props/bellows/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

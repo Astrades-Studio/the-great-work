@@ -73,7 +73,7 @@ func _on_body_entered(body: Node3D) -> void:
 			shadow.target = body
 			shadow.change_state_to(Shadow.State.PURSUING)
 			body.panic_effects.increase_agitation()
-		
+
 			if !already_seen:
 				if body.ingredient_in_hand is Flare:
 					var random_int =  randi() % 3
@@ -97,9 +97,9 @@ func _on_body_entered(body: Node3D) -> void:
 					if random_int == 2:
 						DialogManager.create_subtitles_piece("Darkness shall not stop me")
 					last = random_int
-					
+
 				already_seen = false
-				
+
 
 
 func _on_body_exited(body: Node3D) -> void:
@@ -111,12 +111,12 @@ func _on_body_exited(body: Node3D) -> void:
 				flare_reference = null
 		shadow.target = null
 		shadow.target_position = body.global_position
-		await get_tree().create_timer(2).timeout			
+		await get_tree().create_timer(2).timeout
 		body.panic_effects.decrease_agitation()
-		
 
 
-var tween : Tween        
+
+var tween : Tween
 func spawn_shadow() -> bool:
 	if shadow_present:
 		return false
@@ -129,7 +129,7 @@ func spawn_shadow() -> bool:
 	shadow_present = true
 	show()
 	shadow.show()
-	
+
 	#TODO: Move to shadow
 	#tween = get_tree().create_tween()
 	#tween.tween_property(darkness_fx, "amount_ratio", 1, 2)
@@ -147,7 +147,7 @@ func remove_shadow() -> void:
 	shadow_present = false
 	# TODO: VFX
 	shadow.visible = false
-	
+
 	#TODO: Move to shadow
 	#tween = get_tree().create_tween()
 	#tween.tween_property(darkness_fx, "amount_ratio", 0, 2)
@@ -162,7 +162,7 @@ func play_random_whisper() -> void:
 	if dialog.dialog.is_empty():
 		dialog = load("res://assets/dialog/whispers_dialog.tres")
 	dialog.dialog.shuffle()
-	
+
 	# choose a DialogPiece at random from WHISPERS_DIALOG
 	var index = randi() % dialog.dialog.size()
 	var piece = dialog.dialog[index]

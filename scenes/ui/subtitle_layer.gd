@@ -17,12 +17,12 @@ func _ready() -> void:
 	next_line_request.connect(_on_next_line_request)
 	subtitle_finished.connect(DialogManager._on_subtitle_finished)
 
-func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:	
+func play_subtitles(dialog : Dialog, duration : float = 2.0) -> void:
 	subtitle_label.show()
 	for dialog_piece in dialog.dialog:
 		await _show_subtitle(dialog_piece, duration)
 		await line_hidden
-	
+
 	subtitle_label.hide()
 	subtitle_label.text = ""
 	subtitle_finished.emit()

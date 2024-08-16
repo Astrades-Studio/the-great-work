@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cc3j3ewvr6bpd"
+path.s3tc="res://.godot/imported/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Normal.webp-f84414596638beb8f0f984df72e82bd5.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "78ee197d591ce745b0ff6ca9d208cae9"
+}
+
+[deps]
+
+source_file="res://assets/models/props/bellows/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Normal.webp"
+dest_files=["res://.godot/imported/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Normal.webp-f84414596638beb8f0f984df72e82bd5.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/props/bellows/SM_Clock_Grandfather_02b_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -25,4 +25,3 @@ func open_drawer() -> void:
 	else:
 		tween.tween_property(self, "position", target_position, 1.0)
 		open = true
-	

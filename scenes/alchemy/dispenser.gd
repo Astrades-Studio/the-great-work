@@ -13,7 +13,7 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 	if !_ingredient_type:
 		DialogManager.create_subtitles_piece("It seems to be empty")
 		return
-  
+
 	if _ingredient_type == Ingredient.Type.NONE:
 		GameManager.player.ingredient_in_hand = null
 		return
@@ -25,7 +25,7 @@ func request_ingredient(_ingredient_type : Ingredient.Type) -> void:
 			return
 		else:
 			DialogManager.create_subtitles_piece("I am already carrying something")
-		
+
 	var resulting_ingredient: Ingredient
 	resulting_ingredient = load(Ingredient.MESH_TABLE[_ingredient_type]).instantiate()
 	add_child(resulting_ingredient, true)

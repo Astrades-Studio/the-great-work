@@ -2,13 +2,13 @@
 extends Node3D
 class_name AutoFootSteps
 ## This node from the Ovani Auto Footsteps plugin will play footsteps when your player walks.
-## 
+##
 ## Place this around your players feet, and tell it your player's walking running & crouching speed.
 ## Then, It'll automatically detect what the player is standing on, and play the correct sound.
 
 const AIR_NAME : StringName = StringName("Air")
 
-## The Current Collection of Sound Effects / Materials to play. 
+## The Current Collection of Sound Effects / Materials to play.
 @export
 var foot_profile : FootProfile #= preload("res://AutoFootStepsPlugin/DefaultSounds/BareFootProfile.tres")
 ## The Current Material Name the player is standing on.
@@ -144,14 +144,14 @@ func _process_eighth():
 			steps_sfx_array = cur_material.hard_steps
 		else:
 			steps_sfx_array = cur_material.med_steps
-		
+
 		_play_random_ordered_sfx_from_arr(steps_sfx_array, cur_material.volume_multiplier)
-	
+
 	# jump/fall/skid/slip logic
 	_last_positions.push_front(global_position)
 	if len(_last_positions) > 6:
 		_last_positions.remove_at(len(_last_positions) - 1)
-		
+
 	if len(_last_positions) == 6:
 		# scuff
 		if _character_controller.is_on_floor():
@@ -162,7 +162,7 @@ func _process_eighth():
 						cur_material = _get_material()
 					_play_random_ordered_sfx_from_arr(cur_material.scuffs, cur_material.volume_multiplier)
 
- 
+
 var _rng : RandomNumberGenerator = RandomNumberGenerator.new()
 var _sfx_count : int
 func _play_random_ordered_sfx_from_arr(sfx : Array[AudioStream], volume_multiplier : float):
@@ -176,14 +176,14 @@ func _play_random_ordered_sfx_from_arr(sfx : Array[AudioStream], volume_multipli
 		if sfx[0] == played_sound:
 			sfx[0] = sfx[len(sfx) - 1]
 			sfx[len(sfx) - 1] = played_sound
-			
-	
+
+
 
 func _get_mat_fmat(mat : Material) -> FootProfileMaterialSpecification:
 	# do if cached
 	if mat in _cached_material_materials:
 		return foot_profile._material_lookup[_cached_material_materials[mat]]
-		
+
 	# check if resource name is recognized, or path (non-builtin)
 	if mat.resource_name != "":
 		var mat_fmat = foot_profile._string_to_material(mat.resource_name)
@@ -212,7 +212,7 @@ func _get_mat_fmat(mat : Material) -> FootProfileMaterialSpecification:
 					var found_texture : Texture = mat_custom.get(property["name"]) as Texture
 					if found_texture != null:
 						target_textures.append(found_texture)
-	
+
 	for texture in target_textures:
 		if texture != null:
 			if texture.resource_name != "":
@@ -220,7 +220,7 @@ func _get_mat_fmat(mat : Material) -> FootProfileMaterialSpecification:
 			return foot_profile._string_to_material(texture.resource_path)
 		else:
 			pass
-	
+
 	return FootProfile._AIR_MAT_SPEC
 
 func _refresh_foot_material(ray_distance : float = .5):
@@ -228,7 +228,7 @@ func _refresh_foot_material(ray_distance : float = .5):
 	if "collider" not in raycast_response:
 		current_material = AIR_NAME
 		return
-		
+
 	if raycast_response["collider"] is GridMap:
 		var hit_grid : GridMap = raycast_response["collider"]
 		var grid_hit_location : Vector3 = hit_grid.to_local(raycast_response["position"]);
@@ -256,7 +256,7 @@ func _refresh_foot_material(ray_distance : float = .5):
 	if raycast_response["collider"] is CSGShape3D:
 		var hit_CSG : CSGShape3D = raycast_response["collider"]
 		var hit_mesh : ArrayMesh = hit_CSG.get_meshes()[1];
-		
+
 		var surface_start = 0;
 		var face_id = raycast_response["face_index"]*3;
 		for surface_num in len(hit_mesh._surfaces):
@@ -268,20 +268,20 @@ func _refresh_foot_material(ray_distance : float = .5):
 				surface_start = surface_start + surface.vertex_count;
 		current_material = AIR_NAME
 		return
-	
+
 	var hit_collider : CollisionObject3D = raycast_response["collider"]
-	
+
 	#figure/process if this collider is tagged
 	for col_child in hit_collider.get_children():
 		if col_child is FootMaterialTag:
 			current_material = col_child.foot_material_override
 			return
-	
+
 	#figure/process if this collider's material is known already / cached
 	if hit_collider in _cached_collider_materials:
 		current_material = _cached_collider_materials[hit_collider]
 		return
-	
+
 	# check if mat can be extrapolated from collider name
 	var figured_material : FootProfileMaterialSpecification = foot_profile._string_to_material(hit_collider.name)
 
@@ -303,7 +303,7 @@ func _refresh_foot_material(ray_distance : float = .5):
 					var col_parent_mesh3D_prim : PrimitiveMesh = col_parent_mesh3D.mesh as PrimitiveMesh
 					if col_parent_mesh3D_prim != null:
 						target_materials.append(col_parent_mesh3D_prim.material)
-				
+
 				# for each mat
 				for mat in target_materials:
 					if mat == null:
@@ -312,6 +312,6 @@ func _refresh_foot_material(ray_distance : float = .5):
 					if figured_material.name != AIR_NAME:
 						_cached_material_materials[mat] = figured_material.name
 						break
-	
+
 	_cached_collider_materials[hit_collider] = figured_material.name
 	current_material = figured_material.name

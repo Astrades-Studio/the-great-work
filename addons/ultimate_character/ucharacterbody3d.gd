@@ -67,42 +67,42 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	camera.fov = GameManager.fov_value
 	mouse_sensitivity = GameManager.mouse_sensitivity
-	
+
 	camera_target_position = camera.global_transform.origin
 	camera.set_as_top_level(true)
 	camera.global_transform = camera_target.global_transform
-	
+
 	camera_gt_previous = camera_target.global_transform
 	camera_gt_current = camera_target.global_transform
-	
+
 	item_viewport.world_3d = camera.get_world_3d()
-	
+
 
 func update_camera_transform():
 	camera_gt_previous = camera_gt_current
 	camera_gt_current = camera_target.global_transform
-	
+
 
 func _process(delta: float) -> void:
 	if update_camera:
 		update_camera_transform()
 		update_camera = false
-	
+
 	item_camera.global_transform = camera.global_transform
-	
+
 
 	var interpolation_fraction = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
 
 	var camera_xform = camera_gt_previous.interpolate_with(camera_gt_current, interpolation_fraction)
 	camera.global_transform = camera_xform
-	
+
 	# Make sure the camera is not rotated on the z axis:
 	camera.rotation.z = 0
-	
+
 	var head_xform : Transform3D = head.get_global_transform()
-	
+
 	camera_target_position = lerp(camera_target_position, head_xform.origin, delta * speed * STAIRS_FEELING_COEFFICIENT * camera_lerp_coefficient)
-	
+
 	if is_on_floor():
 		time_in_air = 0.0
 		camera_lerp_coefficient = 1.0
@@ -112,7 +112,7 @@ func _process(delta: float) -> void:
 		if time_in_air > 1.0:
 			camera_lerp_coefficient += delta
 			camera_lerp_coefficient = clamp(camera_lerp_coefficient, 2.0, 4.0)
-		else: 
+		else:
 			camera_lerp_coefficient = 2.0
 
 		camera.position.y = camera_target_position.y
@@ -136,7 +136,7 @@ func rotate_camera(event: InputEventMouseMotion) -> void:
 func _physics_process(delta):
 	update_camera = true
 	var is_step: bool = false
-	
+
 	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	direction = (body.global_transform.basis * Vector3(input.x, 0, input.y)).normalized()
 
@@ -158,9 +158,9 @@ func _physics_process(delta):
 	main_velocity = main_velocity.lerp(direction * speed, acceleration * delta)
 
 	var step_result : StepResult = StepResult.new()
-	
+
 	is_step = step_check(delta, is_jumping, step_result)
-	
+
 	if is_step:
 		var is_enabled_stair_stepping: bool = true
 		if step_result.is_step_up and is_in_air and not is_enabled_stair_stepping_in_air:
@@ -172,7 +172,7 @@ func _physics_process(delta):
 			speed = SPEED_ON_STAIRS
 	else:
 		head_offset = head_offset.lerp(Vector3.ZERO, delta * speed * STAIRS_FEELING_COEFFICIENT)
-		
+
 		if abs(head_offset.y) <= 0.01:
 			speed = SPEED_DEFAULT
 
@@ -182,7 +182,7 @@ func _physics_process(delta):
 	set_max_slides(6)
 	rotate_player_analog(delta)
 	move_and_slide()
-	
+
 	if is_step and step_result.is_step_up and is_enabled_stair_stepping_in_air:
 		if is_in_air or direction.dot(step_result.normal) > 0:
 			main_velocity *= SPEED_CLAMP_AFTER_JUMP_COEFFICIENT
@@ -194,25 +194,25 @@ func _physics_process(delta):
 
 func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
 	var is_step: bool = false
-	
+
 	step_height_main = STEP_HEIGHT_DEFAULT
 	step_incremental_check_height = STEP_HEIGHT_DEFAULT / STEP_CHECK_COUNT
-	
+
 	if is_in_air and is_enabled_stair_stepping_in_air:
 		step_height_main = STEP_HEIGHT_IN_AIR_DEFAULT
 		step_incremental_check_height = STEP_HEIGHT_IN_AIR_DEFAULT / STEP_CHECK_COUNT
-		
+
 	if gravity_direction.y >= 0:
 		for i in range(STEP_CHECK_COUNT):
 			var test_motion_result: PhysicsTestMotionResult3D = PhysicsTestMotionResult3D.new()
-			
+
 			var step_height: Vector3 = step_height_main - i * step_incremental_check_height
 			var transform3d: Transform3D = global_transform
 			var motion: Vector3 = step_height
 			var test_motion_params: PhysicsTestMotionParameters3D = PhysicsTestMotionParameters3D.new()
 			test_motion_params.from = transform3d
 			test_motion_params.motion = motion
-			
+
 			var is_player_collided: bool = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
 
 			if is_player_collided and test_motion_result.get_collision_normal().y < 0:
@@ -222,17 +222,17 @@ func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
 			motion = main_velocity * delta
 			test_motion_params.from = transform3d
 			test_motion_params.motion = motion
-			
+
 			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-			
+
 			if not is_player_collided:
 				transform3d.origin += motion
 				motion = -step_height
 				test_motion_params.from = transform3d
 				test_motion_params.motion = motion
-				
+
 				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-				
+
 				if is_player_collided:
 					if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
 						is_step = true
@@ -246,17 +246,17 @@ func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
 				motion = (main_velocity * delta).slide(wall_collision_normal)
 				test_motion_params.from = transform3d
 				test_motion_params.motion = motion
-				
+
 				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-				
+
 				if not is_player_collided:
 					transform3d.origin += motion
 					motion = -step_height
 					test_motion_params.from = transform3d
 					test_motion_params.motion = motion
-					
+
 					is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-					
+
 					if is_player_collided:
 						if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
 							is_step = true
@@ -276,15 +276,15 @@ func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
 		test_motion_params.recovery_as_collision = true
 
 		var is_player_collided: bool = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-			
+
 		if not is_player_collided:
 			transform3d.origin += motion
 			motion = -step_height_main
 			test_motion_params.from = transform3d
 			test_motion_params.motion = motion
-			
+
 			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-			
+
 			if is_player_collided and test_motion_result.get_travel().y < -STEP_DOWN_MARGIN:
 				if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
 					is_step = true
@@ -296,17 +296,17 @@ func step_check(delta: float, is_jumping_: bool, step_result: StepResult):
 			motion = (main_velocity * delta).slide(wall_collision_normal)
 			test_motion_params.from = transform3d
 			test_motion_params.motion = motion
-			
+
 			is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-			
+
 			if not is_player_collided:
 				transform3d.origin += motion
 				motion = -step_height_main
 				test_motion_params.from = transform3d
 				test_motion_params.motion = motion
-				
+
 				is_player_collided = PhysicsServer3D.body_test_motion(self.get_rid(), test_motion_params, test_motion_result)
-				
+
 				if is_player_collided and test_motion_result.get_travel().y < -STEP_DOWN_MARGIN:
 					if test_motion_result.get_collision_normal().angle_to(Vector3.UP) <= deg_to_rad(STEP_MAX_SLOPE_DEGREE):
 						is_step = true

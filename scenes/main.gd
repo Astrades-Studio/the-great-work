@@ -52,7 +52,7 @@ func _timer_up():
 func _on_timer_tick():
 	countdown -= 1
 	GameManager.tick_countdown.emit()
-	
+
 	#if countdown == 1:
 		#trigger_death_timer()
 	#
@@ -86,4 +86,3 @@ func retro_filter_toggle(value : bool) -> void:
 		dithering_layer.hide()
 		color_reduction_layer.hide()
 		pixelize_layer.hide()
-	

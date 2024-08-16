@@ -911,7 +911,6 @@ navigation_mesh = SubResource("NavigationMesh_i23sg")
 
 [node name="House" parent="Level/NavigationRegion3D" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
-roof_visible = true
 metadata/_edit_lock_ = true
 
 [node name="Hook" type="MeshInstance3D" parent="Level/NavigationRegion3D/House"]

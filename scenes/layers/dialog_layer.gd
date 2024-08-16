@@ -32,7 +32,7 @@ func play_dialog(dialog : Dialog):
 	for dialog_piece in dialog.dialog:
 		show_text(dialog_piece)
 		await next_line_requested
-	
+
 	hide_text.call_deferred()
 
 var tween : Tween
@@ -42,7 +42,7 @@ func show_text(dialog_piece: DialogPiece):
 	if !dialog_piece:
 		printerr("Empty dialog piece at " + str(self.get_path()))
 		dialog_piece = DialogPiece.new()
-	
+
 	show()
 	SfxManager.change_bus_volume("SFX", 0.4)
 	SfxManager.change_bus_volume("Music", 0.4)

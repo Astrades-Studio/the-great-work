@@ -13,7 +13,7 @@ func _ready() -> void:
 	GameManager.interaction_label_updated.connect(_update_interaction_label)
 	GameManager.crosshair_signal.connect(_update_crosshair)
 	GameManager.tick_countdown.connect(_update_countdown)
-	
+
 func _update_countdown():
 	countdown_label.text = " " + str(GameMain.countdown)
 

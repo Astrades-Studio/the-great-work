@@ -25,33 +25,33 @@ enum GameState {
 	STATIC  # Nuevo estado
 }
 
-# This variable governs the inputs and pauses. Whenever there is a change, 
+# This variable governs the inputs and pauses. Whenever there is a change,
 # it should be modified from anywhere needed. Just check for double calls
 var current_state : GameState:
 	set(value):
 		current_state = value
 		state_label_updated.emit(current_state)
-		
+
 		if current_state == GameState.PLAYING:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+
 		elif current_state == GameState.PAUSED:
 			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
+
 		elif current_state == GameState.DIALOG:
 			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+
 		elif current_state == GameState.MAIN_MENU:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
+
 		elif current_state == GameState.STATIC:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		
+
 		elif current_state == GameState.CUTSCENE:
 			get_tree().paused = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -160,7 +160,7 @@ func _ready() -> void:
 	flare_read_signal.connect(_on_read_flare_trigger_book)
 	flare_created.connect(_on_flare_created)
 	#assign_random_ingredient_to_each_dispenser()
-	
+
 
 
 func _input(event):
@@ -186,7 +186,7 @@ func _on_game_over():
 	clear_arrays()
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
 	current_state = GameState.MAIN_MENU
-	
+
 
 func request_page_UI(page: Texture):
 	text_layer.show_page(page)
@@ -221,12 +221,12 @@ func _on_tick_countdown():
 	if shadows_spawned.size() >= shadow_spawn_points.size():
 		print("Too many shadows spawned")
 		return
-	
+
 	if shadow_spawn_points.size() > 0:
 		spawn_random_shadow()
-	
+
 	update_darkness_effect(shadows_spawned.size())
-		
+
 
 func spawn_random_shadow():
 	var available_spawns = shadow_spawn_points.filter(is_spot_available)

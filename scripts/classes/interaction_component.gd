@@ -78,7 +78,7 @@ func in_range() -> void:
 	# 		duplicate_material.next_pass = highlight_material
 	# 		mesh.material_overlay = highlight_material
 	# 		duplicate_materials.append(duplicate_material)
-	
+
 	# for sprite in sprites:
 	# 	sprite.modulate = Color("fed1ff")
 
@@ -95,7 +95,7 @@ func not_in_range() -> void:
 	# duplicate_materials.clear()
 	# og_materials.clear()
 	# outlines.clear()
-	
+
 	# for sprite in sprites:
 	# 	sprite.modulate = Color.WHITE
 
@@ -117,5 +117,3 @@ func connect_parent(node: Node3D) -> void:
 	node.connect("focused", Callable(self, "in_range"))
 	node.connect("unfocused", Callable(self, "not_in_range"))
 	node.connect("interacted", Callable(self, "on_interact"))
-	
-	
