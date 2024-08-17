@@ -396,6 +396,7 @@ metadata/_edit_lock_ = true
 
 [node name="Interactive" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.873934, 0, 0, 0, 0.873934, 0, 0, 0, 0.873934, 0, 0.625356, 0)
+visible = false
 layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
 

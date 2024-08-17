@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=149 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="ArrayMesh" uid="uid://b1ui1f44shpe0" path="res://assets/models/ingredients/vials/vial.res" id="41_uj1jk"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="42_asyi8"]
+[ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="42_o0ldg"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="Script" path="res://scripts/triggers/basement_trigger.gd" id="46_f8hxx"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
@@ -912,6 +913,7 @@ navigation_mesh = SubResource("NavigationMesh_i23sg")
 
 [node name="House" parent="Level/NavigationRegion3D" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
+roof_visible = true
 metadata/_edit_lock_ = true
 
 [node name="Hook" type="MeshInstance3D" parent="Level/NavigationRegion3D/House"]
@@ -1311,7 +1313,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
 
 [node name="Barrel" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("21_n1n2k")]
 transform = Transform3D(1.03549, 0, 0, 0, 1.03549, 0, 0, 0, 1.03549, 4.02717, 2.38419e-07, -1.49187)
-ingredient_type = 0
+ingredient_type = 17
 
 [node name="Jug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
 transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -3.34571, 0.56604, -6.17968)
@@ -1342,7 +1344,7 @@ max_db = 1.019
 max_distance = 5.0
 
 [node name="Flask" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("49_yw85j")]
-transform = Transform3D(-0.208368, -0.00504691, -0.978038, 2.64093e-10, 0.999987, -0.00516017, 0.97805, -0.00107521, -0.208365, -6.22752, 1.06911, -0.000473857)
+transform = Transform3D(-0.208368, -0.00504691, -0.978038, 2.64093e-10, 0.999987, -0.00516017, 0.97805, -0.00107521, -0.208365, -6.22752, 1.06911, 0.39224)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313254, -2.25388, 2.10184)
@@ -1798,13 +1800,16 @@ shape = SubResource("BoxShape3D_41r3r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0149688, 0.00833151, 0.754906, 0.0119408, 0.754962, -0.00809537, 6.16872, -1.93121, 4.62329)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, 0.633224, -2.18724, 2.82009)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
 
+[node name="Candle" parent="Level/Recipes/Sacred Initiation" instance=ExtResource("42_o0ldg")]
+transform = Transform3D(-0.999214, -0.000437539, -0.039637, -0.000437364, -0.999757, 0.0220615, -0.039637, 0.0220615, 0.998971, 0.524311, -0.00533986, 0.275389)
+
 [node name="How to leverage phosphorus" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.182702, -0.00607936, -0.839122, -7.74728e-05, -0.858781, 0.00620492, -0.839144, -0.00124434, -0.182698, -7.74033, 1.10011, -2.25186)
+transform = Transform3D(0.182702, -0.00607936, -0.839122, -7.74728e-05, -0.858781, 0.00620492, -0.839144, -0.00124434, -0.182698, -6.23554, 1.10011, 1.56894)
 book = ExtResource("10_ufp8w")
 is_flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
@@ -2090,7 +2095,7 @@ shape = SubResource("BoxShape3D_k054j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -1.5345, 0.775985, 5.70635)
+transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -1.5345, 0.196005, -5.56653)
 throw_impulse = 5.0
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
