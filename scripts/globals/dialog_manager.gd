@@ -13,7 +13,7 @@ signal dialog_finished
 # Can be done from wherever
 
 
-# Takes a string and shows a text box containing it. 
+# Takes a string and shows a text box containing it.
 # Optionally you can include a name as the second parameter
 func create_dialog_piece(text: String, speaker: String = "Melchiades"):
 	var dialog_piece := DialogPiece.new()
@@ -59,4 +59,3 @@ func _on_dialog_finished():
 
 func _on_subtitle_finished():
 	pass
-	

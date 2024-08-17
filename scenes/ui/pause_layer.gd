@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var settings_container: CenterContainer = %SettingsContainer
 
 @onready var continue_button: Button = %ContinueButton
-@onready var back_button: Button = %BackButton
 @onready var quit_refuse_button: Button = %QuitRefuseButton
 
 func _ready() -> void:
@@ -54,7 +53,7 @@ func hide_pause_menu():
 
 func _on_continue_button_pressed() -> void:
 	hide_pause_menu()
-	
+
 
 func _on_restart_button_pressed() -> void:
 	self.hide_pause_menu()
@@ -62,7 +61,7 @@ func _on_restart_button_pressed() -> void:
 	GameManager.reset_progress()
 	GameManager.clear_arrays()
 	TransitionManager.change_scene_to_file(GameManager.MAIN_SCENE)
-	
+
 
 func _on_settings_button_pressed() -> void:
 	settings_container.show()
@@ -76,11 +75,11 @@ func _on_back_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	quit_confirmation.show()
 	quit_refuse_button.grab_focus()
-	
+
 
 func _on_quit_confirm_button_pressed() -> void:
 	get_tree().quit()
-	
+
 
 func _on_quit_refuse_button_pressed() -> void:
 	quit_confirmation.hide()

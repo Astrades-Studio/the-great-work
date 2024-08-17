@@ -26,9 +26,9 @@ func _process(delta):
 	#print(nausea.material.get_shader_parameter("amplitude"))
 	#print(nausea.material.get_shader_parameter("frequency"))
 
-	
+
 func increase_agitation():
-	var tween = get_tree().create_tween().set_parallel(true) 
+	var tween = get_tree().create_tween().set_parallel(true)
 	breathing_sounds.play()
 	tween.tween_property(self, "amplitude", 0.1, 2.0)
 	frequency = 10.0

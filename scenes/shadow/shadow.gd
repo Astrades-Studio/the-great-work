@@ -71,11 +71,11 @@ func change_state_to(state : State) -> void:
 		State.PURSUING:
 			can_attack = true
 			pass
-			
+
 		State.HURT:
 			can_attack = false
 			animation_player.play("agony")
-			
+
 		State.RETURNING:
 			can_attack = true
 			pass
@@ -85,7 +85,7 @@ func move_to_target(_position : Vector3, delta : float):
 	animation_player.play("walking")
 	var direction : Vector3
 	navigation_agent_3d.target_position = _position
-	
+
 	direction = (navigation_agent_3d.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
 	look_at(navigation_agent_3d.target_position, Vector3.UP, true)
@@ -100,9 +100,9 @@ func turn_invisible() -> void:
 	invisibility_tween.tween_property(material, "albedo_color:a", 0.0, transition_length)
 	await invisibility_tween.finished
 	hide()
-	
 
-func reset_invisibility() -> void:	
+
+func reset_invisibility() -> void:
 	show()
 	invisibility_tween = get_tree().create_tween()
 	invisibility_tween.tween_property(material, "albedo_color", og_color, transition_length)

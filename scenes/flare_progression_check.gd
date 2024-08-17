@@ -1,20 +1,14 @@
 extends Area3D
 
-const BASEMENT_FLARE_CHECK = preload("res://assets/dialog/basement_flare_check.tres")
-
-var tween: Tween
-
+const SHADOW_BLOCK_DIALOG = preload("res://assets/dialog/shadow_block_dialog.tres")
 @onready var target_position: Node3D = $TargetPosition
 
-
 func _on_body_entered(body: Node3D) -> void:
-	if body is Player:
-		if GameManager.flare_already_made:
-			return
-		DialogManager.play_dialog(BASEMENT_FLARE_CHECK)
+	if body is Player and GameManager.flare_already_made:
+		#if GameManager.flare_already_made:
+			#return
+		DialogManager.play_dialog(SHADOW_BLOCK_DIALOG)
 		await DialogManager.dialog_finished
-		
-		tween = get_tree().create_tween()
-		
+
+		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(body, "global_position", target_position.global_position, 1)
-		

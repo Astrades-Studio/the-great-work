@@ -23,13 +23,13 @@ const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var og_name : String = self.name
 @onready var wait_label: Label3D = $WaitLabel
 @onready var timer: Timer = %Timer
-@onready var target_spot : Node3D = $Target 
 
 
+var target_spot : Node3D
 signal ingredient_ready
 
 var processing : bool
-var input_type : Ingredient.Type 
+var input_type : Ingredient.Type
 var time_passed : int
 var last_ingredient : Ingredient # For salt names
 #var processing_ingredient: Ingredient # Before it is ready
@@ -65,7 +65,8 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 
 func _ready():
 	play_animation()
-
+	if tool_type == Type.CAULDRON:
+		target_spot = $Target
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)
@@ -82,23 +83,23 @@ func on_tool_use() -> bool:
 	if processing:
 		DialogManager.create_dialog_piece("It's processing. I need to wait.")
 		return false
-	
+
 
 	var hand_ingredient = GameManager.player.ingredient_in_hand
-	if !hand_ingredient:	
+	if !hand_ingredient:
 		if tool_type == Type.CAULDRON:
 			if is_instance_valid(stored_ingredient):
 				if stored_ingredient.type == Ingredient.Type.NONE:
-					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")	
+					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")
 					stored_ingredient = null
 				if (stored_ingredient.type == Ingredient.Type.ALBEDO):
 					DialogManager.create_dialog_piece("The mix looks very white. Albedo is the second step towards getting the stone.")
 					return false
 				if (stored_ingredient.type == Ingredient.Type.NIGREDO):
 					DialogManager.create_dialog_piece("The mix looks very dark. This is the first step towards attaining the stone.")
-					return false	
+					return false
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
-				
+
 				if (stored_ingredient.type == Ingredient.Type.FLARE):
 					DialogManager.create_dialog_piece("I made enough illuminant for three flares. \n This should be enough to banish those shadows.")
 					GameManager.flare_created.emit()
@@ -117,7 +118,7 @@ func on_tool_use() -> bool:
 				await animation_player.animation_finished
 				await get_tree().create_timer(0.1).timeout
 				animation_player.play_backwards("open_door")
-				
+
 			if stored_ingredient:
 				DialogManager.create_dialog_piece("The result of this formula was %s." % [stored_ingredient.type_name])
 				move_ingredient_to_player(stored_ingredient)
@@ -161,7 +162,7 @@ func on_tool_use() -> bool:
 
 	var new_ingredient_type: Ingredient.Type
 	input_type = hand_ingredient.type
-	
+
 	# Update name label
 	if item_1:
 		self.name = "%s with %s" % [og_name, item_1.type_name]
@@ -182,13 +183,13 @@ func on_tool_use() -> bool:
 		new_ingredient_type = use_cauldron(hand_ingredient)
 	elif tool_type == Type.STILL:
 		new_ingredient_type = use_still(hand_ingredient)
-	
+
 	if new_ingredient_type != Ingredient.Type.NONE:
 		stored_ingredient = instance_ingredient(new_ingredient_type)
-	
+
 		start_tool_timer()
-	
-	
+
+
 	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
@@ -203,7 +204,7 @@ func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.CAPUT_MORTUUM
 
 
@@ -214,7 +215,7 @@ func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.ASH
 
 
@@ -225,7 +226,7 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.CAPUT_MORTUUM
 
 var item_1 : Ingredient
@@ -304,7 +305,7 @@ func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
 		var new_ingredient = load(Ingredient.MESH_TABLE[Ingredient.Type.IRON]).instantiate() as Ingredient
 		new_ingredient.type = _type
 		return new_ingredient
-		
+
 
 func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	add_child(ingredient, true)
@@ -334,7 +335,7 @@ func start_tool_timer() -> void:
 func _on_timer_timeout() -> void:
 	time_passed += 1
 	wait_label.text = str(wait_time - time_passed)
-	
+
 	if time_passed < wait_time:
 		timer.start(1)
 	else:

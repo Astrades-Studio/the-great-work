@@ -3,7 +3,7 @@ extends StaticBody3D
 @onready var fireplace_off: MeshInstance3D = $Fireplace_OFF
 @onready var fireplace_on: MeshInstance3D = $Fireplace_ON
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var fireplace_2: OmniLight3D = $Fireplace2
+#@onready var fireplace_2: OmniLight3D = $Fireplace2
 @onready var fire_log: GPUParticles3D = $Fireplace_ON/FireLog
 
 var on_active_fire: bool = false
@@ -15,7 +15,7 @@ func _ready():
 func on_fireplace_use():
 	if on_active_fire:
 		return
-	
+
 	GameManager.current_state = GameManager.GameState.STATIC
 	on_active_fire = true
 	SfxManager.play_sound(preload("res://assets/sounds/sfx/light_fireplace.mp3"), 0.0, -15.0)
@@ -25,4 +25,3 @@ func on_fireplace_use():
 	animation_player.play("Emission")
 	fire_log.emitting = true
 	GameManager.current_state = GameManager.GameState.PLAYING
-	
