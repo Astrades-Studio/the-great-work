@@ -1,0 +1,651 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c3n66m021epwi"
+path="res://.godot/imported/FireplaceLibraryWebp.glb-1ccd27dfcb583093ef0dda46e5873110.scn"
+
+[deps]
+
+source_file="res://assets/models/house/dekogon/fireplaces/FireplaceLibraryWebp.glb"
+dest_files=["res://.godot/imported/FireplaceLibraryWebp.glb-1ccd27dfcb583093ef0dda46e5873110.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
+_subresources={
+"meshes": {
+"FireplaceLibraryWebp_SM_Fireplace_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_01a.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_01b.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_01c.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_01d.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03a.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03b.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03c.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03d.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03e.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_03f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_03f.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_04a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_04a.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_04b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_04b.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_05c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_05c.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_05d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_05d.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_05e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_05e.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_19d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_19d.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_19e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_19e.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_19f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_19f.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_NN_04c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_NN_04c.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01a.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01c.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01d.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01e.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01f.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01g": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01g.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01h": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01h.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01i": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01i.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01j": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01j.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01k": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01k.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01l": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_01l.res"
+},
+"FireplaceLibraryWebp_SM_Fireplace_Poker_Set_NN_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_Poker_Set_NN_01b.res"
+},
+"FireplaceLibraryWebp_SM_IronStove_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_IronStove_01a.res"
+},
+"FireplaceLibraryWebp_SM_IronStove_01a_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_IronStove_01a_001.res"
+},
+"FireplaceLibraryWebp_SM_IronStove_01a_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_IronStove_01a_002.res"
+},
+"FireplaceLibraryWebp_SM_IronStove_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_IronStove_01b.res"
+},
+"FireplaceLibraryWebp_SM_IronStove_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_IronStove_01c.res"
+},
+"FireplaceLibraryWebp_SM_Shelf_Side_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Shelf_Side_01a.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01a.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01b": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01b.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01c": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01c.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01d": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01d.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01e": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01e.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01f": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01f.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01g": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01g.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01h": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01h.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01k": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01k.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01l": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01l.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01m": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01m.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01n": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01n.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01o": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01o.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01p": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01p.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01q": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01q.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01r": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01r.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01s": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01s.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01t": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01t.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01u": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01u.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01v": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01v.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01w": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01w.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01x": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01x.res"
+},
+"FireplaceLibraryWebp_SM_Wood_Pile_01z": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01z.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_195": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_195.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_196": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_196.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_197": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_197.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_198": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_198.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_251": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_251.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_252": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_252.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_253": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_253.res"
+},
+"FireplaceLibraryWebp_StaticMeshActor_254": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_StaticMeshActor_254.res"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1
