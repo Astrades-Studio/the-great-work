@@ -66,6 +66,7 @@ var flare_recipe_read : bool = false
 var flare_already_made : bool = false
 var lamp_in_hand : bool = false
 var first_shadow_encountered : bool = false
+var shadow_dispelled : bool = false
 var first_shadow_spawned : bool = false
 var good_ending : bool = false
 var bad_ending : bool = false

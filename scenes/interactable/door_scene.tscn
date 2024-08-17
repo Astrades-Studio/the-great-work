@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp6hy2d0eqryu"]
+[gd_scene load_steps=12 format=3 uid="uid://dp6hy2d0eqryu"]
 
 [ext_resource type="Script" path="res://scenes/interactable/door_scene.gd" id="1_uqvrx"]
 [ext_resource type="ArrayMesh" uid="uid://dnvfbb2hjk3cx" path="res://assets/models/props/door.res" id="2_llld5"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bh0g4gk051wxk" path="res://assets/sounds/sfx/door_closing.mp3" id="5_2pltj"]
 [ext_resource type="AudioStream" uid="uid://dg0d3e4tpkmos" path="res://assets/sounds/sfx/door_locked.wav" id="6_j6lml"]
 [ext_resource type="ArrayMesh" uid="uid://e8vm0gbhid2f" path="res://assets/models/door_frame.res" id="7_tujis"]
-[ext_resource type="ArrayMesh" uid="uid://dkv00x30lg8uh" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Door_06a.res" id="8_c1588"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cowdo"]
 size = Vector3(0.150696, 2.128, 0.907807)
@@ -109,8 +108,3 @@ max_db = 1.775
 max_distance = 5.0
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -28.5
-
-[node name="OldWest1WebpSmDoor06a" type="MeshInstance3D" parent="DoorStatic"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08646, -1.10044, 0.13342)
-visible = false
-mesh = ExtResource("8_c1588")
