@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=148 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -45,7 +45,6 @@
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="ArrayMesh" uid="uid://b1ui1f44shpe0" path="res://assets/models/ingredients/vials/vial.res" id="41_uj1jk"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="42_asyi8"]
-[ext_resource type="PackedScene" uid="uid://ddh81vsy58dex" path="res://scenes/props/candle.tscn" id="42_o0ldg"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
 [ext_resource type="Script" path="res://scripts/triggers/basement_trigger.gd" id="46_f8hxx"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
@@ -913,7 +912,6 @@ navigation_mesh = SubResource("NavigationMesh_i23sg")
 
 [node name="House" parent="Level/NavigationRegion3D" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
-roof_visible = true
 metadata/_edit_lock_ = true
 
 [node name="Hook" type="MeshInstance3D" parent="Level/NavigationRegion3D/House"]
@@ -1805,8 +1803,9 @@ book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
 
-[node name="Candle" parent="Level/Recipes/Sacred Initiation" instance=ExtResource("42_o0ldg")]
-transform = Transform3D(-0.999214, -0.000437539, -0.039637, -0.000437364, -0.999757, 0.0220615, -0.039637, 0.0220615, 0.998971, 0.524311, -0.00533986, 0.275389)
+[node name="Book" parent="Level/Recipes/Sacred Initiation" instance=ExtResource("8_8xrqu")]
+transform = Transform3D(1, 1.22236e-09, 1.86265e-09, 1.68802e-09, 1, -9.31323e-10, 1.86265e-09, -9.31323e-10, 1, 1.35961, -0.0159929, 0.513973)
+book = ExtResource("12_1wat7")
 
 [node name="How to leverage phosphorus" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(0.182702, -0.00607936, -0.839122, -7.74728e-05, -0.858781, 0.00620492, -0.839144, -0.00124434, -0.182698, -6.23554, 1.10011, 1.56894)
@@ -1824,6 +1823,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0.336114, 3.67471, -0.950951, -7.77436)
+
+[node name="Candle2" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029371, -4.26529, 2.59367)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
