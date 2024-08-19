@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=139 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -46,7 +46,6 @@
 [ext_resource type="ArrayMesh" uid="uid://b1ui1f44shpe0" path="res://assets/models/ingredients/vials/vial.res" id="41_uj1jk"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="42_asyi8"]
 [ext_resource type="Script" path="res://scripts/triggers/get_lamp.gd" id="44_64vvj"]
-[ext_resource type="Script" path="res://scripts/triggers/basement_trigger.gd" id="46_f8hxx"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
@@ -834,30 +833,6 @@ size = Vector3(3.24377, 2.1, 1.58984)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
 size = Vector3(1.66699, 2.17969, 0.0283203)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2jbud"]
-size = Vector3(2.16751, 0.001, 1.60355)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yuph2"]
-size = Vector3(5.43167, 0.001, 3.94824)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7hmv7"]
-size = Vector3(1.17407, 0.001, 1.2901)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_prxis"]
-size = Vector3(2.38452, 0.001, 3.32813)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bgfv0"]
-size = Vector3(1.57007, 0.106445, 1.49243)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nd2fv"]
-size = Vector3(1.53871, 0.001, 1.2854)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4cxse"]
-size = Vector3(3.18164, 2.44507, 1.48657)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mffq4"]
-size = Vector3(1.64551, 3.65749, 2.8418)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mnvt3"]
 size = Vector3(3.4021, 2.1, 3.23853)
@@ -1925,6 +1900,7 @@ disabled = true
 
 [node name="WorldSafeguard" type="Area3D" parent="Triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)
+collision_mask = 2
 script = ExtResource("9_7hkxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
@@ -1949,95 +1925,6 @@ script = ExtResource("41_lqb1m")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/ShadowCrawl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.802115, 1.13643, -0.478265)
 shape = SubResource("BoxShape3D_vvvnc")
-
-[node name="Basement" type="Area3D" parent="Triggers"]
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "The recipe should be here somewhere."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Basement"]
-transform = Transform3D(-0.996676, -0.0812465, 0.00598677, 0.000582997, 0.0663719, 0.997795, -0.0814647, 0.994482, -0.0661041, -9.5711, -2.11838, 5.16354)
-shape = SubResource("BoxShape3D_2jbud")
-
-[node name="DiningRoom" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.458324, 0.00307557, -0.0107581, 0, 0.440801, 0.126018, 0.0111891, 0.12598, -0.44067, -10.6839, 1.52065, 1.25569)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "The furnace is still burning."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/DiningRoom"]
-transform = Transform3D(-0.977386, 0.209253, 0.0306794, -0.0401189, -0.325874, 0.944565, 0.20765, 0.921971, 0.326899, -0.366852, -0.666213, -2.51371)
-shape = SubResource("BoxShape3D_yuph2")
-
-[node name="Bathroom" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.0132755, 0.0646018, -0.997823, -5.37638e-10, 0.997911, 0.0646075, 0.999912, 0.0008577, -0.0132478, -6.31488, 1.36715, 2.93275)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "God, the stench..."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Bathroom"]
-transform = Transform3D(-0.989704, 0.14296, -0.00677641, -0.0153912, -0.0592394, 0.998117, 0.142291, 0.987951, 0.0608302, -0.363812, -0.267505, -0.287774)
-shape = SubResource("BoxShape3D_7hmv7")
-
-[node name="LockedDoor" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.00564326, -0.0435902, -0.999034, -0.999984, -0.000431783, 0.00566751, -0.000678371, 0.99905, -0.043587, 2.03095, -2.6491, 3.51522)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "It has to be one of these..."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/LockedDoor"]
-transform = Transform3D(-0.999652, -0.0255045, -0.00670075, -0.00811916, 0.0559211, 0.998405, -0.0250891, 0.998113, -0.056109, -0.0596433, -0.0534008, -0.0743365)
-shape = SubResource("BoxShape3D_prxis")
-
-[node name="Bedroom" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.0220519, 0.998122, -0.0571503, -0.996407, -0.0172667, 0.0829121, 0.0817695, 0.0587732, 0.994917, -7.10173, 1.01665, -0.96526)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "Adam's room? Where is he?"
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Bedroom"]
-transform = Transform3D(-0.994485, 0.105063, 9.34061e-05, 0.0058341, 0.0543393, 0.998512, 0.104902, 0.992997, -0.0546511, -0.0494634, -0.262691, 1.8027)
-shape = SubResource("BoxShape3D_bgfv0")
-
-[node name="Pantry" type="Area3D" parent="Triggers"]
-transform = Transform3D(0.999612, 0.0210443, -0.018264, 0, 0.655456, 0.755233, 0.0278646, -0.75494, 0.655202, -10.6665, 2.3753, 0.428602)
-visible = false
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "I wonder what he was making with all of this..."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Pantry"]
-transform = Transform3D(-0.0114281, 0.0406465, 0.999107, 0.654144, -0.755404, 0.0382147, 0.756285, 0.653996, -0.017956, -0.000519753, -0.262674, -1.59094)
-visible = false
-shape = SubResource("BoxShape3D_nd2fv")
-
-[node name="Shelf1" type="Area3D" parent="Triggers"]
-transform = Transform3D(0.0637436, 0.410608, -0.909581, 0, 0.911435, 0.411445, 0.997966, -0.026227, 0.0580982, -3.39204, 1.59438, -7.64728)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "I need a light if I want to read any of these..."
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/Shelf1"]
-transform = Transform3D(0.0253328, -0.0221221, 0.999395, 0.915176, -0.401777, -0.03209, 0.402261, 0.915466, 0.0100669, -0.697923, -0.762411, -0.889221)
-shape = SubResource("BoxShape3D_4cxse")
-
-[node name="LabTable" type="Area3D" parent="Triggers"]
-transform = Transform3D(-0.420167, 0.173859, -0.890636, 0, 0.981475, 0.191591, 0.907447, 0.0805002, -0.412383, -0.593418, -2.14105, -5.78485)
-collision_layer = 64
-collision_mask = 2
-script = ExtResource("46_f8hxx")
-trigger_dialogue = "Is that blood ?"
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Triggers/LabTable"]
-transform = Transform3D(0.0272312, 0.408939, 0.912156, 0.986924, -0.155967, 0.0404608, 0.158816, 0.899138, -0.407841, -1.658, -0.713297, -0.471076)
-shape = SubResource("BoxShape3D_mffq4")
 
 [node name="ClockBells" type="Area3D" parent="Triggers"]
 transform = Transform3D(-0.999444, 0, 0.0333296, 0, 1, 0, -0.0333296, 0, -0.999444, -7.58746, 0.291034, -2.01844)
@@ -2217,14 +2104,6 @@ omni_attenuation = 0.252
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/GasLampReminder" to="Triggers/GasLampReminder" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Basement" to="Triggers/Basement" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/DiningRoom" to="Triggers/DiningRoom" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Bathroom" to="Triggers/Bathroom" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/LockedDoor" to="Triggers/LockedDoor" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Bedroom" to="Triggers/Bedroom" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Pantry" to="Triggers/Pantry" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/Shelf1" to="Triggers/Shelf1" method="_on_body_entered"]
-[connection signal="body_entered" from="Triggers/LabTable" to="Triggers/LabTable" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ClockBells" to="Triggers/ClockBells" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/HintLamp" to="Triggers/HintLamp" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/FlareProgressionCheck" to="Triggers/FlareProgressionCheck" method="_on_body_entered"]

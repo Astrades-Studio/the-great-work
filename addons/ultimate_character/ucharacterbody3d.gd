@@ -19,6 +19,7 @@ var mouse_sensitivity: float = 0.1
 @export var ACCELERATION_AIR: float = 1.0
 @export var SPEED_DEFAULT: float = 7.0
 @export var SPEED_ON_STAIRS: float = 5.0
+@export var SPEED_CROUCH: float = 3.5
 
 var ANALOG_SENS := 36.0
 
@@ -56,6 +57,8 @@ var update_camera = false
 var camera_gt_previous : Transform3D
 var camera_gt_current : Transform3D
 
+@export_range(3.0, 7.0, 0.1) var crouch_speed := 5.0
+var crouching : bool = false
 
 class StepResult:
 	var diff_position: Vector3 = Vector3.ZERO
@@ -155,6 +158,8 @@ func _physics_process(delta):
 		is_in_air = false
 		gravity_direction = Vector3.UP * jump
 
+
+
 	main_velocity = main_velocity.lerp(direction * speed, acceleration * delta)
 
 	var step_result : StepResult = StepResult.new()
@@ -174,7 +179,10 @@ func _physics_process(delta):
 		head_offset = head_offset.lerp(Vector3.ZERO, delta * speed * STAIRS_FEELING_COEFFICIENT)
 
 		if abs(head_offset.y) <= 0.01:
-			speed = SPEED_DEFAULT
+			if !crouching:
+				speed = SPEED_DEFAULT
+			else:
+				speed = SPEED_CROUCH
 
 	movement = main_velocity + gravity_direction
 

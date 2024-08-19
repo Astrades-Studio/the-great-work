@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=22 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -49,6 +49,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.0958, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gleqa"]
@@ -107,10 +119,26 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_4o75j"]
+resource_name = "crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.0958, 0), Vector3(0, 1.401, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qaw5b"]
 _data = {
 "RESET": SubResource("Animation_1635k"),
 "attack": SubResource("Animation_gleqa"),
+"crouch": SubResource("Animation_4o75j"),
 "swallow": SubResource("Animation_qv0sh")
 }
 
@@ -133,6 +161,7 @@ collision_mask = 65
 script = ExtResource("1_rwwvt")
 throw_impulse = 4.0
 SPEED_DEFAULT = 2.5
+SPEED_CROUCH = 1.25
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 
 [node name="Body" type="Node3D" parent="."]

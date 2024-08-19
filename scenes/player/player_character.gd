@@ -62,6 +62,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"): # Interact call
 		interact()
 
+	if event.is_action_pressed("crouch"): # Crouch call
+		toggle_crouch()
+
 	if event.is_action_pressed("drop"): # Drop call
 		charging = true
 
@@ -195,3 +198,15 @@ func interact():
 			animation_player.play("swallow")
 			await animation_player.animation_finished
 			GameManager.stone_consumed.emit()
+
+
+func toggle_crouch() -> void:
+	if crouching:
+		animation_player.play("crouch", -1, -crouch_speed, true)
+		collision_shape_normal.disabled = false
+		collision_shape_crouch.disabled = true
+	else:
+		animation_player.play("crouch", -1, crouch_speed, false)
+		collision_shape_normal.disabled = true
+		collision_shape_crouch.disabled = false
+	crouching = !crouching
