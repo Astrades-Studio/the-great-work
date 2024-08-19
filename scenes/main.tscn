@@ -1777,7 +1777,7 @@ transform = Transform3D(0.866026, 0.0091244, 0.499917, -0.0091244, 0.999955, -0.
 shape = SubResource("BoxShape3D_3smdt")
 
 [node name="StairsShadow" type="Marker3D" parent="Level/Shadows"]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -16.1002, 1.9593, 6.43701)
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -16.1002, 0.139997, 6.43701)
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
@@ -1793,7 +1793,7 @@ collision_layer = 64
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Shadows/StairsShadow/Area3D"]
-transform = Transform3D(0.999997, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 0.999997, -0.237547, -0.593994, 1.65979)
+transform = Transform3D(0.999997, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 0.999997, -0.237547, 1.15549, 1.65979)
 shape = SubResource("BoxShape3D_41r3r")
 
 [node name="Recipes" type="Node3D" parent="Level"]

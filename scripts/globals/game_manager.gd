@@ -242,6 +242,7 @@ func spawn_random_shadow():
 
 
 func update_darkness_effect(amount: int):
+	return
 	if fog_environment:
 		fog_environment.environment.fog_density = amount * fog_density_increment
 		if flare_already_made:
