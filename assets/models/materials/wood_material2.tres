@@ -1,33 +1,16 @@
-[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dqjtpfxcbe6l1"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dqjtpfxcbe6l1"]
 
-[sub_resource type="Gradient" id="Gradient_ae5a6"]
-offsets = PackedFloat32Array(0.07, 0.23, 0.865, 1)
-colors = PackedColorArray(0.217101, 0.217101, 0.217101, 1, 0.432668, 0.432668, 0.432668, 1, 0.539309, 0.539309, 0.539309, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_a7ous"]
-frequency = 0.0316
-fractal_type = 2
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tabk3"]
-height = 105
-seamless = true
-color_ramp = SubResource("Gradient_ae5a6")
-noise = SubResource("FastNoiseLite_a7ous")
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7mx5l"]
-height = 105
-seamless = true
-as_normal_map = true
-bump_strength = 6.5
-color_ramp = SubResource("Gradient_ae5a6")
-noise = SubResource("FastNoiseLite_a7ous")
+[ext_resource type="Texture2D" uid="uid://c4jaknfbcvgek" path="res://assets/textures/Wood_05/1K-american_walnut_1_basecolor.png" id="1_6ffem"]
+[ext_resource type="Texture2D" uid="uid://bhrhtaoc7mu8m" path="res://assets/textures/Wood_05/1K-american_walnut_1_normal.png" id="2_v7a4t"]
+[ext_resource type="Texture2D" uid="uid://dss0veyx58jnl" path="res://assets/textures/Wood_05/1K-american_walnut_1_roughness.png" id="3_cfv1d"]
 
 [resource]
-albedo_color = Color(0.522383, 0.324737, 0.170555, 1)
-albedo_texture = SubResource("NoiseTexture2D_tabk3")
+albedo_color = Color(0.357564, 0.350626, 0.380479, 1)
+albedo_texture = ExtResource("1_6ffem")
+roughness_texture = ExtResource("3_cfv1d")
 normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_7mx5l")
+normal_texture = ExtResource("2_v7a4t")
+uv1_scale = Vector3(0.48, 0.605, 1)
 uv1_triplanar = true
 uv1_triplanar_sharpness = 1.41421
 uv1_world_triplanar = true

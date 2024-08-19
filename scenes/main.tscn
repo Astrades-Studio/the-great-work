@@ -1066,7 +1066,7 @@ ingredient_type = 11
 script = ExtResource("20_3awsj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Latrine"]
-transform = Transform3D(0.4, 0, 3.72529e-08, 0, 0.4, 0, -3.72529e-08, 0, 0.4, -0.0692644, -0.00272691, 0.0190854)
+transform = Transform3D(0.332589, 0, 1.04308e-07, 0, 0.332588, 0, -1.04308e-07, 0, 0.332589, -0.0396509, -0.00290024, 0.0531733)
 shape = SubResource("CylinderShape3D_1m4ix")
 
 [node name="Pouch" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
