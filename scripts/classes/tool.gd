@@ -340,7 +340,8 @@ func _on_timer_timeout() -> void:
 		timer.start(1)
 	else:
 		if GameManager.current_state == GameManager.GameState.CUTSCENE:
-			GameManager.current_state = GameManager.GameState.PLAYING
+			if tool_type == Tool.Type.MORTAR:
+				GameManager.current_state = GameManager.GameState.PLAYING
 		if audio_stream_player_3d:
 			audio_stream_player_3d.play(0.0)
 		processing = false
