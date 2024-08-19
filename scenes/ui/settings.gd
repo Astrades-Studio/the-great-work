@@ -33,7 +33,7 @@ func set_current_values():
 	master_volume = db_to_linear(AudioServer.get_bus_volume_db(master_bus))
 	music_volume = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
 	sfx_volume = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
-	
+
 	mute_button.button_pressed = AudioServer.is_bus_mute(AudioServer.get_bus_index("Master"))
 	fullscreen_button.button_pressed = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN or \
 	DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN

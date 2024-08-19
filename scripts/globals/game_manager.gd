@@ -94,11 +94,13 @@ var fov_value : float = 75:
 
 var brightness : float = 1.0:
 	set(value):
+		if !is_node_ready():
+			await ready
 		if retro_filter:
 			brightness = clamp(remap(value, 0, 1, 2.0, 3.8), 2.0, 3.8)
 		else:
 			brightness = clamp(remap(value, 0, 1, 1.0, 2.0), 1.0, 2.0)
-		if fog_environment:
+		if is_instance_valid(fog_environment):
 			fog_environment.environment.adjustment_brightness = brightness
 
 
