@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://ba1l5mysso4yp"]
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cwr34dgi1qt15"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ujehu"]
 load_path = "res://.godot/imported/new_clock_4_MI_Clock_Grandfather_01b_SM_Clock_Grandfather_02b_BaseColor.webp-78bb28d1ed5fe79d5a2cfc5bac0503ed.s3tc.ctex"
