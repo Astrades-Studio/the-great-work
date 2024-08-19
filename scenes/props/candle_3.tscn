@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64262e-05, 0.367031, -0.000
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46212, 0.00227527)
 light_color = Color(0.36772, 0.166348, 1.20327e-07, 1)
-light_energy = 15.291
+light_energy = 1.27
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_size = 0.122
