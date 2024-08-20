@@ -28,7 +28,7 @@ func _ready() -> void:
 	GameManager.fog_environment = world_environment
 	world_environment.environment.adjustment_brightness = GameManager.brightness
 	GameManager.update_darkness_effect(1)
-	GameManager.ingredient_layer = ingredients
+	GameManager.ingredient_layer = ingredientsw
 	GameManager.ovani_player = ovani_player
 	GameManager.game_started.connect(start_midnight_game)
 	GameManager.shadow_removed.connect(_timer_up)

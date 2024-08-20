@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=22 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
-[ext_resource type="ArrayMesh" uid="uid://bbyotemw1gb2v" path="res://assets/models/ingredients/banana2.res" id="2_c0jae"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
 [ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="AudioStream" uid="uid://bmh608gv42nxr" path="res://assets/sounds/sfx/eating_stone.mp3" id="2_y7hev"]
@@ -185,10 +184,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 2, 0)
 collision_mask = 13
-
-[node name="Banana2" type="MeshInstance3D" parent="Body/Head/CameraMarker3D"]
-transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, -0.204155, -0.322539, -1.85932)
-mesh = ExtResource("2_c0jae")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 root_node = NodePath("../..")
