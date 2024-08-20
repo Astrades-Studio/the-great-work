@@ -12,12 +12,9 @@ noise = SubResource("FastNoiseLite_55e0e")
 
 [resource]
 transparency = 1
-blend_mode = 3
+blend_mode = 1
+cull_mode = 2
 shading_mode = 0
-diffuse_mode = 2
-specular_mode = 1
-disable_ambient_light = true
-disable_fog = true
 albedo_color = Color(0.769275, 0.272534, 0, 1)
 albedo_texture = SubResource("NoiseTexture2D_1ngoe")
 billboard_mode = 3

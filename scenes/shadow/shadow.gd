@@ -1,14 +1,15 @@
 class_name Shadow
 extends CharacterBody3D
 
-
-@onready var influence: Area3D = %Influence
+@onready var hurtbox: Area3D = %Hurtbox
+@onready var hitbox: Area3D = %Hitbox
 @onready var mesh : MeshInstance3D = %Mesh
 @onready var material : StandardMaterial3D = mesh.get_active_material(0)
 @onready var animation_player: AnimationPlayer = $Import/AnimationPlayer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var wait_timer: Timer = $WaitTimer
 @onready var label_3d: Label3D = $Label3D
+
 
 enum State{
 	WAITING,
@@ -114,6 +115,6 @@ func _on_navigation_agent_3d_target_reached() -> void:
 	target_position = Vector3.ZERO
 
 
-func _on_influence_body_entered(body: Node3D) -> void:
+func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body is Player and can_attack:
 		GameManager.game_over.emit()

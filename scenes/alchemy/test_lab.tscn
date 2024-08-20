@@ -122,6 +122,9 @@ transform = Transform3D(-0.608271, 0, -1.03363, 0, 1.19933, 0, 1.03363, 0, -0.60
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("6_tf4ew")]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 2.29506, 0.00317848, 0)
+SPEED_DEFAULT = 2.5
+SPEED_ON_STAIRS = 5.0
+SPEED_CROUCH = 1.25
 
 [node name="Ingredients" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.744248, 0)

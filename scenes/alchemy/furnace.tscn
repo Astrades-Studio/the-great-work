@@ -1,16 +1,18 @@
-[gd_scene load_steps=35 format=4 uid="uid://c3bvquq5q4o5a"]
+[gd_scene load_steps=37 format=4 uid="uid://c3bvquq5q4o5a"]
 
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_ef1cu"]
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_hlpvv"]
 [ext_resource type="AudioStream" uid="uid://bn5pc4521yylt" path="res://assets/sounds/sfx/Recipe complete.wav" id="3_t3i41"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="4_cocfm"]
 [ext_resource type="ArrayMesh" uid="uid://c56wtsmeohxa1" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01m.res" id="5_cmhxh"]
+[ext_resource type="Material" uid="uid://cc8atmlct5a3" path="res://scenes/fx/wood_fire.tres" id="6_l5rwk"]
 [ext_resource type="Texture2D" uid="uid://dsbyymy4ogjxl" path="res://assets/models/furnace_MI_Stove_01a_BaseColor.webp" id="6_q808q"]
+[ext_resource type="Material" uid="uid://cqlnw47n64uu0" path="res://assets/models/materials/fire_animation.tres" id="7_h35ud"]
 [ext_resource type="Texture2D" uid="uid://cxry4ajt7265" path="res://assets/models/furnace_MI_Stove_01a_Occlusion-MI_Stove_01a_MetallicRoughness.webp" id="7_o1s2y"]
 [ext_resource type="Texture2D" uid="uid://c3t11j3kymghh" path="res://assets/models/furnace_MI_Stove_01a_Normal.webp" id="8_bbodo"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7ek7"]
-points = PackedVector3Array(-0.555756, 0.676818, -0.351898, -0.521375, 0, -0.350091, -0.555756, 0.676818, 0.38449, -0.555756, 0.728926, -0.351898, -0.451416, 0.676818, -0.384491, 0.521266, 0, -0.350091, -0.521375, 0, 0.350016, 0.555756, 0.676818, 0.38449, -0.555756, 0.703021, 0.38449, -0.44826, 0.728926, -0.384491, -0.555756, 0.728926, 0.24757, -0.507992, 1.22738, -2.98023e-08, -0.507992, 1.1988, -0.186374, -0.507992, 1.10322, -0.355962, 0.514629, 0.676818, -0.384491, 0.521266, 0, 0.350016, 0.555756, 0.701532, -0.384491, 0.555756, 0.676818, -0.301917, 0.555756, 0.728926, 0.38449, -0.425521, 0.728926, 0.38449, -0.507992, 1.10322, 0.355887, -0.507992, 1.1988, 0.186299, 0.555756, 0.728926, -0.384491, -0.171035, 2.90588, 0.038991, 0.507883, 1.10322, -0.355962, -0.137198, 2.90588, -0.109446, 0, 2.90588, -0.17546, 0.507883, 1.22738, -2.98023e-08, 0.507883, 1.1988, 0.186299, 0.507883, 1.10322, 0.355887, -0.0761608, 2.90588, 0.157996, 0.507883, 1.1988, -0.186374, -0.059079, 3.04196, 0.122393, -0.13252, 3.04196, 0.0301841, 0.137089, 2.90588, -0.109446, 0.170927, 2.90588, 0.038991, -0.106299, 3.04196, -0.0847566, 0, 3.04196, -0.135942, 0.076052, 2.90588, 0.157996, 0.0589702, 3.04196, 0.122393, 0.10619, 3.04196, -0.0847566, 0.132411, 3.04196, 0.0301841)
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1703"]
+size = Vector3(0.831482, 0.796875, 0.478271)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1qjg"]
 resource_name = "GreyA.012"
@@ -266,14 +268,14 @@ max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2ar4f"]
+[sub_resource type="CurveTexture" id="CurveTexture_7uw4t"]
 curve = SubResource("Curve_w663s")
 
 [sub_resource type="Curve" id="Curve_4hn5e"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492188, 0.260377), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_wj65h"]
+[sub_resource type="CurveTexture" id="CurveTexture_2dcvp"]
 curve = SubResource("Curve_4hn5e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o0crx"]
@@ -285,15 +287,16 @@ spread = 3.0
 flatness = 1.0
 angular_velocity_min = -1.60933e-05
 angular_velocity_max = -1.60933e-05
-velocity_limit_curve = SubResource("CurveTexture_wj65h")
+velocity_limit_curve = SubResource("CurveTexture_2dcvp")
 gravity = Vector3(0, 1, 0)
 linear_accel_min = -35.66
 linear_accel_max = 1.53
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = -2.23517e-06
-scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
+scale_over_velocity_curve = SubResource("CurveTexture_7uw4t")
 
 [sub_resource type="QuadMesh" id="QuadMesh_o1ixx"]
+material = ExtResource("7_h35ud")
 size = Vector2(0.37, 0.29)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d1bo"]
@@ -413,15 +416,17 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s1e80")
 
 [node name="Furnace" type="StaticBody3D" node_paths=PackedStringArray("ingredient_preview")]
+collision_layer = 9
+collision_mask = 6
 script = ExtResource("1_hlpvv")
 ingredient_preview = NodePath("IngredientSpot")
 wait_time = 5
 sound = ExtResource("4_cocfm")
 tool_type = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_j7ek7")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.02656e-06, 0, -1, 0, 1, 0, 1, 0, -2.02656e-06, -0.052124, 0.400635, -0.00570689)
+shape = SubResource("BoxShape3D_b1703")
 
 [node name="FurnaceMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
@@ -468,6 +473,7 @@ metadata/ant_landscape = "{  }"
 
 [node name="FireLog" type="GPUParticles3D" parent="LogFire"]
 transform = Transform3D(1, 0, -2.98023e-08, -1.42109e-14, 1, 0, 2.98023e-08, 7.10543e-15, 1, 0, 0, 0)
+material_override = ExtResource("6_l5rwk")
 cast_shadow = 0
 visibility_range_end = 9.8
 amount = 15
