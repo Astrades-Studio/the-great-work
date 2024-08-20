@@ -3,22 +3,22 @@
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="1_43v76"]
 
 [sub_resource type="Gradient" id="Gradient_yjcha"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.456869, 1)
+colors = PackedColorArray(0.920735, 0.684327, 0.3329, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_krocc"]
 gradient = SubResource("Gradient_yjcha")
 fill = 1
-fill_from = Vector2(0.535613, 0.527066)
-fill_to = Vector2(0.968661, 0.851852)
+fill_from = Vector2(0.471, 0.544)
+fill_to = Vector2(0.819, 0.867)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2q43"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
-diffuse_mode = 2
-specular_mode = 1
+diffuse_mode = 1
 disable_ambient_light = true
-albedo_color = Color(0.700772, 0.223685, 0, 1)
+disable_fog = true
+albedo_color = Color(0.304373, 0.222874, 0.0501705, 1)
 albedo_texture = SubResource("GradientTexture2D_krocc")
 albedo_texture_force_srgb = true
 billboard_mode = 3
@@ -55,13 +55,20 @@ gravity = Vector3(0, 1, 0)
 scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
 
 [sub_resource type="QuadMesh" id="QuadMesh_igbii"]
-size = Vector2(0.05, 0.05)
+lightmap_size_hint = Vector2i(2, 2)
+uv2_padding = 2.68
+size = Vector2(0.055, 0.06)
 
 [node name="FireBeam" type="GPUParticles3D"]
 material_override = SubResource("StandardMaterial3D_f2q43")
 cast_shadow = 0
-amount = 15
-lifetime = 0.25
+amount = 30
+lifetime = 0.2
+preprocess = 0.02
+speed_scale = 0.05
+randomness = 0.59
+interpolate = false
+fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_igbii")
 

@@ -2644,6 +2644,7 @@ lod_bias = 0.2
 transform = Transform3D(3.55615e-06, 0, 1.03996, 0, 1.14038, 0, -1.34982, 0, 2.7398e-06, 8.81098, 0.120573, -0.473857)
 
 [node name="DoorStatic" parent="Doors/DoorScene3" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 basement_door = true
 locked = true
 
@@ -2653,6 +2654,9 @@ lod_bias = 0.2
 [node name="DoorScene2" parent="Doors" instance=ExtResource("26_faobc")]
 transform = Transform3D(1.38642, 0, -0.00820641, 0, 1.00975, 0, 0.00436817, 0, 1.37422, 11.0357, 0.121217, -7.97262)
 skeleton = NodePath("")
+
+[node name="DoorStatic" parent="Doors/DoorScene2" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 
 [node name="door_002" parent="Doors/DoorScene2/DoorStatic" index="0"]
 lod_bias = 0.2
