@@ -4161,7 +4161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26112, 1.03316, -9.48331)
 mesh = ExtResource("129_dn3jr")
 
 [node name="GrandfatherClock" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.50744e-08, 0, 1.03118, 0, 1.03118, 0, -1.03118, 0, -4.50744e-08, 9.21437, 0.118923, -5.14291)
+transform = Transform3D(-4.90215e-08, 0, 0.954, 0, 1.12148, 0, -1.12148, 0, -4.17007e-08, 9.16793, 0.118923, -5.14291)
 mesh = SubResource("ArrayMesh_isnc3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GrandfatherClock"]
