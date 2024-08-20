@@ -1623,7 +1623,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 1.91905, -2.71462)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 1.79991, -3.24754)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267
@@ -1633,17 +1633,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom4" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -19.8366, 1.89631, -4.09768)
-stream = ExtResource("7_qg76f")
-volume_db = 5.0
-max_db = -5.267
-autoplay = true
-max_distance = 5.0
-bus = &"SFX"
-attenuation_filter_db = -11.2
-
-[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -11.7989, 2.069, -8.32167)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -19.8366, 2.069, -3.10055)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267
@@ -1653,7 +1643,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.0951529, 0.169163, -23.8629, 1.90424, 4.00168)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.095153, 0.169163, -23.795, 2.19062, 4.42008)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267

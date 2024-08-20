@@ -143,6 +143,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685144, 0.89713, 2.38419e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041607, 0.0316516, 2.38419e-07)
 stream = ExtResource("6_5wbk4")
 bus = &"SFX"

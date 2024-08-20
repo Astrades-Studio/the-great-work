@@ -2661,7 +2661,7 @@ lod_bias = 0.2
 transform = Transform3D(1.32108, 0, -2.58635e-06, 0, 0.999138, 0, 3.30718e-06, 0, 1.03314, 4.57602, 0.121263, -7.86775)
 
 [node name="OldWest1WebpSmDoorDouble01a" type="MeshInstance3D" parent="Doors"]
-transform = Transform3D(-5.21609e-08, 0, 0.998466, 0, 1.13417, 0, -1.1933, 0, -4.36444e-08, 13.8181, 0.126839, -13.0101)
+transform = Transform3D(-5.80545e-08, 0, 0.182797, 0, 1.26232, 0, -1.32813, 0, -7.99032e-09, 13.841, 0.126839, -13.0101)
 lod_bias = 0.2
 mesh = ExtResource("9_nhd1y")
 
@@ -3048,22 +3048,6 @@ skeleton = NodePath("../Windows/Window7/CurtainLeft")
 
 [node name="Windows" type="Node3D" parent="."]
 
-[node name="Window4" type="MeshInstance3D" parent="Windows"]
-transform = Transform3D(1.01114e-07, -0.000461054, -0.69517, 6.70613e-11, 0.69517, -0.000461054, 0.69517, 0, 1.01114e-07, 0.110837, 1.45414, -3.24295)
-lod_bias = 0.2
-mesh = ExtResource("47_04aj0")
-skeleton = NodePath("../..")
-
-[node name="Window2" type="MeshInstance3D" parent="Windows/Window4"]
-transform = Transform3D(0.891177, 0, -3.55271e-15, 0, 0.891177, 0, 3.55271e-15, 0, 0.891177, -0.00551033, 0.0342045, -0.124166)
-mesh = ExtResource("51_ffvff")
-skeleton = NodePath("../../..")
-
-[node name="Window3" type="MeshInstance3D" parent="Windows/Window4"]
-transform = Transform3D(-0.471534, 4.12228e-08, 2.77136e-08, -2.06114e-08, 9.00953e-16, -0.634014, -4.12228e-08, -0.471534, 1.2114e-15, -0.00180054, 0.754887, -0.0189018)
-mesh = SubResource("PlaneMesh_fq40g")
-skeleton = NodePath("../../..")
-
 [node name="Window6" type="MeshInstance3D" parent="Windows"]
 transform = Transform3D(1.11718e-07, -0.000509285, -0.493051, 7.40942e-11, 0.767893, -0.000327004, 0.768075, 0, 7.17151e-08, 4.09512, 1.37806, -11.56)
 lod_bias = 0.2
@@ -3116,6 +3100,42 @@ skeleton = NodePath("../CurtainLeft")
 transform = Transform3D(1.12842, 1.25596e-10, -2.46282e-07, 3.27208e-11, 1.30226, 0.000863695, 3.32521e-07, -0.00134514, 2.02819, 0.625153, 1.78247, -0.170826)
 lod_bias = 0.2
 mesh = ExtResource("75_hmwjh")
+skeleton = NodePath("../../..")
+
+[node name="Window9" type="MeshInstance3D" parent="Windows"]
+transform = Transform3D(1.11718e-07, -0.000509285, -0.493051, 7.40942e-11, 0.767893, -0.000327004, 0.768075, 0, 7.17151e-08, 0.101128, 1.37806, -3.48655)
+lod_bias = 0.2
+mesh = ExtResource("47_04aj0")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="Windows/Window9"]
+transform = Transform3D(0.891177, 0, -3.55271e-15, 0, 0.891177, 0, 3.55271e-15, 0, 0.891177, -0.00551033, 0.0342045, -0.124166)
+lod_bias = 0.2
+mesh = ExtResource("51_ffvff")
+skeleton = NodePath("../../..")
+
+[node name="Window3" type="MeshInstance3D" parent="Windows/Window9"]
+transform = Transform3D(-0.471534, 4.12186e-08, 3.1935e-08, -2.06114e-08, -5.82077e-11, -0.730589, -4.12229e-08, -0.471486, 5.23876e-10, -0.00180054, 0.800482, -0.0362988)
+lod_bias = 0.2
+mesh = SubResource("PlaneMesh_fq40g")
+skeleton = NodePath("../../..")
+
+[node name="Window4" type="MeshInstance3D" parent="Windows/Window9"]
+transform = Transform3D(-0.471534, 4.12439e-08, 2.43346e-09, -2.06114e-08, -7.27596e-11, -0.0556711, -4.12229e-08, -0.471775, 6.54842e-11, -0.00180054, 0.0893226, -0.0533447)
+lod_bias = 0.2
+mesh = SubResource("PlaneMesh_6f54i")
+skeleton = NodePath("../../..")
+
+[node name="Window5" type="MeshInstance3D" parent="Windows/Window9"]
+transform = Transform3D(-0.471534, 4.12439e-08, 2.43346e-09, -2.06114e-08, -7.27596e-11, -0.0556711, -4.12229e-08, -0.471775, 7.63981e-11, -0.00180054, 1.46983, -0.0547705)
+lod_bias = 0.2
+mesh = SubResource("PlaneMesh_6f54i")
+skeleton = NodePath("../../..")
+
+[node name="Window6" type="MeshInstance3D" parent="Windows/Window9"]
+transform = Transform3D(-0.471534, 4.12439e-08, 2.43346e-09, -2.06114e-08, -8.73115e-11, -0.0556711, -4.1223e-08, -0.471775, 1.0914e-10, -0.00180054, 0.794041, -0.0540714)
+lod_bias = 0.2
+mesh = SubResource("PlaneMesh_6f54i")
 skeleton = NodePath("../../..")
 
 [node name="Window7" type="MeshInstance3D" parent="Windows"]
