@@ -2116,24 +2116,25 @@ shadow_mesh = SubResource("ArrayMesh_a3lq8")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jb7p3"]
 size = Vector3(3.75879, 0.102295, 3.45801)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xgj8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0jul"]
 resource_name = "Material.249"
 cull_mode = 2
 albedo_color = Color(0.611516, 0.580712, 0.626348, 1)
 albedo_texture = ExtResource("54_qasia")
 metallic_specular = 0.28
+roughness = 0.5
 roughness_texture = ExtResource("56_xjprk")
 normal_enabled = true
 normal_texture = ExtResource("55_mlhbr")
-uv1_scale = Vector3(7.34, 7.34, 1.33)
-uv1_offset = Vector3(-0.27, -0.02, 0)
+uv1_scale = Vector3(7.35, 3.95, 3.95)
+uv1_offset = Vector3(-0.27, -0.03, 0)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_vcdbd"]
-material = SubResource("StandardMaterial3D_6xgj8")
+material = SubResource("StandardMaterial3D_s0jul")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_08a7f"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl6qc"]
+size = Vector3(1, 1.01648, 0.997559)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glu7m"]
 resource_name = "Material.249"
@@ -2192,11 +2193,13 @@ backface_collision = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfytp"]
 albedo_color = Color(0.5456, 0.441597, 0.327645, 1)
 albedo_texture = ExtResource("18_tdq8v")
+metallic = 0.75
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12klh"]
 albedo_color = Color(0.545098, 0.443137, 0.329412, 1)
 albedo_texture = ExtResource("18_tdq8v")
+metallic = 0.76
 uv1_scale = Vector3(0.13, 0.13, 0.13)
 uv1_triplanar = true
 
@@ -2243,7 +2246,7 @@ size = Vector3(1.5369, 1.00598, 0.490814)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mbgce"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yc4hn"]
-size = Vector3(1.41205, 1.12939, 0.804077)
+size = Vector3(1.41205, 1.12939, 0.8078)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xl6np"]
 size = Vector3(0.792236, 1.30237, 0.648438)
@@ -2641,6 +2644,7 @@ lod_bias = 0.2
 transform = Transform3D(3.55615e-06, 0, 1.03996, 0, 1.14038, 0, -1.34982, 0, 2.7398e-06, 8.81098, 0.120573, -0.473857)
 
 [node name="DoorStatic" parent="Doors/DoorScene3" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 basement_door = true
 locked = true
 
@@ -2650,6 +2654,9 @@ lod_bias = 0.2
 [node name="DoorScene2" parent="Doors" instance=ExtResource("26_faobc")]
 transform = Transform3D(1.38642, 0, -0.00820641, 0, 1.00975, 0, 0.00436817, 0, 1.37422, 11.0357, 0.121217, -7.97262)
 skeleton = NodePath("")
+
+[node name="DoorStatic" parent="Doors/DoorScene2" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 
 [node name="door_002" parent="Doors/DoorScene2/DoorStatic" index="0"]
 lod_bias = 0.2
@@ -2952,7 +2959,7 @@ mesh = ExtResource("53_nj75h")
 skeleton = NodePath("../..")
 
 [node name="OldWest4WebpSmCookware02d" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.280681, 0, 0, 0, 0.28068, 0, 0, 0, 0.28068, 15.1105, 1.65419, -3.74117)
+transform = Transform3D(0.280681, 0, 0, 0, 0.28068, 0, 0, 0, 0.28068, 15.1105, 1.63234, -3.74117)
 mesh = ExtResource("56_yg4f7")
 skeleton = NodePath("../../Structural/Basement ceiling /BoxCollision")
 
@@ -3338,14 +3345,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0270913, -0.0814443, 0.203
 shape = SubResource("BoxShape3D_jb7p3")
 
 [node name="Floor stairs" type="MeshInstance3D" parent="Structural"]
-transform = Transform3D(6.12662, 0, 0, 0, 0.188513, 0, 0, 0, 1.9935, 11.0716, 0.0128096, -1.07034)
+transform = Transform3D(6.12662, 0, 0, 0, 0.188513, 0, 0, 0, 1.9935, 11.072, 0.023, -1.00408)
 mesh = SubResource("BoxMesh_vcdbd")
 skeleton = NodePath("../Basement ceiling ")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Structural/Floor stairs"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Structural/Floor stairs/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_08a7f")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00823975, 0.00122076)
+shape = SubResource("BoxShape3D_dl6qc")
 
 [node name="Basement ceiling " type="MeshInstance3D" parent="Structural"]
 transform = Transform3D(7.08308, 0, 0, 0, 6.82339, 0, 0, 0, 6.82339, 7.107, 0.118, -8.823)
@@ -3370,9 +3378,9 @@ shape = SubResource("ConcavePolygonShape3D_1f5ep")
 disabled = true
 
 [node name="MeshInstance3D" type="CSGBox3D" parent="Structural"]
-transform = Transform3D(0.172329, 0, 0, 0, 1, 0, 0, 0, 1, 9.01393, 1.21055, -2.9725)
+transform = Transform3D(0.172329, 0, 0, 0, 1, 0, 0, 0, 1, 9.01241, 1.21055, -2.95857)
 use_collision = true
-size = Vector3(1.11609, 2.1792, 1.46875)
+size = Vector3(1.13373, 2.1792, 1.46875)
 material = SubResource("StandardMaterial3D_lfytp")
 
 [node name="MeshInstance3D2" type="CSGBox3D" parent="Structural/MeshInstance3D"]
@@ -3499,7 +3507,7 @@ transform = Transform3D(0.264052, 2.09548e-08, 3.09199e-06, 9.50537e-15, 0.26387
 shape = SubResource("BoxShape3D_8loh4")
 
 [node name="OldWest1WebpSmDresser02a329" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.48462, 0.126839, -6.82895)
+transform = Transform3D(-4.00841e-08, 0, 0.917017, 0, 0.917017, 0, -0.917017, 0, -4.00841e-08, 9.48462, 0.126839, -6.62043)
 mesh = ExtResource("70_yqrwv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest1WebpSmDresser02a329"]
@@ -3559,12 +3567,12 @@ transform = Transform3D(0.999993, 0, 0, 0, 1, 0, 0, 0, 1, 0.00987339, 0.500262, 
 shape = SubResource("BoxShape3D_oghqq")
 
 [node name="OldWest1WebpSmSink01d" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.821828, 0, 0, 0, 0.440531, 0, 0, 0, 0.821828, 12.7398, 0.944236, -4.09332)
+transform = Transform3D(0.821828, 0, 0, 0, 0.440531, 0, 0, 0, 0.821828, 12.2659, 0.944236, -4.09332)
 mesh = ExtResource("78_n8rny")
 
 [node name="OldWest5WebpSmBarrels01a001" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.87016, 0, 0, 0, 1.87016, 0, 0, 0, 1.87016, 13.476, 0.147308, -0.528753)
-lod_bias = 0.4
+lod_bias = 0.8
 mesh = ExtResource("79_4qea7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest5WebpSmBarrels01a001"]
@@ -3575,7 +3583,7 @@ shape = SubResource("CylinderShape3D_mbgce")
 
 [node name="OldWest5WebpSmBarrels01a002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.87016, 0, 0, 0, 1.87016, 0, 0, 0, 1.87016, 13.476, 0.147308, -1.44971)
-lod_bias = 0.4
+lod_bias = 0.8
 mesh = ExtResource("79_4qea7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest5WebpSmBarrels01a002"]
@@ -3616,9 +3624,11 @@ transform = Transform3D(1.06342, 0, 0, 0, 1.06342, 0, 0, 0, 1.06342, 3.37824, 0.
 mesh = ExtResource("84_qhxwq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest3WebpSmWickerBasket01a"]
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OldWest3WebpSmWickerBasket01a/StaticBody3D"]
-transform = Transform3D(0.480871, 0, 0, 0, 0.480871, 0, 0, 0, 0.480871, 0.0206199, 0.0311111, 0.0138825)
+transform = Transform3D(0.480871, 0, 0, 0, 0.480871, 0, 0, 0, 0.480871, 0.0206199, 0.0311111, 0.0147777)
 shape = SubResource("BoxShape3D_yc4hn")
 
 [node name="OldWest3WebpSmBlankets01d" type="MeshInstance3D" parent="."]
@@ -3780,6 +3790,7 @@ mesh = ExtResource("99_hntxv")
 
 [node name="Debug" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0278826, 0, 0)
+visible = false
 
 [node name="DEBUG_LIGHT2" type="OmniLight3D" parent="Debug"]
 transform = Transform3D(0.806795, 0.114681, 0.579595, -0.140729, 0.990048, -6.15147e-09, -0.573827, -0.0815659, 0.814905, 20.864, 3.32459, -9.5399)
@@ -3827,17 +3838,17 @@ transform = Transform3D(-0.152716, 0, -0.00796017, 0, 0.510031, 0, 0.00239105, 0
 mesh = ExtResource("101_f2lmj")
 
 [node name="apple" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.43679, -0.0144634, 0.0501358, 0, 1.3814, 0.398514, -0.0521803, -0.398251, 1.38049, 12.7934, 0.962169, -4.16031)
+transform = Transform3D(1.43679, -0.0144634, 0.0501358, 0, 1.3814, 0.398514, -0.0521803, -0.398251, 1.38049, 12.3195, 0.962169, -4.16031)
 mesh = SubResource("ArrayMesh_xbrp0")
 skeleton = NodePath("")
 
 [node name="apple2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.43679, -0.0144634, 0.0501358, 0.0267233, 1.39045, -0.36471, -0.044818, 0.365402, 1.38981, 12.7934, 0.961851, -4.03601)
+transform = Transform3D(1.43679, -0.0144634, 0.0501358, 0.0267233, 1.39045, -0.36471, -0.044818, 0.365402, 1.38981, 12.3195, 0.961851, -4.03601)
 mesh = SubResource("ArrayMesh_xbrp0")
 skeleton = NodePath("")
 
 [node name="apple3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.726458, -0.327828, -1.19661, 0.0267233, 1.39045, -0.36471, 1.24042, 0.162039, 0.70866, 12.6831, 0.961851, -4.09732)
+transform = Transform3D(0.726458, -0.327828, -1.19661, 0.0267233, 1.39045, -0.36471, 1.24042, 0.162039, 0.70866, 12.2092, 0.961851, -4.09732)
 mesh = SubResource("ArrayMesh_xbrp0")
 skeleton = NodePath("")
 
@@ -3960,15 +3971,15 @@ mesh = ExtResource("105_v1j4c")
 shape = SubResource("ConvexPolygonShape3D_ul0xl")
 
 [node name="OldWest4WebpSmDishes01g" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.291051, -0.00330709, 0.956702, 0.0113618, 0.999935, -1.62717e-10, -0.95664, 0.0108699, 0.29107, 13.0071, 0.944236, -4.72335)
+transform = Transform3D(0.291051, -0.00330709, 0.956702, 0.0113618, 0.999935, -1.62717e-10, -0.95664, 0.0108699, 0.29107, 12.5332, 0.944236, -4.72335)
 mesh = ExtResource("106_6lgtk")
 
 [node name="OldWest4WebpSmDishes01f" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9562, 0.944236, -5.02964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4823, 0.944236, -5.02964)
 mesh = ExtResource("107_wn38a")
 
 [node name="OldWest4WebpSmDishes01e" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.722424, 0, 0.69145, 0, 1, 0, -0.69145, 0, -0.722424, 12.6368, 0.945258, -5.08209)
+transform = Transform3D(-0.722424, 0, 0.69145, 0, 1, 0, -0.69145, 0, -0.722424, 12.1629, 0.945258, -5.08209)
 mesh = ExtResource("108_pggiy")
 
 [node name="OldWest4WebpSmDishes01i" type="MeshInstance3D" parent="."]
@@ -3994,11 +4005,11 @@ transform = Transform3D(-0.307075, 7.55016, 2.61004e-14, -3.30028e-07, -1.34226e
 mesh = ExtResource("112_vvifu")
 
 [node name="OldWest4WebpSmWaterContainer01a" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.460232, 0, -0.576626, 0, 0.737774, 0, 0.576626, 0, 0.460232, 12.6074, 0.944236, -4.69609)
+transform = Transform3D(0.460232, 0, -0.576626, 0, 0.737774, 0, 0.576626, 0, 0.460232, 12.1335, 0.944236, -4.69609)
 mesh = ExtResource("113_snwmx")
 
 [node name="OldWest4WebpSmDishes01c" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.319193, 0, 0.496718, 0, 0.590435, 0, -0.496718, 0, -0.319193, 12.9521, 0.944236, -5.29076)
+transform = Transform3D(-0.319193, 0, 0.496718, 0, 0.590435, 0, -0.496718, 0, -0.319193, 12.4782, 0.944236, -5.29076)
 mesh = ExtResource("114_4e5du")
 
 [node name="OldWest4WebpSmDryGoods01k" type="MeshInstance3D" parent="."]
@@ -4010,7 +4021,7 @@ transform = Transform3D(0.0459478, 0, 0.304607, 0, 0.308053, 0, -0.304607, 0, 0.
 mesh = ExtResource("116_5ywrk")
 
 [node name="OldWest1WebpSmTable01a" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.55446e-08, 0, 1.17847, 0, 1.06306, 0, -1.49949, 0, -5.15124e-08, 12.7441, 0.126839, -4.539)
+transform = Transform3D(-6.55446e-08, 0, 1.17847, 0, 1.06306, 0, -1.49949, 0, -5.15124e-08, 12.2702, 0.126839, -4.539)
 mesh = ExtResource("117_tp3hu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest1WebpSmTable01a"]
@@ -4029,7 +4040,7 @@ mesh = ExtResource("118_cdemo")
 shape = SubResource("ConvexPolygonShape3D_dg5mb")
 
 [node name="OldWest5WebpSmChair05a002" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.409843, 0, -0.912156, 0, 1, 0, 0.912156, 0, -0.409843, 13.6474, 0.126839, -4.90021)
+transform = Transform3D(-0.409843, 0, -0.912156, 0, 1, 0, 0.912156, 0, -0.409843, 13.1735, 0.126839, -4.90021)
 mesh = ExtResource("72_g8cx1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest5WebpSmChair05a002"]
@@ -4043,7 +4054,7 @@ transform = Transform3D(0.5, -3.38328e-09, 8.93582e-08, 2.22045e-16, 0.499588, 0
 shape = SubResource("BoxShape3D_46nm3")
 
 [node name="OldWest5WebpSmChair05a003" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0527542, 0, 0.998608, 0, 1, 0, -0.998608, 0, -0.0527542, 12.3329, 0.126839, -4.97859)
+transform = Transform3D(-0.0527542, 0, 0.998608, 0, 1, 0, -0.998608, 0, -0.0527542, 11.859, 0.126839, -4.97859)
 mesh = ExtResource("72_g8cx1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest5WebpSmChair05a003"]
@@ -4057,7 +4068,7 @@ transform = Transform3D(0.5, -3.38328e-09, 8.93582e-08, 2.22045e-16, 0.499588, 0
 shape = SubResource("BoxShape3D_46nm3")
 
 [node name="OldWest5WebpSmChair05a004" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0455025, 0, -0.998964, 0, 1, 0, 0.998964, 0, 0.0455025, 13.138, 0.126839, -4.04707)
+transform = Transform3D(0.0455025, 0, -0.998964, 0, 1, 0, 0.998964, 0, 0.0455025, 12.6641, 0.126839, -4.04707)
 mesh = ExtResource("72_g8cx1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest5WebpSmChair05a004"]
@@ -4096,7 +4107,7 @@ transform = Transform3D(0.817369, 0, 0, 0, 0.817369, 0, 0, 0, 0.817369, 8.33887,
 mesh = ExtResource("120_84tyv")
 
 [node name="OldWest5WebpSmRugs02a001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.911701, 0, 0, 0, 0.911701, 0, 0, 0, 0.911701, 12.7498, 0.119903, -4.52567)
+transform = Transform3D(0.911701, 0, 0, 0, 0.911701, 0, 0, 0, 0.911701, 12.2759, 0.119903, -4.52567)
 mesh = ExtResource("121_2r3vg")
 
 [node name="OldWest5WebpSmPokertable01a001" type="MeshInstance3D" parent="."]
@@ -4138,7 +4149,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26112, 1.03316, -9.48331)
 mesh = ExtResource("129_dn3jr")
 
 [node name="GrandfatherClock" type="MeshInstance3D" parent="."]
-transform = Transform3D(-5.59739e-08, 0, 1.28053, 0, 1.28053, 0, -1.28053, 0, -5.59739e-08, 9.21437, 0.118923, -5.14291)
+transform = Transform3D(-4.50744e-08, 0, 1.03118, 0, 1.03118, 0, -1.03118, 0, -4.50744e-08, 9.21437, 0.118923, -5.14291)
 mesh = SubResource("ArrayMesh_isnc3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GrandfatherClock"]

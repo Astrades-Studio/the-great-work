@@ -142,9 +142,9 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhs6f"]
-albedo_color = Color(0.721418, 0.699832, 0.726865, 1)
+albedo_color = Color(0.544825, 0.519424, 0.551237, 1)
 albedo_texture = ExtResource("8_8wlam")
-metallic_specular = 0.59
+metallic_specular = 0.23
 metallic_texture_channel = 3
 roughness_texture = ExtResource("11_vnipf")
 roughness_texture_channel = 4
@@ -223,11 +223,11 @@ draw_pass_1 = SubResource("QuadMesh_fl4fo")
 unique_name_in_owner = true
 transform = Transform3D(256.011, 1.90743e-06, -3.71391e-13, -8.13232e-21, -1.11906e-05, 256.011, 1.90743e-06, -256.011, -1.11906e-05, -2.84123e-07, -0.846162, -25.8656)
 layers = 3
-light_color = Color(0.754546, 0.413845, 3.85046e-07, 1)
-light_energy = 0.117
+light_color = Color(0.656864, 0.361096, 0.0186144, 1)
+light_energy = 1.885
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
-light_specular = 0.949
+light_specular = 1.032
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
@@ -235,8 +235,8 @@ shadow_transmittance_bias = -2.899
 shadow_opacity = 0.63
 shadow_blur = 2.617
 distance_fade_enabled = true
-omni_range = 4.924
-omni_attenuation = -0.102
+omni_range = 3.648
+omni_attenuation = 0.31
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
