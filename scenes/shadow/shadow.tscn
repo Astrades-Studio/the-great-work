@@ -522,7 +522,7 @@ skin = SubResource("Skin_73ey6")
 [node name="@PhysicalBoneSimulator3D@24340" type="PhysicalBoneSimulator3D" parent="Import/Skeleton3D"]
 
 [node name="DarknessFX" type="GPUParticles3D" parent="Import/Skeleton3D"]
-transform = Transform3D(1.22835, 0, -5.96046e-08, 0, 1.22835, 0, 5.96046e-08, 0, 1.22835, 0, 0.493001, 0)
+transform = Transform3D(1.22835, 0, -8.9407e-08, 0, 1.22835, 0, 8.9407e-08, 0, 1.22835, 0, 0.493001, 0)
 material_override = SubResource("StandardMaterial3D_0kehe")
 cast_shadow = 0
 amount = 125
@@ -544,13 +544,23 @@ speed_scale = 0.5
 transform = Transform3D(1.25233, 0, 5.96046e-08, 0, 1.25233, 0, -5.96046e-08, 0, 1.25233, 0, 1.30292, 0)
 aabb = AABB(-0.189666, -1.04463, -0.100428, 0.395934, 1.6586, 0.200857)
 
-[node name="Influence" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1.25233, 0, 5.96046e-08, 0, 1.25233, 0, -5.96046e-08, 0, 1.25233, 0, -0.0210216, 0)
 collision_layer = 128
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Influence"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967721, 0)
+shape = SubResource("SphereShape3D_3vo5b")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.25233, 0, 5.96046e-08, 0, 1.25233, 0, -5.96046e-08, 0, 1.25233, 0, -0.0210216, 0)
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.967721, 0)
 shape = SubResource("SphereShape3D_3vo5b")
 
@@ -569,5 +579,6 @@ visible = false
 billboard = 2
 text = "adsad"
 
-[connection signal="body_entered" from="Influence" to="." method="_on_influence_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_influence_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_influence_body_entered"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

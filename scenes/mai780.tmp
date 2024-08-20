@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=123 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -45,7 +45,6 @@
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="ArrayMesh" uid="uid://b1ui1f44shpe0" path="res://assets/models/ingredients/vials/vial.res" id="41_uj1jk"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="42_asyi8"]
-[ext_resource type="PackedScene" uid="uid://brdomrdx1eysb" path="res://scenes/props/old_book_01.tscn" id="44_00i07"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
@@ -974,7 +973,7 @@ omni_shadow_mode = 0
 transform = Transform3D(0.293989, 6.87876e-15, 0.0527568, -5.12139e-15, 0.43341, 1.54313e-15, -0.105495, -5.37931e-15, 0.147022, -4.27462, 0.916484, -5.98386)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
-transform = Transform3D(-0.300256, 0, 0.953858, 0, 1, 0, -0.953858, 0, -0.300256, -6.19882, 0.928972, 1.54977)
+transform = Transform3D(-0.709509, 0, 0.704696, 0, 1, 0, -0.704696, 0, -0.709509, -6.2425, 0.928972, 1.01574)
 wait_time = 3
 
 [node name="Still" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("16_ofarb")]
@@ -1110,7 +1109,7 @@ max_db = 1.019
 max_distance = 5.0
 
 [node name="Flask" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("49_yw85j")]
-transform = Transform3D(-0.208368, -0.00504691, -0.978038, 2.64093e-10, 0.999987, -0.00516017, 0.97805, -0.00107521, -0.208365, -6.07893, 1.06911, 0.39224)
+transform = Transform3D(-0.208368, -0.00504691, -0.978038, 2.64093e-10, 0.999987, -0.00516017, 0.97805, -0.00107521, -0.208365, -6.22752, 1.06911, 0.39224)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313254, -2.25388, 2.10184)
@@ -1547,6 +1546,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1575,8 +1575,7 @@ transform = Transform3D(1, 1.22236e-09, 1.86265e-09, 1.68802e-09, 1, -9.31323e-1
 book = ExtResource("12_1wat7")
 
 [node name="How to leverage phosphorus" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(0.182702, -0.00607936, -0.839122, -7.74728e-05, -0.858781, 0.00620492, -0.839144, -0.00124434, -0.182698, -6.16019, 3.49546, 0.821212)
-visible = false
+transform = Transform3D(0.182702, -0.00607936, -0.839122, -7.74728e-05, -0.858781, 0.00620492, -0.839144, -0.00124434, -0.182698, -6.23554, 1.10011, 1.56894)
 book = ExtResource("10_ufp8w")
 is_flare_book = true
 color = Color(0.341178, 0.0541443, 0.198094, 1)
@@ -1585,10 +1584,6 @@ color = Color(0.341178, 0.0541443, 0.198094, 1)
 transform = Transform3D(-0.864379, 0, 0.195256, 0, 0.886158, 0, -0.195256, 0, -0.864379, -2.77607, 1.16163, -4.56314)
 book = ExtResource("12_1wat7")
 is_alchemy_book = true
-
-[node name="Chimical Processes" parent="Level/Recipes" instance=ExtResource("44_00i07")]
-transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08, 2.24031e-09, 8.75e-10, -0.0584755, 0.922759, -6.29059, 1.00873, 0.988912)
-book = ExtResource("10_ufp8w")
 
 [node name="Lights" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
@@ -1628,7 +1623,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom3" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 1.91905, -2.71462)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -10.2241, 1.79991, -3.24754)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267
@@ -1638,17 +1633,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom4" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -19.8366, 1.89631, -4.09768)
-stream = ExtResource("7_qg76f")
-volume_db = 5.0
-max_db = -5.267
-autoplay = true
-max_distance = 5.0
-bus = &"SFX"
-attenuation_filter_db = -11.2
-
-[node name="LivingRoom6" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -11.7989, 2.069, -8.32167)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0, 0.903354, 0.428895, 0.981072, -0.0830521, 0.174927, -19.8366, 2.069, -3.10055)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267
@@ -1658,7 +1643,7 @@ bus = &"SFX"
 attenuation_filter_db = -11.2
 
 [node name="LivingRoom5" type="AudioStreamPlayer3D" parent="Level/SFX/Rain/RainOnWindows"]
-transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.0951529, 0.169163, -23.8629, 1.90424, 4.00168)
+transform = Transform3D(0.193642, 0.420777, -0.886256, 0.01315, 0.90216, 0.431201, 0.980984, -0.095153, 0.169163, -23.795, 2.19062, 4.42008)
 stream = ExtResource("7_qg76f")
 volume_db = 5.0
 max_db = -5.267
@@ -1898,8 +1883,8 @@ visible = false
 light_color = Color(0.821819, 0.646207, 0.461115, 1)
 light_energy = 10.499
 light_indirect_energy = 0.975
-omni_range = 4.224
-omni_attenuation = -0.648
+omni_range = 55.66
+omni_attenuation = 0.252
 
 [connection signal="visibility_changed" from="Level/NavigationRegion3D/House/GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="Level/NavigationRegion3D/House/GasLamp/Timer" to="Level/NavigationRegion3D/House/GasLamp" method="_on_timer_timeout"]

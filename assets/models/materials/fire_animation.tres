@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cqlnw47n64uu0"]
+
+[ext_resource type="Shader" path="res://assets/models/materials/fire_animation.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://n1np8bc7hi4c" path="res://assets/models/materials/fire_animation_texture_1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://rrl0fh76uo7p" path="res://assets/models/materials/fire_animation_texture_2.png" id="3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("2")
+shader_parameter/texture_2 = ExtResource("3")
