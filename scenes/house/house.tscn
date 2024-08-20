@@ -2644,7 +2644,6 @@ lod_bias = 0.2
 transform = Transform3D(3.55615e-06, 0, 1.03996, 0, 1.14038, 0, -1.34982, 0, 2.7398e-06, 8.81098, 0.120573, -0.473857)
 
 [node name="DoorStatic" parent="Doors/DoorScene3" index="0"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 basement_door = true
 locked = true
 
@@ -2654,9 +2653,6 @@ lod_bias = 0.2
 [node name="DoorScene2" parent="Doors" instance=ExtResource("26_faobc")]
 transform = Transform3D(1.38642, 0, -0.00820641, 0, 1.00975, 0, 0.00436817, 0, 1.37422, 11.0357, 0.121217, -7.97262)
 skeleton = NodePath("")
-
-[node name="DoorStatic" parent="Doors/DoorScene2" index="0"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
 
 [node name="door_002" parent="Doors/DoorScene2/DoorStatic" index="0"]
 lod_bias = 0.2
@@ -2966,7 +2962,7 @@ skeleton = NodePath("../../Structural/Basement ceiling /BoxCollision")
 [node name="Paintings" type="Node3D" parent="."]
 
 [node name="GirlPainting" type="StaticBody3D" parent="Paintings"]
-transform = Transform3D(-0.00509188, -1.69115e-10, 1.69287e-17, 0, -8.45573e-11, -0.00443001, 4.45146e-10, -0.00193445, 1.93642e-10, 12.1311, 2.76071, -15.921)
+transform = Transform3D(6.66873e-10, -0.001932, -0.000222969, -3.36073e-11, 9.73636e-05, -0.0044244, 0.00509188, 2.53672e-10, -9.6545e-18, 8.1554, 2.78096, -11.8173)
 script = ExtResource("34_vqgq0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Paintings/GirlPainting"]
@@ -3069,7 +3065,7 @@ mesh = SubResource("PlaneMesh_fq40g")
 skeleton = NodePath("../../..")
 
 [node name="Window6" type="MeshInstance3D" parent="Windows"]
-transform = Transform3D(1.11718e-07, -0.000509285, -0.493051, 7.40942e-11, 0.767893, -0.000327004, 0.768075, 0, 7.17151e-08, 4.09512, 1.37806, -10.6079)
+transform = Transform3D(1.11718e-07, -0.000509285, -0.493051, 7.40942e-11, 0.767893, -0.000327004, 0.768075, 0, 7.17151e-08, 4.09512, 1.37806, -11.56)
 lod_bias = 0.2
 mesh = ExtResource("47_04aj0")
 skeleton = NodePath("../..")
@@ -3177,7 +3173,7 @@ mesh = ExtResource("75_hmwjh")
 skeleton = NodePath("../../..")
 
 [node name="Window8" type="MeshInstance3D" parent="Windows"]
-transform = Transform3D(0.00508098, -0.000510648, -0.494371, 6.27852e-11, 0.769965, -0.000327887, 0.770131, 3.36897e-06, 0.00326166, 8.09552, 1.35516, -11.8977)
+transform = Transform3D(-0.770131, -3.36895e-06, -0.00326164, 6.27852e-11, 0.769965, -0.000327887, 0.00508095, -0.000510648, -0.494371, 12.3071, 1.4411, -15.9259)
 lod_bias = 0.2
 mesh = ExtResource("47_04aj0")
 skeleton = NodePath("../..")
@@ -3213,7 +3209,7 @@ mesh = SubResource("PlaneMesh_6f54i")
 skeleton = NodePath("../../..")
 
 [node name="CurtainRight" type="MeshInstance3D" parent="Windows/Window8"]
-transform = Transform3D(1.12842, 1.08077e-10, -2.40281e-07, 3.18323e-11, 1.13343, 0.000863695, 3.35276e-07, -0.00117075, 2.02819, -0.614834, 1.78247, -0.17083)
+transform = Transform3D(1.12842, 1.08272e-10, -2.41213e-07, 3.18323e-11, 1.13343, 0.000863695, 3.36207e-07, -0.00117075, 2.02819, -0.282578, 1.78247, -0.167414)
 lod_bias = 0.2
 mesh = ExtResource("75_hmwjh")
 skeleton = NodePath("../../..")
@@ -3225,7 +3221,7 @@ mesh = SubResource("CylinderMesh_3gxhv")
 skeleton = NodePath("../CurtainLeft")
 
 [node name="CurtainLeft" type="MeshInstance3D" parent="Windows/Window8"]
-transform = Transform3D(1.12842, 1.08077e-10, -2.40281e-07, 3.18323e-11, 1.13343, 0.000863695, 3.35276e-07, -0.00117075, 2.02819, 0.625154, 1.78247, -0.17082)
+transform = Transform3D(1.12842, 1.08272e-10, -2.41213e-07, 3.18323e-11, 1.13343, 0.000863695, 3.36207e-07, -0.00117075, 2.02819, 0.350494, 1.78247, -0.173641)
 lod_bias = 0.2
 mesh = ExtResource("75_hmwjh")
 skeleton = NodePath("../../..")
@@ -3492,7 +3488,7 @@ skeleton = NodePath("../SecretaryDesk")
 transform = Transform3D(-5.54846e-08, 0, -1.26934, 0, 1.26934, 0, 1.26934, 0, -5.54846e-08, 7.34794, 0.250207, -9.31969)
 
 [node name="OldWest5WebpSmArmchair01a001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.04052, 0, -0.221302, 0, 1.06379, 0, 0.221302, 0, 1.04052, 10.8809, 0.126839, -15.3898)
+transform = Transform3D(1.04052, 0, -0.221302, 0, 1.06379, 0, 0.221302, 0, 1.04052, 10.7327, 0.126839, -15.3412)
 lod_bias = 0.4
 mesh = ExtResource("71_7y3r6")
 
@@ -3612,12 +3608,8 @@ transform = Transform3D(-8.68329e-08, 0, 1.98651, 0, 1.98651, 0, -1.98651, 0, -8
 mesh = ExtResource("82_q415m")
 
 [node name="OldWest3WebpSmWallFrames01b" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.92096, 0, -0.0157582, 0, 1.92102, 0, 0.0157582, 0, -1.92096, 9.91761, 1.58247, -8.08477)
+transform = Transform3D(-1.92096, 0, -0.0157582, 0.000806318, 1.9185, -0.098292, 0.0157376, -0.098295, -1.91844, 9.91761, 1.58247, -8.08477)
 mesh = ExtResource("83_oxats")
-
-[node name="OldWest3WebpSmWallFrames01a2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.16345, 0, -1.89135e-07, 0, 2.16345, 0, 1.89135e-07, 0, -2.16345, 13.1633, 1.69945, -8.10108)
-mesh = ExtResource("82_q415m")
 
 [node name="OldWest3WebpSmWickerBasket01a" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.06342, 0, 0, 0, 1.06342, 0, 0, 0, 1.06342, 3.37824, 0.126839, -0.386039)
@@ -3742,7 +3734,7 @@ transform = Transform3D(0.5, -3.72529e-09, 8.9407e-08, 2.22044e-16, 0.498757, 0.
 shape = SubResource("BoxShape3D_f3od7")
 
 [node name="OldWest1WebpSmPiano01b" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.69591e-08, 0, 1.0743, 0, 1.0743, 0, -1.0743, 0, -4.69591e-08, 8.35326, 0.126839, -11.8691)
+transform = Transform3D(1.40877e-07, 0, -1.0743, 0, 1.0743, 0, 1.0743, 0, 1.40877e-07, 13.6912, 0.126839, -10.2266)
 mesh = ExtResource("48_s33s2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest1WebpSmPiano01b"]
@@ -4099,11 +4091,11 @@ transform = Transform3D(-0.188753, 0, 0.982025, 0, 1, 0, -0.982025, 0, -0.188753
 mesh = ExtResource("118_lad24")
 
 [node name="OldWest1WebpSmToolbox01d" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.442903, 2.97458e-08, -0.630514, 6.6554e-08, -0.770526, 1.03995e-08, -0.630514, -6.04381e-08, -0.442903, 8.36616, 0.73002, -12.0045)
+transform = Transform3D(-0.442903, -2.97458e-08, 0.630514, 6.6554e-08, -0.770526, 1.03995e-08, 0.630514, 6.04381e-08, 0.442903, 13.6783, 0.73002, -10.0814)
 mesh = ExtResource("119_ntspk")
 
 [node name="OldWest1WebpSmToolbox01r" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.817369, 0, 0, 0, 0.817369, 0, 0, 0, 0.817369, 8.33887, 0.688704, -11.7604)
+transform = Transform3D(-0.817369, 0, -7.14567e-08, 0, 0.817369, 0, 7.14567e-08, 0, -0.817369, 13.7056, 0.688704, -10.3353)
 mesh = ExtResource("120_84tyv")
 
 [node name="OldWest5WebpSmRugs02a001" type="MeshInstance3D" parent="."]
