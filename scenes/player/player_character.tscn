@@ -163,7 +163,7 @@ throw_impulse = 4.0
 SPEED_DEFAULT = 1.5
 SPEED_ON_STAIRS = 1.0
 SPEED_CROUCH = 1.0
-STEP_HEIGHT_DEFAULT = Vector3(0, 0.605, 0)
+STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 
 [node name="Body" type="Node3D" parent="."]
 
