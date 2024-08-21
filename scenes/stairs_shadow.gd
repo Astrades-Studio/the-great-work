@@ -2,7 +2,7 @@ extends Marker3D
 
 @onready var shadow: Shadow = $Shadow
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var static_body_3d: StaticBody3D = $StaticBody3D
+#@onready var static_body_3d: StaticBody3D = $StaticBody3D
 @onready var area_3d: Area3D = $Area3D
 
 

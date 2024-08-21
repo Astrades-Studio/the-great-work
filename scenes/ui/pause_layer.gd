@@ -8,7 +8,9 @@ extends CanvasLayer
 @onready var quit_refuse_button: Button = %QuitRefuseButton
 
 func _ready() -> void:
+	settings_container.menu_closed.connect(button_grab_focus)
 	hide_pause_menu()
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -30,6 +32,10 @@ func _input(event: InputEvent) -> void:
 			hide_pause_menu()
 		elif GameManager.current_state == GameManager.GameState.PLAYING:
 			show_pause_menu()
+
+
+func button_grab_focus():
+	continue_button.grab_focus()
 
 
 func show_pause_menu():

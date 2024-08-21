@@ -54,7 +54,7 @@ func stop_all_sounds():
 	sound_bus_1.stop()
 	sound_bus_2.stop()
 	sound_bus_3.stop()
-	
+
 
 func play_shadow_sound(volume : float):
 	# Play the first shadow sound, then if called again play the second, and so on
@@ -84,4 +84,3 @@ func change_bus_volume(bus : String, _target : float = 0.1):
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_method(set_bus_volume.bind(idx), current_volume, target_volume, duration)
 	await tween.finished
-	

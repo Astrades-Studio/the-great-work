@@ -207,18 +207,12 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="SettingsContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("6_kbldp")]
+[node name="SettingsContainer" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_kbldp")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer" index="0"]
-custom_minimum_size = Vector2(400, 300)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.92
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -226,11 +220,32 @@ size_flags_vertical = 3
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
 text = "Credits"
+flat = true
+
+[node name="DiscordButton" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Discord*"
+flat = true
+
+[node name="SteamButton" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Steam*"
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -370,6 +385,4 @@ text = "For the Pirate Game Jam 15, 2024"
 [connection signal="mouse_entered" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Control/VBoxContainer2/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="button_down" from="HBoxContainer/VBoxContainer/MarginContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-
-[editable path="HBoxContainer/VBoxContainer/HBoxContainer/SettingsContainer"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

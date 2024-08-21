@@ -107,7 +107,7 @@ var brightness : float = 1.0:
 var mouse_sensitivity : float = 0.1:
 	set(value):
 		mouse_sensitivity = clamp(remap(value, 0, 1, 0.01, 0.2), 0.01, 0.2)
-		if player:
+		if is_instance_valid(player):
 			player.mouse_sensitivity = mouse_sensitivity
 
 

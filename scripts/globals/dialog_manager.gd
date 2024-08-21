@@ -15,7 +15,7 @@ signal dialog_finished
 
 # Takes a string and shows a text box containing it.
 # Optionally you can include a name as the second parameter
-func create_dialog_piece(text: String, speaker: String = "Melchiades"):
+func create_dialog_piece(text: String, speaker: String = "Melchiades:"):
 	var dialog_piece := DialogPiece.new()
 	dialog_piece.dialog_text = text
 	dialog_piece.dialog_speaker = speaker
@@ -41,6 +41,10 @@ func play_dialog(dialog : Dialog):
 func play_subtitles(dialog : Dialog, duration : float = 2.0):
 	#GameManager.current_state = GameManager.GameState.DIALOG
 	subtitles_layer.play_subtitles(dialog, duration)
+
+
+func play_shadow_subtitles(dialog_piece : DialogPiece, duration : float = 1.0):
+	subtitles_layer.play_shadow_subtitles(dialog_piece, duration)
 
 
 func play_cinematic(dialog : Dialog, duration : float):

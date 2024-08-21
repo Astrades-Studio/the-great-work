@@ -13,6 +13,7 @@ extends CenterContainer
 @onready var brightness_slider: HSlider = %BrightnessSlider
 @onready var sensitivity_slider: HSlider = %SensitivitySlider
 
+@onready var resolution_option: OptionButton = %ResolutionOption
 
 @onready var back_button: Button = %BackButton
 
@@ -23,6 +24,8 @@ var sfx_bus : = AudioServer.get_bus_index("SFX")
 var master_volume : float
 var music_volume : float
 var sfx_volume : float
+
+signal menu_closed
 
 func _ready():
 	connect_signals()
@@ -85,5 +88,32 @@ func _on_sfx_slider_value_changed(value):
 func _on_fullscreen_checkbox_toggled(button_pressed):
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN if button_pressed else DisplayServer.WINDOW_MODE_WINDOWED)
 
+
+func _on_resolution_option_item_selected(index: int) -> void:
+	var viewport = get_tree().get_root().get_viewport()
+	var viewport_rid = viewport.get_viewport_rid()
+
+	match index:
+		0:
+			DisplayServer.window_set_size(Vector2i(854, 480))
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+				RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 0.2)
+			else:
+				RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 1.5)
+		1:
+			DisplayServer.window_set_size(Vector2i(1280, 720))
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+				RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 0.5)
+			else:
+				RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 1.0)
+		2:
+			DisplayServer.window_set_size(Vector2i(1920, 1080))
+			RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 1.0)
+		3:
+			DisplayServer.window_set_size(Vector2i(2560, 1440))
+			RenderingServer.viewport_set_scaling_3d_scale(viewport_rid, 1.0)
+
+
 func _on_back_button_pressed() -> void:
+	menu_closed.emit()
 	settings_container.hide()

@@ -502,7 +502,7 @@ omni_range = 0.2
 omni_attenuation = 0.712
 
 [node name="IngredientSpot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202623, 0.820048, -0.106761)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135109, 0.287935, 0.138772)
 
 [node name="furnace_Imported" type="Node3D" parent="."]
 metadata/run = true

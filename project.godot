@@ -32,13 +32,13 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=4
 window/size/initial_position_type=0
+window/size/resizable=false
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
@@ -204,6 +204,10 @@ crouch={
 3d_physics/layer_7="Triggers"
 3d_physics/layer_8="Shadow"
 3d_physics/layer_9="Furniture"
+
+[physics]
+
+3d/physics_engine="GodotPhysics3D"
 
 [rendering]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bux2gvd5li1x1"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bux2gvd5li1x1"]
 
 [ext_resource type="Texture2D" uid="uid://bodjm4rrvuos" path="res://assets/ui/UI elements-09.png" id="1_qu6o6"]
 
@@ -13,7 +13,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0.317647)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl0un"]
 
-[sub_resource type="Image" id="Image_uyok2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsatl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Image" id="Image_dcnyx"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -23,7 +26,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_oh62g"]
-image = SubResource("Image_uyok2")
+image = SubResource("Image_dcnyx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhg5v"]
 content_margin_left = 4.0
@@ -72,8 +75,8 @@ corner_radius_bottom_left = 3
 Button/font_sizes/font_size = 16
 Button/styles/focus = SubResource("StyleBoxFlat_dmtpp")
 Button/styles/hover = SubResource("StyleBoxFlat_0laiq")
-Button/styles/hover_mirrored = null
 Button/styles/normal = SubResource("StyleBoxEmpty_dl0un")
+Button/styles/pressed = SubResource("StyleBoxFlat_tsatl")
 CheckBox/icons/unchecked = null
 HSlider/constants/center_grabber = 0
 HSlider/constants/grabber_offset = 0

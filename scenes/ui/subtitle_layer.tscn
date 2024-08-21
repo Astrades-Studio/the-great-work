@@ -1,13 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://oci7xuyj8k7q"]
+[gd_scene load_steps=7 format=3 uid="uid://oci7xuyj8k7q"]
 
 [ext_resource type="Script" path="res://scenes/ui/subtitle_layer.gd" id="1_l0qle"]
+[ext_resource type="Script" path="res://addons/label_font_auto_sizer/rich_label_auto_sizer.gd" id="2_6excg"]
+[ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="2_l57e7"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_aych4"]
+[sub_resource type="LabelSettings" id="LabelSettings_0cd8l"]
+font_size = 32
+font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_hqil8"]
+[sub_resource type="LabelSettings" id="LabelSettings_71f5t"]
+font_size = 32
+font_color = Color(0.72861, 0.605449, 0.492479, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.647059)
+
+[sub_resource type="LabelSettings" id="LabelSettings_br11r"]
+font_size = 32
+font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
@@ -24,32 +37,90 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 9.83
-mouse_filter = 2
 
-[node name="CinematicLabel" type="Label" parent="VBoxContainer/CenterContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(400, 200)
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "asdasdasd"
-label_settings = SubResource("LabelSettings_aych4")
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_vertical = 3
+
+[node name="CinematicLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.521569)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]POTUS"
+scroll_active = false
+script = ExtResource("2_6excg")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 16
+_current_font_size = 16
+_last_size_state = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.09
 mouse_filter = 2
 
-[node name="SubtitleLabel" type="Label" parent="VBoxContainer/CenterContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_hqil8")
+label_settings = SubResource("LabelSettings_0cd8l")
 horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_l57e7")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 32
+_current_font_size = 32
+_last_size_state = 1
+
+[node name="SubtitleLabel2" type="Label" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_71f5t")
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_l57e7")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 32
+_current_font_size = 32
+_last_size_state = 1
+
+[node name="SubtitleLabel3" type="Label" parent="VBoxContainer/CenterContainer2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_br11r")
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_l57e7")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 32
+_current_font_size = 32
+_last_size_state = 1
