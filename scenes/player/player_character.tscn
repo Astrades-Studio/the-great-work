@@ -158,10 +158,11 @@ size = Vector3(0.618164, 1.18817, 0.539063)
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 collision_layer = 2
 collision_mask = 65
+floor_constant_speed = true
 script = ExtResource("1_rwwvt")
 throw_impulse = 4.0
 SPEED_DEFAULT = 1.5
-SPEED_ON_STAIRS = 1.0
+SPEED_ON_STAIRS = 1.8
 SPEED_CROUCH = 1.0
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 
