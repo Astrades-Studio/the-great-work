@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bux2gvd5li1x1"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bux2gvd5li1x1"]
 
 [ext_resource type="Texture2D" uid="uid://bodjm4rrvuos" path="res://assets/ui/UI elements-09.png" id="1_qu6o6"]
+[ext_resource type="Texture2D" uid="uid://bwdjo0qv18r6d" path="res://assets/ui/Dialog box_UI elements-05.png" id="2_7nqiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmtpp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,7 +17,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0.317647)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsatl"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Image" id="Image_dcnyx"]
+[sub_resource type="Image" id="Image_3kprl"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 64, 255, 255, 255, 64, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -26,7 +27,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_oh62g"]
-image = SubResource("Image_dcnyx")
+image = SubResource("Image_3kprl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhg5v"]
 content_margin_left = 4.0
@@ -63,13 +64,15 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oe2c"]
-bg_color = Color(0.0169267, 0.0196587, 0.019422, 1)
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p28m"]
+texture = ExtResource("2_7nqiv")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+draw_center = false
 
 [resource]
 Button/font_sizes/font_size = 16
@@ -88,4 +91,4 @@ HSlider/styles/grabber_area = SubResource("StyleBoxFlat_qhg5v")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_6s3hh")
 HSlider/styles/slider = SubResource("StyleBoxFlat_ach3y")
 Label/font_sizes/font_size = 16
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_6oe2c")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_7p28m")

@@ -342,14 +342,17 @@ func _on_timer_timeout() -> void:
 		if GameManager.current_state == GameManager.GameState.CUTSCENE:
 			if tool_type == Tool.Type.MORTAR:
 				GameManager.current_state = GameManager.GameState.PLAYING
+			else:
+				DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
 		if audio_stream_player_3d:
-			audio_stream_player_3d.play(0.0)
+			if tool_type == Tool.Type.FURNACE:
+				audio_stream_player_3d.play(2.8)
+			else:
+				audio_stream_player_3d.play(0.0)
 		processing = false
 		ingredient_ready.emit()
 		wait_label.hide()
 		timer.stop()
-		await get_tree().create_timer(0.5).timeout
-		DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
 
 
 func play_animation():
