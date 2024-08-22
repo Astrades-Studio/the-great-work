@@ -35,6 +35,7 @@ var last_ingredient : Ingredient # For salt names
 #var processing_ingredient: Ingredient # Before it is ready
 var stored_ingredient: Ingredient # For pickup
 
+var fire_started : bool = false
 
 var CORRECT_TOOL_DICTIONARY: Dictionary = {
 	Type.STILL: [
@@ -67,6 +68,7 @@ func _ready():
 	play_animation()
 	if tool_type == Type.CAULDRON:
 		target_spot = $Target
+		get_node("Fireplace").fire_started_signal.connect(func(): fire_started = true)
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)
@@ -84,6 +86,9 @@ func on_tool_use() -> bool:
 		DialogManager.create_dialog_piece("It's processing. I need to wait.")
 		return false
 
+	if !fire_started and tool_type == Tool.Type.CAULDRON:
+		DialogManager.create_dialog_piece("I'll start the fire first.")
+		return false
 
 	var hand_ingredient = GameManager.player.ingredient_in_hand
 	if !hand_ingredient:
@@ -392,3 +397,25 @@ func tween_to_target(ingredient : Ingredient, _target_spot : Node3D):
 	var tween = get_tree().create_tween()
 	tween.tween_property(ingredient, "global_position", _target_spot.global_position, 0.5)
 	await tween.finished
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Flare:
+		return
+	if body is Ingredient:
+		if processing:
+			return
+		if stored_ingredient:
+			return
+		if !fire_started:
+			return
+		var new_ingredient_type
+		if tool_type == Type.CAULDRON:
+			new_ingredient_type = use_cauldron(body)
+
+		if new_ingredient_type != Ingredient.Type.NONE:
+			stored_ingredient = instance_ingredient(new_ingredient_type)
+
+		start_tool_timer()
+
+		body.queue_free()

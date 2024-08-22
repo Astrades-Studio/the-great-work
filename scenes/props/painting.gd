@@ -6,12 +6,12 @@ extends Node3D
 
 @export var painting : Texture2D:
 	set(value):
-		
+
 		painting = value
-		
+
 		if !mesh:
 			return
-		
+
 		var material := StandardMaterial3D.new()
 		mesh.material_override = material
 		material.albedo_texture = painting

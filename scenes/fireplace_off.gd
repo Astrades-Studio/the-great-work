@@ -8,6 +8,8 @@ extends StaticBody3D
 
 var on_active_fire: bool = false
 
+signal fire_started_signal
+
 func _ready():
 	assert(self.has_user_signal("interacted"), "Fireplace has no interacted signal")
 	self.connect("interacted", on_fireplace_use)
@@ -24,4 +26,5 @@ func on_fireplace_use():
 	fireplace_on.show()
 	animation_player.play("Emission")
 	fire_log.emitting = true
+	fire_started_signal.emit()
 	GameManager.current_state = GameManager.GameState.PLAYING

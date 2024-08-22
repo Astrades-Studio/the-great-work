@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://brdomrdx1eysb"]
+[gd_scene load_steps=15 format=4 uid="uid://bpfk1h1b3fqr"]
 
 [ext_resource type="Script" path="res://scenes/props/book.gd" id="1_eedlg"]
 [ext_resource type="Texture2D" uid="uid://cqn0rn87k7nc1" path="res://assets/images/recipes/reference/planet_metals.png" id="2_2hpw3"]

@@ -65,6 +65,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("crouch"): # Crouch call
 		toggle_crouch()
 
+	if event.is_action_pressed("sprint"): # Sprint call
+		sprint(true)
+	if event.is_action_released("sprint"):
+		sprint(false)
+
 	if event.is_action_pressed("drop"): # Drop call
 		charging = true
 
@@ -75,6 +80,13 @@ func _input(event: InputEvent) -> void:
 		else:
 			drop_ingredient()
 		charge = 0.0
+
+
+#create sprint function:
+func sprint(value: bool) -> void:
+	if crouching:
+		return
+	sprinting = value
 
 
 func drop_ingredient() -> void:
