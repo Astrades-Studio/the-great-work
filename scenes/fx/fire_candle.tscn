@@ -1,24 +1,20 @@
 [gd_scene load_steps=10 format=3 uid="uid://dr1byn8k8aawh"]
 
-[sub_resource type="Gradient" id="Gradient_yjcha"]
-offsets = PackedFloat32Array(0, 0.456869, 1)
-colors = PackedColorArray(0.920735, 0.684327, 0.3329, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+[sub_resource type="Gradient" id="Gradient_q7611"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_krocc"]
-gradient = SubResource("Gradient_yjcha")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mebwy"]
+gradient = SubResource("Gradient_q7611")
 fill = 1
-fill_from = Vector2(0.471, 0.544)
-fill_to = Vector2(0.819, 0.867)
+fill_from = Vector2(0.501424, 0.509971)
+fill_to = Vector2(0.153846, 0.264957)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2q43"]
-transparency = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxnx7"]
 blend_mode = 1
-diffuse_mode = 1
+shading_mode = 0
 disable_ambient_light = true
-disable_fog = true
-albedo_color = Color(0.304373, 0.222874, 0.0501705, 1)
-albedo_texture = SubResource("GradientTexture2D_krocc")
-albedo_texture_force_srgb = true
+albedo_color = Color(1, 0.4, 0.2, 1)
+albedo_texture = SubResource("GradientTexture2D_mebwy")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -26,7 +22,7 @@ particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_w663s"]
 max_value = 3.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_2ar4f"]
@@ -39,7 +35,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_wj65h"]
 curve = SubResource("Curve_4hn5e")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_44pep"]
 angle_min = -39.1
 angle_max = 55.9
 velocity_pivot = Vector3(0, 1, 0)
@@ -58,14 +54,10 @@ uv2_padding = 2.68
 size = Vector2(0.055, 0.06)
 
 [node name="FireBeam" type="GPUParticles3D"]
-material_override = SubResource("StandardMaterial3D_f2q43")
+material_override = SubResource("StandardMaterial3D_wxnx7")
 cast_shadow = 0
-amount = 30
-lifetime = 0.2
-preprocess = 0.02
-speed_scale = 0.05
+amount = 20
+lifetime = 0.27
 randomness = 0.59
-interpolate = false
-fract_delta = false
-process_material = SubResource("ParticleProcessMaterial_fr5m7")
+process_material = SubResource("ParticleProcessMaterial_44pep")
 draw_pass_1 = SubResource("QuadMesh_igbii")

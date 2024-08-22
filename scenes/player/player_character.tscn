@@ -163,7 +163,6 @@ script = ExtResource("1_rwwvt")
 throw_impulse = 4.0
 SPEED_DEFAULT = 1.4
 SPEED_ON_STAIRS = 1.8
-SPEED_SPRINT = 2.0
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 crouch_speed = 7.0
 
