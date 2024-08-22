@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://v76v3ajdr3ax"
-path="res://.godot/imported/cauldron.glb-c575a965bda9da4cb670326c8b447ae2.scn"
+uid="uid://ctg41fbackhbv"
+path="res://.godot/imported/toilet.glb-302d6e7bce93a8bc4eab3b4870d54d5d.scn"
 
 [deps]
 
-source_file="res://assets/models/cauldron.glb"
-dest_files=["res://.godot/imported/cauldron.glb-c575a965bda9da4cb670326c8b447ae2.scn"]
+source_file="res://assets/models/toilet.glb"
+dest_files=["res://.godot/imported/toilet.glb-302d6e7bce93a8bc4eab3b4870d54d5d.scn"]
 
 [params]
 
@@ -31,6 +31,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://addons/blender_godot_pipeline/GLTFImporter.gd"
-_subresources={}
+_subresources={
+"meshes": {
+"toilet_SM_Outhouse_01a_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/models/toilet.res"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

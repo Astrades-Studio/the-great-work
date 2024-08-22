@@ -1,6 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr1byn8k8aawh"]
-
-[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="1_43v76"]
+[gd_scene load_steps=10 format=3 uid="uid://dr1byn8k8aawh"]
 
 [sub_resource type="Gradient" id="Gradient_yjcha"]
 offsets = PackedFloat32Array(0, 0.456869, 1)
@@ -71,6 +69,3 @@ interpolate = false
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_igbii")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_43v76")

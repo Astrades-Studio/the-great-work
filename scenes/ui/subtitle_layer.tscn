@@ -4,21 +4,21 @@
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/rich_label_auto_sizer.gd" id="2_6excg"]
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="2_l57e7"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7q8qs"]
+[sub_resource type="LabelSettings" id="LabelSettings_r5kii"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_pwejq"]
+[sub_resource type="LabelSettings" id="LabelSettings_bhxuo"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_uupab"]
+[sub_resource type="LabelSettings" id="LabelSettings_nt4sn"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
@@ -82,7 +82,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_7q8qs")
+label_settings = SubResource("LabelSettings_r5kii")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
@@ -98,7 +98,7 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_pwejq")
+label_settings = SubResource("LabelSettings_bhxuo")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
@@ -114,7 +114,7 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_uupab")
+label_settings = SubResource("LabelSettings_nt4sn")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true

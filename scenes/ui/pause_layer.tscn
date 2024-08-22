@@ -96,9 +96,6 @@ layout_mode = 1
 [node name="MarginContainer" parent="Control/SettingsContainer/PanelContainer" index="1"]
 size_flags_horizontal = 4
 
-[node name="ResolutionOption" parent="Control/SettingsContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution" index="1"]
-popup/item_1/id = 1
-
 [node name="QuitConfirmation" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
 visible = false

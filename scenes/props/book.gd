@@ -34,7 +34,7 @@ func open_book() -> void:
 		if !GameManager.philosopher_stone_recipe_read:
 			GameManager.recipe_read.emit()
 			DialogManager.create_subtitles_piece("So this is the recipe... I feel something strange is going on.")
-	
+
 
 	if is_flare_book:
 		if !GameManager.flare_recipe_read:
@@ -52,4 +52,3 @@ func open_book() -> void:
 			DialogManager.create_subtitles_piece("Adam must have written these notes")
 		else:
 			DialogManager.create_subtitles_piece("I don't understand...")
-		

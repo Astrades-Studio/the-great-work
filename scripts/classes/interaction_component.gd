@@ -23,6 +23,7 @@ var parent : Node
 
 func _ready() -> void:
 	parent = get_parent()
+	assert(parent, "Node not found")
 	connect_parent(parent)
 	if parent is Ingredient || parent is Tool || \
 	parent is Door || parent is Dispenser || parent is GasLamp:

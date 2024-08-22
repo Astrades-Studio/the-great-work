@@ -157,13 +157,10 @@ size = Vector3(0.618164, 1.18817, 0.539063)
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
 collision_layer = 2
-collision_mask = 65
+collision_mask = 321
 script = ExtResource("1_rwwvt")
 throw_impulse = 4.0
-SPEED_DEFAULT = 1.5
-SPEED_ON_STAIRS = 1.0
-SPEED_CROUCH = 1.0
-STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
+STEP_HEIGHT_DEFAULT = Vector3(0, 0.455, 0)
 
 [node name="Body" type="Node3D" parent="."]
 
@@ -182,7 +179,7 @@ far = 57.97
 [node name="InteractRay" type="RayCast3D" parent="Body/Head/CameraMarker3D/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, 2, 0)
+target_position = Vector3(0, 1.5, 0)
 collision_mask = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
