@@ -1,4 +1,4 @@
-[gd_scene load_steps=337 format=4 uid="uid://droqlyqk5h663"]
+[gd_scene load_steps=352 format=4 uid="uid://droqlyqk5h663"]
 
 [ext_resource type="Script" path="res://scenes/house/house.gd" id="1_xsoq0"]
 [ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="2_3jksq"]
@@ -14,8 +14,11 @@
 [ext_resource type="ArrayMesh" uid="uid://bkeek747nvw6e" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Door_Double_01a.res" id="9_nhd1y"]
 [ext_resource type="Material" uid="uid://bplftd1dc28ta" path="res://scenes/materials/troncos.tres" id="9_rs5wn"]
 [ext_resource type="Material" uid="uid://dpxfji40c7crm" path="res://scenes/materials/stone2.tres" id="10_1c161"]
+[ext_resource type="Texture2D" uid="uid://bdjdukhm6m0is" path="res://assets/textures/Metal_01/Metal002_1K_Color.jpg" id="10_eqn4t"]
 [ext_resource type="Texture2D" uid="uid://coiooorbw2g14" path="res://assets/models/house/materials/wood_walls_normal.png" id="10_gnvnk"]
+[ext_resource type="Texture2D" uid="uid://vwo47ds8n714" path="res://assets/textures/Metal_01/Metal002_1K_NormalGL.jpg" id="11_0dx33"]
 [ext_resource type="ArrayMesh" uid="uid://bkimn4tx3o7kj" path="res://assets/models/old_west/unused/vol2/meshes/old west 2_webp_SM_Cart_02e_002.res" id="11_2jyxo"]
+[ext_resource type="Texture2D" uid="uid://coobbk3fypsct" path="res://assets/textures/Metal_01/Metal002_1K_Roughness.jpg" id="12_mge4g"]
 [ext_resource type="ArrayMesh" uid="uid://c2rm54orx80he" path="res://assets/models/props/godot_plush.res" id="12_y4e3c"]
 [ext_resource type="AudioStream" uid="uid://dg0d3e4tpkmos" path="res://assets/sounds/sfx/door_locked.wav" id="15_1rlra"]
 [ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="17_8jtie"]
@@ -540,22 +543,89 @@ normal_texture = SubResource("CompressedTexture2D_nupra")
 uv1_scale = Vector3(0.73, 1.522, 1.522)
 uv1_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70o7j"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mwplc"]
+load_path = "res://.godot/imported/dark_wooden_planks_diff_1K_rotated.jpg-ee6117c2eb133f48953ea2a1a917e6e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tlop1"]
+load_path = "res://.godot/imported/dark_wooden_planks_nor_gl_1K_rotated.jpg-d7e6449bd94fe33d6ba08cfbd36c2f88.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ktdk"]
+load_path = "res://.godot/imported/dark_wooden_planks_rough_1K_rotated.jpg-851fcc9b7d8f0b5c6753360ea7aa0aba.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1qs5"]
 resource_name = "Material.249"
 cull_mode = 2
 albedo_color = Color(0.390585, 0.35985, 0.297594, 1)
-albedo_texture = SubResource("CompressedTexture2D_k12di")
+albedo_texture = SubResource("CompressedTexture2D_mwplc")
 metallic_specular = 0.28
-roughness_texture = SubResource("CompressedTexture2D_x5g3s")
+roughness_texture = SubResource("CompressedTexture2D_3ktdk")
 normal_enabled = true
-normal_scale = -0.41
-normal_texture = SubResource("CompressedTexture2D_nupra")
+normal_scale = -0.05
+normal_texture = SubResource("CompressedTexture2D_tlop1")
 uv1_scale = Vector3(0.73, 1.522, 1.522)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_sfadd"]
+material = SubResource("StandardMaterial3D_k1qs5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0uwh"]
+resource_name = "Material.249"
+cull_mode = 2
+albedo_color = Color(0.390585, 0.35985, 0.297594, 1)
+albedo_texture = SubResource("CompressedTexture2D_mwplc")
+metallic_specular = 0.28
+roughness_texture = SubResource("CompressedTexture2D_3ktdk")
+normal_enabled = true
+normal_scale = -0.05
+normal_texture = SubResource("CompressedTexture2D_tlop1")
+uv1_scale = Vector3(0.73, 1.522, 1.522)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0inj5"]
+material = SubResource("StandardMaterial3D_e0uwh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lakqx"]
+load_path = "res://.godot/imported/1K-american_walnut_1_basecolor.png-b9271fead8ce75d3b644daa05a9aa5ac.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpm4o"]
+load_path = "res://.godot/imported/1K-american_walnut_1_normal.png-e88c7d3ea5e4c4c950c88959fd3df296.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wadny"]
+load_path = "res://.godot/imported/1K-american_walnut_1_roughness.png-d6ca1b094a6fc719e3ec5232a10249cb.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aikg8"]
+resource_name = "Material.249"
+cull_mode = 2
+albedo_color = Color(0.434897, 0.373369, 0.363807, 1)
+albedo_texture = SubResource("CompressedTexture2D_lakqx")
+metallic_specular = 0.0
+roughness_texture = SubResource("CompressedTexture2D_wadny")
+normal_enabled = true
+normal_scale = -0.05
+normal_texture = SubResource("CompressedTexture2D_fpm4o")
+uv1_scale = Vector3(-0.1, -0.753, 2.487)
+uv1_triplanar = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_vjodk"]
-material = SubResource("StandardMaterial3D_70o7j")
+material = SubResource("StandardMaterial3D_aikg8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ie5t"]
+resource_name = "Material.249"
+cull_mode = 2
+albedo_texture = ExtResource("10_eqn4t")
+metallic = 0.85
+metallic_specular = 0.77
+roughness_texture = ExtResource("12_mge4g")
+normal_enabled = true
+normal_scale = -0.05
+normal_texture = ExtResource("11_0dx33")
+uv1_scale = Vector3(0.76, 0.542, 2.487)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mfdfy"]
+material = SubResource("StandardMaterial3D_7ie5t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4mui"]
 albedo_color = Color(0.337653, 0.435813, 0.558197, 1)
@@ -2432,6 +2502,109 @@ material = SubResource("StandardMaterial3D_6pyae")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Roof"]
 transform = Transform3D(1.14533, 0, 0, 0, 0.271676, 0, 0, 0, 2.3256, -3.05305, -0.787229, -6.2296)
+visible = false
+mesh = SubResource("BoxMesh_sfadd")
+
+[node name="AtticStairs" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(1.14533, 0, 0, 0, 0.0326449, -1.64966, 0, 0.0650995, 0.827239, -3.05305, -1.73649, -6.94487)
+mesh = SubResource("BoxMesh_0inj5")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.49339, 1.41484)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.36478, 1.22955)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.35143, 1.05277)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.45605, 0.858168)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.40938, 0.679848)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.46561, 0.458155)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.48431, 0.248769)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.49625, 0.0316982)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.59129, -0.179423)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.51403, -0.376838)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.923912, 0.180268, 1.64943, 4.69e-06, -0.0158097, 0.0292884, -7.04144e-09, -0.0253587, 1.44331, -0.617866)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(4.89057e-09, -3.84867e-09, -0.771329, 0.180268, 1.64943, 3.91546e-06, -0.0158097, 0.0292884, -5.87855e-09, -0.0493069, 1.57878, 1.5916)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(-3.09643e-09, 0, 0.00380833, -1.11407, -4.76837e-07, -1.51733e-09, -7.45058e-09, 0.0714794, -7.90487e-10, -0.425199, 1.65005, 0.642405)
+mesh = SubResource("BoxMesh_mfdfy")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(-3.09643e-09, 0, 0.00380833, -1.11407, -4.76837e-07, -1.51733e-09, -7.45058e-09, 0.0714794, -7.90487e-10, -0.52027, 1.65005, 0.642405)
+mesh = SubResource("BoxMesh_mfdfy")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(-3.09643e-09, 0, 0.00380833, -1.11407, -4.17233e-07, -1.51733e-09, -7.45058e-09, 0.0714794, -7.90487e-10, 0.41686, 1.65005, 0.642405)
+mesh = SubResource("BoxMesh_mfdfy")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(-3.09643e-09, 0, 0.00380833, -1.11407, -4.17233e-07, -1.51733e-09, -7.45058e-09, 0.0714794, -7.90487e-10, 0.321788, 1.65005, 0.642405)
+mesh = SubResource("BoxMesh_mfdfy")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(0.0899304, 0, 0, 0, 1.64776, -4.76837e-06, 0, 7.45058e-09, 1.22483, 0.373099, 1.63728, 0.00741529)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Roof/AtticStairs"]
+transform = Transform3D(0.0899304, 0, 0, 0, 1.64776, -4.76837e-06, 0, 7.45058e-09, 1.22483, -0.473837, 1.63728, 0.00741529)
+mesh = SubResource("BoxMesh_vjodk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(0.103284, 0, 0, 0, 0.0542431, -1.88255, 0, 0.10817, 0.944028, -3.59354, -3.67749, -5.83756)
+mesh = SubResource("BoxMesh_vjodk")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Roof"]
+transform = Transform3D(0.103284, 0, 0, 0, 0.0569295, -1.8713, 0, 0.113527, 0.938384, -2.6287, -3.67734, -5.83764)
 mesh = SubResource("BoxMesh_vjodk")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Roof"]
@@ -2643,7 +2816,7 @@ mesh = ExtResource("18_33chn")
 [node name="Doors" type="Node3D" parent="."]
 
 [node name="DoorScene" parent="Doors" instance=ExtResource("26_faobc")]
-transform = Transform3D(-1.20946, 0, 2.53518e-06, 0, 1.0204, 0, -3.06618e-06, 0, -0.999999, 3.5675, 0.100277, -2.11307)
+transform = Transform3D(-1.24292, 0, 2.53518e-06, 0, 1.0204, 0, -3.15102e-06, 0, -0.999999, 3.56751, 0.100277, -2.11307)
 lod_bias = 0.2
 
 [node name="DoorScene3" parent="Doors" instance=ExtResource("26_faobc")]
@@ -3711,11 +3884,19 @@ light_energy = 0.295
 omni_range = 8.542
 omni_attenuation = 1.808
 
+[node name="DEBUG_LIGHT7" type="OmniLight3D" parent="Debug"]
+transform = Transform3D(0.949886, 0.197547, 0.242264, 0, 0.775004, -0.631956, -0.312597, 0.600286, 0.736166, 5.39137, 3.31075, -6.17417)
+light_color = Color(0.81853, 0.44854, 1.34766e-06, 1)
+light_energy = 0.295
+omni_range = 2.048
+omni_attenuation = 1.808
+
 [node name="DEBUG_LIGHT3" type="OmniLight3D" parent="Debug"]
-transform = Transform3D(0.999414, 0.000199373, 0.0342388, 0, 0.999983, -0.00582292, -0.0342393, 0.00581951, 0.999397, 12.3514, 2.11574, -4.44915)
+transform = Transform3D(0.980731, 0.0601071, -0.185891, 0, 0.951495, 0.307663, 0.195367, -0.301734, 0.933161, 7.57661, 1.31711, -5.96064)
+light_color = Color(0.682661, 0.411356, 0.165011, 1)
 light_energy = 0.551
-omni_range = 3.39
-omni_attenuation = 0.142
+omni_range = 2.635
+omni_attenuation = -1.474
 
 [node name="DEBUG_LIGHT" type="OmniLight3D" parent="Debug"]
 transform = Transform3D(0.579595, 0.114681, -0.806795, 0, 0.990048, 0.140729, 0.814905, -0.0815659, 0.573827, 11.0644, 2.78211, -11.5379)

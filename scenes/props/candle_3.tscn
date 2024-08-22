@@ -34,6 +34,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [2.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OmniLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.816]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oko8q"]
 _data = {
@@ -62,14 +74,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64262e-05, 0.367031, -0.000
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46212, 0.00227527)
 light_color = Color(0.36772, 0.166348, 1.20327e-07, 1)
-light_energy = 1.27
+light_energy = 3.816
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_size = 0.122
 light_specular = 0.0
 light_bake_mode = 0
 shadow_enabled = true
-shadow_normal_bias = 10.0
+shadow_normal_bias = 0.0
 shadow_transmittance_bias = -16.0
 shadow_opacity = 0.95
 omni_range = 1.861

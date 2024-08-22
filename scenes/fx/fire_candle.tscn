@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dr1byn8k8aawh"]
 
 [sub_resource type="Gradient" id="Gradient_q7611"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.470588, 0.470588, 0.470588, 0.470588, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mebwy"]
 gradient = SubResource("Gradient_q7611")
@@ -10,8 +10,9 @@ fill_from = Vector2(0.501424, 0.509971)
 fill_to = Vector2(0.153846, 0.264957)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxnx7"]
+transparency = 1
 blend_mode = 1
-shading_mode = 0
+depth_draw_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 0.4, 0.2, 1)
 albedo_texture = SubResource("GradientTexture2D_mebwy")
@@ -51,13 +52,14 @@ scale_over_velocity_curve = SubResource("CurveTexture_2ar4f")
 [sub_resource type="QuadMesh" id="QuadMesh_igbii"]
 lightmap_size_hint = Vector2i(2, 2)
 uv2_padding = 2.68
-size = Vector2(0.055, 0.06)
+size = Vector2(0.03, 0.03)
 
 [node name="FireBeam" type="GPUParticles3D"]
 material_override = SubResource("StandardMaterial3D_wxnx7")
 cast_shadow = 0
 amount = 20
-lifetime = 0.27
-randomness = 0.59
+lifetime = 0.17
+speed_scale = 0.4
+randomness = 0.03
 process_material = SubResource("ParticleProcessMaterial_44pep")
 draw_pass_1 = SubResource("QuadMesh_igbii")
