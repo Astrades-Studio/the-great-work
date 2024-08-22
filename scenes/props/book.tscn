@@ -71,7 +71,7 @@ color = Color(0.152941, 0.192157, 0.243137, 1)
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("2_cb72p")
 
-[node name="OldBook01" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.84936e-17, 4.23083e-10, -0.00967902, 0.00967902, -4.23083e-10, 0, -4.23083e-10, -0.00967902, -4.23083e-10, -0.0222729, 0.0207304, -0.173812)
 mesh = SubResource("ArrayMesh_472yn")
 skeleton = NodePath("")
