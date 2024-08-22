@@ -35,7 +35,7 @@ var ingredient_in_hand: Ingredient:
 
 		ingredient_in_hand = value
 
-		if ingredient_in_hand:
+		if is_instance_valid(ingredient_in_hand):
 			ingredient_in_hand.global_transform = hand.global_transform
 			ingredient_in_hand.reparent(hand)
 			ingredient_in_hand.current_location = Ingredient.Location.HAND

@@ -1,61 +1,15 @@
-[gd_scene load_steps=37 format=4 uid="uid://ulupq25c7dy3"]
+[gd_scene load_steps=29 format=4 uid="uid://ulupq25c7dy3"]
 
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="1_i1yuc"]
 [ext_resource type="ArrayMesh" uid="uid://cwmpvgk4mkg2b" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01a5.res" id="2_rhj18"]
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="3_agvte"]
-[ext_resource type="Texture2D" uid="uid://cp34wyjfdmoe1" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_01a_BaseColor.webp" id="3_ccp8m"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="3_jdtk7"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="4_0w7bw"]
-[ext_resource type="Texture2D" uid="uid://gomjpytjnns7" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_01a_Occlusion-MI_Latern_01a_MetallicRoughness.webp" id="4_hy65v"]
-[ext_resource type="Texture2D" uid="uid://c0yjw742xvn8k" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_01a_Normal.webp" id="5_6n5ly"]
-[ext_resource type="Texture2D" uid="uid://c0dh1ys4bnq4s" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_BaseColor.webp" id="6_e38d0"]
-[ext_resource type="Texture2D" uid="uid://4cch4fb3witc" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_Emissive.webp" id="7_kllt1"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="8_1oqpt"]
 [ext_resource type="Texture2D" uid="uid://lis11rv284pb" path="res://assets/models/human/skin/skin_0001_color_1k.jpg" id="8_8wlam"]
-[ext_resource type="Texture2D" uid="uid://b5l68r7syx86a" path="res://assets/models/old_west/unused/vol3/old west 3_webp_MI_Latern_Glass_01a_SM_Lantern_01a5_MetallicRoughness.webp" id="8_ca8cd"]
 [ext_resource type="Texture2D" uid="uid://bo4q2vxpjdrs3" path="res://assets/models/human/skin/skin_0001_ao_1k.jpg" id="9_den5c"]
 [ext_resource type="Texture2D" uid="uid://c3qu33wxyl24m" path="res://assets/models/human/skin/skin_0001_normal_opengl_1k.png" id="10_437o2"]
 [ext_resource type="Texture2D" uid="uid://bykvr57qtj50n" path="res://assets/models/human/skin/skin_0001_roughness_1k.jpg" id="11_vnipf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3q4sl"]
-resource_name = "MI_Latern_01a"
-transparency = 2
-alpha_scissor_threshold = 0.3333
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_color = Color(0.595033, 0.589536, 0.521941, 1)
-albedo_texture = ExtResource("3_ccp8m")
-metallic = 0.44
-metallic_specular = 0.79
-metallic_texture = ExtResource("4_hy65v")
-roughness = 0.62
-roughness_texture = ExtResource("4_hy65v")
-normal_enabled = true
-normal_texture = ExtResource("5_6n5ly")
-ao_enabled = true
-ao_texture = ExtResource("4_hy65v")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54xc8"]
-resource_name = "MI_Latern_Glass_01a_SM_Lantern_01a5"
-transparency = 1
-diffuse_mode = 1
-albedo_color = Color(0.329159, 0.329158, 0.329158, 0.678431)
-albedo_texture = ExtResource("6_e38d0")
-metallic = 0.19
-metallic_specular = 0.83
-metallic_texture = ExtResource("8_ca8cd")
-metallic_texture_channel = 2
-roughness = 0.8
-roughness_texture = ExtResource("8_ca8cd")
-roughness_texture_channel = 1
-emission_enabled = true
-emission = Color(0.427815, 0.380842, 0.331219, 1)
-emission_energy_multiplier = 21.45
-emission_operator = 1
-emission_texture = ExtResource("7_kllt1")
-uv1_scale = Vector3(1.345, 1.074, 0.764)
-uv1_offset = Vector3(0.766, 1.354, 0.045)
-uv1_triplanar = true
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
 offsets = PackedFloat32Array(0.147059, 1)
@@ -70,6 +24,7 @@ fill_to = Vector2(0.968661, 0.851852)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuwjd"]
 transparency = 1
 blend_mode = 1
+shading_mode = 0
 diffuse_mode = 2
 albedo_color = Color(0.677822, 0.343211, 0.0343611, 1)
 albedo_texture = SubResource("GradientTexture2D_pt3h2")
@@ -95,6 +50,8 @@ point_count = 3
 curve = SubResource("Curve_eey8k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
+angle_min = -39.1
+angle_max = 55.9
 velocity_pivot = Vector3(0, 1, 0)
 direction = Vector3(0, 0, 0)
 spread = 3.0
@@ -246,8 +203,6 @@ layers = 2
 cast_shadow = 0
 mesh = ExtResource("2_rhj18")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_3q4sl")
-surface_material_override/1 = SubResource("StandardMaterial3D_54xc8")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(0.0190295, -0.00581329, -4.57945e-05, 0.000369854, 0.00105423, 0.0198663, -0.00580169, -0.0190003, 0.0011163, -0.000782282, 0.0974872, 0.00296057)
