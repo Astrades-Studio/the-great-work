@@ -2484,18 +2484,18 @@ lod_bias = 0.2
 mesh = ExtResource("7_bamxo")
 
 [node name="Roof" type="CSGBox3D" parent="Roof"]
-transform = Transform3D(-4.26761e-08, 0, 0.976319, 0, 0.999996, 0, -0.976315, 0, -4.26763e-08, -0.323258, -1.41754, -7.917)
+transform = Transform3D(-4.26761e-08, 0, 0.976319, 0, 0.999996, 0, -0.976315, 0, -4.26763e-08, -0.323258, -0.768873, -7.917)
 size = Vector3(16.0386, 0.247314, 16.0943)
 material = SubResource("StandardMaterial3D_l3hqt")
 
 [node name="Roof2" type="CSGBox3D" parent="Roof/Roof"]
-transform = Transform3D(1, -2.32831e-10, -9.31339e-09, 3.20143e-10, 1, -2.6048e-09, -2.42144e-08, -1.00499e-08, 1, -2.21714, 0.0346682, -2.66038)
+transform = Transform3D(1, -2.32831e-10, -9.31387e-09, 3.20147e-10, 1, -2.60483e-09, -2.42144e-08, -1.00499e-08, 1, -1.72141, 0.0346682, -2.78955)
 operation = 2
-size = Vector3(2.17969, 0.329102, 1.57422)
+size = Vector3(2.17969, 0.329102, 1.14342)
 material = SubResource("StandardMaterial3D_6pyae")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Roof"]
-transform = Transform3D(1.52547, 0, 0, 0, 0.271676, 0, 0, 0, 2.3256, -3.04334, -1.43192, -5.82663)
+transform = Transform3D(1.14533, 0, 0, 0, 0.271676, 0, 0, 0, 2.3256, -3.05305, -0.787229, -6.2296)
 mesh = SubResource("BoxMesh_vjodk")
 
 [node name="Doors" type="Node3D" parent="."]
@@ -3791,6 +3791,7 @@ mesh = ExtResource("99_hntxv")
 
 [node name="Debug" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0278826, 0, 0)
+visible = false
 
 [node name="DEBUG_LIGHT2" type="OmniLight3D" parent="Debug"]
 transform = Transform3D(0.806795, 0.114681, 0.579595, -0.140729, 0.990048, -6.15147e-09, -0.573827, -0.0815659, 0.814905, 20.864, 3.32459, -9.5399)
