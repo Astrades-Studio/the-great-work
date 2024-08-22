@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://oy23q6xh7wmx"]
+[gd_scene load_steps=20 format=3 uid="uid://oy23q6xh7wmx"]
 
 [ext_resource type="Script" path="res://scenes/fireplace_off.gd" id="1_kwkhg"]
+[ext_resource type="ArrayMesh" uid="uid://73slyioou4nq" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_19f.res" id="2_aewrb"]
 [ext_resource type="PackedScene" uid="uid://dr1byn8k8aawh" path="res://scenes/fx/fire_candle.tscn" id="2_arwfm"]
-[ext_resource type="ArrayMesh" uid="uid://dqy68inv1eqs2" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01l.res" id="2_qphxw"]
+[ext_resource type="ArrayMesh" uid="uid://demwkgaymb77s" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01w.res" id="3_768qj"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="3_stg1k"]
+[ext_resource type="ArrayMesh" uid="uid://dff0polvql8km" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01x.res" id="4_1u7bk"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="4_wi5nu"]
+[ext_resource type="ArrayMesh" uid="uid://j46cb1311w1d" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Wood_Pile_01q.res" id="5_12115"]
+[ext_resource type="ArrayMesh" uid="uid://ex08f6jiwme" path="res://assets/models/house/dekogon/fireplaces/meshes/FireplaceLibraryWebp_SM_Fireplace_19e.res" id="6_dkm3n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a84i2"]
 size = Vector3(0.75238, 0.202576, 0.334229)
@@ -62,7 +66,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Fireplace2:light_energy")
+tracks/1/path = NodePath("../Fireplace_OFF/Fireplace2:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -74,7 +78,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Fireplace2:omni_attenuation")
+tracks/2/path = NodePath("../Fireplace_OFF/Fireplace2:omni_attenuation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -110,24 +114,49 @@ collision_layer = 8
 script = ExtResource("1_kwkhg")
 
 [node name="Fireplace_OFF" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.00346583, 0.056552, -0.695618, 0, 0.695627, 0.0565527, 0.697913, 0.000280836, -0.00345443, 0, 0, 0)
-mesh = ExtResource("2_qphxw")
-skeleton = NodePath("")
-metadata/ant_landscape = "{  }"
+transform = Transform3D(-5.19055e-08, 0, 1.18746, 0, 1.18746, 0, -1.18746, 0, -5.19055e-08, 0.00148456, 0.000149429, -0.00406817)
+mesh = ExtResource("2_aewrb")
+
+[node name="on" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(-0.0844679, -0.112887, 0.647436, 0.550065, -0.461007, 0.022178, 0.352794, 0.69176, 0.120433, 0.110787, 0.206786, -0.0891762)
+mesh = ExtResource("3_768qj")
+skeleton = NodePath("../..")
+
+[node name="on2" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(-0.108476, 0.0144797, 0.77795, -0.0120157, 0.65759, -0.0202643, -0.621857, -0.015232, -0.135313, 0.147008, 0.144491, 0.070581)
+mesh = ExtResource("4_1u7bk")
+skeleton = NodePath("../..")
+
+[node name="FireplaceLibraryWebpSmWoodPile01q" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(0.643338, -0.161829, -0.498862, -0.19596, -0.813114, -0.0912248, -0.328706, 0.168015, -0.921979, 0.077342, 0.289562, -0.0295836)
+mesh = ExtResource("5_12115")
+skeleton = NodePath("../..")
+
+[node name="FireplaceLibraryWebpSmWoodPile01x" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(-0.432322, -0.130302, 0.543919, 0.0759838, 0.380239, 0.301421, -0.643086, 0.132524, -0.330042, -0.0491546, 0.221174, 0.0960192)
+mesh = ExtResource("4_1u7bk")
+skeleton = NodePath("../..")
+
+[node name="FireplaceLibraryWebpSmWoodPile01x2" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(0.121987, 0.0422524, 0.594483, 0.446272, -0.27506, -0.0473506, 0.398038, 0.295443, -0.129103, -0.129247, 0.190305, 0.000308089)
+mesh = ExtResource("4_1u7bk")
+skeleton = NodePath("../..")
+
+[node name="FireplaceLibraryWebpSmWoodPile01x3" type="MeshInstance3D" parent="Fireplace_OFF"]
+transform = Transform3D(-0.171451, -0.010518, 0.916785, 0.368705, -0.607664, 0.101524, 0.610808, 0.363855, 0.196054, -0.0547628, 0.264257, -0.0747776)
+mesh = ExtResource("4_1u7bk")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.0049341, -0.0322355, -0.999468, -0.000561728, 0.99948, -0.0322331, 0.999988, 0.000402388, -0.00494964, 0.0424378, 0.117482, 0.0126352)
+transform = Transform3D(-0.0049341, -0.0322355, -0.999468, -0.000561728, 0.99948, -0.0322331, 0.999988, 0.000402388, -0.00494964, 0.0424378, 0.241868, 0.0126352)
 shape = SubResource("BoxShape3D_a84i2")
 
 [node name="Fireplace_ON" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0034658, 0.056552, -0.695618, 0, 0.695627, 0.0565527, 0.697913, 0.000280837, -0.00345442, 0, 0, 0)
-visible = false
-mesh = ExtResource("2_qphxw")
-skeleton = NodePath("")
-metadata/ant_landscape = "{  }"
+transform = Transform3D(-5.19055e-08, 0, 1.18746, 0, 1.18746, 0, -1.18746, 0, -5.19055e-08, 0.00148456, 0.000149429, -0.00406817)
+mesh = ExtResource("6_dkm3n")
 
 [node name="Fireplace2" type="OmniLight3D" parent="Fireplace_ON"]
-transform = Transform3D(-1.42515, 0.0504181, -0.139294, -0.0120036, 1.30355, 0.594639, 0.14765, 0.592619, -1.29614, -0.0213857, 0.769319, -0.625121)
+transform = Transform3D(0.838044, -0.0282167, 0.0779564, -1.80388e-08, 0.791859, 0.286618, -0.0829059, -0.285225, 0.788012, 0.00714272, 0.420779, 0.401649)
 light_color = Color(0.641244, 0.230067, 0, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
@@ -145,7 +174,7 @@ omni_range = 5.996
 omni_attenuation = 0.29
 
 [node name="FireLog" parent="Fireplace_ON" instance=ExtResource("2_arwfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291595, 0.183518, 0.0167384)
+transform = Transform3D(-0.587736, -0.000236505, 0.00290911, 0, 0.585811, 0.047625, -0.00291869, 0.0476244, -0.585804, -0.0205588, 0.108178, -0.00240079)
 visibility_range_end = 9.8
 lifetime = 1.61
 explosiveness = 0.3
@@ -155,7 +184,7 @@ process_material = SubResource("ParticleProcessMaterial_o0crx")
 draw_pass_1 = SubResource("QuadMesh_o3ab1")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Fireplace_ON"]
-transform = Transform3D(1.43282, 0, 0, 0, 1.43282, 0, 0, 0, 1.43282, 0.0291595, 0.183518, 0.0167384)
+transform = Transform3D(-0.842124, -0.000338866, 0.00416823, 0, 0.839365, 0.0682382, -0.00418198, 0.0682374, -0.839355, -0.0205588, 0.108178, -0.00240079)
 stream = ExtResource("3_stg1k")
 attenuation_model = 2
 volume_db = -36.607
@@ -171,7 +200,7 @@ emission_angle_filter_attenuation_db = -60.6
 script = ExtResource("4_wi5nu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Fireplace_ON")
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_bvbh4")
 }

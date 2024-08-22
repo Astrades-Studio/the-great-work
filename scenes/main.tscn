@@ -1,11 +1,10 @@
-[gd_scene load_steps=103 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=99 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
-[ext_resource type="Material" uid="uid://dqjtpfxcbe6l1" path="res://assets/models/materials/wood_material2.tres" id="5_s8skm"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://bpixoad5ramlu" path="res://assets/sounds/music/Light Rain Ambience Loop.mp3" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
@@ -22,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
-[ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" uid="uid://bnnthcbblvtp0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
@@ -39,16 +38,13 @@
 [ext_resource type="PackedScene" uid="uid://binadt5anxax2" path="res://scenes/alchemy/ingredients/vinegar.tscn" id="39_k1hb8"]
 [ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="39_sfcat"]
 [ext_resource type="PackedScene" uid="uid://b8m46sid55iq8" path="res://scenes/alchemy/ingredients/sulfur.tscn" id="40_dp86v"]
-[ext_resource type="PackedScene" uid="uid://qn1qvlmo663l" path="res://scenes/alchemy/ingredients/mercury.tscn" id="41_fqrgn"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="PackedScene" uid="uid://bpfk1h1b3fqr" path="res://scenes/props/old_book_01.tscn" id="44_00i07"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="46_jqycg"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
-[ext_resource type="Material" uid="uid://dvup1364u66le" path="res://scenes/materials/metal.tres" id="50_m17s2"]
 [ext_resource type="Script" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
-[ext_resource type="Material" uid="uid://hhvpp8s8gsqd" path="res://assets/models/gaslamp.tres" id="51_prvkr"]
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
 [ext_resource type="Script" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
@@ -537,17 +533,11 @@ transform = Transform3D(-0.31749, 0, 1.98415e-08, 0, 0.144783, 0, -2.77558e-08, 
 mesh = ExtResource("49_l4tq0")
 skeleton = NodePath("../../../../..")
 
-[node name="GiantSpoon" type="MeshInstance3D" parent="Level/NavigationRegion3D/House/Props2"]
-transform = Transform3D(-2.19239, 2.25342, -0.396665, -2.9921e-08, 0.904521, 1.81954, 2.39031, 2.06683, -0.363821, 0.404745, -2.32327, -7.52599)
-mesh = ExtResource("49_l4tq0")
-skeleton = NodePath("../../../../..")
-surface_material_override/0 = ExtResource("5_s8skm")
-
 [node name="Interactibles" type="Node3D" parent="Level/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.0228321, 3.33864e-15, -0.155783, -5.12139e-15, 0.43341, 1.54313e-15, 0.311508, 8.06894e-15, 0.0114176, 4.12693, 1.08715, -7.26625)
+transform = Transform3D(0.293989, 6.87876e-15, 0.0527568, -5.12139e-15, 0.43341, 1.54313e-15, -0.105495, -5.37931e-15, 0.147022, -4.27462, 0.916484, -5.98386)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.300256, 0, 0.953858, 0, 1, 0, -0.953858, 0, -0.300256, -6.19882, 0.928972, 1.54977)
@@ -576,7 +566,7 @@ omni_attenuation = 1.342
 omni_shadow_mode = 0
 
 [node name="Furnace" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("17_rujcb")]
-transform = Transform3D(-1.21052, 0, -1.82783e-07, 0, 1.21052, 0, 1.82783e-07, 0, -1.21052, -9.08938, 0, 0.461369)
+transform = Transform3D(-1.03699, 0, 0.857231, 0, 1.34543, 0, -0.857231, 0, -1.03699, -0.838681, 0.103862, -7.81476)
 
 [node name="Dispensers" type="Node3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
@@ -638,14 +628,14 @@ transform = Transform3D(-0.0122011, 0.091244, -1.17129, 0, 1.17135, 0.0912489, 1
 transform = Transform3D(-3.14114e-08, -4.90803e-10, 0.263498, -0.0152047, 0.263059, 0, -0.263059, -0.0152047, -3.14114e-08, 0.037844, 0.222742, -0.000659954)
 
 [node name="Fireplace" parent="Level/NavigationRegion3D/Interactibles/Cauldron" index="10"]
-transform = Transform3D(-4.74975e-08, 0, -1.08633, -1.14424e-08, 1.08633, 1.16415e-10, 1.08633, 3.50246e-09, -4.74975e-08, 0.0140564, -0.232253, -0.125884)
+transform = Transform3D(-4.00469e-08, 0, -0.900027, -2.03067e-08, 0.900027, 4.65661e-10, 0.900027, -5.37557e-09, -4.00469e-08, 0.00107455, -0.241141, -0.0117853)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313254, -2.25388, 2.10184)
 wait_time = 3
 
 [node name="OldWest1WebpSmChimneySet01a" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.20226, 0.967293, 0.470092)
+transform = Transform3D(0.856647, 0, -0.708151, 0, 1.11145, 0, 0.708151, 0, 0.856647, -0.940814, 1.17377, -7.89019)
 mesh = ExtResource("32_bggs6")
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles"]
@@ -664,8 +654,6 @@ transform = Transform3D(0.997921, 1.77636e-15, 0.0644452, -1.11022e-15, 1, 1.776
 cast_shadow = 0
 mesh = ExtResource("49_3msja")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("50_m17s2")
-surface_material_override/1 = ExtResource("51_prvkr")
 
 [node name="FireBeam2" type="GPUParticles3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
@@ -1104,6 +1092,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1122,7 +1111,7 @@ shape = SubResource("BoxShape3D_41r3r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.366679, 0.0128762, 0.659967, -0.0119408, -0.754962, 0.00809534, 0.659984, -0.00650524, 0.366816, 0.773482, -2.18724, 3.03798)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, 0.633224, -2.18724, 2.82009)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
@@ -1144,7 +1133,7 @@ transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08,
 book = ExtResource("10_ufp8w")
 
 [node name="Book" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.508917, 0.00206769, -0.557831, -0.0119408, -0.754962, 0.00809534, -0.557707, 0.0142773, 0.508857, -0.60712, -2.18724, 3.3203)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -0.401035, -2.18724, 3.18761)
 book = ExtResource("12_1wat7")
 
 [node name="Lights" type="Node3D" parent="Level"]
@@ -1160,34 +1149,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029371, -4.26529, 2.59367)
 unique_name_in_owner = true
 
 [node name="FLARE" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6789, -1.95173, 2.85676)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.48663)
 
 [node name="FLARE2" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6789, -1.95173, 2.74368)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.37355)
 
 [node name="FLARE3" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6789, -1.95173, 2.61484)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.24471)
 
 [node name="FLARE4" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6789, -1.95173, 2.50314)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.13301)
 
 [node name="FLARE5" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5458, -1.95173, 2.85676)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.48663)
 
 [node name="FLARE6" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5458, -1.95173, 2.75134)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.38121)
 
 [node name="FLARE7" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5458, -1.95173, 2.52155)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.15142)
 
 [node name="FLARE8" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5458, -1.95173, 2.62563)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.2555)
 
 [node name="FLARE9" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5458, -1.95173, 2.41316)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.04303)
 
 [node name="FLARE10" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6392, -1.95173, 2.68438)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6176, -2.32945, 1.31425)
 
 [node name="RigidBody3D" parent="Level/Ingredients" instance=ExtResource("39_k1hb8")]
 transform = Transform3D(0.238601, 0, -0.971118, 0, 1, 0, 0.971118, 0, 0.238601, -21.8606, 1.03782, -2.22779)
@@ -1203,12 +1192,6 @@ transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819
 
 [node name="Sulfur2" parent="Level/Ingredients" instance=ExtResource("40_dp86v")]
 transform = Transform3D(0.80313, 0, -0.595805, 0, 1, 0, 0.595805, 0, 0.80313, -21.5626, 1.07177, -2.14434)
-
-[node name="Mercury" parent="Level/Ingredients" instance=ExtResource("41_fqrgn")]
-transform = Transform3D(0.80313, 0, -0.595805, 0, 1, 0, 0.595805, 0, 0.80313, -21.3585, 1.06266, -2.14434)
-
-[node name="Mercury2" parent="Level/Ingredients" instance=ExtResource("41_fqrgn")]
-transform = Transform3D(0.80313, 0, -0.595805, 0, 1, 0, 0.595805, 0, 0.80313, -21.0538, 1.06266, -2.14434)
 
 [node name="SFX" type="Node3D" parent="Level"]
 process_mode = 3
@@ -1392,11 +1375,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -1.5345, 0.196005, -5.56653)
-collision_mask = 321
-floor_constant_speed = false
 throw_impulse = 5.0
-SPEED_ON_STAIRS = 1.5
-STEP_HEIGHT_DEFAULT = Vector3(0, 0.455, 0)
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
 layer = 2

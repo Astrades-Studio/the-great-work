@@ -89,7 +89,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0, 0),
 "update": 0,
 "values": [Vector3(0, 2.0958, 0), Vector3(0, 1.401, 0)]
 }
@@ -163,22 +163,11 @@ script = ExtResource("1_rwwvt")
 interact_distance = null
 drop_distance = null
 throw_impulse = 4.0
-ACCELERATION_DEFAULT = null
-ACCELERATION_AIR = null
-SPEED_DEFAULT = null
+SPEED_DEFAULT = 1.4
 SPEED_ON_STAIRS = 1.8
-SPEED_CROUCH = null
-SPEED_SPRINT = null
-STAIRS_FEELING_COEFFICIENT = null
-WALL_MARGIN = null
-STEP_DOWN_MARGIN = null
+SPEED_SPRINT = 2.0
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
-STEP_HEIGHT_IN_AIR_DEFAULT = null
-STEP_MAX_SLOPE_DEGREE = null
-STEP_CHECK_COUNT = null
-SPEED_CLAMP_AFTER_JUMP_COEFFICIENT = null
-SPEED_CLAMP_SLOPE_STEP_UP_COEFFICIENT = null
-crouch_speed = null
+crouch_speed = 7.0
 
 [node name="Body" type="Node3D" parent="."]
 
@@ -213,6 +202,9 @@ stream = ExtResource("2_y7hev")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("2_wncd0")
 foot_profile = ExtResource("3_yrwvo")
+footstep_distance = 1.0
+walk_speed = 1.2
+run_speed = 1.8
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14792, 0)
@@ -269,26 +261,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123455, -0.186833, -0.38092
 
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(0.90026, -0.00268246, -0.0180782, -0.00395444, 0.841004, -0.321712, 0.0178432, 0.321725, 0.84082, -0.198405, -0.121983, -0.281173)
-visible = false
+transform = Transform3D(0.890356, 0.0361809, 0.12946, 0.0116943, 0.843078, -0.316047, -0.133911, 0.314187, 0.833162, -0.250096, -0.147096, -0.314735)
 on_hand = true
-
-[node name="Eje" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="0"]
-transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0, 0)
-
-[node name="Hand_Gas_Lamp_002" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje" index="0"]
-layers = 2
-
-[node name="GasLampLight" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Eje/Hand_Gas_Lamp_002" index="1"]
-transform = Transform3D(284.316, 8.70228e-06, -9.53674e-07, 2.38419e-06, -1.14441e-05, 284.316, 2.14577e-06, -284.316, -0.000102997, 1.94857, 92.9206, -47.8842)
-light_energy = 2.42506
-
-[node name="Timer" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp" index="2"]
-wait_time = 0.598825
-
-[node name="OmniLight3D" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp/Hand  - Realistic2" index="0"]
-transform = Transform3D(0.983835, -1.11759e-08, 4.37722e-08, -5.96046e-08, 0.983834, 3.27826e-07, -1.22935e-07, -2.98023e-08, 0.983836, -0.0517853, -0.0032292, 0.083467)
-light_energy = 0.598
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -445,5 +419,4 @@ visible = false
 layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
 
-[editable path="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D/GasLamp"]
 [editable path="PanicEffects"]
