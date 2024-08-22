@@ -30,7 +30,7 @@ transform = Transform3D(-0.0816206, -3.31986, -0.265889, -1.04603, -0.226957, 3.
 shape = SubResource("ConvexPolygonShape3D_mo370")
 
 [node name="Banana3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.554336, -3.1047, -1.07351, -1.52696, -0.720413, 2.87198, -2.9086, 0.96991, -1.30313, 0.116449, -0.0221394, 0.243106)
+transform = Transform3D(-0.556163, -3.11494, -1.07705, -1.53199, -0.722788, 2.88145, -2.91819, 0.973107, -1.30743, 0.116449, -0.0221394, 0.243106)
 mesh = ExtResource("4_qtnkn")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="."]

@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var hurtbox: Area3D = %Hurtbox
 @onready var hitbox: Area3D = %Hitbox
 @onready var mesh : MeshInstance3D = %Mesh
-@onready var material : StandardMaterial3D = mesh.get_active_material(0)
+@onready var material : Material = mesh.get_active_material(0)
 @onready var animation_player: AnimationPlayer = $Import/AnimationPlayer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var wait_timer: Timer = $WaitTimer

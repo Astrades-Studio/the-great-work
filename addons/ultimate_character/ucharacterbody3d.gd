@@ -59,7 +59,7 @@ var update_camera = false
 var camera_gt_previous : Transform3D
 var camera_gt_current : Transform3D
 
-@export_range(0.5, 2.0, 0.1) var crouch_speed := 1.0
+@export_range(1.0, 7.0, 0.1) var crouch_speed := 1.0
 var crouching : bool = false
 
 var sprinting : bool = false

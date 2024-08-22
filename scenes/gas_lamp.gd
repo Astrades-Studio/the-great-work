@@ -1,7 +1,6 @@
 class_name GasLamp
 extends StaticBody3D
 
-
 @onready var light : OmniLight3D = %GasLampLight
 @onready var mesh: MeshInstance3D = $Eje/Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
