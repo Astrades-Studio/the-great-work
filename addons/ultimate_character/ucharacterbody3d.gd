@@ -20,7 +20,7 @@ var mouse_sensitivity: float = 0.1
 @export var SPEED_DEFAULT: float = 1.5
 @export var SPEED_ON_STAIRS: float = 1.5
 @export var SPEED_CROUCH: float = 1.0
-@export_range(1.5, 4.0, 0.1) var SPRINT_MULTIPLIER := 2.0
+@export_range(1.5, 4.0, 0.1) var SPRINT_MULTIPLIER := 1.5
 # Sprint speed:
 
 var SPEED_SPRINT: float = SPEED_DEFAULT * SPRINT_MULTIPLIER

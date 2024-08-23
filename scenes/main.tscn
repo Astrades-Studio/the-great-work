@@ -1092,6 +1092,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1373,8 +1374,9 @@ shape = SubResource("BoxShape3D_k054j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -1.5345, 0.196005, -5.56653)
+transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.574714, 0.135766, -5.40066)
 throw_impulse = 5.0
+SPRINT_MULTIPLIER = 1.5
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
 layer = 2
