@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
-[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://bpixoad5ramlu" path="res://assets/sounds/music/Light Rain Ambience Loop.mp3" id="7_qg76f"]
@@ -21,14 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
-[ext_resource type="PackedScene" uid="uid://bnnthcbblvtp0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
 [ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="21_n1n2k"]
 [ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="22_d81xl"]
-[ext_resource type="PackedScene" uid="uid://bgqw4duvf0vps" path="res://scenes/alchemy/dispensers/basket.tscn" id="23_j4hhd"]
+[ext_resource type="PackedScene" uid="uid://okn1cgfhsslw" path="res://scenes/alchemy/still_v2.tscn" id="23_oldax"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
@@ -566,7 +566,12 @@ omni_attenuation = 1.342
 omni_shadow_mode = 0
 
 [node name="Furnace" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("17_rujcb")]
-transform = Transform3D(-1.03699, 0, 0.857231, 0, 1.34543, 0, -0.857231, 0, -1.03699, -0.838681, 0.103862, -7.81476)
+transform = Transform3D(-1.34306, 0.00160132, -0.07991, 5.03671e-10, 1.34516, 0.0269558, 0.0799261, 0.0269082, -1.34279, -9.02138, 0.140991, 0.365764)
+
+[node name="OldWest1WebpSmChimneySet01a" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/Furnace"]
+transform = Transform3D(-0.82609, 0, 5.96046e-07, 0, 0.826093, 0, -5.96046e-07, 0, -0.82609, 0.0942287, 0.795216, -0.00515461)
+mesh = ExtResource("32_bggs6")
+skeleton = NodePath("../..")
 
 [node name="Dispensers" type="Node3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
@@ -579,13 +584,6 @@ transform = Transform3D(-0.15691, 0.00115817, 0.221157, 0.00122649, 0.271165, -0
 
 [node name="Bag2" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
 transform = Transform3D(-0.0336734, -0.267563, -0.00730537, -0.188031, 0.0288866, -0.191278, 0.190493, -0.0187837, -0.190097, -1.60585, -3.6339, -4.31448)
-
-[node name="Basket" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("23_j4hhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8915, -0.681294, -8.18806)
-ingredient_type = 0
-
-[node name="Mesh" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Basket" index="0"]
-transform = Transform3D(0.955251, 0, 0, 0, 0.955251, 0, 0, 0, 0.955251, 6.89323, 0.00813556, 8.02044)
 
 [node name="Latrine" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers"]
 transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
@@ -633,10 +631,6 @@ transform = Transform3D(-4.00469e-08, 0, -0.900027, -2.03067e-08, 0.900027, 4.65
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313254, -2.25388, 2.10184)
 wait_time = 3
-
-[node name="OldWest1WebpSmChimneySet01a" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles"]
-transform = Transform3D(0.856647, 0, -0.708151, 0, 1.11145, 0, 0.708151, 0, 0.856647, -0.940814, 1.17377, -7.89019)
-mesh = ExtResource("32_bggs6")
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(0.998222, 0.0596026, 0, -0.0596026, 0.998222, 0, 0, 0, 1, 1.4491, 1.27824, -0.65194)
@@ -700,6 +694,9 @@ libraries = {
 
 [node name="InteractionComponent" type="Node" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
 script = ExtResource("20_3awsj")
+
+[node name="Still2" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("23_oldax")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.05985, 0.184706, 1.51991)
 
 [node name="Ground" type="CSGCombiner3D" parent="Level"]
 
@@ -1092,7 +1089,6 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
-transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1376,7 +1372,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 [node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
 transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.574714, 0.135766, -5.40066)
 throw_impulse = 5.0
-SPRINT_MULTIPLIER = 1.5
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -1470,5 +1465,4 @@ omni_attenuation = -0.648
 
 [editable path="Level/NavigationRegion3D/Interactibles/Still"]
 [editable path="Level/NavigationRegion3D/Interactibles/Still/Flask"]
-[editable path="Level/NavigationRegion3D/Interactibles/Dispensers/Basket"]
 [editable path="Level/NavigationRegion3D/Interactibles/Cauldron"]

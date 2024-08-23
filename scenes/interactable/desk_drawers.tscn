@@ -226,7 +226,7 @@ mesh = ExtResource("3_wlv52")
 
 [node name="Drawer13" type="AnimatableBody3D" parent="."]
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.56884, 0.626988, 0.066463)
-collision_layer = 8
+collision_layer = 9
 collision_mask = 5
 script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
@@ -246,7 +246,7 @@ shape = SubResource("ConcavePolygonShape3D_srn64")
 
 [node name="Drawer14" type="AnimatableBody3D" parent="."]
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.573389, 0.626988, 0.066463)
-collision_layer = 8
+collision_layer = 9
 collision_mask = 5
 script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
