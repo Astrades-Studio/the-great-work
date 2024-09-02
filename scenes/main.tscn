@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
 [ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="21_n1n2k"]
 [ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="22_d81xl"]
+[ext_resource type="ArrayMesh" uid="uid://cwmpvgk4mkg2b" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01a5.res" id="22_k044n"]
 [ext_resource type="PackedScene" uid="uid://okn1cgfhsslw" path="res://scenes/alchemy/still_v2.tscn" id="23_oldax"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
@@ -42,7 +43,6 @@
 [ext_resource type="PackedScene" uid="uid://bpfk1h1b3fqr" path="res://scenes/props/old_book_01.tscn" id="44_00i07"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="46_jqycg"]
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
-[ext_resource type="ArrayMesh" uid="uid://bcek4on6kyojp" path="res://assets/models/tools/gas_lamp.tres" id="49_3msja"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
 [ext_resource type="Script" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
@@ -103,6 +103,8 @@ particles_anim_loop = false
 size = Vector2(0.4, 0.345)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1m4ix"]
+height = 1.71703
+radius = 0.58828
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -586,7 +588,7 @@ transform = Transform3D(-0.15691, 0.00115817, 0.221157, 0.00122649, 0.271165, -0
 transform = Transform3D(-0.0336734, -0.267563, -0.00730537, -0.188031, 0.0288866, -0.191278, 0.190493, -0.0187837, -0.190097, -1.60585, -3.6339, -4.31448)
 
 [node name="Latrine" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers"]
-transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.68825, -0.673363, 0.042052)
+transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.66638, -0.00751227, 0.042052)
 script = ExtResource("39_sfcat")
 ingredient_type = 11
 
@@ -641,30 +643,16 @@ min_value = 0.09
 max_value = 0.55
 
 [node name="Eje" type="Node3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
-transform = Transform3D(0.00390608, 0, 0, 0, -1.414e-08, -0.00390608, 0, 0.00390608, -1.414e-08, 0, 0.304106, 0)
+transform = Transform3D(0.00390608, 0, 0, 0, -1.7074e-10, -0.00390608, 0, 0.00390608, -1.7074e-10, 0, 0.304106, 0)
 
 [node name="Hand_Gas_Lamp_002" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje"]
-transform = Transform3D(0.997921, 1.77636e-15, 0.0644452, -1.11022e-15, 1, 1.77636e-14, -0.0644452, -1.77636e-14, 0.997921, 4.12506, 0.180191, 73.6234)
-cast_shadow = 0
-mesh = ExtResource("49_3msja")
-skeleton = NodePath("")
-
-[node name="FireBeam2" type="GPUParticles3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
-transform = Transform3D(-1, 2.1684e-18, 8.27662e-08, 9.54098e-18, 1, -2.77556e-16, -8.27662e-08, 0, -1, 0.0473868, 6.52631e-09, -12.6427)
-material_override = SubResource("StandardMaterial3D_tuwjd")
-cast_shadow = 0
-amount = 15
-amount_ratio = 0.7404
-lifetime = 3.9
-preprocess = 215.6
-speed_scale = 17.9
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_fr5m7")
-draw_pass_1 = SubResource("QuadMesh_fl4fo")
+transform = Transform3D(155.284, -5.72205e-06, -2.88274e-11, -3.06314e-12, -0.000562126, 155.283, -5.72205e-06, -155.284, -0.000562127, -1.04025, -11.3733, 69.182)
+mesh = ExtResource("22_k044n")
+skeleton = NodePath("../..")
 
 [node name="GasLampLight" type="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
 unique_name_in_owner = true
-transform = Transform3D(255.479, 16.4987, 7.21181e-07, 6.64719e-12, -1.11907e-05, 256.011, 16.4987, -255.479, -1.11674e-05, 2.44376, -6.92326, -27.8118)
+transform = Transform3D(1.64867, 1.19209e-07, -7.07672e-14, -1.19209e-07, 1.64867, -5.89612e-06, -2.63454e-13, 5.89612e-06, 1.64867, 0.00449443, 0.149178, -0.00080359)
 light_color = Color(0.835754, 0.314136, 1.15514e-06, 1)
 light_energy = 0.3
 light_indirect_energy = 0.0
@@ -678,8 +666,21 @@ shadow_blur = 0.0
 omni_range = 1.862
 omni_attenuation = 2.058
 
+[node name="FireBeam2" type="GPUParticles3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
+transform = Transform3D(-0.00642645, 4.17018e-16, -0.000415015, -0.000415015, -2.33122e-08, 0.00642645, -1.50236e-09, 0.00643984, 2.32637e-08, 0.00290227, 0.0906589, -0.00710154)
+material_override = SubResource("StandardMaterial3D_tuwjd")
+cast_shadow = 0
+amount = 15
+amount_ratio = 0.7404
+lifetime = 3.9
+preprocess = 215.6
+speed_scale = 17.9
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_fr5m7")
+draw_pass_1 = SubResource("QuadMesh_fl4fo")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.0453309)
 shape = SubResource("CylinderShape3D_rgq48")
 
 [node name="Timer" type="Timer" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
@@ -687,7 +688,7 @@ wait_time = 0.776012
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
-root_node = NodePath("../Eje/Hand_Gas_Lamp_002")
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_e882d")
 }
@@ -1089,6 +1090,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1145,34 +1147,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029371, -4.26529, 2.59367)
 unique_name_in_owner = true
 
 [node name="FLARE" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.48663)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.11545, 0.562062)
 
 [node name="FLARE2" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.37355)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.11545, 0.448982)
 
 [node name="FLARE3" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.24471)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.11545, 0.320142)
 
 [node name="FLARE4" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.32945, 1.13301)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6573, -2.11545, 0.208442)
 
 [node name="FLARE5" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.48663)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.11545, 0.562062)
 
 [node name="FLARE6" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.38121)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.11545, 0.456642)
 
 [node name="FLARE7" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.15142)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.11545, 0.226852)
 
 [node name="FLARE8" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.2555)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.11545, 0.330932)
 
 [node name="FLARE9" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.32945, 1.04303)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.5242, -2.11545, 0.118462)
 
 [node name="FLARE10" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
-transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6176, -2.32945, 1.31425)
+transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6176, -2.11545, 0.389682)
 
 [node name="RigidBody3D" parent="Level/Ingredients" instance=ExtResource("39_k1hb8")]
 transform = Transform3D(0.238601, 0, -0.971118, 0, 1, 0, 0.971118, 0, 0.238601, -21.8606, 1.03782, -2.22779)

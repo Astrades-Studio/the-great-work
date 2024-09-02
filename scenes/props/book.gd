@@ -18,8 +18,8 @@ const ALCHEMY_GUIDE = "res://assets/images/recipes/reference/reference_book.tres
 		if !is_node_ready():
 			await ready
 		color = value
-		book_material.albedo_color = color
-		mesh_instance_3d.mesh.surface_set_material(0, book_material)
+		#book_material.albedo_color = color
+		#mesh_instance_3d.mesh.surface_set_material(0, book_material)
 
 
 func _ready() -> void:
