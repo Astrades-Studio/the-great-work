@@ -69,7 +69,8 @@ size_flags_vertical = 1
 text = "This is some text that you will find in a book somewhere. The text can get overly long and be a bitch to fit accordingly, but it's nothing a little bit of "
 label_settings = SubResource("LabelSettings_ogi12")
 autowrap_mode = 3
-visible_ratio = -0.00645161
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/MarginContainer/HBoxContainer/TextureRect/MarginContainer"]
 visible = false

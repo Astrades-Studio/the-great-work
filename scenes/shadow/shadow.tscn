@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://oe4kjxa51br1"]
+[gd_scene load_steps=35 format=4 uid="uid://oe4kjxa51br1"]
 
 [ext_resource type="Script" path="res://scenes/shadow/shadow.gd" id="1_4x05d"]
 [ext_resource type="Shader" uid="uid://xydvn1rjlpx8" path="res://scenes/shadow/shadow_shader.tres" id="2_gr4h2"]
@@ -206,7 +206,13 @@ linear_accel_max = 4.49
 [sub_resource type="QuadMesh" id="QuadMesh_k3ftl"]
 size = Vector2(0.3, 0.3)
 
+[sub_resource type="Curve" id="Curve_g05g8"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_kh02u"]
+curve = SubResource("Curve_g05g8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7w6g7"]
 emission_shape = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=389 format=4 uid="uid://droqlyqk5h663"]
+[gd_scene load_steps=390 format=4 uid="uid://droqlyqk5h663"]
 
 [ext_resource type="Script" path="res://scenes/house/house.gd" id="1_xsoq0"]
 [ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="2_3jksq"]
@@ -2436,7 +2436,10 @@ shadow_mesh = SubResource("ArrayMesh_tmotl")
 size = Vector3(0.394531, 1.9502, 0.384827)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ykdx"]
-size = Vector3(1.25836, 1.08496, 0.74176)
+size = Vector3(1.25836, 1.08496, 0.620392)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7yp21"]
+size = Vector3(2.17401, 0.466309, 0.535156)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f4wea"]
 points = PackedVector3Array(-0.784824, 0.00662105, -0.3826, 0.820944, 1.30647, -0.0213853, 0.808229, 1.24012, 0.413996, 0.860217, 0.00662105, -0.3826, -0.809749, 0.119236, 0.478087, -0.733777, 1.29679, -0.3438, 0.817535, 0.0406353, 0.4687, -0.756825, 1.23141, 0.451645, 0.80917, 1.29679, -0.3438, 0.858597, 1.23141, 0.451645, -0.809749, 0.119236, -0.395842, -0.742142, 0.0406353, 0.4687, 0.885142, 0.119236, -0.395842, 0.885142, 0.119236, 0.478087, -0.745541, 1.30646, -0.0213843, 0.521409, 1.08229, 0.46182, -0.417233, 1.07916, 0.458782, -0.732997, 1.24012, 0.413996)
@@ -4003,7 +4006,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0689087, 0.0625, 0.366699)
 shape = SubResource("BoxShape3D_olxh2")
 
 [node name="UrineBucket" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.976082, 0, 0.448968, 0, 1.07439, 0, -0.448968, 0, 0.976082, 6.78995, 0.11167, -7.40921)
+transform = Transform3D(0.976082, 0, 0.448968, 0, 1.07439, 0, -0.448968, 0, 0.976082, 6.78995, 0.655548, -7.40921)
 mesh = ExtResource("92_dxgxc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UrineBucket"]
@@ -4065,7 +4068,7 @@ transform = Transform3D(0.479644, 0, 0, 0, 0.479644, 0, 0, 0, 0.479644, 5.05965,
 mesh = ExtResource("98_lkoca")
 
 [node name="Letrine2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.46623e-08, 0, -0.0849986, 0, 0.986379, 0, 0.792981, 0, -3.71541e-09, 7.19004, 0.126839, -7.24899)
+transform = Transform3D(-3.46623e-08, 0, -0.669339, 0, 0.986379, 0, 0.792981, 0, -2.92578e-08, 6.90467, 0.126839, -7.24899)
 mesh = ExtResource("99_hntxv")
 metadata/_edit_group_ = true
 
@@ -4091,7 +4094,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216797, 0, 0.00878906)
 shape = SubResource("BoxShape3D_8f0ih")
 
 [node name="Letrine3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.71973e-08, 0, -0.0849986, 0, 0.986379, 0, 0.850976, 0, -3.71541e-09, 8.26183, 0.124537, -7.24734)
+transform = Transform3D(-4.37114e-08, 0, -0.543432, 0, 1, 0, 1, 0, -2.37542e-08, 8.48672, 0.124537, -7.24734)
 mesh = ExtResource("99_hntxv")
 metadata/_edit_group_ = true
 
@@ -4537,12 +4540,18 @@ mesh = ExtResource("132_687wd")
 [node name="StaticBody3D" type="StaticBody3D" parent="OldWest1WebpSmWorkTable01a"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OldWest1WebpSmWorkTable01a/StaticBody3D"]
-transform = Transform3D(1, 0, 8.70415e-13, 0, 1, 0, 0, 0, 1, 0.0115662, 0.0424805, -0.12912)
+transform = Transform3D(1, 0, 9.80549e-13, 0, 1, 0, 0, 0, 1, 0.0115662, 0.0424805, -0.0684359)
 shape = SubResource("BoxShape3D_7ykdx")
 
 [node name="Toilet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71253, -0.0106144, -7.20542)
 mesh = ExtResource("135_6y0y7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Toilet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Toilet/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0466003, 0.440287, -0.232422)
+shape = SubResource("BoxShape3D_7yp21")
 
 [node name="OldWest1WebpSmOfficeCabinet01b" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 0.868425, 0, 1, 0, -1, 0, -3.796e-08, 0.440759, -3.10245, -4.11576)

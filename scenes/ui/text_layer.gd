@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 
 func show_book(_book : BookPages):
 	book = _book
-	
+
 	if book.pages.size() <= 0:
 		hide_text()
 		return
@@ -51,12 +51,12 @@ func show_book(_book : BookPages):
 func show_text(text: DialogPiece):
 	if !text:
 		printerr("Empty dialog piece at " + str(self.get_path()))
-	
+
 	show()
 	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
 	GameManager.current_state = GameManager.GameState.PAUSED
 	text_label.text = text.dialog_text
-	
+
 
 func show_page(page: Texture2D):
 	if !page:
@@ -64,14 +64,15 @@ func show_page(page: Texture2D):
 	self.show()
 	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
 	GameManager.current_state = GameManager.GameState.PAUSED
-	
+
 	texture_rect.texture = page
 
 
 func hide_text():
 	self.hide()
 	book = null
-	book_page = 0	
+	book_page = 0
+	last_page = -1
 	GameManager.current_state = GameManager.GameState.PLAYING
 	if texture_rect.texture:
 		texture_rect.texture = null
@@ -84,6 +85,7 @@ var last_page : int = -1
 
 func show_book_page(_page : int):
 	if last_page == _page:
+		last_page = -1
 		return
 	last_page = _page
 	# If requesting the next page after book ends, hide the text
@@ -91,7 +93,7 @@ func show_book_page(_page : int):
 		if _page > book.pages.size() -1:
 			hide_text.call_deferred()
 			return
-	
+
 		book_page = _page
 		page_label.text = str(_page + 1) + "/" + str(book.pages.size())
 		show_page(book.pages[book_page])

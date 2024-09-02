@@ -23,7 +23,7 @@ var mouse_sensitivity: float = 0.1
 @export_range(1.5, 4.0, 0.1) var SPRINT_MULTIPLIER := 1.5
 # Sprint speed:
 
-var SPEED_SPRINT: float = SPEED_DEFAULT * SPRINT_MULTIPLIER
+var SPEED_SPRINT: float = 3.0
 
 var ANALOG_SENS := 36.0
 

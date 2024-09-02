@@ -537,7 +537,7 @@ skeleton = NodePath("../../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
-transform = Transform3D(0.293989, 6.87876e-15, 0.0527568, -5.12139e-15, 0.43341, 1.54313e-15, -0.105495, -5.37931e-15, 0.147022, -4.27462, 0.916484, -5.98386)
+transform = Transform3D(0.0109988, 3.03015e-15, -0.156104, -5.12139e-15, 0.43341, 1.54313e-15, 0.31215, 8.18978e-15, 0.00549989, 4.09835, 1.07261, -7.35955)
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.300256, 0, 0.953858, 0, 1, 0, -0.953858, 0, -0.300256, -6.19882, 0.928972, 1.54977)
