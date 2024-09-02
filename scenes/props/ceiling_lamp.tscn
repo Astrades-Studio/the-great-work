@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b66ydu4pphesr"]
+
+[ext_resource type="ArrayMesh" uid="uid://d3endv1fl7kle" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lamp_01a.res" id="1_jgwqp"]
+[ext_resource type="ArrayMesh" uid="uid://jxm4hlhowskg" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01c.res" id="2_b54wo"]
+
+[node name="OldWest3WebpSmLamp01a" type="MeshInstance3D"]
+mesh = ExtResource("1_jgwqp")
+
+[node name="OldWest3WebpSmLantern01c2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0656314, 0.997329, -0.032055, 0.00603662, -0.0325205, -0.999453, -0.997826, 0.0654015, -0.00815485, -0.0238143, 0.839061, 0)
+lod_bias = 5.0
+mesh = ExtResource("2_b54wo")
+
+[node name="OmniLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.766638, 0)
+light_color = Color(0.760784, 0.529412, 0, 1)
+light_energy = 3.31
