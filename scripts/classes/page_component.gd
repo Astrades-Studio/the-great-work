@@ -13,7 +13,7 @@ func _ready() -> void:
 			page = parent.page
 		if parent.text:
 			text = parent.text
-		
+
 	if parent.has_user_signal("interacted"):
 		parent.connect("interacted", Callable(self, "request_page_UI"))
 
@@ -23,4 +23,4 @@ func request_page_UI():
 		GameManager.request_text_UI(text)
 	elif page:
 		GameManager.request_page_UI(page)
-		DialogManager.create_subtitles_piece("I probably should light the fireplace")
+		DialogManager.create_subtitles_piece("Am I supposed to carry out the trial all by myself?")

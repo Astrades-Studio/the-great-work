@@ -68,7 +68,7 @@ func _ready():
 	play_animation()
 	if tool_type == Type.CAULDRON:
 		target_spot = $Target
-		get_node("Fireplace").fire_started_signal.connect(func(): fire_started = true)
+		fire_started = true
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)

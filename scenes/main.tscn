@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=95 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="AudioStream" uid="uid://bpixoad5ramlu" path="res://assets/sounds/music/Light Rain Ambience Loop.mp3" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
+[ext_resource type="Texture2D" uid="uid://ckporjwtwegbg" path="res://assets/images/recipes/adams_letter_small.png" id="8_lshb7"]
 [ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="Resource" uid="uid://0nyw3n73kvo1" path="res://assets/images/recipes/stone_recipe/stone_recipe.tres" id="10_s76sh"]
 [ext_resource type="Resource" uid="uid://bhmwdxrspnnsf" path="res://assets/images/recipes/flare_recipe/flare_recipe.tres" id="10_ufp8w"]
@@ -20,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
-[ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="16_ofarb"]
 [ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
@@ -75,32 +75,6 @@ region_min_size = 15.0
 edge_max_error = 3.0
 filter_ledge_spans = true
 filter_walkable_low_height_spans = true
-
-[sub_resource type="Gradient" id="Gradient_yjcha"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_krocc"]
-gradient = SubResource("Gradient_yjcha")
-fill = 1
-fill_from = Vector2(0.535613, 0.527066)
-fill_to = Vector2(0.968661, 0.851852)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2q43"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-diffuse_mode = 2
-specular_mode = 2
-albedo_color = Color(0.700772, 0.223685, 0, 1)
-albedo_texture = SubResource("GradientTexture2D_krocc")
-albedo_texture_force_srgb = true
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_hl3dx"]
-size = Vector2(0.4, 0.345)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1m4ix"]
 height = 1.71703
@@ -492,7 +466,7 @@ shader_parameter/pixelSize = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmilm"]
 shader = ExtResource("68_qo80q")
-shader_parameter/colors = 16.0
+shader_parameter/colors = 10.0
 shader_parameter/dither = 0.0
 
 [node name="MainScene" type="Node3D"]
@@ -540,32 +514,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Adam\'s letter" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("14_mag3s")]
 transform = Transform3D(0.0109988, 3.03015e-15, -0.156104, -5.12139e-15, 0.43341, 1.54313e-15, 0.31215, 8.18978e-15, 0.00549989, 4.09835, 1.07261, -7.35955)
+page = ExtResource("8_lshb7")
 
 [node name="Mortar" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(-0.300256, 0, 0.953858, 0, 1, 0, -0.953858, 0, -0.300256, -6.19882, 0.928972, 1.54977)
 wait_time = 3
-
-[node name="Still" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("16_ofarb")]
-transform = Transform3D(0.012804, 0, -0.909002, 0, 0.909092, 0, 0.909002, 0, 0.012804, -1.99413, -2.99895, -2.03597)
-
-[node name="IngredientSubstance" parent="Level/NavigationRegion3D/Interactibles/Still/Flask/Flask/IngredientSpot" index="0"]
-transform = Transform3D(-0.936943, 9.16084e-08, 1.03717e-06, -6.90221e-08, -0.936841, 0.0138819, 1.03815e-06, 0.0138819, 0.93684, 0, 0, 0)
-
-[node name="FireLog" parent="Level/NavigationRegion3D/Interactibles/Still/Fireplace_ON" index="0"]
-transform = Transform3D(0.633986, 2.91038e-11, 9.31323e-10, 6.98492e-10, 0.633987, 1.86265e-08, 2.79397e-09, 3.72529e-08, 0.633986, 0.2325, 0.361445, 0.0470028)
-material_override = SubResource("StandardMaterial3D_f2q43")
-lifetime = 0.71
-draw_pass_1 = SubResource("QuadMesh_hl3dx")
-
-[node name="Fireplace2" parent="Level/NavigationRegion3D/Interactibles/Still/Fireplace_ON" index="2"]
-transform = Transform3D(-2.73386, 0.0930649, -0.268872, -0.0718869, 2.28723, 1.52262, 0.275292, 1.52147, -2.2725, 0.371962, 0.399348, 0.0781517)
-light_color = Color(0.633436, 0.239883, 0, 1)
-light_energy = 0.598
-omni_range = 0.58
-omni_attenuation = 1.342
-
-[node name="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/Still" index="11"]
-omni_shadow_mode = 0
 
 [node name="Furnace" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("17_rujcb")]
 transform = Transform3D(-1.34306, 0.00160132, -0.07991, 5.03671e-10, 1.34516, 0.0269558, 0.0799261, 0.0269082, -1.34279, -9.02138, 0.140991, 0.365764)
@@ -582,10 +535,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794943, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90423, -3.73933, -1.77516)
 
 [node name="Bag" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
-transform = Transform3D(-0.15691, 0.00115817, 0.221157, 0.00122649, 0.271165, -0.000549867, -0.221157, 0.000682103, -0.156914, -1.9136, -3.70845, -3.8581)
+transform = Transform3D(-0.246632, 0.00182042, 0.347616, 0.0019278, 0.426219, -0.000864284, -0.347616, 0.00107213, -0.246638, -1.9136, -3.89055, -3.8581)
+
+[node name="Bag3" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
+transform = Transform3D(0.42586, -0.0019617, -0.0175196, 0.0019278, 0.426219, -0.000864284, 0.0175246, 0.000784308, 0.425864, -1.9136, -3.89055, 0.387843)
 
 [node name="Bag2" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
-transform = Transform3D(-0.0336734, -0.267563, -0.00730537, -0.188031, 0.0288866, -0.191278, 0.190493, -0.0187837, -0.190097, -1.60585, -3.6339, -4.31448)
+transform = Transform3D(-0.0563512, -0.447757, -0.0122253, -0.314663, 0.0483407, -0.320097, 0.318783, -0.0314338, -0.31812, -1.60585, -3.67806, -4.31448)
 
 [node name="Latrine" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers"]
 transform = Transform3D(0.962696, 0, 0.270584, 0, 1, 0, -0.270584, 0, 0.962696, -2.66638, -0.00751227, 0.042052)
@@ -611,7 +567,7 @@ transform = Transform3D(1.03549, 0, 0, 0, 1.03549, 0, 0, 0, 1.03549, 4.02717, 2.
 ingredient_type = 17
 
 [node name="Jug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
-transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -3.34571, 0.56604, -6.17968)
+transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -5.828, 0.642529, 2.10447)
 
 [node name="BigJug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("26_g0qm8")]
 transform = Transform3D(0.416626, 0, 1.08252, 0, 1.15993, 0, -1.08252, 0, 0.416626, -0.970196, 0, -5.31294)
@@ -622,16 +578,10 @@ transform = Transform3D(0.344751, 0, 0.89577, 0, 0.959822, 0, -0.89577, 0, 0.344
 ingredient_type = 2
 
 [node name="Cauldron" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("18_bbofm")]
-transform = Transform3D(-0.0122011, 0.091244, -1.17129, 0, 1.17135, 0.0912489, 1.17484, 0.000947599, -0.0121642, 5.96742, 0.58577, 2.82009)
-
-[node name="SpoonPivot" parent="Level/NavigationRegion3D/Interactibles/Cauldron/Pot" index="1"]
-transform = Transform3D(-3.14114e-08, -4.90803e-10, 0.263498, -0.0152047, 0.263059, 0, -0.263059, -0.0152047, -3.14114e-08, 0.037844, 0.222742, -0.000659954)
-
-[node name="Fireplace" parent="Level/NavigationRegion3D/Interactibles/Cauldron" index="10"]
-transform = Transform3D(-4.00469e-08, 0, -0.900027, -2.03067e-08, 0.900027, 4.65661e-10, 0.900027, -5.37557e-09, -4.00469e-08, 0.00107455, -0.241141, -0.0117853)
+transform = Transform3D(-0.00511363, 0.0382415, -0.490902, 0, 0.490927, 0.0382435, 0.49239, 0.00039715, -0.00509816, 6.57204, 0.132587, 2.81921)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313254, -2.25388, 2.10184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.27149, 0.34632)
 wait_time = 3
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles"]
@@ -698,6 +648,9 @@ script = ExtResource("20_3awsj")
 
 [node name="Still2" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("23_oldax")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.05985, 0.184706, 1.51991)
+
+[node name="Still3" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("23_oldax")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.0289, -3.09905, -1.68416)
 
 [node name="Ground" type="CSGCombiner3D" parent="Level"]
 
@@ -1090,7 +1043,6 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
-transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1109,7 +1061,7 @@ shape = SubResource("BoxShape3D_41r3r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, 0.633224, -2.18724, 2.82009)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -5.26401, -2.19263, 1.06457)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
@@ -1131,7 +1083,7 @@ transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08,
 book = ExtResource("10_ufp8w")
 
 [node name="Book" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -0.401035, -2.18724, 3.18761)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.29827, -2.19263, 1.43209)
 book = ExtResource("12_1wat7")
 
 [node name="Lights" type="Node3D" parent="Level"]
@@ -1141,7 +1093,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0.336114, 3.67471, -0.950951, -7.77436)
 
 [node name="Candle2" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029371, -4.26529, 2.59367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92661, -4.28299, 0.83815)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -1464,7 +1416,3 @@ omni_attenuation = -0.648
 [connection signal="body_entered" from="Triggers/ClockBells" to="Triggers/ClockBells" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/HintLamp" to="Triggers/HintLamp" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/FlareProgressionCheck" to="Triggers/FlareProgressionCheck" method="_on_body_entered"]
-
-[editable path="Level/NavigationRegion3D/Interactibles/Still"]
-[editable path="Level/NavigationRegion3D/Interactibles/Still/Flask"]
-[editable path="Level/NavigationRegion3D/Interactibles/Cauldron"]
