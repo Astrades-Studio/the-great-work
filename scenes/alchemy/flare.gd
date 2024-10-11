@@ -66,11 +66,7 @@ func _on_duration_timer_timeout() -> void:
 	active = false
 	if is_instance_valid(contents):
 		set_material(FLARE_MATERIAL_SPENT)
-		# var active_material : StandardMaterial3D = contents.get_active_material(0)
-		# if active_material:
-		# 	var new_material = active_material.duplicate()
-		# 	contents.mesh.surface_set_material(0, new_material)
-		# 	new_material.albedo_color = Color.BLACK
+
 	name = "Spent Flare"
 	spent = true
 

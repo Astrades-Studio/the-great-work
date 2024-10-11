@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=25 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b04pjkwdnnbvb" path="res://assets/ui/icons/mouse_left_outline.png" id="10_dx5ro"]
 [ext_resource type="PackedScene" uid="uid://blykgf66nhee" path="res://scenes/player/fear_effect.tscn" id="11_4yl7r"]
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
+[ext_resource type="Script" path="res://scenes/shadow/shadow_orbit.gd" id="12_kjypc"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
+[ext_resource type="PackedScene" uid="uid://dihnshs372h54" path="res://scenes/shadow/skull.tscn" id="13_rlkko"]
 
 [sub_resource type="Animation" id="Animation_1635k"]
 length = 0.001
@@ -153,6 +155,9 @@ size = Vector3(0.618164, 1.18817, 0.539063)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_yu7m1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3adb8"]
+radius = 0.335
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -416,5 +421,26 @@ transform = Transform3D(0.873934, 0, 0, 0, 0.873934, 0, 0, 0, 0.873934, 0, 0.625
 visible = false
 layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
+
+[node name="ShadowOrbit" type="Marker3D" parent="."]
+transform = Transform3D(-0.826986, 0.0608413, -0.561574, 0.215349, -0.884898, -0.413011, -0.52205, -0.462475, 0.718713, 0, 1.65353, 0)
+gizmo_extents = 0.95
+script = ExtResource("12_kjypc")
+_rotate_x = false
+
+[node name="ShadowDistance" type="Marker3D" parent="ShadowOrbit"]
+transform = Transform3D(0.943524, 0.294074, -0.152585, 0.297583, -0.954696, 0.000166094, -0.145624, -0.0455636, -0.98829, -0.792703, 0.000694916, -5.13448)
+
+[node name="Skull" parent="ShadowOrbit/ShadowDistance" instance=ExtResource("13_rlkko")]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="ShadowOrbit/ShadowDistance/Skull"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowOrbit/ShadowDistance/Skull/Area3D"]
+shape = SubResource("SphereShape3D_3adb8")
+
+[node name="Timer" type="Timer" parent="ShadowOrbit"]
+
+[connection signal="body_entered" from="ShadowOrbit/ShadowDistance/Skull/Area3D" to="ShadowOrbit" method="_on_area_3d_body_entered"]
 
 [editable path="PanicEffects"]

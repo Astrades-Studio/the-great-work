@@ -23,7 +23,6 @@ static var countdown
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SimpleGrass.set_interactive(true)
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	world_environment.environment.adjustment_brightness = GameManager.brightness

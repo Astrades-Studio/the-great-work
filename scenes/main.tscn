@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=98 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -22,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
 [ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" uid="uid://dauluuxmkkntl" path="res://scenes/gold_crate.tscn" id="17_l46bu"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
+[ext_resource type="PackedScene" uid="uid://cpx4siqsmq8dm" path="res://scenes/silver_crate.tscn" id="18_731jx"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
 [ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="21_n1n2k"]
@@ -34,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
+[ext_resource type="PackedScene" uid="uid://s0i6g8s4kde0" path="res://scenes/shadow/eyes.tscn" id="31_7gv7d"]
 [ext_resource type="ArrayMesh" uid="uid://c6tfiwdiype74" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01a.res" id="32_bggs6"]
 [ext_resource type="Script" path="res://scenes/stairs_shadow.gd" id="38_uuhsq"]
 [ext_resource type="PackedScene" uid="uid://binadt5anxax2" path="res://scenes/alchemy/ingredients/vinegar.tscn" id="39_k1hb8"]
@@ -559,6 +562,12 @@ shape = SubResource("CylinderShape3D_1m4ix")
 transform = Transform3D(-0.0438801, 0, -0.848624, 0, 0.849758, 0, 0.848624, 0, -0.0438801, -8.30824, 0.206064, -2.25262)
 ingredient_type = 22
 
+[node name="GoldCrate" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("17_l46bu")]
+transform = Transform3D(1.15329e-07, 0, -0.879474, 0, 0.879474, 0, 0.879474, 0, 1.15329e-07, -1.90705, -3.89811, 2.44166)
+
+[node name="Crate" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("18_731jx")]
+transform = Transform3D(0.879474, 0, 0, 0, 0.879474, 0, 0, 0, 0.879474, -3.65351, -3.89811, -5.83515)
+
 [node name="Dispensers2" type="Node3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
 
@@ -578,7 +587,7 @@ transform = Transform3D(0.344751, 0, 0.89577, 0, 0.959822, 0, -0.89577, 0, 0.344
 ingredient_type = 2
 
 [node name="Cauldron" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("18_bbofm")]
-transform = Transform3D(-0.00511363, 0.0382415, -0.490902, 0, 0.490927, 0.0382435, 0.49239, 0.00039715, -0.00509816, 6.57204, 0.132587, 2.81921)
+transform = Transform3D(5.87201e-09, 0, -0.492416, 0, 0.492414, 0, 0.492417, 0, 5.872e-09, 6.57204, 0.132587, 2.81921)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.27149, 0.34632)
@@ -1043,6 +1052,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 script = ExtResource("38_uuhsq")
 
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
+transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 libraries = {
@@ -1056,6 +1066,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Shadows/StairsShadow/Area3D"]
 transform = Transform3D(0.999997, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 0.999997, -0.237547, 1.15549, 1.65979)
 shape = SubResource("BoxShape3D_41r3r")
+
+[node name="Eyes" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
+transform = Transform3D(-0.453265, 0.0459422, -0.890191, 0, 0.998671, 0.0515408, 0.891376, 0.0233617, -0.452663, -8.57077, 1.35504, 4.92669)
 
 [node name="Recipes" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1232,10 +1245,6 @@ bus = &"SFX"
 emission_angle_enabled = true
 emission_angle_degrees = 86.6
 emission_angle_filter_attenuation_db = -72.5
-
-[node name="Shadow" parent="Level" instance=ExtResource("14_ueicl")]
-transform = Transform3D(0.0568038, 0.116561, -0.991558, 0, 0.993161, 0.11675, 0.998385, -0.00663182, 0.0564154, 0, 0, 0)
-visible = false
 
 [node name="Triggers" type="Node3D" parent="."]
 

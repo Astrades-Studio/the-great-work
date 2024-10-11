@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dle67yxqc5nj5"]
+[gd_scene load_steps=15 format=3 uid="uid://dle67yxqc5nj5"]
 
 [ext_resource type="ArrayMesh" uid="uid://bnlvstexcttme" path="res://assets/models/old_west/unused/vol1/meshes/old west 1_webp_SM_Desk_01a_001.res" id="1_a6dbt"]
 [ext_resource type="ArrayMesh" uid="uid://qpupe27kgy88" path="res://assets/models/old_west/unused/vol1/meshes/old west 1_webp_SM_Desk_01c.res" id="2_4pb62"]
-[ext_resource type="Script" path="res://scenes/interactable/drawer.gd" id="3_ntp2d"]
 [ext_resource type="ArrayMesh" uid="uid://uyrmp0q74ld1" path="res://assets/models/old_west/unused/vol1/meshes/old west 1_webp_SM_Desk_01i.res" id="3_wlv52"]
 [ext_resource type="Texture2D" uid="uid://dm526mvxpk6s4" path="res://assets/models/old_west/unused/vol1/old west 1_webp_MI_Desk_01a_BaseColor.webp" id="4_lpico"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="4_n1kvg"]
@@ -48,7 +47,6 @@ mesh = ExtResource("1_a6dbt")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.559208, 0.78058, -0.197943)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="DrawerMesh" type="MeshInstance3D" parent="Drawer"]
@@ -66,7 +64,6 @@ interaction_type = 2
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.559208, 0.908639, -0.197943)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="DrawerMesh" type="MeshInstance3D" parent="Drawer2"]
@@ -84,7 +81,6 @@ interaction_type = 2
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.571316, 0.78058, -0.195712)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="DrawerMesh" type="MeshInstance3D" parent="Drawer3"]
@@ -102,7 +98,6 @@ interaction_type = 2
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.571316, 0.908639, -0.197943)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="DrawerMesh" type="MeshInstance3D" parent="Drawer4"]
@@ -120,7 +115,6 @@ interaction_type = 2
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.571316, 0.244599, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer5"]
@@ -138,7 +132,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.571316, 0.374214, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer6"]
@@ -156,7 +149,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.571316, 0.104589, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer7"]
@@ -174,7 +166,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.56884, 0.244599, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer8"]
@@ -192,7 +183,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.56884, 0.374214, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer9"]
@@ -210,7 +200,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.56884, 0.104589, 0.066463)
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer10"]
@@ -228,7 +217,6 @@ mesh = ExtResource("3_wlv52")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, 0.56884, 0.626988, 0.066463)
 collision_layer = 9
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="InteractionComponent" type="Node" parent="Drawer13"]
@@ -248,7 +236,6 @@ shape = SubResource("ConcavePolygonShape3D_srn64")
 transform = Transform3D(0.951606, 0, -1.66384e-07, 0, 0.951606, 0, 1.66384e-07, 0, 0.951606, -0.573389, 0.626988, 0.066463)
 collision_layer = 9
 collision_mask = 5
-script = ExtResource("3_ntp2d")
 metadata/_edit_group_ = true
 
 [node name="InteractionComponent" type="Node" parent="Drawer14"]

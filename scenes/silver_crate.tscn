@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpx4siqsmq8dm"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5o7jali0u02i" path="res://assets/models/old_west/unused/vol5/meshes/old west 5_webp_SM_Crate_02a_001.res" id="1_67ol0"]
+[ext_resource type="PackedScene" uid="uid://fk6dcg01x2oq" path="res://scenes/alchemy/ingredients/silver.tscn" id="2_ipwf0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q52yi"]
+size = Vector3(0.795898, 0.093689, 0.486328)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qku50"]
+size = Vector3(0.0268555, 0.36911, 0.486328)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b53o3"]
+size = Vector3(0.0328369, 0.36911, 0.797852)
+
+[node name="Crate" type="MeshInstance3D"]
+transform = Transform3D(-3.8443e-08, 0, 0.879474, 0, 0.879474, 0, -0.879474, 0, -3.8443e-08, 0, 0, 0)
+mesh = ExtResource("1_67ol0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474849, 0)
+shape = SubResource("BoxShape3D_q52yi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394969, 0.185195, -1.64125e-09)
+shape = SubResource("BoxShape3D_qku50")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391864, 0.185195, 3.15677e-08)
+shape = SubResource("BoxShape3D_qku50")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00031826, 0.185195, -0.241112)
+shape = SubResource("BoxShape3D_b53o3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000318281, 0.185195, 0.234715)
+shape = SubResource("BoxShape3D_b53o3")
+
+[node name="Silver" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257064, 0.362751, -0.104073)
+
+[node name="Silver2" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134252, 0.362751, -0.0897824)
+
+[node name="Silver3" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167044, 0.362751, -0.0897824)
+
+[node name="Silver4" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199393, 0.362751, -0.0897824)
+
+[node name="Silver5" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257064, 0.362751, 0.00518157)
+
+[node name="Silver6" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784117, 0.362751, 0.0171302)
+
+[node name="Silver7" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0742169, 0.362751, 0.0083525)
+
+[node name="Silver8" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260375, 0.362751, -0.00415648)
+
+[node name="Silver9" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.257064, 0.362751, 0.111699)
+
+[node name="Silver10" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134252, 0.362751, 0.12599)
+
+[node name="Silver11" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167044, 0.362751, 0.12599)
+
+[node name="Silver12" parent="." instance=ExtResource("2_ipwf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199393, 0.362751, 0.12599)

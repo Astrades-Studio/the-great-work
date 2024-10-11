@@ -1,5 +1,5 @@
 @tool
-@icon("res://OvaniPlugin/OvaniPlayerIcon.png")
+@icon("res://addons/ovani player/OvaniPlayerIcon.png")
 class_name OvaniPlayer
 ## The OvaniPlayer will let you easily Manage dynamic music in your game, via [OvaniSong]s.
 ##

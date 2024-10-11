@@ -124,12 +124,10 @@ omni_range = 11.182
 [node name="Contents" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.451846, 0, 0, 0, 1.41205, -4.81582e-15, 0, 1.50499e-14, 0.451846, 0, 0.0246428, -1.00061e-07)
 mesh = SubResource("CylinderMesh_rowkc")
-skeleton = NodePath("../../Mercury")
 
 [node name="Pipe" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.484496, 0, 0, 0, 1.51409, -5.16381e-15, 0, 1.61374e-14, 0.484496, 0, 0.115489, -1.00061e-07)
 mesh = SubResource("CylinderMesh_70wug")
-skeleton = NodePath("../../Mercury")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.314002, 0, 0, 0, 0.314002, -3.34668e-15, 0, 3.34668e-15, 0.314002, 0, -0.0240725, -2.51967e-08)
