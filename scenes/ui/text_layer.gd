@@ -9,7 +9,7 @@ extends CanvasLayer
 @onready var next_button: Button = %NextButton
 @onready var page_label: Label = %PageLabel
 
-@onready var text_label: Label = %TextLabel
+#@onready var text_label: Label = %TextLabel
 
 var book : BookPages
 var book_page : int = 0:
@@ -55,7 +55,7 @@ func show_text(text: DialogPiece):
 	show()
 	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
 	GameManager.current_state = GameManager.GameState.PAUSED
-	text_label.text = text.dialog_text
+#	text_label.text = text.dialog_text
 
 
 func show_page(page: Texture2D):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://s0i6g8s4kde0"]
+[gd_scene load_steps=7 format=3 uid="uid://s0i6g8s4kde0"]
 
 [ext_resource type="Script" path="res://scenes/shadow/eyes.gd" id="1_p4gwu"]
+[ext_resource type="PackedScene" uid="uid://dihnshs372h54" path="res://scenes/shadow/skull.tscn" id="2_or0sl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppmow"]
 transparency = 1
@@ -24,7 +25,7 @@ script = ExtResource("1_p4gwu")
 
 [node name="RightEye" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.211323, 0, 0, 0, -0.0455981, -0.125092, 0, 0.135351, -0.042142, -0.0323384, 0.0841918, 0.128067)
+transform = Transform3D(0.211323, 0, 0, 0, -0.00901297, -0.131737, 0, 0.142541, -0.00832985, -0.0323384, 0.0841918, 0.0223209)
 mesh = SubResource("SphereMesh_l5nim")
 skeleton = NodePath("../..")
 
@@ -36,7 +37,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h2gdj")
 
 [node name="LeftEye" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.237778, 0.0282579, -4.6553e-08, 0.0162021, -0.042269, -0.125092, -0.0480937, 0.125469, -0.042142, 0.0380433, 0.0841918, 0.128067)
+transform = Transform3D(0.242363, -0.00790204, 0.00713106, 0.0121064, -0.00969872, -0.131496, 0.0150784, 0.1348, -0.009043, 0.0380433, 0.0841918, 0.0223209)
 mesh = SubResource("SphereMesh_l5nim")
 skeleton = NodePath("../..")
 
@@ -52,6 +53,8 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_mbi5d")
+
+[node name="Skull" parent="." instance=ExtResource("2_or0sl")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

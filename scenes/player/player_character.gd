@@ -47,7 +47,7 @@ var interaction_result: Node
 # Super() are there to call the parent class movement that I got from the asset store and don't want cluttering here
 func _ready() -> void:
 	super()
-	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
+#	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
 	GameManager.player = self # Assign this node to the Autoload for global reference
 
 func _input(event: InputEvent) -> void:

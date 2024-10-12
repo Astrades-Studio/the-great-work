@@ -25,6 +25,9 @@ MusicManager="*res://scripts/music_manager.gd"
 DialogManager="*res://scripts/globals/dialog_manager.gd"
 TransitionManager="*res://scripts/globals/transition_manager.gd"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+Panku="*res://addons/panku_console/console.tscn"
+RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
+EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 
 [display]
 
@@ -33,12 +36,12 @@ window/size/viewport_height=1080
 window/size/mode=4
 window/size/initial_position_type=0
 window/size/resizable=false
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 

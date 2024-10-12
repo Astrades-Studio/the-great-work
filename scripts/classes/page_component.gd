@@ -11,8 +11,8 @@ func _ready() -> void:
 	if parent is Page:
 		if parent.page:
 			page = parent.page
-		if parent.text:
-			text = parent.text
+		#if parent.text:
+		#	text = parent.text
 
 	if parent.has_user_signal("interacted"):
 		parent.connect("interacted", Callable(self, "request_page_UI"))

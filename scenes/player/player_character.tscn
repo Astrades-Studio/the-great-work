@@ -205,9 +205,6 @@ stream = ExtResource("2_y7hev")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 script = ExtResource("2_wncd0")
 foot_profile = ExtResource("3_yrwvo")
-footstep_distance = 1.0
-walk_speed = 1.2
-run_speed = 1.8
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14792, 0)
@@ -234,12 +231,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+stretch = true
 
 [node name="ItemViewport" type="SubViewport" parent="HandLayer/SubViewportContainer"]
 unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(640, 360)
+size = Vector2i(1920, 1080)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 

@@ -10,4 +10,3 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Player and GameManager.alchemy_recipe_read:
 		clock_bells.play(6.0)
 		played = true
-			

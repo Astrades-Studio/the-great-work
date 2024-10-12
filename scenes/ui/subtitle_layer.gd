@@ -73,7 +73,6 @@ func play_shadow_subtitles(dialog_piece : DialogPiece, duration : float = 1.0) -
 	shadow_label.hide()
 
 
-var tween : Tween
 func _show_subtitle(label: Label, text : DialogPiece, duration : float) -> void:
 	used_labels.append(label)
 	label.text = text.dialog_text
@@ -102,9 +101,9 @@ func _hide_subtitle(label: Label) -> void:
 
 
 func fade_in(label: Label, reversed : bool) -> void:
-	var tween = get_tree().create_tween()
+	var _tween = get_tree().create_tween()
 	if !reversed:
-		tween.tween_property(label, "visible_ratio", 1.0, label.text.length() * 0.05)
+		_tween.tween_property(label, "visible_ratio", 1.0, label.text.length() * 0.05)
 	else:
-		tween.tween_property(label, "modulate", Color.TRANSPARENT, 1.0)
-	await tween.finished
+		_tween.tween_property(label, "modulate", Color.TRANSPARENT, 1.0)
+	await _tween.finished

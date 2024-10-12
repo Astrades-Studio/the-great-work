@@ -1,4 +1,4 @@
-@icon("res://AutoFootStepsPlugin/Icon.png")
+@icon("res://addons/AutoFootStepsPlugin/Icon.png")
 extends Node3D
 class_name AutoFootSteps
 ## This node from the Ovani Auto Footsteps plugin will play footsteps when your player walks.

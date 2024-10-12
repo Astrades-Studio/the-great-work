@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=101 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
-[ext_resource type="PackedScene" uid="uid://bakcl52fj1ec0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
+[ext_resource type="PackedScene" uid="uid://bnnthcbblvtp0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://dauluuxmkkntl" path="res://scenes/gold_crate.tscn" id="17_l46bu"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
@@ -34,8 +34,11 @@
 [ext_resource type="PackedScene" uid="uid://okn1cgfhsslw" path="res://scenes/alchemy/still_v2.tscn" id="23_oldax"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
+[ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="25_bl3ms"]
+[ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="26_6vqpa"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
+[ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="27_twcex"]
 [ext_resource type="PackedScene" uid="uid://s0i6g8s4kde0" path="res://scenes/shadow/eyes.tscn" id="31_7gv7d"]
 [ext_resource type="ArrayMesh" uid="uid://c6tfiwdiype74" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01a.res" id="32_bggs6"]
 [ext_resource type="Script" path="res://scenes/stairs_shadow.gd" id="38_uuhsq"]
@@ -55,7 +58,7 @@
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 [ext_resource type="Texture2D" uid="uid://d23lmkr58umli" path="res://scripts/shaders/palette_slso8-1x.png" id="66_hmr1k"]
 [ext_resource type="Shader" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
-[ext_resource type="ArrayOccluder3D" path="res://scenes/occluder_test.occ" id="68_46fks"]
+[ext_resource type="ArrayOccluder3D" uid="uid://cqvnwpf0nljlr" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
 [ext_resource type="Shader" path="res://scripts/pixelize.gdshader" id="68_t3trs"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
@@ -590,7 +593,7 @@ ingredient_type = 2
 transform = Transform3D(5.87201e-09, 0, -0.492416, 0, 0.492414, 0, 0.492417, 0, 5.872e-09, 6.57204, 0.132587, 2.81921)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.27149, 0.34632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.33881, 2.08542)
 wait_time = 3
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles"]
@@ -654,6 +657,25 @@ libraries = {
 
 [node name="InteractionComponent" type="Node" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
 script = ExtResource("20_3awsj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
+stream = ExtResource("25_bl3ms")
+attenuation_model = 3
+volume_db = -1.139
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
+stream = ExtResource("26_6vqpa")
+attenuation_model = 3
+volume_db = 8.07
+max_db = 3.551
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp"]
+stream = ExtResource("27_twcex")
+attenuation_model = 3
+volume_db = -1.104
+bus = &"SFX"
 
 [node name="Still2" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("23_oldax")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.05985, 0.184706, 1.51991)
@@ -1074,7 +1096,7 @@ transform = Transform3D(-0.453265, 0.0459422, -0.890191, 0, 0.998671, 0.0515408,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -5.26401, -2.19263, 1.06457)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -4.92202, -2.25647, 1.2354)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
@@ -1096,7 +1118,7 @@ transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08,
 book = ExtResource("10_ufp8w")
 
 [node name="Book" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.29827, -2.19263, 1.43209)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.41155, -2.26013, 1.7239)
 book = ExtResource("12_1wat7")
 
 [node name="Lights" type="Node3D" parent="Level"]
@@ -1106,7 +1128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0.336114, 3.67471, -0.950951, -7.77436)
 
 [node name="Candle2" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92661, -4.28299, 0.83815)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92661, -4.35102, 1.18375)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -1247,14 +1269,6 @@ emission_angle_degrees = 86.6
 emission_angle_filter_attenuation_db = -72.5
 
 [node name="Triggers" type="Node3D" parent="."]
-
-[node name="WorldBoundary" type="StaticBody3D" parent="Triggers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9725, -3.17731, 7.48594)
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldBoundary"]
-shape = SubResource("WorldBoundaryShape3D_v46o1")
-disabled = true
 
 [node name="WorldSafeguard" type="Area3D" parent="Triggers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7.48594)

@@ -66,7 +66,7 @@ size = Vector3(0.462036, 1.70313, 1.1626)
 script = ExtResource("1_eedlg")
 book = SubResource("Resource_nqemj")
 
-[node name="OldBook01" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.00967902, 0, 0, 0, 0.00967902, 0, 0, 0, 0.00967902, 0, 0.349689, 0.0122538)
 mesh = SubResource("ArrayMesh_hsite")
 skeleton = NodePath("")

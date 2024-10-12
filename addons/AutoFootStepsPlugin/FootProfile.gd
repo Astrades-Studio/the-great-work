@@ -1,5 +1,5 @@
 @tool
-@icon("res://AutoFootStepsPlugin/FootProfileIcon.png")
+@icon("res://addons/AutoFootStepsPlugin/FootProfileIcon.png")
 extends Resource
 class_name FootProfile
 ## A collection of Material names, keywords, and SFX.
@@ -43,4 +43,3 @@ func _string_to_material(string : String) -> FootProfileMaterialSpecification:
 		_AIR_MAT_SPEC = FootProfileMaterialSpecification.new()
 		_AIR_MAT_SPEC.name = AutoFootSteps.AIR_NAME
 	return _AIR_MAT_SPEC
-			

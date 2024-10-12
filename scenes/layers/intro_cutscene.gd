@@ -48,12 +48,11 @@ func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:
 func _on_timer_timeout() -> void:
 	cinematic_finished.emit()
 
-var tween_subs : Tween
+
 func show_skip_button() -> void:
 	subtitle_label.show()
-	if tween_subs:
-		tween_subs.kill()
-	tween_subs = get_tree().create_tween()
+
+	var tween_subs : = get_tree().create_tween()
 	tween_subs.tween_property(subtitle_label, "modulate", Color.WHITE, 1.0)
 	await tween_subs.finished
 	await get_tree().create_timer(1.0).timeout
