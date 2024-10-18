@@ -16,7 +16,6 @@ extends Node3D
 @onready var pixelize_layer: CanvasLayer = $PixelizeLayer
 
 
-
 const DEATH_SOUND = preload("res://assets/sounds/sfx/death_sound.mp3")
 
 static var countdown
@@ -50,6 +49,7 @@ func _timer_up():
 
 func _on_timer_tick():
 	countdown -= 1
+	print("Timer ticked down")
 	GameManager.tick_countdown.emit()
 
 	#if countdown == 1:

@@ -13,7 +13,7 @@ var open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.flare_created.connect(_on_flare_created)
+	GameManager.flare_read_signal.connect(_unlock_basement_door)
 	if self.has_user_signal("interacted"):
 		self.connect("interacted", Callable(self, "open_door"))
 
@@ -45,7 +45,7 @@ func unlock():
 	else:
 		return
 
-func _on_flare_created():
+func _unlock_basement_door():
 	if basement_door:
 		if locked:
 			unlock()

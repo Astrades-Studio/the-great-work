@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dihnshs372h54"]
 
-[ext_resource type="Texture2D" uid="uid://dljmxx2civnr1" path="res://scenes/shadow/Ghost_02.png" id="1_xoymh"]
+[ext_resource type="Texture2D" uid="uid://btg301ch43xdu" path="res://assets/images/sprites/ghost.tres" id="1_7s1tf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yao4s"]
 blend_mode = 1
@@ -9,7 +9,7 @@ depth_draw_mode = 1
 shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("1_xoymh")
+albedo_texture = ExtResource("1_7s1tf")
 billboard_mode = 1
 distance_fade_mode = 1
 distance_fade_min_distance = 5.0
@@ -66,7 +66,7 @@ subdivide_depth = 3
 sorting_offset = 1e+07
 mesh = SubResource("QuadMesh_xauyy")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="DarkFX" type="GPUParticles3D" parent="."]
 amount = 193
 lifetime = 0.5
 interp_to_end = 1.0

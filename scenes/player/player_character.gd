@@ -136,6 +136,9 @@ func throw_ingredient(_throw_impulse : float) -> void:
 # Check if there's anything in front of the player
 func raycast_forward(to_position: Vector3) -> Vector3:
 	var from_position = camera.global_transform.origin
+		# Get direction to target
+	var direction = (to_position - from_position).normalized()
+	to_position = to_position - direction * 0.1
 	var ray = PhysicsRayQueryParameters3D.create(from_position, to_position)
 	ray.hit_back_faces = false
 	var result = get_world_3d().direct_space_state.intersect_ray(ray)

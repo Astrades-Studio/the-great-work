@@ -38,6 +38,7 @@ func open_book() -> void:
 
 	if is_flare_book:
 		if !GameManager.flare_recipe_read:
+			GameManager.flare_recipe_read = true
 			GameManager.flare_read_signal.emit()
 		if !randi() % 2:
 			DialogManager.create_subtitles_piece("What does it mean by 'the darkness'?")

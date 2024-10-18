@@ -1116,6 +1116,7 @@ is_alchemy_book = true
 [node name="Chemical Processes" parent="Level/Recipes" instance=ExtResource("44_00i07")]
 transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08, 2.24031e-09, 8.75e-10, -0.0584755, 0.922759, -6.29059, 1.00833, 2.01645)
 book = ExtResource("10_ufp8w")
+is_flare_book = true
 
 [node name="Book" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
 transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.41155, -2.26013, 1.7239)
@@ -1422,15 +1423,6 @@ unique_name_in_owner = true
 
 [node name="OvaniPlayer" type="Node" parent="."]
 script = ExtResource("63_fo8fa")
-
-[node name="DEBUG_LIGHT" type="OmniLight3D" parent="."]
-transform = Transform3D(0.876114, 0.0443843, -0.480056, 0, 0.995753, 0.0920639, 0.482104, -0.0806585, 0.872394, -10.3348, 1.43195, 1.10175)
-visible = false
-light_color = Color(0.821819, 0.646207, 0.461115, 1)
-light_energy = 10.499
-light_indirect_energy = 0.975
-omni_range = 4.224
-omni_attenuation = -0.648
 
 [connection signal="visibility_changed" from="Level/NavigationRegion3D/Interactibles/GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="Level/NavigationRegion3D/Interactibles/GasLamp/Timer" to="Level/NavigationRegion3D/Interactibles/GasLamp" method="_on_timer_timeout"]

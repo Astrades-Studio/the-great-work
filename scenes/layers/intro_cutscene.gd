@@ -56,7 +56,9 @@ func show_skip_button() -> void:
 	tween_subs.tween_property(subtitle_label, "modulate", Color.WHITE, 1.0)
 	await tween_subs.finished
 	await get_tree().create_timer(1.0).timeout
-	tween_subs.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
+	var tween_subs_2 : = get_tree().create_tween()
+	tween_subs_2.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
+	await tween_subs_2.finished
 
 
 func skip_cinematic() -> void:

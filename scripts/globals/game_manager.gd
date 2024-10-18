@@ -88,7 +88,7 @@ var dispensers : Array[Dispenser]
 var fov_value : float = 75:
 	set(value):
 		fov_value = clamp(remap(value, 0, 1, 60, 90), 60, 90)
-		if player:
+		if is_instance_valid(player):
 			player.camera.fov = fov_value
 
 
@@ -136,6 +136,7 @@ signal game_started
 signal lamp_collected
 signal recipe_read
 signal alchemy_read_signal
+
 signal flare_read_signal
 signal flare_created
 signal philosopher_stone_progress(int)
@@ -144,6 +145,7 @@ signal tick_countdown
 signal stone_consumed
 signal shadow_crawl_trigger
 signal shadow_removed
+signal turned_on_flare
 
 
 func _ready() -> void:
@@ -221,14 +223,15 @@ func ingredient_spawned(ingredient: Ingredient):
 # Play a sound and increase global darkness for each shadow spawned
 
 func _on_tick_countdown():
-	if shadows_spawned.size() >= shadow_spawn_points.size():
-		print("Too many shadows spawned")
-		return
+	pass
+	# if shadows_spawned.size() >= shadow_spawn_points.size():
+	# 	print("Too many shadows spawned")
+	# 	return
 
-	if shadow_spawn_points.size() > 0:
-		spawn_random_shadow()
+	# if shadow_spawn_points.size() > 0:
+	# 	spawn_random_shadow()
 
-	update_darkness_effect(shadows_spawned.size())
+	# update_darkness_effect(shadows_spawned.size())
 
 
 func spawn_random_shadow():

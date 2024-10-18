@@ -13,6 +13,7 @@ config_version=5
 config/name="The Great Work"
 run/main_scene="res://scenes/layers/splash_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+run/max_fps=60
 boot_splash/image="res://assets/images/start_black.png"
 config/icon="res://assets/images/icon.svg"
 
@@ -28,6 +29,7 @@ DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 Panku="*res://addons/panku_console/console.tscn"
 RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
@@ -41,7 +43,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
