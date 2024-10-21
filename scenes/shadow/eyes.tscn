@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://s0i6g8s4kde0"]
+[gd_scene load_steps=16 format=3 uid="uid://s0i6g8s4kde0"]
 
 [ext_resource type="Script" path="res://scenes/shadow/eyes.gd" id="1_p4gwu"]
 [ext_resource type="Texture2D" uid="uid://bqrqp555my3hu" path="res://assets/images/sprites/Eyes_01.png" id="2_pp3cx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/shaker/data/Vector3/ShakerTypeBrownianShake3D.gd" id="5_xuj2a"]
 [ext_resource type="Script" path="res://addons/shaker/data/Vector3/ShakerTypeSineWave3D.gd" id="6_2omrq"]
 [ext_resource type="Script" path="res://addons/shaker/data/Vector3/ShakerPreset3D.gd" id="7_kmtv6"]
+[ext_resource type="AudioStream" uid="uid://do28tldp5wxqf" path="res://assets/sounds/sfx/shadow/Shadow_01.wav" id="8_luco3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mbi5d"]
 radius = 3.0
@@ -89,13 +90,15 @@ mesh = SubResource("QuadMesh_o3cxg")
 
 [node name="ShakerComponent3D" type="Node3D" parent="MeshInstance3D"]
 script = ExtResource("3_lautq")
-is_playing = true
 AutoPlay = true
 intensity = 0.02
 shake_speed = 0.1
 fade_in = 1e-05
 fade_out = 1e-05
 shakerPreset = SubResource("Resource_u0gl4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_luco3")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

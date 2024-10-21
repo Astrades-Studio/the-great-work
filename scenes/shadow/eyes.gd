@@ -8,6 +8,7 @@ extends Node3D
 @onready var material : StandardMaterial3D = mesh_instance_3d.material_override
 @onready var og_color : Color = material.albedo_color
 @onready var og_position : Vector3 = self.global_position
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var active : bool = true
 var player_ref : Player
@@ -17,20 +18,22 @@ func _ready() -> void:
 
 
 func _appear_gradually() -> void:
-	active = true
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(material, "albedo_color", og_color, 3.0)
 	tween.parallel().tween_property(self, "global_position", og_position, 0.1)
 	await tween.finished
+	active = true
 
 
 func _disappear_gradually() -> void:
 	var tween : Tween = get_tree().create_tween()
 	var camera = get_viewport().get_camera_3d()
 	tween.tween_property(material, "albedo_color", Color.TRANSPARENT, 3.0)
+	audio_stream_player_3d.play()
 	if player_ref:
 		tween.parallel().tween_property(self, "global_position", camera.global_position, 3.0).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
+	queue_free()
 	# get the current camera
 
 

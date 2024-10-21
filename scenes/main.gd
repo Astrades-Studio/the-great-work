@@ -52,14 +52,6 @@ func _on_timer_tick():
 	print("Timer ticked down")
 	GameManager.tick_countdown.emit()
 
-	#if countdown == 1:
-		#trigger_death_timer()
-	#
-	#if countdown <= 0:
-		#MusicManager
-		#GameManager.game_over.emit()
-		#game_over_timer.stop()
-
 
 func trigger_death_timer():
 	if tick_length < 0:

@@ -1,7 +1,4 @@
-[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://xydvn1rjlpx8"]
-
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_e4eey"]
-input_name = "time"
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://xydvn1rjlpx8"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_kr7b4"]
 output_port_for_preview = 0
@@ -9,13 +6,6 @@ source = 5
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_mi35n"]
 parameter_name = "Texture2DParameter"
-
-[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_r0vif"]
-output_port_for_preview = 1
-default_input_values = [0, Vector2(0, 0)]
-expanded_output_ports = [0]
-op_type = 0
-function = 26
 
 [sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_3jp0v"]
 operator = 4
@@ -78,16 +68,12 @@ void fragment() {
 
 }
 "
-nodes/fragment/2/node = SubResource("VisualShaderNodeInput_e4eey")
-nodes/fragment/2/position = Vector2(-600, 200)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_kr7b4")
 nodes/fragment/3/position = Vector2(-120, 440)
 nodes/fragment/4/node = SubResource("VisualShaderNodeTexture2DParameter_mi35n")
-nodes/fragment/4/position = Vector2(-700, 340)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorFunc_r0vif")
-nodes/fragment/5/position = Vector2(-340, 180)
+nodes/fragment/4/position = Vector2(-580, 360)
 nodes/fragment/6/node = SubResource("VisualShaderNodeColorOp_3jp0v")
 nodes/fragment/6/position = Vector2(80, 220)
 nodes/fragment/7/node = SubResource("VisualShaderNodeColorConstant_cu4nu")
 nodes/fragment/7/position = Vector2(-500, 100)
-nodes/fragment/connections = PackedInt32Array(6, 0, 0, 0, 7, 0, 6, 0, 4, 0, 3, 2, 3, 0, 6, 1, 2, 0, 5, 0)
+nodes/fragment/connections = PackedInt32Array(6, 0, 0, 0, 7, 0, 6, 0, 4, 0, 3, 2, 3, 0, 6, 1)

@@ -84,7 +84,7 @@ func set_shaker_preset(value: ShakerPreset3D) -> void:
 
 func get_shaker_preset() -> ShakerPreset3D:
 	return shakerPreset
-	
+
 # Handles timeline progress
 func _on_timeline_progress(value: float) -> void:
 	timer = value

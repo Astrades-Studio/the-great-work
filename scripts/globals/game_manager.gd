@@ -7,6 +7,7 @@ const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 const MAIN_MENU = "res://scenes/ui/main_menu.tscn"
 
 const SORROW_SONG = preload("res://assets/sounds/music/sorrow_song.tres")
+const INTERACTIVE_HIGHLIGHT = preload("res://assets/ui/crosshairs/crosshair180.png")
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 20
 const INITIAL_FOG_DENSITY := 0.04
@@ -131,6 +132,8 @@ signal request_debug_panel
 # Game State Signals
 signal game_over
 signal game_started
+signal cutscene_started
+signal cutscene_finished
 
 # Game Progression Signals
 signal lamp_collected

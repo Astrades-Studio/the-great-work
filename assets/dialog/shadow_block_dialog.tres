@@ -11,12 +11,12 @@ dialog_text = "So this is the shadow self..."
 [sub_resource type="Resource" id="Resource_n8440"]
 script = ExtResource("1_ebib6")
 dialog_speaker = "Melchiades"
-dialog_text = "It's blocking my path"
+dialog_text = "It's blocking my path."
 
 [sub_resource type="Resource" id="Resource_6h5q2"]
 script = ExtResource("1_ebib6")
 dialog_speaker = "Melchiades"
-dialog_text = "I need to get rid of it. Something bright might help."
+dialog_text = "I need to get rid of it. That recipe for an illuminant could be useful. I should read it carefully."
 
 [resource]
 script = ExtResource("2_hccjr")

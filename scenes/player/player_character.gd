@@ -49,6 +49,20 @@ func _ready() -> void:
 	super()
 #	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
 	GameManager.player = self # Assign this node to the Autoload for global reference
+	GameManager.cutscene_started.connect(_on_cutscene_started)
+	GameManager.cutscene_finished.connect(_on_cutscene_finished)
+
+
+func _on_cutscene_started():
+	self.hide()
+	$HandLayer.hide()
+	$HUDLayer.hide()
+
+func _on_cutscene_finished():
+	self.show()
+	$HandLayer.show()
+	$HUDLayer.show()
+
 
 func _input(event: InputEvent) -> void:
 	# Player should not move in other game states
@@ -94,11 +108,6 @@ func drop_ingredient() -> void:
 		return
 	if ingredient_in_hand.get_parent() == null:
 		ingredient_in_hand.queue_free()
-
-	# Stop Axel from dropping the stone
-	#if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
-		#DialogManager.create_dialog_piece("I have no need of parting with it.")
-		#return
 
 	var target_position: Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
 	var target_node = GameManager.ingredient_layer

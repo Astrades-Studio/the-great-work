@@ -14,7 +14,7 @@ gradient = SubResource("Gradient_bs1j5")
 [resource]
 frames = 6
 frame_0/texture = SubResource("GradientTexture2D_y1or0")
-frame_0/duration = 3.0
+frame_0/duration = 0.3
 frame_1/texture = ExtResource("1_2ghcu")
 frame_1/duration = 0.3
 frame_2/duration = 0.5

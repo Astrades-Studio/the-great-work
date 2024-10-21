@@ -66,10 +66,10 @@ func _reset() -> void:
 func _initalize_prev_positions() -> void:
 	_last_position_shake.resize(Targets.size())
 	_last_position_shake.fill(Vector3.ZERO)
-	
+
 	_last_scale_shake.resize(Targets.size())
 	_last_scale_shake.fill(Vector3.ZERO)
-	
+
 	_last_rotation_shake.resize(Targets.size())
 	_last_rotation_shake.fill(Vector3.ZERO)
 
@@ -92,7 +92,7 @@ func _progress_shake() -> void:
 	var _ease_in: float = 1.0
 	var _ease_out: float = 1.0
 	var _final_duration: float = duration if (duration > 0 && !_fading_out) else 1.0
-	
+
 	_ease_in = ease((timer) /_final_duration, fade_in)
 	_ease_out = ease(1.0-(max((timer-_timer_offset), 0.0))/_final_duration, fade_out)
 
@@ -103,20 +103,20 @@ func _progress_shake() -> void:
 	var _shake_position: Array[Vector3] = []
 	var _shake_rotation: Array[Vector3] = []
 	var _shake_scale: Array[Vector3] = []
-	
+
 	var _count:int =(Targets.size() if randomize else 1)
-	
+
 	_shake_position.resize(_count)
 	_shake_position.fill(Vector3.ZERO)
 	_shake_rotation.resize(_count)
 	_shake_rotation.fill(Vector3.ZERO)
 	_shake_scale.resize(_count)
 	_shake_scale.fill(Vector3.ZERO)
-	
+
 	for _index in _count:
 		var _randomized: float = (_seed * (float(_index+1) / Targets.size())) if randomize else 0.0
 		if _last_position_shake.size() != _count: _initalize_prev_positions()
-		
+
 		# Shaker Preset
 		if shakerPreset != null:
 			var _value:float = timer + _randomized
@@ -124,7 +124,7 @@ func _progress_shake() -> void:
 			_shake_position[_index] += (shakerPreset.get_value(_value, ShakerPreset3D.Categories.POSITION) * _strength)
 			_shake_rotation[_index] += (shakerPreset.get_value(_value, ShakerPreset3D.Categories.ROTATION) * _strength * (PI/2.0))
 			_shake_scale[_index] += (shakerPreset.get_value(_value, ShakerPreset3D.Categories.SCALE) * _strength)
-		
+
 		# External Shake Addition
 		for external_shake:ExternalShake in _external_shakes:
 			var _real_time:float = min(timer-external_shake.start_time, external_shake.duration)
@@ -139,17 +139,17 @@ func _progress_shake() -> void:
 			_shake_position[_index] = _mode_value[0] + (external_shake.preset.get_value(_value, ShakerPreset3D.Categories.POSITION) * _strength)
 			_shake_rotation[_index] = _mode_value[1] +(external_shake.preset.get_value(_value, ShakerPreset3D.Categories.ROTATION) * _strength * (PI/2.0))
 			_shake_scale[_index] = _mode_value[2] + (external_shake.preset.get_value(_value, ShakerPreset3D.Categories.SCALE) * _strength)
-			
+
 			if _real_time >= external_shake.duration:
 				_external_shakes.erase(external_shake)
-		
+
 		# Shake Emitter
 		for _child in get_children():
 			if _child is ShakerReceiver3D:
 				_shake_position[_index] += _child.position_offset
 				_shake_rotation[_index] += _child.rotation_offset
 				_shake_scale[_index] += _child.scale_offset
-		
+
 	for index: int in Targets.size():
 		var target: Node3D = Targets[index]
 		if !is_instance_valid(target):
@@ -158,12 +158,12 @@ func _progress_shake() -> void:
 			if Targets.size() <= 0:
 				shake_finished.emit()
 				break
-		
+
 		var _i: int = fmod(index, _shake_position.size())
 		target.position += -_last_position_shake[_i] + _shake_position[_i]
 		target.rotation += -_last_rotation_shake[_i] + _shake_rotation[_i]
 		target.scale += -_last_scale_shake[_i] + _shake_scale[_i]
-		
+
 	_last_position_shake = _shake_position
 	_last_rotation_shake = _shake_rotation
 	_last_scale_shake = _shake_scale
@@ -234,7 +234,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 	if !custom_target:
 		if not get_parent() is Node3D:
 			return ["Parent must be Node3D"]
-		
+
 	return []
 
 # Sets the shake progress

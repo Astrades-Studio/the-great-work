@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=36 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -200,6 +200,14 @@ RotationShake = Array[ExtResource("17_vkl3b")]([])
 ScaleShake = Array[ExtResource("17_vkl3b")]([])
 bake_internal = 64
 __follow_timeline = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45m5s"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(1, 1, 1, 0.337255)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ec3pp"]
+radius = 6.0
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -463,22 +471,25 @@ layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
 
 [node name="ShadowOrbit" type="Marker3D" parent="."]
-transform = Transform3D(0.898249, 0, -0.442135, 0, 1.00036, 0, 0.442251, 0, 0.897988, -5.24521e-06, 1.65399, -6.85453e-06)
+transform = Transform3D(0.340162, 0, 0.940246, 0, 1.00036, 0, -0.940472, 0, 0.340084, -5.24521e-06, 1.65399, -6.85453e-06)
 script = ExtResource("12_kjypc")
-MIN_ROTATION_SPEED = 0.001
 active = true
+getting_closer = true
+distance = 5.0
 
 [node name="ShadowDistance" type="Marker3D" parent="ShadowOrbit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01772, 1.16873, 4.96959)
+transform = Transform3D(0.991345, 0, -0.131323, 0, 1, 0, 0.131325, 0, 0.991331, 0.11555, -0.767743, 5)
 metadata/_edit_group_ = true
 
 [node name="Skull" parent="ShadowOrbit/ShadowDistance" instance=ExtResource("13_rlkko")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.350875, -0.180978, -0.0409057)
 
-[node name="Area3D" type="Area3D" parent="ShadowOrbit/ShadowDistance/Skull"]
+[node name="Hitbox" type="Area3D" parent="ShadowOrbit/ShadowDistance/Skull"]
+collision_layer = 128
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowOrbit/ShadowDistance/Skull/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowOrbit/ShadowDistance/Skull/Hitbox"]
 shape = SubResource("SphereShape3D_3adb8")
 
 [node name="SkullApproachSound" type="AudioStreamPlayer3D" parent="ShadowOrbit/ShadowDistance"]
@@ -490,17 +501,26 @@ unique_name_in_owner = true
 stream = ExtResource("15_48p6r")
 
 [node name="ShakerComponent3D" type="Node3D" parent="ShadowOrbit/ShadowDistance" node_paths=PackedStringArray("Targets")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.564997, -0.410674, -4.06295)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 script = ExtResource("16_gknc6")
 custom_target = true
 Targets = [NodePath("..")]
 randomize = true
-is_playing = true
 AutoPlay = true
 shakerPreset = SubResource("Resource_rp725")
 
-[node name="Timer" type="Timer" parent="ShadowOrbit"]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ShadowOrbit/ShadowDistance"]
+material = SubResource("StandardMaterial3D_45m5s")
 
-[connection signal="body_entered" from="ShadowOrbit/ShadowDistance/Skull/Area3D" to="ShadowOrbit" method="_on_area_3d_body_entered"]
+[node name="Hurtbox" type="Area3D" parent="ShadowOrbit/ShadowDistance"]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowOrbit/ShadowDistance/Hurtbox"]
+shape = SubResource("SphereShape3D_ec3pp")
+
+[connection signal="body_entered" from="ShadowOrbit/ShadowDistance/Skull/Hitbox" to="ShadowOrbit" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="ShadowOrbit/ShadowDistance/Hurtbox" to="ShadowOrbit" method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="ShadowOrbit/ShadowDistance/Hurtbox" to="ShadowOrbit" method="_on_hurtbox_body_exited"]
 
 [editable path="PanicEffects"]

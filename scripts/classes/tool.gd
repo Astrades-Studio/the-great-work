@@ -23,10 +23,11 @@ const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var og_name : String = self.name
 @onready var wait_label: Label3D = $WaitLabel
 @onready var timer: Timer = %Timer
-
+@onready var interactive_highlight : InteractiveHighlight= $InteractiveHighlight
 
 var target_spot : Node3D
 signal ingredient_ready
+signal ingredient_delivered
 
 var processing : bool
 var input_type : Ingredient.Type
@@ -74,14 +75,14 @@ func _ready():
 		wait_label.text = str(wait_time)
 	timer.timeout.connect(_on_timer_timeout)
 
+	ingredient_ready.connect(interactive_highlight._on_ingredient_ready)
+	ingredient_delivered.connect(interactive_highlight.reset)
+
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
 	self.connect("interacted", on_tool_use)
 	assert(self.tool_type != null, "Tool has no type")
 
 func on_tool_use() -> bool:
-	# if GameManager.flare_recipe_read == false:
-	# 	DialogManager.create_dialog_piece("I should look for Adam first.")
-	# 	return false
 	if processing:
 		DialogManager.create_dialog_piece("It's processing. I need to wait.")
 		return false
@@ -321,7 +322,7 @@ func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	if ingredient is not Flare:
 		GameManager.ingredient_spawned(ingredient)
 	GameManager.player.ingredient_in_hand = ingredient
-
+	ingredient_delivered.emit()
 
 func spawn_at_target(ingredient : Ingredient) -> void:
 	add_child(ingredient, true)

@@ -6,7 +6,7 @@ const SHADOW_BLOCK_DIALOG = preload("res://assets/dialog/shadow_block_dialog.tre
 func _on_body_entered(body: Node3D) -> void:
 	if GameManager.shadow_dispelled:
 		return
-	if body is Player and GameManager.flare_already_made:
+	if body is Player and !GameManager.flare_already_made:
 		DialogManager.play_dialog(SHADOW_BLOCK_DIALOG)
 		await DialogManager.dialog_finished
 
