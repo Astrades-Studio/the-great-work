@@ -45,7 +45,7 @@ func enable_os_popup_btns(b:bool):
 	for w in get_children():
 		#maybe there's a better way to get node type
 		if !w.has_method("switch_to_os_window"):
-			continue 
+			continue
 		w._pop_btn.visible = b
 
 func get_enable_os_popup_btns() -> bool:
@@ -56,7 +56,7 @@ func set_os_window_bg_color(c:Color):
 	for w in get_children():
 		#maybe there's a better way to get node type
 		if !w.has_method("switch_to_os_window"):
-			continue 
+			continue
 		if w._os_window != null:
 			w._os_window.get_child(0).color = c
 

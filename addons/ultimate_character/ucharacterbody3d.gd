@@ -6,7 +6,7 @@ class_name UCharacterBody3D
 
 @onready var body: Node3D = $Body
 @onready var head = $Body/Head
-@onready var camera : Camera3D = $Body/Head/CameraMarker3D/Camera3D
+@onready var camera : Camera3D = %Camera3D
 @onready var camera_target = $Body/Head/CameraMarker3D
 @onready var head_position: Vector3 = head.position
 @onready var item_camera: Camera3D = %ItemCamera

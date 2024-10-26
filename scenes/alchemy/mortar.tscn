@@ -69,6 +69,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00105712, 0.187664, -0.004
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600002, 0)
 visible = false
 billboard = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.333333)
 text = "4"
 
 [node name="InteractionComponent" type="Node" parent="."]
@@ -104,3 +106,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jjr7t")
 
 [node name="InteractiveHighlight" parent="." instance=ExtResource("6_hboyq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.293103, 0)
+visibility_range_end = 1.1

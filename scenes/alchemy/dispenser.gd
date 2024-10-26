@@ -3,10 +3,28 @@ extends StaticBody3D
 
 @export var ingredient_type : Ingredient.Type
 
+const INTERACTIVE_HIGHLIGHT_SCENE := preload("res://scenes/interactable/interactive_highlight.tscn")
+
 func _ready() -> void:
 	assert(self.has_user_signal("interacted"), "Dispenser has no interacted signal")
 	self.connect("interacted", request_ingredient.bind(ingredient_type))
 	GameManager.dispensers.append(self)
+
+	var highlight = INTERACTIVE_HIGHLIGHT_SCENE.instantiate()
+	add_child(highlight, true)
+	#Get the mesh in children
+
+	var mesh
+	for child in get_children():
+		if child is MeshInstance3D:
+			mesh = child
+			break
+
+	assert(mesh, "Dispenser has no mesh")
+		# get AABB
+	var aabb : AABB = mesh.get_aabb()
+		# get top of AABB
+	highlight.global_position = mesh.global_position + Vector3(0, aabb.size.y, 0)
 
 
 func request_ingredient(_ingredient_type : Ingredient.Type) -> void:

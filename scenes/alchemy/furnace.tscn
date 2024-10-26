@@ -449,6 +449,8 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115037, 0.988305, -0.0211237)
 visible = false
 billboard = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.333333)
 text = "5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

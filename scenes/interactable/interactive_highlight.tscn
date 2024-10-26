@@ -4,10 +4,8 @@
 [ext_resource type="Script" path="res://scenes/interactable/interactive_highlight.gd" id="2_r7nq7"]
 
 [node name="InteractiveHighlight" type="Sprite3D"]
-visibility_range_begin = 1.0
-visibility_range_begin_margin = 0.8
-visibility_range_end = 3.0
-visibility_range_end_margin = 1.0
+visibility_range_end = 0.6
+visibility_range_end_margin = 1.2
 visibility_range_fade_mode = 1
 pixel_size = 0.0018
 billboard = 1

@@ -692,12 +692,15 @@ transform = Transform3D(-4.37295e-08, -0.00837745, -0.999965, 2.15664e-09, 0.999
 shape = SubResource("SphereShape3D_8i8km")
 
 [node name="InteractiveHighlight" parent="." instance=ExtResource("3_x4wpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.63109, 1.63228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 2.20574, 1.88733)
+pixel_size = 0.005
 
 [node name="WaitLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00470427, 1.36444, 1.88032)
 visible = false
 billboard = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.333333)
 text = "10"
 
 [node name="Timer" type="Timer" parent="."]

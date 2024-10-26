@@ -1,4 +1,4 @@
-[gd_scene load_steps=346 format=4 uid="uid://droqlyqk5h663"]
+[gd_scene load_steps=342 format=4 uid="uid://droqlyqk5h663"]
 
 [ext_resource type="Script" path="res://scenes/house/house.gd" id="1_xsoq0"]
 [ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="2_3jksq"]
@@ -98,13 +98,11 @@
 [ext_resource type="ArrayMesh" uid="uid://h0df1o7xiw7f" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Hanging_Clothes_01b.res" id="86_vr6p8"]
 [ext_resource type="ArrayMesh" uid="uid://drulmn3f1hagf" path="res://assets/models/tools/still/still_01_SM_Stool_01_002.res" id="89_3frc1"]
 [ext_resource type="ArrayMesh" uid="uid://c2kpwj5ciuu0m" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_04g_8.res" id="91_mnwkg"]
-[ext_resource type="ArrayMesh" uid="uid://ci6ytu3sq1f8f" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Cookware_02b.res" id="92_dxgxc"]
 [ext_resource type="ArrayMesh" uid="uid://ba6ugh8ng7bs3" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Cookware_02a.res" id="93_xg00u"]
 [ext_resource type="ArrayMesh" uid="uid://jxm4hlhowskg" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01c.res" id="94_v6qau"]
 [ext_resource type="ArrayMesh" uid="uid://vjqtgayr4km4" path="res://assets/models/old_west/unused/vol5/meshes/old west 5_webp_SM_Rug_01a_001.res" id="95_omlg4"]
 [ext_resource type="ArrayMesh" uid="uid://bxtqp6rmg8ole" path="res://assets/models/old_west/unused/vol5/meshes/old west 5_webp_SM_Chair_04a_001.res" id="96_vqcjc"]
 [ext_resource type="ArrayMesh" uid="uid://dspo6yyw0vde6" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Satchel_01a.res" id="97_tbfpg"]
-[ext_resource type="Texture2D" uid="uid://cnu2no7hlsutu" path="res://assets/textures/Gound_01/brown_mud_leaves_01_disp_1K.jpg" id="97_ygngp"]
 [ext_resource type="ArrayMesh" uid="uid://b0lyw6iojklh4" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Vintage_Clock_01a.res" id="98_lkoca"]
 [ext_resource type="ArrayMesh" uid="uid://pfwlb71mmhm2" path="res://assets/models/old_west/unused/vol2/meshes/old west 2_webp_SM_Cart_01f.res" id="99_hntxv"]
 [ext_resource type="ArrayMesh" uid="uid://bcmc666j5wklx" path="res://assets/models/old_west/unused/vol2/meshes/old west 2_webp_SM_Lumber_01a_002.res" id="100_bb4i1"]
@@ -2056,18 +2054,6 @@ height = 1.43398
 [sub_resource type="BoxShape3D" id="BoxShape3D_olxh2"]
 size = Vector3(0.862183, 1.125, 1.7334)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bor82"]
-resource_name = "Material.197"
-cull_mode = 2
-albedo_color = Color(0.995627, 0.947854, 7.70092e-07, 1)
-albedo_texture = ExtResource("97_ygngp")
-metallic = 0.55
-metallic_specular = 1.0
-roughness = 0.35
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_l7ncx"]
-material = SubResource("StandardMaterial3D_bor82")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jys0"]
 size = Vector3(0.957764, 1.54114, 1)
 
@@ -3642,16 +3628,6 @@ mesh = ExtResource("91_mnwkg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OldWest4WebpSmDryGoods04g8/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0689087, 0.0625, 0.366699)
 shape = SubResource("BoxShape3D_olxh2")
-
-[node name="UrineBucket" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.976082, 0, 0.448968, 0, 1.07439, 0, -0.448968, 0, 0.976082, 6.78995, 0.655548, -7.40921)
-mesh = ExtResource("92_dxgxc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="UrineBucket"]
-transform = Transform3D(0.123951, 0, 0.285328, 0, 0.000158611, 0, -0.269476, 0, 0.131242, 0.00880814, 0.289952, 0.0143969)
-transparency = 0.48
-mesh = SubResource("CylinderMesh_l7ncx")
-skeleton = NodePath("")
 
 [node name="OldWest3WebpSmLantern01c" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.8993, 1.84381, -11.6285)

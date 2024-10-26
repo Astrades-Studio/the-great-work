@@ -103,7 +103,7 @@ func turn_invisible() -> void:
 	#animation_player.play("standing_idle_2")
 	#await get_tree().create_timer(3.0).timeout # timer 3 seconds
 	invisibility_tween = get_tree().create_tween()
-	invisibility_tween.tween_property(material, "shader_parameter/alpha", 1.0, transition_length)
+	invisibility_tween.tween_property(material, "shader_parameter/alpha", 1.0, 1/3)
 	darkness_fx.emitting = false
 	await invisibility_tween.finished
 	hide()

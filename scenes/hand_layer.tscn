@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsq4avl7kdnu7"]
+
+[ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="1_min8n"]
+
+[node name="HandLayer" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="ItemViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="ItemCamera" type="Camera3D" parent="SubViewportContainer/ItemViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38726, 0)
+keep_aspect = 0
+cull_mask = 2
+h_offset = -0.05
+v_offset = -0.025
+current = true
+fov = 97.5
+near = 0.063
+far = 12.79
+
+[node name="Marker3D" type="Marker3D" parent="SubViewportContainer/ItemViewport/ItemCamera"]
+transform = Transform3D(1, 0, 0, 0, 0.990932, 0.134367, 0, -0.134367, 0.990931, 0, 0, -0.121289)
+
+[node name="Hand" type="Node3D" parent="SubViewportContainer/ItemViewport/ItemCamera/Marker3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123455, -0.186833, -0.38092)
+
+[node name="GasLamp" parent="SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("1_min8n")]
+unique_name_in_owner = true
+transform = Transform3D(0.890356, 0.0361809, 0.12946, 0.0116943, 0.843078, -0.316047, -0.133911, 0.314187, 0.833162, -0.250096, -0.147096, -0.314735)
+on_hand = true

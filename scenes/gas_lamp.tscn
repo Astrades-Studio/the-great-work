@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ulupq25c7dy3"]
+[gd_scene load_steps=27 format=4 uid="uid://ulupq25c7dy3"]
 
 [ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="1_i1yuc"]
 [ext_resource type="ArrayMesh" uid="uid://cwmpvgk4mkg2b" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01a5.res" id="2_rhj18"]
@@ -25,50 +25,27 @@ fill_to = Vector2(0.968661, 0.851852)
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-diffuse_mode = 2
 albedo_color = Color(0.677822, 0.343211, 0.0343611, 1)
 albedo_texture = SubResource("GradientTexture2D_jprib")
-albedo_texture_force_srgb = true
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id="Curve_kfn2p"]
-max_value = 3.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_qdqfi"]
-curve = SubResource("Curve_kfn2p")
-
 [sub_resource type="Curve" id="Curve_eey8k"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.492188, 0.260377), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.544964, 0.427373), 0.0, 0.0, 0, 0, Vector2(0.919271, 0.607547), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_ow28t"]
 curve = SubResource("Curve_eey8k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fr5m7"]
-angle_min = -39.1
-angle_max = 55.9
-velocity_pivot = Vector3(0, 1, 0)
 direction = Vector3(0, 0, 0)
 spread = 3.0
-flatness = 1.0
 initial_velocity_min = 477.47
 initial_velocity_max = 707.55
-angular_velocity_min = -504.11
-angular_velocity_max = -1.13002
-orbit_velocity_min = -0.0919999
-orbit_velocity_max = -0.0919999
 velocity_limit_curve = SubResource("CurveTexture_ow28t")
 gravity = Vector3(0, 1, 0)
-linear_accel_min = -75.86
-linear_accel_max = -75.86
-radial_accel_min = -40.23
-radial_accel_max = 11.49
-scale_over_velocity_curve = SubResource("CurveTexture_qdqfi")
 turbulence_noise_strength = 4.15
 turbulence_noise_scale = 2.39
 turbulence_influence_max = 0.191
@@ -213,12 +190,9 @@ ignore_occlusion_culling = true
 amount = 305
 amount_ratio = 0.2833
 lifetime = 2.5
-preprocess = 0.04
 speed_scale = 24.11
 interpolate = false
-fract_delta = false
 local_coords = true
-trail_lifetime = 0.01
 process_material = SubResource("ParticleProcessMaterial_fr5m7")
 draw_pass_1 = SubResource("QuadMesh_fl4fo")
 

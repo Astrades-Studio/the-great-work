@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dihnshs372h54"]
+[gd_scene load_steps=7 format=3 uid="uid://dihnshs372h54"]
 
 [ext_resource type="Texture2D" uid="uid://btg301ch43xdu" path="res://assets/images/sprites/ghost.tres" id="1_7s1tf"]
 [ext_resource type="Material" uid="uid://5s7f67fjftot" path="res://scenes/shadow/skull_dark_fx.tres" id="2_7yiqd"]
@@ -10,6 +10,7 @@ depth_draw_mode = 1
 shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
+albedo_color = Color(1, 1, 1, 0)
 albedo_texture = ExtResource("1_7s1tf")
 billboard_mode = 1
 distance_fade_mode = 1
@@ -18,28 +19,6 @@ distance_fade_max_distance = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_xauyy"]
 material = SubResource("StandardMaterial3D_yao4s")
-
-[sub_resource type="Gradient" id="Gradient_ipjoo"]
-offsets = PackedFloat32Array(0.285714, 1)
-colors = PackedColorArray(0.530075, 0.530075, 0.530075, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ixpis"]
-gradient = SubResource("Gradient_ipjoo")
-fill = 1
-fill_from = Vector2(0.490029, 0.521368)
-fill_to = Vector2(0.826211, 0.196581)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blg4i"]
-transparency = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.197937, 0.197937, 0.197937, 1)
-albedo_texture = SubResource("GradientTexture2D_ixpis")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0f1j1"]
 emission_shape = 1
@@ -68,14 +47,11 @@ sorting_offset = 1e+07
 mesh = SubResource("QuadMesh_xauyy")
 
 [node name="DarkFX" type="GPUParticles3D" parent="."]
-material_override = SubResource("StandardMaterial3D_blg4i")
 amount = 193
 lifetime = 0.5
 interp_to_end = 1.0
 speed_scale = 0.5
 randomness = 1.0
 local_coords = true
-draw_order = 1
-transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_0f1j1")
 draw_pass_1 = SubResource("QuadMesh_fpmpo")

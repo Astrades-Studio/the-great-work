@@ -28,9 +28,21 @@ func _input(event: InputEvent) -> void:
 			if credits.visible:
 				credits.hide()
 
+# Hacky, check if it works
 func _on_new_game_button_pressed() -> void:
-		new_game_requested.emit()
-		SfxManager.play_sound(load("res://assets/sounds/sfx/startnewgame_impact.mp3"), 0.5, 0.0)
+	GameManager.philosopher_stone_recipe_read = false
+	GameManager.alchemy_recipe_read = false
+	GameManager.flare_recipe_read = false
+	GameManager.flare_already_made = false
+	GameManager.lamp_in_hand = false
+	GameManager.first_shadow_encountered = false
+	GameManager.shadow_dispelled = false
+	GameManager.first_shadow_spawned = false
+	GameManager.good_ending = false
+	GameManager.bad_ending = false
+	
+	new_game_requested.emit()
+	SfxManager.play_sound(load("res://assets/sounds/sfx/startnewgame_impact.mp3"), 0.5, 0.0)
 
 
 func _on_settings_button_pressed() -> void:

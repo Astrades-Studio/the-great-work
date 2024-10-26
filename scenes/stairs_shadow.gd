@@ -12,11 +12,23 @@ func _ready() -> void:
 	self.hide()
 	GameManager.flare_read_signal.connect(_manifest)
 	#area_3d.body_entered.connect(_on_area_3d_body_entered)
+	_load()
+
+
+func _load()	-> void:
+	if GameManager.shadow_dispelled:
+		hide()
+		_triggered = true
+	elif GameManager.flare_already_made:
+		show()
+		_triggered = true
+	else:
+		hide()
+		_triggered = false
 
 
 func _manifest():
 	self.show()
-
 
 
 func _process(_delta: float) -> void:
@@ -26,6 +38,12 @@ func _process(_delta: float) -> void:
 		return
 	if flare_reference.active and !_triggered:
 		dispel_shadow()
+
+var shadow_destroyed_dialog = preload("res://scenes/shadow/shadow_destroyed_dialog.tres")
+
+func _on_shadow_destroyed_dialog() -> void:
+	DialogManager.play_dialog(shadow_destroyed_dialog)
+
 
 
 func dispel_shadow() -> void:
@@ -50,3 +68,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if is_instance_valid(body.ingredient_in_hand):
 			if body.ingredient_in_hand is Flare:
 				flare_reference = body.ingredient_in_hand
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body is Player:
+		if is_instance_valid(body.ingredient_in_hand):
+			if body.ingredient_in_hand is Flare:
+				flare_reference = null

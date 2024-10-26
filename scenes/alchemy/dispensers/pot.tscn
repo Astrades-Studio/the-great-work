@@ -17,6 +17,5 @@ shape = SubResource("ConcavePolygonShape3D_l4syj")
 mesh = ExtResource("2_y4017")
 skeleton = NodePath("../../..")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_chlau")
-mesh = NodePath("../Pot")

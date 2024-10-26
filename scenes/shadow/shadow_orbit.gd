@@ -5,8 +5,9 @@ extends Marker3D
 const BURN_FX = preload("res://scenes/shadow/skull_burn_fx.tres")
 const DARK_FX = preload("res://scenes/shadow/skull_dark_fx.tres")
 
+static var MAX_DISTANCE: float = 5.0
+
 @export_group("Constants")
-@export var MAX_DISTANCE: float = 5.0
 @export var STEP_DISTANCE: float = 1.0
 @export var MAX_ROTATION_SPEED: float = 0.2
 @export var MIN_ROTATION_SPEED: float = 0.01
@@ -23,6 +24,7 @@ const DARK_FX = preload("res://scenes/shadow/skull_dark_fx.tres")
 @export var offset_active := false
 @export var getting_closer := false
 @export var distance := MAX_DISTANCE
+@export var chase_target : UCharacterBody3D
 
 # Rotation parameters
 var rotation_speed: float = 0.1
@@ -39,9 +41,10 @@ var flare_references : Array[Flare] = []
 @onready var shaker_component: ShakerComponent3D = $ShadowDistance/ShakerComponent3D
 
 enum State {
+	INACTIVE,
 	WAITING,
 	PURSUING,
-	ORBITING,
+	#ORBITING,
 	RETREATING
 }
 
@@ -51,23 +54,25 @@ var current_state : State = State.WAITING: set = change_state_to
 func change_state_to(state : State) -> void:
 	current_state = state
 	match state:
+		State.INACTIVE:
+			return
+
 		State.WAITING:
 			print("Shadow waiting")
 			await _disappear_gradually()
-			_reset_appear_timer()
+			#_reset_appear_timer()
 
 		State.PURSUING:
 			print("Shadow pursuing")
 			await _appear_gradually()
 			skull_approach_sound.play()
 			await set_distance(distance - STEP_DISTANCE)
-			# await _change_distance_by(STEP_DISTANCE)
 			change_state_to(State.WAITING)
 
-		State.ORBITING:
-			print("Shadow orbiting")
-			await _appear_gradually()
-			change_state_to(State.WAITING)
+		# State.ORBITING:
+		# 	print("Shadow orbiting")
+		# 	await _appear_gradually()
+		# 	change_state_to(State.WAITING)
 
 		State.RETREATING:
 			print("Shadow retreating")
@@ -75,11 +80,12 @@ func change_state_to(state : State) -> void:
 			_change_fx_to(BURN_FX)
 			skull_appear_sound.play()
 			await set_distance(MAX_DISTANCE)
+			await _disappear_gradually()
 			_change_fx_to(DARK_FX)
 			retreated.emit()
 			# await _change_distance_by(MAX_DISTANCE)
-			await get_tree().create_timer(RETREAT_COOLDOWN).timeout
-			change_state_to(State.WAITING)
+			#await get_tree().create_timer(RETREAT_COOLDOWN, false).timeout
+			#change_state_to(State.WAITING)
 
 
 signal appeared
@@ -90,55 +96,54 @@ signal retreated
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	#appeared.connect(_on_appeared)
+
 	GameManager.game_started.connect(start_pursuing)
 	GameManager.tick_countdown.connect(_on_tick_countdown)
 
-	# TODO: write flare reset code
-	# TODO: add cooldown after flare use
-
 	_set_up_initial_conditions()
 
+# Timers
+@export var max_retreat_duration: float = 30.0
+@export var max_visibility_duration: float = 5.0
 
-func set_distance(value):
-	distance = clamp(value, 0.0, MAX_DISTANCE)
-	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(skull_position, "position:z", distance, 0.5)
-	await tween.finished
-
-
-func _reset_appear_timer() -> void:
-	await get_tree().create_timer(VISIBILITY_COOLDOWN).timeout
-	if current_state == State.WAITING:
-		current_state = State.ORBITING
-
-
-func _set_up_initial_conditions() -> void:
-	active = false
-	hide()
-	current_state = State.WAITING
-	await set_distance(MAX_DISTANCE)
-
-
-func start_pursuing() -> void:
-	active = true
-	show()
-	current_state = State.PURSUING
-
-
-func _on_tick_countdown():
-	if current_state == State.WAITING or current_state == State.ORBITING:
-		change_state_to(State.PURSUING)
-
-
-# func _on_appeared() -> void:
-# 	await get_tree().create_timer(VISIBILITY_DURATION).timeout
-	#change_state_to(State.WAITING)
-
+var visibility_timer := 0.0
+var retreat_timer := 0.0
 
 func _process(delta: float) -> void:
-	if !active:
-		return
+	match current_state:
+		State.INACTIVE:
+			return
+
+		State.WAITING:
+			visibility_timer += delta
+			if visibility_timer >= max_visibility_duration:
+				visibility_timer = 0.0
+				_toggle_invisibility()
+
+			if offset_active:
+				time += delta
+				offset = sin(time * FREQUENCY) * MAX_OFFSET
+				skull_position.position.y = offset
+
+			# rotate on the y axis
+			if _rotate_y:
+				rotate_y(rotation_speed * delta)
+
+			# change shaker intensity by distance, the closer to the player, the closer to 0 intensity
+			var intensity = remap(distance, 0.0, MAX_DISTANCE, 0.0, 1.0)
+			shaker_component.intensity = intensity
+
+		State.PURSUING:
+			if !_visible:
+				_appear_gradually()
+
+
+		State.RETREATING:
+			retreat_timer += delta
+			if retreat_timer >= max_retreat_duration:
+				retreat_timer = 0.0
+				change_state_to(State.WAITING)
+			return
 
 	if current_state != State.RETREATING and !Engine.is_editor_hint():
 		if flare_references.size() > 0:
@@ -147,62 +152,75 @@ func _process(delta: float) -> void:
 					change_state_to(State.RETREATING)
 					break
 
-	# change global position by offset
-	if offset_active:
-		time += delta
-		offset = sin(time * FREQUENCY) * MAX_OFFSET
-		skull_position.position.y = offset
+	# follow the chase target gradually
+	if chase_target:
+		var target_position = chase_target.global_position
 
-	# rotate on the y axis
-	if _rotate_y:
-		rotate_y(rotation_speed * delta)
+		if !Engine.is_editor_hint():
+			target_position = chase_target.camera.global_position
 
-	# change shaker intensity by distance, the closer to the player, the closer to 0 intensity
-	var intensity = remap(distance, 0.0, MAX_DISTANCE, 0.0, 1.0)
-	shaker_component.intensity = intensity
+		global_position = global_position.lerp(target_position, delta)
+		#global_position.y = global_position.y + 1.7
 
 
-
-# # Positive values go closer to the player, while negative values go further
-# func _change_distance_by(step : float = STEP_DISTANCE):
-# 	var current_distance := skull_position.position.z
-# 	var new_distance := current_distance + step
-
-# 	# if the new_distance is greater than the initial position, then go back to initial position
-# 	if new_distance < MAX_DISTANCE:
-# 		new_distance = MAX_DISTANCE
-
-# 	var tween: Tween = get_tree().create_tween()
-# 	tween.tween_property(skull_position, "position:z", new_distance, 1.0)
-# 	await tween.finished
+func set_distance(value):
+	distance = clamp(value, 0.0, MAX_DISTANCE)
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(skull_position, "position:z", distance, 1.5)
+	await tween.finished
+	GameManager.shadow_distance_changed.emit(distance)
 
 
-# func _change_movement_pattern() -> void:
-# 	_rotate_x = not _rotate_x
-# 	_randomize_speed()
-# 	_can_change_direction = false
-# 	get_tree().create_timer(2.0).timeout.connect(func(): _can_change_direction = true)
+# func _reset_appear_timer() -> void:
+# 	await get_tree().create_timer(VISIBILITY_COOLDOWN, false).timeout
+# 	if current_state == State.WAITING:
+# 		current_state = State.ORBITING
 
-# 	print("Shadow movement pattern changed")
 
+func _set_up_initial_conditions() -> void:
+	hide()
+	current_state = State.INACTIVE
+	visibility_timer = 0.0
+	retreat_timer = 0.0
+	await set_distance(MAX_DISTANCE)
+
+
+func start_pursuing() -> void:
+	current_state = State.WAITING
+	show()
+
+
+func _on_tick_countdown():
+	if current_state == State.WAITING:
+		change_state_to(State.PURSUING)
 
 
 # Randomize speed
 func _randomize_speed() -> void:
 	rotation_speed = randf_range(MIN_ROTATION_SPEED, MAX_ROTATION_SPEED)
 
+var _visible := false
 
+func _toggle_invisibility() -> void:
+	if _visible:
+		_disappear_gradually()
+	else:
+		_appear_gradually()
+
+
+var transition_duration := 1.0
 func _appear_gradually() -> void:
-	if skull_mesh.visible:
-		print("Skull already visible")
-		return
+	_visible = true
 
-	skull_mesh.visible = true
-	skull_appear_sound.play()
 	var dark_fx : GPUParticles3D = skull_mesh.get_node("DarkFX")
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(skull_mesh.mesh.material, "albedo_color", Color.WHITE, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
-	tween.parallel().tween_property(dark_fx.draw_pass_1.material, "albedo_color", Color.BLACK, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
+	tween.tween_property(skull_mesh.mesh.material, "albedo_color:a", 1, transition_duration).\
+	set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
+	tween.parallel().tween_property(dark_fx.draw_pass_1.material, "albedo_color:a", 1, transition_duration).\
+	set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
 	await tween.finished
 	appeared.emit()
 
@@ -210,23 +228,24 @@ func _appear_gradually() -> void:
 func _disappear_gradually() -> void:
 	var tween : Tween = get_tree().create_tween()
 	var dark_fx : GPUParticles3D = skull_mesh.get_node("DarkFX")
-	tween.tween_property(skull_mesh.mesh.material, "albedo_color", Color.TRANSPARENT, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
-	tween.parallel().tween_property(dark_fx.draw_pass_1.material, "albedo_color", Color.TRANSPARENT, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
+	tween.tween_property(skull_mesh.mesh.material, "albedo_color:a", 0, transition_duration).\
+	set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
+	tween.parallel().tween_property(dark_fx.draw_pass_1.material, "albedo_color:a", 0, transition_duration).\
+	set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SPRING)
+
 	await tween.finished
+	_visible = false
 	disappeared.emit()
-	skull_mesh.visible = false
-	get_tree().create_timer(VISIBILITY_COOLDOWN).timeout.connect(_appear_gradually)
+
+	#skull_mesh.hide()
+	#get_tree().create_timer(VISIBILITY_COOLDOWN, false).timeout.connect(_appear_gradually)
 
 
 func _change_fx_to(fx : Material) -> void:
 	var dark_fx : GPUParticles3D = skull_mesh.get_node("DarkFX")
 	dark_fx.draw_pass_1.material = fx
-
-
-# Kill the player if too close
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Player:
-		GameManager.game_over.emit()
 
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
@@ -237,3 +256,12 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 func _on_hurtbox_body_exited(body: Node3D) -> void:
 	if body is Flare:
 		flare_references.erase(body)
+
+
+# Kill the player if too close
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Player:
+		if current_state == State.RETREATING:
+			return
+
+		GameManager.game_over.emit()

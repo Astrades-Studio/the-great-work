@@ -7,12 +7,15 @@ const IDLE_CROSSHAIR = preload("res://assets/ui/crosshairs/dot_small.png")
 @onready var interaction_label: Label = %InteractionLabel
 @onready var countdown_label: Label = %CountdownLabel
 @onready var state_label: Label = %StateLabel
+@onready var shadow_distance_slider: HSlider = %ShadowDistanceSlider
 
 func _ready() -> void:
 	GameManager.state_label_updated.connect(_update_state_label)
 	GameManager.interaction_label_updated.connect(_update_interaction_label)
 	GameManager.crosshair_signal.connect(_update_crosshair)
 	GameManager.tick_countdown.connect(_update_countdown)
+	GameManager.shadow_distance_changed.connect(_on_shadow_distance_slider_value_changed)
+
 
 func _update_countdown():
 	countdown_label.text = " " + str(GameMain.countdown)
@@ -31,3 +34,7 @@ func _update_interaction_label(string: String):
 
 func _update_state_label(state : GameManager.GameState):
 	state_label.text = GameManager.GameState.keys()[state]
+
+func _on_shadow_distance_slider_value_changed(value):
+	shadow_distance_slider.value = value
+	print("Shadow distance changed: ", value)

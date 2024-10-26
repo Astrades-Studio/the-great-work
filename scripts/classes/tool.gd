@@ -77,6 +77,7 @@ func _ready():
 
 	ingredient_ready.connect(interactive_highlight._on_ingredient_ready)
 	ingredient_delivered.connect(interactive_highlight.reset)
+	ingredient_delivered.connect(GameManager._on_ingredient_delivered)
 
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
 	self.connect("interacted", on_tool_use)
@@ -243,6 +244,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	# If this is the first ingredient, return nothing
 	if !item_1:
 		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
+		interactive_highlight.has_item_inside()
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
 		GameManager.player.ingredient_in_hand = null
 		return Ingredient.Type.NONE

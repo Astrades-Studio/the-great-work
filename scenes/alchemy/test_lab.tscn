@@ -112,10 +112,7 @@ transform = Transform3D(0.116705, 0, -0.993167, 0, 1, 0, 0.993167, 0, 0.116705, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23598, 0.734933, 0)
 
 [node name="Cauldron" parent="Tools" instance=ExtResource("5_5qm7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000734985, -3.66688)
-
-[node name="SpoonPivot" parent="Tools/Cauldron/Pot" index="1"]
-transform = Transform3D(-1.19209e-07, -1.86265e-09, 1, -0.0577033, 0.998334, 0, -0.998334, -0.0577033, -1.19209e-07, 0.037844, 0.222742, -0.000659954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233996, 0.000734747, -9.25781)
 
 [node name="SecretaryDesk" parent="Tools" instance=ExtResource("8_d7yoh")]
 transform = Transform3D(-0.608271, 0, -1.03363, 0, 1.19933, 0, 1.03363, 0, -0.608271, 4.0839, 0.00494397, -0.705085)
@@ -268,5 +265,4 @@ read_stone_trigger_book = true
 [node name="Darkness" parent="Book" instance=ExtResource("25_r5nwv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.430456, 5.32912)
 
-[editable path="Tools/Cauldron"]
 [editable path="Book/Darkness"]

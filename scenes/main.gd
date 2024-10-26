@@ -19,9 +19,11 @@ extends Node3D
 const DEATH_SOUND = preload("res://assets/sounds/sfx/death_sound.mp3")
 
 static var countdown
+static var shadow_layer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	shadow_layer = %Shadows
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	world_environment.environment.adjustment_brightness = GameManager.brightness

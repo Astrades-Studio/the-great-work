@@ -113,6 +113,7 @@ func _on_previous_button_pressed() -> void:
 func _on_next_button_pressed() -> void:
 	if !book:
 		hide_text()
+		return
 	book_page += 1
 	show_book_page(book_page)
 

@@ -205,7 +205,7 @@ func _ready():
 			else:
 				hide()
 	)
-	
+
 	_title_btn.button.gui_input.connect(
 		func(e):
 			if e is InputEventMouseButton and !e.pressed:
@@ -223,13 +223,13 @@ func _ready():
 		$Border.hey_i_am_here()
 
 	_pop_btn.pressed.connect(switch_to_os_window)
-	
+
 	if _container.get_child_count() > 0:
 		_content = _container.get_child(0)
-		
+
 	if get_parent().has_method("get_enable_os_popup_btns"):
 		_pop_btn.visible = get_parent().get_enable_os_popup_btns()
-	
+
 	# feature: foldable window
 	title_btn_clicked.connect(
 		func():

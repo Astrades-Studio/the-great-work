@@ -128,6 +128,7 @@ signal crosshair_signal(crosshair : InteractionComponent.InteractionType)
 signal state_label_updated(state : GameState)
 signal request_book_UI(book : BookPages)
 signal request_debug_panel
+signal shadow_distance_changed(distance : float)
 
 # Game State Signals
 signal game_over
@@ -167,7 +168,9 @@ func _ready() -> void:
 	alchemy_read_signal.connect(_on_read_alchemy_trigger_book)
 	flare_read_signal.connect(_on_read_flare_trigger_book)
 	flare_created.connect(_on_flare_created)
+	shadow_distance_changed.connect(_on_shadow_distance_changed)
 	#assign_random_ingredient_to_each_dispenser()
+
 
 
 
@@ -286,6 +289,7 @@ func _on_read_flare_trigger_book():
 
 
 func _on_flare_created():
+	flare_read_signal.emit()
 	flare_already_made = true
 	update_darkness_effect(1)
 
@@ -341,3 +345,36 @@ func _on_stone_consumed():
 	ovani_player.FadeVolume(-80, 3)
 	good_ending = true
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
+
+
+func _on_shadow_distance_changed(distance: float):
+	if distance == 3.0:
+		DialogManager.create_subtitles_piece("The darkness is closing in on me. I need to hurry.")
+	elif distance == 2.0:
+		DialogManager.create_subtitles_piece("It's almost upon me, I need a flare.")
+
+
+const EYE_SCENE = preload("res://scenes/shadow/eyes.tscn")
+var shadow_chance : Array[bool]= []
+
+func _on_ingredient_delivered():
+	if shadow_chance.is_empty():
+		shadow_chance = [false, false, true]
+		shadow_chance.shuffle()
+
+	var result : bool = shadow_chance.pop_front()
+	print("Shadow chance: " + str(result))
+	if !result:
+		return
+
+	# get the camera direction
+	var camera_direction = player.camera.global_basis.z
+
+	var player_position = player.global_position
+	var target_position = player_position + camera_direction * 2
+
+	var eye = EYE_SCENE.instantiate()
+	GameMain.shadow_layer.add_child(eye)
+	eye.global_position = target_position
+	eye.global_position.y = player.camera.global_position.y
+	pass

@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://do28tldp5wxqf" path="res://assets/sounds/sfx/shadow/Shadow_01.wav" id="8_luco3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mbi5d"]
-radius = 3.0
+radius = 1.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mi1op"]
 transparency = 1
@@ -75,6 +75,7 @@ __follow_timeline = false
 
 [node name="Eyes" type="Node3D"]
 script = ExtResource("1_p4gwu")
+_range = 1.35
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 64
@@ -84,7 +85,7 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_mbi5d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0376172, -0.0234285, 0.0145491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0489383, -0.088625, 0.035041)
 material_override = SubResource("StandardMaterial3D_mi1op")
 mesh = SubResource("QuadMesh_o3cxg")
 
