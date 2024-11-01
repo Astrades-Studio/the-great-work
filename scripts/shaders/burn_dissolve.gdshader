@@ -20,4 +20,3 @@ void fragment() {
    EMISSION = vec3(emission_value * emission_amount * emission_color.rgb);
    ALPHA = smoothstep(dissolve_amount - burn_size, dissolve_amount, sample);
 }
-

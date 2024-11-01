@@ -1,28 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6ymtpobcr18y"]
+[gd_scene load_steps=12 format=3 uid="uid://c6ymtpobcr18y"]
 
 [ext_resource type="Script" path="res://scripts/classes/ingredient.gd" id="1_5x7f5"]
-[ext_resource type="ArrayMesh" uid="uid://bha68ae6dp0ln" path="res://assets/models/ingredients/the_stone.res" id="1_gqtwh"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_dqgx6"]
+[ext_resource type="Shader" path="res://scripts/shaders/crystal.gdshader" id="4_a0lkk"]
+[ext_resource type="ArrayMesh" uid="uid://b0vxy3wdrl2jn" path="res://assets/models/ingredients/head.res" id="4_i4io4"]
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_txgpg"]
+[ext_resource type="Texture2D" uid="uid://dia5bbs6o82bb" path="res://assets/textures/meat/Abstract_Organic_003_basecolor.jpg" id="6_ykr57"]
+[ext_resource type="Texture2D" uid="uid://cvl17pb545dff" path="res://assets/textures/meat/Abstract_Organic_003_normal.jpg" id="7_losc5"]
+[ext_resource type="Texture2D" uid="uid://ntid8pe4m8km" path="res://assets/textures/meat/Abstract_Organic_003_roughness.jpg" id="8_oiqti"]
+[ext_resource type="Texture2D" uid="uid://dpv1uryqlfvr3" path="res://assets/textures/meat/Abstract_Organic_003_height.png" id="9_53gjn"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_22en1"]
-points = PackedVector3Array(0.0034, 0.00896984, 0.0442311, -0.00953485, -0.0124045, -0.0434049, -0.0197701, -0.0184529, -0.0402639, 0.048925, -0.0363138, 0.0127437, 0.0637023, 0.0199054, -0.000248076, -0.0659733, 0.00919687, 0.0192341, -0.0137654, 0.0391733, -0.0152746, -0.0451249, -0.035366, 0.00608247, 0.0590125, -0.0123114, -0.0280467, -0.0157482, 0.0409534, 0.0210435, -0.057552, 0.0201305, -0.0220383, 0.0612941, 0.000511971, 0.0254748, 0.026969, 0.00265562, -0.0409713, 0.00550048, -0.0416729, -0.00655596, -0.0579969, -0.0104082, -0.0287811, -0.00712181, -0.0352786, 0.0229206, -0.0243507, 0.00691271, 0.0445871, 0.0640535, 0.0113571, -0.0219213, 0.0726136, -0.00163406, -0.00241401, 0.0609355, 0.0239551, 0.00827424, -0.0614337, -0.0232357, 0.0105394, -0.0395191, -0.0273699, -0.0324424, 0.033345, -0.0208666, -0.0344776, 0.0246634, 0.0068843, 0.0422868, -0.0480994, 0.0305679, 0.00617314, -0.0027981, 0.0377388, -0.0188384, 0.0118635, 0.00261647, -0.0425858, -0.0669293, -0.00163471, 0.00630129, -0.0571401, 0.0243173, 0.0127071, -0.0241749, 0.0111088, 0.0443099, -0.045426, -0.035582, -0.00235437, 0.0620675, -0.00381299, 0.0258041)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wv164"]
+render_priority = 0
+shader = ExtResource("4_a0lkk")
+shader_parameter/albedo = Color(1, 0.2, 0.2, 0.894118)
+shader_parameter/albedo_texture = ExtResource("6_ykr57")
+shader_parameter/roughness = 0.695
+shader_parameter/roughness_texture = ExtResource("8_oiqti")
+shader_parameter/refraction = 0.350001
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_refraction = ExtResource("9_53gjn")
+shader_parameter/normal_strength = 2.074
+shader_parameter/normal_map = ExtResource("7_losc5")
+shader_parameter/edge_color = Color(0.98, 0.1274, 0.34055, 0.756863)
+shader_parameter/surface_contribution = 0.765
+shader_parameter/specular_contribution = 3.0
+shader_parameter/refraction_contribution = -7.24
+shader_parameter/uv1_scale = Vector3(5, 5, 1)
+shader_parameter/uv1_offset = Vector3(1, 1, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c8tdf"]
+points = PackedVector3Array(-0.0605735, 0.107232, -0.0528378, 0.0843283, 0.0868241, -0.00297981, 0.0844204, 0.066025, -0.00298305, -0.0485951, 0.00962573, 0.0995556, -0.00816934, 0.00651766, -0.0684298, -0.0143833, 0.121582, 0.0497778, 0.0306564, 0.125213, -0.0768795, 0.0353808, -0.00905555, 0.0746472, -0.0734858, 0.0158583, -0.0279683, -0.0858025, 0.0749444, 0.0299461, 0.0692251, 0.0334685, -0.0503447, 0.0278012, 0.155064, -0.0237205, -0.00187684, 0.0749444, -0.0956157, 0.0820379, 0.00339315, 0.0279878, 0.0445431, 0.0691495, 0.0550904, -0.0284135, 0.145741, -0.0472129, -0.0361671, -0.00593104, -0.0466594, 0.0723212, 0.0897706, -0.065285, 0.0626381, 0.133561, -0.00585967, 0.0447191, -0.00905555, -0.018652, -0.0423811, -0.00282298, 0.0964371, 0.0369919, 0.0719731, -0.0926668, -0.0640619, 0.0631089, -0.059208, -0.0137414, 0.113511, -0.089037, -0.0514786, 0.130397, -0.0116699, -0.0677682, 0.0390231, 0.0808502, 0.0186174, 0.0457251, 0.0760219, 0.0632301, 0.13117, -0.0384735, -0.00193797, 0.11849, 0.0528767, 0.0711529, 0.09245, 0.0233453, -0.0237217, 0.00962573, -0.0715482, -0.0790903, 0.0868136, -0.0237615)
 
 [node name="TheStone" type="RigidBody3D"]
 collision_layer = 4
 script = ExtResource("1_5x7f5")
 type = 21
 
-[node name="TheStone" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.20224, 0, 0, 0, 1.20224, 0, 0, 0, 1.20224, 0, 0, 0)
-mesh = ExtResource("1_gqtwh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.20224, 0, 0, 0, 1.20224, 0, 0, 0, 1.20224, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_22en1")
-
 [node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_dqgx6")
 
 [node name="IngredientComponent" type="Node" parent="."]
 script = ExtResource("4_txgpg")
+
+[node name="rocky body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.140521, 0.288594, -0.615681, 0.488472, 0.394505, 0.296407, 0.473017, -0.493128, -0.123189, 0, -0.0396339, 0)
+mesh = ExtResource("4_i4io4")
+surface_material_override/0 = SubResource("ShaderMaterial_wv164")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.140521, 0.288594, -0.615681, 0.488472, 0.394505, 0.296407, 0.473017, -0.493128, -0.123189, 0, -0.0396339, 0)
+shape = SubResource("ConvexPolygonShape3D_c8tdf")

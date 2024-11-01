@@ -14,7 +14,7 @@ extends Node3D
 
 var active : bool = false
 var player_ref : Player
-var max_lifetime := 3.0
+var max_lifetime := 2.0
 var current_lifetime := 0.0
 
 func _ready() -> void:
@@ -25,6 +25,7 @@ func _ready() -> void:
 	active = false
 	collision_shape_3d.shape.radius = _range
 	_appear_gradually()
+	GameManager.flare_read_signal.connect(func(): queue_free())
 
 
 func _process(delta: float) -> void:
@@ -53,7 +54,7 @@ func _disappear_gradually() -> void:
 	audio_stream_player_3d.play()
 
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(material, "albedo_color", Color.TRANSPARENT, 3.0)
+	tween.tween_property(material, "albedo_color", Color.TRANSPARENT, 2.0)
 	await tween.finished
 
 	queue_free()

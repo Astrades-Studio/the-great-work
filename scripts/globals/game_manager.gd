@@ -332,7 +332,7 @@ func reset_progress():
 	first_shadow_spawned = false
 	good_ending = false
 	bad_ending = false
-
+	alchemy_recipe_read = false
 
 func clear_arrays():
 	spawned_ingredients.clear()

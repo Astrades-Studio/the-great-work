@@ -226,7 +226,7 @@ transform = Transform3D(0.394864, 0, 0, 0, 0.394864, 0, 0, 0, 0.394864, 0, -0.00
 shape = SubResource("BoxShape3D_cnbm5")
 
 [node name="Gold" parent="." instance=ExtResource("16_hxjpd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.416349, 0, -0.363077)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.131248, 0, -0.80727)
 
 [node name="Silver" parent="." instance=ExtResource("17_fd3fx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.807226)

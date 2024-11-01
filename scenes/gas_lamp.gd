@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 		light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 		return
 
-	if active:
+	if active and on_hand:
 		var amplitude = (max_value - min_value) / 2.0
 		var offset = (max_value + min_value) / 2.0
 		var sine = sin(speed * time_passed)

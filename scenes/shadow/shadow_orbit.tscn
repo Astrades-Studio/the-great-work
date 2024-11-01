@@ -57,7 +57,7 @@ albedo_color = Color(1, 1, 1, 0.337255)
 radius = 6.0
 
 [node name="ShadowOrbit" type="Marker3D"]
-transform = Transform3D(-0.368393, 0, -0.934286, 0, 1.00036, 0, 0.934441, 0, -0.368338, -5.24521e-06, 1.65399, -6.85453e-06)
+transform = Transform3D(0.616268, 0, 0.793376, 0, 1.00036, 0, -0.793541, 0, 0.616157, -5.24521e-06, 1.65399, -6.85453e-06)
 script = ExtResource("1_po2my")
 active = true
 distance = 5.0
@@ -80,10 +80,16 @@ shape = SubResource("SphereShape3D_3adb8")
 [node name="SkullApproachSound" type="AudioStreamPlayer3D" parent="ShadowDistance"]
 unique_name_in_owner = true
 stream = ExtResource("3_jq05p")
+volume_db = -10.0
+max_db = -5.0
+bus = &"SFX"
 
 [node name="SkullAppearSound" type="AudioStreamPlayer3D" parent="ShadowDistance"]
 unique_name_in_owner = true
 stream = ExtResource("4_b8sky")
+volume_db = -10.0
+max_db = -5.0
+bus = &"SFX"
 
 [node name="ShakerComponent3D" type="Node3D" parent="ShadowDistance" node_paths=PackedStringArray("Targets")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
@@ -91,13 +97,13 @@ script = ExtResource("5_gtmju")
 custom_target = true
 Targets = [NodePath("..")]
 randomize = true
-is_playing = true
 AutoPlay = true
 shake_speed = 0.5
 shakerPreset = SubResource("Resource_rp725")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="ShadowDistance"]
 transform = Transform3D(0.27516, 0, -0.0600774, 0, 0.281643, 0, 0.0600977, 0, 0.275155, -0.0410487, -0.25132, 0.429943)
+visible = false
 material = SubResource("StandardMaterial3D_45m5s")
 
 [node name="Hurtbox" type="Area3D" parent="ShadowDistance"]

@@ -59,6 +59,7 @@ locked = false
 
 [node name="door_002" type="MeshInstance3D" parent="DoorStatic"]
 transform = Transform3D(-1.0147, 0, 8.74227e-08, 0, 1, 0, -8.87079e-08, 0, -1, 0.00854754, -1.09242, -1.36044e-14)
+layers = 32
 mesh = ExtResource("2_llld5")
 skeleton = NodePath("")
 metadata/ant_landscape = "{  }"

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b2r8s8dyccn0p"
+path.s3tc="res://.godot/imported/salt_MI_Flour_01b_SM_Flour_Med_01a_174_Occlusion-MI_Flour_01b_SM_Flo.webp-8fbaeb3a4b75899f739aaa01c8d4b07b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "086f20c201b775a54cb479534f6cf881"
+}
+
+[deps]
+
+source_file="res://assets/models/props/salt/salt_MI_Flour_01b_SM_Flour_Med_01a_174_Occlusion-MI_Flour_01b_SM_Flo.webp"
+dest_files=["res://.godot/imported/salt_MI_Flour_01b_SM_Flour_Med_01a_174_Occlusion-MI_Flour_01b_SM_Flo.webp-8fbaeb3a4b75899f739aaa01c8d4b07b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/props/salt/salt_MI_Flour_01b_SM_Flour_Med_01a_174_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

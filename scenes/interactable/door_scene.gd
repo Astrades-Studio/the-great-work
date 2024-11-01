@@ -16,7 +16,7 @@ func _ready() -> void:
 	GameManager.flare_read_signal.connect(_unlock_basement_door)
 	if self.has_user_signal("interacted"):
 		self.connect("interacted", Callable(self, "open_door"))
-	
+
 	if GameManager.flare_recipe_read:
 		_unlock_basement_door()
 

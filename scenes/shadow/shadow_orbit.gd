@@ -69,11 +69,6 @@ func change_state_to(state : State) -> void:
 			await set_distance(distance - STEP_DISTANCE)
 			change_state_to(State.WAITING)
 
-		# State.ORBITING:
-		# 	print("Shadow orbiting")
-		# 	await _appear_gradually()
-		# 	change_state_to(State.WAITING)
-
 		State.RETREATING:
 			print("Shadow retreating")
 			await _appear_gradually()
@@ -83,9 +78,6 @@ func change_state_to(state : State) -> void:
 			await _disappear_gradually()
 			_change_fx_to(DARK_FX)
 			retreated.emit()
-			# await _change_distance_by(MAX_DISTANCE)
-			#await get_tree().create_timer(RETREAT_COOLDOWN, false).timeout
-			#change_state_to(State.WAITING)
 
 
 signal appeared
@@ -110,6 +102,8 @@ var visibility_timer := 0.0
 var retreat_timer := 0.0
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint() and !active:
+		return
 	match current_state:
 		State.INACTIVE:
 			return
@@ -139,6 +133,10 @@ func _process(delta: float) -> void:
 
 
 		State.RETREATING:
+			visibility_timer += delta
+			if visibility_timer >= max_visibility_duration:
+				visibility_timer = 0.0
+				_disappear_gradually()
 			retreat_timer += delta
 			if retreat_timer >= max_retreat_duration:
 				retreat_timer = 0.0
@@ -210,6 +208,8 @@ func _toggle_invisibility() -> void:
 
 var transition_duration := 1.0
 func _appear_gradually() -> void:
+	if Engine.is_editor_hint():
+		return
 	_visible = true
 
 	var dark_fx : GPUParticles3D = skull_mesh.get_node("DarkFX")
@@ -226,6 +226,8 @@ func _appear_gradually() -> void:
 
 
 func _disappear_gradually() -> void:
+	if Engine.is_editor_hint():
+		return
 	var tween : Tween = get_tree().create_tween()
 	var dark_fx : GPUParticles3D = skull_mesh.get_node("DarkFX")
 

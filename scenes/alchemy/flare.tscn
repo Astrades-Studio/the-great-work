@@ -114,6 +114,7 @@ visible = false
 layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
 light_energy = 5.0
+light_volumetric_fog_energy = 0.5
 light_bake_mode = 0
 omni_range = 11.182
 

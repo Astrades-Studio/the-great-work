@@ -13,4 +13,4 @@ func _on_body_entered(body: Node3D) -> void:
 		await DialogManager.dialog_finished
 
 		var tween: Tween = get_tree().create_tween()
-		tween.tween_property(body, "global_position:x", (body.global_position.x + 1), 1)
+		tween.tween_property(body, "global_position:x", (body.global_position.x + 0.5), 1)

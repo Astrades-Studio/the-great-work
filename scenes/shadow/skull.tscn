@@ -4,14 +4,13 @@
 [ext_resource type="Material" uid="uid://5s7f67fjftot" path="res://scenes/shadow/skull_dark_fx.tres" id="2_7yiqd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yao4s"]
+render_priority = 127
 blend_mode = 1
 cull_mode = 2
 depth_draw_mode = 1
 shading_mode = 0
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(1, 1, 1, 0)
 albedo_texture = ExtResource("1_7s1tf")
+shadow_to_opacity = true
 billboard_mode = 1
 distance_fade_mode = 1
 distance_fade_min_distance = 5.0

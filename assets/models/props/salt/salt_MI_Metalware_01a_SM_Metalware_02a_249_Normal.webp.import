@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bfoxauoe6xurb"
+path.s3tc="res://.godot/imported/salt_MI_Metalware_01a_SM_Metalware_02a_249_Normal.webp-09e4cd9583e0ab08fc26fd97214d3f3b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "3de6c72cc70e0004a020a887b6b82e2c"
+}
+
+[deps]
+
+source_file="res://assets/models/props/salt/salt_MI_Metalware_01a_SM_Metalware_02a_249_Normal.webp"
+dest_files=["res://.godot/imported/salt_MI_Metalware_01a_SM_Metalware_02a_249_Normal.webp-09e4cd9583e0ab08fc26fd97214d3f3b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/props/salt/salt_MI_Metalware_01a_SM_Metalware_02a_249_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
