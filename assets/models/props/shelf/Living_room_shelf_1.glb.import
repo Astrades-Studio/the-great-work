@@ -48,6 +48,10 @@ _subresources={
 "Glass_001.004": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/models/materials/glass.tres"
+},
+"Inst_Wineglass.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/materials/dirty_glass.tres"
 }
 }
 }

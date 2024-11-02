@@ -36,6 +36,8 @@ size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.41
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 40
@@ -47,6 +49,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_cussw")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Control2" type="Control" parent="HBoxContainer/MarginContainer/HBoxContainer"]

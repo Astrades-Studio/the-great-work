@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkbxmxj6vwxqd"]
+
+[ext_resource type="PackedScene" uid="uid://d0qx6r2ttjw0s" path="res://assets/models/props/shelf/Living_room_shelf_1.glb" id="1_amrbq"]
+[ext_resource type="Shader" path="res://scripts/shaders/crystal.gdshader" id="2_4bho4"]
+[ext_resource type="Texture2D" uid="uid://cr42emvrbpxxl" path="res://assets/models/props/shelf/Living_room_shelf_1_Inst_Shelf_BaseColor.webp" id="2_epfmr"]
+[ext_resource type="Texture2D" uid="uid://442427vuctmv" path="res://assets/models/props/shelf/Living_room_shelf_1_T_Shelf_ARM-Inst_Shelf_MetallicRoughness.webp" id="3_eap6r"]
+[ext_resource type="Texture2D" uid="uid://baup8qwljwirc" path="res://assets/models/props/shelf/Living_room_shelf_1_Inst_Shelf_Normal.webp" id="4_oqq62"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ul78"]
+resource_name = "Inst_Shelf"
+transparency = 2
+alpha_scissor_threshold = 0.3333
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.571649, 0.571649, 0.571649, 1)
+albedo_texture = ExtResource("2_epfmr")
+metallic = 1.0
+metallic_texture = ExtResource("3_eap6r")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_eap6r")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_oqq62")
+ao_enabled = true
+ao_texture = ExtResource("3_eap6r")
+texture_filter = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppcbp"]
+render_priority = 0
+shader = ExtResource("2_4bho4")
+shader_parameter/albedo = Color(1, 0.37, 0.37, 0.643137)
+shader_parameter/roughness = 0.15
+shader_parameter/refraction = 0.5
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/normal_strength = 0.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+shader_parameter/surface_contribution = 0.2
+shader_parameter/specular_contribution = 0.2
+shader_parameter/refraction_contribution = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+
+[node name="Living_room_shelf_1" instance=ExtResource("1_amrbq")]
+visible = false
+metadata/run = false
+
+[node name="Mesh_Shelf_01_001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4ul78")
+
+[node name="Bottle Plug Tall" parent="Tall Glass Bottle_001/Tall Glass Bottle" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_ppcbp")
+
+[node name="Bottle_Tall" parent="Tall Glass Bottle_001/Tall Glass Bottle" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378633, 0, 0.000383124)
+surface_material_override/0 = SubResource("ShaderMaterial_ppcbp")

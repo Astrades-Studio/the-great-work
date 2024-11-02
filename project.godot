@@ -41,7 +41,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 

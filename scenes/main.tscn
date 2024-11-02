@@ -1,7 +1,8 @@
-[gd_scene load_steps=120 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=119 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
+[ext_resource type="Environment" uid="uid://cj4g7vd46ar31" path="res://scenes/house_sky_night_2.tres" id="2_dnui8"]
 [ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
@@ -41,7 +42,6 @@
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="25_bl3ms"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="26_6vqpa"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
-[ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="27_twcex"]
 [ext_resource type="PackedScene" uid="uid://s0i6g8s4kde0" path="res://scenes/shadow/eyes.tscn" id="31_7gv7d"]
 [ext_resource type="ArrayMesh" uid="uid://c6tfiwdiype74" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01a.res" id="32_bggs6"]
@@ -71,8 +71,6 @@
 [ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
 [ext_resource type="Shader" path="res://scripts/pixelize.gdshader" id="68_t3trs"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
-
-[sub_resource type="Environment" id="Environment_p6ssv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1m4ix"]
 height = 1.71703
@@ -917,7 +915,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
-environment = SubResource("Environment_p6ssv")
+environment = ExtResource("2_dnui8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Ambient"]
 process_mode = 3
@@ -994,10 +992,6 @@ transparency = 0.48
 mesh = SubResource("CylinderMesh_px5wa")
 skeleton = NodePath("")
 
-[node name="Pouch" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.848999, 0, -0.0358956, 0, 0.849758, 0, 0.0358956, 0, -0.848999, -8.30824, 0.252136, -2.25262)
-ingredient_type = 22
-
 [node name="GoldCrate" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("17_l46bu")]
 transform = Transform3D(1.15329e-07, 0, -0.879474, 0, 0.879474, 0, 0.879474, 0, 1.15329e-07, -1.90705, -3.89811, 2.44166)
 
@@ -1015,9 +1009,6 @@ transform = Transform3D(0.634802, 0.0935543, -0.76699, 0, 0.992643, 0.121078, 0.
 
 [node name="Bunch" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("23_ned67")]
 transform = Transform3D(0.799447, 0.208075, -0.0123162, -0.197395, 0.740084, -0.309637, -0.0669506, 0.302563, 0.765857, -5.6394, 0.628403, 2.98331)
-
-[node name="Bunch2" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("23_ned67")]
-transform = Transform3D(0.799447, 0.208075, -0.0123162, -0.197395, 0.740084, -0.309637, -0.0669506, 0.302563, 0.765857, -6.71625, 0.403669, -2.28195)
 
 [node name="Dispensers2" type="Node3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
@@ -1603,7 +1594,7 @@ visible = false
 draw_pass_1 = SubResource("QuadMesh_cmg43")
 
 [node name="ShadowOrbit" parent="Level/Shadows" node_paths=PackedStringArray("chase_target") instance=ExtResource("37_1cn3e")]
-transform = Transform3D(0.750231, 0, 0.661827, 0, 1.00036, 0, -0.661857, 0, 0.750191, -11.6819, 0.135766, -5.70202)
+transform = Transform3D(-0.863071, 0, -0.506638, 0, 1.00036, 0, 0.506661, 0, -0.863038, -11.6819, 0.135766, -5.70202)
 chase_target = NodePath("../../../Player")
 
 [node name="Eyes2" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
@@ -1658,15 +1649,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0.336114, 3.67471, -0.950951, -7.77436)
-visible = false
 
 [node name="Candle4" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -4.59837, -1.10324, -6.12458)
-visible = false
 
 [node name="Candle5" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30823, -1.05592, 1.89793)
-visible = false
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -1943,6 +1931,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
+visible = false
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 layer = 3
