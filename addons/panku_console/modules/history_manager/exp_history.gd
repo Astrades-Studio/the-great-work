@@ -86,13 +86,13 @@ func reload():
 	current_page = clamp(current_page, 1, all_pages)
 	page_label.text = " / %d" % all_pages
 	page_ledit.text = str(current_page)
-	
+
 	#remove existing list items
 	var start_idx := (current_page - 1) * items_per_page
 	var end_idx := min(start_idx + items_per_page, item_data.size())
 	for c in item_container.get_children():
 		c.queue_free()
-	
+
 	#add new list items
 	for i in range(start_idx, end_idx):
 		var list_item = exp_item_prefab.instantiate()

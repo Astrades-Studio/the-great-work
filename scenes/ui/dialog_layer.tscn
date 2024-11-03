@@ -16,8 +16,8 @@ anti_aliasing = false
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_1uvho")
 
 [sub_resource type="Gradient" id="Gradient_hownt"]
-offsets = PackedFloat32Array(0, 0.136691, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.316547, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.136691, 0.35514, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.316547, 0, 0, 0, 0.64486, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2drc"]
 gradient = SubResource("Gradient_hownt")
@@ -26,6 +26,10 @@ repeat = 2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nihw"]
 texture = SubResource("GradientTexture2D_m2drc")
+expand_margin_left = 380.0
+expand_margin_top = 115.0
+expand_margin_right = 455.0
+expand_margin_bottom = 70.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv7sd"]
 texture = ExtResource("2_l3aak")
@@ -37,14 +41,14 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 draw_center = false
 
-[sub_resource type="LabelSettings" id="LabelSettings_73h4p"]
+[sub_resource type="LabelSettings" id="LabelSettings_grne1"]
 font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_2r16w"]
+[sub_resource type="LabelSettings" id="LabelSettings_o080s"]
 font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
@@ -125,7 +129,7 @@ size_flags_horizontal = 3
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.72
+size_flags_stretch_ratio = 4.32
 theme_override_styles/panel = SubResource("StyleBoxTexture_1nihw")
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/PanelContainer"]
@@ -148,7 +152,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Placeholder name"
-label_settings = SubResource("LabelSettings_73h4p")
+label_settings = SubResource("LabelSettings_grne1")
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("2_bjys3")
@@ -163,7 +167,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Placeholder text"
-label_settings = SubResource("LabelSettings_2r16w")
+label_settings = SubResource("LabelSettings_o080s")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
@@ -199,6 +203,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

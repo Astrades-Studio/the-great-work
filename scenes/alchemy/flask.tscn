@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsm7lxrw0sdi5"]
+[gd_scene load_steps=15 format=3 uid="uid://dsm7lxrw0sdi5"]
 
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_b0vld"]
 [ext_resource type="ArrayMesh" uid="uid://cj68k6ent27e6" path="res://assets/models/tools/still/still_01_SM_Flask_02_001.res" id="1_yx462"]
-[ext_resource type="Texture2D" path="res://assets/shaders/boiling_noise.tres" id="3_u68tv"]
+[ext_resource type="Texture2D" uid="uid://3vgfsjeti7nk" path="res://assets/shaders/boiling_noise.tres" id="3_u68tv"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_xclvp"]
 [ext_resource type="AudioStream" uid="uid://dyco67xmd824" path="res://assets/sounds/sfx/Bubbles Short A.wav" id="5_oks70"]
+[ext_resource type="PackedScene" uid="uid://ymkan8pxr3yk" path="res://scenes/interactable/interactive_highlight.tscn" id="6_ohliy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iklbw"]
 transparency = 1
@@ -135,7 +136,10 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.638434, 0)
 visible = false
 billboard = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.333333)
 text = "8"
+outline_size = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -146,3 +150,6 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041607, 0.0316516, 2.38419e-07)
 stream = ExtResource("5_oks70")
 bus = &"SFX"
+
+[node name="InteractiveHighlight" parent="." instance=ExtResource("6_ohliy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118266, 0.338391, -0.16179)

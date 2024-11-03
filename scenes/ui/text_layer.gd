@@ -69,6 +69,8 @@ func show_page(page: Texture2D):
 
 
 func hide_text():
+	if !visible:
+		return
 	self.hide()
 	book = null
 	book_page = 0
@@ -77,9 +79,6 @@ func hide_text():
 	if texture_rect.texture:
 		texture_rect.texture = null
 		SfxManager.play_sound(SfxManager.OPEN_BOOK, audio_delay)
-		SfxManager.sound_bus_1.volume_db = -14.0
-		SfxManager.sound_bus_2.volume_db = -14.0
-		SfxManager.sound_bus_3.volume_db = -14.0
 
 var last_page : int = -1
 
@@ -114,6 +113,7 @@ func _on_previous_button_pressed() -> void:
 func _on_next_button_pressed() -> void:
 	if !book:
 		hide_text()
+		return
 	book_page += 1
 	show_book_page(book_page)
 

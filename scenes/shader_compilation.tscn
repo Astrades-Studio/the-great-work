@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://qmemtxtkrec2"]
+
+[ext_resource type="Script" path="res://scenes/shader_compilation.gd" id="1_awopq"]
+[ext_resource type="PackedScene" uid="uid://dy1wo4g1em5uj" path="res://scenes/alchemy/ingredients_scene.tscn" id="2_ymd8x"]
+[ext_resource type="PackedScene" uid="uid://dihnshs372h54" path="res://scenes/shadow/skull.tscn" id="3_tqkqk"]
+[ext_resource type="PackedScene" uid="uid://oe4kjxa51br1" path="res://scenes/shadow/shadow.tscn" id="4_c0t8f"]
+[ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="5_s06a0"]
+[ext_resource type="PackedScene" uid="uid://okn1cgfhsslw" path="res://scenes/alchemy/still_v2.tscn" id="6_ybwbb"]
+[ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="7_ibrk0"]
+[ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="8_bkgl4"]
+[ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="9_q6ibw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sojju"]
+font_size = 48
+
+[node name="ShaderCompilation" type="Node3D"]
+script = ExtResource("1_awopq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.937255)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.5
+offset_top = -12.0
+offset_right = 81.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Compiling Shaders..."
+label_settings = SubResource("LabelSettings_sojju")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="IngredientsScene" parent="Camera3D" instance=ExtResource("2_ymd8x")]
+transform = Transform3D(1, 0, 0, 0, 0.642119, -0.766605, 0, 0.766605, 0.642119, 0, 0, -4)
+
+[node name="Skull" parent="Camera3D" instance=ExtResource("3_tqkqk")]
+transform = Transform3D(0.98933, 0, -0.175339, 0, 1.00036, 0, 0.175304, 0, 0.989137, -5.24521e-06, -0.131076, -5.36909)
+skeleton = NodePath("../Shadow")
+
+[node name="Shadow" parent="Camera3D" instance=ExtResource("4_c0t8f")]
+
+[node name="Cauldron" parent="Camera3D" instance=ExtResource("5_s06a0")]
+transform = Transform3D(0.851965, 0, -0.523599, 0, 1, 0, 0.523599, 0, 0.851965, 3.31599, 0, -8.59886)
+
+[node name="Still2" parent="Camera3D" instance=ExtResource("6_ybwbb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92267, 0, -11.0013)
+
+[node name="Furnace" parent="Camera3D" instance=ExtResource("7_ibrk0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27381, 0, -2.39831)
+
+[node name="Mortar" parent="Camera3D" instance=ExtResource("8_bkgl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.63792)
+
+[node name="GasLamp" parent="Camera3D" instance=ExtResource("9_q6ibw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04874, -2.28409)

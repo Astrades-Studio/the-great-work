@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b1d2kpo1p0802"
+path.s3tc="res://.godot/imported/chest_MI_AncientCoinChest_A_SM_AncientCoinChest_01_Normal.webp-1b86ff9b68a80756474bed590821271d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "083237f15bcdb186b5d5cceddbe433ec"
+}
+
+[deps]
+
+source_file="res://assets/models/props/chest/chest_MI_AncientCoinChest_A_SM_AncientCoinChest_01_Normal.webp"
+dest_files=["res://.godot/imported/chest_MI_AncientCoinChest_A_SM_AncientCoinChest_01_Normal.webp-1b86ff9b68a80756474bed590821271d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/props/chest/chest_MI_AncientCoinChest_A_SM_AncientCoinChest_01_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

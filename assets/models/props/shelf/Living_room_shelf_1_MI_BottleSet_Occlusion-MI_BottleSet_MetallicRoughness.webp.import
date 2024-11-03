@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://djj8bvf2fh1qo"
+path.s3tc="res://.godot/imported/Living_room_shelf_1_MI_BottleSet_Occlusion-MI_BottleSet_MetallicRoughness.webp-48baf98b317a3ac2fa477af03d058189.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "1070e60d51c34388dcb30a92bce83ac5"
+}
+
+[deps]
+
+source_file="res://assets/models/props/shelf/Living_room_shelf_1_MI_BottleSet_Occlusion-MI_BottleSet_MetallicRoughness.webp"
+dest_files=["res://.godot/imported/Living_room_shelf_1_MI_BottleSet_Occlusion-MI_BottleSet_MetallicRoughness.webp-48baf98b317a3ac2fa477af03d058189.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/props/shelf/Living_room_shelf_1_MI_BottleSet_Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

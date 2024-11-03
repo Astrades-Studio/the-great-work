@@ -1,0 +1,28 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://466xnq1gttce"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k8n65"]
+load_path = "res://.godot/imported/gold_coin_MI_AncientCoin_A_SM_AncientCoin_01_Occlusion-MI_AncientCoin_A_S.webp-37434748ba94244e3a3b701de7adc7b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xl6as"]
+load_path = "res://.godot/imported/gold_coin_MI_AncientCoin_A_SM_AncientCoin_01_Occlusion-MI_AncientCoin_A_S.webp-37434748ba94244e3a3b701de7adc7b4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thqrh"]
+load_path = "res://.godot/imported/gold_coin_MI_AncientCoin_A_SM_AncientCoin_01_Normal.webp-aa53cccc164af56a74312361927e4c26.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fdu4q"]
+load_path = "res://.godot/imported/gold_coin_MI_AncientCoin_A_SM_AncientCoin_01_Occlusion-MI_AncientCoin_A_S.webp-37434748ba94244e3a3b701de7adc7b4.s3tc.ctex"
+
+[resource]
+resource_name = "MI_AncientCoin_A_SM_AncientCoin_01"
+albedo_color = Color(0.598525, 0.598525, 0.598525, 1)
+metallic = 0.5
+metallic_texture = SubResource("CompressedTexture2D_xl6as")
+metallic_texture_channel = 2
+roughness_texture = SubResource("CompressedTexture2D_fdu4q")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_thqrh")
+ao_enabled = true
+ao_texture = SubResource("CompressedTexture2D_k8n65")
+uv1_scale = Vector3(1.01891, 1.03122, 1)
+uv1_offset = Vector3(-0.0079602, -0.00805639, 0)

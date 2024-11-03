@@ -12,9 +12,12 @@ initial_velocity_max = 2.0
 angular_velocity_min = -16.74
 angular_velocity_max = 22.33
 gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+sub_emitter_keep_velocity = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_igbii"]
-size = Vector2(0.12, 0.12)
+size = Vector2(0.1, 0.1)
 
 [node name="FireBeam" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000130047, 0, 0.0839456)
@@ -22,7 +25,7 @@ layers = 2
 material_override = ExtResource("1_x7xcv")
 cast_shadow = 0
 gi_mode = 2
-amount = 80
+amount = 160
 lifetime = 0.19
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_fr5m7")

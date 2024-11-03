@@ -12,7 +12,8 @@ config_version=5
 
 config/name="The Great Work"
 run/main_scene="res://scenes/layers/splash_screen.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+run/max_fps=60
 boot_splash/image="res://assets/images/start_black.png"
 config/icon="res://assets/images/icon.svg"
 
@@ -25,9 +26,9 @@ MusicManager="*res://scripts/music_manager.gd"
 DialogManager="*res://scripts/globals/dialog_manager.gd"
 TransitionManager="*res://scripts/globals/transition_manager.gd"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
-Panku="*res://addons/panku_console/console.tscn"
 RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
@@ -37,11 +38,14 @@ window/size/mode=4
 window/size/initial_position_type=0
 window/size/resizable=false
 window/stretch/mode="viewport"
-window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="The Great Work"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
@@ -203,6 +207,7 @@ sprint={
 3d_render/layer_3="Lights"
 3d_render/layer_4="Shadows"
 3d_render/layer_5="Ignore Light Source"
+3d_render/layer_6="Dynamic"
 3d_physics/layer_1="Static"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Items"

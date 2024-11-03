@@ -16,13 +16,14 @@ extends Node3D
 @onready var pixelize_layer: CanvasLayer = $PixelizeLayer
 
 
-
 const DEATH_SOUND = preload("res://assets/sounds/sfx/death_sound.mp3")
 
 static var countdown
+static var shadow_layer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	shadow_layer = %Shadows
 	countdown = max_time
 	GameManager.fog_environment = world_environment
 	world_environment.environment.adjustment_brightness = GameManager.brightness
@@ -50,15 +51,8 @@ func _timer_up():
 
 func _on_timer_tick():
 	countdown -= 1
+	print("Timer ticked down")
 	GameManager.tick_countdown.emit()
-
-	#if countdown == 1:
-		#trigger_death_timer()
-	#
-	#if countdown <= 0:
-		#MusicManager
-		#GameManager.game_over.emit()
-		#game_over_timer.stop()
 
 
 func trigger_death_timer():

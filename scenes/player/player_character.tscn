@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=28 format=3 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/crosshairs/dot_small.png" id="7_abokg"]
 [ext_resource type="Texture2D" uid="uid://b04pjkwdnnbvb" path="res://assets/ui/icons/mouse_left_outline.png" id="10_dx5ro"]
 [ext_resource type="PackedScene" uid="uid://blykgf66nhee" path="res://scenes/player/fear_effect.tscn" id="11_4yl7r"]
+[ext_resource type="Texture2D" uid="uid://b5783m1lbrkwa" path="res://assets/ui/UI elements-11.png" id="11_bktbw"]
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
-[ext_resource type="Script" path="res://scenes/shadow/shadow_orbit.gd" id="12_kjypc"]
+[ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="12_jyx62"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
-[ext_resource type="PackedScene" uid="uid://dihnshs372h54" path="res://scenes/shadow/skull.tscn" id="13_rlkko"]
 
 [sub_resource type="Animation" id="Animation_1635k"]
 length = 0.001
@@ -109,7 +109,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.533333, 1.26667, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.123455, -0.186833, -0.38092), Vector3(-0.053, -0.087, -0.381), Vector3(-0.053, -0.122, -0.143), Vector3(-0.053, -0.087, 0.0362903)]
+"values": [Vector3(0.123455, -0.186833, -0.38092), Vector3(-0.053, -0.087, -0.381), Vector3(-0.053, -0.122, -0.143), Vector3(-0.053, -0.187, 0.036)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -154,10 +154,36 @@ size = Vector3(0.618164, 1.18817, 0.539063)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_yu7m1"]
+[sub_resource type="LabelSettings" id="LabelSettings_q0tfu"]
+font_size = 31
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3adb8"]
-radius = 0.335
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i86li"]
+content_margin_top = 50.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evfkt"]
+bg_color = Color(0, 0, 0, 0.572549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_achrn"]
+font = ExtResource("12_jyx62")
+font_size = 48
+font_color = Color(0.774591, 0.534244, 0.111777, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 31
+shadow_color = Color(1, 1, 1, 0.192157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yu7m1"]
 
 [node name="UCharacterBody3D" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(0.783057, 0, 0, 0, 0.783057, 0, 0, 0, 0.783057, 0, 0, 0)
@@ -180,6 +206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0958, 0)
 [node name="CameraMarker3D" type="Marker3D" parent="Body/Head"]
 
 [node name="Camera3D" type="Camera3D" parent="Body/Head/CameraMarker3D"]
+unique_name_in_owner = true
 transform = Transform3D(1.27705, 0, 0, 0, 1.27705, 0, 0, 0, 1.27705, 0, -0.31244, 0)
 cull_mask = 983037
 current = true
@@ -262,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123455, -0.186833, -0.38092
 
 [node name="GasLamp" parent="HandLayer/SubViewportContainer/ItemViewport/ItemCamera/Marker3D" instance=ExtResource("2_it7tx")]
 unique_name_in_owner = true
-transform = Transform3D(0.890356, 0.0361809, 0.12946, 0.0116943, 0.843078, -0.316047, -0.133911, 0.314187, 0.833162, -0.250096, -0.147096, -0.314735)
+transform = Transform3D(0.890356, 0.0361809, 0.12946, 0.0116943, 0.843078, -0.316047, -0.133911, 0.314187, 0.833162, -0.245, -0.147, -0.2)
 on_hand = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
@@ -315,35 +342,6 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mfqto")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer"]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Timer:"
-
-[node name="CountdownLabel" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "State: "
-
-[node name="StateLabel" type="Label" parent="HUDLayer/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="PanelContainer2" type="PanelContainer" parent="HUDLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -362,6 +360,7 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Interact:"
+label_settings = SubResource("LabelSettings_q0tfu")
 
 [node name="InteractIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -378,6 +377,7 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Drop Item:"
+label_settings = SubResource("LabelSettings_q0tfu")
 
 [node name="DropIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -394,6 +394,7 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Lamp:"
+label_settings = SubResource("LabelSettings_q0tfu")
 
 [node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -403,11 +404,35 @@ texture = ExtResource("12_lmv77")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer"]
+[node name="ShadowDistanceSlider" type="HSlider" parent="HUDLayer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/grabber_offset = 65
+theme_override_icons/grabber_disabled = ExtResource("11_bktbw")
+theme_override_styles/slider = SubResource("StyleBoxFlat_i86li")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_evfkt")
+max_value = 5.0
+value = 3.0
+editable = false
+scrollable = false
+tick_count = 6
+ticks_on_borders = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_right = 65
+theme_override_constants/margin_bottom = 40
+
+[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_achrn")
 
 [node name="PanicEffects" parent="." instance=ExtResource("11_4yl7r")]
 
@@ -419,26 +444,5 @@ transform = Transform3D(0.873934, 0, 0, 0, 0.873934, 0, 0, 0, 0.873934, 0, 0.625
 visible = false
 layers = 65536
 mesh = SubResource("SphereMesh_yu7m1")
-
-[node name="ShadowOrbit" type="Marker3D" parent="."]
-transform = Transform3D(-0.826986, 0.0608413, -0.561574, 0.215349, -0.884898, -0.413011, -0.52205, -0.462475, 0.718713, 0, 1.65353, 0)
-gizmo_extents = 0.95
-script = ExtResource("12_kjypc")
-_rotate_x = false
-
-[node name="ShadowDistance" type="Marker3D" parent="ShadowOrbit"]
-transform = Transform3D(0.943524, 0.294074, -0.152585, 0.297583, -0.954696, 0.000166094, -0.145624, -0.0455636, -0.98829, -0.792703, 0.000694916, -5.13448)
-
-[node name="Skull" parent="ShadowOrbit/ShadowDistance" instance=ExtResource("13_rlkko")]
-unique_name_in_owner = true
-
-[node name="Area3D" type="Area3D" parent="ShadowOrbit/ShadowDistance/Skull"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ShadowOrbit/ShadowDistance/Skull/Area3D"]
-shape = SubResource("SphereShape3D_3adb8")
-
-[node name="Timer" type="Timer" parent="ShadowOrbit"]
-
-[connection signal="body_entered" from="ShadowOrbit/ShadowDistance/Skull/Area3D" to="ShadowOrbit" method="_on_area_3d_body_entered"]
 
 [editable path="PanicEffects"]

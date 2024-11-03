@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c3bvquq5q4o5a"]
+[gd_scene load_steps=38 format=4 uid="uid://c3bvquq5q4o5a"]
 
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_ef1cu"]
 [ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_hlpvv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://cqlnw47n64uu0" path="res://assets/models/materials/fire_animation.tres" id="7_h35ud"]
 [ext_resource type="Texture2D" uid="uid://cxry4ajt7265" path="res://assets/models/furnace_MI_Stove_01a_Occlusion-MI_Stove_01a_MetallicRoughness.webp" id="7_o1s2y"]
 [ext_resource type="Texture2D" uid="uid://c3t11j3kymghh" path="res://assets/models/furnace_MI_Stove_01a_Normal.webp" id="8_bbodo"]
+[ext_resource type="PackedScene" uid="uid://ymkan8pxr3yk" path="res://scenes/interactable/interactive_highlight.tscn" id="11_iqqi6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b1703"]
 size = Vector3(0.831482, 0.796875, 0.478271)
@@ -448,7 +449,10 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115037, 0.988305, -0.0211237)
 visible = false
 billboard = 2
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(1, 1, 1, 0.333333)
 text = "5"
+outline_size = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -521,3 +525,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248513, 0.093939, 0.0698266)
 mesh = SubResource("ArrayMesh_h5q5q")
 skeleton = NodePath("")
+
+[node name="InteractiveHighlight" parent="." instance=ExtResource("11_iqqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.328596, 0.600841, -5.96046e-08)

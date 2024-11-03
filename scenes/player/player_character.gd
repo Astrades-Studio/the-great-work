@@ -49,6 +49,20 @@ func _ready() -> void:
 	super()
 #	sub_viewport.size = get_viewport().size # Make sure the item viewport is the same as game viewport
 	GameManager.player = self # Assign this node to the Autoload for global reference
+	GameManager.cutscene_started.connect(_on_cutscene_started)
+	GameManager.cutscene_finished.connect(_on_cutscene_finished)
+
+
+func _on_cutscene_started():
+	self.hide()
+	$HandLayer.hide()
+	$HUDLayer.hide()
+
+func _on_cutscene_finished():
+	self.show()
+	$HandLayer.show()
+	$HUDLayer.show()
+
 
 func _input(event: InputEvent) -> void:
 	# Player should not move in other game states
@@ -95,11 +109,6 @@ func drop_ingredient() -> void:
 	if ingredient_in_hand.get_parent() == null:
 		ingredient_in_hand.queue_free()
 
-	# Stop Axel from dropping the stone
-	#if ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
-		#DialogManager.create_dialog_piece("I have no need of parting with it.")
-		#return
-
 	var target_position: Vector3 = camera.transform.origin - camera.global_transform.basis.z * drop_distance
 	var target_node = GameManager.ingredient_layer
 
@@ -136,6 +145,9 @@ func throw_ingredient(_throw_impulse : float) -> void:
 # Check if there's anything in front of the player
 func raycast_forward(to_position: Vector3) -> Vector3:
 	var from_position = camera.global_transform.origin
+		# Get direction to target
+	var direction = (to_position - from_position).normalized()
+	to_position = to_position - direction * 0.1
 	var ray = PhysicsRayQueryParameters3D.create(from_position, to_position)
 	ray.hit_back_faces = false
 	var result = get_world_3d().direct_space_state.intersect_ray(ray)
@@ -203,8 +215,8 @@ func interact():
 		if ingredient_in_hand is Flare:
 			if !ingredient_in_hand.active:
 				ingredient_in_hand.active = true
-			else:
-				animation_player.play("attack")
+			#else:
+				#animation_player.play("attack")
 		elif ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
 			animation_player.play("swallow")
 			await animation_player.animation_finished

@@ -7,6 +7,7 @@ const SHADOW_SCENE := "res://scenes/shadow/shadow.tscn"
 const MAIN_MENU = "res://scenes/ui/main_menu.tscn"
 
 const SORROW_SONG = preload("res://assets/sounds/music/sorrow_song.tres")
+const INTERACTIVE_HIGHLIGHT = preload("res://assets/ui/crosshairs/crosshair180.png")
 
 const MAX_SPAWNED_INGREDIENT_AMOUNT := 20
 const INITIAL_FOG_DENSITY := 0.04
@@ -88,7 +89,7 @@ var dispensers : Array[Dispenser]
 var fov_value : float = 75:
 	set(value):
 		fov_value = clamp(remap(value, 0, 1, 60, 90), 60, 90)
-		if player:
+		if is_instance_valid(player):
 			player.camera.fov = fov_value
 
 
@@ -127,15 +128,19 @@ signal crosshair_signal(crosshair : InteractionComponent.InteractionType)
 signal state_label_updated(state : GameState)
 signal request_book_UI(book : BookPages)
 signal request_debug_panel
+signal shadow_distance_changed(distance : float)
 
 # Game State Signals
 signal game_over
 signal game_started
+signal cutscene_started
+signal cutscene_finished
 
 # Game Progression Signals
 signal lamp_collected
 signal recipe_read
 signal alchemy_read_signal
+
 signal flare_read_signal
 signal flare_created
 signal philosopher_stone_progress(int)
@@ -144,6 +149,7 @@ signal tick_countdown
 signal stone_consumed
 signal shadow_crawl_trigger
 signal shadow_removed
+signal turned_on_flare
 
 
 func _ready() -> void:
@@ -162,7 +168,9 @@ func _ready() -> void:
 	alchemy_read_signal.connect(_on_read_alchemy_trigger_book)
 	flare_read_signal.connect(_on_read_flare_trigger_book)
 	flare_created.connect(_on_flare_created)
+	shadow_distance_changed.connect(_on_shadow_distance_changed)
 	#assign_random_ingredient_to_each_dispenser()
+
 
 
 
@@ -221,14 +229,15 @@ func ingredient_spawned(ingredient: Ingredient):
 # Play a sound and increase global darkness for each shadow spawned
 
 func _on_tick_countdown():
-	if shadows_spawned.size() >= shadow_spawn_points.size():
-		print("Too many shadows spawned")
-		return
+	pass
+	# if shadows_spawned.size() >= shadow_spawn_points.size():
+	# 	print("Too many shadows spawned")
+	# 	return
 
-	if shadow_spawn_points.size() > 0:
-		spawn_random_shadow()
+	# if shadow_spawn_points.size() > 0:
+	# 	spawn_random_shadow()
 
-	update_darkness_effect(shadows_spawned.size())
+	# update_darkness_effect(shadows_spawned.size())
 
 
 func spawn_random_shadow():
@@ -280,6 +289,7 @@ func _on_read_flare_trigger_book():
 
 
 func _on_flare_created():
+	flare_read_signal.emit()
 	flare_already_made = true
 	update_darkness_effect(1)
 
@@ -322,7 +332,7 @@ func reset_progress():
 	first_shadow_spawned = false
 	good_ending = false
 	bad_ending = false
-
+	alchemy_recipe_read = false
 
 func clear_arrays():
 	spawned_ingredients.clear()
@@ -335,3 +345,36 @@ func _on_stone_consumed():
 	ovani_player.FadeVolume(-80, 3)
 	good_ending = true
 	TransitionManager.change_scene_to_file(GAME_OVER_SCENE)
+
+
+func _on_shadow_distance_changed(distance: float):
+	if distance == 3.0:
+		DialogManager.create_subtitles_piece("The darkness is closing in on me. I need to hurry.")
+	elif distance == 2.0:
+		DialogManager.create_subtitles_piece("It's almost upon me, I need a flare.")
+
+
+const EYE_SCENE = preload("res://scenes/shadow/eyes.tscn")
+var shadow_chance : Array[bool]= []
+
+func _on_ingredient_delivered():
+	if shadow_chance.is_empty():
+		shadow_chance = [false, false, true]
+		shadow_chance.shuffle()
+
+	var result : bool = shadow_chance.pop_front()
+	print("Shadow chance: " + str(result))
+	if !result:
+		return
+
+	# get the camera direction
+	var camera_direction = player.camera.global_basis.z
+
+	var player_position = player.global_position
+	var target_position = player_position + camera_direction * 2
+
+	var eye = EYE_SCENE.instantiate()
+	GameMain.shadow_layer.add_child(eye)
+	eye.global_position = target_position
+	eye.global_position.y = player.camera.global_position.y
+	pass

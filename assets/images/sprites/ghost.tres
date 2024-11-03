@@ -1,0 +1,26 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://btg301ch43xdu"]
+
+[ext_resource type="Texture2D" uid="uid://b5chsr5vrvpkx" path="res://assets/images/sprites/Ghost_02.png" id="1_2ghcu"]
+[ext_resource type="Texture2D" uid="uid://cxikq10i2hg3a" path="res://assets/images/sprites/Ghost_03.png" id="2_b2p5h"]
+[ext_resource type="Texture2D" uid="uid://tohury2b3v7i" path="res://assets/images/sprites/Ghost_04.png" id="3_nfrtu"]
+[ext_resource type="Texture2D" uid="uid://deh3ojkrwwl76" path="res://assets/images/sprites/Ghost_05.png" id="4_xsms1"]
+
+[sub_resource type="Gradient" id="Gradient_bs1j5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y1or0"]
+gradient = SubResource("Gradient_bs1j5")
+
+[resource]
+frames = 6
+frame_0/texture = SubResource("GradientTexture2D_y1or0")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("1_2ghcu")
+frame_1/duration = 0.3
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("2_b2p5h")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("3_nfrtu")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("4_xsms1")
+frame_5/duration = 0.1

@@ -9,22 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://deqfjrh5bdyvk" path="res://scenes/fx/smoke.tscn" id="5_td1f0"]
 [ext_resource type="Material" uid="uid://bj552ohao3a84" path="res://assets/models/materials/flare_material_spent.tres" id="5_uavmn"]
 
-[sub_resource type="Gradient" id="Gradient_d7r2j"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(0.435193, 0.435192, 0.435192, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_cgmj6"]
+colors = PackedColorArray(0.349066, 0.349065, 0.349064, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yx0wg"]
-gradient = SubResource("Gradient_d7r2j")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gyxm"]
+gradient = SubResource("Gradient_cgmj6")
 fill = 1
-fill_from = Vector2(0.472934, 0.492877)
-fill_to = Vector2(1, 1)
+fill_from = Vector2(0.535613, 0.538462)
+fill_to = Vector2(0.905983, 0.823362)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1rqb"]
+transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.302531, 0.306804, 0.278904, 1)
-albedo_texture = SubResource("GradientTexture2D_yx0wg")
+albedo_texture = SubResource("GradientTexture2D_8gyxm")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -90,7 +88,6 @@ collision_layer = 20
 collision_mask = 33
 angular_damp = 3.0
 script = ExtResource("1_vanpb")
-duration = 180
 type = 20
 
 [node name="Flare" type="MeshInstance3D" parent="."]
@@ -99,16 +96,15 @@ mesh = ExtResource("2_yvr0d")
 
 [node name="FireBeam" parent="Flare" instance=ExtResource("4_5lh6f")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000130047, 0.590287, -2.58023e-08)
-emitting = false
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000130047, 0.651682, -2.84859e-08)
+sub_emitter = NodePath("../Smoke")
 
 [node name="Smoke" parent="Flare" instance=ExtResource("5_td1f0")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.735569, -3.21527e-08)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00638974, 0.699724, -3.05859e-08)
+layers = 2
 material_override = SubResource("StandardMaterial3D_o1rqb")
-emitting = false
 amount = 135
-lifetime = 0.22
 local_coords = true
 
 [node name="Light" type="OmniLight3D" parent="Flare"]
@@ -118,6 +114,7 @@ visible = false
 layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
 light_energy = 5.0
+light_volumetric_fog_energy = 0.5
 light_bake_mode = 0
 omni_range = 11.182
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=101 format=4 uid="uid://d1faedhw8viyw"]
+[gd_scene load_steps=119 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
-[ext_resource type="Environment" uid="uid://dxjf3e8aefdjw" path="res://scenes/house_sky_night.tres" id="2_h05f7"]
+[ext_resource type="Environment" uid="uid://cj4g7vd46ar31" path="res://scenes/house_sky_night_2.tres" id="2_dnui8"]
 [ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
@@ -21,30 +21,38 @@
 [ext_resource type="PackedScene" uid="uid://bfcsgna6rb617" path="res://scenes/alchemy/mortar.tscn" id="15_kf64c"]
 [ext_resource type="PackedScene" uid="uid://d16g48k8u865c" path="res://scenes/ui/dialog_layer.tscn" id="15_wjgnd"]
 [ext_resource type="PackedScene" uid="uid://by8vwv2cfa15m" path="res://scenes/ui/text_layer.tscn" id="16_juw1q"]
+[ext_resource type="ArrayMesh" uid="uid://ci6ytu3sq1f8f" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Cookware_02b.res" id="16_uxsmm"]
 [ext_resource type="PackedScene" uid="uid://bnnthcbblvtp0" path="res://scenes/alchemy/dispensers/iron_box.tscn" id="17_0e7m6"]
 [ext_resource type="PackedScene" uid="uid://dauluuxmkkntl" path="res://scenes/gold_crate.tscn" id="17_l46bu"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="17_rujcb"]
 [ext_resource type="PackedScene" uid="uid://bsny5rbtvydc3" path="res://scenes/props/candle_3.tscn" id="17_u0bkv"]
+[ext_resource type="Texture2D" uid="uid://cnu2no7hlsutu" path="res://assets/textures/Gound_01/brown_mud_leaves_01_disp_1K.jpg" id="17_u41n3"]
 [ext_resource type="PackedScene" uid="uid://cpx4siqsmq8dm" path="res://scenes/silver_crate.tscn" id="18_731jx"]
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
+[ext_resource type="PackedScene" uid="uid://ttaynu1kvyxi" path="res://scenes/alchemy/dispensers/chest.tscn" id="21_ghjc7"]
 [ext_resource type="PackedScene" uid="uid://birykl2xlrs1r" path="res://scenes/alchemy/dispensers/barrel.tscn" id="21_n1n2k"]
+[ext_resource type="PackedScene" uid="uid://qlj3hfoaugub" path="res://scenes/alchemy/dispensers/silver_coins.tscn" id="22_87fd6"]
 [ext_resource type="PackedScene" uid="uid://ci3aml07uolg8" path="res://scenes/alchemy/dispensers/bag_2.tscn" id="22_d81xl"]
 [ext_resource type="ArrayMesh" uid="uid://cwmpvgk4mkg2b" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Lantern_01a5.res" id="22_k044n"]
+[ext_resource type="PackedScene" uid="uid://cqsvvru37453e" path="res://scenes/alchemy/dispensers/bunch_of_bananas.tscn" id="23_ned67"]
 [ext_resource type="PackedScene" uid="uid://okn1cgfhsslw" path="res://scenes/alchemy/still_v2.tscn" id="23_oldax"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="24_npgg6"]
 [ext_resource type="PackedScene" uid="uid://bf32uaw2e20at" path="res://scenes/alchemy/dispensers/jug.tscn" id="25_3hjij"]
 [ext_resource type="AudioStream" uid="uid://dqpuanc8fllfs" path="res://assets/sounds/sfx/gas_lamp_on.mp3" id="25_bl3ms"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="26_6vqpa"]
 [ext_resource type="PackedScene" uid="uid://c64sireakacdi" path="res://scenes/alchemy/dispensers/big_jug.tscn" id="26_g0qm8"]
-[ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="27_qdm0i"]
 [ext_resource type="AudioStream" uid="uid://ch6lk1no0pd5o" path="res://assets/sounds/sfx/gas_lamp_off.mp3" id="27_twcex"]
 [ext_resource type="PackedScene" uid="uid://s0i6g8s4kde0" path="res://scenes/shadow/eyes.tscn" id="31_7gv7d"]
 [ext_resource type="ArrayMesh" uid="uid://c6tfiwdiype74" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Chimney_Set_01a.res" id="32_bggs6"]
+[ext_resource type="AudioStream" uid="uid://cnhihtfmpeutf" path="res://assets/sounds/sfx/shadow/shadow_killing.mp3" id="34_d8lj8"]
+[ext_resource type="PackedScene" uid="uid://dihnshs372h54" path="res://scenes/shadow/skull.tscn" id="35_gugk4"]
+[ext_resource type="PackedScene" uid="uid://blypovljjijbx" path="res://scenes/shadow/shadow_orbit.tscn" id="37_1cn3e"]
 [ext_resource type="Script" path="res://scenes/stairs_shadow.gd" id="38_uuhsq"]
-[ext_resource type="PackedScene" uid="uid://binadt5anxax2" path="res://scenes/alchemy/ingredients/vinegar.tscn" id="39_k1hb8"]
 [ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="39_sfcat"]
-[ext_resource type="PackedScene" uid="uid://b8m46sid55iq8" path="res://scenes/alchemy/ingredients/sulfur.tscn" id="40_dp86v"]
+[ext_resource type="Texture2D" uid="uid://bqrqp555my3hu" path="res://assets/images/sprites/Eyes_01.png" id="39_suo18"]
+[ext_resource type="Script" path="res://scenes/cinematic_camera.gd" id="40_6ajq4"]
+[ext_resource type="Material" uid="uid://5s7f67fjftot" path="res://scenes/shadow/skull_dark_fx.tres" id="40_jayf1"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="PackedScene" uid="uid://bpfk1h1b3fqr" path="res://scenes/props/old_book_01.tscn" id="44_00i07"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="46_jqycg"]
@@ -55,36 +63,30 @@
 [ext_resource type="Script" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
 [ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
+[ext_resource type="ArrayOccluder3D" uid="uid://di5tk0ayv1elt" path="res://scenes/occluder_test_2.occ" id="55_a2rek"]
+[ext_resource type="LightmapGIData" uid="uid://d2nxe5m3tebkg" path="res://scenes/main.lmbake" id="55_bdsga"]
 [ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 [ext_resource type="Texture2D" uid="uid://d23lmkr58umli" path="res://scripts/shaders/palette_slso8-1x.png" id="66_hmr1k"]
 [ext_resource type="Shader" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
-[ext_resource type="ArrayOccluder3D" uid="uid://cqvnwpf0nljlr" path="res://scenes/occluder_test.occ" id="68_46fks"]
 [ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
 [ext_resource type="Shader" path="res://scripts/pixelize.gdshader" id="68_t3trs"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kyep0"]
-exposure_multiplier = 0.2
-
-[sub_resource type="Compositor" id="Compositor_yk3r5"]
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_i23sg"]
-vertices = PackedVector3Array(-20.4964, -3.09146, -6.74323, -19.4964, -3.09146, -6.94323, -19.4964, -3.09146, -11.3432, -24.1964, -3.09146, -2.94323, -20.4964, -3.09146, -2.94323, -29.9964, -3.09146, -1.94323, -24.3964, -3.09146, -1.94323, -29.9964, -3.09146, -11.3432, -16.3964, -3.09146, -8.74323, -15.3964, -3.09146, -8.94323, -15.3964, -3.09146, -11.3432, -16.3964, -3.09146, -6.94323, -10.4964, -3.09146, -8.94323, -10.4964, -3.09146, -11.3432, -9.49644, -3.09146, -8.74323, -4.19643, -3.09146, -11.3432, -7.69643, -3.09146, -0.94323, -7.49644, -3.09146, -0.143229, -4.19643, -3.09146, -0.24323, -9.49644, -3.09146, -0.94323, -23.7964, 0.148535, -6.24323, -20.4964, 0.148535, -6.14323, -20.4964, 0.148535, -6.74323, -19.6964, 0.148535, -6.94323, -19.7964, 0.148535, -10.4432, -23.7964, 0.148535, -10.4432, -16.3964, 0.148535, -8.74323, -15.5964, 0.148535, -9.04323, -15.6964, 0.148535, -10.4432, -16.3964, 0.148535, -6.94323, -10.2964, 0.148535, -8.94323, -10.1964, 0.148535, -10.4432, -9.49644, 0.148535, -8.74323, -9.49644, 0.148535, -7.94323, -8.09643, 0.148535, -7.94323, -8.09643, 0.148535, -10.4432, -17.2964, 4.12854, -8.04323, -16.3964, 4.12854, -4.64323, -15.6964, 4.12854, -4.94323, -15.5964, 4.12854, -8.64323, -15.0964, 4.12854, -4.94323, -14.8964, 4.12854, -4.14323, -10.0964, 4.12854, -4.14323, -10.0964, 4.12854, -8.64323, -20.1964, 4.12854, -6.64323, -23.8964, 4.12854, -2.94323, -16.3964, 4.12854, -3.54323, -15.6964, 4.12854, -3.34323, -23.8964, 4.12854, 5.35677, -22.1964, 4.12854, 7.25677, -15.6964, 4.12854, 7.25677, -15.4964, -3.09146, -8.04323, -15.4964, -3.09146, -6.04323, -14.7964, -3.09146, -5.14323, -10.3964, -3.09146, -5.14323, -10.3964, -3.09146, -8.04323, -11.1964, 0.148535, -0.94323, -10.3964, 0.148535, -1.74323, -10.8964, 0.148535, -2.14323, -14.4964, 0.148535, -8.04323, -15.4964, 0.148535, -6.94323, -14.7964, 0.148535, -6.74323, -13.4964, 0.148535, -7.14323, -10.8964, 0.148535, -3.34323, -14.0964, 0.148535, -2.34323, -14.8964, 0.148535, -0.94323, -14.3964, 0.148535, -5.84323, -12.6964, 0.148535, -7.14323, -15.4964, 0.148535, -5.04323, -15.4964, 0.148535, -3.34323, -14.8964, 0.148535, -3.34323, -14.5964, 0.148535, -5.14323, -10.3964, 0.148535, -6.54323, -10.8964, 0.148535, -8.04323, -12.4964, 0.148535, -8.04323, -10.8964, 0.148535, -6.74323, -10.3964, 0.148535, -3.54323, -9.49644, 0.148535, -4.14323, -8.09643, 0.148535, -4.14323, -23.7964, 0.148535, -2.94323, -20.4964, 0.148535, -2.94323, -16.9964, -3.09146, -4.64323, -16.3964, -3.09146, -4.94323, -16.3964, -3.09146, -6.04323, -19.5964, -3.09146, -6.04323, -17.6964, -3.09146, -2.74323, -16.7964, -3.09146, -3.44323, -19.5964, -3.09146, -2.74323, -18.8964, 0.148535, -0.44323, -18.4964, 0.148535, -0.44323, -18.2964, 0.148535, -0.94323, -19.4964, 0.148535, -0.94323, -17.4964, 0.148535, -3.04323, -17.9964, 0.148535, -3.74323, -19.4964, 0.148535, -5.54323, -16.3964, 0.148535, -3.24323, -16.3964, 0.148535, -3.74323, -18.1964, 0.148535, -5.44323, -17.4964, 0.148535, -0.94323, -14.6964, -3.09146, -1.24323, -13.8964, -3.09146, -0.94323, -13.1964, -3.09146, -0.843229, -15.4964, -3.09146, -4.64323, -15.4964, -3.09146, -3.24323, -14.8964, -3.09146, -2.94323, -11.0964, -3.09146, -1.84323, -10.3964, -3.09146, -2.14323, -11.0964, -3.09146, -1.24323, -7.99644, 4.12854, 5.25677, -7.99644, 4.12854, 3.45677, -8.79643, 4.12854, 3.15677, -9.79643, 4.12854, 7.25677, -8.79643, 4.12854, 2.55677, -7.99644, 4.12854, 2.25677, -7.99644, 4.12854, -0.44323, -10.0964, 4.12854, -0.74323, -15.0964, 4.12854, -3.34323, -9.49644, 0.148535, -0.94323, -8.09643, 0.148535, -0.94323, -16.6964, -3.09146, -0.143229, -16.5964, -3.09146, -1.04323, -17.3964, -3.09146, -1.24323, -14.4964, -3.09146, 5.05677, -14.4964, -3.09146, 4.05677, -15.4964, -3.09146, 3.85677, -19.1964, -3.09146, 5.05677, -15.3964, -3.09146, 1.05677, -15.6964, -3.09146, 0.0567703, -16.0964, -3.09146, 1.85677, -22.8964, -3.09146, 3.35677, -23.5964, -3.09146, 3.55677, -23.5964, -3.09146, 5.05677, -21.7964, -3.09146, 5.05677, -23.0964, -3.09146, -0.143229, -23.5964, -3.09146, 0.0567703, -23.5964, -3.09146, 1.75677, -22.8964, -3.09146, 1.95677, -19.7964, -3.09146, -2.04323, -23.4964, -3.09146, -2.04323, -20.1964, -3.09146, 4.65677, -16.0964, -3.09146, 3.05677, -21.5964, -3.09146, 7.05677, -20.3964, -3.09146, 7.05677, -24.4964, -3.09146, 5.15677, -29.9964, -3.09146, 5.25677, -20.0964, 0.148535, 4.75677, -19.9964, 0.148535, 4.05677, -20.4964, 0.148535, 3.85677, -20.4964, 0.148535, 5.15677, -23.4964, 0.148535, -1.64323, -23.4964, 0.148535, -0.94323, -22.6964, 0.148535, -0.94323, -21.6964, 0.148535, -0.74323, -22.4964, 0.148535, -0.24323, -21.6964, 0.148535, 0.156771, -22.8964, 0.148535, -0.0432301, -22.8964, 0.148535, 1.15677, -21.2964, 0.148535, 2.45677, -20.4964, 0.148535, -0.94323, -20.4964, 0.148535, -1.64323, -20.6964, 0.148535, 2.65677, -23.5964, 0.148535, 1.35677, -23.5964, 0.148535, 5.05677, -15.3964, -3.09146, -0.94323, -13.8964, -3.09146, 0.0567703, -10.2964, -3.09146, 1.85677, -10.2964, -3.09146, 0.0567703, -10.8964, -3.09146, -0.143229, -10.8964, -3.09146, 2.45677, -13.0964, -3.09146, -0.143229, -13.6964, -3.09146, 0.95677, -12.8964, -3.09146, 2.45677, -18.0964, 0.148535, -0.0432301, -16.1964, 0.148535, 1.85677, -15.5964, 0.148535, 1.65677, -15.5964, 0.148535, 0.856771, -17.0964, 0.148535, 0.75677, -17.0964, 0.148535, 1.95677, -18.0964, 0.148535, 3.35677, -17.8964, 0.148535, 2.85677, -17.8964, 0.148535, 2.25677, -19.4964, 0.148535, 3.35677, -16.1964, 0.148535, 2.95677, -7.49644, -3.09146, 5.15677, -4.19643, -3.09146, 5.25677, -13.8964, 0.148535, 1.55677, -14.4964, 0.148535, 1.75677, -14.0964, 0.148535, 2.95677, -12.6964, 0.148535, 2.95677, -12.5964, 0.148535, 1.95677, -11.1964, 0.148535, 1.75677, -10.8964, 0.148535, 0.45677, -11.7964, 0.148535, -0.143229, -14.0964, 0.148535, -0.0432301, -9.79643, -3.09146, 1.85677, -9.59643, -3.09146, 2.45677, -8.39643, -3.09146, 2.45677, -8.39643, -3.09146, -0.0432301, -10.0964, 0.148535, 2.35677, -9.09643, 0.148535, 0.356771, -8.99644, 0.148535, 4.15677, -11.1964, 0.148535, 4.05677, -10.8964, 0.148535, 5.35677, -8.99644, 0.148535, 5.05677, -14.8964, -2.26147, 3.35677, -13.8964, -2.26147, 3.25677, -13.5964, -2.26147, 2.55677, -14.0964, -2.26147, 1.55677, -15.3964, -2.26147, 2.05677, -13.6964, -3.09146, 3.95677, -10.6964, -3.09146, 3.05677, -10.6964, -3.09146, 4.95677, -9.79643, -3.09146, 3.05677, -8.39643, -3.09146, 5.05677, -14.8964, 0.148535, 4.25677, -14.8964, 0.148535, 4.85677, -14.4964, 0.148535, 5.05677, -12.2964, 0.148535, 4.05677, -14.7964, 0.138535, 7.05677, -11.2964, 0.138535, 7.05677, -17.8964, 0.148535, 3.95677, -22.4964, -3.09146, 7.75677, -22.4964, -3.09146, 5.95677, -24.2964, -3.09146, 5.95677, -21.7964, -3.09146, 11.4568, -21.6964, -3.09146, 7.95677, -29.9964, -3.09146, 11.4568, -7.69643, -3.09146, 5.95677, -9.49644, -3.09146, 5.95677, -9.49644, -3.09146, 7.75677, -10.2964, -3.09146, 7.95677, -10.1964, -3.09146, 11.4568, -4.19643, -3.09146, 11.4568, -10.3964, -3.09146, 7.05677, -10.3964, -3.09146, 6.15677, -10.8964, -3.09146, 5.85677, -17.6964, -3.09146, 5.85677, -17.6964, -3.09146, 7.05677)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 0, 4), PackedInt32Array(3, 6, 5), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(2, 5, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(8, 11, 1), PackedInt32Array(10, 8, 2), PackedInt32Array(2, 8, 1), PackedInt32Array(10, 13, 9), PackedInt32Array(9, 13, 12), PackedInt32Array(12, 13, 14), PackedInt32Array(14, 13, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 14), PackedInt32Array(18, 14, 15), PackedInt32Array(16, 19, 14), PackedInt32Array(22, 21, 20), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 20), PackedInt32Array(28, 27, 26), PackedInt32Array(26, 29, 23), PackedInt32Array(28, 26, 24), PackedInt32Array(24, 26, 23), PackedInt32Array(27, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(32, 34, 33), PackedInt32Array(32, 30, 31), PackedInt32Array(31, 35, 32), PackedInt32Array(32, 35, 34), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(40, 38, 39), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 43), PackedInt32Array(37, 46, 36), PackedInt32Array(36, 46, 44), PackedInt32Array(44, 46, 45), PackedInt32Array(46, 47, 45), PackedInt32Array(45, 47, 48), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(52, 51, 53), PackedInt32Array(53, 51, 54), PackedInt32Array(54, 51, 55), PackedInt32Array(58, 57, 56), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(58, 56, 63), PackedInt32Array(63, 56, 64), PackedInt32Array(64, 56, 65), PackedInt32Array(61, 62, 66), PackedInt32Array(66, 62, 67), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 71), PackedInt32Array(70, 66, 64), PackedInt32Array(64, 66, 67), PackedInt32Array(64, 67, 63), PackedInt32Array(63, 67, 72), PackedInt32Array(74, 73, 67), PackedInt32Array(67, 73, 75), PackedInt32Array(72, 76, 63), PackedInt32Array(70, 71, 66), PackedInt32Array(67, 75, 72), PackedInt32Array(33, 34, 77), PackedInt32Array(77, 34, 78), PackedInt32Array(80, 79, 21), PackedInt32Array(21, 79, 20), PackedInt32Array(82, 81, 83), PackedInt32Array(83, 81, 84), PackedInt32Array(86, 85, 81), PackedInt32Array(81, 85, 87), PackedInt32Array(81, 87, 84), PackedInt32Array(90, 89, 88), PackedInt32Array(88, 91, 90), PackedInt32Array(90, 91, 92), PackedInt32Array(92, 91, 93), PackedInt32Array(93, 91, 94), PackedInt32Array(95, 92, 96), PackedInt32Array(96, 92, 93), PackedInt32Array(94, 97, 93), PackedInt32Array(92, 98, 90), PackedInt32Array(99, 101, 100), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 53), PackedInt32Array(54, 106, 105), PackedInt32Array(105, 107, 101), PackedInt32Array(99, 104, 101), PackedInt32Array(101, 104, 105), PackedInt32Array(105, 104, 53), PackedInt32Array(105, 53, 54), PackedInt32Array(109, 108, 110), PackedInt32Array(110, 108, 111), PackedInt32Array(113, 112, 114), PackedInt32Array(114, 112, 115), PackedInt32Array(116, 115, 47), PackedInt32Array(47, 115, 110), PackedInt32Array(47, 110, 111), PackedInt32Array(47, 111, 50), PackedInt32Array(115, 112, 110), PackedInt32Array(41, 42, 116), PackedInt32Array(116, 42, 115), PackedInt32Array(118, 117, 78), PackedInt32Array(78, 117, 77), PackedInt32Array(121, 120, 119), PackedInt32Array(123, 122, 124), PackedInt32Array(124, 122, 125), PackedInt32Array(127, 126, 119), PackedInt32Array(119, 126, 128), PackedInt32Array(130, 129, 131), PackedInt32Array(131, 129, 132), PackedInt32Array(134, 133, 135), PackedInt32Array(135, 133, 136), PackedInt32Array(133, 138, 137), PackedInt32Array(137, 121, 119), PackedInt32Array(133, 137, 136), PackedInt32Array(136, 137, 119), PackedInt32Array(136, 119, 139), PackedInt32Array(139, 119, 140), PackedInt32Array(87, 85, 137), PackedInt32Array(137, 85, 121), PackedInt32Array(141, 132, 142), PackedInt32Array(142, 132, 139), PackedInt32Array(124, 125, 140), PackedInt32Array(140, 125, 139), PackedInt32Array(119, 128, 140), PackedInt32Array(132, 129, 139), PackedInt32Array(139, 129, 136), PackedInt32Array(6, 143, 5), PackedInt32Array(5, 143, 144), PackedInt32Array(146, 145, 147), PackedInt32Array(147, 145, 148), PackedInt32Array(151, 150, 149), PackedInt32Array(151, 152, 153), PackedInt32Array(153, 152, 154), PackedInt32Array(153, 154, 155), PackedInt32Array(155, 154, 156), PackedInt32Array(156, 154, 157), PackedInt32Array(158, 152, 159), PackedInt32Array(159, 152, 151), PackedInt32Array(159, 151, 149), PackedInt32Array(157, 160, 147), PackedInt32Array(156, 157, 161), PackedInt32Array(161, 157, 147), PackedInt32Array(161, 147, 148), PackedInt32Array(161, 148, 162), PackedInt32Array(99, 100, 163), PackedInt32Array(163, 100, 164), PackedInt32Array(163, 164, 127), PackedInt32Array(167, 166, 165), PackedInt32Array(168, 171, 165), PackedInt32Array(165, 171, 170), PackedInt32Array(165, 170, 169), PackedInt32Array(165, 169, 167), PackedInt32Array(170, 126, 164), PackedInt32Array(164, 126, 127), PackedInt32Array(101, 107, 169), PackedInt32Array(169, 107, 167), PackedInt32Array(169, 170, 164), PackedInt32Array(88, 89, 172), PackedInt32Array(174, 173, 175), PackedInt32Array(175, 173, 177), PackedInt32Array(175, 177, 176), PackedInt32Array(179, 178, 180), PackedInt32Array(180, 178, 181), PackedInt32Array(180, 181, 172), PackedInt32Array(172, 181, 88), PackedInt32Array(180, 177, 179), PackedInt32Array(179, 177, 173), PackedInt32Array(179, 173, 182), PackedInt32Array(17, 18, 183), PackedInt32Array(183, 18, 184), PackedInt32Array(186, 185, 187), PackedInt32Array(187, 185, 189), PackedInt32Array(187, 189, 188), PackedInt32Array(191, 190, 192), PackedInt32Array(192, 190, 189), PackedInt32Array(192, 189, 185), PackedInt32Array(192, 185, 193), PackedInt32Array(195, 194, 196), PackedInt32Array(196, 194, 197), PackedInt32Array(197, 194, 166), PackedInt32Array(194, 165, 166), PackedInt32Array(198, 190, 191), PackedInt32Array(191, 199, 198), PackedInt32Array(198, 199, 200), PackedInt32Array(203, 202, 200), PackedInt32Array(200, 202, 201), PackedInt32Array(200, 201, 198), PackedInt32Array(205, 204, 206), PackedInt32Array(206, 204, 207), PackedInt32Array(207, 204, 208), PackedInt32Array(122, 123, 209), PackedInt32Array(168, 210, 171), PackedInt32Array(171, 210, 209), PackedInt32Array(210, 211, 209), PackedInt32Array(209, 211, 122), PackedInt32Array(212, 195, 196), PackedInt32Array(211, 210, 212), PackedInt32Array(196, 213, 212), PackedInt32Array(212, 213, 211), PackedInt32Array(215, 214, 216), PackedInt32Array(216, 214, 187), PackedInt32Array(217, 201, 202), PackedInt32Array(187, 188, 217), PackedInt32Array(187, 217, 216), PackedInt32Array(216, 217, 202), PackedInt32Array(216, 202, 219), PackedInt32Array(216, 219, 218), PackedInt32Array(146, 181, 145), PackedInt32Array(145, 181, 178), PackedInt32Array(145, 178, 220), PackedInt32Array(214, 215, 220), PackedInt32Array(220, 215, 145), PackedInt32Array(223, 222, 221), PackedInt32Array(221, 225, 224), PackedInt32Array(144, 143, 223), PackedInt32Array(221, 224, 223), PackedInt32Array(223, 224, 144), PackedInt32Array(144, 224, 226), PackedInt32Array(229, 228, 227), PackedInt32Array(227, 183, 184), PackedInt32Array(231, 230, 229), PackedInt32Array(227, 184, 229), PackedInt32Array(229, 184, 231), PackedInt32Array(231, 184, 232), PackedInt32Array(234, 233, 235), PackedInt32Array(235, 233, 236), PackedInt32Array(236, 233, 237), PackedInt32Array(225, 230, 224), PackedInt32Array(224, 230, 231)]
-geometry_parsed_geometry_type = 1
-geometry_collision_mask = 4294967289
-cell_size = 0.1
-cell_height = 0.01
-agent_radius = 0.25
-agent_max_climb = 0.1
-region_min_size = 15.0
-edge_max_error = 3.0
-filter_ledge_spans = true
-filter_walkable_low_height_spans = true
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1m4ix"]
 height = 1.71703
 radius = 0.58828
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bor82"]
+resource_name = "Material.197"
+cull_mode = 2
+albedo_color = Color(0.995627, 0.947854, 7.70092e-07, 1)
+albedo_texture = ExtResource("17_u41n3")
+metallic = 0.55
+metallic_specular = 1.0
+roughness = 0.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_px5wa"]
+material = SubResource("StandardMaterial3D_bor82")
 
 [sub_resource type="Gradient" id="Gradient_18oco"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -437,18 +439,445 @@ _data = {
 "RESET": SubResource("Animation_o1igu")
 }
 
+[sub_resource type="Animation" id="Animation_r8rh2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.0907756, 0.0846292, 0.00774236, 0.992239)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.34189, 1.61031, 3.60757)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DispelCutscene/GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DispelCutscene/GPUParticles3D:amount_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%DispelCutscene/AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shadow/Import/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("standing_idle", "RESET"),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shadow/Import/AnimationPlayer:current_animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Shadow/Import/AnimationPlayer:active")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Shadow/Import/AnimationPlayer2:active")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skull:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skull:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.37069, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skull:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wwgpn"]
+resource_name = "dispel"
+length = 5.51
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(-0.0907756, 0.0846292, 0.00774236, 0.992239), Quaternion(-0.107901, -0.101761, -0.0111036, 0.988878)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.34189, 1.61031, 3.60757), Vector3(-0.243676, 1.7143, 1.51638)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.03333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"turn_invisible"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DispelCutscene/GPUParticles3D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DispelCutscene/GPUParticles3D:amount_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 3.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.06667, 5.46667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_on_shadow_destroyed_dialog"
+}, {
+"args": [],
+"method": &"_on_dispel_animation_finished"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%DispelCutscene/AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.633333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "animation"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Shadow/Import/AnimationPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": PackedStringArray("agony"),
+"times": PackedFloat32Array(0.433333)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Shadow/Import/AnimationPlayer:current_animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"agony"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Shadow/Import/AnimationPlayer:active")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "animation"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Shadow/Import/AnimationPlayer2")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": PackedStringArray("agony"),
+"times": PackedFloat32Array(0.833333)
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Shadow/Import/AnimationPlayer2:active")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Skull:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Skull:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(3, 4.5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0803313, 1.37069, 0.299801), Vector3(0.276278, 1.8092, -1.03108), Vector3(1.33185, 3.72235, -4.97053)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Skull:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Camera3D")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(5.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"return_to_gameplay_camera"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_uvi62"]
 resource_name = "shadow_block"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3jci5"]
 _data = {
+"RESET": SubResource("Animation_r8rh2"),
+"dispel": SubResource("Animation_wwgpn"),
 "shadow_block": SubResource("Animation_uvi62")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1jc77"]
+direction = Vector3(0, 1, 0)
+spread = 47.572
+initial_velocity_max = 3.0
+gravity = Vector3(0, 6, 0)
+
+[sub_resource type="Gradient" id="Gradient_1t5ux"]
+offsets = PackedFloat32Array(0, 0.429577, 1)
+colors = PackedColorArray(1, 0.70159, 0.551316, 1, 0.775159, 0.291869, 0.181592, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_er8dl"]
+gradient = SubResource("Gradient_1t5ux")
+fill = 1
+fill_from = Vector2(0.495726, 0.504274)
+fill_to = Vector2(0.0968661, 0.139601)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r5mjx"]
+gradient = SubResource("Gradient_1t5ux")
+fill = 1
+fill_from = Vector2(0.495726, 0.504274)
+fill_to = Vector2(0.0968661, 0.139601)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we0mk"]
+blend_mode = 1
+cull_mode = 2
+no_depth_test = true
+albedo_color = Color(1, 1, 0.384314, 1)
+albedo_texture = SubResource("GradientTexture2D_er8dl")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_r5mjx")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_akxyj"]
+material = SubResource("StandardMaterial3D_we0mk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_41r3r"]
 size = Vector3(1.4751, 2.18799, 4.31958)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v46o1"]
+[sub_resource type="QuadMesh" id="QuadMesh_cmg43"]
+material = ExtResource("40_jayf1")
+size = Vector2(0.1, 0.1)
+subdivide_width = 3
+subdivide_depth = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb1cw"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.501961)
+albedo_texture = ExtResource("39_suo18")
+uv1_scale = Vector3(1, 1.625, 1)
+texture_repeat = false
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebm3s"]
+size = Vector3(500, 1, 500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvvnc"]
 size = Vector3(1.66699, 2.17969, 0.0283203)
@@ -486,9 +915,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4536, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level/Ambient"]
 unique_name_in_owner = true
-environment = ExtResource("2_h05f7")
-camera_attributes = SubResource("CameraAttributesPractical_kyep0")
-compositor = SubResource("Compositor_yk3r5")
+environment = ExtResource("2_dnui8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Ambient"]
 process_mode = 3
@@ -496,13 +923,7 @@ stream = ExtResource("68_xeaa7")
 volume_db = 8.0
 bus = &"Music"
 
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Level/Ambient"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4536, 0, 0)
-visible = false
-occluder = ExtResource("68_46fks")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level"]
-navigation_mesh = SubResource("NavigationMesh_i23sg")
 
 [node name="House" parent="Level/NavigationRegion3D" instance=ExtResource("1_7hj75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -0.000150561, 7.48598)
@@ -561,15 +982,33 @@ script = ExtResource("20_3awsj")
 transform = Transform3D(0.332589, 0, 1.04308e-07, 0, 0.332588, 0, -1.04308e-07, 0, 0.332589, -0.0396509, -0.00290024, 0.0531733)
 shape = SubResource("CylinderShape3D_1m4ix")
 
-[node name="Pouch" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("27_qdm0i")]
-transform = Transform3D(-0.0438801, 0, -0.848624, 0, 0.849758, 0, 0.848624, 0, -0.0438801, -8.30824, 0.206064, -2.25262)
-ingredient_type = 22
+[node name="UrineBucket" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Latrine"]
+transform = Transform3D(1.07439, 0, 5.96046e-08, 0, 1.07439, 0, -5.96046e-08, 0, 1.07439, -0.0488615, -0.112775, 0.0634464)
+mesh = ExtResource("16_uxsmm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/NavigationRegion3D/Interactibles/Dispensers/Latrine/UrineBucket"]
+transform = Transform3D(0.123951, 0, 0.285328, 0, 0.000158611, 0, -0.269476, 0, 0.131242, 0.00880814, 0.289952, 0.0143969)
+transparency = 0.48
+mesh = SubResource("CylinderMesh_px5wa")
+skeleton = NodePath("")
 
 [node name="GoldCrate" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("17_l46bu")]
 transform = Transform3D(1.15329e-07, 0, -0.879474, 0, 0.879474, 0, 0.879474, 0, 1.15329e-07, -1.90705, -3.89811, 2.44166)
 
 [node name="Crate" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("18_731jx")]
 transform = Transform3D(0.879474, 0, 0, 0, 0.879474, 0, 0, 0, 0.879474, -3.65351, -3.89811, -5.83515)
+
+[node name="Chest" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("21_ghjc7")]
+transform = Transform3D(1.11813e-07, 0, 0.85266, 0, 0.85266, 0, -0.85266, 0, 1.11813e-07, -1.95972, -3.89895, 3.4475)
+
+[node name="SilverCoins" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_87fd6")]
+transform = Transform3D(0.997857, -0.00792169, 0.0649447, 0, 0.992643, 0.121079, -0.0654261, -0.120819, 0.990516, -2.32063, 0.360504, -2.58569)
+
+[node name="SilverCoins2" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("22_87fd6")]
+transform = Transform3D(0.634802, 0.0935543, -0.76699, 0, 0.992643, 0.121078, 0.772675, -0.0768609, 0.630132, -2.32063, 0.360504, -1.24909)
+
+[node name="Bunch" parent="Level/NavigationRegion3D/Interactibles/Dispensers" instance=ExtResource("23_ned67")]
+transform = Transform3D(0.799447, 0.208075, -0.0123162, -0.197395, 0.740084, -0.309637, -0.0669506, 0.302563, 0.765857, -5.6394, 0.628403, 2.98331)
 
 [node name="Dispensers2" type="Node3D" parent="Level/NavigationRegion3D/Interactibles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.91681, 0)
@@ -579,7 +1018,7 @@ transform = Transform3D(1.03549, 0, 0, 0, 1.03549, 0, 0, 0, 1.03549, 4.02717, 2.
 ingredient_type = 17
 
 [node name="Jug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
-transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -5.828, 0.642529, 2.10447)
+transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -5.828, 0.642529, 1.50447)
 
 [node name="BigJug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("26_g0qm8")]
 transform = Transform3D(0.416626, 0, 1.08252, 0, 1.15993, 0, -1.08252, 0, 0.416626, -0.970196, 0, -5.31294)
@@ -593,7 +1032,7 @@ ingredient_type = 2
 transform = Transform3D(5.87201e-09, 0, -0.492416, 0, 0.492414, 0, 0.492417, 0, 5.872e-09, 6.57204, 0.132587, 2.81921)
 
 [node name="Mortar & Pestle" parent="Level/NavigationRegion3D/Interactibles" instance=ExtResource("15_kf64c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.33881, 2.08542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58398, -2.31648, 1.88576)
 wait_time = 3
 
 [node name="GasLamp" type="StaticBody3D" parent="Level/NavigationRegion3D/Interactibles"]
@@ -601,6 +1040,7 @@ transform = Transform3D(0.998222, 0.0596026, 0, -0.0596026, 0.998222, 0, 0, 0, 1
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("48_cjxys")
+active = false
 min_value = 0.09
 max_value = 0.55
 
@@ -615,18 +1055,16 @@ skeleton = NodePath("../..")
 [node name="GasLampLight" type="OmniLight3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
 unique_name_in_owner = true
 transform = Transform3D(1.64867, 1.19209e-07, -7.07672e-14, -1.19209e-07, 1.64867, -5.89612e-06, -2.63454e-13, 5.89612e-06, 1.64867, 0.00449443, 0.149178, -0.00080359)
-light_color = Color(0.835754, 0.314136, 1.15514e-06, 1)
-light_energy = 0.3
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-light_specular = 16.0
+light_color = Color(1, 0.490446, 0.276474, 1)
+light_energy = 4.312
+light_specular = 2.0
 light_bake_mode = 0
 light_cull_mask = 4294967293
 shadow_bias = 1.881
 shadow_opacity = 0.45
 shadow_blur = 0.0
-omni_range = 1.862
-omni_attenuation = 2.058
+omni_range = 1.798
+omni_attenuation = 1.164
 
 [node name="FireBeam2" type="GPUParticles3D" parent="Level/NavigationRegion3D/Interactibles/GasLamp/Eje/Hand_Gas_Lamp_002"]
 transform = Transform3D(-0.00642645, 4.17018e-16, -0.000415015, -0.000415015, -2.33122e-08, 0.00642645, -1.50236e-09, 0.00643984, 2.32637e-08, 0.00290227, 0.0906589, -0.00710154)
@@ -746,6 +1184,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_5dr30")
 
 [node name="Shadows" type="Node3D" parent="Level"]
+unique_name_in_owner = true
 
 [node name="ShadowCrawl" type="Marker3D" parent="Level/Shadows"]
 transform = Transform3D(0.918273, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918273, -14.0334, 0.21762, 3.00247)
@@ -1076,10 +1515,61 @@ script = ExtResource("38_uuhsq")
 [node name="Shadow" parent="Level/Shadows/StairsShadow" instance=ExtResource("14_ueicl")]
 transform = Transform3D(0.918274, 0, -0.395946, 0, 1, 0, 0.395946, 0, 0.918274, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
+[node name="Skeleton3D" parent="Level/Shadows/StairsShadow/Shadow/Import" index="0"]
+bones/0/position = Vector3(0.00115902, 0.999877, -0.00652642)
+bones/0/rotation = Quaternion(-0.102654, -0.034599, -0.0101573, 0.994063)
+bones/1/rotation = Quaternion(0.0192389, 0.0112022, 0.00795395, 0.999721)
+bones/2/rotation = Quaternion(0.111984, 0.00585404, -0.000884636, 0.993693)
+bones/3/rotation = Quaternion(0.207743, 0.00544616, -0.00124819, 0.978167)
+bones/4/rotation = Quaternion(-0.115075, 0.0130595, -0.0305568, 0.992801)
+bones/5/rotation = Quaternion(-0.0987213, -0.0159834, 0.000755874, 0.994986)
+bones/7/rotation = Quaternion(-0.596831, -0.418431, 0.59228, -0.343384)
+bones/8/rotation = Quaternion(0.419591, -0.145858, 0.155538, 0.882313)
+bones/9/rotation = Quaternion(0.0188064, 4.28208e-05, 0.330683, 0.943554)
+bones/10/rotation = Quaternion(0.126586, 0.191259, -0.0274218, 0.972956)
+bones/11/rotation = Quaternion(0.182734, 0.0381685, 0.321184, 0.928436)
+bones/12/rotation = Quaternion(0.0674146, -0.0856272, -0.390908, 0.913955)
+bones/13/rotation = Quaternion(-0.103712, -0.00926755, -0.0432269, 0.993624)
+bones/15/rotation = Quaternion(-0.0981131, 0.104567, 0.113146, 0.983177)
+bones/16/rotation = Quaternion(0.271116, 0.000810709, -0.0057632, 0.962529)
+bones/17/rotation = Quaternion(0.194957, 0.0129944, 0.110405, 0.974492)
+bones/19/rotation = Quaternion(0.592773, -0.421149, 0.581882, 0.364234)
+bones/20/rotation = Quaternion(0.415916, 0.100786, -0.162263, 0.889116)
+bones/21/rotation = Quaternion(0.0181611, -1.07159e-05, -0.308855, 0.950936)
+bones/22/rotation = Quaternion(0.0658651, -0.291655, -0.0408986, 0.953376)
+bones/23/rotation = Quaternion(0.15236, -0.028854, -0.341006, 0.927183)
+bones/24/rotation = Quaternion(0.0867155, 0.0857468, 0.37803, 0.917726)
+bones/25/rotation = Quaternion(-0.074026, 0.00857339, 0.128619, 0.98889)
+bones/27/rotation = Quaternion(-0.117777, -0.108238, -0.0919162, 0.982835)
+bones/28/rotation = Quaternion(0.264516, -0.00256722, -0.00448089, 0.964368)
+bones/29/rotation = Quaternion(0.190396, -0.0125621, -0.171936, 0.966452)
+bones/31/rotation = Quaternion(0.153446, 0.0274376, 0.978983, -0.131508)
+bones/32/rotation = Quaternion(-0.241927, 0.0535048, -0.0293649, 0.968373)
+bones/33/rotation = Quaternion(0.553044, -0.0171891, -0.00728713, 0.832943)
+bones/34/rotation = Quaternion(0.301082, -0.0552051, 0.0174622, 0.951839)
+bones/36/rotation = Quaternion(-0.11099, 0.0609221, 0.98914, 0.0746452)
+bones/37/rotation = Quaternion(-0.268377, -0.0492861, -0.00933725, 0.962007)
+bones/38/rotation = Quaternion(0.556617, 0.0426849, 0.0478858, 0.828289)
+bones/39/rotation = Quaternion(0.307595, 0.0551391, -0.0175446, 0.949756)
+
+[node name="DarknessFX" parent="Level/Shadows/StairsShadow/Shadow/Import/Skeleton3D" index="2"]
+process_mode = 3
+
+[node name="DispelCutscene" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_3jci5")
 }
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Level/Shadows/StairsShadow/DispelCutscene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87601, 0, 6.47415)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_1jc77")
+draw_pass_1 = SubResource("QuadMesh_akxyj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level/Shadows/StairsShadow/DispelCutscene"]
+stream = ExtResource("34_d8lj8")
 
 [node name="Area3D" type="Area3D" parent="Level/Shadows/StairsShadow"]
 collision_layer = 64
@@ -1089,14 +1579,48 @@ collision_mask = 2
 transform = Transform3D(0.999997, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 0.999997, -0.237547, 1.15549, 1.65979)
 shape = SubResource("BoxShape3D_41r3r")
 
-[node name="Eyes" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
-transform = Transform3D(-0.453265, 0.0459422, -0.890191, 0, 0.998671, 0.0515408, 0.891376, 0.0233617, -0.452663, -8.57077, 1.35504, 4.92669)
+[node name="Camera3D" type="Camera3D" parent="Level/Shadows/StairsShadow"]
+transform = Transform3D(0.985554, -0.030729, 0.166539, 9.31321e-09, 0.983398, 0.181452, -0.16935, -0.178831, 0.969194, 0.34189, 1.61031, 3.60757)
+rotation_edit_mode = 1
+cull_mask = 1048573
+current = true
+script = ExtResource("40_6ajq4")
+
+[node name="Skull" parent="Level/Shadows/StairsShadow" instance=ExtResource("35_gugk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37069, 0)
+visible = false
+
+[node name="DarkFX" parent="Level/Shadows/StairsShadow/Skull" index="0"]
+draw_pass_1 = SubResource("QuadMesh_cmg43")
+
+[node name="ShadowOrbit" parent="Level/Shadows" node_paths=PackedStringArray("chase_target") instance=ExtResource("37_1cn3e")]
+transform = Transform3D(-1.00103, 0, -0.00406651, 0, 1.00036, 0, 0.0040638, 0, -1.00099, -11.6095, 26.1999, -5.63872)
+active = false
+chase_target = NodePath("../../../Player")
+max_visibility_duration = 5.0
+
+[node name="Eyes2" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
+transform = Transform3D(-0.925548, -0.0300069, -0.377439, -1.21509e-08, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -15.3793, 1.55502, 6.22505)
+_range = 4.69
+
+[node name="Eyes3" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
+transform = Transform3D(-0.925548, -0.0300069, -0.377439, -1.21509e-08, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -19.7942, 1.95105, 2.03814)
+_range = 0.725
+
+[node name="MeshInstance3D" parent="Level/Shadows/Eyes3" index="1"]
+transform = Transform3D(0.480684, 1.86265e-09, 0, -1.86265e-09, 0.480684, 7.45058e-09, 0, -3.72529e-09, 0.480684, 0.0673876, -0.0453761, -0.0136375)
+sorting_offset = 3.075
+material_override = SubResource("StandardMaterial3D_nb1cw")
+
+[node name="ShakerComponent3D" parent="Level/Shadows/Eyes3/MeshInstance3D" index="0"]
+transform = Transform3D(1, 3.72529e-09, 2.98023e-08, -1.86265e-09, 1, 0, 2.98023e-08, 0, 1, -0.000570297, 0.0113697, 0.000420809)
+AutoPlay = false
 
 [node name="Recipes" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
 
 [node name="Sacred Initiation" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -4.92202, -2.25647, 1.2354)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -5.1032, -2.25647, 1.26741)
 book = ExtResource("10_s76sh")
 read_stone_trigger_book = true
 color = Color(0.253955, 0.170005, 0.0537775, 1)
@@ -1116,9 +1640,10 @@ is_alchemy_book = true
 [node name="Chemical Processes" parent="Level/Recipes" instance=ExtResource("44_00i07")]
 transform = Transform3D(2.16159e-08, 0.922759, 0.0584755, -0.92461, 2.15173e-08, 2.24031e-09, 8.75e-10, -0.0584755, 0.922759, -6.29059, 1.00833, 2.01645)
 book = ExtResource("10_ufp8w")
+is_flare_book = true
 
 [node name="Book" parent="Level/Recipes" instance=ExtResource("8_8xrqu")]
-transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.41155, -2.26013, 1.7239)
+transform = Transform3D(-0.754857, 0.0117772, -0.0150978, -0.0119408, -0.754962, 0.00809534, -0.0149688, 0.00833148, 0.754906, -6.25065, -2.26013, 1.72299)
 book = ExtResource("12_1wat7")
 
 [node name="Lights" type="Node3D" parent="Level"]
@@ -1127,8 +1652,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1873, 2.01362, 0)
 [node name="Candle" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0.336114, 3.67471, -0.950951, -7.77436)
 
-[node name="Candle2" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92661, -4.35102, 1.18375)
+[node name="Candle4" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -4.59837, -1.10324, -6.12458)
+
+[node name="Candle5" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30823, -1.05592, 1.89793)
 
 [node name="Ingredients" type="Node3D" parent="Level"]
 unique_name_in_owner = true
@@ -1163,20 +1691,8 @@ transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141,
 [node name="FLARE10" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
 transform = Transform3D(0.0103949, -0.0733102, 0.997255, 0, 0.997309, 0.0733141, -0.999946, -0.000762096, 0.010367, -23.6176, -2.11545, 0.389682)
 
-[node name="RigidBody3D" parent="Level/Ingredients" instance=ExtResource("39_k1hb8")]
-transform = Transform3D(0.238601, 0, -0.971118, 0, 1, 0, 0.971118, 0, 0.238601, -21.8606, 1.03782, -2.22779)
-
-[node name="RigidBody3D2" parent="Level/Ingredients" instance=ExtResource("39_k1hb8")]
-transform = Transform3D(-0.991399, 0, -0.130872, 0, 1, 0, 0.130872, 0, -0.991399, -20.4541, 1.03782, -2.22779)
-
-[node name="RigidBody3D3" parent="Level/Ingredients" instance=ExtResource("39_k1hb8")]
-transform = Transform3D(-0.991399, 0, -0.130872, 0, 1, 0, 0.130872, 0, -0.991399, -20.4541, 1.86616, -2.22779)
-
-[node name="Sulfur" parent="Level/Ingredients" instance=ExtResource("40_dp86v")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -20.8479, 1.07177, -2.14434)
-
-[node name="Sulfur2" parent="Level/Ingredients" instance=ExtResource("40_dp86v")]
-transform = Transform3D(0.80313, 0, -0.595805, 0, 1, 0, 0.595805, 0, 0.80313, -21.5626, 1.07177, -2.14434)
+[node name="FLARE11" parent="Level/Ingredients" instance=ExtResource("46_jqycg")]
+transform = Transform3D(-0.925548, -0.0300069, -0.377439, 0, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -11.5678, 1.55502, 3.48414)
 
 [node name="SFX" type="Node3D" parent="Level"]
 process_mode = 3
@@ -1268,6 +1784,15 @@ emission_angle_enabled = true
 emission_angle_degrees = 86.6
 emission_angle_filter_attenuation_db = -72.5
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5302, 0, 0)
+occluder = ExtResource("55_a2rek")
+bake_mask = 4294966277
+
+[node name="LightmapGI" type="LightmapGI" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.299, 0, 0)
+light_data = ExtResource("55_bdsga")
+
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="WorldSafeguard" type="Area3D" parent="Triggers"]
@@ -1276,8 +1801,8 @@ collision_mask = 3
 script = ExtResource("9_7hkxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Triggers/WorldSafeguard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.0418, 0)
-shape = SubResource("WorldBoundaryShape3D_v46o1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9372, -7.71496, 0.0571289)
+shape = SubResource("BoxShape3D_ebm3s")
 
 [node name="ShadowCrawl" type="Area3D" parent="Triggers"]
 transform = Transform3D(0.0166671, 0, 0.999861, 0, 1, 0, -0.999861, 0, 0.0166671, -5.84593, 0.145517, 3.72983)
@@ -1346,8 +1871,8 @@ shape = SubResource("BoxShape3D_k054j")
 [node name="TargetPosition" type="Node3D" parent="Triggers/FlareProgressionCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66841, 0.230261, -0.607935)
 
-[node name="UCharacterBody3D" parent="." instance=ExtResource("4_h3u33")]
-transform = Transform3D(-0.0250882, 0, -0.782655, 0, 0.783057, 0, 0.782655, 0, -0.0250882, -0.574714, 0.135766, -5.40066)
+[node name="Player" parent="." instance=ExtResource("4_h3u33")]
+transform = Transform3D(0.640099, 0, -0.451055, 0, 0.783057, 0, 0.451055, 0, 0.640099, -0.228259, 0.135766, -5.70202)
 throw_impulse = 5.0
 
 [node name="PaletteLayer" type="CanvasLayer" parent="."]
@@ -1408,6 +1933,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="SubtitleLayer" parent="." instance=ExtResource("24_npgg6")]
+visible = false
 
 [node name="DialogLayer" parent="." instance=ExtResource("15_wjgnd")]
 layer = 3
@@ -1421,21 +1947,19 @@ visible = false
 unique_name_in_owner = true
 
 [node name="OvaniPlayer" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("63_fo8fa")
-
-[node name="DEBUG_LIGHT" type="OmniLight3D" parent="."]
-transform = Transform3D(0.876114, 0.0443843, -0.480056, 0, 0.995753, 0.0920639, 0.482104, -0.0806585, 0.872394, -10.3348, 1.43195, 1.10175)
-visible = false
-light_color = Color(0.821819, 0.646207, 0.461115, 1)
-light_energy = 10.499
-light_indirect_energy = 0.975
-omni_range = 4.224
-omni_attenuation = -0.648
 
 [connection signal="visibility_changed" from="Level/NavigationRegion3D/Interactibles/GasLamp" to="." method="_on_gas_lamp_visibility_changed"]
 [connection signal="timeout" from="Level/NavigationRegion3D/Interactibles/GasLamp/Timer" to="Level/NavigationRegion3D/Interactibles/GasLamp" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Level/Shadows/StairsShadow/Area3D" to="Level/Shadows/StairsShadow" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Level/Shadows/StairsShadow/Area3D" to="Level/Shadows/StairsShadow" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="Triggers/WorldSafeguard" to="Triggers/WorldSafeguard" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ShadowCrawl" to="Triggers/ShadowCrawl" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/ClockBells" to="Triggers/ClockBells" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/HintLamp" to="Triggers/HintLamp" method="_on_body_entered"]
 [connection signal="body_entered" from="Triggers/FlareProgressionCheck" to="Triggers/FlareProgressionCheck" method="_on_body_entered"]
+
+[editable path="Level/Shadows/StairsShadow/Shadow"]
+[editable path="Level/Shadows/StairsShadow/Skull"]
+[editable path="Level/Shadows/Eyes3"]

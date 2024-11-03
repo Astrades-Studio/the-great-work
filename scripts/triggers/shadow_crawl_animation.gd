@@ -10,7 +10,7 @@ var played : bool = false
 func _ready() -> void:
 	running_crawl_imported.hide()
 	GameManager.shadow_crawl_trigger.connect(_on_player_walk_by)
-	
+
 
 func _on_player_walk_by():
 	if played:

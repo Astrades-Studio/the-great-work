@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dwalwksm1ks2j"
+path.s3tc="res://.godot/imported/rocks_MI_DebrisSmall_Occlusion-MI_DebrisSmall_MetallicRoughness.webp-83f420efdcb57b9a2652acead86bf4ac.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "586b01640ea2475a5f44434de63fa98d"
+}
+
+[deps]
+
+source_file="res://assets/models/ingredients/rocks/rocks_MI_DebrisSmall_Occlusion-MI_DebrisSmall_MetallicRoughness.webp"
+dest_files=["res://.godot/imported/rocks_MI_DebrisSmall_Occlusion-MI_DebrisSmall_MetallicRoughness.webp-83f420efdcb57b9a2652acead86bf4ac.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/ingredients/rocks/rocks_T_DebrisSmall_N.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
