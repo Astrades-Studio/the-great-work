@@ -1594,8 +1594,10 @@ visible = false
 draw_pass_1 = SubResource("QuadMesh_cmg43")
 
 [node name="ShadowOrbit" parent="Level/Shadows" node_paths=PackedStringArray("chase_target") instance=ExtResource("37_1cn3e")]
-transform = Transform3D(-0.863071, 0, -0.506638, 0, 1.00036, 0, 0.506661, 0, -0.863038, -11.6819, 0.135766, -5.70202)
+transform = Transform3D(-1.00103, 0, -0.00406651, 0, 1.00036, 0, 0.0040638, 0, -1.00099, -11.6095, 26.1999, -5.63872)
+active = false
 chase_target = NodePath("../../../Player")
+max_visibility_duration = 5.0
 
 [node name="Eyes2" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
 transform = Transform3D(-0.925548, -0.0300069, -0.377439, -1.21509e-08, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -15.3793, 1.55502, 6.22505)

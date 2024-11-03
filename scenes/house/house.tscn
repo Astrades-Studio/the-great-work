@@ -1,4 +1,4 @@
-[gd_scene load_steps=339 format=4 uid="uid://droqlyqk5h663"]
+[gd_scene load_steps=338 format=4 uid="uid://droqlyqk5h663"]
 
 [ext_resource type="Script" path="res://scenes/house/house.gd" id="1_xsoq0"]
 [ext_resource type="Texture2D" uid="uid://bvvwv5ts1k42i" path="res://assets/models/house/T_colorPalette2048.png" id="2_3jksq"]
@@ -118,7 +118,6 @@
 [ext_resource type="ArrayMesh" uid="uid://bt07xuhons83r" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dishes_01c.res" id="114_4e5du"]
 [ext_resource type="ArrayMesh" uid="uid://bjr3vs81sfrm1" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_01k.res" id="115_luweg"]
 [ext_resource type="ArrayMesh" uid="uid://beo751uai6yt5" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_MilkJug_01b.res" id="116_5ywrk"]
-[ext_resource type="PackedScene" uid="uid://cg2kggtrxiwia" path="res://scenes/props/rack_with_bags_1.tscn" id="116_gvemd"]
 [ext_resource type="ArrayMesh" uid="uid://c0478nals3uwy" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Containers_02b.res" id="117_wc058"]
 [ext_resource type="ArrayMesh" uid="uid://n0xaalsml5d7" path="res://assets/models/old_west/unused/vol3/meshes/old west 3_webp_SM_Chest_02a.res" id="118_cdemo"]
 [ext_resource type="ArrayMesh" uid="uid://c60tmp1fk6lwl" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02d.res" id="118_lad24"]
@@ -3788,9 +3787,6 @@ skeleton = NodePath("")
 transform = Transform3D(0.726458, -0.327828, -1.19661, 0.0267233, 1.39045, -0.36471, 1.24042, 0.162039, 0.70866, 12.2092, 0.961851, -4.09732)
 mesh = SubResource("ArrayMesh_xbrp0")
 skeleton = NodePath("")
-
-[node name="Rack_with_bags_1" parent="." instance=ExtResource("116_gvemd")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 2.2859, 0.140061, -9.30557)
 
 [node name="OldWest1WebpSmWallShelf01a2" parent="." instance=ExtResource("120_0v55j")]
 transform = Transform3D(1.94181, 0, 0, 0, 2.64468, 0, 0, 0, 1.87441, 1.05984, 0.140061, -9.6397)

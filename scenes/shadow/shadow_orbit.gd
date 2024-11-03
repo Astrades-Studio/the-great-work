@@ -96,7 +96,8 @@ func _ready() -> void:
 
 # Timers
 @export var max_retreat_duration: float = 30.0
-@export var max_visibility_duration: float = 5.0
+@export var max_visibility_duration: float = 2.5
+@export var max_invisibility_duration: float = 3.5
 
 var visibility_timer := 0.0
 var retreat_timer := 0.0
@@ -110,9 +111,14 @@ func _process(delta: float) -> void:
 
 		State.WAITING:
 			visibility_timer += delta
-			if visibility_timer >= max_visibility_duration:
-				visibility_timer = 0.0
-				_toggle_invisibility()
+			if _visible:
+				if visibility_timer >= max_visibility_duration:
+					visibility_timer = 0.0
+					_toggle_invisibility()
+			else:
+				if visibility_timer >= max_invisibility_duration:
+					visibility_timer = 0.0
+					_toggle_invisibility()
 
 			if offset_active:
 				time += delta
@@ -263,7 +269,7 @@ func _on_hurtbox_body_exited(body: Node3D) -> void:
 # Kill the player if too close
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
-		if current_state == State.RETREATING:
+		if current_state == State.RETREATING or current_state == State.INACTIVE:
 			return
 
 		GameManager.game_over.emit()
