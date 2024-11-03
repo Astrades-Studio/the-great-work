@@ -2613,17 +2613,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 1.77636e-15, 0, 1, 0, -0.428868, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178834, 0.0223447, 0.00256312)
 shape = SubResource("BoxShape3D_3of58")
 
-[node name="OldWest4WebpSmCookware02a" type="MeshInstance3D" parent="Structural"]
-transform = Transform3D(-2.64461e-08, 0, 2.32278, 0, 1.12137, 0, -0.605015, 0, -1.01532e-07, 3.00441, 1.84994, -0.227906)
-mesh = ExtResource("93_xg00u")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Structural/OldWest4WebpSmCookware02a"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.77636e-15, 0, 1, 0, -0.428868, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Structural/OldWest4WebpSmCookware02a/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178834, 0.445766, 0.00256312)
-shape = SubResource("BoxShape3D_3of58")
-
 [node name="OldWest5WebpSmCrate01a001" type="MeshInstance3D" parent="Structural"]
 transform = Transform3D(0.191888, 0, 0.981417, 0, 1, 0, -0.981417, 0, 0.191888, 0.451687, -3.10245, -8.48608)
 mesh = ExtResource("17_xb4hw")
@@ -2649,6 +2638,101 @@ transform = Transform3D(-2.55345e-08, 0, -0.432145, 0, 0.477505, 0, 0.584161, 0,
 mesh = SubResource("PlaneMesh_b6tux")
 
 [node name="OldWest5WebpSmCrate02a001" parent="Structural" instance=ExtResource("16_lldxb")]
+
+[node name="Shelf" type="Node3D" parent="Structural"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.03838, 0.0485736, -3.23933)
+
+[node name="OldWest4WebpSmCookware02a" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(-2.64461e-08, 0, 2.32278, 0, 1.12137, 0, -0.605015, 0, -1.01532e-07, 3.00441, 1.84994, -0.227906)
+mesh = ExtResource("93_xg00u")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Structural/Shelf/OldWest4WebpSmCookware02a"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.77636e-15, 0, 1, 0, -0.428868, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Structural/Shelf/OldWest4WebpSmCookware02a/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178834, 0.445766, 0.00256312)
+shape = SubResource("BoxShape3D_3of58")
+
+[node name="OldWest4WebpSmDryGoods02k" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.223335, 0, -0.974742, 0, 1, 0, 0.974742, 0, 0.223335, 3.81959, 1.89264, -0.149596)
+mesh = ExtResource("41_7dbj5")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02h" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.926108, 0, -0.377259, 0, 1, 0, 0.377259, 0, 0.926108, 3.58588, 1.89264, -0.172708)
+mesh = ExtResource("125_n2ld3")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02g" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.716497, 0, 0.69759, 0, 1, 0, -0.69759, 0, 0.716497, 3.39844, 1.89264, -0.171374)
+mesh = ExtResource("43_xe236")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02m" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23382, 1.89264, -0.202455)
+mesh = ExtResource("44_3wxtf")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02d" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.681079, 0, -0.73221, 0, 1, 0, 0.73221, 0, 0.681079, 3.06493, 1.89264, -0.146389)
+mesh = ExtResource("118_lad24")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02c" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.941282, 0, -0.337621, 0, 1, 0, 0.337621, 0, 0.941282, 2.84928, 1.89264, -0.174099)
+mesh = ExtResource("127_lf1e6")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02b" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.962285, 0, 0.272045, 0, 1, 0, -0.272045, 0, 0.962285, 2.562, 1.89264, -0.178314)
+mesh = ExtResource("126_r0aay")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01l" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.562646, 0, 0.826698, -1.44286e-05, 1, 9.82002e-06, -0.826698, -1.74533e-05, 0.562646, 2.39335, 1.89264, -0.195944)
+mesh = ExtResource("49_te74d")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01i" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.869478, 0, 0.493972, 0, 1, 0, -0.493972, 0, 0.869478, 3.50458, 1.89264, -0.261849)
+mesh = ExtResource("50_is88l")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01e" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.256543, 0, 0.966533, 0, 1, 0, -0.966533, 0, 0.256543, 3.11606, 1.8818, -0.176042)
+mesh = ExtResource("51_25m8a")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01c" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.364568, 0, 0.931177, 0, 1, 0, -0.931177, 0, 0.364568, 3.11584, 1.8818, -0.259313)
+mesh = ExtResource("52_r5dlh")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01e2" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.653804, 0, 0.756664, 0, 1, 0, -0.756664, 0, 0.653804, 3.29159, 1.8818, -0.255475)
+mesh = ExtResource("51_25m8a")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01a" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.245409, 0, 0.96942, 0, 1, 0, -0.96942, 0, 0.245409, 2.87054, 1.8818, -0.267652)
+mesh = ExtResource("123_32eql")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01f" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98, 1.88606, -0.224177)
+mesh = ExtResource("54_blpus")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods01f2" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73836, 1.88606, -0.222313)
+mesh = ExtResource("54_blpus")
+skeleton = NodePath("../../../Props")
+
+[node name="OldWest4WebpSmDryGoods02k2" type="MeshInstance3D" parent="Structural/Shelf"]
+transform = Transform3D(0.0236296, 0, 0.999721, 0, 1, 0, -0.999721, 0, 0.0236296, 2.22983, 1.88514, -0.207055)
+mesh = ExtResource("41_7dbj5")
+skeleton = NodePath("../../../Props")
 
 [node name="Doors" type="Node3D" parent="."]
 
@@ -2989,73 +3073,9 @@ lod_bias = 0.2
 mesh = ExtResource("53_nj75h")
 skeleton = NodePath("../..")
 
-[node name="OldWest4WebpSmDryGoods02k" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.223335, 0, -0.974742, 0, 1, 0, 0.974742, 0, 0.223335, 3.81959, 1.89264, -0.149596)
-mesh = ExtResource("41_7dbj5")
-
-[node name="OldWest4WebpSmDryGoods02h" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.926108, 0, -0.377259, 0, 1, 0, 0.377259, 0, 0.926108, 3.58588, 1.89264, -0.172708)
-mesh = ExtResource("125_n2ld3")
-
-[node name="OldWest4WebpSmDryGoods02g" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.716497, 0, 0.69759, 0, 1, 0, -0.69759, 0, 0.716497, 3.39844, 1.89264, -0.171374)
-mesh = ExtResource("43_xe236")
-
-[node name="OldWest4WebpSmDryGoods02m" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.23382, 1.89264, -0.202455)
-mesh = ExtResource("44_3wxtf")
-
 [node name="OldWest4WebpSmMilkJug02b" type="MeshInstance3D" parent="Props"]
 transform = Transform3D(0.999976, 0, -0.00687654, 0, 1, 0, 0.00687654, 0, 0.999976, 2.79076, 0.128471, -0.212107)
 mesh = ExtResource("45_px7u7")
-
-[node name="OldWest4WebpSmDryGoods02d" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.681079, 0, -0.73221, 0, 1, 0, 0.73221, 0, 0.681079, 3.06493, 1.89264, -0.146389)
-mesh = ExtResource("118_lad24")
-
-[node name="OldWest4WebpSmDryGoods02c" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.941282, 0, -0.337621, 0, 1, 0, 0.337621, 0, 0.941282, 2.84928, 1.89264, -0.174099)
-mesh = ExtResource("127_lf1e6")
-
-[node name="OldWest4WebpSmDryGoods02b" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.962285, 0, 0.272045, 0, 1, 0, -0.272045, 0, 0.962285, 2.562, 1.89264, -0.178314)
-mesh = ExtResource("126_r0aay")
-
-[node name="OldWest4WebpSmDryGoods01l" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.562646, 0, 0.826698, -1.44286e-05, 1, 9.82002e-06, -0.826698, -1.74533e-05, 0.562646, 2.39335, 1.89264, -0.195944)
-mesh = ExtResource("49_te74d")
-
-[node name="OldWest4WebpSmDryGoods01i" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.869478, 0, 0.493972, 0, 1, 0, -0.493972, 0, 0.869478, 3.50458, 1.89264, -0.261849)
-mesh = ExtResource("50_is88l")
-
-[node name="OldWest4WebpSmDryGoods01e" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.256543, 0, 0.966533, 0, 1, 0, -0.966533, 0, 0.256543, 3.11606, 1.8818, -0.176042)
-mesh = ExtResource("51_25m8a")
-
-[node name="OldWest4WebpSmDryGoods01c" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.364568, 0, 0.931177, 0, 1, 0, -0.931177, 0, 0.364568, 3.11584, 1.8818, -0.259313)
-mesh = ExtResource("52_r5dlh")
-
-[node name="OldWest4WebpSmDryGoods01e2" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.653804, 0, 0.756664, 0, 1, 0, -0.756664, 0, 0.653804, 3.22919, 1.8818, -0.200621)
-mesh = ExtResource("51_25m8a")
-
-[node name="OldWest4WebpSmDryGoods01a" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.245409, 0, 0.96942, 0, 1, 0, -0.96942, 0, 0.245409, 2.87235, 1.8818, -0.184245)
-mesh = ExtResource("123_32eql")
-
-[node name="OldWest4WebpSmDryGoods01f" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98, 1.88606, -0.224177)
-mesh = ExtResource("54_blpus")
-
-[node name="OldWest4WebpSmDryGoods01f2" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73836, 1.88606, -0.222313)
-mesh = ExtResource("54_blpus")
-
-[node name="OldWest4WebpSmDryGoods02k2" type="MeshInstance3D" parent="Props"]
-transform = Transform3D(0.0236296, 0, 0.999721, 0, 1, 0, -0.999721, 0, 0.0236296, 2.22983, 1.88514, -0.207055)
-mesh = ExtResource("41_7dbj5")
 
 [node name="Paintings" type="Node3D" parent="."]
 

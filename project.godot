@@ -39,6 +39,10 @@ window/size/initial_position_type=0
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="The Great Work"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
