@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_cliku"]
 [ext_resource type="Texture2D" uid="uid://b3mmmba2pcpfv" path="res://assets/models/props/salt_bag/Ucupaint MI_Flour_01a_SM_FlourSack_01a_165 Color.png" id="3_hqpd7"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_q8qkr"]
-[ext_resource type="Texture2D" uid="uid://sjawa4ktqhat" path="res://assets/models/props/salt_bag/salt_bag_MI_Flour_01a_SM_FlourSack_01a_165_Occlusion-MI_Flour_01a_SM_Flo-Ucupaint MI_Flour_01a_SM_FlourSack_01a_165 Roughness-Ucupaint MI_Flour_01a_SM_FlourSack_01a_165 Metallic.webp" id="4_cq588"]
+[ext_resource type="Texture2D" uid="uid://sjawa4ktqhat" path="res://assets/models/props/salt_bag/salt_bag_MI_Flour_.webp" id="4_cq588"]
 [ext_resource type="Texture2D" uid="uid://dknmd2jpbv446" path="res://assets/images/salt_symbol_inv.png" id="5_eobs5"]
 [ext_resource type="Texture2D" uid="uid://dg5tpu3p3iwnq" path="res://assets/models/props/salt_bag/salt_bag_Ucupaint MI_Flour_01a_SM_FlourSack_01a_165 Normal.webp" id="5_qnil5"]
 
