@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://coj34eyru0lf3"]
+
+[ext_resource type="PackedScene" uid="uid://bs1g53duoim36" path="res://TestResources/ogre/ogre.fbx" id="1_mt310"]
+[ext_resource type="PackedScene" uid="uid://bps8ku1crq40n" path="res://TestResources/TestNodes/LampPost.tscn" id="2_nt380"]
+[ext_resource type="PackedScene" uid="uid://c6pjqxu3c8cpf" path="res://TestResources/TestNodes/Cube.tscn" id="4_asy3t"]
+
+[node name="test2_zoo" type="Node3D"]
+
+[node name="ogre" type="Node3D" parent="." instance=ExtResource("1_mt310")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.463287, 0, -0.908361)
+
+[node name="LampPost" type="Node3D" parent="." instance=ExtResource("2_nt380")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43066, 0, -0.450635)
+
+[node name="Node3d" type="Node3D" parent="." instance=ExtResource("4_asy3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570521, 0, 1.16663)
