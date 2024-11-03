@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccp18cvq4qylr"
+uid="uid://dp7r6j1i5giii"
 path.s3tc="res://.godot/imported/Living_room_shelf_1_Golden goblet 1_DefaultMaterial_Normal.webp-c10a667da195f61c0d8917fe19d4c503.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "214768933675e5318b6c253bada92994"
 }
 
 [deps]
