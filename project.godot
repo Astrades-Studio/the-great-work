@@ -29,6 +29,8 @@ DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 RuntimeDebugTools="*res://addons/runtime_debug_tools/scenes/remote_inspector.tscn"
 EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
+Panku="*res://addons/panku_console/console.tscn"
+AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
 
 [display]
 
@@ -45,7 +47,7 @@ project/assembly_name="The Great Work"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/assetplacer/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/fabimakesgames.embed_game/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/maaacks_options_menus/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/runtime_debug_tools/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
@@ -200,6 +202,10 @@ sprint={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/translations/menus_translations.en.translation", "res://addons/maaacks_options_menus/base/translations/menus_translations.fr.translation")
+
 [layer_names]
 
 3d_render/layer_1="Geometry"
@@ -217,6 +223,11 @@ sprint={
 3d_physics/layer_7="Triggers"
 3d_physics/layer_8="Shadow"
 3d_physics/layer_9="Furniture"
+
+[maaacks_options_menus]
+
+disable_plugin_dialogues=true
+copy_path="res://scenes/ui_templates"
 
 [physics]
 
