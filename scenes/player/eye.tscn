@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://mmsucaxs0udq"]
+
+[ext_resource type="PackedScene" uid="uid://cix4dbipdo0ls" path="res://assets/models/props/eye/eye.glb" id="1_6qteu"]
+[ext_resource type="Texture2D" uid="uid://yf7sxjx4icm7" path="res://assets/models/props/eye/eye_Ucupaint Sclera Color.webp" id="2_qm04h"]
+[ext_resource type="Material" uid="uid://bxgnkmhfihwvy" path="res://assets/models/materials/blood_material.tres" id="3_see31"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnosr"]
+resource_name = "Sclera"
+cull_mode = 2
+albedo_color = Color(1, 0.7, 0.7, 1)
+albedo_texture = ExtResource("2_qm04h")
+roughness = 0.127907
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jgtvn"]
+emission_shape = 1
+emission_sphere_radius = 0.02
+gravity = Vector3(0, -0.3, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dy4jn"]
+material = ExtResource("3_see31")
+size = Vector2(0.03, 0.03)
+
+[node name="eye" instance=ExtResource("1_6qteu")]
+metadata/run = false
+
+[node name="Eyeball" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mnosr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Eyeball" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0192572)
+amount = 11
+lifetime = 1.65
+explosiveness = 0.3
+process_material = SubResource("ParticleProcessMaterial_jgtvn")
+draw_pass_1 = SubResource("QuadMesh_dy4jn")

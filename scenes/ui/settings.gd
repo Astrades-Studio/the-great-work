@@ -45,7 +45,7 @@ func set_current_values():
 	sensitivity_slider.value = remap(GameManager.mouse_sensitivity, 0.01, 0.2, 0, 1)
 	fov_slider.value = remap(GameManager.fov_value, 60, 90, 0, 1)
 	if retro_filter:
-		brightness_slider.value = clamp(remap(GameManager.brightness, 2.0, 3.8, 0, 1), 0, 1)
+		brightness_slider.value = clamp(remap(GameManager.brightness, 1.0, 2.0, 0, 1), 0, 1)
 	else:
 		brightness_slider.value = clamp(remap(GameManager.brightness, 1.0, 2.0, 0, 1), 0, 1)
 

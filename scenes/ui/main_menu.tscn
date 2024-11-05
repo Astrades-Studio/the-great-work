@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2sji10d8blul"]
+[gd_scene load_steps=20 format=3 uid="uid://2sji10d8blul"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_6645d"]
 [ext_resource type="VideoStream" path="res://assets/videos/main_menu_render.ogv" id="3_83lyj"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://dvgj4did50rd3" path="res://assets/ui/fonts/cruft.ttf" id="5_1ffgs"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="5_0425m"]
 [ext_resource type="PackedScene" uid="uid://djy03droafm57" path="res://scenes/ui/settings.tscn" id="6_kbldp"]
+[ext_resource type="Theme" uid="uid://bux2gvd5li1x1" path="res://scenes/ui/solid_theme.tres" id="6_m5efw"]
+[ext_resource type="PackedScene" uid="uid://drepqc6n0qfqa" path="res://scenes/ui_templates/scenes/menus/options_menu/mini_options_menu.tscn" id="7_ihppt"]
 [ext_resource type="AudioStream" uid="uid://cbm5kxdfa2xvu" path="res://assets/sounds/music/main_menu2.mp3" id="7_mo6k3"]
 [ext_resource type="AudioStream" uid="uid://npswqgb2f3yi" path="res://assets/sounds/sfx/Firewood Loop.wav" id="8_lgtuu"]
 [ext_resource type="AudioStream" uid="uid://mi3qbnnjh42n" path="res://assets/sounds/sfx/hover_mouse.mp3" id="9_3rmti"]
@@ -37,6 +39,9 @@ shadow_color = Color(0, 0, 0, 0)
 content_margin_left = 10.0
 bg_color = Color(0.0945844, 0.0699015, 0.0705314, 0.607843)
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj04m"]
+bg_color = Color(0.115793, 0.0942955, 0.0352047, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wuxp"]
 font_size = 32
@@ -207,9 +212,22 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 45
 alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_m5efw")
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oj04m")
+
+[node name="MiniOptionsMenu" parent="HBoxContainer/VBoxContainer/PanelContainer" instance=ExtResource("7_ihppt")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="SettingsContainer" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_kbldp")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.92

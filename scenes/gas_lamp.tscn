@@ -201,7 +201,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.990385, -0.00400071, 0.13828, -0.00996614, 0.994921, 0.100164, -0.137978, -0.100579, 0.985315, -0.00420796, 0.111221, -0.0135744)
 layers = 3
 light_color = Color(1, 0.606688, 0.36699, 1)
-light_energy = 10.0
+light_energy = 6.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.407
 light_specular = 1.032
@@ -253,7 +253,6 @@ script = ExtResource("8_1oqpt")
 
 [node name="Hand  - Realistic2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.25976, 0.179348, -0.0217824, -0.0250816, -0.0516066, 1.29718, 0.127097, 1.76748, 0.040085, 0.0101625, 0.0646966, 0.0791863)
-visible = false
 layers = 2
 mesh = SubResource("ArrayMesh_3t15q")
 skeleton = NodePath("")

@@ -40,7 +40,6 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 
 [node name="Living_room_shelf_1" instance=ExtResource("1_amrbq")]
-visible = false
 metadata/run = false
 
 [node name="Mesh_Shelf_01_001" parent="." index="0"]

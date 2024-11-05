@@ -98,7 +98,7 @@ var brightness : float = 1.0:
 		if !is_node_ready():
 			await ready
 		if retro_filter:
-			brightness = clamp(remap(value, 0, 1, 2.0, 3.8), 2.0, 3.8)
+			brightness = clamp(remap(value, 0, 1, 1.0, 2.0), 1.0, 2.0)
 		else:
 			brightness = clamp(remap(value, 0, 1, 1.0, 2.0), 1.0, 2.0)
 		if is_instance_valid(fog_environment):
@@ -135,6 +135,7 @@ signal game_over
 signal game_started
 signal cutscene_started
 signal cutscene_finished
+signal shaders_compiled
 
 # Game Progression Signals
 signal lamp_collected

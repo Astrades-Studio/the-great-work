@@ -269,7 +269,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 					return result
 				elif result == Ingredient.Type.PHILOSOPHERS_STONE and progress == 2:
 					result = advance_progress_philosopher_stone()
-					return result
+					return Ingredient.Type.NONE
 				return result
 	if item_1.type != Ingredient.Type.NONE and item_2.type != Ingredient.Type.NONE:
 		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [item_1.type_name, item_2.type_name])

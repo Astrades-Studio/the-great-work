@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://1coia5mjmeig"]
 
-[ext_resource type="PackedScene" path="res://scenes/ui_templates/scenes/menus/options_menu/master_options_menu.tscn" id="1_6sayf"]
-[ext_resource type="PackedScene" path="res://scenes/ui_templates/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_pbdr0"]
-[ext_resource type="PackedScene" path="res://scenes/ui_templates/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_fx5lu"]
-[ext_resource type="PackedScene" path="res://scenes/ui_templates/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_5ftbj"]
+[ext_resource type="PackedScene" uid="uid://nuswuvgqrj5b" path="res://scenes/ui_templates/scenes/menus/options_menu/master_options_menu.tscn" id="1_6sayf"]
+[ext_resource type="PackedScene" uid="uid://bjhhq024r0vy7" path="res://scenes/ui_templates/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_pbdr0"]
+[ext_resource type="PackedScene" uid="uid://bghl1tbpa10uc" path="res://scenes/ui_templates/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_fx5lu"]
+[ext_resource type="PackedScene" uid="uid://mmlhbipyiws1" path="res://scenes/ui_templates/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_5ftbj"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_6sayf")]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpmvukgjr72ol"
-path.s3tc="res://.godot/imported/salt_bag_Eye_01-Eye_01.webp-f88c1cc86c037b507f8f68480fe450e7.s3tc.ctex"
+uid="uid://oo1wdjdq2xw4"
+path.s3tc="res://.godot/imported/eye_Mask (Solid Color 1).webp-eabc500728bf90dfc9f6923b4c87f6ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "685fe88d564f6167cf9b51eb1a3e436c"
+"md5": "a788cb3d147985e08d640682651dea71"
 }
 
 [deps]
 
-source_file="res://assets/models/props/eye/salt_bag_Eye_01-Eye_01.webp"
-dest_files=["res://.godot/imported/salt_bag_Eye_01-Eye_01.webp-f88c1cc86c037b507f8f68480fe450e7.s3tc.ctex"]
+source_file="res://assets/models/props/eye/eye_Mask (Solid Color 1).webp"
+dest_files=["res://.godot/imported/eye_Mask (Solid Color 1).webp-eabc500728bf90dfc9f6923b4c87f6ad.s3tc.ctex"]
 
 [params]
 

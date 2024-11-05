@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://xnkl4clqvepd"]
+
+[ext_resource type="Shader" path="res://scripts/shaders/crystal.gdshader" id="1_ikclq"]
+[ext_resource type="Texture2D" uid="uid://dia5bbs6o82bb" path="res://assets/textures/meat/Abstract_Organic_003_basecolor.jpg" id="2_6jnh8"]
+[ext_resource type="Texture2D" uid="uid://cvl17pb545dff" path="res://assets/textures/meat/Abstract_Organic_003_normal.jpg" id="3_p47cs"]
+[ext_resource type="Texture2D" uid="uid://ntid8pe4m8km" path="res://assets/textures/meat/Abstract_Organic_003_roughness.jpg" id="4_0742i"]
+[ext_resource type="Texture2D" uid="uid://dpv1uryqlfvr3" path="res://assets/textures/meat/Abstract_Organic_003_height.png" id="5_sfff0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ikclq")
+shader_parameter/albedo = Color(1, 0.2, 0.2, 0.894118)
+shader_parameter/albedo_texture = ExtResource("2_6jnh8")
+shader_parameter/roughness = 0.695
+shader_parameter/roughness_texture = ExtResource("4_0742i")
+shader_parameter/refraction = 0.350001
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_refraction = ExtResource("5_sfff0")
+shader_parameter/normal_strength = 2.074
+shader_parameter/normal_map = ExtResource("3_p47cs")
+shader_parameter/edge_color = Color(0.98, 0.1274, 0.34055, 0.756863)
+shader_parameter/surface_contribution = 0.765
+shader_parameter/specular_contribution = 3.0
+shader_parameter/refraction_contribution = -7.24
+shader_parameter/uv1_scale = Vector3(5, 5, 1)
+shader_parameter/uv1_offset = Vector3(1, 1, 0)

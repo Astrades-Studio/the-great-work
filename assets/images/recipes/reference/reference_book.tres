@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="BookPages" load_steps=4 format=3 uid="uid://t507in4tinkw"]
+[gd_resource type="Resource" script_class="BookPages" load_steps=3 format=3 uid="uid://t507in4tinkw"]
 
-[ext_resource type="Texture2D" uid="uid://b25xm64q05l8k" path="res://assets/images/recipes/reference/vocabularius_01.png" id="1_b7qd7"]
 [ext_resource type="Texture2D" uid="uid://h68x5yi4qlwo" path="res://assets/images/recipes/reference/vocabularius_02.png" id="2_2ryqt"]
 [ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="3_84uqa"]
 
 [resource]
 script = ExtResource("3_84uqa")
-pages = Array[Texture]([ExtResource("1_b7qd7"), ExtResource("2_2ryqt")])
+pages = Array[Texture]([ExtResource("2_2ryqt")])

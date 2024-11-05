@@ -10,5 +10,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	frame_count += 1
 
-	if frame_count >= 2:
+	if frame_count >= 20:
+		GameManager.shaders_compiled.emit()
 		queue_free()

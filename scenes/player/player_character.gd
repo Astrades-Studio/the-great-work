@@ -1,7 +1,7 @@
 extends UCharacterBody3D
 class_name Player
 
-@onready var animation_player: AnimationPlayer = $Body/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp
 @onready var ingredient_label: Label = %IngredientLabel
@@ -51,7 +51,17 @@ func _ready() -> void:
 	GameManager.player = self # Assign this node to the Autoload for global reference
 	GameManager.cutscene_started.connect(_on_cutscene_started)
 	GameManager.cutscene_finished.connect(_on_cutscene_finished)
+	GameManager.shaders_compiled.connect(func(): camera.make_current())
+	GameManager.philosopher_stone_progress.connect(_on_philosopher_stone_made)
 
+
+func _on_philosopher_stone_made(progress : int) -> void:
+	if progress == 3:
+		animation_player.play("pull eye")
+		await animation_player.animation_finished
+		GameManager.stone_consumed.emit()
+
+		
 
 func _on_cutscene_started():
 	self.hide()
@@ -218,7 +228,7 @@ func interact():
 			#else:
 				#animation_player.play("attack")
 		elif ingredient_in_hand.type == Ingredient.Type.PHILOSOPHERS_STONE:
-			animation_player.play("swallow")
+			animation_player.play("pull eye")
 			await animation_player.animation_finished
 			GameManager.stone_consumed.emit()
 

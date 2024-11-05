@@ -8,6 +8,7 @@
 gradient = SubResource("Gradient_rb5mc")
 
 [resource]
+background_mode = 1
 sky = ExtResource("1_j27ru")
 ambient_light_source = 2
 ambient_light_color = Color(0.207512, 0.207512, 0.207512, 1)
