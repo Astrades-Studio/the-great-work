@@ -69,3 +69,8 @@ func _on_back_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	credits.show()
+
+
+func _on_discord_button_pressed() -> void:
+	# open discord url
+	OS.shell_open("https://discord.gg/YBgj6KUM4j")

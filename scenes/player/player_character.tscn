@@ -437,6 +437,7 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_qaw5b")
 }
+speed_scale = 0.265
 
 [node name="EatStoneSound" type="AudioStreamPlayer3D" parent="Body/AnimationPlayer"]
 stream = ExtResource("2_y7hev")
@@ -456,6 +457,10 @@ skeleton = NodePath("../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0388528, 0.0879087, -0.0215439)
 rotation_edit_mode = 1
 visible = false
+
+[node name="Eyeball" parent="Body/AnimationPlayer/Node3D/eye" index="0"]
+mesh = SubResource("ArrayMesh_scumn")
+surface_material_override/0 = SubResource("StandardMaterial3D_mnosr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Body/AnimationPlayer/Node3D"]
 

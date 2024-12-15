@@ -18,7 +18,7 @@ size = Vector3(0.0869141, 3.07578, 0.698975)
 size = Vector3(2.61816, 3.0538, 0.0368881)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uly1"]
-size = Vector3(2.74121, 3.04187, 0.077301)
+size = Vector3(2.741, 3.042, 0.1)
 
 [node name="Shelves" type="MeshInstance3D"]
 transform = Transform3D(1.94181, 0, 0, 0, 2.64468, 0, 0, 0, 1.87441, 0, 0, 0)

@@ -112,7 +112,7 @@ transform = Transform3D(0.116705, 0, -0.993167, 0, 1, 0, 0.993167, 0, 0.116705, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23598, 0.734933, 0)
 
 [node name="Cauldron" parent="Tools" instance=ExtResource("5_5qm7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233996, 0.000734747, -9.25781)
+transform = Transform3D(0.316652, 0, 0, 0, 0.316652, 0, 0, 0, 0.316652, -0.452923, 0.000734747, -5.83425)
 
 [node name="SecretaryDesk" parent="Tools" instance=ExtResource("8_d7yoh")]
 transform = Transform3D(-0.608271, 0, -1.03363, 0, 1.19933, 0, 1.03363, 0, -0.608271, 4.0839, 0.00494397, -0.705085)
