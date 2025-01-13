@@ -27,4 +27,3 @@ func toggle_2d_collision_shape_visibility() -> void:
 const _HELP_reload_current_scene = "Reload current scene"
 func reload_current_scene() -> void:
 	_module.reload_current_scene()
-

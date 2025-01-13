@@ -54,4 +54,4 @@ func stop_all_music():
 	music_stream_1.stop()
 	ambient_music_stream.stop()
 	ambient_music_stream_2.stop()
-	ovani_player.stop()
+	ovani_player.FadeVolume(-80, 0.1)

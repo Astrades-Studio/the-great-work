@@ -4,21 +4,21 @@
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/rich_label_auto_sizer.gd" id="2_6excg"]
 [ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="2_l57e7"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_w15td"]
+[sub_resource type="LabelSettings" id="LabelSettings_2goho"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_6a3lb"]
+[sub_resource type="LabelSettings" id="LabelSettings_x48es"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_jls68"]
+[sub_resource type="LabelSettings" id="LabelSettings_1h1oa"]
 font_size = 24
 font_color = Color(0.72861, 0.605449, 0.492479, 1)
 outline_color = Color(0, 0, 0, 1)
@@ -44,6 +44,7 @@ size_flags_vertical = 3
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="CinematicLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -65,10 +66,12 @@ _last_size_state = 1
 [node name="Control2" type="Control" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -84,7 +87,7 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_w15td")
+label_settings = SubResource("LabelSettings_2goho")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
@@ -100,7 +103,7 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_6a3lb")
+label_settings = SubResource("LabelSettings_x48es")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
@@ -116,7 +119,7 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-label_settings = SubResource("LabelSettings_jls68")
+label_settings = SubResource("LabelSettings_1h1oa")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true

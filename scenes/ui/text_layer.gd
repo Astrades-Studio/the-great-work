@@ -78,7 +78,7 @@ func hide_text():
 	GameManager.current_state = GameManager.GameState.PLAYING
 	if texture_rect.texture:
 		texture_rect.texture = null
-		SfxManager.play_sound(SfxManager.OPEN_BOOK, audio_delay)
+		SfxManager.play_sound(SfxManager.OPEN_BOOK, 0.0)
 
 var last_page : int = -1
 

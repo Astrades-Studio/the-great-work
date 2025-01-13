@@ -52,14 +52,18 @@ func _ready() -> void:
 	GameManager.cutscene_started.connect(_on_cutscene_started)
 	GameManager.cutscene_finished.connect(_on_cutscene_finished)
 	GameManager.shaders_compiled.connect(func(): camera.make_current())
-	GameManager.philosopher_stone_progress.connect(_on_philosopher_stone_made)
+	GameManager.philosopher_stone_made.connect(_on_philosopher_stone_made)
 
 
-func _on_philosopher_stone_made(progress : int) -> void:
-	if progress == 3:
-		animation_player.play("pull eye")
-		await animation_player.animation_finished
-		GameManager.stone_consumed.emit()
+func _on_philosopher_stone_made(transform : Transform3D) -> void:
+	GameManager.current_state = GameManager.GameState.CUTSCENE
+	var tween := get_tree().create_tween()
+	tween.tween_property(camera, "transform", transform, 1.0)
+	await tween.finished
+	animation_player.play("pull eye")
+	await animation_player.animation_finished
+
+	GameManager.stone_consumed.emit()
 
 		
 

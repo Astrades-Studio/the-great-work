@@ -105,6 +105,9 @@ func on_tool_use() -> bool:
 				if (stored_ingredient.type == Ingredient.Type.NIGREDO):
 					DialogManager.create_dialog_piece("The mix looks very dark. This is the first step towards attaining the stone.")
 					return false
+				if (stored_ingredient.type == Ingredient.Type.PHILOSOPHERS_STONE):
+					GameManager.philosopher_stone_made.emit(%EndCamera.global_transform)
+					return false
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
 
 				if (stored_ingredient.type == Ingredient.Type.FLARE):
@@ -269,7 +272,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 					return result
 				elif result == Ingredient.Type.PHILOSOPHERS_STONE and progress == 2:
 					result = advance_progress_philosopher_stone()
-					return Ingredient.Type.NONE
+					return Ingredient.Type.PHILOSOPHERS_STONE
 				return result
 	if item_1.type != Ingredient.Type.NONE and item_2.type != Ingredient.Type.NONE:
 		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [item_1.type_name, item_2.type_name])
@@ -278,6 +281,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	if progress > 0:
 		DialogManager.create_dialog_piece("Damn... that was not it.")
 		progress = 0
+		GameManager.philosopher_stone_progress.emit(progress)
 	return Ingredient.Type.CAPUT_MORTUUM
 
 # Check progress of the philospher's stone
@@ -288,7 +292,6 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	if progress == 1:
 		DialogManager.create_dialog_piece("The cinnabar has turned black. I'm doing something right.")
 		item_1 = instance_ingredient(Ingredient.Type.NIGREDO)
-		#stored_ingredient = instance_ingredient(Ingredient.Type.NIGREDO)
 		return Ingredient.Type.NONE
 	if progress == 2:
 		DialogManager.create_dialog_piece("Now the substance is white... I'm getting closer.")
@@ -297,7 +300,7 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	if progress == 3:
 		progress = 0
 		DialogManager.create_dialog_piece("Glorious red. This must be it!")
-		return Ingredient.Type.PHILOSOPHERS_STONE
+		return Ingredient.Type.NONE
 	else:
 		push_error("Something went wrong with the philospher's stone code")
 		progress = 0
@@ -322,7 +325,7 @@ func move_ingredient_to_player(ingredient: Ingredient) -> void:
 	item_2 = null
 	self.name = og_name
 	if ingredient is not Flare:
-		GameManager.ingredient_spawned(ingredient)
+		GameManager.ingredient_spawned(ingredient)		
 	GameManager.player.ingredient_in_hand = ingredient
 	ingredient_delivered.emit()
 

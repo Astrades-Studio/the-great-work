@@ -9,6 +9,7 @@ blend_mode = 1
 cull_mode = 2
 depth_draw_mode = 1
 shading_mode = 0
+disable_fog = true
 albedo_texture = ExtResource("1_7s1tf")
 shadow_to_opacity = true
 billboard_mode = 1

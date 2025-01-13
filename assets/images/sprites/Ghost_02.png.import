@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5chsr5vrvpkx"
-path.s3tc="res://.godot/imported/Ghost_02.png-69d69ce0181a8fe0dff62bf9a5b8b72e.s3tc.ctex"
+path="res://.godot/imported/Ghost_02.png-69d69ce0181a8fe0dff62bf9a5b8b72e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/sprites/Ghost_02.png"
-dest_files=["res://.godot/imported/Ghost_02.png-69d69ce0181a8fe0dff62bf9a5b8b72e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ghost_02.png-69d69ce0181a8fe0dff62bf9a5b8b72e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -27,7 +26,7 @@ mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false

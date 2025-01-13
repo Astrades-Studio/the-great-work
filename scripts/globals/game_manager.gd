@@ -145,6 +145,7 @@ signal alchemy_read_signal
 signal flare_read_signal
 signal flare_created
 signal philosopher_stone_progress(int)
+signal philosopher_stone_made(Transform3D)
 #signal philosopher_stone_made(made:bool)
 signal tick_countdown
 signal stone_consumed
@@ -155,6 +156,8 @@ signal turned_on_flare
 
 func _ready() -> void:
 	reset_progress()
+	if ovani_player:
+		ovani_player.queue_free()
 	ovani_player = OvaniPlayer.new()
 	ovani_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	ovani_player.FadeVolume(-80, 10)

@@ -63,6 +63,7 @@ func _on_continue_button_pressed() -> void:
 
 func _on_restart_button_pressed() -> void:
 	self.hide_pause_menu()
+	MusicManager.stop_all_music()
 	GameManager.current_state = GameManager.GameState.CUTSCENE
 	GameManager.reset_progress()
 	GameManager.clear_arrays()

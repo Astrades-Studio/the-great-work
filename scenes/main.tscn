@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://cj4g7vd46ar31" path="res://scenes/house_sky_night_2.tres" id="2_dnui8"]
-[ext_resource type="Animation" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
+[ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://0bbyg8putd1x" path="res://scenes/props/shelves.tscn" id="6_l8nuh"]
 [ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
@@ -829,9 +829,9 @@ tracks/17/path = NodePath("Shadow:position:x")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.333333, 11.5, 23.5, -0.25, 0, 0.866667, -6, -32.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.333333, 1.33, 2.53333)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.333333, 11.5),
+"times": PackedFloat32Array(0.333333)
 }
 tracks/18/type = "bezier"
 tracks/18/imported = false
@@ -882,20 +882,15 @@ fill = 1
 fill_from = Vector2(0.495726, 0.504274)
 fill_to = Vector2(0.0968661, 0.139601)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r5mjx"]
-gradient = SubResource("Gradient_1t5ux")
-fill = 1
-fill_from = Vector2(0.495726, 0.504274)
-fill_to = Vector2(0.0968661, 0.139601)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_we0mk"]
 blend_mode = 1
 cull_mode = 2
 no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
 albedo_color = Color(1, 1, 0.384314, 1)
 albedo_texture = SubResource("GradientTexture2D_er8dl")
-emission_enabled = true
-emission_texture = SubResource("GradientTexture2D_r5mjx")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -913,6 +908,16 @@ material = ExtResource("40_jayf1")
 size = Vector2(0.1, 0.1)
 subdivide_width = 3
 subdivide_depth = 3
+
+[sub_resource type="GDScript" id="GDScript_wi2yr"]
+script/source = "extends Node
+
+
+# Delete the parent eyes when restarting from checkpoint
+func _ready() -> void:
+	if GameManager.flare_already_made:
+		get_parent().queue_free()
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nb1cw"]
 transparency = 1
@@ -988,12 +993,15 @@ transform = Transform3D(1.94181, 0, 0, 0, 2.64468, 0, 0, 0, 1.87441, 1.60782, 0.
 
 [node name="Pouch" parent="Level/NavigationRegion3D/House/Props2/Shelves" instance=ExtResource("7_nid48")]
 transform = Transform3D(-0.33366, 0, 0.0436133, 0, 0.336498, 0, -0.0436133, 0, -0.33366, 0.3255, 0.344881, 0)
+ingredient_type = 22
 
 [node name="Pouch2" parent="Level/NavigationRegion3D/House/Props2/Shelves" instance=ExtResource("7_nid48")]
 transform = Transform3D(-0.325311, 0, -0.0860479, 0, 0.336498, 0, 0.0860479, 0, -0.325311, 0.115917, 0.344881, 0)
+ingredient_type = 22
 
 [node name="Pouch3" parent="Level/NavigationRegion3D/House/Props2/Shelves" instance=ExtResource("7_nid48")]
 transform = Transform3D(-0.254685, -0.0518489, -0.213725, -0.0359519, 0.33243, -0.0378041, 0.216966, -0.00577805, -0.257145, -0.339758, 0.344881, 0)
+ingredient_type = 22
 
 [node name="Interactibles" type="Node3D" parent="Level/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5115, 0, 0)
@@ -1078,6 +1086,15 @@ ingredient_type = 17
 
 [node name="Jug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
 transform = Transform3D(0.0537877, 0, 0.892198, 0, 0.893817, 0, -0.892198, 0, 0.0537877, -5.828, 0.642529, 1.50447)
+
+[node name="Jug2" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
+transform = Transform3D(-0.358125, 0, 0.818936, 0, 0.893817, 0, -0.818936, 0, -0.358125, -8.86443, 1.05843, 3.15231)
+
+[node name="Jug4" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
+transform = Transform3D(-0.358125, 0, 0.818936, 0, 0.893817, 0, -0.818936, 0, -0.358125, -5.0548, 0.649737, -5.42015)
+
+[node name="Jug3" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("25_3hjij")]
+transform = Transform3D(0.890214, 0, 0.0801856, 0, 0.893817, 0, -0.0801856, 0, 0.890214, -8.86443, 1.05843, 3.80393)
 
 [node name="BigJug" parent="Level/NavigationRegion3D/Interactibles/Dispensers2" instance=ExtResource("26_g0qm8")]
 transform = Transform3D(0.416626, 0, 1.08252, 0, 1.15993, 0, -1.08252, 0, 0.416626, -0.970196, 0, -5.31294)
@@ -1662,6 +1679,9 @@ max_visibility_duration = 5.0
 transform = Transform3D(-0.925548, -0.0300069, -0.377439, -1.21509e-08, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -15.3793, 1.55502, 6.22505)
 _range = 4.69
 
+[node name="Node" type="Node" parent="Level/Shadows/Eyes2"]
+script = SubResource("GDScript_wi2yr")
+
 [node name="Eyes3" parent="Level/Shadows" instance=ExtResource("31_7gv7d")]
 transform = Transform3D(-0.925548, -0.0300069, -0.377439, -1.21509e-08, 0.996855, -0.0792514, 0.37863, -0.073351, -0.922637, -19.7942, 1.95105, 2.03814)
 _range = 0.725
@@ -1713,6 +1733,9 @@ transform = Transform3D(-0.336114, 0, 0.703286, 0, 0.779477, 0, -0.703286, 0, -0
 
 [node name="Candle4" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -4.59837, -1.10324, -6.12458)
+
+[node name="Candle6" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000541052, 0, -0.000541052, 1, -5.45822, -4.27758, -5.58732)
 
 [node name="Candle5" parent="Level/Lights" instance=ExtResource("17_u0bkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30823, -1.05592, 1.89793)

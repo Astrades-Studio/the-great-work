@@ -41,15 +41,15 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 draw_center = false
 
-[sub_resource type="LabelSettings" id="LabelSettings_grne1"]
-font_size = 24
+[sub_resource type="LabelSettings" id="LabelSettings_eu15g"]
+font_size = 32
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
 
-[sub_resource type="LabelSettings" id="LabelSettings_o080s"]
-font_size = 24
+[sub_resource type="LabelSettings" id="LabelSettings_45fra"]
+font_size = 40
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
@@ -152,14 +152,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Placeholder name"
-label_settings = SubResource("LabelSettings_grne1")
+label_settings = SubResource("LabelSettings_eu15g")
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("2_bjys3")
 _size_just_modified_by_autosizer = false
 _set_defaults = true
-_base_font_size = 24
-_current_font_size = 24
+_base_font_size = 32
+_current_font_size = 32
 _last_size_state = 1
 
 [node name="TextLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -167,15 +167,15 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Placeholder text"
-label_settings = SubResource("LabelSettings_o080s")
+label_settings = SubResource("LabelSettings_45fra")
 horizontal_alignment = 1
 autowrap_mode = 3
 clip_text = true
 script = ExtResource("2_bjys3")
 _size_just_modified_by_autosizer = false
 _set_defaults = true
-_base_font_size = 24
-_current_font_size = 24
+_base_font_size = 40
+_current_font_size = 40
 _last_size_state = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]

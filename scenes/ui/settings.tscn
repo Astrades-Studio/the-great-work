@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://djy03droafm57"]
+[gd_scene load_steps=16 format=3 uid="uid://djy03droafm57"]
 
 [ext_resource type="Theme" uid="uid://bux2gvd5li1x1" path="res://scenes/ui/solid_theme.tres" id="1_cqpxu"]
 [ext_resource type="Script" path="res://scenes/ui/settings.gd" id="2_1yfko"]
 [ext_resource type="Texture2D" uid="uid://bodjm4rrvuos" path="res://assets/ui/UI elements-09.png" id="3_ckjy1"]
 [ext_resource type="Texture2D" uid="uid://bwdjo0qv18r6d" path="res://assets/ui/Dialog box_UI elements-05.png" id="3_dwqab"]
+[ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="4_8laxj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkps2"]
 texture = ExtResource("3_dwqab")
@@ -17,6 +18,30 @@ axis_stretch_vertical = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg0sh"]
 bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.980392)
 
+[sub_resource type="LabelSettings" id="LabelSettings_lj07e"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_mttsi"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_drv4f"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3r51"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_rulwf"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_wl2bl"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_0gwll"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_fs8gu"]
+font_size = 24
+
 [node name="SettingsContainer" type="CenterContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,47 +51,70 @@ grow_vertical = 2
 theme = ExtResource("1_cqpxu")
 script = ExtResource("2_1yfko")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1250, 500)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_tkps2")
 
-[node name="Panel" type="Panel" parent="PanelContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mg0sh")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "VOLUME"
+label_settings = SubResource("LabelSettings_lj07e")
 horizontal_alignment = 1
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="MasterVolume2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MasterVolume2" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "MASTER"
+label_settings = SubResource("LabelSettings_mttsi")
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MasterVolume2"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -79,14 +127,24 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="MusicVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MusicVolume" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "MUSIC"
+label_settings = SubResource("LabelSettings_drv4f")
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MusicVolume"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -96,14 +154,24 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="SFXVolume" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SFXVolume" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "SFX"
+label_settings = SubResource("LabelSettings_b3r51")
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SFXVolume"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -113,69 +181,84 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Bottom" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Bottom" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="MuteButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Bottom"]
+[node name="MuteButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Bottom"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../../SFXVolume/SFXSlider")
 focus_neighbor_bottom = NodePath("../../BackButton")
+theme_override_font_sizes/font_size = 24
 toggle_mode = true
 text = "MUTE"
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "BACK"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="RetroFilter" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="RetroFilter" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_right = NodePath("../FullscreenButton")
+theme_override_font_sizes/font_size = 24
 toggle_mode = true
 text = "RETRO FILTER"
 
-[node name="FullscreenButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="FullscreenButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 toggle_mode = true
 text = "FULLSCREEN"
 
-[node name="Resolution" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="ResolutionLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution"]
+[node name="ResolutionLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "RESOLUTION"
+label_settings = SubResource("LabelSettings_rulwf")
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="ResolutionOption" type="OptionButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution"]
+[node name="ResolutionOption" type="OptionButton" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 14.12
 focus_neighbor_top = NodePath("../../HBoxContainer/FullscreenButton")
 focus_neighbor_bottom = NodePath("../../FOV/FOVSlider")
+theme_override_font_sizes/font_size = 24
+alignment = 1
 selected = 1
 item_count = 4
 popup/item_0/text = "854x480"
@@ -187,15 +270,25 @@ popup/item_2/id = 1
 popup/item_3/text = "2560x1440"
 popup/item_3/id = 2
 
-[node name="FOV" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="FOV" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="FOVLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
+[node name="FOVLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "FOV"
+label_settings = SubResource("LabelSettings_wl2bl")
 horizontal_alignment = 1
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="FOVSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
+[node name="FOVSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/FOV"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -205,16 +298,26 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Brightness" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Brightness" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="BrightnessLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
+[node name="BrightnessLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "BRIGHTNESS
 "
+label_settings = SubResource("LabelSettings_0gwll")
 horizontal_alignment = 1
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="BrightnessSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
+[node name="BrightnessSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Brightness"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -224,15 +327,25 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[node name="Sensitivity" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="Sensitivity" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="SensitivityLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensitivity"]
+[node name="SensitivityLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensitivity"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 16
 text = "SENSITIVITY"
+label_settings = SubResource("LabelSettings_fs8gu")
 horizontal_alignment = 1
+clip_text = true
+script = ExtResource("4_8laxj")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 24
+_current_font_size = 24
+_last_size_state = 1
 
-[node name="SensitivitySlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensitivity"]
+[node name="SensitivitySlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Sensitivity"]
 unique_name_in_owner = true
 modulate = Color(0.463083, 0.592747, 0.748785, 1)
 layout_mode = 2
@@ -242,5 +355,5 @@ max_value = 1.0
 step = 0.1
 value = 1.0
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="item_selected" from="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
