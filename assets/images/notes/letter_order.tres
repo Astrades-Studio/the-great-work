@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BookPages" load_steps=4 format=3 uid="uid://c4fym057uso4k"]
+
+[ext_resource type="Texture2D" uid="uid://dxr01dwwkqyji" path="res://assets/images/notes/Letter_Order_01_Full_Res.png" id="1_6ob4e"]
+[ext_resource type="Texture2D" uid="uid://ibhc7j1loh7s" path="res://assets/images/notes/Letter_Order_02_Full_Res.png" id="2_8t6eu"]
+[ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="3_q8suq"]
+
+[resource]
+script = ExtResource("3_q8suq")
+pages = Array[Texture]([ExtResource("1_6ob4e"), ExtResource("2_8t6eu")])

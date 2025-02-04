@@ -23,4 +23,3 @@ func request_page_UI():
 		GameManager.request_text_UI(text)
 	elif page:
 		GameManager.request_page_UI(page)
-		DialogManager.create_subtitles_piece("Am I supposed to carry out the trial all by myself?")

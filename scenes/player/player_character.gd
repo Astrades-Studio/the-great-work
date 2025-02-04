@@ -5,6 +5,8 @@ class_name Player
 @onready var interact_ray: RayCast3D = %InteractRay
 @onready var gas_lamp: GasLamp = %GasLamp
 @onready var ingredient_label: Label = %IngredientLabel
+@onready var ingredient_container: PanelContainer = %IngredientContainer
+
 @onready var panic_effects: Node = $PanicEffects
 
 
@@ -30,6 +32,7 @@ var ingredient_in_hand: Ingredient:
 		if !value:
 			ingredient_label.text = ""
 			ingredient_in_hand = null
+			ingredient_container.hide()
 		if value:
 			drop_ingredient()
 
@@ -40,6 +43,7 @@ var ingredient_in_hand: Ingredient:
 			ingredient_in_hand.reparent(hand)
 			ingredient_in_hand.current_location = Ingredient.Location.HAND
 			ingredient_label.text = ingredient_in_hand.type_name
+			ingredient_container.show()
 
 # This is used for raycasting
 var interaction_result: Node

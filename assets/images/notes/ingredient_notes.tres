@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BookPages" load_steps=5 format=3 uid="uid://fx4yisfdtgde"]
+
+[ext_resource type="Texture2D" uid="uid://dfx42oi0ta70o" path="res://assets/images/notes/Tools_01.png" id="1_xcq78"]
+[ext_resource type="Texture2D" uid="uid://b3pahv4ilinni" path="res://assets/images/notes/Gold_Silver_01.png" id="2_0r3fn"]
+[ext_resource type="Texture2D" uid="uid://birmcvvyhq15n" path="res://assets/images/notes/Tria_Prima_01.png" id="3_aska1"]
+[ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="3_ustgj"]
+
+[resource]
+script = ExtResource("3_ustgj")
+pages = Array[Texture]([ExtResource("1_xcq78"), ExtResource("2_0r3fn"), ExtResource("3_aska1")])

@@ -8,7 +8,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	if !GameManager.flare_recipe_read:
 		return
-	if body is Player and !GameManager.flare_already_made:
+	if body is Player: #and !GameManager.flare_already_made:
 		DialogManager.play_dialog(SHADOW_BLOCK_DIALOG)
 		await DialogManager.dialog_finished
 

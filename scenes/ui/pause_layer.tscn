@@ -93,9 +93,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="MarginContainer" parent="Control/SettingsContainer/PanelContainer" index="1"]
-size_flags_horizontal = 4
-
 [node name="QuitConfirmation" type="CenterContainer" parent="Control"]
 unique_name_in_owner = true
 visible = false
@@ -150,5 +147,3 @@ text = "NO"
 [connection signal="pressed" from="Control/PauseContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitConfirmButton" to="." method="_on_quit_confirm_button_pressed"]
 [connection signal="pressed" from="Control/QuitConfirmation/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/QuitRefuseButton" to="." method="_on_quit_refuse_button_pressed"]
-
-[editable path="Control/SettingsContainer"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=41 format=4 uid="uid://t4pgsmw2tox1"]
 
 [ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="Texture2D" uid="uid://yf7sxjx4icm7" path="res://assets/models/props/eye/eye_Ucupaint Sclera Color.webp" id="2_ggor8"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="12_jyx62"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
+[ext_resource type="StyleBox" uid="uid://dbbhnos2bvt0l" path="res://assets/ui/theme/item_label_stylebox.tres" id="18_ma2lr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6ooo"]
 resource_name = "Sclera"
@@ -382,7 +383,7 @@ bg_color = Color(0, 0, 0, 0.572549)
 
 [sub_resource type="LabelSettings" id="LabelSettings_achrn"]
 font = ExtResource("12_jyx62")
-font_size = 48
+font_size = 26
 font_color = Color(0.774591, 0.534244, 0.111777, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
@@ -530,7 +531,7 @@ transform = Transform3D(0.890356, 0.0361809, 0.12946, 0.0116943, 0.843078, -0.31
 on_hand = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 script = ExtResource("5_16wbu")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUDLayer"]
@@ -664,12 +665,20 @@ size_flags_vertical = 8
 theme_override_constants/margin_right = 65
 theme_override_constants/margin_bottom = 40
 
-[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer/MarginContainer"]
+[node name="IngredientContainer" type="PanelContainer" parent="HUDLayer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("18_ma2lr")
+
+[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer/MarginContainer/IngredientContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 8
+text = "asd"
 label_settings = SubResource("LabelSettings_achrn")
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HUDLayer"]
 modulate = Color(1, 1, 1, 0)
