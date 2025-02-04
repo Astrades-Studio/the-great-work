@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://mvq5qltmyfxt"]
+
+[ext_resource type="Texture2D" uid="uid://coenvoiayynnq" path="res://assets/models/props/chair/Fur 01_BaseColor.jpg" id="1_3mu58"]
+[ext_resource type="Texture2D" uid="uid://dnyq3aehxl6qr" path="res://assets/models/props/chair/Fur 01_Normal.jpg" id="2_6xhlv"]
+
+[resource]
+cull_mode = 2
+albedo_color = Color(0.730216, 0.730216, 0.730216, 1)
+albedo_texture = ExtResource("1_3mu58")
+normal_enabled = true
+normal_texture = ExtResource("2_6xhlv")
+uv1_scale = Vector3(2.235, 2.235, 2.235)

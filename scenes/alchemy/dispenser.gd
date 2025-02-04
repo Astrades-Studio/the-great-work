@@ -25,7 +25,7 @@ func _ready() -> void:
 		# get AABB
 	var aabb : AABB = mesh.get_aabb()
 		# get top of AABB
-	highlight.global_position = mesh.global_position + Vector3(0, abs(aabb.size.y), 0)
+	highlight.global_position = mesh.global_position + Vector3(0, abs(aabb.size.y) / 3.9, 0)
 
 
 func request_ingredient(_ingredient_type : Ingredient.Type) -> void:

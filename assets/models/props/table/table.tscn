@@ -1,0 +1,127 @@
+[gd_scene load_steps=29 format=3 uid="uid://drmhkniucxx3r"]
+
+[ext_resource type="PackedScene" uid="uid://viaib2rd61dg" path="res://assets/models/props/table/table.gltf" id="1_8w72n"]
+[ext_resource type="Texture2D" uid="uid://bvjuqr17043jh" path="res://assets/models/props/table/Diffuse.webp" id="2_hpm72"]
+[ext_resource type="Texture2D" uid="uid://tm5ro7mkc5bk" path="res://assets/models/props/table/Roughness.webp" id="3_reim3"]
+[ext_resource type="Texture2D" uid="uid://cad0p2u8cd4tm" path="res://assets/models/props/table/Normal.webp" id="4_hu4cc"]
+[ext_resource type="Texture2D" uid="uid://xqfsyerie4j0" path="res://assets/models/props/table/Inst_RoundTable_02_BaseColor.webp" id="5_ujfw7"]
+[ext_resource type="Texture2D" uid="uid://i5jo102xrdtd" path="res://assets/models/props/table/T_RoundTable_ARM_02-Inst_RoundTable_02_MetallicRoughness.webp" id="6_bkdut"]
+[ext_resource type="Texture2D" uid="uid://c1sb1rdkr0rkt" path="res://assets/models/props/table/Inst_RoundTable_02_Normal.webp" id="7_tkcl4"]
+[ext_resource type="Texture2D" uid="uid://ddvwurg370j4g" path="res://assets/models/props/table/Inst_Jug_01_BaseColor.webp" id="8_2ey32"]
+[ext_resource type="Texture2D" uid="uid://imdujicxxcuv" path="res://assets/models/props/table/T_Jug_ARM_01.webp" id="9_38ovb"]
+[ext_resource type="Texture2D" uid="uid://b724c3vt0llg3" path="res://assets/models/props/table/Inst_Jug_01_MetallicRoughness.webp" id="10_aoh8y"]
+[ext_resource type="Texture2D" uid="uid://v7porqxtoxxg" path="res://assets/models/props/table/Inst_Jug_01_Normal.webp" id="11_pp1rw"]
+[ext_resource type="Material" uid="uid://dqo7be1825edl" path="res://assets/models/props/table/scroll_material.tres" id="12_uqojl"]
+[ext_resource type="Texture2D" uid="uid://dg3jv6grc1v6b" path="res://assets/models/props/table/Inst_PaperFolder_BaseColor.webp" id="14_apfw7"]
+[ext_resource type="Texture2D" uid="uid://bsd0p8d43ktb" path="res://assets/models/props/table/T_PaperFolder_ARM.webp" id="15_8302g"]
+[ext_resource type="Texture2D" uid="uid://d1xei6qu8bc6b" path="res://assets/models/props/table/Inst_PaperFolder_MetallicRoughness.webp" id="16_8tg4g"]
+[ext_resource type="Texture2D" uid="uid://n1530v8i8rax" path="res://assets/models/props/table/Inst_PaperFolder_Normal.webp" id="17_yinpu"]
+[ext_resource type="Texture2D" uid="uid://dpn271q2ll050" path="res://assets/models/props/table/Inst_Rope_01_BaseColor.webp" id="18_11ol8"]
+[ext_resource type="Texture2D" uid="uid://bsq4ol1b04nic" path="res://assets/models/props/table/Inst_Rope_01_MetallicRoughness.webp" id="19_tt4ks"]
+[ext_resource type="Texture2D" uid="uid://daahi6h0wbnlo" path="res://assets/models/props/table/Inst_Rope_01_Normal.webp" id="20_l3iof"]
+[ext_resource type="Texture2D" uid="uid://b8s11kn1u4y00" path="res://assets/models/props/table/Inst_Skull_BaseColor.webp" id="21_gue4i"]
+[ext_resource type="Texture2D" uid="uid://bqpevd3wy1gqd" path="res://assets/models/props/table/Inst_Skull_MetallicRoughness.webp" id="22_cn2pt"]
+[ext_resource type="Texture2D" uid="uid://bc22522ctfhg5" path="res://assets/models/props/table/Inst_Skull_Normal.webp" id="23_efmuh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr5t0"]
+resource_name = "Slab marble emperador light texture.001"
+cull_mode = 2
+albedo_color = Color(0.529067, 0.529067, 0.529067, 1)
+albedo_texture = ExtResource("2_hpm72")
+albedo_texture_force_srgb = true
+metallic_texture = ExtResource("3_reim3")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_reim3")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("4_hu4cc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1m4kp"]
+resource_name = "Inst_RoundTable_02"
+albedo_texture = ExtResource("5_ujfw7")
+metallic = 1.0
+metallic_texture = ExtResource("6_bkdut")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("6_bkdut")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("7_tkcl4")
+ao_enabled = true
+ao_texture = ExtResource("6_bkdut")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2q5v"]
+resource_name = "Inst_Jug_01"
+albedo_texture = ExtResource("8_2ey32")
+metallic = 1.0
+metallic_texture = ExtResource("10_aoh8y")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("10_aoh8y")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("11_pp1rw")
+ao_enabled = true
+ao_texture = ExtResource("9_38ovb")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so261"]
+resource_name = "Inst_PaperFolder"
+albedo_texture = ExtResource("14_apfw7")
+metallic = 1.0
+metallic_texture = ExtResource("16_8tg4g")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("16_8tg4g")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("17_yinpu")
+ao_enabled = true
+ao_texture = ExtResource("15_8302g")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03o0k"]
+resource_name = "Inst_Rope_01.001"
+cull_mode = 2
+albedo_texture = ExtResource("18_11ol8")
+metallic = 1.0
+metallic_texture = ExtResource("19_tt4ks")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("19_tt4ks")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("20_l3iof")
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxw4b"]
+resource_name = "Inst_Skull"
+albedo_texture = ExtResource("21_gue4i")
+metallic = 1.0
+metallic_texture = ExtResource("22_cn2pt")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("22_cn2pt")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("23_efmuh")
+texture_filter = 2
+
+[node name="table" instance=ExtResource("1_8w72n")]
+
+[node name="Marble" parent="Marble goblet_002/Marble goblet" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0321364, 0, 0.0120582)
+surface_material_override/0 = SubResource("StandardMaterial3D_hr5t0")
+
+[node name="Mesh_CoffeeTable_02_001" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1m4kp")
+
+[node name="Mesh_Jug_01_001" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_e2q5v")
+
+[node name="Mesh_Manuscript_04_001" parent="." index="3"]
+surface_material_override/0 = ExtResource("12_uqojl")
+
+[node name="Mesh_PaperFolder_001" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_so261")
+surface_material_override/1 = SubResource("StandardMaterial3D_03o0k")
+
+[node name="Mesh_Skull_001" parent="." index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pxw4b")
