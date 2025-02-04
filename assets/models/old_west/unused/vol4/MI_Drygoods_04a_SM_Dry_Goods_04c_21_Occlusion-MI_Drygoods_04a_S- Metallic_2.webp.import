@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd8nhlbyyat6l"
-path.s3tc="res://.godot/imported/old west 4_webp_MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_SM_Dry_Goods_04c_21_MetallicRoughness.webp-dd6ed2ed437da69ca47eea0b67e09d7f.s3tc.ctex"
+path.s3tc="res://.godot/imported/MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_S- Metallic_2.webp-76516281eb8e4f66826595890c59b660.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/models/old_west/unused/vol4/old west 4_webp_MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_SM_Dry_Goods_04c_21_MetallicRoughness.webp"
-dest_files=["res://.godot/imported/old west 4_webp_MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_SM_Dry_Goods_04c_21_MetallicRoughness.webp-dd6ed2ed437da69ca47eea0b67e09d7f.s3tc.ctex"]
+source_file="res://assets/models/old_west/unused/vol4/MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_S- Metallic_2.webp"
+dest_files=["res://.godot/imported/MI_Drygoods_04a_SM_Dry_Goods_04c_21_Occlusion-MI_Drygoods_04a_S- Metallic_2.webp-76516281eb8e4f66826595890c59b660.s3tc.ctex"]
 
 [params]
 
