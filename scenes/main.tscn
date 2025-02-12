@@ -1,17 +1,17 @@
 [gd_scene load_steps=179 format=4 uid="uid://d1faedhw8viyw"]
 
 [ext_resource type="PackedScene" uid="uid://droqlyqk5h663" path="res://scenes/house/house.tscn" id="1_7hj75"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_bkhrr"]
+[ext_resource type="Script" uid="uid://v4yr0ggoita6" path="res://scenes/main.gd" id="1_bkhrr"]
 [ext_resource type="Environment" uid="uid://cj4g7vd46ar31" path="res://scenes/house_sky_night_2.tres" id="2_dnui8"]
 [ext_resource type="Animation" uid="uid://bvuihvqwk34nc" path="res://assets/animations/Crawl_downstairs.res" id="4_3yjmc"]
 [ext_resource type="PackedScene" uid="uid://t4pgsmw2tox1" path="res://scenes/player/player_character.tscn" id="4_h3u33"]
 [ext_resource type="PackedScene" uid="uid://0bbyg8putd1x" path="res://scenes/props/shelves.tscn" id="6_l8nuh"]
-[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
+[ext_resource type="Script" uid="uid://b2hhy3qggup4p" path="res://scripts/triggers/shadow_crawl_animation.gd" id="6_ougbu"]
 [ext_resource type="PackedScene" uid="uid://dqjjayyb2ihey" path="res://scenes/alchemy/dispensers/pouch.tscn" id="7_nid48"]
 [ext_resource type="AudioStream" uid="uid://bpixoad5ramlu" path="res://assets/sounds/music/Light Rain Ambience Loop.mp3" id="7_qg76f"]
 [ext_resource type="PackedScene" uid="uid://d3k5uk73h71xr" path="res://scenes/props/book.tscn" id="8_8xrqu"]
 [ext_resource type="ArrayMesh" uid="uid://bumtb5ns4vb4u" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02g.res" id="8_tkc6d"]
-[ext_resource type="Script" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
+[ext_resource type="Script" uid="uid://bustgoqursucc" path="res://scripts/utils/world_safeguard.gd" id="9_7hkxv"]
 [ext_resource type="ArrayMesh" uid="uid://cgb6ef0nobh0e" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02h.res" id="9_ocpo6"]
 [ext_resource type="ArrayMesh" uid="uid://u0am6acyp4h5" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02i.res" id="10_5qx0i"]
 [ext_resource type="Resource" uid="uid://0nyw3n73kvo1" path="res://assets/images/recipes/stone_recipe/stone_recipe.tres" id="10_s76sh"]
@@ -41,7 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dfx4lp3vs1ref" path="res://scenes/alchemy/cauldron.tscn" id="18_bbofm"]
 [ext_resource type="ArrayMesh" uid="uid://bm2ksmldfcdv4" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_04b_18.res" id="18_umusa"]
 [ext_resource type="ArrayMesh" uid="uid://c35g7lrteca8g" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_04f_5.res" id="19_74vm0"]
-[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
+[ext_resource type="Script" uid="uid://bltlqwsfqgajc" path="res://scripts/classes/interaction_component.gd" id="20_3awsj"]
 [ext_resource type="ArrayMesh" uid="uid://c0r7qr2f215ee" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_04a_2.res" id="20_qtxqg"]
 [ext_resource type="ArrayMesh" uid="uid://dm8srfpvcmuyf" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_MilkJug_02a.res" id="21_3ae1t"]
 [ext_resource type="PackedScene" uid="uid://ttaynu1kvyxi" path="res://scenes/alchemy/dispensers/chest.tscn" id="21_ghjc7"]
@@ -78,44 +78,44 @@
 [ext_resource type="ArrayMesh" uid="uid://c60tmp1fk6lwl" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02d.res" id="36_ciwof"]
 [ext_resource type="PackedScene" uid="uid://blypovljjijbx" path="res://scenes/shadow/shadow_orbit.tscn" id="37_1cn3e"]
 [ext_resource type="ArrayMesh" uid="uid://c8n36rlyuepaj" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_02e.res" id="37_7sacl"]
-[ext_resource type="Script" path="res://scenes/stairs_shadow.gd" id="38_uuhsq"]
-[ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="39_sfcat"]
+[ext_resource type="Script" uid="uid://dydjgejgjr2fv" path="res://scenes/stairs_shadow.gd" id="38_uuhsq"]
+[ext_resource type="Script" uid="uid://c6fxpqch4fxvi" path="res://scenes/alchemy/dispenser.gd" id="39_sfcat"]
 [ext_resource type="Texture2D" uid="uid://bqrqp555my3hu" path="res://assets/images/sprites/Eyes_01.png" id="39_suo18"]
-[ext_resource type="Script" path="res://scenes/cinematic_camera.gd" id="40_6ajq4"]
+[ext_resource type="Script" uid="uid://baj1jdb0bv026" path="res://scenes/cinematic_camera.gd" id="40_6ajq4"]
 [ext_resource type="Material" uid="uid://5s7f67fjftot" path="res://scenes/shadow/skull_dark_fx.tres" id="40_jayf1"]
-[ext_resource type="Script" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
+[ext_resource type="Script" uid="uid://dwk2423xl0nb3" path="res://scripts/triggers/shadow_crawl.gd" id="41_lqb1m"]
 [ext_resource type="PackedScene" uid="uid://bpfk1h1b3fqr" path="res://scenes/props/old_book_01.tscn" id="44_00i07"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="46_jqycg"]
-[ext_resource type="Script" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
+[ext_resource type="Script" uid="uid://byfmf2ivpqced" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
-[ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="49_mnkdp"]
+[ext_resource type="Script" uid="uid://c2psjs62c6xv3" path="res://scripts/classes/book_pages.gd" id="49_mnkdp"]
 [ext_resource type="Resource" uid="uid://fx4yisfdtgde" path="res://assets/images/notes/ingredient_notes.tres" id="51_ci4g2"]
-[ext_resource type="Script" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
+[ext_resource type="Script" uid="uid://1mtf7x2ca6br" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
 [ext_resource type="Resource" uid="uid://baoa01vxyv5gt" path="res://assets/images/notes/shadow_self.tres" id="52_xxd8f"]
 [ext_resource type="Texture2D" uid="uid://dfx42oi0ta70o" path="res://assets/images/notes/Tools_01.png" id="53_5dj55"]
-[ext_resource type="Script" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
+[ext_resource type="Script" uid="uid://dubrf227h5asp" path="res://scenes/hint_lamp.gd" id="53_b1s8b"]
 [ext_resource type="AudioStream" uid="uid://bwmqcvhx11dun" path="res://assets/sounds/music/hint2.mp3" id="53_meanb"]
-[ext_resource type="Script" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
+[ext_resource type="Script" uid="uid://cgjpxsqy66eg3" path="res://scenes/flare_progression_check.gd" id="54_yf16p"]
 [ext_resource type="ArrayOccluder3D" uid="uid://di5tk0ayv1elt" path="res://scenes/occluder_test_2.occ" id="55_a2rek"]
 [ext_resource type="PackedScene" uid="uid://drmhkniucxx3r" path="res://assets/models/props/table/table.tscn" id="62_5q8vw"]
 [ext_resource type="PackedScene" uid="uid://im48clp02npj" path="res://assets/models/props/rack/rack.tscn" id="62_53sto"]
 [ext_resource type="Texture2D" uid="uid://dm4l1kem2ijsp" path="res://assets/models/props/rack/Ucupaint MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433 Color.webp" id="63_bh8dm"]
-[ext_resource type="Script" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
+[ext_resource type="Script" uid="uid://biruqilqtobvm" path="res://addons/ovani player/OvaniPlayer.gd" id="63_fo8fa"]
 [ext_resource type="Texture2D" uid="uid://cqa8wy2hnji4i" path="res://assets/models/props/rack/MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433_Occlusion-MI_Trimshe-U.webp" id="64_cserh"]
 [ext_resource type="ArrayMesh" uid="uid://jc02w1een7qa" path="res://assets/models/props/table/scroll.res" id="64_mx3k0"]
 [ext_resource type="Texture2D" uid="uid://cmnjldq670qc5" path="res://assets/models/props/rack/Ucupaint MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433 Normal.webp" id="65_62xfp"]
 [ext_resource type="Texture2D" uid="uid://d23lmkr58umli" path="res://scripts/shaders/palette_slso8-1x.png" id="66_hmr1k"]
-[ext_resource type="Shader" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
+[ext_resource type="Shader" uid="uid://dqdxujp8rvdpj" path="res://scripts/palette_shader.gdshader" id="66_t385j"]
 [ext_resource type="Texture2D" uid="uid://1jv4mr8cafad" path="res://assets/models/props/rack/Ucupaint MI_Trimsheet_Wood_01b_SM_WoodCrate_02b_430 Color.webp" id="66_xv5ca"]
 [ext_resource type="Texture2D" uid="uid://bmmenscxojx0o" path="res://assets/models/props/rack/MI_Trimsheet_Wood_01b_SM_WoodCrate_02b_430_Occlusio.webp" id="67_r3oh2"]
 [ext_resource type="Texture2D" uid="uid://d3wp51bu4vduo" path="res://assets/models/props/rack/Ucupaint MI_Trimsheet_Wood_01b_SM_WoodCrate_02b_430 Normal.webp" id="68_kgajl"]
-[ext_resource type="Shader" path="res://_dither_shader.gdshader" id="68_qo80q"]
-[ext_resource type="Shader" path="res://scripts/pixelize.gdshader" id="68_t3trs"]
+[ext_resource type="Shader" uid="uid://kh5svcbyv621" path="res://_dither_shader.gdshader" id="68_qo80q"]
+[ext_resource type="Shader" uid="uid://h7ynt5qmlork" path="res://scripts/pixelize.gdshader" id="68_t3trs"]
 [ext_resource type="AudioStream" uid="uid://mrrb8b57dmim" path="res://assets/sounds/music/ambient music.mp3" id="68_xeaa7"]
 [ext_resource type="PackedScene" uid="uid://qmemtxtkrec2" path="res://scenes/shader_compilation.tscn" id="72_rannu"]
 [ext_resource type="Texture2D" uid="uid://dxr01dwwkqyji" path="res://assets/images/notes/Letter_Order_01_Full_Res.png" id="75_g02ry"]
-[ext_resource type="Script" path="res://scenes/double_page.gd" id="83_co77o"]
+[ext_resource type="Script" uid="uid://b0csete63cusi" path="res://scenes/double_page.gd" id="83_co77o"]
 [ext_resource type="Resource" uid="uid://c4fym057uso4k" path="res://assets/images/notes/letter_order.tres" id="84_old4b"]
 [ext_resource type="Texture2D" uid="uid://dpnfjm4erkwry" path="res://assets/images/recipes/reference/phosphorus_recipe.png" id="85_6m758"]
 [ext_resource type="Texture2D" uid="uid://bphoc562qbna7" path="res://assets/models/props/page/vocabularius_model_01_vocabularius_texture_2.webp" id="86_jvyn7"]
@@ -158,7 +158,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_kfn2p"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -231,9 +231,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e882d"]
 _data = {
-"GasLampAnimation": SubResource("Animation_0erm1"),
-"GasLampON": SubResource("Animation_00dwj"),
-"RESET": SubResource("Animation_voj86")
+&"GasLampAnimation": SubResource("Animation_0erm1"),
+&"GasLampON": SubResource("Animation_00dwj"),
+&"RESET": SubResource("Animation_voj86")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kx07"]
@@ -347,6 +347,7 @@ void fragment() {
 render_priority = 0
 shader = SubResource("Shader_8bjob")
 shader_parameter/albedo = Color(0.386774, 0.347158, 0.26928, 1)
+shader_parameter/texture_albedo = ExtResource("12_36dai")
 shader_parameter/point_size = 0.1
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = null
@@ -356,7 +357,6 @@ shader_parameter/uv1_scale = Vector3(30, 30, 0)
 shader_parameter/uv1_offset = Vector3(-0.025, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("12_36dai")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xx5fg"]
 material = SubResource("ShaderMaterial_se2aa")
@@ -547,8 +547,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pevfd"]
 _data = {
-"Crawl_downstairs": ExtResource("4_3yjmc"),
-"RESET": SubResource("Animation_o1igu")
+&"Crawl_downstairs": ExtResource("4_3yjmc"),
+&"RESET": SubResource("Animation_o1igu")
 }
 
 [sub_resource type="Animation" id="Animation_r8rh2"]
@@ -992,9 +992,9 @@ resource_name = "shadow_block"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3jci5"]
 _data = {
-"RESET": SubResource("Animation_r8rh2"),
-"dispel": SubResource("Animation_wwgpn"),
-"shadow_block": SubResource("Animation_uvi62")
+&"RESET": SubResource("Animation_r8rh2"),
+&"dispel": SubResource("Animation_wwgpn"),
+&"shadow_block": SubResource("Animation_uvi62")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1jc77"]
@@ -1324,7 +1324,7 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Interactibles/GasLamp"]
 root_node = NodePath("")
 libraries = {
-"": SubResource("AnimationLibrary_e882d")
+&"": SubResource("AnimationLibrary_e882d")
 }
 
 [node name="InteractionComponent" type="Node" parent="Level/Interactibles/GasLamp"]
@@ -2093,7 +2093,7 @@ skin = SubResource("Skin_xd80g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Shadows/ShadowCrawl/Running Crawl_Imported"]
 libraries = {
-"": SubResource("AnimationLibrary_pevfd")
+&"": SubResource("AnimationLibrary_pevfd")
 }
 speed_scale = 1.767
 
@@ -2177,7 +2177,7 @@ process_mode = 3
 [node name="DispelCutscene" type="AnimationPlayer" parent="Level/Shadows/StairsShadow"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_3jci5")
+&"": SubResource("AnimationLibrary_3jci5")
 }
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Level/Shadows/StairsShadow/DispelCutscene"]

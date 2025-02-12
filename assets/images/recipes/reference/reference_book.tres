@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BookPages" load_steps=3 format=3 uid="uid://t507in4tinkw"]
 
 [ext_resource type="Texture2D" uid="uid://h68x5yi4qlwo" path="res://assets/images/recipes/reference/vocabularius_02.png" id="2_2ryqt"]
-[ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="3_84uqa"]
+[ext_resource type="Script" uid="uid://c2psjs62c6xv3" path="res://scripts/classes/book_pages.gd" id="3_84uqa"]
 
 [resource]
 script = ExtResource("3_84uqa")

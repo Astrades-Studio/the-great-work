@@ -1,6 +1,6 @@
 [gd_resource type="Sky" load_steps=3 format=3 uid="uid://x2114snxil"]
 
-[ext_resource type="Shader" path="res://scripts/shaders/starry_sky.gdshader" id="1_wociv"]
+[ext_resource type="Shader" uid="uid://bqyltpbrpp7ff" path="res://scripts/shaders/starry_sky.gdshader" id="1_wociv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpvms"]
 shader = ExtResource("1_wociv")

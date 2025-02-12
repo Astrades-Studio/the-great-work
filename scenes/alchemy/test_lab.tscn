@@ -1,6 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://bi2r2nphbktxx"]
+[gd_scene load_steps=35 format=3 uid="uid://bi2r2nphbktxx"]
 
-[ext_resource type="Script" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
+[ext_resource type="Script" uid="uid://ch7nysxrfxpwr" path="res://scenes/alchemy/test_lab.gd" id="1_18hx6"]
 [ext_resource type="ArrayMesh" uid="uid://dex6gs4e4jwty" path="res://scenes/house/dining.tres" id="1_kjhw4"]
 [ext_resource type="PackedScene" uid="uid://bxs4twycctyd3" path="res://scenes/alchemy/still.tscn" id="2_usfn0"]
 [ext_resource type="PackedScene" uid="uid://c3bvquq5q4o5a" path="res://scenes/alchemy/furnace.tscn" id="3_kdp85"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://byqdytipjwlmk" path="res://scenes/alchemy/ingredients/banana.tscn" id="12_nupgb"]
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="13_ijyn7"]
 [ext_resource type="PackedScene" uid="uid://dh1ejx73ha3y1" path="res://scenes/alchemy/ingredients/purified_sulfur.tscn" id="14_aemo4"]
-[ext_resource type="PackedScene" uid="uid://dqvd8vemxkjcd" path="res://scenes/alchemy/dispensers/dispensers.tscn" id="16_b4oue"]
 [ext_resource type="PackedScene" uid="uid://fk6dcg01x2oq" path="res://scenes/alchemy/ingredients/silver.tscn" id="16_v3cs8"]
 [ext_resource type="PackedScene" uid="uid://cqsp0rwu7i28e" path="res://scenes/alchemy/dispenser.tscn" id="19_of1ck"]
 [ext_resource type="PackedScene" uid="uid://oci7xuyj8k7q" path="res://scenes/ui/subtitle_layer.tscn" id="20_aw3yg"]
@@ -243,9 +242,6 @@ ingredient_type = 6
 
 [node name="Page" parent="Dispensers" instance=ExtResource("20_fwnm8")]
 transform = Transform3D(0.324858, 0, 0, 0, 0.324858, 0, 0, 0, 0.324858, 0, 0.444097, 2.31662)
-
-[node name="Dispensers" parent="Dispensers" instance=ExtResource("16_b4oue")]
-transform = Transform3D(0.168111, 0, -0.985768, 0, 1, 0, 0.985768, 0, 0.168111, -6.89178, 0, 0)
 
 [node name="IngredientsScene" parent="." instance=ExtResource("26_57agx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74375, 0.150933, -3.70244)

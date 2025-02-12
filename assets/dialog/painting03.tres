@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=4 format=3 uid="uid://dadwd8dso0840"]
 
-[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_fjr6e"]
+[ext_resource type="Script" uid="uid://2mmplcuo75es" path="res://scripts/classes/dialog_piece.gd" id="1_fjr6e"]
 [ext_resource type="Resource" uid="uid://dorexnqmrun6v" path="res://assets/dialog/painting_03.tres" id="2_ceuod"]
-[ext_resource type="Script" path="res://scripts/classes/dialog.gd" id="2_ekofa"]
+[ext_resource type="Script" uid="uid://worfa727sbdv" path="res://scripts/classes/dialog.gd" id="2_ekofa"]
 
 [resource]
 script = ExtResource("2_ekofa")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://qlj3hfoaugub"]
 
-[ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_36tl1"]
-[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="2_gtl2u"]
+[ext_resource type="Script" uid="uid://c6fxpqch4fxvi" path="res://scenes/alchemy/dispenser.gd" id="1_36tl1"]
+[ext_resource type="Script" uid="uid://bltlqwsfqgajc" path="res://scripts/classes/interaction_component.gd" id="2_gtl2u"]
 [ext_resource type="Texture2D" uid="uid://bmb3gkiruyb0y" path="res://assets/models/props/coin/gold_coins_MI_AncientCoin_A_SM_AncientCoin_02_Occlusion-MI_AncientCoin_A_S.webp" id="3_hdxrr"]
 [ext_resource type="Texture2D" uid="uid://64ut05rons1n" path="res://assets/models/props/coin/gold_coins_MI_AncientCoin_A_SM_AncientCoin_02_Normal.webp" id="4_lb6o8"]
 

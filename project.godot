@@ -12,7 +12,7 @@ config_version=5
 
 config/name="The Great Work"
 run/main_scene="res://scenes/layers/splash_screen.tscn"
-config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 run/max_fps=60
 boot_splash/image="res://assets/images/start_black.png"
 config/icon="res://assets/images/TGW_icon.png"
@@ -27,6 +27,7 @@ MusicManager="*res://scripts/music_manager.gd"
 DialogManager="*res://scripts/globals/dialog_manager.gd"
 TransitionManager="*res://scripts/globals/transition_manager.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
+Panku="*res://addons/panku_console/console.tscn"
 
 [display]
 
@@ -43,7 +44,7 @@ project/assembly_name="The Great Work"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg", "res://addons/panku_console/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/ultimate_character/plugin.cfg")
 
 [file_customization]
 
