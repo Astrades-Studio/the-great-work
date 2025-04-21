@@ -1,11 +1,11 @@
 [gd_scene load_steps=92 format=4 uid="uid://dfx4lp3vs1ref"]
 
-[ext_resource type="Script" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
+[ext_resource type="Script" uid="uid://bhds4ac1vowx1" path="res://scripts/classes/tool.gd" id="1_ccfdh"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="2_bh27f"]
 [ext_resource type="ArrayMesh" uid="uid://c344sialo5inh" path="res://assets/models/tools/cauldron.res" id="3_qfcpr"]
 [ext_resource type="PackedScene" uid="uid://ymkan8pxr3yk" path="res://scenes/interactable/interactive_highlight.tscn" id="3_x4wpx"]
-[ext_resource type="Shader" path="res://scripts/shaders/water_shader.gdshader" id="4_qihpq"]
-[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
+[ext_resource type="Shader" uid="uid://bjb6p2fl51my3" path="res://scripts/shaders/water_shader.gdshader" id="4_qihpq"]
+[ext_resource type="Script" uid="uid://bltlqwsfqgajc" path="res://scripts/classes/interaction_component.gd" id="5_6l6km"]
 [ext_resource type="AudioStream" uid="uid://dyco67xmd824" path="res://assets/sounds/sfx/Bubbles Short A.wav" id="6_gvs0u"]
 [ext_resource type="Texture2D" uid="uid://bopv35jcygef3" path="res://assets/models/tools/cauldron/cauldron_MI_Edge_Decal_BaseColor.webp" id="6_o28gv"]
 [ext_resource type="Texture2D" uid="uid://b1oqakdmi1gt4" path="res://assets/models/tools/cauldron/cauldron_T_Edge_Decal_01_N.webp" id="7_nao35"]
@@ -150,9 +150,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xb6qh"]
 _data = {
-"RESET": SubResource("Animation_2a0h3"),
-"brewing": SubResource("Animation_pdm6r"),
-"mix": SubResource("Animation_rnayt")
+&"RESET": SubResource("Animation_2a0h3"),
+&"brewing": SubResource("Animation_pdm6r"),
+&"mix": SubResource("Animation_rnayt")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gck2i"]
@@ -478,16 +478,16 @@ shader_parameter/shallow_color = Color(0.44543, 0.307948, 0.131419, 1)
 shader_parameter/deep_color = Color(0.426815, 0.104497, 0.220591, 1)
 shader_parameter/foam_amount = 0.2
 shader_parameter/foam_color = Color(0.873138, 0.498037, 0.276015, 1)
+shader_parameter/foam_noise = SubResource("NoiseTexture2D_mg803")
 shader_parameter/roughness = 0.05
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_uh1lx")
 shader_parameter/wave_scale = 4.0
 shader_parameter/height_scale = 0.15
+shader_parameter/normal1 = SubResource("NoiseTexture2D_81iph")
 shader_parameter/wave_dir1 = Vector2(1, 0)
+shader_parameter/normal2 = SubResource("NoiseTexture2D_n52a8")
 shader_parameter/wave_dir2 = Vector2(0, 1)
 shader_parameter/wave_speed = 0.01
-shader_parameter/foam_noise = SubResource("NoiseTexture2D_mg803")
-shader_parameter/wave_texture = SubResource("NoiseTexture2D_uh1lx")
-shader_parameter/normal1 = SubResource("NoiseTexture2D_81iph")
-shader_parameter/normal2 = SubResource("NoiseTexture2D_n52a8")
 
 [sub_resource type="Gradient" id="Gradient_ysfbc"]
 colors = PackedColorArray(0.383216, 0.195311, 0.0616978, 1, 0.982045, 0.898739, 0.850716, 1)
@@ -731,7 +731,7 @@ emission_angle_filter_attenuation_db = -60.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xb6qh")
+&"": SubResource("AnimationLibrary_xb6qh")
 }
 
 [node name="Target" type="Node3D" parent="."]

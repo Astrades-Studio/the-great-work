@@ -1,14 +1,14 @@
-[gd_scene load_steps=41 format=4 uid="uid://t4pgsmw2tox1"]
+[gd_scene load_steps=42 format=4 uid="uid://t4pgsmw2tox1"]
 
-[ext_resource type="Script" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
+[ext_resource type="Script" uid="uid://dxet7s58bu5w2" path="res://scenes/player/player_character.gd" id="1_rwwvt"]
 [ext_resource type="Texture2D" uid="uid://yf7sxjx4icm7" path="res://assets/models/props/eye/eye_Ucupaint Sclera Color.webp" id="2_ggor8"]
 [ext_resource type="PackedScene" uid="uid://ulupq25c7dy3" path="res://scenes/gas_lamp.tscn" id="2_it7tx"]
-[ext_resource type="Script" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
+[ext_resource type="Script" uid="uid://dd1dtcibwnud7" path="res://addons/AutoFootStepsPlugin/AutoFootSteps.gd" id="2_wncd0"]
 [ext_resource type="AudioStream" uid="uid://bmh608gv42nxr" path="res://assets/sounds/sfx/eating_stone.mp3" id="2_y7hev"]
 [ext_resource type="Texture2D" uid="uid://dhudn7mnor31q" path="res://assets/models/props/eye/eye_Ucupaint Pupil Color.webp" id="3_hm3ee"]
 [ext_resource type="Resource" uid="uid://badwdqtfuxraf" path="res://addons/AutoFootStepsPlugin/DefaultSounds/ShoeFootProfile.tres" id="3_yrwvo"]
 [ext_resource type="Texture2D" uid="uid://cnnoi7xdjjuul" path="res://assets/models/props/eye/eye_Ucupaint Pupil Roughness.webp" id="4_rijib"]
-[ext_resource type="Script" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
+[ext_resource type="Script" uid="uid://cosusrf0u04kx" path="res://scenes/player/hud_layer.gd" id="5_16wbu"]
 [ext_resource type="Animation" uid="uid://cn670i1la6rha" path="res://assets/animations/custom/pull eye.res" id="5_hmti8"]
 [ext_resource type="Texture2D" uid="uid://b247c8mp3nto1" path="res://assets/ui/crosshairs/dot_small.png" id="7_abokg"]
 [ext_resource type="ArrayMesh" uid="uid://qqggsqaxpftg" path="res://assets/models/old_west/meshes/old west 1_webp_SM_Toolbox_01p.res" id="7_wu06n"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dj3i1q68x5wrn" path="res://assets/ui/icons/mouse_right_outline.png" id="11_xib7e"]
 [ext_resource type="FontFile" uid="uid://cl5qaxjw1yak7" path="res://assets/ui/fonts/Portmanteau-Regular.otf" id="12_jyx62"]
 [ext_resource type="Texture2D" uid="uid://73w2233lvqfg" path="res://assets/ui/icons/keyboard_f_outline.png" id="12_lmv77"]
+[ext_resource type="Texture2D" uid="uid://bwalvcdnn53g7" path="res://assets/ui/crosshairs/HAND_CROSSHAIR (1).png" id="13_18n5l"]
 [ext_resource type="StyleBox" uid="uid://dbbhnos2bvt0l" path="res://assets/ui/theme/item_label_stylebox.tres" id="18_ma2lr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6ooo"]
@@ -344,11 +345,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qaw5b"]
 _data = {
-"RESET": SubResource("Animation_1635k"),
-"attack": SubResource("Animation_gleqa"),
-"crouch": SubResource("Animation_4o75j"),
-"pull eye": ExtResource("5_hmti8"),
-"swallow": SubResource("Animation_qv0sh")
+&"RESET": SubResource("Animation_1635k"),
+&"attack": SubResource("Animation_gleqa"),
+&"crouch": SubResource("Animation_4o75j"),
+&"pull eye": ExtResource("5_hmti8"),
+&"swallow": SubResource("Animation_qv0sh")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekw6g"]
@@ -407,6 +408,7 @@ script = ExtResource("1_rwwvt")
 throw_impulse = 4.0
 SPEED_DEFAULT = 2.0
 SPEED_ON_STAIRS = 1.8
+SPEED_CROUCH = 3.0
 SPRINT_MULTIPLIER = 4.0
 STEP_HEIGHT_DEFAULT = Vector3(0, 0.3, 0)
 crouch_speed = 7.0
@@ -459,7 +461,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mnosr")
 unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_qaw5b")
+&"": SubResource("AnimationLibrary_qaw5b")
 }
 speed_scale = 0.265
 
@@ -550,14 +552,17 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Crosshair" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
+[node name="HandCrosshair" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.537255)
+custom_minimum_size = Vector2(280, 280)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("7_abokg")
+texture = ExtResource("13_18n5l")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="InteractionLabel" type="Label" parent="HUDLayer/MarginContainer/CenterContainer/Crosshair"]
+[node name="InteractionLabel" type="Label" parent="HUDLayer/MarginContainer/CenterContainer/HandCrosshair"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 13
@@ -573,6 +578,15 @@ grow_vertical = 2
 horizontal_alignment = 1
 uppercase = true
 
+[node name="IdleCrosshair" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.537255)
+custom_minimum_size = Vector2(350, 350)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_abokg")
+stretch_mode = 3
+
 [node name="PanelContainer" type="PanelContainer" parent="HUDLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -580,27 +594,28 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mfqto")
 
-[node name="PanelContainer2" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+[node name="Controls" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_aohgk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/MarginContainer/Controls"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDLayer/MarginContainer/Controls/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Interact:"
 label_settings = SubResource("LabelSettings_q0tfu")
 
-[node name="InteractIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+[node name="InteractIcon" type="TextureRect" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -608,16 +623,16 @@ texture = ExtResource("10_dx5ro")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUDLayer/MarginContainer/Controls/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Drop Item:"
 label_settings = SubResource("LabelSettings_q0tfu")
 
-[node name="DropIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+[node name="DropIcon" type="TextureRect" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -625,16 +640,33 @@ texture = ExtResource("11_xib7e")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUDLayer/MarginContainer/Controls/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Lamp:"
 label_settings = SubResource("LabelSettings_q0tfu")
 
-[node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/PanelContainer2/VBoxContainer/HBoxContainer3"]
+[node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("12_lmv77")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HUDLayer/MarginContainer/Controls/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Press E to close"
+label_settings = SubResource("LabelSettings_q0tfu")
+
+[node name="LampIcon" type="TextureRect" parent="HUDLayer/MarginContainer/Controls/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2

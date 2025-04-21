@@ -88,7 +88,7 @@
 [ext_resource type="PackedScene" uid="uid://bym2gmi7y6o27" path="res://scenes/alchemy/flare.tscn" id="46_jqycg"]
 [ext_resource type="Script" uid="uid://byfmf2ivpqced" path="res://scenes/gas_lamp.gd" id="48_cjxys"]
 [ext_resource type="ArrayMesh" uid="uid://cuq3s6r2vjg73" path="res://assets/models/tools/spoon.res" id="49_l4tq0"]
-[ext_resource type="Script" uid="uid://c2psjs62c6xv3" path="res://scripts/classes/book_pages.gd" id="49_mnkdp"]
+[ext_resource type="Script" uid="uid://defc1uwe55uum" path="res://scripts/classes/book_pages.gd" id="49_mnkdp"]
 [ext_resource type="Resource" uid="uid://fx4yisfdtgde" path="res://assets/images/notes/ingredient_notes.tres" id="51_ci4g2"]
 [ext_resource type="Script" uid="uid://1mtf7x2ca6br" path="res://scenes/clock_bells.gd" id="51_lkl6g"]
 [ext_resource type="AudioStream" uid="uid://cu18yci7iurgf" path="res://assets/sounds/sfx/clock_bells.mp3" id="52_kknot"]
@@ -350,7 +350,7 @@ shader_parameter/albedo = Color(0.386774, 0.347158, 0.26928, 1)
 shader_parameter/texture_albedo = ExtResource("12_36dai")
 shader_parameter/point_size = 0.1
 shader_parameter/roughness = 0.0
-shader_parameter/metallic_texture_channel = null
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 0.3
 shader_parameter/metallic = 0.0
 shader_parameter/uv1_scale = Vector3(30, 30, 0)
@@ -1132,7 +1132,7 @@ size = Vector3(4.69366, 3.29941, 1.64557)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ol78e"]
 shader = ExtResource("66_t385j")
-shader_parameter/flip = null
+shader_parameter/flip = false
 shader_parameter/gradient = ExtResource("66_hmr1k")
 
 [sub_resource type="CameraTexture" id="CameraTexture_dmcjn"]
@@ -1188,6 +1188,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90423, -3.73933, -1.77516)
 
 [node name="Bag" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
 transform = Transform3D(-0.246632, 0.00182042, 0.347616, 0.0019278, 0.426219, -0.000864284, -0.347616, 0.00107213, -0.246638, -1.9136, -3.89055, -3.8581)
+
+[node name="Bag4" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
+transform = Transform3D(-0.246632, 0.00182042, 0.347616, 0.0019278, 0.426219, -0.000864284, -0.347616, 0.00107213, -0.246638, -7.7927, -3.89055, -1.49459)
+
+[node name="Bag5" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
+transform = Transform3D(-0.246632, 0.00182042, 0.347616, 0.0019278, 0.426219, -0.000864284, -0.347616, 0.00107213, -0.246638, -2.32017, -3.89055, 4.76438)
 
 [node name="Bag3" parent="Level/Interactibles/Dispensers" instance=ExtResource("22_d81xl")]
 transform = Transform3D(0.42586, -0.0019617, -0.0175196, 0.0019278, 0.426219, -0.000864284, 0.0175246, 0.000784308, 0.425864, -1.9136, -3.89055, 0.387843)

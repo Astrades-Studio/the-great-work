@@ -123,6 +123,12 @@ func _on_navigation_agent_3d_target_reached() -> void:
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body is Player and can_attack:
+		body = body as Player
+		if body.ingredient_in_hand is Flare:
+			if body.ingredient_in_hand.active:
+				change_state_to(Shadow.State.HURT)
+				return
+				
 		GameManager.game_over.emit()
 
 func start_agony_animation() -> void:

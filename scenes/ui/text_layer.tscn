@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://by8vwv2cfa15m"]
 
-[ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
+[ext_resource type="Script" uid="uid://hg5p2fcw7thn" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
 [ext_resource type="Texture2D" uid="uid://ckporjwtwegbg" path="res://assets/images/recipes/adams_letter_small.png" id="2_cussw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjdcx"]

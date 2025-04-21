@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FootProfile" load_steps=30 format=3 uid="uid://badwdqtfuxraf"]
 
-[ext_resource type="Script" uid="uid://c1vugkhdnuvqv" path="res://addons/AutoFootStepsPlugin/FootProfileMaterialSpecification.gd" id="15_wnu8m"]
+[ext_resource type="Script" uid="uid://byrnhrd0plgd" path="res://addons/AutoFootStepsPlugin/FootProfileMaterialSpecification.gd" id="15_wnu8m"]
 [ext_resource type="AudioStream" uid="uid://dtjtfuuyceseo" path="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Shoe Step Wood Hard A.wav" id="44_2c30e"]
 [ext_resource type="AudioStream" uid="uid://bsdqvu5icrbht" path="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Shoe Step Wood Hard B.wav" id="45_h481p"]
 [ext_resource type="AudioStream" uid="uid://57hxaovfwdrg" path="res://addons/AutoFootStepsPlugin/DefaultSounds/Wood/Shoe Step Wood Hard C.wav" id="46_rcrmp"]
