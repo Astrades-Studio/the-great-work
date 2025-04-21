@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogPiece" load_steps=2 format=3 uid="uid://ds7my01ga3nip"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_ej7ig"]
+
+[resource]
+script = ExtResource("1_ej7ig")
+dialog_speaker = "Melchiades"
+dialog_text = "The innocence of youth radiates in the child's eyes."

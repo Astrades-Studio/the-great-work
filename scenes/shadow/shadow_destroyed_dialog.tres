@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://c5bx3g6wmxspu"]
+
+[ext_resource type="Script" uid="uid://2lmfu2g3113f" path="res://scripts/classes/dialog_piece.gd" id="1_1wpje"]
+[ext_resource type="Script" uid="uid://cxuiqc63ah2s0" path="res://scripts/classes/dialog.gd" id="2_dyejq"]
+
+[sub_resource type="Resource" id="Resource_bgmv0"]
+script = ExtResource("1_1wpje")
+dialog_speaker = "Shadow"
+dialog_text = "You fool! Your arrogance will be your end."
+
+[sub_resource type="Resource" id="Resource_h7ayd"]
+script = ExtResource("1_1wpje")
+dialog_speaker = "Shadow"
+dialog_text = "You shall perish before you finish your task. I will make sure of that."
+
+[resource]
+script = ExtResource("2_dyejq")
+dialog_id = &""
+dialog = Array[ExtResource("1_1wpje")]([SubResource("Resource_bgmv0"), SubResource("Resource_h7ayd")])

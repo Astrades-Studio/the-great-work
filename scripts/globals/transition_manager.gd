@@ -13,6 +13,7 @@ var scene_load_status := 0
 var loading : bool = false
 
 signal transition_finished
+signal loading_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,16 +59,18 @@ func _on_game_visible():
 func _process(_delta):
 	if !loading:
 		return
-	
+
 	scene_load_status = ResourceLoader.load_threaded_get_status(scene_name, progress)
 	# TODO: add countdown or loading bar
 
 	if preloading:
+		if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
+			TransitionManager.loading_finished.emit()
 		return
-	
+
 	if !scene_name:
 		push_error("No scene to load")
-		
+
 	# Check if there are erros while loading:
 	if scene_load_status == ResourceLoader.THREAD_LOAD_FAILED:
 		push_error("Failed to load scene: ", scene_name)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://befbw01e8fdbb"]
+[gd_scene load_steps=13 format=4 uid="uid://befbw01e8fdbb"]
 
 [ext_resource type="Script" path="res://scenes/props/rocking_chair.gd" id="1_vqk7l"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="1_wdjqf"]
@@ -50,23 +50,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gqoo6")
 
-[sub_resource type="Resource" id="Resource_5fapw"]
-script = ExtResource("4_6l1rj")
-dialog_speaker = "Melchiades"
-dialog_text = "Chair"
-
 [sub_resource type="Resource" id="Resource_58psm"]
 script = ExtResource("4_6l1rj")
 dialog_speaker = "Melchiades"
-dialog_text = "This damn chair is moving by itself"
+dialog_text = "What magicks have possessed such a relaxing contraption?"
 
 [sub_resource type="Resource" id="Resource_xq1ns"]
 script = ExtResource("5_iswgu")
 dialog_id = &"RockingChair"
-dialog = Array[ExtResource("4_6l1rj")]([SubResource("Resource_5fapw"), SubResource("Resource_58psm")])
+dialog = Array[ExtResource("4_6l1rj")]([SubResource("Resource_58psm")])
 
 [node name="RockingChair" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997594, -0.0693316, 0, 0.0693316, 0.997594, 0, 0, 0)
 script = ExtResource("1_vqk7l")
+speed = 3.965
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_hxwth")
@@ -75,12 +72,12 @@ shape = SubResource("ConcavePolygonShape3D_hxwth")
 mesh = SubResource("ArrayMesh_al6lq")
 skeleton = NodePath("")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("1_wdjqf")
-mesh = NodePath("../RockingChair_001 ")
 
 [node name="DialogueComponent" type="Node" parent="."]
 script = ExtResource("2_o3igr")
 dialog = SubResource("Resource_xq1ns")
 
 [node name="Darkness" parent="." instance=ExtResource("6_r5tnw")]
+visible = false

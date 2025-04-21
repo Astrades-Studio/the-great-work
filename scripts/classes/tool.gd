@@ -1,4 +1,3 @@
-@tool
 class_name Tool
 extends Node3D
 
@@ -10,6 +9,7 @@ enum Type {
 }
 const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var ingredient_preview : Node
 @export var wait_time : int
@@ -23,16 +23,20 @@ const RECIPE_COMPLETE = preload("res://assets/sounds/sfx/Recipe complete.wav")
 @onready var og_name : String = self.name
 @onready var wait_label: Label3D = $WaitLabel
 @onready var timer: Timer = %Timer
+@onready var interactive_highlight : InteractiveHighlight= $InteractiveHighlight
 
+var target_spot : Node3D
 signal ingredient_ready
+signal ingredient_delivered
 
 var processing : bool
-var input_type : Ingredient.Type 
+var input_type : Ingredient.Type
 var time_passed : int
 var last_ingredient : Ingredient # For salt names
 #var processing_ingredient: Ingredient # Before it is ready
 var stored_ingredient: Ingredient # For pickup
 
+var fire_started : bool = false
 
 var CORRECT_TOOL_DICTIONARY: Dictionary = {
 	Type.STILL: [
@@ -62,46 +66,84 @@ var CORRECT_TOOL_DICTIONARY: Dictionary = {
 }
 
 func _ready():
+	play_animation()
+	if tool_type == Type.CAULDRON:
+		target_spot = $Target
+		fire_started = true
 	if wait_label:
 		wait_label.hide()
 		wait_label.text = str(wait_time)
 	timer.timeout.connect(_on_timer_timeout)
 
+	ingredient_ready.connect(interactive_highlight._on_ingredient_ready)
+	ingredient_delivered.connect(interactive_highlight.reset)
+	ingredient_delivered.connect(GameManager._on_ingredient_delivered)
+
 	assert(self.has_user_signal("interacted"), "Tool has no interacted signal")
 	self.connect("interacted", on_tool_use)
 	assert(self.tool_type != null, "Tool has no type")
 
-
 func on_tool_use() -> bool:
-	if GameManager.philosopher_stone_recipe_read == false:
-		DialogManager.create_dialog_piece("I should check the recipe first.")
-		return false
 	if processing:
-		DialogManager.create_dialog_piece("Now I just need to wait a little.")
+		DialogManager.create_dialog_piece("It's processing. I need to wait.")
 		return false
-	
+
+	if !fire_started and tool_type == Tool.Type.CAULDRON:
+		DialogManager.create_dialog_piece("I'll start the fire first.")
+		return false
+
 	var hand_ingredient = GameManager.player.ingredient_in_hand
-	if !hand_ingredient:	
+	if !hand_ingredient:
 		if tool_type == Type.CAULDRON:
 			if is_instance_valid(stored_ingredient):
 				if stored_ingredient.type == Ingredient.Type.NONE:
-					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")	
+					DialogManager.create_dialog_piece("There's nothing in the Cauldron.")
 					stored_ingredient = null
 				if (stored_ingredient.type == Ingredient.Type.ALBEDO):
 					DialogManager.create_dialog_piece("The mix looks very white. Albedo is the second step towards getting the stone.")
 					return false
 				if (stored_ingredient.type == Ingredient.Type.NIGREDO):
 					DialogManager.create_dialog_piece("The mix looks very dark. This is the first step towards attaining the stone.")
-					return false	
+					return false
+				if (stored_ingredient.type == Ingredient.Type.PHILOSOPHERS_STONE):
+					GameManager.philosopher_stone_made.emit(%EndCamera.global_transform)
+					return false
 				DialogManager.create_dialog_piece("The result was some %s." % stored_ingredient.type_name)
+
+				if (stored_ingredient.type == Ingredient.Type.FLARE):
+					DialogManager.create_dialog_piece("I made enough illuminant for three flares. \n This should be enough to banish those shadows.")
+					GameManager.flare_created.emit()
+					var flare_1 : Node = stored_ingredient.duplicate()
+					var flare_2 : Node = stored_ingredient.duplicate()
+					#var flare_3 : Node = stored_ingredient.duplicate()
+					spawn_at_target(flare_1)
+					spawn_at_target(flare_2)
+					move_ingredient_to_player(stored_ingredient)
+					return false
 				move_ingredient_to_player(stored_ingredient)
 				return false
 		else:
+			if tool_type == Type.FURNACE:
+				animation_player.play("open_door")
+				await animation_player.animation_finished
+				await get_tree().create_timer(0.1).timeout
+				animation_player.play_backwards("open_door")
+
 			if stored_ingredient:
 				DialogManager.create_dialog_piece("The result of this formula was %s." % [stored_ingredient.type_name])
 				move_ingredient_to_player(stored_ingredient)
 				return true
-		DialogManager.create_dialog_piece("I need an ingredient to use this")
+		if tool_type == Type.CAULDRON:
+			if item_1:
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. \n It currently has %s in it." % [item_1.type_name])
+			else:
+				DialogManager.create_dialog_piece("I can combine elements if I put them in here. \n  I should try putting something in it.")
+		elif tool_type == Type.FURNACE:
+			DialogManager.create_dialog_piece("The furnace burns elements to a crisp, \n leaving only the most resistant essence.")
+		elif tool_type == Type.MORTAR:
+			DialogManager.create_dialog_piece("I can use this mortar to pulverize elements \n that are too tough to dissolve.")
+		elif tool_type == Type.STILL:
+			DialogManager.create_dialog_piece("The still extracts impurities from a substance.")
 		return false
 
 	# Items that don't mix
@@ -113,6 +155,9 @@ func on_tool_use() -> bool:
 		return false
 	if hand_ingredient.type == Ingredient.Type.ASH:
 		DialogManager.create_dialog_piece("This ash is burned beyond salvage. I need something else.")
+		return false
+	if hand_ingredient.type == Ingredient.Type.PHILOSOPHERS_STONE:
+		DialogManager.create_dialog_piece("That would be a grave mistake.")
 		return false
 	# Couple of hints:
 	if tool_type == Type.CAULDRON and (hand_ingredient.type == Ingredient.Type.CINNABAR or hand_ingredient.type == Ingredient.Type.POTASSIUM):
@@ -127,12 +172,18 @@ func on_tool_use() -> bool:
 
 	var new_ingredient_type: Ingredient.Type
 	input_type = hand_ingredient.type
-	
+
 	# Update name label
 	if item_1:
 		self.name = "%s with %s" % [og_name, item_1.type_name]
 	else:
 		self.name = "%s with %s" % [og_name, hand_ingredient.type_name]
+
+	GameManager.current_state = GameManager.GameState.CUTSCENE
+	if tool_type != Type.MORTAR:
+		await play_use_animation()
+	await get_tree().create_timer(0.5).timeout
+	GameManager.current_state = GameManager.GameState.PLAYING
 
 	if tool_type == Type.MORTAR:
 		new_ingredient_type = use_mortar(hand_ingredient)
@@ -142,12 +193,13 @@ func on_tool_use() -> bool:
 		new_ingredient_type = use_cauldron(hand_ingredient)
 	elif tool_type == Type.STILL:
 		new_ingredient_type = use_still(hand_ingredient)
-	
+
 	if new_ingredient_type != Ingredient.Type.NONE:
 		stored_ingredient = instance_ingredient(new_ingredient_type)
 
 		start_tool_timer()
-	
+
+
 	GameManager.player.ingredient_in_hand = null
 	hand_ingredient.queue_free()
 	return true
@@ -157,12 +209,12 @@ func use_mortar(ingredient: Ingredient) -> Ingredient.Type:
 	var result: Ingredient.Type
 	DialogManager.create_subtitles_piece("I will grind this %s." % ingredient.type_name)
 	GameManager.current_state = GameManager.GameState.CUTSCENE
-	
+	play_use_animation()
 	for correct_type in CORRECT_TOOL_DICTIONARY[Type.MORTAR]:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.CAPUT_MORTUUM
 
 
@@ -173,7 +225,7 @@ func use_furnace(ingredient: Ingredient) -> Ingredient.Type:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.ASH
 
 
@@ -184,7 +236,7 @@ func use_still(ingredient: Ingredient) -> Ingredient.Type:
 		if ingredient.type == correct_type:
 			result = ingredient.NEXT_STATE[ingredient.type]
 			return result
-	
+
 	return ingredient.Type.CAPUT_MORTUUM
 
 var item_1 : Ingredient
@@ -195,6 +247,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	# If this is the first ingredient, return nothing
 	if !item_1:
 		item_1 = ingredient.duplicate(DUPLICATE_USE_INSTANTIATION)
+		interactive_highlight.has_item_inside()
 		DialogManager.create_dialog_piece("I put the %s in the %s" % [ingredient.type_name, Type.keys()[tool_type].capitalize()])
 		GameManager.player.ingredient_in_hand = null
 		return Ingredient.Type.NONE
@@ -219,7 +272,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 					return result
 				elif result == Ingredient.Type.PHILOSOPHERS_STONE and progress == 2:
 					result = advance_progress_philosopher_stone()
-					return result
+					return Ingredient.Type.PHILOSOPHERS_STONE
 				return result
 	if item_1.type != Ingredient.Type.NONE and item_2.type != Ingredient.Type.NONE:
 		DialogManager.create_dialog_piece("Combining the %s with the %s does not seem particularly useful." % [item_1.type_name, item_2.type_name])
@@ -228,6 +281,7 @@ func use_cauldron(ingredient: Ingredient) -> Ingredient.Type:
 	if progress > 0:
 		DialogManager.create_dialog_piece("Damn... that was not it.")
 		progress = 0
+		GameManager.philosopher_stone_progress.emit(progress)
 	return Ingredient.Type.CAPUT_MORTUUM
 
 # Check progress of the philospher's stone
@@ -238,7 +292,6 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	if progress == 1:
 		DialogManager.create_dialog_piece("The cinnabar has turned black. I'm doing something right.")
 		item_1 = instance_ingredient(Ingredient.Type.NIGREDO)
-		#stored_ingredient = instance_ingredient(Ingredient.Type.NIGREDO)
 		return Ingredient.Type.NONE
 	if progress == 2:
 		DialogManager.create_dialog_piece("Now the substance is white... I'm getting closer.")
@@ -247,7 +300,7 @@ func advance_progress_philosopher_stone() -> Ingredient.Type:
 	if progress == 3:
 		progress = 0
 		DialogManager.create_dialog_piece("Glorious red. This must be it!")
-		return Ingredient.Type.PHILOSOPHERS_STONE
+		return Ingredient.Type.NONE
 	else:
 		push_error("Something went wrong with the philospher's stone code")
 		progress = 0
@@ -263,17 +316,23 @@ func instance_ingredient(_type : Ingredient.Type) -> Ingredient:
 		var new_ingredient = load(Ingredient.MESH_TABLE[Ingredient.Type.IRON]).instantiate() as Ingredient
 		new_ingredient.type = _type
 		return new_ingredient
-		
+
 
 func move_ingredient_to_player(ingredient: Ingredient) -> void:
-	# TODO play animation?
 	add_child(ingredient, true)
 	stored_ingredient = null
 	item_1 = null
 	item_2 = null
 	self.name = og_name
-	GameManager.ingredient_spawned(ingredient)
+	if ingredient is not Flare:
+		GameManager.ingredient_spawned(ingredient)		
 	GameManager.player.ingredient_in_hand = ingredient
+	ingredient_delivered.emit()
+
+func spawn_at_target(ingredient : Ingredient) -> void:
+	add_child(ingredient, true)
+	ingredient.global_position = target_spot.global_position
+	GameManager.ingredient_spawned(ingredient)
 
 
 func start_tool_timer() -> void:
@@ -287,17 +346,82 @@ func start_tool_timer() -> void:
 func _on_timer_timeout() -> void:
 	time_passed += 1
 	wait_label.text = str(wait_time - time_passed)
-	
+
 	if time_passed < wait_time:
 		timer.start(1)
 	else:
 		if GameManager.current_state == GameManager.GameState.CUTSCENE:
-			GameManager.current_state = GameManager.GameState.PLAYING
+			if tool_type == Tool.Type.MORTAR:
+				GameManager.current_state = GameManager.GameState.PLAYING
+			else:
+				DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
 		if audio_stream_player_3d:
-			audio_stream_player_3d.play(0.0)
+			if tool_type == Tool.Type.FURNACE:
+				audio_stream_player_3d.play(2.8)
+			else:
+				audio_stream_player_3d.play(0.0)
 		processing = false
 		ingredient_ready.emit()
 		wait_label.hide()
 		timer.stop()
-		await get_tree().create_timer(0.5).timeout
-		DialogManager.create_subtitles_piece("I think the %s is ready" % Type.keys()[tool_type].capitalize())
+
+
+func play_animation():
+	if tool_type == Tool.Type.CAULDRON:
+		animation_player.play("brewing")
+	elif tool_type == Tool.Type.STILL:
+		animation_player.play("boiling")
+	elif tool_type == Tool.Type.MORTAR:
+		return
+	elif tool_type == Tool.Type.FURNACE:
+		return
+
+
+func play_use_animation():
+	var ingredient = GameManager.player.ingredient_in_hand
+	#ingredient.current_location = Ingredient.Location.ENVIRONMENT
+	if tool_type == Tool.Type.FURNACE:
+		animation_player.play("open_door")
+		await animation_player.animation_finished
+		await tween_to_target(ingredient, ingredient_preview)
+		await get_tree().create_timer(0.2).timeout
+		animation_player.play_backwards("open_door")
+		await animation_player.animation_finished
+	else:
+		await tween_to_target(ingredient, ingredient_preview)
+	if tool_type == Tool.Type.MORTAR:
+		animation_player.play("grind")
+		await animation_player.animation_finished
+	if tool_type == Tool.Type.CAULDRON:
+		animation_player.play("mix")
+		await animation_player.animation_finished
+
+
+func tween_to_target(ingredient : Ingredient, _target_spot : Node3D):
+	ingredient.change_layers(Ingredient.Location.ENVIRONMENT)
+	ingredient.freeze = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(ingredient, "global_position", _target_spot.global_position, 0.5)
+	await tween.finished
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Flare:
+		return
+	if body is Ingredient:
+		if processing:
+			return
+		if stored_ingredient:
+			return
+		if !fire_started:
+			return
+		var new_ingredient_type
+		if tool_type == Type.CAULDRON:
+			new_ingredient_type = use_cauldron(body)
+
+		if new_ingredient_type != Ingredient.Type.NONE:
+			stored_ingredient = instance_ingredient(new_ingredient_type)
+
+		start_tool_timer()
+
+		body.queue_free()

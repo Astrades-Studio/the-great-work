@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bym2gmi7y6o27"]
+[gd_scene load_steps=22 format=3 uid="uid://bym2gmi7y6o27"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/flare.gd" id="1_vanpb"]
 [ext_resource type="ArrayMesh" uid="uid://dxnvrsdoexjg0" path="res://assets/models/ingredients/vials/vial_pipe.res" id="2_yvr0d"]
@@ -7,27 +7,32 @@
 [ext_resource type="Script" path="res://scripts/classes/ingredient_component.gd" id="4_lha62"]
 [ext_resource type="AudioStream" uid="uid://d3hbwtyliu1ci" path="res://assets/sounds/sfx/gas_lamp_on_loop.mp3" id="5_2mdkg"]
 [ext_resource type="PackedScene" uid="uid://deqfjrh5bdyvk" path="res://scenes/fx/smoke.tscn" id="5_td1f0"]
+[ext_resource type="Material" uid="uid://bj552ohao3a84" path="res://assets/models/materials/flare_material_spent.tres" id="5_uavmn"]
 
-[sub_resource type="Gradient" id="Gradient_d7r2j"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(0.435193, 0.435192, 0.435192, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_cgmj6"]
+colors = PackedColorArray(0.349066, 0.349065, 0.349064, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yx0wg"]
-gradient = SubResource("Gradient_d7r2j")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gyxm"]
+gradient = SubResource("Gradient_cgmj6")
 fill = 1
-fill_from = Vector2(0.472934, 0.492877)
-fill_to = Vector2(1, 1)
+fill_from = Vector2(0.535613, 0.538462)
+fill_to = Vector2(0.905983, 0.823362)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1rqb"]
+transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.302531, 0.306804, 0.278904, 1)
-albedo_texture = SubResource("GradientTexture2D_yx0wg")
+albedo_texture = SubResource("GradientTexture2D_8gyxm")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rowkc"]
+material = ExtResource("5_uavmn")
+top_radius = 0.03
+bottom_radius = 0.1
+height = 0.05
 
 [sub_resource type="Gradient" id="Gradient_ck72b"]
 
@@ -55,7 +60,6 @@ metallic = 1.0
 metallic_specular = 0.55
 metallic_texture = SubResource("GradientTexture2D_ayytg")
 roughness = 0.67
-subsurf_scatter_enabled = true
 uv1_triplanar = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_70wug"]
@@ -80,10 +84,9 @@ radius = 1.5
 height = 3.0
 
 [node name="FLARE" type="RigidBody3D"]
-transform = Transform3D(0.480948, 0, 0, 0, 0.480948, 0, 0, 0, 0.480948, 0, 0, 0)
 collision_layer = 20
 collision_mask = 33
-linear_damp = 5.0
+angular_damp = 3.0
 script = ExtResource("1_vanpb")
 type = 20
 
@@ -93,16 +96,15 @@ mesh = ExtResource("2_yvr0d")
 
 [node name="FireBeam" parent="Flare" instance=ExtResource("4_5lh6f")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000130047, 0.590287, -2.58023e-08)
-emitting = false
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000130047, 0.651682, -2.84859e-08)
+sub_emitter = NodePath("../Smoke")
 
 [node name="Smoke" parent="Flare" instance=ExtResource("5_td1f0")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.735569, -3.21527e-08)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.00638974, 0.699724, -3.05859e-08)
+layers = 2
 material_override = SubResource("StandardMaterial3D_o1rqb")
-emitting = false
 amount = 135
-lifetime = 0.22
 local_coords = true
 
 [node name="Light" type="OmniLight3D" parent="Flare"]
@@ -111,18 +113,18 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5
 visible = false
 layers = 1023
 light_color = Color(1, 0.26, 0.26, 1)
-light_energy = 7.697
+light_energy = 5.0
+light_volumetric_fog_energy = 0.5
 light_bake_mode = 0
 omni_range = 11.182
 
 [node name="Contents" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.484496, 0, 0, 0, 1.51409, -5.16381e-15, 0, 1.61374e-14, 0.484496, 0, 0.0236235, -1.00061e-07)
-skeleton = NodePath("../../Mercury")
+transform = Transform3D(0.451846, 0, 0, 0, 1.41205, -4.81582e-15, 0, 1.50499e-14, 0.451846, 0, 0.0246428, -1.00061e-07)
+mesh = SubResource("CylinderMesh_rowkc")
 
 [node name="Pipe" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.484496, 0, 0, 0, 1.51409, -5.16381e-15, 0, 1.61374e-14, 0.484496, 0, 0.115489, -1.00061e-07)
 mesh = SubResource("CylinderMesh_70wug")
-skeleton = NodePath("../../Mercury")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.314002, 0, 0, 0, 0.314002, -3.34668e-15, 0, 3.34668e-15, 0.314002, 0, -0.0240725, -2.51967e-08)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://7bwy7o531t5j"]
+
+[sub_resource type="Gradient" id="Gradient_eqx4t"]
+offsets = PackedFloat32Array(0.111732, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0.137255)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd7qc"]
+gradient = SubResource("Gradient_eqx4t")
+fill = 1
+fill_from = Vector2(0.501424, 0.527066)
+fill_to = Vector2(0.900285, 0.920228)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rupls"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_vd7qc")
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_min_distance = 10.25
+
+[sub_resource type="Curve" id="Curve_tmu6c"]
+min_value = -0.1
+max_value = 0.1
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -0.1), 0.0, 0.0, 0, 0, Vector2(0.482394, -0.0298113), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_kndye"]
+curve = SubResource("Curve_tmu6c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8tmf"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+orbit_velocity_min = -0.444
+orbit_velocity_max = 0.0940001
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.0100022
+linear_accel_max = 0.00999776
+linear_accel_curve = SubResource("CurveTexture_kndye")
+radial_accel_min = -0.0100022
+radial_accel_max = 0.00999776
+tangential_accel_min = -0.0100022
+tangential_accel_max = 0.00999776
+
+[sub_resource type="QuadMesh" id="QuadMesh_ju82w"]
+size = Vector2(0.005, 0.005)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_rupls")
+amount = 6440
+interp_to_end = 1.0
+preprocess = 600.0
+process_material = SubResource("ParticleProcessMaterial_e8tmf")
+draw_pass_1 = SubResource("QuadMesh_ju82w")

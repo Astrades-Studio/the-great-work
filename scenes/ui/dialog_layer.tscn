@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d16g48k8u865c"]
+[gd_scene load_steps=17 format=3 uid="uid://d16g48k8u865c"]
 
 [ext_resource type="Script" path="res://scenes/layers/dialog_layer.gd" id="1_hnis6"]
+[ext_resource type="Script" path="res://addons/label_font_auto_sizer/label_auto_sizer.gd" id="2_bjys3"]
 [ext_resource type="Texture2D" uid="uid://b34ef23fhnisp" path="res://assets/ui/ui_spritesheet_white1x.png" id="2_j5dhc"]
+[ext_resource type="Texture2D" uid="uid://bwdjo0qv18r6d" path="res://assets/ui/Dialog box_UI elements-05.png" id="2_l3aak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uvho"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,10 +15,42 @@ anti_aliasing = false
 [sub_resource type="Theme" id="Theme_wg113"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_1uvho")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3o05"]
-bg_color = Color(0.154876, 0.154876, 0.154876, 0.309804)
+[sub_resource type="Gradient" id="Gradient_hownt"]
+offsets = PackedFloat32Array(0, 0.136691, 0.35514, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.316547, 0, 0, 0, 0.64486, 0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_swpuc"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2drc"]
+gradient = SubResource("Gradient_hownt")
+fill_to = Vector2(0, 0.811966)
+repeat = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nihw"]
+texture = SubResource("GradientTexture2D_m2drc")
+expand_margin_left = 380.0
+expand_margin_top = 115.0
+expand_margin_right = 455.0
+expand_margin_bottom = 70.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv7sd"]
+texture = ExtResource("2_l3aak")
+texture_margin_left = 19.0
+texture_margin_top = 19.0
+texture_margin_right = 19.0
+texture_margin_bottom = 19.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_eu15g"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.647059)
+
+[sub_resource type="LabelSettings" id="LabelSettings_45fra"]
+font_size = 40
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.647059)
@@ -24,6 +58,44 @@ shadow_color = Color(0, 0, 0, 0.647059)
 [sub_resource type="AtlasTexture" id="AtlasTexture_02axw"]
 atlas = ExtResource("2_j5dhc")
 region = Rect2(410, 315, 32, 20)
+
+[sub_resource type="Animation" id="Animation_qxk7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer2/NextIndicator:size_flags_stretch_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bhy6y"]
+resource_name = "next_line_indication"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer2/NextIndicator:size_flags_stretch_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1a1g"]
+_data = {
+"RESET": SubResource("Animation_qxk7x"),
+"next_line_indication": SubResource("Animation_bhy6y")
+}
 
 [node name="DialogLayer" type="CanvasLayer"]
 process_mode = 3
@@ -57,40 +129,70 @@ size_flags_horizontal = 3
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.72
-theme_override_styles/panel = SubResource("StyleBoxFlat_b3o05")
+size_flags_stretch_ratio = 4.32
+theme_override_styles/panel = SubResource("StyleBoxTexture_1nihw")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lv7sd")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Placeholder name"
-label_settings = SubResource("LabelSettings_swpuc")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_eu15g")
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_bjys3")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 32
+_current_font_size = 32
+_last_size_state = 1
 
 [node name="TextLabel" type="Label" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 text = "Placeholder text"
-label_settings = SubResource("LabelSettings_swpuc")
+label_settings = SubResource("LabelSettings_45fra")
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("2_bjys3")
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 40
+_current_font_size = 40
+_last_size_state = 1
 
-[node name="NextIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
-visible = false
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NextIndicator" type="TextureRect" parent="VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 texture = SubResource("AtlasTexture_02axw")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
@@ -101,3 +203,9 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u1a1g")
+}

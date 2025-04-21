@@ -22,9 +22,8 @@ texture = ExtResource("1_3cmcr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_iq1wu")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("2_sl4il")
-sprite = NodePath("../Sprite3D")
 
 [node name="PageComponent" type="Node" parent="."]
 script = ExtResource("4_be23u")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8j8jeaemjef8"
+path="res://.godot/imported/Warped Whoosh 002.ogg-011613ff4089d6b94128a42c24816507.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/skull/Warped Whoosh 002.ogg"
+dest_files=["res://.godot/imported/Warped Whoosh 002.ogg-011613ff4089d6b94128a42c24816507.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

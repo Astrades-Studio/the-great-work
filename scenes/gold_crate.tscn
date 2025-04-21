@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://dauluuxmkkntl"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5o7jali0u02i" path="res://assets/models/old_west/unused/vol5/meshes/old west 5_webp_SM_Crate_02a_001.res" id="1_o2dgu"]
+[ext_resource type="PackedScene" uid="uid://bj3a7iwp4112d" path="res://scenes/alchemy/ingredients/gold.tscn" id="2_r1gdw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q52yi"]
+size = Vector3(0.795898, 0.093689, 0.486328)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qku50"]
+size = Vector3(0.0268555, 0.36911, 0.486328)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b53o3"]
+size = Vector3(0.0328369, 0.36911, 0.797852)
+
+[node name="Crate" type="MeshInstance3D"]
+transform = Transform3D(-3.8443e-08, 0, 0.879474, 0, 0.879474, 0, -0.879474, 0, -3.8443e-08, 0, 0, 0)
+mesh = ExtResource("1_o2dgu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474849, 0)
+shape = SubResource("BoxShape3D_q52yi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394969, 0.185195, -1.64125e-09)
+shape = SubResource("BoxShape3D_qku50")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.391864, 0.185195, 3.15677e-08)
+shape = SubResource("BoxShape3D_qku50")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.00031826, 0.185195, -0.241112)
+shape = SubResource("BoxShape3D_b53o3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000318281, 0.185195, 0.234715)
+shape = SubResource("BoxShape3D_b53o3")
+
+[node name="Gold" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274221, 0.332031, -0.139454)
+
+[node name="Gold2" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135185, 0.332031, -0.138947)
+
+[node name="Gold3" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238912, 0.332031, -0.133214)
+
+[node name="Gold4" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232079, 0.332031, -0.149959)
+
+[node name="Gold5" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235324, 0.332031, 0.00895969)
+
+[node name="Gold6" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0850364, 0.332031, -0.00145727)
+
+[node name="Gold7" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077801, 0.332031, -0.00791073)
+
+[node name="Gold8" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223283, 0.332031, -0.00982899)
+
+[node name="Gold9" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258605, 0.332031, 0.110722)
+
+[node name="Gold10" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1439, 0.332031, 0.117091)
+
+[node name="Gold11" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00588133, 0.332031, 0.121097)
+
+[node name="Gold12" parent="." instance=ExtResource("2_r1gdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16223, 0.332031, 0.128122)

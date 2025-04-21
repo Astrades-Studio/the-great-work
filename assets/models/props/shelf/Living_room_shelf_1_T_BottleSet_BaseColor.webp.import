@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://82wrqu5sbo0f"
+path.s3tc="res://.godot/imported/Living_room_shelf_1_T_BottleSet_BaseColor.webp-34000131719fc445b9aebf4ef25ab098.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "39968922f3b1c21e1ffe00b8f3299e60"
+}
+
+[deps]
+
+source_file="res://assets/models/props/shelf/Living_room_shelf_1_T_BottleSet_BaseColor.webp"
+dest_files=["res://.godot/imported/Living_room_shelf_1_T_BottleSet_BaseColor.webp-34000131719fc445b9aebf4ef25ab098.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dihnshs372h54"]
+
+[ext_resource type="Texture2D" uid="uid://btg301ch43xdu" path="res://assets/images/sprites/ghost.tres" id="1_7s1tf"]
+[ext_resource type="Material" uid="uid://5s7f67fjftot" path="res://scenes/shadow/skull_dark_fx.tres" id="2_7yiqd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yao4s"]
+render_priority = 127
+blend_mode = 1
+cull_mode = 2
+depth_draw_mode = 1
+shading_mode = 0
+disable_fog = true
+albedo_texture = ExtResource("1_7s1tf")
+shadow_to_opacity = true
+billboard_mode = 1
+distance_fade_mode = 1
+distance_fade_min_distance = 5.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xauyy"]
+material = SubResource("StandardMaterial3D_yao4s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0f1j1"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+velocity_pivot = Vector3(0, 0, 1)
+direction = Vector3(0, 0, -1)
+spread = 180.0
+initial_velocity_min = 0.01
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 0.999998
+radial_accel_min = -2.23517e-06
+radial_accel_max = 0.0999978
+scale_min = 0.5
+scale_max = 4.7
+
+[sub_resource type="QuadMesh" id="QuadMesh_fpmpo"]
+material = ExtResource("2_7yiqd")
+size = Vector2(0.1, 0.1)
+subdivide_width = 3
+subdivide_depth = 3
+
+[node name="Skull" type="MeshInstance3D"]
+sorting_offset = 1e+07
+mesh = SubResource("QuadMesh_xauyy")
+
+[node name="DarkFX" type="GPUParticles3D" parent="."]
+amount = 193
+lifetime = 0.5
+interp_to_end = 1.0
+speed_scale = 0.5
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0f1j1")
+draw_pass_1 = SubResource("QuadMesh_fpmpo")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ymkan8pxr3yk"]
+
+[ext_resource type="Texture2D" uid="uid://cr3sw8wnxtmes" path="res://assets/ui/crosshairs/crosshair180.png" id="1_6lpl3"]
+[ext_resource type="Script" path="res://scenes/interactable/interactive_highlight.gd" id="2_r7nq7"]
+
+[node name="InteractiveHighlight" type="Sprite3D"]
+visibility_range_end = 0.6
+visibility_range_end_margin = 1.2
+visibility_range_fade_mode = 1
+pixel_size = 0.0018
+billboard = 1
+shaded = true
+no_depth_test = true
+texture = ExtResource("1_6lpl3")
+script = ExtResource("2_r7nq7")

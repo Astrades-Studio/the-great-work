@@ -6,3 +6,6 @@ cull_mode = 2
 albedo_color = Color(0.230726, 0.147736, 0.094238, 1)
 metallic_specular = 0.15
 roughness = 0.28
+uv1_scale = Vector3(57.46, 57.46, 57.46)
+uv1_triplanar = true
+uv1_world_triplanar = true

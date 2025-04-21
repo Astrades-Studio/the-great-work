@@ -8,6 +8,7 @@
 resource_name = "Canvas"
 cull_mode = 2
 albedo_texture = ExtResource("2_dn4g2")
+roughness = 0.23
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8tjjv"]
 _surfaces = [{
@@ -41,7 +42,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8tjjv")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oihbw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jii5"]
 resource_name = "Frame"
 cull_mode = 2
 albedo_color = Color(0.605466, 0.461938, 0.323294, 1)
@@ -70,7 +71,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 120,
 "index_data": PackedByteArray("AAACAAEAAQADAAAABAAGAAUABQAHAAQACAAKAAkACQALAAgADAAOAA0ADQAPAAwAEAASABEAEQATABAAFAAWABUAFQAXABQAGAAaABkAGQAbABgAGQAcABsAHAAdABsAGgAfAB4AHgAZABoAHwAdAB4AHwAbAB0AIAAiACEAIQAjACAAJAAmACUAJQAnACQAKAAqACkAKQArACgALAAuAC0ALQAvACwAMAAyADEAMQAzADAAMQA0ADMANAA1ADMAMgA3ADYANgAxADIANwA1ADYANwAzADUAOAA6ADkAOQA7ADgAPAA+AD0APQA/ADwA"),
-"material": SubResource("StandardMaterial3D_oihbw"),
+"material": SubResource("StandardMaterial3D_6jii5"),
 "name": "Frame",
 "primitive": 3,
 "uv_scale": Vector4(3.07543, 2, 0, 0),

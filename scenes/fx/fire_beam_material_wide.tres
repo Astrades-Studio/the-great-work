@@ -1,24 +1,22 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cedrsy4g438ux"]
 
 [sub_resource type="Gradient" id="Gradient_cgmj6"]
-colors = PackedColorArray(0.57299, 0.572988, 0.572988, 1, 0, 0, 0, 0.588235)
+colors = PackedColorArray(0.349066, 0.349065, 0.349064, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d5yc5"]
 gradient = SubResource("Gradient_cgmj6")
 fill = 1
 fill_from = Vector2(0.535613, 0.538462)
-fill_to = Vector2(0.683761, 0.692308)
-repeat = 1
+fill_to = Vector2(0.905983, 0.823362)
 
 [resource]
 transparency = 2
-alpha_scissor_threshold = 0.781
+alpha_scissor_threshold = 0.501
 alpha_antialiasing_mode = 0
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(1, 0.434811, 0.366139, 1)
+albedo_color = Color(0.999993, 0.159331, 0.114908, 1)
 albedo_texture = SubResource("GradientTexture2D_d5yc5")
-albedo_texture_force_srgb = true
 disable_receive_shadows = true
 billboard_mode = 3
 particles_anim_h_frames = 1

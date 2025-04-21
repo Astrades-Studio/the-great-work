@@ -19,6 +19,7 @@ func _ready() -> void:
 	play_intro_cinematic()
 	loading.show()
 	animation_player.play("loading")
+	TransitionManager.loading_finished.connect(_on_loading_finished)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or \
@@ -26,33 +27,39 @@ func _input(event: InputEvent) -> void:
 		skip_cinematic()
 	if event.is_action_pressed("interact"):
 		show_skip_button()
-	
+
+
+func _on_loading_finished() -> void:
+	animation_player.stop()
+	loading.text = "Done"
+
 
 func play_cinematic(dialog : Dialog, duration : float = 2.0) -> void:
 	cinematic_label.show()
 	background.show()
 
-	for dialog_piece in dialog.dialog: 
+	for dialog_piece in dialog.dialog:
 		_show_subtitle(dialog_piece, cinematic_label)
 		await get_tree().create_timer(duration).timeout
 		_hide_subtitle(cinematic_label)
-		await next_line_requested	
-	
+		await next_line_requested
+
 
 func _on_timer_timeout() -> void:
 	cinematic_finished.emit()
 
-var tween_subs : Tween
+
 func show_skip_button() -> void:
 	subtitle_label.show()
-	if tween_subs:
-		tween_subs.kill()
-	tween_subs = get_tree().create_tween()
+
+	var tween_subs : = get_tree().create_tween()
 	tween_subs.tween_property(subtitle_label, "modulate", Color.WHITE, 1.0)
 	await tween_subs.finished
 	await get_tree().create_timer(1.0).timeout
-	tween_subs.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
-	
+	var tween_subs_2 : = get_tree().create_tween()
+	tween_subs_2.tween_property(subtitle_label, "modulate", Color.TRANSPARENT, 1.0)
+	await tween_subs_2.finished
+
 
 func skip_cinematic() -> void:
 	SfxManager.stop_all_sounds()
@@ -105,5 +112,3 @@ func play_intro_cinematic() -> void:
 	var dialog_6 = load("res://assets/dialog/carriage intro/cutscene_dialog_6.tres")
 	await get_tree().create_timer(8).timeout
 	play_cinematic(dialog_6, text_duration)
-	
-	

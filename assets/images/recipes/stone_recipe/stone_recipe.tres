@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="BookPages" load_steps=5 format=3 uid="uid://0nyw3n73kvo1"]
 
-[ext_resource type="Texture2D" uid="uid://c8ttm57krlas" path="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_1.png" id="1_bksri"]
+[ext_resource type="Texture2D" uid="uid://buq5asuba163m" path="res://assets/images/recipes/stone_recipe/V2_philosophers_stone_recipe_part_1.png" id="1_swl2m"]
 [ext_resource type="Texture2D" uid="uid://cyreavpuupxxh" path="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_2.png" id="2_tyqms"]
+[ext_resource type="Texture2D" uid="uid://5txo0ywukr86" path="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_3.png" id="3_4seya"]
 [ext_resource type="Script" path="res://scripts/classes/book_pages.gd" id="3_b0eh0"]
-[ext_resource type="Texture2D" uid="uid://5txo0ywukr86" path="res://assets/images/recipes/stone_recipe/philosophers_stone_recipe_part_3.png" id="3_xm4ul"]
 
 [resource]
 script = ExtResource("3_b0eh0")
-pages = Array[Texture]([ExtResource("1_bksri"), ExtResource("2_tyqms"), ExtResource("3_xm4ul")])
+pages = Array[Texture]([ExtResource("1_swl2m"), ExtResource("2_tyqms"), ExtResource("3_4seya")])

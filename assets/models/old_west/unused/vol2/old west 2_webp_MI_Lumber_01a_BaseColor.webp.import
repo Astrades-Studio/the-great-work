@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d33mlj2r757td"
+path.s3tc="res://.godot/imported/old west 2_webp_MI_Lumber_01a_BaseColor.webp-823233dc925bb611f4ce8a7f6a622d1e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "667957d21b651124671e51a527135f17"
+}
+
+[deps]
+
+source_file="res://assets/models/old_west/unused/vol2/old west 2_webp_MI_Lumber_01a_BaseColor.webp"
+dest_files=["res://.godot/imported/old west 2_webp_MI_Lumber_01a_BaseColor.webp-823233dc925bb611f4ce8a7f6a622d1e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

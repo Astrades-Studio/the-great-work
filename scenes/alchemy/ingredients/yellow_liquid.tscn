@@ -137,9 +137,7 @@ script = ExtResource("3_56041")
 [node name="Contents2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.36724, 0, 0, 0, 0.825607, 0, 0, 0, 0.36724, 0.000271295, 0.04979, -0.000100734)
 mesh = SubResource("CylinderMesh_m0jj0")
-skeleton = NodePath("../../Mercury")
 
 [node name="Label" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.280114, 0, 0, 0, 0.280114, 0, 0, 0, 0.280114, 0, 0.0501169, 0.0038699)
 mesh = SubResource("CylinderMesh_6j4c3")
-skeleton = NodePath("../../Mercury")

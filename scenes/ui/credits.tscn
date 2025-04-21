@@ -64,25 +64,35 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label6" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Ignacio" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "IGNACIO PARENTELLA"
+text = "Game Director, Lead Programmer
+IGNACIO PARENTELLA"
+horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Kylie" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "ANDRES PARENTELLA"
+text = "
+Narrative Director, 2D & 3D Artist 
+BIANCA MARCHESINI"
+horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Andrew" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "BIANCA MARCHESINI"
+text = "
+Environment Design, Audio Design
+ANDRES PARENTELLA"
+horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Nico" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "NICOLAS ARISTEGUI"
+text = "
+Assistant Programmer
+NICOLAS ARISTEGUI"
 
 [node name="Control2" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 60)

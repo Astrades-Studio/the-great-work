@@ -18,6 +18,5 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_h7lpn")
 
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="."]
 script = ExtResource("3_8k83p")
-mesh = NodePath("../Mesh")

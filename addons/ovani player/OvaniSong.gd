@@ -1,4 +1,4 @@
-@icon("res://OvaniPlugin/OvaniSongIcon.png")
+@icon("res://addons/ovani player/OvaniSongIcon.png")
 @tool
 class_name OvaniSong
 ## The OvaniSong Holds onto all your music variants, for use with the [OvaniPlayer].
@@ -12,13 +12,13 @@ extends Resource
 ## This should be set to your most intense music file.
 @export var Intensity3 : AudioStream;
 
-## Set this to any 30 second loop of your music. 
+## Set this to any 30 second loop of your music.
 @export var Loop30 : AudioStream;
 ## Set this to any 60 second loop of your music.
 @export var Loop60 : AudioStream;
 
 ## Set this to how long the sound should loop over itself. [br]
-## This will make any songs with a Reverb Tail loop perfectly. 	
+## This will make any songs with a Reverb Tail loop perfectly.
 @export var ReverbTail : float;
 
 

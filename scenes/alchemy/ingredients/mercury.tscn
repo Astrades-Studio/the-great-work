@@ -38,6 +38,8 @@ points = PackedVector3Array(0.0940773, 0.0555657, 0.00334915, -0.0928753, 0.0446
 
 [node name="Mercury" type="RigidBody3D"]
 collision_layer = 4
+mass = 0.07
+angular_damp = 3.0
 script = ExtResource("1_goimf")
 type = 4
 

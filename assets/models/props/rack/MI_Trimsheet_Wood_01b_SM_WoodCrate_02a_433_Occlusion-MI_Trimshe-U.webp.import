@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cqa8wy2hnji4i"
+path.s3tc="res://.godot/imported/MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433_Occlusion-MI_Trimshe-U.webp-08c1b181f0b5d8c2486068562e9597eb.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/models/props/rack/MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433_Occlusion-MI_Trimshe-U.webp"
+dest_files=["res://.godot/imported/MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433_Occlusion-MI_Trimshe-U.webp-08c1b181f0b5d8c2486068562e9597eb.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=8
+roughness/src_normal="res://assets/models/props/rack/Ucupaint MI_Trimsheet_Wood_01b_SM_WoodCrate_02a_433 Normal.webp"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

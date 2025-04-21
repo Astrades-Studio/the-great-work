@@ -5,11 +5,12 @@ var sound_bus_2 : AudioStreamPlayer
 var sound_bus_3 : AudioStreamPlayer
 
 const PAGE_BOOK = preload("res://assets/sounds/sfx/Page Book.wav")
-
+const OPEN_BOOK = preload("res://assets/sounds/sfx/Open Book.wav")
 const SHADOW_01 = preload("res://assets/sounds/sfx/shadow/Shadow_01.wav")
 const SHADOW_02 = preload("res://assets/sounds/sfx/shadow/Shadow_02.wav")
 const SHADOW_03 = preload("res://assets/sounds/sfx/shadow/Shadow_03.wav")
 const SHADOW_04 = preload("res://assets/sounds/sfx/shadow/Shadow_04.wav")
+
 
 var shadow_sounds = [
 	SHADOW_01,
@@ -53,7 +54,7 @@ func stop_all_sounds():
 	sound_bus_1.stop()
 	sound_bus_2.stop()
 	sound_bus_3.stop()
-	
+
 
 func play_shadow_sound(volume : float):
 	# Play the first shadow sound, then if called again play the second, and so on
@@ -62,3 +63,24 @@ func play_shadow_sound(volume : float):
 		var sound = shadow_sounds.pop_front()
 		play_sound(sound, volume)
 		shadow_sounds.append(sound)
+
+
+
+func set_bus_volume(target_db : float, bus_idx : int):
+	AudioServer.set_bus_volume_db(bus_idx, target_db)
+
+
+func change_bus_volume(bus : String, _target : float = 0.1):
+	var idx = AudioServer.get_bus_index(bus)
+	if idx == -1:
+		push_error("Bus not found: " + bus)
+		return
+	var current_volume = AudioServer.get_bus_volume_db(idx)
+	var target_volume = linear_to_db(_target)
+
+	var duration = abs(current_volume - target_volume) / 20.0
+
+	var tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_method(set_bus_volume.bind(idx), current_volume, target_volume, duration)
+	await tween.finished

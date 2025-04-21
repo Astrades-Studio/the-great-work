@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://by8vwv2cfa15m"]
 
-[ext_resource type="Script" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
-[ext_resource type="Texture2D" uid="uid://ial7mu3yik7v" path="res://assets/images/recipes/reference/Parchment_01.png" id="2_8doit"]
+[ext_resource type="Script" uid="uid://hg5p2fcw7thn" path="res://scenes/ui/text_layer.gd" id="1_xxey0"]
+[ext_resource type="Texture2D" uid="uid://ckporjwtwegbg" path="res://assets/images/recipes/adams_letter_small.png" id="2_cussw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjdcx"]
 font_color = Color(0, 0, 0, 1)
@@ -12,29 +12,47 @@ layer = 3
 script = ExtResource("1_xxey0")
 audio_delay = 0.6
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.79
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_cussw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("2_8doit")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://dp6hy2d0eqryu"]
+
+[ext_resource type="Script" path="res://scenes/interactable/door_scene.gd" id="1_uqvrx"]
+[ext_resource type="ArrayMesh" uid="uid://dnvfbb2hjk3cx" path="res://assets/models/props/door.res" id="2_llld5"]
+[ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_6fclx"]
+[ext_resource type="AudioStream" uid="uid://beavarl7mmqx0" path="res://assets/sounds/sfx/door_opening.mp3" id="4_flqml"]
+[ext_resource type="AudioStream" uid="uid://bh0g4gk051wxk" path="res://assets/sounds/sfx/door_closing.mp3" id="5_2pltj"]
+[ext_resource type="AudioStream" uid="uid://dg0d3e4tpkmos" path="res://assets/sounds/sfx/door_locked.wav" id="6_j6lml"]
+[ext_resource type="ArrayMesh" uid="uid://e8vm0gbhid2f" path="res://assets/models/door_frame.res" id="7_tujis"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cowdo"]
+size = Vector3(0.150696, 2.128, 0.907807)
+
+[sub_resource type="Animation" id="Animation_3oxq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lxw3k"]
+resource_name = "open"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 2.93215, 0), Vector3(0, 1.50016, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlogh"]
+_data = {
+"RESET": SubResource("Animation_3oxq8"),
+"open": SubResource("Animation_lxw3k")
+}
+
+[node name="DoorFrame" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+mesh = ExtResource("7_tujis")
+
+[node name="DoorStatic" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 1.10044, 0)
+script = ExtResource("1_uqvrx")
+locked = false
+
+[node name="door_002" type="MeshInstance3D" parent="DoorStatic"]
+transform = Transform3D(-1.0147, 0, 8.74227e-08, 0, 1, 0, -8.87079e-08, 0, -1, 0.00854754, -1.09242, -1.36044e-14)
+layers = 32
+mesh = ExtResource("2_llld5")
+skeleton = NodePath("")
+metadata/ant_landscape = "{  }"
+metadata/collision = "box"
+metadata/size_x = "24.3704"
+metadata/size_z = "217.5816"
+metadata/size_y = "98.6269"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorStatic"]
+transform = Transform3D(-4.37115e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, -0.450401, -0.0308373, 0.051138)
+shape = SubResource("BoxShape3D_cowdo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorStatic"]
+libraries = {
+"": SubResource("AnimationLibrary_vlogh")
+}
+
+[node name="InteractionComponent" type="Node" parent="DoorStatic"]
+script = ExtResource("3_6fclx")
+
+[node name="DoorOpening" type="AudioStreamPlayer3D" parent="DoorStatic"]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("4_flqml")
+volume_db = 3.265
+unit_size = 11.02
+max_db = 3.245
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5
+
+[node name="DoorClosing" type="AudioStreamPlayer3D" parent="DoorStatic"]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("5_2pltj")
+volume_db = 1.667
+unit_size = 11.02
+max_db = 2.693
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5
+
+[node name="DoorLocked" type="AudioStreamPlayer3D" parent="DoorStatic"]
+transform = Transform3D(0.956585, 0.016569, 0.290982, 8.06356e-09, 0.998383, -0.0568496, -0.291454, 0.0543815, 0.955038, -0.170306, 0, 0.251474)
+stream = ExtResource("6_j6lml")
+volume_db = -3.265
+unit_size = 11.02
+max_db = 1.775
+max_distance = 5.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -28.5

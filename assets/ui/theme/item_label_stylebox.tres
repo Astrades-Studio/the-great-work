@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dbbhnos2bvt0l"]
+
+[ext_resource type="Texture2D" uid="uid://c5nhc1yvrtd0w" path="res://assets/ui/Ribbon_01.png" id="1_33dwp"]
+
+[resource]
+texture = ExtResource("1_33dwp")
+texture_margin_bottom = 35.0
+expand_margin_left = 80.0
+expand_margin_top = 25.0
+expand_margin_right = 80.0
+expand_margin_bottom = 55.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2

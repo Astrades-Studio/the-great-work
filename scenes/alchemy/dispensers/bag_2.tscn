@@ -1,26 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci3aml07uolg8"]
 
 [ext_resource type="Script" path="res://scenes/alchemy/dispenser.gd" id="1_636rn"]
-[ext_resource type="ArrayMesh" uid="uid://ccuctmcodfoul" path="res://assets/models/props/bag.tres" id="2_macr2"]
 [ext_resource type="Script" path="res://scripts/classes/interaction_component.gd" id="3_516ud"]
+[ext_resource type="ArrayMesh" uid="uid://tshlthxxwt8t" path="res://assets/models/old_west/unused/vol4/meshes/old west 4_webp_SM_Dry_Goods_03d_5.res" id="3_b1jko"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kf443"]
-points = PackedVector3Array(-11.7133, 61.0291, -45.2955, 65.2732, 16.3649, -69.9487, 65.2603, 7.29699, -69.9483, -43.0056, 33.4937, -138.713, -23.037, -42.3081, -0.0832373, 32.9406, -44.058, -81.0638, 64.5575, -22.7758, -0.385038, -70.2906, 14.0164, -2.41866, -58.9305, -24.1812, -99.1381, 37.4997, 35.8701, -141.086, 40.5344, 41.5037, -1.61324, 55.9232, -22.0386, -103.799, -14.0378, -53.6736, -24.812, 1.74299, 54.56, -132.97, 40.0101, 47.8032, -85.6984, -5.03078, 43.8201, 0.726578, -45.3534, 47.625, -56.4801, -66.31, 9.55672, -110.802, -54.3206, -26.3647, -18.3835, -25.015, -46.1773, -81.032, -18.7912, -24.7243, 5.60446, 64.3344, 13.9602, -112.4, 19.9114, 59.4434, -42.7672, -2.75298, 59.4058, -17.8634, 33.1029, -48.7515, -52.0103, -41.2559, 43.5388, -131.099, -54.0997, -23.9948, -103.404, 61.3632, 11.9044, -1.29276, 31.4771, -1.78526, 5.34795, 22.2548, -40.4161, -1.77783, 44.7442, 41.2251, -128.744, -41.235, 36.7131, -2.04728)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5gmb1"]
+points = PackedVector3Array(-0.186875, 0.00199547, 0.122883, -0.178294, -0.00657541, 0.0886934, 0.156154, 0.00611853, 0.0029602, 0.0354184, 0.472269, 0.157104, -0.142282, 0.243216, -0.0768569, 0.0867567, 0.00199547, -0.150697, -0.0414784, 0.532104, 0.080146, 0.103845, 0.506445, 0.0544417, 0.00924447, 0.0337989, 0.139647, 0.18936, 0.00199547, -0.133571, -0.0550847, 0.106165, -0.1419, 0.0525066, 0.532104, -0.0139069, 0.120595, 0.290832, 0.0983857, 0.00124206, 0.291122, -0.150113, -0.144579, 0.0320509, -0.0456383, -0.0927798, 0.00199547, 0.157104, -0.135715, 0.307286, 0.0432187, -0.00730204, 0.472269, 0.157104, -0.186875, 0.0105664, 0.139978, 0.0965702, 0.0923077, 0.106123, 0.0788127, 0.507482, -0.0126878, -0.0542864, 0.512984, 0.0504649, -0.0450611, 0.321056, -0.112976, -0.102533, 0.187276, -0.124813, -0.00685746, 0.0157873, -0.134809, 0.136891, 0.243199, 0.066731, 0.0956449, 0.314218, -0.0994184, 0.0486817, 0.290695, -0.139534, -0.151032, 0.243098, -0.0451524, -0.160238, 0.113718, -0.0293375, 0.120941, 0.0515913, 0.0747095, 0.0331454, 0.0675292, 0.138575)
 
 [node name="Bag" type="StaticBody3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("1_636rn")
 ingredient_type = 6
 
+[node name="InteractionComponent" type="Node" parent="."]
+script = ExtResource("3_516ud")
+
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0133384, 0, 0, 0, -5.83039e-10, -0.0133384, 0, 0.0133384, -5.83039e-10, 0, 0, 0)
-mesh = ExtResource("2_macr2")
-skeleton = NodePath("../../..")
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 0)
+mesh = ExtResource("3_b1jko")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.0133384, 0, 0, 0, -5.83039e-10, -0.0133384, 0, 0.0133384, -5.83039e-10, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_kf443")
-
-[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("mesh")]
-script = ExtResource("3_516ud")
-mesh = NodePath("../Mesh")
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5gmb1")

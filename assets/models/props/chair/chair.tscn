@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4u77evef3jmr"]
+
+[ext_resource type="PackedScene" uid="uid://cs2qi010awo7y" path="res://assets/models/props/chair/chair.gltf" id="1_6kgpg"]
+[ext_resource type="Material" uid="uid://mvq5qltmyfxt" path="res://assets/models/props/chair/cloth_material.tres" id="2_ddtlv"]
+[ext_resource type="Texture2D" uid="uid://coar0q4udry6w" path="res://assets/models/props/chair/Wood.jpg" id="2_uw5f3"]
+[ext_resource type="Texture2D" uid="uid://bnjct3bfrlsot" path="res://assets/models/props/chair/MI_Satchel_01a_BaseColor.webp" id="3_jc1u7"]
+[ext_resource type="Texture2D" uid="uid://cde0p1n21wpqp" path="res://assets/models/props/chair/MI_Satchel_01a_Normal.webp" id="4_fsu17"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbm1u"]
+albedo_color = Color(0.582376, 0.582376, 0.582376, 1)
+albedo_texture = ExtResource("2_uw5f3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bn62a"]
+size = Vector3(0.662109, 0.503098, 0.445801)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3iues"]
+size = Vector3(0.0563965, 0.267662, 0.445801)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhj7n"]
+albedo_texture = ExtResource("3_jc1u7")
+normal_enabled = true
+normal_texture = ExtResource("4_fsu17")
+
+[node name="chair" instance=ExtResource("1_6kgpg")]
+script = null
+metadata/run = false
+
+[node name="Medieval knight scissor chair_" parent="Medieval knight scissor chair_001/Medieval knight scissor chair" index="0"]
+material_override = SubResource("StandardMaterial3D_qbm1u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251488, -0.00610352)
+shape = SubResource("BoxShape3D_bn62a")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.283793, 0.353433, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219779, 0.265957, -0.00610352)
+shape = SubResource("BoxShape3D_3iues")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328231, 0.353433, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_/StaticBody3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219779, 0.265957, -0.00610352)
+shape = SubResource("BoxShape3D_3iues")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00554082, 0.533366, -0.260499)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Medieval knight scissor chair_001/Medieval knight scissor chair/Medieval knight scissor chair_/StaticBody3D4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219779, 0.265957, -0.00610352)
+shape = SubResource("BoxShape3D_3iues")
+
+[node name="Mesh_Cloth_03_001" parent="." index="1"]
+material_override = ExtResource("2_ddtlv")
+surface_material_override/0 = ExtResource("2_ddtlv")
+
+[node name="SM_Satchel_01b_001" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vhj7n")

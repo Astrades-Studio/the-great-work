@@ -11,7 +11,7 @@ extends CanvasLayer
 func _ready():
 	GameManager.shadow_removed.connect(_on_shadow_removed)
 	var nausea_material = nausea.material
-	var vignette_material = vignette.material
+	var _vignette_material = vignette.material
 	nausea_material.set_shader_parameter("time", 0.0)  # Initialize time
 	set_process(true)
 
@@ -26,9 +26,9 @@ func _process(delta):
 	#print(nausea.material.get_shader_parameter("amplitude"))
 	#print(nausea.material.get_shader_parameter("frequency"))
 
-	
+
 func increase_agitation():
-	var tween = get_tree().create_tween().set_parallel(true) 
+	var tween = get_tree().create_tween().set_parallel(true)
 	breathing_sounds.play()
 	tween.tween_property(self, "amplitude", 0.1, 2.0)
 	frequency = 10.0

@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var next_button: Button = %NextButton
 @onready var page_label: Label = %PageLabel
 
+#@onready var text_label: Label = %TextLabel
 
 var book : BookPages
 var book_page : int = 0:
@@ -35,14 +36,11 @@ func _input(event: InputEvent) -> void:
 		_on_next_button_pressed.call_deferred()
 	elif event.is_action_pressed("drop"):
 		_on_previous_button_pressed.call_deferred()
-#
-	#elif event.is_action_pressed("ui_cancel"):
-		#_on_back_button_pressed.call_deferred()
 
 
 func show_book(_book : BookPages):
 	book = _book
-	
+
 	if book.pages.size() <= 0:
 		hide_text()
 		return
@@ -50,31 +48,43 @@ func show_book(_book : BookPages):
 	show_book_page(book_page)
 
 
-func show_text(text: Texture2D):
+func show_text(text: DialogPiece):
 	if !text:
+		printerr("Empty dialog piece at " + str(self.get_path()))
+
+	show()
+	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
+	GameManager.current_state = GameManager.GameState.PAUSED
+#	text_label.text = text.dialog_text
+
+
+func show_page(page: Texture2D):
+	if !page:
 		return
 	self.show()
-	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
+	SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay, -8)
 	GameManager.current_state = GameManager.GameState.PAUSED
-	if text.get_height() > 1000:
-		pass
-	
-	texture_rect.texture = text
+
+	texture_rect.texture = page
 
 
 func hide_text():
+	if !visible:
+		return
 	self.hide()
 	book = null
-	book_page = 0	
+	book_page = 0
+	last_page = -1
 	GameManager.current_state = GameManager.GameState.PLAYING
 	if texture_rect.texture:
 		texture_rect.texture = null
-		SfxManager.play_sound(SfxManager.PAGE_BOOK, audio_delay)
+		SfxManager.play_sound(SfxManager.OPEN_BOOK, 0.0)
 
 var last_page : int = -1
 
 func show_book_page(_page : int):
 	if last_page == _page:
+		last_page = -1
 		return
 	last_page = _page
 	# If requesting the next page after book ends, hide the text
@@ -82,10 +92,10 @@ func show_book_page(_page : int):
 		if _page > book.pages.size() -1:
 			hide_text.call_deferred()
 			return
-	
+
 		book_page = _page
 		page_label.text = str(_page + 1) + "/" + str(book.pages.size())
-		show_text(book.pages[book_page])
+		show_page(book.pages[book_page])
 	else:
 		hide_text()
 
@@ -103,6 +113,7 @@ func _on_previous_button_pressed() -> void:
 func _on_next_button_pressed() -> void:
 	if !book:
 		hide_text()
+		return
 	book_page += 1
 	show_book_page(book_page)
 

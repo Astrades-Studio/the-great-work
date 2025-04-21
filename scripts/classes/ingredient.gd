@@ -50,7 +50,7 @@ Type.MERCURY : Type.PURIFIED_MERCURY,
 Type.PURIFIED_MERCURY : Type.CINNABAR,
 Type.SULFUR : Type.PURIFIED_SULFUR,
 Type.PURIFIED_SULFUR : Type.CINNABAR,
-		
+
 Type.CINNABAR : Type.CINNABAR_DUST,
 Type.CINNABAR_DUST : Type.NIGREDO,
 Type.GOLD : Type.NIGREDO,
@@ -64,7 +64,7 @@ Type.IRON : Type.IRON,
 Type.DRAGONS_BLOOD : Type.DRAGONS_BLOOD,
 Type.FLARE : Type.FLARE,
 Type.ACID : Type.ACID,
-Type.VINEGAR : Type.VINEGAR 
+Type.VINEGAR : Type.VINEGAR
 }
 
 
@@ -135,22 +135,24 @@ var current_location : Location = Location.ENVIRONMENT :
 		if current_location != value:
 			location_changed.emit()
 		current_location = value
-		change_layers()
+		change_layers(current_location)
 
 
 func _ready() -> void:
+	self.set_collision_mask_value(4, true)
+	self.set_collision_mask_value(3, true)
 	if type == Type.NONE:
 		self.queue_free()
 		return
 
 
-func change_layers():
+func change_layers(location : Location):
 	for _mesh in self.get_children():
 		if _mesh is MeshInstance3D:
-			if current_location == Location.HAND:
+			if location == Location.HAND:
 				self.freeze = true
 				_mesh.layers = 0x0002
-			elif current_location == Location.ENVIRONMENT:
+			elif location == Location.ENVIRONMENT:
 				self.freeze = false
 				_mesh.layers = 0x0001
 			else:

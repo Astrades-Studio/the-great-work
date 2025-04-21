@@ -1,8 +1,7 @@
-@tool
 class_name GasLamp
 extends StaticBody3D
 
-@onready var light : OmniLight3D = $OmniLight3D
+@onready var light : OmniLight3D = %GasLampLight
 @onready var mesh: MeshInstance3D = $Eje/Hand_Gas_Lamp_002
 @onready var timer: Timer = $Timer
 @onready var fire_beam_2: GPUParticles3D = $Eje/Hand_Gas_Lamp_002/FireBeam2
@@ -12,7 +11,7 @@ extends StaticBody3D
 @onready var gas_lamp_off : AudioStreamPlayer3D = $AudioStreamPlayer3D3
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 
-@export var active : bool = true : 
+@export var active : bool = true :
 	set(value):
 		if !GameManager.lamp_in_hand or !on_hand:
 			return
@@ -74,6 +73,8 @@ func _ready() -> void:
 
 func _on_lamp_collected():
 	set_collision_layer_value(3, false)
+	GameManager.interaction_label_updated.emit("")
+	GameManager.crosshair_signal.emit(InteractionComponent.InteractionType.IDLE)
 	if on_hand:
 		disabled = false
 		active = true
@@ -83,7 +84,7 @@ func _on_lamp_collected():
 
 func _on_game_started():
 	disabled = false
-	
+
 func on_lamp_interact():
 	if !on_hand:
 		hide()
@@ -101,19 +102,19 @@ func _on_tick_timeout():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_passed += delta
-	
+
 	if !active:
 		light.light_energy = lerp(light.light_energy, 0.0, 1.0)
 		return
-	
-	if active:
+
+	if active and on_hand:
 		var amplitude = (max_value - min_value) / 2.0
 		var offset = (max_value + min_value) / 2.0
 		var sine = sin(speed * time_passed)
 		var energy = (offset + amplitude * sine * speed_variance) * countdown
 		light.light_energy = clamp(energy, 0.3, 6)
-		
-		
+
+
 		# Animate emission in material
 		if mesh and on_hand:
 			var material = mesh.get_surface_override_material(1)

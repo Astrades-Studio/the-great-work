@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogPiece" load_steps=2 format=3 uid="uid://3b1nhtaey6pt"]
+
+[ext_resource type="Script" path="res://scripts/classes/dialog_piece.gd" id="1_iyp1m"]
+
+[resource]
+script = ExtResource("1_iyp1m")
+dialog_speaker = "Melchiades"
+dialog_text = "I wonder what they look like by now..."

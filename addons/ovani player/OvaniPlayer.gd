@@ -1,8 +1,8 @@
 @tool
-@icon("res://OvaniPlugin/OvaniPlayerIcon.png")
+@icon("res://addons/ovani player/OvaniPlayerIcon.png")
 class_name OvaniPlayer
 ## The OvaniPlayer will let you easily Manage dynamic music in your game, via [OvaniSong]s.
-## 
+##
 ## This Node will let you: [br]
 ## 1. Seamlessly loop the same song via "Reverb tails" [br]
 ## 2. Seamlessly transition through different "Intensities" & Volumes [br]
@@ -51,7 +51,7 @@ func PlaySongNow(song : OvaniSong, transitionTime : float = -1):
 func QueueSong(song : OvaniSong):
 	QueuedSongs.append(song);
 
-var _audioStreamPlayback : AudioStreamPlaybackPolyphonic; 
+var _audioStreamPlayback : AudioStreamPlaybackPolyphonic;
 var _soundManagers : Array[PolySoundManager];
 
 ## [enum OvaniPlayer.NextState] is used internally by the [OvaniPlayer], don't mind it.
@@ -115,11 +115,12 @@ func _constructPolySoundManager(song : OvaniSong) -> PolySoundManager:
 	o.StartTime = _curTime;
 	o.FadeIn = song.fadeIn;
 	return o;
- 
- 
+
+
 func _ready():
 	var audioPlayer : AudioStreamPlayer = AudioStreamPlayer.new();
 	audioPlayer.stream = AudioStreamPolyphonic.new();
+	audioPlayer.set_bus("Music")
 	add_child(audioPlayer, INTERNAL_MODE_BACK);
 	audioPlayer.owner = null;
 	audioPlayer.play();
@@ -176,15 +177,15 @@ func _process(delta):
 			var timePlayed : float = _curTime - psm.StartTime;
 			if (psm.FadeIn != -1 && timePlayed < psm.FadeIn):
 				psm.Volume = linear_to_db((timePlayed / psm.FadeIn) * db_to_linear(Volume));
-			
+
 			# handle fade out
 			var remainingTime : float = -(_curTime - (psm.StartTime + psm.SongLength));
 			if (psm.FadeOut != -1 && remainingTime < psm.FadeOut):
 				psm.Volume = linear_to_db((remainingTime / psm.FadeOut) * db_to_linear(Volume));
-			
+
 			if (remainingTime < psm.ReverbTail):
 				if (psm.StartedNextState == NextState.None):
-					
+
 					if (!Engine.is_editor_hint() || PlayInEditor):
 						var nextSong : OvaniSong;
 						if (len(QueuedSongs) == 1):
@@ -201,5 +202,5 @@ func _process(delta):
 					if (psm.StartedNextState == NextState.StartedDifferent):
 						QueuedSongs.remove_at(0);
 						notify_property_list_changed();
-				
+
 		return;
