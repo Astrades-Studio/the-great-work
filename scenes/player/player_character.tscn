@@ -360,11 +360,6 @@ size = Vector3(0.618164, 1.18817, 0.539063)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfqto"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_q0tfu"]
-font_size = 31
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i86li"]
 content_margin_top = 50.0
 bg_color = Color(0, 0, 0, 1)
@@ -390,6 +385,11 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 31
 shadow_color = Color(1, 1, 1, 0.192157)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aohgk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0tfu"]
+font_size = 28
 
 [sub_resource type="Gradient" id="Gradient_yy74x"]
 interpolation_mode = 2
@@ -554,6 +554,7 @@ mouse_filter = 2
 
 [node name="HandCrosshair" type="TextureRect" parent="HUDLayer/MarginContainer/CenterContainer"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 1, 1, 0.537255)
 custom_minimum_size = Vector2(280, 280)
 layout_mode = 2
@@ -594,10 +595,49 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_mfqto")
 
-[node name="Controls" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+[node name="ShadowDistanceSlider" type="HSlider" parent="HUDLayer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/grabber_offset = 65
+theme_override_icons/grabber_disabled = ExtResource("11_bktbw")
+theme_override_styles/slider = SubResource("StyleBoxFlat_i86li")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_evfkt")
+max_value = 5.0
+value = 3.0
+editable = false
+scrollable = false
+tick_count = 6
+ticks_on_borders = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_right = 65
+theme_override_constants/margin_bottom = 40
+
+[node name="IngredientContainer" type="PanelContainer" parent="HUDLayer/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("18_ma2lr")
+
+[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer/MarginContainer/IngredientContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "asd"
+label_settings = SubResource("LabelSettings_achrn")
+horizontal_alignment = 1
+
+[node name="Controls" type="PanelContainer" parent="HUDLayer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_aohgk")
@@ -673,44 +713,6 @@ mouse_filter = 2
 texture = ExtResource("12_lmv77")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="ShadowDistanceSlider" type="HSlider" parent="HUDLayer/MarginContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_constants/grabber_offset = 65
-theme_override_icons/grabber_disabled = ExtResource("11_bktbw")
-theme_override_styles/slider = SubResource("StyleBoxFlat_i86li")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_evfkt")
-max_value = 5.0
-value = 3.0
-editable = false
-scrollable = false
-tick_count = 6
-ticks_on_borders = true
-
-[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/margin_right = 65
-theme_override_constants/margin_bottom = 40
-
-[node name="IngredientContainer" type="PanelContainer" parent="HUDLayer/MarginContainer/MarginContainer"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("18_ma2lr")
-
-[node name="IngredientLabel" type="Label" parent="HUDLayer/MarginContainer/MarginContainer/IngredientContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 8
-text = "asd"
-label_settings = SubResource("LabelSettings_achrn")
-horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HUDLayer"]
 modulate = Color(1, 1, 1, 0)
