@@ -1,17 +1,18 @@
-# Ultimate Character Controller (UCharacterBody3D)
-Custom Godot CharacterBody3D node provides a more feature rich FPS controller template. The controller is based on [Ultimate First Person Controller Tutorial](https://youtu.be/xIKErMgJ1Yk) by @Lukky on YouTube.
+About the game
 
-<ins>Currently includes the following:</ins>
+You play as Melchiades, a young alchemist who wants to learn the secrets of eternal life. His mentor, Adam invited him to join the Rosicrucian Order, an ancient secret organization of alchemists, who offer their knowledge to those who are worthy.
 
-- Walking
-- Looking
-- Sprinting
-- Crouching
-- Jumping
-- Sliding
-- Head bobbing
+After succeeding in his initial trials, Melchiades only needs to pass the ultimate test: obtain the philosopher’s stone.
 
-I did not include free looking because I am not a fan of it. If you would like to add this you can simply watch [Part 2](https://youtu.be/WF7d21zOD0M) of @Lukky's tutorial and it's quite simple to add. I may add it to this plugin in the future and make it a toggle option for those who want to have free looking but for now this is it.
+Usually, such a feat would be beyond the capabilities of a single individual, but through the ages of collected techniques, Kadmon offers their initiates the recipe to test them; however, there is a catch.
+Controls
 
-# How To Use
-Once installed, enable the plugin. Add a UCharacterBody3D node to your scene and create your actions in InputMap for **left**, **right**, **forward**, **backward**, **sprint**, **crouch**, and **jump**. In the inspector, under Controls change the strings to match the actions you just created. Run your game and voila.
+    [W, A, S, D]  to move
+    [Left Mouse Click] or [E] interact / grab items
+    [Right Mouse Click] drop items
+    [Left and Right & Mouse Click] or [Q & E] turn pages
+    [ESC] pause the game / skip cutscenes
+
+Compatible with controller!
+Game Design Document / GDD -> Link
+Have fun ;)
